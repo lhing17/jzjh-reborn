@@ -122,7 +122,7 @@ function TanZhiShangHai takes nothing returns nothing
 endfunction
 //冰魄银针
 function dF takes nothing returns boolean
-	return GetSpellAbilityId()=='A07A'
+	return GetSpellAbilityId()=='A07A' or (GetSpellAbilityId() == XUE_HUA_LIU_CHU and GetUnitAbilityLevel(GetTriggerUnit(),'A07A') > 0)
 endfunction
 function eF takes nothing returns nothing
 	local unit uc=GetTriggerUnit()

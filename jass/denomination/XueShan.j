@@ -71,14 +71,15 @@ function fengShaMangMang takes unit u returns nothing
     local unit dummy = null
     local real lifetime = 0
     local integer i = 1
+    local pId = GetPlayerId(p) + 1
     loop
         exitwhen i > 18
         set angle = i * 20
         set x = 350 * CosBJ(angle) * CosBJ(angle) * CosBJ(angle)
         set y = 350 * SinBJ(angle) * SinBJ(angle) * SinBJ(angle)
-        set dummy = CreateUnit(p, 'e01M', GetUnitX(udg_hero[i]) + x, GetUnitY(udg_hero[i]) + y, 270)
+        set dummy = CreateUnit(p, 'e01M', GetUnitX(udg_hero[pId]) + x, GetUnitY(udg_hero[pId]) + y, 270)
         call IssueImmediateOrderById(dummy, $D00D1)
-        if GetUnitAbilityLevel(udg_hero[i], 'A07O') > 0 then
+        if GetUnitAbilityLevel(udg_hero[pId], 'A07O') > 0 then
             set lifetime = 20
         else
             set lifetime = 10
@@ -86,8 +87,8 @@ function fengShaMangMang takes unit u returns nothing
         call UnitApplyTimedLife(dummy, 'BHwe', lifetime)
 
         // 太玄经 +攻速光环
-        if GetUnitAbilityLevel(udg_hero[i], 'A0D8') > 0 then
-            set dummy = CreateUnit(p, 'e000', GetUnitX(udg_hero[i]) + x, GetUnitY(udg_hero[i]) + y, 270)
+        if GetUnitAbilityLevel(udg_hero[pId], 'A0D8') > 0 then
+            set dummy = CreateUnit(p, 'e000', GetUnitX(udg_hero[pId]) + x, GetUnitY(udg_hero[pId]) + y, 270)
             call UnitAddAbility(dummy, 'A0F3')
             call ShowUnit(dummy, false)
             call UnitApplyTimedLife(dummy, 'BHwe', lifetime)
