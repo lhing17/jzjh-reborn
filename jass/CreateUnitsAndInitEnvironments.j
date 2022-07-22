@@ -590,12 +590,7 @@ function CreateUnitsForPlayer_15 takes nothing returns nothing
 	set Ct=CreateUnit(p,1865429296,-129.2,-2927.6,277.91)
 	set GU_DONG_SHANG_REN=CreateUnit(p,'o011',670.9,-1270.5,175.947)
 	set ct=CreateUnit(p,1865429298,-11366.8,10882.4,86.53)
-	set u=CreateUnit(p,1865429299,-10757.5,-9392.7,335.57)
-	set u=CreateUnit(p,1865429300,-10267.3,-9397.,236.63)
-	set u=CreateUnit(p,1865429301,-10757.4,-8828.2,287.56)
-	set u=CreateUnit(p,1865429302,-10344.1,-8824.9,251.35)
-	set u=CreateUnit(p,1865429303,-10584.5,-8441.9,294.94)
-	//set u=CreateUnit(p,1865429321,521.6,-61.5,181.21)
+
 	set Dt=CreateUnit(p,1865429314,-10140.6,719.9,154.876)
 	set Et=CreateUnit(p,1865429315,-9636.7,-400.7,28.58)
 	set Ft=CreateUnit(p,1865429320,-8902.4,-26.,141.62)

@@ -4,15 +4,15 @@ constant boolean LIBRARY_FrameLibrary=true
 //endglobals from FrameLibrary
 //globals from MaxSpeed:
 constant boolean LIBRARY_MaxSpeed=true
-constant boolean MaxSpeed__USE_TABLE= true
-constant boolean MaxSpeed__NEW_TABLE= true
+constant boolean MaxSpeed___USE_TABLE= true
+constant boolean MaxSpeed___NEW_TABLE= true
          // Vexorian's Table or Bribe's (NEW)
-constant boolean MaxSpeed__TEST_MODE= false
-constant real MaxSpeed__PERIOD= 0.03125
+constant boolean MaxSpeed___TEST_MODE= false
+constant real MaxSpeed___PERIOD= 0.03125
         //  private constant real MAX_SPEED = 2088.0
-constant real MaxSpeed__MAX_SPEED= 1400.0
+constant real MaxSpeed___MAX_SPEED= 1400.0
          // 最大速度限定，超出视为传送。
-constant real MaxSpeed__MIN_SPEED= 500.0
+constant real MaxSpeed___MIN_SPEED= 500.0
          // 判定的最小距离，此项过小或速度过大会使原地打转几率增加，超出则没有加速效果。
         // 测试最大为500刚出头，与522还有些差距
 //endglobals from MaxSpeed
@@ -78,47 +78,47 @@ hashtable YDLOC
 //endglobals from YDTriggerSaveLoadSystem
 //globals from YDWEAbilityState:
 constant boolean LIBRARY_YDWEAbilityState=true
-constant integer YDWEAbilityState__ABILITY_STATE_COOLDOWN= 1
-constant integer YDWEAbilityState__ABILITY_DATA_TARGS= 100
-constant integer YDWEAbilityState__ABILITY_DATA_CAST= 101
-constant integer YDWEAbilityState__ABILITY_DATA_DUR= 102
-constant integer YDWEAbilityState__ABILITY_DATA_HERODUR= 103
-constant integer YDWEAbilityState__ABILITY_DATA_COST= 104
-constant integer YDWEAbilityState__ABILITY_DATA_COOL= 105
-constant integer YDWEAbilityState__ABILITY_DATA_AREA= 106
-constant integer YDWEAbilityState__ABILITY_DATA_RNG= 107
-constant integer YDWEAbilityState__ABILITY_DATA_DATA_A= 108
-constant integer YDWEAbilityState__ABILITY_DATA_DATA_B= 109
-constant integer YDWEAbilityState__ABILITY_DATA_DATA_C= 110
-constant integer YDWEAbilityState__ABILITY_DATA_DATA_D= 111
-constant integer YDWEAbilityState__ABILITY_DATA_DATA_E= 112
-constant integer YDWEAbilityState__ABILITY_DATA_DATA_F= 113
-constant integer YDWEAbilityState__ABILITY_DATA_DATA_G= 114
-constant integer YDWEAbilityState__ABILITY_DATA_DATA_H= 115
-constant integer YDWEAbilityState__ABILITY_DATA_DATA_I= 116
-constant integer YDWEAbilityState__ABILITY_DATA_UNITID= 117
+constant integer YDWEAbilityState___ABILITY_STATE_COOLDOWN= 1
+constant integer YDWEAbilityState___ABILITY_DATA_TARGS= 100
+constant integer YDWEAbilityState___ABILITY_DATA_CAST= 101
+constant integer YDWEAbilityState___ABILITY_DATA_DUR= 102
+constant integer YDWEAbilityState___ABILITY_DATA_HERODUR= 103
+constant integer YDWEAbilityState___ABILITY_DATA_COST= 104
+constant integer YDWEAbilityState___ABILITY_DATA_COOL= 105
+constant integer YDWEAbilityState___ABILITY_DATA_AREA= 106
+constant integer YDWEAbilityState___ABILITY_DATA_RNG= 107
+constant integer YDWEAbilityState___ABILITY_DATA_DATA_A= 108
+constant integer YDWEAbilityState___ABILITY_DATA_DATA_B= 109
+constant integer YDWEAbilityState___ABILITY_DATA_DATA_C= 110
+constant integer YDWEAbilityState___ABILITY_DATA_DATA_D= 111
+constant integer YDWEAbilityState___ABILITY_DATA_DATA_E= 112
+constant integer YDWEAbilityState___ABILITY_DATA_DATA_F= 113
+constant integer YDWEAbilityState___ABILITY_DATA_DATA_G= 114
+constant integer YDWEAbilityState___ABILITY_DATA_DATA_H= 115
+constant integer YDWEAbilityState___ABILITY_DATA_DATA_I= 116
+constant integer YDWEAbilityState___ABILITY_DATA_UNITID= 117
 
-constant integer YDWEAbilityState__ABILITY_DATA_HOTKET= 200
-constant integer YDWEAbilityState__ABILITY_DATA_UNHOTKET= 201
-constant integer YDWEAbilityState__ABILITY_DATA_RESEARCH_HOTKEY= 202
-constant integer YDWEAbilityState__ABILITY_DATA_NAME= 203
-constant integer YDWEAbilityState__ABILITY_DATA_ART= 204
-constant integer YDWEAbilityState__ABILITY_DATA_TARGET_ART= 205
-constant integer YDWEAbilityState__ABILITY_DATA_CASTER_ART= 206
-constant integer YDWEAbilityState__ABILITY_DATA_EFFECT_ART= 207
-constant integer YDWEAbilityState__ABILITY_DATA_AREAEFFECT_ART= 208
-constant integer YDWEAbilityState__ABILITY_DATA_MISSILE_ART= 209
-constant integer YDWEAbilityState__ABILITY_DATA_SPECIAL_ART= 210
-constant integer YDWEAbilityState__ABILITY_DATA_LIGHTNING_EFFECT= 211
-constant integer YDWEAbilityState__ABILITY_DATA_BUFF_TIP= 212
-constant integer YDWEAbilityState__ABILITY_DATA_BUFF_UBERTIP= 213
-constant integer YDWEAbilityState__ABILITY_DATA_RESEARCH_TIP= 214
-constant integer YDWEAbilityState__ABILITY_DATA_TIP= 215
-constant integer YDWEAbilityState__ABILITY_DATA_UNTIP= 216
-constant integer YDWEAbilityState__ABILITY_DATA_RESEARCH_UBERTIP= 217
-constant integer YDWEAbilityState__ABILITY_DATA_UBERTIP= 218
-constant integer YDWEAbilityState__ABILITY_DATA_UNUBERTIP= 219
-constant integer YDWEAbilityState__ABILITY_DATA_UNART= 220
+constant integer YDWEAbilityState___ABILITY_DATA_HOTKET= 200
+constant integer YDWEAbilityState___ABILITY_DATA_UNHOTKET= 201
+constant integer YDWEAbilityState___ABILITY_DATA_RESEARCH_HOTKEY= 202
+constant integer YDWEAbilityState___ABILITY_DATA_NAME= 203
+constant integer YDWEAbilityState___ABILITY_DATA_ART= 204
+constant integer YDWEAbilityState___ABILITY_DATA_TARGET_ART= 205
+constant integer YDWEAbilityState___ABILITY_DATA_CASTER_ART= 206
+constant integer YDWEAbilityState___ABILITY_DATA_EFFECT_ART= 207
+constant integer YDWEAbilityState___ABILITY_DATA_AREAEFFECT_ART= 208
+constant integer YDWEAbilityState___ABILITY_DATA_MISSILE_ART= 209
+constant integer YDWEAbilityState___ABILITY_DATA_SPECIAL_ART= 210
+constant integer YDWEAbilityState___ABILITY_DATA_LIGHTNING_EFFECT= 211
+constant integer YDWEAbilityState___ABILITY_DATA_BUFF_TIP= 212
+constant integer YDWEAbilityState___ABILITY_DATA_BUFF_UBERTIP= 213
+constant integer YDWEAbilityState___ABILITY_DATA_RESEARCH_TIP= 214
+constant integer YDWEAbilityState___ABILITY_DATA_TIP= 215
+constant integer YDWEAbilityState___ABILITY_DATA_UNTIP= 216
+constant integer YDWEAbilityState___ABILITY_DATA_RESEARCH_UBERTIP= 217
+constant integer YDWEAbilityState___ABILITY_DATA_UBERTIP= 218
+constant integer YDWEAbilityState___ABILITY_DATA_UNUBERTIP= 219
+constant integer YDWEAbilityState___ABILITY_DATA_UNART= 220
 //endglobals from YDWEAbilityState
 //globals from YDWEBase:
 constant boolean LIBRARY_YDWEBase=true
@@ -138,10 +138,10 @@ real yd_MapMaxX= 0
 real yd_MapMinX= 0
 real yd_MapMaxY= 0
 real yd_MapMinY= 0
-string array YDWEBase__yd_PlayerColor
-trigger array YDWEBase__AbilityCastingOverEventQueue
-integer array YDWEBase__AbilityCastingOverEventType
-integer YDWEBase__AbilityCastingOverEventNumber= 0
+string array YDWEBase___yd_PlayerColor
+trigger array YDWEBase___AbilityCastingOverEventQueue
+integer array YDWEBase___AbilityCastingOverEventType
+integer YDWEBase___AbilityCastingOverEventNumber= 0
 //endglobals from YDWEBase
 //globals from YDWEBitwise:
 constant boolean LIBRARY_YDWEBitwise=true
@@ -150,18 +150,18 @@ constant string YDWEBitwise___hexstr= "0123456789ABCDEF"
 //endglobals from YDWEBitwise
 //globals from YDWEGeneralBounsSystem:
 constant boolean LIBRARY_YDWEGeneralBounsSystem=true
-integer array YDWEGeneralBounsSystem__ABILITY_COUNT
-integer array YDWEGeneralBounsSystem__ABILITY_NUM
-integer array YDWEGeneralBounsSystem__BonusAbilitys
-integer array YDWEGeneralBounsSystem__PowersOf2
-integer YDWEGeneralBounsSystem__PRELOAD_DUMMY_UNIT= 'hpea'
-integer array YDWEGeneralBounsSystem__YDWEBONUS_MyChar
-boolean YDWEGeneralBounsSystem__PRELOAD_ABILITYS= true
-constant integer YDWEGeneralBounsSystem__BONUS_TYPES= 4
-integer array YDWEGeneralBounsSystem__MaxBonus
-integer array YDWEGeneralBounsSystem__MinBonus
-unit array YDWEGeneralBounsSystem__Units
-integer YDWEGeneralBounsSystem__UnitCount= 0
+integer array YDWEGeneralBounsSystem___ABILITY_COUNT
+integer array YDWEGeneralBounsSystem___ABILITY_NUM
+integer array YDWEGeneralBounsSystem___BonusAbilitys
+integer array YDWEGeneralBounsSystem___PowersOf2
+integer YDWEGeneralBounsSystem___PRELOAD_DUMMY_UNIT= 'hpea'
+integer array YDWEGeneralBounsSystem___YDWEBONUS_MyChar
+boolean YDWEGeneralBounsSystem___PRELOAD_ABILITYS= true
+constant integer YDWEGeneralBounsSystem___BONUS_TYPES= 4
+integer array YDWEGeneralBounsSystem___MaxBonus
+integer array YDWEGeneralBounsSystem___MinBonus
+unit array YDWEGeneralBounsSystem___Units
+integer YDWEGeneralBounsSystem___UnitCount= 0
 //endglobals from YDWEGeneralBounsSystem
 //globals from YDWEGetUnitsInRangeOfLocMatchingNull:
 constant boolean LIBRARY_YDWEGetUnitsInRangeOfLocMatchingNull=true
@@ -169,7 +169,7 @@ group yd_NullTempGroup
 //endglobals from YDWEGetUnitsInRangeOfLocMatchingNull
 //globals from YDWELogarithm:
 constant boolean LIBRARY_YDWELogarithm=true
-real array YDWELogarithm__base
+real array YDWELogarithm___base
 //endglobals from YDWELogarithm
 //globals from YDWEPolledWaitNull:
 constant boolean LIBRARY_YDWEPolledWaitNull=true
@@ -179,20 +179,20 @@ constant boolean LIBRARY_YDWEStringHash=true
 //endglobals from YDWEStringHash
 //globals from YDWESync:
 constant boolean LIBRARY_YDWESync=true
-gamecache YDWESync__m_gc
-boolean YDWESync__m_mutex_state= false
+gamecache YDWESync___m_gc
+boolean YDWESync___m_mutex_state= false
 //endglobals from YDWESync
 //globals from YDWETriggerEvent:
 constant boolean LIBRARY_YDWETriggerEvent=true
 trigger yd_DamageEventTrigger= null
-trigger array YDWETriggerEvent__DamageEventQueue
-integer YDWETriggerEvent__DamageEventNumber= 0
+trigger array YDWETriggerEvent___DamageEventQueue
+integer YDWETriggerEvent___DamageEventNumber= 0
 	
 item bj_lastMovedItemInItemSlot= null
 	
-trigger YDWETriggerEvent__MoveItemEventTrigger= null
-trigger array YDWETriggerEvent__MoveItemEventQueue
-integer YDWETriggerEvent__MoveItemEventNumber= 0
+trigger YDWETriggerEvent___MoveItemEventTrigger= null
+trigger array YDWETriggerEvent___MoveItemEventQueue
+integer YDWETriggerEvent___MoveItemEventNumber= 0
 //endglobals from YDWETriggerEvent
 //globals from YDWETriggerRegisterLeaveRectSimpleNull:
 constant boolean LIBRARY_YDWETriggerRegisterLeaveRectSimpleNull=true
@@ -221,9 +221,9 @@ constant boolean LIBRARY_YDWEPreloadSL=true
     /// ÿ�����ռ�õĿռ�[500*id, 500*(id-1))
     /// �±�Խ��û�н��м�飬�ƺ�û�����Ҫ��˭Ҫ���ó���500...��ȥ����- -
     /// 
-integer array YDWEPreloadSL__Code
-integer array YDWEPreloadSL__CodeHI
-integer array YDWEPreloadSL__CodeLO
+integer array YDWEPreloadSL___Code
+integer array YDWEPreloadSL___CodeHI
+integer array YDWEPreloadSL___CodeLO
 boolean bj_lastLoadPreloadSLResult
 string array udg_YDWE_PreloadSL_List
 string udg_YDWE_PreloadSL_CurrentDir= ""
@@ -231,18 +231,18 @@ string udg_YDWE_PreloadSL_CurrentDir= ""
 //globals from YDWEStringFormula:
 constant boolean LIBRARY_YDWEStringFormula=true
 item bj_lastCombinedItem=null
-trigger array YDWEStringFormula__ItemCombineEventQueue
-integer YDWEStringFormula__ItemCombineEventNumber= 0
-constant integer YDWEStringFormula__MAX_INSTANCES= 8100
-constant integer YDWEStringFormula__SEGMENT_LENGTH= 4
-integer YDWEStringFormula__FormulaData= 0
+trigger array YDWEStringFormula___ItemCombineEventQueue
+integer YDWEStringFormula___ItemCombineEventNumber= 0
+constant integer YDWEStringFormula___MAX_INSTANCES= 8100
+constant integer YDWEStringFormula___SEGMENT_LENGTH= 4
+integer YDWEStringFormula___FormulaData= 0
 //endglobals from YDWEStringFormula
 //globals from YDWETimerPattern:
 constant boolean LIBRARY_YDWETimerPattern=true
-boolexpr YDWETimerPattern__Bexpr= null
-rect YDWETimerPattern__Area= null
-integer YDWETimerPattern__tmp_data
-location YDWETimerPattern__yd_loc= Location(0.0, 0.0)
+boolexpr YDWETimerPattern___Bexpr= null
+rect YDWETimerPattern___Area= null
+integer YDWETimerPattern___tmp_data
+location YDWETimerPattern___yd_loc= Location(0.0, 0.0)
 //endglobals from YDWETimerPattern
 //globals from YDWETimerSystem:
 constant boolean LIBRARY_YDWETimerSystem=true
@@ -364,6 +364,11 @@ constant integer FAN_SHOU_QIAN_ZHU= 'A0ES'
 constant integer QIAN_KUN_YI_ZHI= 'A0ET'
 constant integer DA_GONG_GAO_CHENG= 'A0ER'
 
+	// 汝阳王府武功
+constant integer TOU_KAN_TOU_XUE= 'A0F4'
+constant integer XUAN_MING_SHEN_ZHANG= 'A0F6'
+constant integer JIA_YI_SHEN_GONG= 'A0F5'
+
 constant integer SHUANG_SHOU= 'A07U'
 constant integer KUI_HUA= 'A07T'
 constant integer HUA_GU= 'A06L'
@@ -373,8 +378,12 @@ constant integer TAN_ZHI= 'A06H'
 constant integer BI_HAI= 'A018'
 constant integer JIU_YIN= 'A07S'
 constant integer JIU_ZHAO= 'A07N'
+constant integer QIAN_KUN= 'A07W'
+constant integer QI_SHANG_QUAN= 'A07M'
+constant integer JIU_YANG= 'A0DN'
 
 constant integer DA_GOU= 'A07L'
+constant integer ZI_CHUANG_WU_XUE= 'A036'
 
 constant integer LONG_XIANG= 'S002'
 constant integer XIAO_WU_XIANG= 'A083'
@@ -383,8 +392,6 @@ constant integer MIAO_SHOU_KONG_KONG= 'A03O'
 constant integer GUI_XI_GONG= 'A0CE'
 constant integer SHEN_XING_BAI_BIAN= 'A03N'
 
-	
-	
 constant integer POISONED_BUFF= 'BEsh'
 constant integer DEEP_POISONED_BUFF= 'B01J'
 
@@ -397,6 +404,7 @@ constant integer ITEM_YE_LUO= 'I0EU'
 string priKey
 integer array tiezhang_flag
 integer array tangmen_flag
+integer array ruyang_flag
 integer array talent_flag
 integer array wudu_flag
 integer array taohua_flag
@@ -408,6 +416,7 @@ integer array panda_flag
 string PROPERTY_TALENT= "AR98FE7J3P"
 string PROPERTY_TIEZHANG= "A198FYU9ME"
 string PROPERTY_TANGMEN= "AR87S95C34"
+string PROPERTY_RUYANG= "ARUYANG123"
 string PROPERTY_WUDU= "AWUDU12345"
 string PROPERTY_TAOHUA= "ATAOHUA123"
 string PROPERTY_WUKONG= "ARWUKONG59"
@@ -415,7 +424,7 @@ string PROPERTY_PANDA= "ARPANDA072"
 
 string PROPERTY_DOUBLE_POINT= "BC98FNY5L9"
 string PROPERTY_LEVEL_AWARD= "BYOUARES13"
-constant integer DENOMINATION_NUMBER= 24
+constant integer DENOMINATION_NUMBER= 25
 	
 boolean firstTime= true
 boolean moshiFlag= false
@@ -423,7 +432,7 @@ integer nanduFlag= 0
 boolean tiaoZhanFlag= false
 integer tiaoZhanIndex= 0
 boolean is_victory= false
-constant string VERSION= "1.6.41"
+constant string VERSION= "1.6.49"
 timer shiWanTimer= null
 timerdialog shiWanTimerDialog= null
 dialog wuhun=DialogCreate()
@@ -580,6 +589,11 @@ constant integer BI_BO_POINT= $FEDC
 
 integer array bibo_kill
 boolean array tide_rising
+integer array touKanCounter
+integer array touKanIds
+integer array xuanMingCounter
+dialog array ruyangDialog
+constant integer ruyangButtonKey= $66556
 integer array tiaozhanduixiang
 integer array menpaiwuqi
 boolean array udg_tiaoxuedao
@@ -877,9 +891,9 @@ real T7=0
 real U7=0
 real array udg_MaxDamage
 string array udg_menpainame
-integer array X7
-integer array Y7
-integer array Z7
+integer array denomFirst
+integer array denomSecond
+integer array denomThird
 integer array d8
 integer array e8
 integer array shengwang
@@ -923,8 +937,8 @@ integer array xiuxing
 integer array MM8
 integer array N8
 integer array O8
-integer array P8
-integer array Q8
+integer array denomFifth
+integer array denomFourth
 integer array R8
 integer array S8
 integer array udg_blgg
@@ -1841,79 +1855,79 @@ real s__ModSpeed_dx
 real s__ModSpeed_dy
 real s__ModSpeed_dist
 real s__ModSpeed_rate
-constant integer si__YDWEStringFormula__Inventory=3
-integer si__YDWEStringFormula__Inventory_F=0
-integer si__YDWEStringFormula__Inventory_I=0
-integer array si__YDWEStringFormula__Inventory_V
-constant integer si__YDWEStringFormula__StringTable=4
-constant integer si__YDWEStringFormula__ItemIdMatrix=5
-integer s__YDWEStringFormula__ItemIdMatrix_Data
-integer s__YDWEStringFormula__ItemIdMatrix_Total= 1
-integer array s__YDWEStringFormula__ItemIdMatrix_itemId
-string array s__YDWEStringFormula__ItemIdMatrix_keyStr
-integer array s__YDWEStringFormula__ItemIdMatrix_keyLen
-constant integer si__YDWEStringFormula__FormulaMatrix=6
-integer s__YDWEStringFormula__FormulaMatrix_Data
-integer s__YDWEStringFormula__FormulaMatrix_Total= 1
-string array s__YDWEStringFormula__FormulaMatrix_formula
-integer array s__YDWEStringFormula__FormulaMatrix_segmLen
-string array s__YDWEStringFormula__FormulaMatrix_model
-string array s__YDWEStringFormula__FormulaMatrix_message
-integer array s__YDWEStringFormula__FormulaMatrix_chance
-boolean array s__YDWEStringFormula__FormulaMatrix_delete
-constant integer si__YDWEStringFormula__Sorting=7
-integer si__YDWEStringFormula__Sorting_F=0
-integer si__YDWEStringFormula__Sorting_I=0
-integer array si__YDWEStringFormula__Sorting_V
-integer array s___YDWEStringFormula__Sorting_stack
-constant integer s___YDWEStringFormula__Sorting_stack_size=8
-integer array s__YDWEStringFormula__Sorting_stack
-integer array s___YDWEStringFormula__Sorting_count
-constant integer s___YDWEStringFormula__Sorting_count_size=8
-integer array s__YDWEStringFormula__Sorting_count
-integer array s__YDWEStringFormula__Sorting_total
-string array s__YDWEStringFormula__Sorting_char
-constant integer si__YDWETimerPattern__YDVector3=10
-integer si__YDWETimerPattern__YDVector3_F=0
-integer si__YDWETimerPattern__YDVector3_I=0
-integer array si__YDWETimerPattern__YDVector3_V
-real array s__YDWETimerPattern__YDVector3_x
-real array s__YDWETimerPattern__YDVector3_y
-real array s__YDWETimerPattern__YDVector3_z
-constant integer si__YDWETimerPattern__Thread=11
-integer si__YDWETimerPattern__Thread_F=0
-integer si__YDWETimerPattern__Thread_I=0
-integer array si__YDWETimerPattern__Thread_V
-integer array s__YDWETimerPattern__Thread_des
-integer array s__YDWETimerPattern__Thread_pos
-integer array s__YDWETimerPattern__Thread_vel
-unit array s__YDWETimerPattern__Thread_caster
-unit array s__YDWETimerPattern__Thread_source
-unit array s__YDWETimerPattern__Thread_target
-unit array s__YDWETimerPattern__Thread_obj
-real array s__YDWETimerPattern__Thread_ac
-real array s__YDWETimerPattern__Thread_bc
-real array s__YDWETimerPattern__Thread_dist
-real array s__YDWETimerPattern__Thread_step
-real array s__YDWETimerPattern__Thread_amount
-integer array s__YDWETimerPattern__Thread_switch
-integer array s__YDWETimerPattern__Thread_follow
-integer array s__YDWETimerPattern__Thread_unitid
-integer array s__YDWETimerPattern__Thread_skills
-integer array s__YDWETimerPattern__Thread_order
-integer array s__YDWETimerPattern__Thread_level
-string array s__YDWETimerPattern__Thread_dsfx
-string array s__YDWETimerPattern__Thread_gsfx
-string array s__YDWETimerPattern__Thread_wsfx
-string array s__YDWETimerPattern__Thread_part
-boolean array s__YDWETimerPattern__Thread_recycle
-boolean array s__YDWETimerPattern__Thread_killdest
-boolean array s__YDWETimerPattern__Thread_volume
-group array s__YDWETimerPattern__Thread_g
-timer array s__YDWETimerPattern__Thread_t
-constant integer si__YDWETimerPattern__Parabola=12
-constant integer si__YDWETimerPattern__Linear=13
-constant integer si__YDWETimerPattern__Deceleration=14
+constant integer si__YDWEStringFormula___Inventory=3
+integer si__YDWEStringFormula___Inventory_F=0
+integer si__YDWEStringFormula___Inventory_I=0
+integer array si__YDWEStringFormula___Inventory_V
+constant integer si__YDWEStringFormula___StringTable=4
+constant integer si__YDWEStringFormula___ItemIdMatrix=5
+integer s__YDWEStringFormula___ItemIdMatrix_Data
+integer s__YDWEStringFormula___ItemIdMatrix_Total= 1
+integer array s__YDWEStringFormula___ItemIdMatrix_itemId
+string array s__YDWEStringFormula___ItemIdMatrix_keyStr
+integer array s__YDWEStringFormula___ItemIdMatrix_keyLen
+constant integer si__YDWEStringFormula___FormulaMatrix=6
+integer s__YDWEStringFormula___FormulaMatrix_Data
+integer s__YDWEStringFormula___FormulaMatrix_Total= 1
+string array s__YDWEStringFormula___FormulaMatrix_formula
+integer array s__YDWEStringFormula___FormulaMatrix_segmLen
+string array s__YDWEStringFormula___FormulaMatrix_model
+string array s__YDWEStringFormula___FormulaMatrix_message
+integer array s__YDWEStringFormula___FormulaMatrix_chance
+boolean array s__YDWEStringFormula___FormulaMatrix_delete
+constant integer si__YDWEStringFormula___Sorting=7
+integer si__YDWEStringFormula___Sorting_F=0
+integer si__YDWEStringFormula___Sorting_I=0
+integer array si__YDWEStringFormula___Sorting_V
+integer array s___YDWEStringFormula___Sorting_stack
+constant integer s___YDWEStringFormula___Sorting_stack_size=8
+integer array s__YDWEStringFormula___Sorting_stack
+integer array s___YDWEStringFormula___Sorting_count
+constant integer s___YDWEStringFormula___Sorting_count_size=8
+integer array s__YDWEStringFormula___Sorting_count
+integer array s__YDWEStringFormula___Sorting_total
+string array s__YDWEStringFormula___Sorting_char
+constant integer si__YDWETimerPattern___YDVector3=10
+integer si__YDWETimerPattern___YDVector3_F=0
+integer si__YDWETimerPattern___YDVector3_I=0
+integer array si__YDWETimerPattern___YDVector3_V
+real array s__YDWETimerPattern___YDVector3_x
+real array s__YDWETimerPattern___YDVector3_y
+real array s__YDWETimerPattern___YDVector3_z
+constant integer si__YDWETimerPattern___Thread=11
+integer si__YDWETimerPattern___Thread_F=0
+integer si__YDWETimerPattern___Thread_I=0
+integer array si__YDWETimerPattern___Thread_V
+integer array s__YDWETimerPattern___Thread_des
+integer array s__YDWETimerPattern___Thread_pos
+integer array s__YDWETimerPattern___Thread_vel
+unit array s__YDWETimerPattern___Thread_caster
+unit array s__YDWETimerPattern___Thread_source
+unit array s__YDWETimerPattern___Thread_target
+unit array s__YDWETimerPattern___Thread_obj
+real array s__YDWETimerPattern___Thread_ac
+real array s__YDWETimerPattern___Thread_bc
+real array s__YDWETimerPattern___Thread_dist
+real array s__YDWETimerPattern___Thread_step
+real array s__YDWETimerPattern___Thread_amount
+integer array s__YDWETimerPattern___Thread_switch
+integer array s__YDWETimerPattern___Thread_follow
+integer array s__YDWETimerPattern___Thread_unitid
+integer array s__YDWETimerPattern___Thread_skills
+integer array s__YDWETimerPattern___Thread_order
+integer array s__YDWETimerPattern___Thread_level
+string array s__YDWETimerPattern___Thread_dsfx
+string array s__YDWETimerPattern___Thread_gsfx
+string array s__YDWETimerPattern___Thread_wsfx
+string array s__YDWETimerPattern___Thread_part
+boolean array s__YDWETimerPattern___Thread_recycle
+boolean array s__YDWETimerPattern___Thread_killdest
+boolean array s__YDWETimerPattern___Thread_volume
+group array s__YDWETimerPattern___Thread_g
+timer array s__YDWETimerPattern___Thread_t
+constant integer si__YDWETimerPattern___Parabola=12
+constant integer si__YDWETimerPattern___Linear=13
+constant integer si__YDWETimerPattern___Deceleration=14
 constant integer si__DaPei=15
 integer si__DaPei_F=0
 integer si__DaPei_I=0
@@ -1939,12 +1953,12 @@ integer array si__ShopWeapon_V
 integer array s__ShopWeapon_min_xiuxing
 integer array s__ShopWeapon_id
 boolean array s__ShopWeapon_zhuanshu
-integer array si__YDWEStringFormula__Inventory_type
-trigger array st__YDWEStringFormula__Inventory_onDestroy
-integer array si__YDWETimerPattern__Thread_type
-trigger array st__YDWETimerPattern__Thread_onDestroy
+integer array si__YDWEStringFormula___Inventory_type
+trigger array st__YDWEStringFormula___Inventory_onDestroy
+integer array si__YDWETimerPattern___Thread_type
+trigger array st__YDWETimerPattern___Thread_onDestroy
 trigger st__Frame_onDestroy
-trigger st__YDWEStringFormula__Sorting_onDestroy
+trigger st__YDWEStringFormula___Sorting_onDestroy
 trigger st__DaPei_onDestroy
 trigger st__DaPei_XiaoGuoShuoMing
 trigger st__ZiZhiWuGong_create
@@ -2338,202 +2352,202 @@ function sc__DaPei_deallocate takes integer this returns nothing
     set si__DaPei_F=this
 endfunction
 
-//Generated method caller for YDWEStringFormula__Inventory.onDestroy
-function sc__YDWEStringFormula__Inventory_onDestroy takes integer this returns nothing
+//Generated method caller for YDWEStringFormula___Inventory.onDestroy
+function sc__YDWEStringFormula___Inventory_onDestroy takes integer this returns nothing
     set f__arg_this=this
-    call TriggerEvaluate(st__YDWEStringFormula__Inventory_onDestroy[3])
+    call TriggerEvaluate(st__YDWEStringFormula___Inventory_onDestroy[3])
 endfunction
 
-//Generated allocator of YDWEStringFormula__Inventory
-function s__YDWEStringFormula__Inventory__allocate takes nothing returns integer
- local integer this=si__YDWEStringFormula__Inventory_F
+//Generated allocator of YDWEStringFormula___Inventory
+function s__YDWEStringFormula___Inventory__allocate takes nothing returns integer
+ local integer this=si__YDWEStringFormula___Inventory_F
     if (this!=0) then
-        set si__YDWEStringFormula__Inventory_F=si__YDWEStringFormula__Inventory_V[this]
+        set si__YDWEStringFormula___Inventory_F=si__YDWEStringFormula___Inventory_V[this]
     else
-        set si__YDWEStringFormula__Inventory_I=si__YDWEStringFormula__Inventory_I+1
-        set this=si__YDWEStringFormula__Inventory_I
+        set si__YDWEStringFormula___Inventory_I=si__YDWEStringFormula___Inventory_I+1
+        set this=si__YDWEStringFormula___Inventory_I
     endif
     if (this>8190) then
         return 0
     endif
 
-    set si__YDWEStringFormula__Inventory_type[this]=3
-    set si__YDWEStringFormula__Inventory_V[this]=-1
+    set si__YDWEStringFormula___Inventory_type[this]=3
+    set si__YDWEStringFormula___Inventory_V[this]=-1
  return this
 endfunction
 
-//Generated destructor of YDWEStringFormula__Inventory
-function sc__YDWEStringFormula__Inventory_deallocate takes integer this returns nothing
+//Generated destructor of YDWEStringFormula___Inventory
+function sc__YDWEStringFormula___Inventory_deallocate takes integer this returns nothing
     if this==null then
         return
-    elseif (si__YDWEStringFormula__Inventory_V[this]!=-1) then
+    elseif (si__YDWEStringFormula___Inventory_V[this]!=-1) then
         return
     endif
     set f__arg_this=this
-    call TriggerEvaluate(st__YDWEStringFormula__Inventory_onDestroy[si__YDWEStringFormula__Inventory_type[this]])
-    set si__YDWEStringFormula__Inventory_V[this]=si__YDWEStringFormula__Inventory_F
-    set si__YDWEStringFormula__Inventory_F=this
+    call TriggerEvaluate(st__YDWEStringFormula___Inventory_onDestroy[si__YDWEStringFormula___Inventory_type[this]])
+    set si__YDWEStringFormula___Inventory_V[this]=si__YDWEStringFormula___Inventory_F
+    set si__YDWEStringFormula___Inventory_F=this
 endfunction
 
-//Generated allocator of YDWEStringFormula__StringTable
-function s__YDWEStringFormula__StringTable__allocate takes nothing returns integer
- local integer this=s__YDWEStringFormula__Inventory__allocate()
+//Generated allocator of YDWEStringFormula___StringTable
+function s__YDWEStringFormula___StringTable__allocate takes nothing returns integer
+ local integer this=s__YDWEStringFormula___Inventory__allocate()
  local integer kthis
     if(this==0) then
         return 0
     endif
-    set si__YDWEStringFormula__Inventory_type[this]=4
+    set si__YDWEStringFormula___Inventory_type[this]=4
     set kthis=this
 
  return this
 endfunction
 
 
-//Generated method caller for YDWETimerPattern__Thread.onDestroy
-function sc__YDWETimerPattern__Thread_onDestroy takes integer this returns nothing
+//Generated method caller for YDWETimerPattern___Thread.onDestroy
+function sc__YDWETimerPattern___Thread_onDestroy takes integer this returns nothing
     set f__arg_this=this
-    call TriggerEvaluate(st__YDWETimerPattern__Thread_onDestroy[11])
+    call TriggerEvaluate(st__YDWETimerPattern___Thread_onDestroy[11])
 endfunction
 
-//Generated allocator of YDWETimerPattern__Thread
-function s__YDWETimerPattern__Thread__allocate takes nothing returns integer
- local integer this=si__YDWETimerPattern__Thread_F
+//Generated allocator of YDWETimerPattern___Thread
+function s__YDWETimerPattern___Thread__allocate takes nothing returns integer
+ local integer this=si__YDWETimerPattern___Thread_F
     if (this!=0) then
-        set si__YDWETimerPattern__Thread_F=si__YDWETimerPattern__Thread_V[this]
+        set si__YDWETimerPattern___Thread_F=si__YDWETimerPattern___Thread_V[this]
     else
-        set si__YDWETimerPattern__Thread_I=si__YDWETimerPattern__Thread_I+1
-        set this=si__YDWETimerPattern__Thread_I
+        set si__YDWETimerPattern___Thread_I=si__YDWETimerPattern___Thread_I+1
+        set this=si__YDWETimerPattern___Thread_I
     endif
     if (this>8190) then
         return 0
     endif
 
-    set si__YDWETimerPattern__Thread_type[this]=11
-    set si__YDWETimerPattern__Thread_V[this]=-1
+    set si__YDWETimerPattern___Thread_type[this]=11
+    set si__YDWETimerPattern___Thread_V[this]=-1
  return this
 endfunction
 
-//Generated destructor of YDWETimerPattern__Thread
-function sc__YDWETimerPattern__Thread_deallocate takes integer this returns nothing
+//Generated destructor of YDWETimerPattern___Thread
+function sc__YDWETimerPattern___Thread_deallocate takes integer this returns nothing
     if this==null then
         return
-    elseif (si__YDWETimerPattern__Thread_V[this]!=-1) then
+    elseif (si__YDWETimerPattern___Thread_V[this]!=-1) then
         return
     endif
     set f__arg_this=this
-    call TriggerEvaluate(st__YDWETimerPattern__Thread_onDestroy[si__YDWETimerPattern__Thread_type[this]])
-    set si__YDWETimerPattern__Thread_V[this]=si__YDWETimerPattern__Thread_F
-    set si__YDWETimerPattern__Thread_F=this
+    call TriggerEvaluate(st__YDWETimerPattern___Thread_onDestroy[si__YDWETimerPattern___Thread_type[this]])
+    set si__YDWETimerPattern___Thread_V[this]=si__YDWETimerPattern___Thread_F
+    set si__YDWETimerPattern___Thread_F=this
 endfunction
 
-//Generated allocator of YDWETimerPattern__YDVector3
-function s__YDWETimerPattern__YDVector3__allocate takes nothing returns integer
- local integer this=si__YDWETimerPattern__YDVector3_F
+//Generated allocator of YDWETimerPattern___YDVector3
+function s__YDWETimerPattern___YDVector3__allocate takes nothing returns integer
+ local integer this=si__YDWETimerPattern___YDVector3_F
     if (this!=0) then
-        set si__YDWETimerPattern__YDVector3_F=si__YDWETimerPattern__YDVector3_V[this]
+        set si__YDWETimerPattern___YDVector3_F=si__YDWETimerPattern___YDVector3_V[this]
     else
-        set si__YDWETimerPattern__YDVector3_I=si__YDWETimerPattern__YDVector3_I+1
-        set this=si__YDWETimerPattern__YDVector3_I
+        set si__YDWETimerPattern___YDVector3_I=si__YDWETimerPattern___YDVector3_I+1
+        set this=si__YDWETimerPattern___YDVector3_I
     endif
     if (this>8190) then
         return 0
     endif
 
-    set si__YDWETimerPattern__YDVector3_V[this]=-1
+    set si__YDWETimerPattern___YDVector3_V[this]=-1
  return this
 endfunction
 
-//Generated destructor of YDWETimerPattern__YDVector3
-function s__YDWETimerPattern__YDVector3_deallocate takes integer this returns nothing
+//Generated destructor of YDWETimerPattern___YDVector3
+function s__YDWETimerPattern___YDVector3_deallocate takes integer this returns nothing
     if this==null then
         return
-    elseif (si__YDWETimerPattern__YDVector3_V[this]!=-1) then
+    elseif (si__YDWETimerPattern___YDVector3_V[this]!=-1) then
         return
     endif
-    set si__YDWETimerPattern__YDVector3_V[this]=si__YDWETimerPattern__YDVector3_F
-    set si__YDWETimerPattern__YDVector3_F=this
+    set si__YDWETimerPattern___YDVector3_V[this]=si__YDWETimerPattern___YDVector3_F
+    set si__YDWETimerPattern___YDVector3_F=this
 endfunction
 
-//Generated method caller for YDWEStringFormula__Sorting.onDestroy
-function sc__YDWEStringFormula__Sorting_onDestroy takes integer this returns nothing
+//Generated method caller for YDWEStringFormula___Sorting.onDestroy
+function sc__YDWEStringFormula___Sorting_onDestroy takes integer this returns nothing
             local integer i= 0
             loop
-                exitwhen i == s___YDWEStringFormula__Sorting_stack_size
-                set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+i]=0
-                set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+i]=0
+                exitwhen i == s___YDWEStringFormula___Sorting_stack_size
+                set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+i]=0
+                set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+i]=0
                 set i=i + 1
             endloop
-            set s__YDWEStringFormula__Sorting_char[this]=""
+            set s__YDWEStringFormula___Sorting_char[this]=""
 endfunction
 
-//Generated allocator of YDWEStringFormula__Sorting
-function s__YDWEStringFormula__Sorting__allocate takes nothing returns integer
- local integer this=si__YDWEStringFormula__Sorting_F
+//Generated allocator of YDWEStringFormula___Sorting
+function s__YDWEStringFormula___Sorting__allocate takes nothing returns integer
+ local integer this=si__YDWEStringFormula___Sorting_F
     if (this!=0) then
-        set si__YDWEStringFormula__Sorting_F=si__YDWEStringFormula__Sorting_V[this]
+        set si__YDWEStringFormula___Sorting_F=si__YDWEStringFormula___Sorting_V[this]
     else
-        set si__YDWEStringFormula__Sorting_I=si__YDWEStringFormula__Sorting_I+1
-        set this=si__YDWEStringFormula__Sorting_I
+        set si__YDWEStringFormula___Sorting_I=si__YDWEStringFormula___Sorting_I+1
+        set this=si__YDWEStringFormula___Sorting_I
     endif
     if (this>1022) then
         return 0
     endif
-    set s__YDWEStringFormula__Sorting_stack[this]=(this-1)*8
-    set s__YDWEStringFormula__Sorting_count[this]=(this-1)*8
-   set s__YDWEStringFormula__Sorting_total[this]= 7
-    set si__YDWEStringFormula__Sorting_V[this]=-1
+    set s__YDWEStringFormula___Sorting_stack[this]=(this-1)*8
+    set s__YDWEStringFormula___Sorting_count[this]=(this-1)*8
+   set s__YDWEStringFormula___Sorting_total[this]= 7
+    set si__YDWEStringFormula___Sorting_V[this]=-1
  return this
 endfunction
 
-//Generated destructor of YDWEStringFormula__Sorting
-function sc__YDWEStringFormula__Sorting_deallocate takes integer this returns nothing
+//Generated destructor of YDWEStringFormula___Sorting
+function sc__YDWEStringFormula___Sorting_deallocate takes integer this returns nothing
     if this==null then
         return
-    elseif (si__YDWEStringFormula__Sorting_V[this]!=-1) then
+    elseif (si__YDWEStringFormula___Sorting_V[this]!=-1) then
         return
     endif
     set f__arg_this=this
-    call TriggerEvaluate(st__YDWEStringFormula__Sorting_onDestroy)
-    set si__YDWEStringFormula__Sorting_V[this]=si__YDWEStringFormula__Sorting_F
-    set si__YDWEStringFormula__Sorting_F=this
+    call TriggerEvaluate(st__YDWEStringFormula___Sorting_onDestroy)
+    set si__YDWEStringFormula___Sorting_V[this]=si__YDWEStringFormula___Sorting_F
+    set si__YDWEStringFormula___Sorting_F=this
 endfunction
 
-//Generated allocator of YDWETimerPattern__Deceleration
-function s__YDWETimerPattern__Deceleration__allocate takes nothing returns integer
- local integer this=s__YDWETimerPattern__Thread__allocate()
+//Generated allocator of YDWETimerPattern___Deceleration
+function s__YDWETimerPattern___Deceleration__allocate takes nothing returns integer
+ local integer this=s__YDWETimerPattern___Thread__allocate()
  local integer kthis
     if(this==0) then
         return 0
     endif
-    set si__YDWETimerPattern__Thread_type[this]=14
+    set si__YDWETimerPattern___Thread_type[this]=14
     set kthis=this
 
  return this
 endfunction
 
 
-//Generated allocator of YDWETimerPattern__Parabola
-function s__YDWETimerPattern__Parabola__allocate takes nothing returns integer
- local integer this=s__YDWETimerPattern__Thread__allocate()
+//Generated allocator of YDWETimerPattern___Parabola
+function s__YDWETimerPattern___Parabola__allocate takes nothing returns integer
+ local integer this=s__YDWETimerPattern___Thread__allocate()
  local integer kthis
     if(this==0) then
         return 0
     endif
-    set si__YDWETimerPattern__Thread_type[this]=12
+    set si__YDWETimerPattern___Thread_type[this]=12
     set kthis=this
 
  return this
 endfunction
 
 
-//Generated allocator of YDWETimerPattern__Linear
-function s__YDWETimerPattern__Linear__allocate takes nothing returns integer
- local integer this=s__YDWETimerPattern__Thread__allocate()
+//Generated allocator of YDWETimerPattern___Linear
+function s__YDWETimerPattern___Linear__allocate takes nothing returns integer
+ local integer this=s__YDWETimerPattern___Thread__allocate()
  local integer kthis
     if(this==0) then
         return 0
     endif
-    set si__YDWETimerPattern__Thread_type[this]=13
+    set si__YDWETimerPattern___Thread_type[this]=13
     set kthis=this
 
  return this
@@ -2822,8 +2836,8 @@ endfunction
              set s__ModSpeed_dy=s__ModSpeed_y - s__ModSpeed_lastY[this]
              set s__ModSpeed_lastX[this]=s__ModSpeed_x
              set s__ModSpeed_lastY[this]=s__ModSpeed_y
-             set s__ModSpeed_dist=SquareRoot(s__ModSpeed_dx * s__ModSpeed_dx + s__ModSpeed_dy * s__ModSpeed_dy) / MaxSpeed__PERIOD
-             if ( s__ModSpeed_dist >= MaxSpeed__MIN_SPEED and s__ModSpeed_dist <= MaxSpeed__MAX_SPEED ) then
+             set s__ModSpeed_dist=SquareRoot(s__ModSpeed_dx * s__ModSpeed_dx + s__ModSpeed_dy * s__ModSpeed_dy) / MaxSpeed___PERIOD
+             if ( s__ModSpeed_dist >= MaxSpeed___MIN_SPEED and s__ModSpeed_dist <= MaxSpeed___MAX_SPEED ) then
                  set s__ModSpeed_rate=( s__ModSpeed_speed[this] - 522. ) / s__ModSpeed_dist
                  set s__ModSpeed_lastX[this]=s__ModSpeed_x + s__ModSpeed_dx * s__ModSpeed_rate
                  set s__ModSpeed_lastY[this]=s__ModSpeed_y + s__ModSpeed_dy * s__ModSpeed_rate
@@ -2903,7 +2917,7 @@ endfunction
                      set s__ModSpeed_prev[(0)]=s__ModSpeed_prev[s__ModSpeed_prev[(0)]]
                  endif
                  if ( s__ModSpeed_next[(0)] == 0 ) then
-                     call TimerStart(s__ModSpeed_tm, MaxSpeed__PERIOD, true, function s__ModSpeed_iterate)
+                     call TimerStart(s__ModSpeed_tm, MaxSpeed___PERIOD, true, function s__ModSpeed_iterate)
 
 
 
@@ -2922,7 +2936,7 @@ endfunction
 
 
              endif
-             set amount=RMinBJ(amount, MaxSpeed__MAX_SPEED)
+             set amount=RMinBJ(amount, MaxSpeed___MAX_SPEED)
              set s__ModSpeed_lastX[this]=GetUnitX(u)
              set s__ModSpeed_lastY[this]=GetUnitY(u)
              set s__ModSpeed_speed[this]=amount
@@ -3364,7 +3378,7 @@ endfunction
 
  function YDWEUnitTransform takes unit u,integer abilcode,integer targetid returns nothing
 		call UnitAddAbility(u, abilcode)
-		call EXSetAbilityDataInteger(EXGetUnitAbility(u, abilcode), 1, YDWEAbilityState__ABILITY_DATA_UNITID, GetUnitTypeId(u))
+		call EXSetAbilityDataInteger(EXGetUnitAbility(u, abilcode), 1, YDWEAbilityState___ABILITY_DATA_UNITID, GetUnitTypeId(u))
 		call EXSetAbilityAEmeDataA(EXGetUnitAbility(u, abilcode), GetUnitTypeId(u))
 		call UnitRemoveAbility(u, abilcode)
 		call UnitAddAbility(u, abilcode)
@@ -3980,11 +3994,11 @@ endfunction
 function YDWESyStemAbilityCastingOverTriggerAction takes unit hero,integer index returns nothing
  local integer i= 0
     loop
-        exitwhen i >= YDWEBase__AbilityCastingOverEventNumber
-        if YDWEBase__AbilityCastingOverEventType[i] == index then
+        exitwhen i >= YDWEBase___AbilityCastingOverEventNumber
+        if YDWEBase___AbilityCastingOverEventType[i] == index then
             set bj_lastAbilityCastingUnit=hero
-			if YDWEBase__AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase__AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase__AbilityCastingOverEventQueue[i]) then
-				call TriggerExecute(YDWEBase__AbilityCastingOverEventQueue[i])
+			if YDWEBase___AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase___AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase___AbilityCastingOverEventQueue[i]) then
+				call TriggerExecute(YDWEBase___AbilityCastingOverEventQueue[i])
 			endif
 		endif
         set i=i + 1
@@ -3994,9 +4008,9 @@ endfunction
 //YDWE技能捕捉事件 
 //===========================================================================  
 function YDWESyStemAbilityCastingOverRegistTrigger takes trigger trg,integer index returns nothing
-	set YDWEBase__AbilityCastingOverEventQueue[YDWEBase__AbilityCastingOverEventNumber]=trg
-	set YDWEBase__AbilityCastingOverEventType[YDWEBase__AbilityCastingOverEventNumber]=index
-	set YDWEBase__AbilityCastingOverEventNumber=YDWEBase__AbilityCastingOverEventNumber + 1
+	set YDWEBase___AbilityCastingOverEventQueue[YDWEBase___AbilityCastingOverEventNumber]=trg
+	set YDWEBase___AbilityCastingOverEventType[YDWEBase___AbilityCastingOverEventNumber]=index
+	set YDWEBase___AbilityCastingOverEventNumber=YDWEBase___AbilityCastingOverEventNumber + 1
 endfunction 
 //===========================================================================
 //系统函数完善
@@ -4033,7 +4047,7 @@ endfunction
 //unitpool bj_lastCreatedPool=null
 //unit bj_lastPoolAbstractedUnit=null
 function YDWEGetPlayerColorString takes player p,string s returns string
-    return YDWEBase__yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
+    return YDWEBase___yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
 endfunction
 //===========================================================================
 //===========================================================================
@@ -4080,22 +4094,22 @@ function InitializeYD takes nothing returns nothing
 	set yd_MapMaxX=GetCameraBoundMaxX() + GetCameraMargin(CAMERA_MARGIN_RIGHT)
 	set yd_MapMaxY=GetCameraBoundMaxY() + GetCameraMargin(CAMERA_MARGIN_TOP)
 	
-    set YDWEBase__yd_PlayerColor[0]="|cFFFF0303"
-    set YDWEBase__yd_PlayerColor[1]="|cFF0042FF"
-    set YDWEBase__yd_PlayerColor[2]="|cFF1CE6B9"
-    set YDWEBase__yd_PlayerColor[3]="|cFF540081"
-    set YDWEBase__yd_PlayerColor[4]="|cFFFFFC01"
-    set YDWEBase__yd_PlayerColor[5]="|cFFFE8A0E"
-    set YDWEBase__yd_PlayerColor[6]="|cFF20C000"
-    set YDWEBase__yd_PlayerColor[7]="|cFFE55BB0"
-    set YDWEBase__yd_PlayerColor[8]="|cFF959697"
-    set YDWEBase__yd_PlayerColor[9]="|cFF7EBFF1"
-    set YDWEBase__yd_PlayerColor[10]="|cFF106246"
-    set YDWEBase__yd_PlayerColor[11]="|cFF4E2A04"
-    set YDWEBase__yd_PlayerColor[12]="|cFF282828"
-    set YDWEBase__yd_PlayerColor[13]="|cFF282828"
-    set YDWEBase__yd_PlayerColor[14]="|cFF282828"
-    set YDWEBase__yd_PlayerColor[15]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[0]="|cFFFF0303"
+    set YDWEBase___yd_PlayerColor[1]="|cFF0042FF"
+    set YDWEBase___yd_PlayerColor[2]="|cFF1CE6B9"
+    set YDWEBase___yd_PlayerColor[3]="|cFF540081"
+    set YDWEBase___yd_PlayerColor[4]="|cFFFFFC01"
+    set YDWEBase___yd_PlayerColor[5]="|cFFFE8A0E"
+    set YDWEBase___yd_PlayerColor[6]="|cFF20C000"
+    set YDWEBase___yd_PlayerColor[7]="|cFFE55BB0"
+    set YDWEBase___yd_PlayerColor[8]="|cFF959697"
+    set YDWEBase___yd_PlayerColor[9]="|cFF7EBFF1"
+    set YDWEBase___yd_PlayerColor[10]="|cFF106246"
+    set YDWEBase___yd_PlayerColor[11]="|cFF4E2A04"
+    set YDWEBase___yd_PlayerColor[12]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[13]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[14]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[15]="|cFF282828"
     //=================显示版本=====================
     call YDWEVersion_Init()
 endfunction
@@ -4286,7 +4300,7 @@ endfunction
 //library YDWEGeneralBounsSystem:
 
 //以下函数仅仅是让技能ID出现在代码里，不然SLK优化器会删除这些技能
-function YDWEGeneralBounsSystem__DisplayAllAbilityId takes nothing returns nothing
+function YDWEGeneralBounsSystem___DisplayAllAbilityId takes nothing returns nothing
     local integer aid=0
     set aid='YDl0'
     set aid='YDl1'
@@ -4358,22 +4372,22 @@ function YDWEGeneralBounsSystem__DisplayAllAbilityId takes nothing returns nothi
     set aid='YDbm'
     set aid='YDbn'
 endfunction
-    function YDWEGeneralBounsSystem__UnitClearBonus takes unit u,integer bonusType returns nothing
-        local integer i=YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType + 1] - 1
+    function YDWEGeneralBounsSystem___UnitClearBonus takes unit u,integer bonusType returns nothing
+        local integer i=YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType + 1] - 1
         loop
-            exitwhen i < YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType]
-            call UnitRemoveAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[i])
+            exitwhen i < YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType]
+            call UnitRemoveAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[i])
             set i=i - 1
         endloop
         call SaveInteger(YDHT, StringHash((I2S((GetHandleId((u)))) )), StringHash(( "bonusType" + I2S(bonusType) )), ( 0)) // INLINED!!
     endfunction
-    function YDWEGeneralBounsSystem__SetUnitMaxState takes unit u,integer bonusType,real value returns boolean
+    function YDWEGeneralBounsSystem___SetUnitMaxState takes unit u,integer bonusType,real value returns boolean
         local integer v=R2I(value)
         local integer s=0
         local integer o=0
         local unitstate state
-        local integer i=YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType + 1] - 2
-        local integer a=YDWEGeneralBounsSystem__ABILITY_NUM[bonusType]
+        local integer i=YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType + 1] - 2
+        local integer a=YDWEGeneralBounsSystem___ABILITY_NUM[bonusType]
         if value > 65535 or value <= 0 then
             return false
         endif
@@ -4395,60 +4409,60 @@ endfunction
             return false
         endif
         loop
-            exitwhen i < YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType]
-            if v >= YDWEGeneralBounsSystem__PowersOf2[i] then
-                call UnitAddAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[i])
-                call SetUnitAbilityLevel(u, YDWEGeneralBounsSystem__BonusAbilitys[i], o)
-                call UnitRemoveAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[i])
-                set v=v - YDWEGeneralBounsSystem__PowersOf2[i]
+            exitwhen i < YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType]
+            if v >= YDWEGeneralBounsSystem___PowersOf2[i] then
+                call UnitAddAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[i])
+                call SetUnitAbilityLevel(u, YDWEGeneralBounsSystem___BonusAbilitys[i], o)
+                call UnitRemoveAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[i])
+                set v=v - YDWEGeneralBounsSystem___PowersOf2[i]
             endif
             set i=i - 1
         endloop
         return true
     endfunction
-function YDWEGeneralBounsSystem__UnitSetBonus takes unit u,integer bonusType,integer ammount returns boolean
+function YDWEGeneralBounsSystem___UnitSetBonus takes unit u,integer bonusType,integer ammount returns boolean
     local integer i
     //设置属性为0不进行Loop
     if ammount == 0 then
-        call YDWEGeneralBounsSystem__UnitClearBonus(u , bonusType)
+        call YDWEGeneralBounsSystem___UnitClearBonus(u , bonusType)
         return false
     endif
-    if ammount < YDWEGeneralBounsSystem__MinBonus[bonusType] or ammount > YDWEGeneralBounsSystem__MaxBonus[bonusType] then
+    if ammount < YDWEGeneralBounsSystem___MinBonus[bonusType] or ammount > YDWEGeneralBounsSystem___MaxBonus[bonusType] then
         return false
-    elseif bonusType < 0 or bonusType >= YDWEGeneralBounsSystem__BONUS_TYPES then
+    elseif bonusType < 0 or bonusType >= YDWEGeneralBounsSystem___BONUS_TYPES then
         return false
     endif
     call SaveInteger(YDHT, StringHash((I2S((GetHandleId((u)))) )), StringHash(( "bonusType" + I2S(bonusType) )), ( ammount)) // INLINED!!
     if ammount < 0 then
-        set ammount=YDWEGeneralBounsSystem__MaxBonus[bonusType] + ammount + 1
-        call UnitAddAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType + 1] - 1])
-        call UnitMakeAbilityPermanent(u, true, YDWEGeneralBounsSystem__BonusAbilitys[YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType + 1] - 1])
+        set ammount=YDWEGeneralBounsSystem___MaxBonus[bonusType] + ammount + 1
+        call UnitAddAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType + 1] - 1])
+        call UnitMakeAbilityPermanent(u, true, YDWEGeneralBounsSystem___BonusAbilitys[YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType + 1] - 1])
       else
-        call UnitRemoveAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType + 1] - 1])
+        call UnitRemoveAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType + 1] - 1])
     endif
-    set i=YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType + 1] - 2
+    set i=YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType + 1] - 2
     loop
-        exitwhen i < YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType]
-        if ammount >= YDWEGeneralBounsSystem__PowersOf2[i] then
-            call UnitAddAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[i])
-            call UnitMakeAbilityPermanent(u, true, YDWEGeneralBounsSystem__BonusAbilitys[i])
-            set ammount=ammount - YDWEGeneralBounsSystem__PowersOf2[i]
+        exitwhen i < YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType]
+        if ammount >= YDWEGeneralBounsSystem___PowersOf2[i] then
+            call UnitAddAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[i])
+            call UnitMakeAbilityPermanent(u, true, YDWEGeneralBounsSystem___BonusAbilitys[i])
+            set ammount=ammount - YDWEGeneralBounsSystem___PowersOf2[i]
         else
-            call UnitRemoveAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[i])
+            call UnitRemoveAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[i])
         endif
         set i=i - 1
     endloop
     if not (LoadBoolean(YDHT, StringHash((I2S((GetHandleId((u)))) )), StringHash(( "bonusMark")))) then // INLINED!!
         call SaveBoolean(YDHT, StringHash((I2S((GetHandleId((u)))) )), StringHash(( "bonusMark" )), ( true)) // INLINED!!
-        set YDWEGeneralBounsSystem__UnitCount=YDWEGeneralBounsSystem__UnitCount + 1
-        set YDWEGeneralBounsSystem__Units[YDWEGeneralBounsSystem__UnitCount]=u
+        set YDWEGeneralBounsSystem___UnitCount=YDWEGeneralBounsSystem___UnitCount + 1
+        set YDWEGeneralBounsSystem___Units[YDWEGeneralBounsSystem___UnitCount]=u
     endif
     return true
 endfunction
-function YDWEGeneralBounsSystem__UnitGetBonus takes unit u,integer bonusType returns integer
+function YDWEGeneralBounsSystem___UnitGetBonus takes unit u,integer bonusType returns integer
     return (LoadInteger(YDHT, StringHash((I2S((GetHandleId((u)))) )), StringHash(( "bonusType" + I2S(bonusType))))) // INLINED!!
 endfunction
-function YDWEGeneralBounsSystem__AddUnitMaxState takes unit u,integer bonusType,real value returns boolean
+function YDWEGeneralBounsSystem___AddUnitMaxState takes unit u,integer bonusType,real value returns boolean
     local unitstate state
     if bonusType == 0 then
         set state=UNIT_STATE_MAX_LIFE
@@ -4457,42 +4471,42 @@ function YDWEGeneralBounsSystem__AddUnitMaxState takes unit u,integer bonusType,
       else
         return false
     endif
-    return YDWEGeneralBounsSystem__SetUnitMaxState(u , bonusType , value + GetUnitState(u, state))
+    return YDWEGeneralBounsSystem___SetUnitMaxState(u , bonusType , value + GetUnitState(u, state))
 endfunction
-function YDWEGeneralBounsSystem__UnitAddBonus takes unit u,integer bonusType,integer ammount returns boolean
-    return YDWEGeneralBounsSystem__UnitSetBonus(u , bonusType , (LoadInteger(YDHT, StringHash((I2S((GetHandleId(((u ))))) )), StringHash(( "bonusType" + I2S(( bonusType)))))) + ammount) // INLINED!!
+function YDWEGeneralBounsSystem___UnitAddBonus takes unit u,integer bonusType,integer ammount returns boolean
+    return YDWEGeneralBounsSystem___UnitSetBonus(u , bonusType , (LoadInteger(YDHT, StringHash((I2S((GetHandleId(((u ))))) )), StringHash(( "bonusType" + I2S(( bonusType)))))) + ammount) // INLINED!!
 endfunction
-function YDWEGeneralBounsSystem__FlushUnits takes nothing returns nothing
-    local integer i= YDWEGeneralBounsSystem__UnitCount
+function YDWEGeneralBounsSystem___FlushUnits takes nothing returns nothing
+    local integer i= YDWEGeneralBounsSystem___UnitCount
     local string h
     loop
         exitwhen i < 1
-        if GetUnitTypeId(YDWEGeneralBounsSystem__Units[i]) == 0 then
-            set h=I2S((GetHandleId((YDWEGeneralBounsSystem__Units[i])))) // INLINED!!
+        if GetUnitTypeId(YDWEGeneralBounsSystem___Units[i]) == 0 then
+            set h=I2S((GetHandleId((YDWEGeneralBounsSystem___Units[i])))) // INLINED!!
             call SaveInteger(YDHT, StringHash((h )), StringHash(( "bonusType0" )), ( 0)) // INLINED!!
             call SaveInteger(YDHT, StringHash((h )), StringHash(( "bonusType1" )), ( 0)) // INLINED!!
             call SaveInteger(YDHT, StringHash((h )), StringHash(( "bonusType2" )), ( 0)) // INLINED!!
             call SaveInteger(YDHT, StringHash((h )), StringHash(( "bonusType3" )), ( 0)) // INLINED!!
             call SaveBoolean(YDHT, StringHash((h )), StringHash(( "bonusMark" )), ( false)) // INLINED!!
-            set YDWEGeneralBounsSystem__Units[i]=YDWEGeneralBounsSystem__Units[YDWEGeneralBounsSystem__UnitCount]
-            set YDWEGeneralBounsSystem__Units[YDWEGeneralBounsSystem__UnitCount]=null
-            set YDWEGeneralBounsSystem__UnitCount=YDWEGeneralBounsSystem__UnitCount - 1
+            set YDWEGeneralBounsSystem___Units[i]=YDWEGeneralBounsSystem___Units[YDWEGeneralBounsSystem___UnitCount]
+            set YDWEGeneralBounsSystem___Units[YDWEGeneralBounsSystem___UnitCount]=null
+            set YDWEGeneralBounsSystem___UnitCount=YDWEGeneralBounsSystem___UnitCount - 1
         endif
         set i=i - 1
     endloop
 endfunction
 function YDWEUnitSetBonus takes unit u,integer bonusType,integer ammount returns nothing
     if bonusType == 0 or bonusType == 1 then
-        call YDWEGeneralBounsSystem__SetUnitMaxState(u , bonusType , ammount)
+        call YDWEGeneralBounsSystem___SetUnitMaxState(u , bonusType , ammount)
       else
-        call YDWEGeneralBounsSystem__UnitSetBonus(u , bonusType , ammount)
+        call YDWEGeneralBounsSystem___UnitSetBonus(u , bonusType , ammount)
     endif
 endfunction
 function YDWEUnitAddBonus takes unit u,integer bonusType,integer ammount returns nothing
     if bonusType == 0 or bonusType == 1 then
-        call YDWEGeneralBounsSystem__AddUnitMaxState(u , bonusType , ammount)
+        call YDWEGeneralBounsSystem___AddUnitMaxState(u , bonusType , ammount)
       else
-        call YDWEGeneralBounsSystem__UnitAddBonus(u , bonusType , ammount)
+        call YDWEGeneralBounsSystem___UnitAddBonus(u , bonusType , ammount)
     endif
 endfunction
 function YDWEGeneralBounsSystemUnitSetBonus takes unit u,integer bonusType,integer mod,integer ammount returns nothing
@@ -4508,100 +4522,100 @@ function YDWEGeneralBounsSystemUnitGetBonus takes unit u,integer bonusType retur
     return (LoadInteger(YDHT, StringHash((I2S((GetHandleId((u)))) )), StringHash(( "bonusType" + I2S(bonusType))))) // INLINED!!
 endfunction
 //private keyword BonusAbilitys
-function YDWEGeneralBounsSystem__InitializeAbilitys takes nothing returns nothing
+function YDWEGeneralBounsSystem___InitializeAbilitys takes nothing returns nothing
     local integer i=0
     local integer m=0
-    set YDWEGeneralBounsSystem__ABILITY_COUNT[0]=0 //life max
-set YDWEGeneralBounsSystem__ABILITY_COUNT[1]=15 //mana max
-set YDWEGeneralBounsSystem__ABILITY_COUNT[2]=30 //armor
-set YDWEGeneralBounsSystem__ABILITY_COUNT[3]=43 //attack
-set YDWEGeneralBounsSystem__ABILITY_COUNT[4]=67
-    set YDWEGeneralBounsSystem__ABILITY_NUM[0]=15
-    set YDWEGeneralBounsSystem__ABILITY_NUM[1]=15
-    set YDWEGeneralBounsSystem__ABILITY_NUM[2]=13
-    set YDWEGeneralBounsSystem__ABILITY_NUM[3]=24
+    set YDWEGeneralBounsSystem___ABILITY_COUNT[0]=0 //life max
+set YDWEGeneralBounsSystem___ABILITY_COUNT[1]=15 //mana max
+set YDWEGeneralBounsSystem___ABILITY_COUNT[2]=30 //armor
+set YDWEGeneralBounsSystem___ABILITY_COUNT[3]=43 //attack
+set YDWEGeneralBounsSystem___ABILITY_COUNT[4]=67
+    set YDWEGeneralBounsSystem___ABILITY_NUM[0]=15
+    set YDWEGeneralBounsSystem___ABILITY_NUM[1]=15
+    set YDWEGeneralBounsSystem___ABILITY_NUM[2]=13
+    set YDWEGeneralBounsSystem___ABILITY_NUM[3]=24
     // Bonus Mod - armor abilitys
     loop
         exitwhen i > 9
-        set YDWEGeneralBounsSystem__YDWEBONUS_MyChar[i]='0' + m
+        set YDWEGeneralBounsSystem___YDWEBONUS_MyChar[i]='0' + m
         set m=m + 1
         set i=i + 1
     endloop
     set m=0
     loop
         exitwhen i > 26
-        set YDWEGeneralBounsSystem__YDWEBONUS_MyChar[i]='a' + m
+        set YDWEGeneralBounsSystem___YDWEBONUS_MyChar[i]='a' + m
         set m=m + 1
         set i=i + 1
     endloop
     set i=0
     set m=0
     loop
-        exitwhen m > ( YDWEGeneralBounsSystem__ABILITY_NUM[0] - 1 )
-        set YDWEGeneralBounsSystem__BonusAbilitys[i]='YDl0' - '0' + YDWEGeneralBounsSystem__YDWEBONUS_MyChar[m] // +1
+        exitwhen m > ( YDWEGeneralBounsSystem___ABILITY_NUM[0] - 1 )
+        set YDWEGeneralBounsSystem___BonusAbilitys[i]='YDl0' - '0' + YDWEGeneralBounsSystem___YDWEBONUS_MyChar[m] // +1
         set i=i + 1
         set m=m + 1
     endloop
     // Bonus Mod - Damage abilitys
     set m=0
     loop
-        exitwhen m > ( YDWEGeneralBounsSystem__ABILITY_NUM[1] - 1 )
-        set YDWEGeneralBounsSystem__BonusAbilitys[i]='YDm0' - '0' + YDWEGeneralBounsSystem__YDWEBONUS_MyChar[m] // +1
+        exitwhen m > ( YDWEGeneralBounsSystem___ABILITY_NUM[1] - 1 )
+        set YDWEGeneralBounsSystem___BonusAbilitys[i]='YDm0' - '0' + YDWEGeneralBounsSystem___YDWEBONUS_MyChar[m] // +1
         set i=i + 1
         set m=m + 1
     endloop
     // Bonus Mod - Life MaxState abilitys
     set m=0
     loop
-        exitwhen m > ( YDWEGeneralBounsSystem__ABILITY_NUM[2] - 1 )
-        set YDWEGeneralBounsSystem__BonusAbilitys[i]='YDc0' - '0' + YDWEGeneralBounsSystem__YDWEBONUS_MyChar[m] // +1
+        exitwhen m > ( YDWEGeneralBounsSystem___ABILITY_NUM[2] - 1 )
+        set YDWEGeneralBounsSystem___BonusAbilitys[i]='YDc0' - '0' + YDWEGeneralBounsSystem___YDWEBONUS_MyChar[m] // +1
         set i=i + 1
         set m=m + 1
     endloop
     // Bonus Mod - Mana MaxState abilitys
     set m=0
     loop
-        exitwhen m > ( YDWEGeneralBounsSystem__ABILITY_NUM[3] - 1 )
-        set YDWEGeneralBounsSystem__BonusAbilitys[i]='YDb0' - '0' + YDWEGeneralBounsSystem__YDWEBONUS_MyChar[m] // +1
+        exitwhen m > ( YDWEGeneralBounsSystem___ABILITY_NUM[3] - 1 )
+        set YDWEGeneralBounsSystem___BonusAbilitys[i]='YDb0' - '0' + YDWEGeneralBounsSystem___YDWEBONUS_MyChar[m] // +1
         set i=i + 1
         set m=m + 1
     endloop
 endfunction
-function YDWEGeneralBounsSystem__Initialize takes nothing returns nothing
+function YDWEGeneralBounsSystem___Initialize takes nothing returns nothing
     local integer i= 1
     local unit u
     local integer n=0
     local integer add=0
-    call YDWEGeneralBounsSystem__InitializeAbilitys()
+    call YDWEGeneralBounsSystem___InitializeAbilitys()
     loop
         set i=1
-        set YDWEGeneralBounsSystem__PowersOf2[add]=1
+        set YDWEGeneralBounsSystem___PowersOf2[add]=1
             loop
-                set YDWEGeneralBounsSystem__PowersOf2[add + 1]=YDWEGeneralBounsSystem__PowersOf2[add] * 2
+                set YDWEGeneralBounsSystem___PowersOf2[add + 1]=YDWEGeneralBounsSystem___PowersOf2[add] * 2
                 set add=add + 1
                 set i=i + 1
-                exitwhen i == YDWEGeneralBounsSystem__ABILITY_NUM[n]
+                exitwhen i == YDWEGeneralBounsSystem___ABILITY_NUM[n]
             endloop
-        set YDWEGeneralBounsSystem__MaxBonus[n]=YDWEGeneralBounsSystem__PowersOf2[add] - 1
-        set YDWEGeneralBounsSystem__MinBonus[n]=- YDWEGeneralBounsSystem__PowersOf2[add]
+        set YDWEGeneralBounsSystem___MaxBonus[n]=YDWEGeneralBounsSystem___PowersOf2[add] - 1
+        set YDWEGeneralBounsSystem___MinBonus[n]=- YDWEGeneralBounsSystem___PowersOf2[add]
         set add=add + 1
         set n=n + 1
         exitwhen n >= 4
     endloop
     //预读技能
-    if YDWEGeneralBounsSystem__PRELOAD_ABILITYS then
-        set u=CreateUnit(Player(15), YDWEGeneralBounsSystem__PRELOAD_DUMMY_UNIT, 0, 0, 0)
+    if YDWEGeneralBounsSystem___PRELOAD_ABILITYS then
+        set u=CreateUnit(Player(15), YDWEGeneralBounsSystem___PRELOAD_DUMMY_UNIT, 0, 0, 0)
         set i=0
         loop
-            exitwhen i == YDWEGeneralBounsSystem__ABILITY_COUNT[5]
-            call UnitAddAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[i])
+            exitwhen i == YDWEGeneralBounsSystem___ABILITY_COUNT[5]
+            call UnitAddAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[i])
             set i=i + 1
         endloop
         call RemoveUnit(u)
         set u=null
     endif
     //回收数据
-    call TimerStart(CreateTimer(), 10, true, function YDWEGeneralBounsSystem__FlushUnits)
+    call TimerStart(CreateTimer(), 10, true, function YDWEGeneralBounsSystem___FlushUnits)
 endfunction
 function YDWELifeChange takes unit u,integer mod,integer ch,integer id returns nothing
     local integer a
@@ -4706,7 +4720,7 @@ endfunction
 // Modified by : c kuhn
 // [private]用级数计算以e为底的对数
 // Returns 0 if x <= 0
-function YDWELogarithm__ln_taylor takes real x returns real
+function YDWELogarithm___ln_taylor takes real x returns real
     // ln( (1+x) / (1-x) ) = ln(1+x) - ln(1-x) = 2 * ( x + x^3 / 3 + x^5 / 5 + ... )
     // x = (y-1) / (y+1)
     // (0 < y < +∞, -1 < x < 1)
@@ -4731,7 +4745,7 @@ local real fCur
 endfunction
 // Author : c kuhn
 // 通过满二叉树特性快速找到大的部分
-function YDWELogarithm__Log2 takes real x returns real
+function YDWELogarithm___Log2 takes real x returns real
     local real res= 0.
     local real sign=1.
     local real i= 64.
@@ -4746,16 +4760,16 @@ function YDWELogarithm__Log2 takes real x returns real
             set x=1. / x
         endif
         if x >= 2. then
-            set mid=YDWELogarithm__base[7]
+            set mid=YDWELogarithm___base[7]
             loop
                 set temp=x / mid
                 exitwhen temp >= 1. and temp < 2.
                 if x < mid then
                     set i=i - level
-                    set mid=mid / YDWELogarithm__base[count]
+                    set mid=mid / YDWELogarithm___base[count]
                 else
                     set i=i + level
-                    set mid=mid * YDWELogarithm__base[count]
+                    set mid=mid * YDWELogarithm___base[count]
                 endif
                 set level=level / 2.
                 set count=count - 1
@@ -4768,7 +4782,7 @@ function YDWELogarithm__Log2 takes real x returns real
             set x=x / 1.4142135
             set fac=fac + .5
         endif
-        set res=sign * ( fac + YDWELogarithm__ln_taylor(x) * 1.442695 )
+        set res=sign * ( fac + YDWELogarithm___ln_taylor(x) * 1.442695 )
     endif
     
     return res
@@ -4776,29 +4790,29 @@ endfunction
 // 以 10 为底的对数
 // Returns 0 if x <= 0
 function YDWELogarithmLg takes real x returns real
-    return YDWELogarithm__Log2(x) * 0.3010300 // 1/log2(10) = 0.30102999566398119521373889472449
+    return YDWELogarithm___Log2(x) * 0.3010300 // 1/log2(10) = 0.30102999566398119521373889472449
 endfunction
 // 以 e 为底的对数
 // Returns 0 if x <= 0
 function YDWELogarithmLn takes real x returns real
-    return YDWELogarithm__Log2(x) * 0.6931472 // 1/log2(e) = 0.69314718055994530941723212145818
+    return YDWELogarithm___Log2(x) * 0.6931472 // 1/log2(e) = 0.69314718055994530941723212145818
 endfunction
 // 以 任意数 为底的对数 
 function YDWELogarithmLog takes real a,real x returns real
     if a <= 0 or ( a <= 1 and a >= 1 ) then
         return 0.
     endif
-    return YDWELogarithm__Log2(x) / YDWELogarithm__Log2(a)
+    return YDWELogarithm___Log2(x) / YDWELogarithm___Log2(a)
 endfunction
-function YDWELogarithm__onInit takes nothing returns nothing
-    set YDWELogarithm__base[1]=2.
-    set YDWELogarithm__base[2]=4.
-    set YDWELogarithm__base[3]=16.
-    set YDWELogarithm__base[4]=256.
-    set YDWELogarithm__base[5]=65536.
+function YDWELogarithm___onInit takes nothing returns nothing
+    set YDWELogarithm___base[1]=2.
+    set YDWELogarithm___base[2]=4.
+    set YDWELogarithm___base[3]=16.
+    set YDWELogarithm___base[4]=256.
+    set YDWELogarithm___base[5]=65536.
     //过大的数必须用乘法
-    set YDWELogarithm__base[6]=65536. * 65536. //2^32
-set YDWELogarithm__base[7]=YDWELogarithm__base[6] * YDWELogarithm__base[6] //2^64
+    set YDWELogarithm___base[6]=65536. * 65536. //2^32
+set YDWELogarithm___base[7]=YDWELogarithm___base[6] * YDWELogarithm___base[6] //2^64
 endfunction
 
 //library YDWELogarithm ends
@@ -4831,13 +4845,13 @@ endfunction
 
 //library YDWEStringHash ends
 //library YDWESync:
- function YDWESync__IsLivingPlayer takes player p returns boolean
+ function YDWESync___IsLivingPlayer takes player p returns boolean
 		return ( GetPlayerSlotState(p) == PLAYER_SLOT_STATE_PLAYING ) and ( GetPlayerController(p) == MAP_CONTROL_USER )
 	endfunction
- function YDWESync__GetLivingfPlayer takes nothing returns player
+ function YDWESync___GetLivingfPlayer takes nothing returns player
   local integer i= 0
 		loop
-			exitwhen YDWESync__IsLivingPlayer(Player(i)) or i >= 11
+			exitwhen YDWESync___IsLivingPlayer(Player(i)) or i >= 11
 			set i=i + 1
 		endloop
 		return Player(i)
@@ -4845,8 +4859,8 @@ endfunction
     
     function YDWESync_Lock takes nothing returns nothing
         loop
-            if not YDWESync__m_mutex_state then
-                set YDWESync__m_mutex_state=true
+            if not YDWESync___m_mutex_state then
+                set YDWESync___m_mutex_state=true
                 return
             endif
             call TriggerSleepAction(0.2)
@@ -4854,21 +4868,21 @@ endfunction
     endfunction
     
     function YDWESync_Unlock takes nothing returns nothing
-        set YDWESync__m_mutex_state=false
+        set YDWESync___m_mutex_state=false
     endfunction
     
     function YDWESync_Join takes player p returns nothing
         if GetLocalPlayer() == p then
-            call StoreInteger(YDWESync__m_gc, "-", "-", 'YDWE')
+            call StoreInteger(YDWESync___m_gc, "-", "-", 'YDWE')
         endif
         call TriggerSyncStart()
         if GetLocalPlayer() == p then
-            call SyncStoredInteger(YDWESync__m_gc, "-", "-")
+            call SyncStoredInteger(YDWESync___m_gc, "-", "-")
         endif
-        call StoreInteger(YDWESync__m_gc, "-", "-", 0)
+        call StoreInteger(YDWESync___m_gc, "-", "-", 0)
         call TriggerSyncReady()
         loop
-            if 'YDWE' == GetStoredInteger(YDWESync__m_gc, "-", "-") then
+            if 'YDWE' == GetStoredInteger(YDWESync___m_gc, "-", "-") then
                 return
             endif
             call TriggerSleepAction(0.2)
@@ -4876,11 +4890,11 @@ endfunction
     endfunction
     
     function YDWESync_Set takes string table,string key,integer value returns nothing
-        call StoreInteger(YDWESync__m_gc, table, key, value)
+        call StoreInteger(YDWESync___m_gc, table, key, value)
     endfunction
     
     function YDWESync_Get takes string table,string key returns integer
-        return GetStoredInteger(YDWESync__m_gc, table, key)
+        return GetStoredInteger(YDWESync___m_gc, table, key)
     endfunction
     
     function YDWESync_Start takes nothing returns nothing
@@ -4892,12 +4906,12 @@ endfunction
     endfunction
     
     function YDWESync_Send takes string table,string key returns nothing
-        call SyncStoredInteger(YDWESync__m_gc, table, key)
+        call SyncStoredInteger(YDWESync___m_gc, table, key)
     endfunction
     
- function YDWESync__onInit takes nothing returns nothing
+ function YDWESync___onInit takes nothing returns nothing
 		call FlushGameCache(InitGameCache("@"))
-		set YDWESync__m_gc=InitGameCache("@")
+		set YDWESync___m_gc=InitGameCache("@")
 	endfunction
 
 //library YDWESync ends
@@ -4910,9 +4924,9 @@ function YDWEAnyUnitDamagedTriggerAction takes nothing returns nothing
     local integer i= 0
     
     loop
-        exitwhen i >= YDWETriggerEvent__DamageEventNumber
-        if YDWETriggerEvent__DamageEventQueue[i] != null and IsTriggerEnabled(YDWETriggerEvent__DamageEventQueue[i]) and TriggerEvaluate(YDWETriggerEvent__DamageEventQueue[i]) then
-            call TriggerExecute(YDWETriggerEvent__DamageEventQueue[i])
+        exitwhen i >= YDWETriggerEvent___DamageEventNumber
+        if YDWETriggerEvent___DamageEventQueue[i] != null and IsTriggerEnabled(YDWETriggerEvent___DamageEventQueue[i]) and TriggerEvaluate(YDWETriggerEvent___DamageEventQueue[i]) then
+            call TriggerExecute(YDWETriggerEvent___DamageEventQueue[i])
         endif
         set i=i + 1
     endloop
@@ -4941,14 +4955,14 @@ function YDWESyStemAnyUnitDamagedRegistTrigger takes trigger trg returns nothing
         return
     endif
         
-    if YDWETriggerEvent__DamageEventNumber == 0 then
+    if YDWETriggerEvent___DamageEventNumber == 0 then
         set yd_DamageEventTrigger=CreateTrigger()
         call TriggerAddAction(yd_DamageEventTrigger, function YDWEAnyUnitDamagedTriggerAction)
         call YDWEAnyUnitDamagedEnumUnit()
     endif
     
-    set YDWETriggerEvent__DamageEventQueue[YDWETriggerEvent__DamageEventNumber]=trg
-    set YDWETriggerEvent__DamageEventNumber=YDWETriggerEvent__DamageEventNumber + 1
+    set YDWETriggerEvent___DamageEventQueue[YDWETriggerEvent___DamageEventNumber]=trg
+    set YDWETriggerEvent___DamageEventNumber=YDWETriggerEvent___DamageEventNumber + 1
 endfunction
 //===========================================================================  
 //�ƶ���Ʒ�¼� 
@@ -4959,9 +4973,9 @@ function YDWESyStemItemUnmovableTriggerAction takes nothing returns nothing
     if GetIssuedOrderId() >= 852002 and GetIssuedOrderId() <= 852007 then
 		set bj_lastMovedItemInItemSlot=GetOrderTargetItem()
     	loop
-        	exitwhen i >= YDWETriggerEvent__MoveItemEventNumber
-        	if YDWETriggerEvent__MoveItemEventQueue[i] != null and IsTriggerEnabled(YDWETriggerEvent__MoveItemEventQueue[i]) and TriggerEvaluate(YDWETriggerEvent__MoveItemEventQueue[i]) then
-        	    call TriggerExecute(YDWETriggerEvent__MoveItemEventQueue[i])
+        	exitwhen i >= YDWETriggerEvent___MoveItemEventNumber
+        	if YDWETriggerEvent___MoveItemEventQueue[i] != null and IsTriggerEnabled(YDWETriggerEvent___MoveItemEventQueue[i]) and TriggerEvaluate(YDWETriggerEvent___MoveItemEventQueue[i]) then
+        	    call TriggerExecute(YDWETriggerEvent___MoveItemEventQueue[i])
         	endif
         	set i=i + 1
     	endloop
@@ -4972,14 +4986,14 @@ function YDWESyStemItemUnmovableRegistTrigger takes trigger trg returns nothing
         return
     endif
         
-    if YDWETriggerEvent__MoveItemEventNumber == 0 then
-        set YDWETriggerEvent__MoveItemEventTrigger=CreateTrigger()
-        call TriggerAddAction(YDWETriggerEvent__MoveItemEventTrigger, function YDWESyStemItemUnmovableTriggerAction)
-        call TriggerRegisterAnyUnitEventBJ(YDWETriggerEvent__MoveItemEventTrigger, EVENT_PLAYER_UNIT_ISSUED_TARGET_ORDER)
+    if YDWETriggerEvent___MoveItemEventNumber == 0 then
+        set YDWETriggerEvent___MoveItemEventTrigger=CreateTrigger()
+        call TriggerAddAction(YDWETriggerEvent___MoveItemEventTrigger, function YDWESyStemItemUnmovableTriggerAction)
+        call TriggerRegisterAnyUnitEventBJ(YDWETriggerEvent___MoveItemEventTrigger, EVENT_PLAYER_UNIT_ISSUED_TARGET_ORDER)
     endif
     
-    set YDWETriggerEvent__MoveItemEventQueue[YDWETriggerEvent__MoveItemEventNumber]=trg
-    set YDWETriggerEvent__MoveItemEventNumber=YDWETriggerEvent__MoveItemEventNumber + 1
+    set YDWETriggerEvent___MoveItemEventQueue[YDWETriggerEvent___MoveItemEventNumber]=trg
+    set YDWETriggerEvent___MoveItemEventNumber=YDWETriggerEvent___MoveItemEventNumber + 1
 endfunction
 function GetLastMovedItemInItemSlot takes nothing returns item
     return bj_lastMovedItemInItemSlot
@@ -5038,7 +5052,7 @@ endfunction
 //===========================================================================
 //���Ƽ���ģ�� 
 //===========================================================================
-function YDWECreateEwsp__Loop takes nothing returns nothing
+function YDWECreateEwsp___Loop takes nothing returns nothing
     local timer t= GetExpiredTimer()
  local string h= I2S((GetHandleId((t)))) // INLINED!!
     local unit tempUnit
@@ -5107,7 +5121,7 @@ function YDWECreateEwsp takes unit Hero,integer ewsp,integer number,real radius,
         call GroupAddUnit(bj_lastCreatedGroup, tempUnit)
         set bj_lastCreatedUnit=tempUnit
     endloop
-    call TimerStart(t, interval, true, function YDWECreateEwsp__Loop)
+    call TimerStart(t, interval, true, function YDWECreateEwsp___Loop)
     set t=null
     set tempUnit=null
 endfunction
@@ -5509,8 +5523,8 @@ function YDWE_PreloadSL_LoadPreFile takes player p,integer n,string strFilePath 
   
   loop
     exitwhen index > n
-    set YDWEPreloadSL__CodeHI[beg + index]=YDWE_PreloadSL_LoadInteger(index)
-    set YDWEPreloadSL__CodeLO[beg + index]=YDWE_PreloadSL_LoadInteger($200 + index)
+    set YDWEPreloadSL___CodeHI[beg + index]=YDWE_PreloadSL_LoadInteger(index)
+    set YDWEPreloadSL___CodeLO[beg + index]=YDWE_PreloadSL_LoadInteger($200 + index)
     set index=index + 1
   endloop
 endfunction
@@ -5522,8 +5536,8 @@ function YDWE_PreloadSL_SavePreFile takes player p,integer n,string strFilePath 
   call PreloadGenStart()
   loop
     exitwhen index > n
-    call YDWE_PreloadSL_SaveInteger(index , YDWEPreloadSL__CodeHI[beg + index])
-    call YDWE_PreloadSL_SaveInteger($200 + index , YDWEPreloadSL__CodeLO[beg + index])
+    call YDWE_PreloadSL_SaveInteger(index , YDWEPreloadSL___CodeHI[beg + index])
+    call YDWE_PreloadSL_SaveInteger($200 + index , YDWEPreloadSL___CodeLO[beg + index])
     set index=index + 1
   endloop
           
@@ -5606,15 +5620,15 @@ endfunction
 function YDWE_PreloadSL_GetMask takes player p returns integer
     local integer value
     local integer beg= ( 501 * GetPlayerId(p) )
-    local integer l__hi= YDWEPreloadSL__CodeHI[beg]
-    local integer l__lo= YDWEPreloadSL__CodeLO[beg]
+    local integer l__hi= YDWEPreloadSL___CodeHI[beg]
+    local integer l__lo= YDWEPreloadSL___CodeLO[beg]
     if l__hi < $8000 then
         set value=l__lo + l__hi * $10000
     else
         set l__hi=l__hi - $8000
         set value=- ( l__lo + l__hi * $10000 )
     endif
-    set YDWEPreloadSL__Code[beg]=value
+    set YDWEPreloadSL___Code[beg]=value
     return value - 'YDWE'
 endfunction
 ///
@@ -5635,18 +5649,18 @@ function YDWE_PreloadSL_Unmove takes integer beg,integer n,integer key returns n
         if value < beg then
             set value=value + n
         endif
-        set l__hi=YDWEPreloadSL__CodeHI[value]
-        set YDWEPreloadSL__CodeHI[value]=YDWEPreloadSL__CodeHI[index]
-        set YDWEPreloadSL__CodeHI[index]=l__hi
+        set l__hi=YDWEPreloadSL___CodeHI[value]
+        set YDWEPreloadSL___CodeHI[value]=YDWEPreloadSL___CodeHI[index]
+        set YDWEPreloadSL___CodeHI[index]=l__hi
         
         set value=keys - ( index - beg )
         set value=beg + value - value / n * n
         if value < beg then
             set value=value + n
         endif
-        set l__lo=YDWEPreloadSL__CodeLO[value]
-        set YDWEPreloadSL__CodeLO[value]=YDWEPreloadSL__CodeLO[index]
-        set YDWEPreloadSL__CodeLO[index]=l__lo
+        set l__lo=YDWEPreloadSL___CodeLO[value]
+        set YDWEPreloadSL___CodeLO[value]=YDWEPreloadSL___CodeLO[index]
+        set YDWEPreloadSL___CodeLO[index]=l__lo
         
         set keys=keys - key
         
@@ -5664,8 +5678,8 @@ function YDWE_PreloadSL_GetCode takes integer beg,integer n,integer key,integer 
     
     loop
         exitwhen index > end
-        set l__hi=YDWEPreloadSL__CodeHI[index]
-        set l__lo=YDWEPreloadSL__CodeLO[index]
+        set l__hi=YDWEPreloadSL___CodeHI[index]
+        set l__lo=YDWEPreloadSL___CodeLO[index]
         
         // SubKey
         set keys=keys + key
@@ -5694,7 +5708,7 @@ function YDWE_PreloadSL_GetCode takes integer beg,integer n,integer key,integer 
             set value=- ( l__lo + l__hi * $10000 )
         endif
         
-        set YDWEPreloadSL__Code[index]=value
+        set YDWEPreloadSL___Code[index]=value
         set index=index + 1
     endloop
     
@@ -5721,8 +5735,8 @@ function YDWE_PreloadSL_SetMask takes player p,integer mask returns nothing
             set l__lo=value - l__hi * $10000
             set l__hi=l__hi + $8000
     endif
-    set YDWEPreloadSL__CodeHI[beg]=l__hi
-    set YDWEPreloadSL__CodeLO[beg]=l__lo
+    set YDWEPreloadSL___CodeHI[beg]=l__hi
+    set YDWEPreloadSL___CodeLO[beg]=l__lo
 endfunction
 function YDWE_PreloadSL_SetCode takes integer beg,integer n,integer key,integer mask returns nothing
     local integer l__hi
@@ -5735,7 +5749,7 @@ function YDWE_PreloadSL_SetCode takes integer beg,integer n,integer key,integer 
     
     loop
         exitwhen index > end
-        set value=YDWEPreloadSL__Code[index]
+        set value=YDWEPreloadSL___Code[index]
         
         // SetCode
         if value >= 0 then
@@ -5757,8 +5771,8 @@ function YDWE_PreloadSL_SetCode takes integer beg,integer n,integer key,integer 
         set value=masks / $10000
         set l__hi=l__hi + ( value - value / $100 * $100 ) * $100
         set l__lo=l__lo + ( masks - masks / $100 * $100 ) * $10000
-        set YDWEPreloadSL__CodeHI[index]=l__hi
-        set YDWEPreloadSL__CodeLO[index]=l__lo
+        set YDWEPreloadSL___CodeHI[index]=l__hi
+        set YDWEPreloadSL___CodeLO[index]=l__lo
         set index=index + 1
     endloop
 endfunction
@@ -5784,18 +5798,18 @@ function YDWE_PreloadSL_Move takes integer beg,integer n,integer key returns not
         if value < beg then
             set value=value + n
         endif
-        set l__hi=YDWEPreloadSL__CodeHI[value]
-        set YDWEPreloadSL__CodeHI[value]=YDWEPreloadSL__CodeHI[index]
-        set YDWEPreloadSL__CodeHI[index]=l__hi
+        set l__hi=YDWEPreloadSL___CodeHI[value]
+        set YDWEPreloadSL___CodeHI[value]=YDWEPreloadSL___CodeHI[index]
+        set YDWEPreloadSL___CodeHI[index]=l__hi
         
         set value=keys - ( index - beg )
         set value=beg + value - value / n * n
         if value < beg then
             set value=value + n
         endif
-        set l__lo=YDWEPreloadSL__CodeLO[value]
-        set YDWEPreloadSL__CodeLO[value]=YDWEPreloadSL__CodeLO[index]
-        set YDWEPreloadSL__CodeLO[index]=l__lo
+        set l__lo=YDWEPreloadSL___CodeLO[value]
+        set YDWEPreloadSL___CodeLO[value]=YDWEPreloadSL___CodeLO[index]
+        set YDWEPreloadSL___CodeLO[index]=l__lo
         
         set index=index + 1
     endloop
@@ -5819,8 +5833,8 @@ function YDWE_PreloadSL_Sync takes player p,integer n returns nothing
         set index=beg
         loop
             exitwhen index > end
-            call StoreInteger(YDWESync__m_gc, ("H" ), ( I2S(index) ), ( YDWEPreloadSL__CodeHI[index])) // INLINED!!
-            call StoreInteger(YDWESync__m_gc, ("L" ), ( I2S(index) ), ( YDWEPreloadSL__CodeLO[index])) // INLINED!!
+            call StoreInteger(YDWESync___m_gc, ("H" ), ( I2S(index) ), ( YDWEPreloadSL___CodeHI[index])) // INLINED!!
+            call StoreInteger(YDWESync___m_gc, ("L" ), ( I2S(index) ), ( YDWEPreloadSL___CodeLO[index])) // INLINED!!
             set index=index + 1
         endloop
     endif
@@ -5829,8 +5843,8 @@ function YDWE_PreloadSL_Sync takes player p,integer n returns nothing
         set index=beg
         loop
             exitwhen index > end
-            call SyncStoredInteger(YDWESync__m_gc, ("H" ), ( I2S(index))) // INLINED!!
-            call SyncStoredInteger(YDWESync__m_gc, ("L" ), ( I2S(index))) // INLINED!!
+            call SyncStoredInteger(YDWESync___m_gc, ("H" ), ( I2S(index))) // INLINED!!
+            call SyncStoredInteger(YDWESync___m_gc, ("L" ), ( I2S(index))) // INLINED!!
             set index=index + 1
         endloop
     endif
@@ -5840,8 +5854,8 @@ function YDWE_PreloadSL_Sync takes player p,integer n returns nothing
     set index=beg
     loop
         exitwhen index > end
-        set YDWEPreloadSL__CodeHI[index]=(GetStoredInteger(YDWESync__m_gc, ("H" ), ( I2S(index)))) // INLINED!!
-        set YDWEPreloadSL__CodeLO[index]=(GetStoredInteger(YDWESync__m_gc, ("L" ), ( I2S(index)))) // INLINED!!
+        set YDWEPreloadSL___CodeHI[index]=(GetStoredInteger(YDWESync___m_gc, ("H" ), ( I2S(index)))) // INLINED!!
+        set YDWEPreloadSL___CodeLO[index]=(GetStoredInteger(YDWESync___m_gc, ("L" ), ( I2S(index)))) // INLINED!!
         set index=index + 1
     endloop
 endfunction
@@ -5855,7 +5869,7 @@ function YDWE_PreloadSL_Load takes player p,string dir,string file,integer n ret
     
     call YDWE_PreloadSL_Sync(p , n)
     set bj_lastLoadPreloadSLResult=YDWE_PreloadSL_Decode(p , n)
-    set YDWESync__m_mutex_state=false // INLINED!!
+    set YDWESync___m_mutex_state=false // INLINED!!
     
     return bj_lastLoadPreloadSLResult
 endfunction
@@ -5869,13 +5883,13 @@ function YDWE_PreloadSL_Save takes player p,string dir,string file,integer n ret
 endfunction
  
 function YDWE_PreloadSL_Set takes player p,string s,integer n,integer value returns nothing
-    set YDWEPreloadSL__Code[n + ( 501 * GetPlayerId(p) )]=value
+    set YDWEPreloadSL___Code[n + ( 501 * GetPlayerId(p) )]=value
 endfunction
 function YDWE_PreloadSL_Get takes player p,string s,integer n returns integer
-    return YDWEPreloadSL__Code[n + ( 501 * GetPlayerId(p) )]
+    return YDWEPreloadSL___Code[n + ( 501 * GetPlayerId(p) )]
 endfunction
                                 
-function YDWEPreloadSL__Init takes nothing returns nothing
+function YDWEPreloadSL___Init takes nothing returns nothing
     local integer index= 0
     loop
         exitwhen index >= 16
@@ -5894,9 +5908,9 @@ endfunction
 function YDWESyStemItemCombineTriggerAction takes nothing returns nothing
  local integer i= 0
     loop
-        exitwhen i >= YDWEStringFormula__ItemCombineEventNumber
-        if YDWEStringFormula__ItemCombineEventQueue[i] != null and TriggerEvaluate(YDWEStringFormula__ItemCombineEventQueue[i]) and IsTriggerEnabled(YDWEStringFormula__ItemCombineEventQueue[i]) then
-            call TriggerExecute(YDWEStringFormula__ItemCombineEventQueue[i])
+        exitwhen i >= YDWEStringFormula___ItemCombineEventNumber
+        if YDWEStringFormula___ItemCombineEventQueue[i] != null and TriggerEvaluate(YDWEStringFormula___ItemCombineEventQueue[i]) and IsTriggerEnabled(YDWEStringFormula___ItemCombineEventQueue[i]) then
+            call TriggerExecute(YDWEStringFormula___ItemCombineEventQueue[i])
         endif
         set i=i + 1
     endloop
@@ -5906,30 +5920,30 @@ endfunction
 //��Ʒ�ϳ��¼� 
 //===========================================================================  
 function YDWESyStemItemCombineRegistTrigger takes trigger trg returns nothing
-	set YDWEStringFormula__ItemCombineEventQueue[YDWEStringFormula__ItemCombineEventNumber]=trg
-	set YDWEStringFormula__ItemCombineEventNumber=YDWEStringFormula__ItemCombineEventNumber + 1
+	set YDWEStringFormula___ItemCombineEventQueue[YDWEStringFormula___ItemCombineEventNumber]=trg
+	set YDWEStringFormula___ItemCombineEventNumber=YDWEStringFormula___ItemCombineEventNumber + 1
 endfunction
-        function s__YDWEStringFormula__Inventory_reset takes integer this returns nothing
+        function s__YDWEStringFormula___Inventory_reset takes integer this returns nothing
             call FlushChildHashtable(YDHT, StringHash(("YDWEStringFormula." + I2S(this)))) // INLINED!!
         endfunction
         
-        function s__YDWEStringFormula__Inventory_onDestroy takes integer this returns nothing
+        function s__YDWEStringFormula___Inventory_onDestroy takes integer this returns nothing
             call FlushChildHashtable(YDHT, StringHash(("YDWEStringFormula." + I2S(this)))) // INLINED!!
         endfunction
     
-        function s__YDWEStringFormula__StringTable__getindex takes integer this,string key returns integer
+        function s__YDWEStringFormula___StringTable__getindex takes integer this,string key returns integer
             return (LoadInteger(YDHT, StringHash(("YDWEStringFormula." + I2S(this) )), StringHash(( key)))) // INLINED!!
         endfunction
         
-        function s__YDWEStringFormula__StringTable__setindex takes integer this,string key,integer value returns nothing
+        function s__YDWEStringFormula___StringTable__setindex takes integer this,string key,integer value returns nothing
             call SaveInteger(YDHT, StringHash(("YDWEStringFormula." + I2S(this) )), StringHash(( key )), ( value)) // INLINED!!
         endfunction
         
-        function s__YDWEStringFormula__StringTable_flush takes integer this,string key returns nothing
+        function s__YDWEStringFormula___StringTable_flush takes integer this,string key returns nothing
             call RemoveSavedInteger(YDHT, StringHash(("YDWEStringFormula." + I2S(this) )), StringHash(( key))) // INLINED!!
         endfunction
         
-        function s__YDWEStringFormula__StringTable_exists takes integer this,string key returns boolean
+        function s__YDWEStringFormula___StringTable_exists takes integer this,string key returns boolean
             return (HaveSavedInteger(YDHT, StringHash(("YDWEStringFormula." + I2S(this) )), StringHash(( key)))) // INLINED!!
         endfunction 
 //***************************************************************
@@ -5938,7 +5952,7 @@ endfunction
 //*
 //***************************************************************
     
-    function YDWEStringFormula__Convert takes integer value,integer length returns string
+    function YDWEStringFormula___Convert takes integer value,integer length returns string
         local string Char= I2S(value)
         local integer slen= StringLength(Char)
             
@@ -5957,47 +5971,47 @@ endfunction
     
         
         
-        function s__YDWEStringFormula__ItemIdMatrix_get takes integer id returns integer
-            return (LoadInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula__ItemIdMatrix_Data)) )), StringHash(( (I2S(id)))))) // INLINED!!
+        function s__YDWEStringFormula___ItemIdMatrix_get takes integer id returns integer
+            return (LoadInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula___ItemIdMatrix_Data)) )), StringHash(( (I2S(id)))))) // INLINED!!
         endfunction
         
-        function s__YDWEStringFormula__ItemIdMatrix_exists takes integer id returns boolean
-            return (HaveSavedInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula__ItemIdMatrix_Data)) )), StringHash(( (I2S(id)))))) // INLINED!!
+        function s__YDWEStringFormula___ItemIdMatrix_exists takes integer id returns boolean
+            return (HaveSavedInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula___ItemIdMatrix_Data)) )), StringHash(( (I2S(id)))))) // INLINED!!
         endfunction
                  
-        function s__YDWEStringFormula__ItemIdMatrix_sub takes integer this,integer segment returns integer
-            local integer start= s__YDWEStringFormula__ItemIdMatrix_keyLen[this] * segment + 1
-            return S2I(SubString(s__YDWEStringFormula__ItemIdMatrix_keyStr[this], start, ( start + s__YDWEStringFormula__ItemIdMatrix_keyLen[this] )))
+        function s__YDWEStringFormula___ItemIdMatrix_sub takes integer this,integer segment returns integer
+            local integer start= s__YDWEStringFormula___ItemIdMatrix_keyLen[this] * segment + 1
+            return S2I(SubString(s__YDWEStringFormula___ItemIdMatrix_keyStr[this], start, ( start + s__YDWEStringFormula___ItemIdMatrix_keyLen[this] )))
         endfunction
         
-        function s__YDWEStringFormula__ItemIdMatrix_assigns takes integer id returns integer
+        function s__YDWEStringFormula___ItemIdMatrix_assigns takes integer id returns integer
             local integer this= 0
             if id == null or id == 0 then
                 return 0
             endif
             
-            set this=(LoadInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula__ItemIdMatrix_Data)) )), StringHash(( (I2S((id))))))) // INLINED!!
+            set this=(LoadInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula___ItemIdMatrix_Data)) )), StringHash(( (I2S((id))))))) // INLINED!!
                 
             if (this) > 0 then
                 return this
             endif
             
-            set this=(s__YDWEStringFormula__ItemIdMatrix_Total)
-            set s__YDWEStringFormula__ItemIdMatrix_itemId[this]=id
-            set s__YDWEStringFormula__ItemIdMatrix_keyStr[this]=I2S(YDWEStringFormula__SEGMENT_LENGTH)
-            set s__YDWEStringFormula__ItemIdMatrix_keyLen[this]=YDWEStringFormula__SEGMENT_LENGTH
-            call SaveInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula__ItemIdMatrix_Data)) )), StringHash(( (I2S(id)) )), ( ( (this)))) // INLINED!!
-            set s__YDWEStringFormula__ItemIdMatrix_Total=s__YDWEStringFormula__ItemIdMatrix_Total + 1
+            set this=(s__YDWEStringFormula___ItemIdMatrix_Total)
+            set s__YDWEStringFormula___ItemIdMatrix_itemId[this]=id
+            set s__YDWEStringFormula___ItemIdMatrix_keyStr[this]=I2S(YDWEStringFormula___SEGMENT_LENGTH)
+            set s__YDWEStringFormula___ItemIdMatrix_keyLen[this]=YDWEStringFormula___SEGMENT_LENGTH
+            call SaveInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula___ItemIdMatrix_Data)) )), StringHash(( (I2S(id)) )), ( ( (this)))) // INLINED!!
+            set s__YDWEStringFormula___ItemIdMatrix_Total=s__YDWEStringFormula___ItemIdMatrix_Total + 1
             return this
         endfunction
         
-        function s__YDWEStringFormula__ItemIdMatrix_memory takes integer this,string key returns nothing
-            set s__YDWEStringFormula__ItemIdMatrix_keyStr[this]=s__YDWEStringFormula__ItemIdMatrix_keyStr[this] + key
+        function s__YDWEStringFormula___ItemIdMatrix_memory takes integer this,string key returns nothing
+            set s__YDWEStringFormula___ItemIdMatrix_keyStr[this]=s__YDWEStringFormula___ItemIdMatrix_keyStr[this] + key
             //debug call BJDebugMsg("|cff00ff00KEY: |r" + .keyStr)
         endfunction
         
-        function s__YDWEStringFormula__ItemIdMatrix_onInit takes nothing returns nothing
-            set s__YDWEStringFormula__ItemIdMatrix_Data=s__YDWEStringFormula__StringTable__allocate()
+        function s__YDWEStringFormula___ItemIdMatrix_onInit takes nothing returns nothing
+            set s__YDWEStringFormula___ItemIdMatrix_Data=s__YDWEStringFormula___StringTable__allocate()
         endfunction
         
 ////////////////// __End of ItemId Matrix__ ////////////////
@@ -6012,40 +6026,40 @@ endfunction
         
         
         
-        function s__YDWEStringFormula__FormulaMatrix_exists takes string s returns boolean
-            return (HaveSavedInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula__FormulaMatrix_Data)) )), StringHash(( (s))))) // INLINED!!
+        function s__YDWEStringFormula___FormulaMatrix_exists takes string s returns boolean
+            return (HaveSavedInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula___FormulaMatrix_Data)) )), StringHash(( (s))))) // INLINED!!
         endfunction
         
-        function s__YDWEStringFormula__FormulaMatrix_sub takes integer this,integer segment returns integer
-            local integer start= s__YDWEStringFormula__FormulaMatrix_segmLen[this] * segment + 1
-            return S2I(SubString(s__YDWEStringFormula__FormulaMatrix_formula[this], start, ( start + s__YDWEStringFormula__FormulaMatrix_segmLen[this] )))
+        function s__YDWEStringFormula___FormulaMatrix_sub takes integer this,integer segment returns integer
+            local integer start= s__YDWEStringFormula___FormulaMatrix_segmLen[this] * segment + 1
+            return S2I(SubString(s__YDWEStringFormula___FormulaMatrix_formula[this], start, ( start + s__YDWEStringFormula___FormulaMatrix_segmLen[this] )))
         endfunction
         
-        function s__YDWEStringFormula__FormulaMatrix_memory takes integer lingth,string formStr,integer eventually returns integer
+        function s__YDWEStringFormula___FormulaMatrix_memory takes integer lingth,string formStr,integer eventually returns integer
             local integer this= 0
             
-            if (HaveSavedInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula__FormulaMatrix_Data)) )), StringHash(( ((formStr)))))) then // INLINED!!
+            if (HaveSavedInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula___FormulaMatrix_Data)) )), StringHash(( ((formStr)))))) then // INLINED!!
                 //debug call BJDebugMsg("|cffff0000Registration cannot be repeated !!|r")
                 return 0
             endif
             
-            set this=(s__YDWEStringFormula__FormulaMatrix_Total)
-            set s__YDWEStringFormula__FormulaMatrix_formula[this]=formStr + YDWEStringFormula__Convert(eventually , YDWEStringFormula__SEGMENT_LENGTH)
-            set s__YDWEStringFormula__FormulaMatrix_segmLen[this]=lingth
+            set this=(s__YDWEStringFormula___FormulaMatrix_Total)
+            set s__YDWEStringFormula___FormulaMatrix_formula[this]=formStr + YDWEStringFormula___Convert(eventually , YDWEStringFormula___SEGMENT_LENGTH)
+            set s__YDWEStringFormula___FormulaMatrix_segmLen[this]=lingth
             
-            set s__YDWEStringFormula__FormulaMatrix_model[this]=null //"Abilities\\Spells\\Items\\AIam\\AIamTarget.mdl"
-set s__YDWEStringFormula__FormulaMatrix_message[this]=null //"|cff00ff00��ϳ��ˣ�|r" 
-set s__YDWEStringFormula__FormulaMatrix_chance[this]=100
-            set s__YDWEStringFormula__FormulaMatrix_delete[this]=false
-            call SaveInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula__FormulaMatrix_Data)) )), StringHash(( (formStr) )), ( ( (this)))) // INLINED!!
-            set s__YDWEStringFormula__FormulaMatrix_Total=s__YDWEStringFormula__FormulaMatrix_Total + 1
+            set s__YDWEStringFormula___FormulaMatrix_model[this]=null //"Abilities\\Spells\\Items\\AIam\\AIamTarget.mdl"
+set s__YDWEStringFormula___FormulaMatrix_message[this]=null //"|cff00ff00��ϳ��ˣ�|r" 
+set s__YDWEStringFormula___FormulaMatrix_chance[this]=100
+            set s__YDWEStringFormula___FormulaMatrix_delete[this]=false
+            call SaveInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula___FormulaMatrix_Data)) )), StringHash(( (formStr) )), ( ( (this)))) // INLINED!!
+            set s__YDWEStringFormula___FormulaMatrix_Total=s__YDWEStringFormula___FormulaMatrix_Total + 1
             
             //debug call BJDebugMsg("|cff00ff00Formula Register: |r" + I2S(integer(this)) + ". " + this.formula)
             return this
         endfunction
         
-        function s__YDWEStringFormula__FormulaMatrix_onInit takes nothing returns nothing
-            set s__YDWEStringFormula__FormulaMatrix_Data=s__YDWEStringFormula__StringTable__allocate()
+        function s__YDWEStringFormula___FormulaMatrix_onInit takes nothing returns nothing
+            set s__YDWEStringFormula___FormulaMatrix_Data=s__YDWEStringFormula___StringTable__allocate()
         endfunction
         
     
@@ -6054,99 +6068,99 @@ set s__YDWEStringFormula__FormulaMatrix_chance[this]=100
 ////////////////////////////////////////////////////////////
 //////////////////// __Formula Sorting__ ///////////////////
         
-        function s__YDWEStringFormula__Sorting_onDestroy takes integer this returns nothing
+        function s__YDWEStringFormula___Sorting_onDestroy takes integer this returns nothing
             local integer i= 0
             loop
-                exitwhen i == s___YDWEStringFormula__Sorting_stack_size
-                set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+i]=0
-                set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+i]=0
+                exitwhen i == s___YDWEStringFormula___Sorting_stack_size
+                set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+i]=0
+                set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+i]=0
                 set i=i + 1
             endloop
-            set s__YDWEStringFormula__Sorting_char[this]=""
+            set s__YDWEStringFormula___Sorting_char[this]=""
         endfunction
 
-//Generated destructor of YDWEStringFormula__Sorting
-function s__YDWEStringFormula__Sorting_deallocate takes integer this returns nothing
+//Generated destructor of YDWEStringFormula___Sorting
+function s__YDWEStringFormula___Sorting_deallocate takes integer this returns nothing
     if this==null then
         return
-    elseif (si__YDWEStringFormula__Sorting_V[this]!=-1) then
+    elseif (si__YDWEStringFormula___Sorting_V[this]!=-1) then
         return
     endif
-    call s__YDWEStringFormula__Sorting_onDestroy(this)
-    set si__YDWEStringFormula__Sorting_V[this]=si__YDWEStringFormula__Sorting_F
-    set si__YDWEStringFormula__Sorting_F=this
+    call s__YDWEStringFormula___Sorting_onDestroy(this)
+    set si__YDWEStringFormula___Sorting_V[this]=si__YDWEStringFormula___Sorting_F
+    set si__YDWEStringFormula___Sorting_F=this
 endfunction
         
-        function s__YDWEStringFormula__Sorting_create takes integer type1,integer n1,integer type2,integer n2,integer type3,integer n3,integer type4,integer n4,integer type5,integer n5,integer type6,integer n6,integer type7,integer n7 returns integer
-            local integer this= s__YDWEStringFormula__Sorting__allocate()
+        function s__YDWEStringFormula___Sorting_create takes integer type1,integer n1,integer type2,integer n2,integer type3,integer n3,integer type4,integer n4,integer type5,integer n5,integer type6,integer n6,integer type7,integer n7 returns integer
+            local integer this= s__YDWEStringFormula___Sorting__allocate()
             
-            set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+1]=s__YDWEStringFormula__ItemIdMatrix_assigns(type1)
-            set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+2]=s__YDWEStringFormula__ItemIdMatrix_assigns(type2)
-            set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+3]=s__YDWEStringFormula__ItemIdMatrix_assigns(type3)
-            set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+4]=s__YDWEStringFormula__ItemIdMatrix_assigns(type4)
-            set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+5]=s__YDWEStringFormula__ItemIdMatrix_assigns(type5)
-            set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+6]=s__YDWEStringFormula__ItemIdMatrix_assigns(type6)
-            set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+7]=s__YDWEStringFormula__ItemIdMatrix_assigns(type7)
+            set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+1]=s__YDWEStringFormula___ItemIdMatrix_assigns(type1)
+            set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+2]=s__YDWEStringFormula___ItemIdMatrix_assigns(type2)
+            set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+3]=s__YDWEStringFormula___ItemIdMatrix_assigns(type3)
+            set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+4]=s__YDWEStringFormula___ItemIdMatrix_assigns(type4)
+            set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+5]=s__YDWEStringFormula___ItemIdMatrix_assigns(type5)
+            set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+6]=s__YDWEStringFormula___ItemIdMatrix_assigns(type6)
+            set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+7]=s__YDWEStringFormula___ItemIdMatrix_assigns(type7)
             
-            set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+1]=n1
-            set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+2]=n2
-            set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+3]=n3
-            set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+4]=n4
-            set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+5]=n5
-            set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+6]=n6
-            set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+7]=n7
+            set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+1]=n1
+            set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+2]=n2
+            set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+3]=n3
+            set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+4]=n4
+            set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+5]=n5
+            set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+6]=n6
+            set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+7]=n7
             
             return this
         endfunction
         
-        function s__YDWEStringFormula__Sorting_convert takes integer this returns string
+        function s__YDWEStringFormula___Sorting_convert takes integer this returns string
             local integer i= 1
             local integer j
             local integer k
               
-            set s__YDWEStringFormula__Sorting_char[this]=""
+            set s__YDWEStringFormula___Sorting_char[this]=""
             loop
-                exitwhen i > s__YDWEStringFormula__Sorting_total[this]
-                if s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+i] == 0 or s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+i] == 0 then
-                    set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+i]=s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+s__YDWEStringFormula__Sorting_total[this]]
-                    set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+i]=s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+s__YDWEStringFormula__Sorting_total[this]]
-                    set s__YDWEStringFormula__Sorting_total[this]=s__YDWEStringFormula__Sorting_total[this] - 1
+                exitwhen i > s__YDWEStringFormula___Sorting_total[this]
+                if s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+i] == 0 or s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+i] == 0 then
+                    set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+i]=s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+s__YDWEStringFormula___Sorting_total[this]]
+                    set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+i]=s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+s__YDWEStringFormula___Sorting_total[this]]
+                    set s__YDWEStringFormula___Sorting_total[this]=s__YDWEStringFormula___Sorting_total[this] - 1
                     set i=i - 1
                 else
                     set j=i + 1
                     loop
-                        exitwhen j > s__YDWEStringFormula__Sorting_total[this]
-                        if s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+j] == 0 or s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+j] == 0 then
-                            set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+j]=s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+s__YDWEStringFormula__Sorting_total[this]]
-                            set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+j]=s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+s__YDWEStringFormula__Sorting_total[this]]
-                            set s__YDWEStringFormula__Sorting_total[this]=s__YDWEStringFormula__Sorting_total[this] - 1
+                        exitwhen j > s__YDWEStringFormula___Sorting_total[this]
+                        if s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+j] == 0 or s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+j] == 0 then
+                            set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+j]=s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+s__YDWEStringFormula___Sorting_total[this]]
+                            set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+j]=s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+s__YDWEStringFormula___Sorting_total[this]]
+                            set s__YDWEStringFormula___Sorting_total[this]=s__YDWEStringFormula___Sorting_total[this] - 1
                             set j=j - 1
-                        elseif (s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+i]) > (s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+j]) then
-                            set k=s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+i]
-                            set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+i]=s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+j]
-                            set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+j]=k
-                            set k=s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+i]
-                            set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+i]=s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+j]
-                            set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+j]=k
-                        elseif (s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+i]) == (s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+j]) then
-                            set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+i]=s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+i] + s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+j]
-                            set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+j]=0
+                        elseif (s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+i]) > (s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+j]) then
+                            set k=s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+i]
+                            set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+i]=s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+j]
+                            set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+j]=k
+                            set k=s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+i]
+                            set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+i]=s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+j]
+                            set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+j]=k
+                        elseif (s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+i]) == (s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+j]) then
+                            set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+i]=s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+i] + s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+j]
+                            set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+j]=0
                             set j=j - 1
                         endif
                         set j=j + 1
                     endloop
                 
-                    set j=s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+i]
+                    set j=s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+i]
                     loop
                         exitwhen j == 0
-                        set s__YDWEStringFormula__Sorting_char[this]=s__YDWEStringFormula__Sorting_char[this] + YDWEStringFormula__Convert(s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+i] , YDWEStringFormula__SEGMENT_LENGTH)
+                        set s__YDWEStringFormula___Sorting_char[this]=s__YDWEStringFormula___Sorting_char[this] + YDWEStringFormula___Convert(s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+i] , YDWEStringFormula___SEGMENT_LENGTH)
                         set j=j - 1
                     endloop
                 endif
                 set i=i + 1
             endloop
             
-            return s__YDWEStringFormula__Sorting_char[this]
+            return s__YDWEStringFormula___Sorting_char[this]
         endfunction
         
 ////////////////// __End of Formula Sorting__ //////////////
@@ -6156,15 +6170,15 @@ endfunction
 ////////////////////////////////////////////////////////////
 /////////////////////// __Craft Item__ /////////////////////
     
-    function YDWEStringFormula__Adaptation takes nothing returns boolean
+    function YDWEStringFormula___Adaptation takes nothing returns boolean
         return true
     endfunction
         
-    function YDWEStringFormula__verify takes nothing returns boolean
-        return (HaveSavedInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula__ItemIdMatrix_Data)) )), StringHash(( (I2S((GetItemTypeId(GetManipulatedItem())))))))) // INLINED!!
+    function YDWEStringFormula___verify takes nothing returns boolean
+        return (HaveSavedInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula___ItemIdMatrix_Data)) )), StringHash(( (I2S((GetItemTypeId(GetManipulatedItem())))))))) // INLINED!!
     endfunction
         
-    function YDWEStringFormula__GetCharges takes item it returns integer
+    function YDWEStringFormula___GetCharges takes item it returns integer
         local integer charges= GetItemCharges(it)
         if charges == 0 then
             set charges=1
@@ -6172,10 +6186,10 @@ endfunction
         return charges
     endfunction
         
-    function YDWEStringFormula__CraftItem takes nothing returns nothing
+    function YDWEStringFormula___CraftItem takes nothing returns nothing
         local integer forx= 0
-        local integer itmx= (LoadInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula__ItemIdMatrix_Data)) )), StringHash(( (I2S((GetItemTypeId(GetManipulatedItem())))))))) // INLINED!!
-        local integer size= StringLength(s__YDWEStringFormula__ItemIdMatrix_keyStr[itmx]) / s__YDWEStringFormula__ItemIdMatrix_keyLen[itmx]
+        local integer itmx= (LoadInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula___ItemIdMatrix_Data)) )), StringHash(( (I2S((GetItemTypeId(GetManipulatedItem())))))))) // INLINED!!
+        local integer size= StringLength(s__YDWEStringFormula___ItemIdMatrix_keyStr[itmx]) / s__YDWEStringFormula___ItemIdMatrix_keyLen[itmx]
         local integer inst= 0
         local integer numb= 0
         local integer sum= 0
@@ -6202,7 +6216,7 @@ endfunction
             if it != null then
                 set items[sum]=it
                 set typeid[sum]=GetItemTypeId(it)
-                set amount[sum]=YDWEStringFormula__GetCharges(it)
+                set amount[sum]=YDWEStringFormula___GetCharges(it)
                 if it == article then
                     set b=true
                 endif
@@ -6222,8 +6236,8 @@ endfunction
         //* Check Formulas
         loop
             exitwhen inst == size
-            set forx=(s__YDWEStringFormula__ItemIdMatrix_sub(itmx,inst))
-            set numb=StringLength(s__YDWEStringFormula__FormulaMatrix_formula[forx]) / s__YDWEStringFormula__FormulaMatrix_segmLen[forx] - 1
+            set forx=(s__YDWEStringFormula___ItemIdMatrix_sub(itmx,inst))
+            set numb=StringLength(s__YDWEStringFormula___FormulaMatrix_formula[forx]) / s__YDWEStringFormula___FormulaMatrix_segmLen[forx] - 1
             
             set i=0
             loop
@@ -6234,7 +6248,7 @@ endfunction
                 
             set i=0
             loop
-                set tmpid=s__YDWEStringFormula__ItemIdMatrix_itemId[(s__YDWEStringFormula__FormulaMatrix_sub(forx,i))]
+                set tmpid=s__YDWEStringFormula___ItemIdMatrix_itemId[(s__YDWEStringFormula___FormulaMatrix_sub(forx,i))]
                 exitwhen i == numb
                 
                 set j=0
@@ -6253,13 +6267,13 @@ endfunction
                 set i=i + 1
             endloop
             if i == numb then
-                if GetRandomInt(0, 99) < s__YDWEStringFormula__FormulaMatrix_chance[forx] then
-                    if s__YDWEStringFormula__FormulaMatrix_model[forx] != null then
-                        call DestroyEffect(AddSpecialEffectTarget(s__YDWEStringFormula__FormulaMatrix_model[forx], caster, "origin"))
+                if GetRandomInt(0, 99) < s__YDWEStringFormula___FormulaMatrix_chance[forx] then
+                    if s__YDWEStringFormula___FormulaMatrix_model[forx] != null then
+                        call DestroyEffect(AddSpecialEffectTarget(s__YDWEStringFormula___FormulaMatrix_model[forx], caster, "origin"))
                     endif
                     
-                    if s__YDWEStringFormula__FormulaMatrix_message[forx] != null then
-                        call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 30, s__YDWEStringFormula__FormulaMatrix_message[forx])
+                    if s__YDWEStringFormula___FormulaMatrix_message[forx] != null then
+                        call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 30, s__YDWEStringFormula___FormulaMatrix_message[forx])
                     endif
                 
                     set i=0
@@ -6292,7 +6306,7 @@ endfunction
                     call UnitAddItem(caster, it)
                     set bj_lastCombinedItem=it
                     call YDWESyStemItemCombineTriggerAction()
-                elseif s__YDWEStringFormula__FormulaMatrix_delete[forx] then
+                elseif s__YDWEStringFormula___FormulaMatrix_delete[forx] then
                     set i=0
                     loop
                         exitwhen i == sum
@@ -6326,8 +6340,8 @@ endfunction
         set caster=null
         set it=null
     endfunction
-    function YDWEStringFormula__Init takes nothing returns nothing
-        local filterfunc f= Filter(function YDWEStringFormula__Adaptation)
+    function YDWEStringFormula___Init takes nothing returns nothing
+        local filterfunc f= Filter(function YDWEStringFormula___Adaptation)
         local trigger t= CreateTrigger()
         local integer i= 0
         
@@ -6337,8 +6351,8 @@ endfunction
             set i=i + 1
         endloop
         
-        call TriggerAddCondition(t, Condition(function YDWEStringFormula__verify))
-        call TriggerAddAction(t, function YDWEStringFormula__CraftItem)
+        call TriggerAddCondition(t, Condition(function YDWEStringFormula___verify))
+        call TriggerAddAction(t, function YDWEStringFormula___CraftItem)
         call DestroyFilter(f)
         
         set f=null
@@ -6350,27 +6364,27 @@ endfunction
     
     // call YDWENewItemsFormula('rat6', 6, 'rat9', 5, 'ratc', 4, 'rde1', 3, 'rde2', 2, 'rde3', 1, 'mcou')
     function YDWENewItemsFormula takes integer type1,integer n1,integer type2,integer n2,integer type3,integer n3,integer type4,integer n4,integer type5,integer n5,integer type6,integer n6,integer eventually returns nothing
-        local integer sort= s__YDWEStringFormula__Sorting_create(type1 , n1 , type2 , n2 , type3 , n3 , type4 , n4 , type5 , n5 , type6 , n6 , 0 , 0)
-        local integer itmx= s__YDWEStringFormula__ItemIdMatrix_assigns(eventually)
-        local string f= I2S(YDWEStringFormula__SEGMENT_LENGTH) + s__YDWEStringFormula__Sorting_convert(sort)
+        local integer sort= s__YDWEStringFormula___Sorting_create(type1 , n1 , type2 , n2 , type3 , n3 , type4 , n4 , type5 , n5 , type6 , n6 , 0 , 0)
+        local integer itmx= s__YDWEStringFormula___ItemIdMatrix_assigns(eventually)
+        local string f= I2S(YDWEStringFormula___SEGMENT_LENGTH) + s__YDWEStringFormula___Sorting_convert(sort)
         local string s= ""
         local integer i= 0
         
-        set YDWEStringFormula__FormulaData=s__YDWEStringFormula__FormulaMatrix_memory(YDWEStringFormula__SEGMENT_LENGTH , f , itmx)
-        if (YDWEStringFormula__FormulaData) > 0 then
-            set s=YDWEStringFormula__Convert((YDWEStringFormula__FormulaData) , YDWEStringFormula__SEGMENT_LENGTH)
+        set YDWEStringFormula___FormulaData=s__YDWEStringFormula___FormulaMatrix_memory(YDWEStringFormula___SEGMENT_LENGTH , f , itmx)
+        if (YDWEStringFormula___FormulaData) > 0 then
+            set s=YDWEStringFormula___Convert((YDWEStringFormula___FormulaData) , YDWEStringFormula___SEGMENT_LENGTH)
             
             set i=0
             loop
-                exitwhen i > s__YDWEStringFormula__Sorting_total[sort]
-                call s__YDWEStringFormula__ItemIdMatrix_memory(s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[sort]+i],s)
+                exitwhen i > s__YDWEStringFormula___Sorting_total[sort]
+                call s__YDWEStringFormula___ItemIdMatrix_memory(s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[sort]+i],s)
                 set i=i + 1
             endloop
             
-            call s__YDWEStringFormula__ItemIdMatrix_memory(itmx,s)
+            call s__YDWEStringFormula___ItemIdMatrix_memory(itmx,s)
         endif
         
-        call s__YDWEStringFormula__Sorting_deallocate(sort)
+        call s__YDWEStringFormula___Sorting_deallocate(sort)
         set f=""
         set s=""
     endfunction
@@ -6385,7 +6399,7 @@ endfunction
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //                                       Timer Pattern Union                                              //
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    function YDWETimerPattern__SingleMagic takes unit sour,unit targ,real x,real y,real h,integer uid,integer aid,integer lv,integer order returns nothing
+    function YDWETimerPattern___SingleMagic takes unit sour,unit targ,real x,real y,real h,integer uid,integer aid,integer lv,integer order returns nothing
         local unit dummy= CreateUnit(GetOwningPlayer(sour), uid, x, y, GetUnitFacing(sour))
         call UnitApplyTimedLife(dummy, 'BHwe', 1.0)
         call UnitAddAbility(dummy, aid)
@@ -6395,34 +6409,34 @@ endfunction
         //debug call BJDebugMsg("Target order")
         set dummy=null
     endfunction
-    function YDWETimerPattern__GetUnitZ takes unit u returns real
-        call MoveLocation(YDWETimerPattern__yd_loc, GetUnitX(u), GetUnitY(u))
-        return GetUnitFlyHeight(u) + GetLocationZ(YDWETimerPattern__yd_loc)
+    function YDWETimerPattern___GetUnitZ takes unit u returns real
+        call MoveLocation(YDWETimerPattern___yd_loc, GetUnitX(u), GetUnitY(u))
+        return GetUnitFlyHeight(u) + GetLocationZ(YDWETimerPattern___yd_loc)
     endfunction
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //                                            Filter Funcs                                                //
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    function YDWETimerPattern__EnemyFilter takes unit u,unit caster returns boolean
+    function YDWETimerPattern___EnemyFilter takes unit u,unit caster returns boolean
         return IsUnitType(u, UNIT_TYPE_MAGIC_IMMUNE) == false and IsUnitType(u, UNIT_TYPE_RESISTANT) == false and IsUnitType(u, UNIT_TYPE_SLEEPING) == false and GetUnitState(u, UNIT_STATE_LIFE) > 0.405 and IsUnitType(u, UNIT_TYPE_STRUCTURE) == false and IsUnitIllusion(u) == false and IsUnitHidden(u) == false and IsUnitEnemy(u, GetOwningPlayer(caster)) and IsUnitVisible(u, GetOwningPlayer(caster))
     endfunction
-    function YDWETimerPattern__TreeFilter takes nothing returns boolean
+    function YDWETimerPattern___TreeFilter takes nothing returns boolean
         local integer id= GetDestructableTypeId(GetFilterDestructable())
         return id == 'LTlt' or id == 'ATtr' or id == 'BTtw' or id == 'KTtw' or id == 'YTft' or id == 'JTct' or id == 'YTst' or id == 'YTct' or id == 'YTwt' or id == 'JTtw' or id == 'DTsh' or id == 'FTtw' or id == 'CTtr' or id == 'ITtw' or id == 'NTtw' or id == 'OTtw' or id == 'ZTtw' or id == 'WTst' or id == 'GTsh' or id == 'VTlt' or id == 'WTtw' or id == 'ATtc' or id == 'BTtc' or id == 'CTtc' or id == 'ITtc' or id == 'NTtc' or id == 'ZTtc'
     endfunction
-    function YDWETimerPattern__DamageFilter takes nothing returns boolean
+    function YDWETimerPattern___DamageFilter takes nothing returns boolean
         local unit u= GetFilterUnit()
-        local integer d= YDWETimerPattern__tmp_data
-        if not ( IsUnitInGroup(u, s__YDWETimerPattern__Thread_g[d]) ) and s__YDWETimerPattern__Thread_switch[d] != 0 and YDWETimerPattern__EnemyFilter(u , s__YDWETimerPattern__Thread_caster[d]) then
-            call UnitDamageTarget(s__YDWETimerPattern__Thread_caster[d], u, s__YDWETimerPattern__Thread_amount[d], true, true, bj_lastSetAttackType, bj_lastSetDamageType, bj_lastSetWeaponType)
-            call DestroyEffect(AddSpecialEffectTarget(s__YDWETimerPattern__Thread_dsfx[d], u, s__YDWETimerPattern__Thread_part[d]))
-            if s__YDWETimerPattern__Thread_skills[d] > '0000' and s__YDWETimerPattern__Thread_skills[d] != null and s__YDWETimerPattern__Thread_order[d] > 0 and s__YDWETimerPattern__Thread_order[d] != null then
-                call YDWETimerPattern__SingleMagic(s__YDWETimerPattern__Thread_caster[d] , u , s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[d]] , s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[d]] , GetUnitFlyHeight(s__YDWETimerPattern__Thread_obj[d]) , s__YDWETimerPattern__Thread_unitid[d] , s__YDWETimerPattern__Thread_skills[d] , s__YDWETimerPattern__Thread_level[d] , s__YDWETimerPattern__Thread_order[d])
+        local integer d= YDWETimerPattern___tmp_data
+        if not ( IsUnitInGroup(u, s__YDWETimerPattern___Thread_g[d]) ) and s__YDWETimerPattern___Thread_switch[d] != 0 and YDWETimerPattern___EnemyFilter(u , s__YDWETimerPattern___Thread_caster[d]) then
+            call UnitDamageTarget(s__YDWETimerPattern___Thread_caster[d], u, s__YDWETimerPattern___Thread_amount[d], true, true, bj_lastSetAttackType, bj_lastSetDamageType, bj_lastSetWeaponType)
+            call DestroyEffect(AddSpecialEffectTarget(s__YDWETimerPattern___Thread_dsfx[d], u, s__YDWETimerPattern___Thread_part[d]))
+            if s__YDWETimerPattern___Thread_skills[d] > '0000' and s__YDWETimerPattern___Thread_skills[d] != null and s__YDWETimerPattern___Thread_order[d] > 0 and s__YDWETimerPattern___Thread_order[d] != null then
+                call YDWETimerPattern___SingleMagic(s__YDWETimerPattern___Thread_caster[d] , u , s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[d]] , s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[d]] , GetUnitFlyHeight(s__YDWETimerPattern___Thread_obj[d]) , s__YDWETimerPattern___Thread_unitid[d] , s__YDWETimerPattern___Thread_skills[d] , s__YDWETimerPattern___Thread_level[d] , s__YDWETimerPattern___Thread_order[d])
             endif
-            if not ( s__YDWETimerPattern__Thread_recycle[d] ) then
+            if not ( s__YDWETimerPattern___Thread_recycle[d] ) then
                 //debug call BJDebugMsg("|cff00ff00[YDWE] Timer Pattern : |r A one-time.")
-                set s__YDWETimerPattern__Thread_switch[d]=0
+                set s__YDWETimerPattern___Thread_switch[d]=0
             endif
-            set s__YDWETimerPattern__Thread_target[d]=u
+            set s__YDWETimerPattern___Thread_target[d]=u
             //call GroupAddUnit(d.g, u)
             set u=null
             return true
@@ -6430,7 +6444,7 @@ endfunction
         set u=null
         return false
     endfunction
-    function YDWETimerPattern__TreeKill takes nothing returns nothing
+    function YDWETimerPattern___TreeKill takes nothing returns nothing
         local destructable d= GetEnumDestructable()
         if GetWidgetLife(d) > 0.405 then
             call KillDestructable(d)
@@ -6440,266 +6454,266 @@ endfunction
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //                                         Major Structure Code                                           //
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-        function s__YDWETimerPattern__Thread__staticgetindex takes handle h returns integer
+        function s__YDWETimerPattern___Thread__staticgetindex takes handle h returns integer
             return (LoadInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId((h)))))))) // INLINED!!
         endfunction
-        function s__YDWETimerPattern__Thread__staticsetindex takes handle h,integer value returns nothing
+        function s__YDWETimerPattern___Thread__staticsetindex takes handle h,integer value returns nothing
             call SaveInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId((h)))) )), ( value)) // INLINED!!
         endfunction
-        function s__YDWETimerPattern__Thread_flush takes handle h returns nothing
+        function s__YDWETimerPattern___Thread_flush takes handle h returns nothing
             call RemoveSavedInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId((h))))))) // INLINED!!
         endfunction
-        function s__YDWETimerPattern__Thread__set_x takes integer this,real value returns nothing
-            set s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]]=value
-            call SetUnitX(s__YDWETimerPattern__Thread_obj[this], value)
+        function s__YDWETimerPattern___Thread__set_x takes integer this,real value returns nothing
+            set s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]]=value
+            call SetUnitX(s__YDWETimerPattern___Thread_obj[this], value)
         endfunction
-        function s__YDWETimerPattern__Thread__set_y takes integer this,real value returns nothing
-            set s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]]=value
-            call SetUnitY(s__YDWETimerPattern__Thread_obj[this], value)
+        function s__YDWETimerPattern___Thread__set_y takes integer this,real value returns nothing
+            set s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]]=value
+            call SetUnitY(s__YDWETimerPattern___Thread_obj[this], value)
         endfunction
-        function s__YDWETimerPattern__Thread__set_z takes integer this,real value returns nothing
-            set s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_pos[this]]=value
-            call MoveLocation(YDWETimerPattern__yd_loc, s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]], s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]])
-            call SetUnitFlyHeight(s__YDWETimerPattern__Thread_obj[this], value - GetLocationZ(YDWETimerPattern__yd_loc), 0)
+        function s__YDWETimerPattern___Thread__set_z takes integer this,real value returns nothing
+            set s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_pos[this]]=value
+            call MoveLocation(YDWETimerPattern___yd_loc, s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]], s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]])
+            call SetUnitFlyHeight(s__YDWETimerPattern___Thread_obj[this], value - GetLocationZ(YDWETimerPattern___yd_loc), 0)
         endfunction
-        function s__YDWETimerPattern__Thread_onDestroy takes integer this returns nothing
+        function s__YDWETimerPattern___Thread_onDestroy takes integer this returns nothing
             //debug call BJDebugMsg("|cff00ff00[YDWE] Timer Pattern : |r Knockback stopped!")
-            call RemoveSavedInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern__Thread_obj[this])))))))) // INLINED!!
-            call RemoveSavedInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern__Thread_t[this])))))))) // INLINED!!
-            call GroupClear(s__YDWETimerPattern__Thread_g[this])
-            call DestroyGroup(s__YDWETimerPattern__Thread_g[this])
-            call PauseTimer(s__YDWETimerPattern__Thread_t[this])
-            call DestroyTimer(s__YDWETimerPattern__Thread_t[this])
-            call s__YDWETimerPattern__YDVector3_deallocate(s__YDWETimerPattern__Thread_des[this])
-            call s__YDWETimerPattern__YDVector3_deallocate(s__YDWETimerPattern__Thread_pos[this])
-            call s__YDWETimerPattern__YDVector3_deallocate(s__YDWETimerPattern__Thread_vel[this])
-            set s__YDWETimerPattern__Thread_caster[this]=null
-            set s__YDWETimerPattern__Thread_target[this]=null
-            set s__YDWETimerPattern__Thread_obj[this]=null
-            set s__YDWETimerPattern__Thread_g[this]=null
-            set s__YDWETimerPattern__Thread_t[this]=null
-            set s__YDWETimerPattern__Thread_amount[this]=0
-            set s__YDWETimerPattern__Thread_skills[this]=0
-            set s__YDWETimerPattern__Thread_order[this]=0
-            set s__YDWETimerPattern__Thread_dsfx[this]=""
-            set s__YDWETimerPattern__Thread_gsfx[this]=""
-            set s__YDWETimerPattern__Thread_wsfx[this]=""
-            set s__YDWETimerPattern__Thread_part[this]=""
+            call RemoveSavedInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern___Thread_obj[this])))))))) // INLINED!!
+            call RemoveSavedInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern___Thread_t[this])))))))) // INLINED!!
+            call GroupClear(s__YDWETimerPattern___Thread_g[this])
+            call DestroyGroup(s__YDWETimerPattern___Thread_g[this])
+            call PauseTimer(s__YDWETimerPattern___Thread_t[this])
+            call DestroyTimer(s__YDWETimerPattern___Thread_t[this])
+            call s__YDWETimerPattern___YDVector3_deallocate(s__YDWETimerPattern___Thread_des[this])
+            call s__YDWETimerPattern___YDVector3_deallocate(s__YDWETimerPattern___Thread_pos[this])
+            call s__YDWETimerPattern___YDVector3_deallocate(s__YDWETimerPattern___Thread_vel[this])
+            set s__YDWETimerPattern___Thread_caster[this]=null
+            set s__YDWETimerPattern___Thread_target[this]=null
+            set s__YDWETimerPattern___Thread_obj[this]=null
+            set s__YDWETimerPattern___Thread_g[this]=null
+            set s__YDWETimerPattern___Thread_t[this]=null
+            set s__YDWETimerPattern___Thread_amount[this]=0
+            set s__YDWETimerPattern___Thread_skills[this]=0
+            set s__YDWETimerPattern___Thread_order[this]=0
+            set s__YDWETimerPattern___Thread_dsfx[this]=""
+            set s__YDWETimerPattern___Thread_gsfx[this]=""
+            set s__YDWETimerPattern___Thread_wsfx[this]=""
+            set s__YDWETimerPattern___Thread_part[this]=""
         endfunction
-        function s__YDWETimerPattern__Parabola_move takes nothing returns nothing
+        function s__YDWETimerPattern___Parabola_move takes nothing returns nothing
             local integer this= (LoadInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((GetExpiredTimer()))))))))) // INLINED!!
             //local real vx = .des.x - .pos.x
             //local real vy = .des.y - .pos.y
             //local real vz = .des.z - .pos.z
             //if vx * vx + vy * vy + vz * vz > 900.0 then
-                call s__YDWETimerPattern__Thread__set_x(this,GetUnitX(s__YDWETimerPattern__Thread_obj[this]) + s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_vel[this]]) //.pos.x + .vel.x
-call s__YDWETimerPattern__Thread__set_y(this,GetUnitY(s__YDWETimerPattern__Thread_obj[this]) + s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_vel[this]]) //.pos.y + .vel.y
-call s__YDWETimerPattern__Thread__set_z(this,YDWETimerPattern__GetUnitZ(s__YDWETimerPattern__Thread_obj[this]) + s__YDWETimerPattern__Thread_ac[this] * s__YDWETimerPattern__Thread_step[this] * 2 + s__YDWETimerPattern__Thread_ac[this] * s__YDWETimerPattern__Thread_dist[this] + s__YDWETimerPattern__Thread_bc[this]) //.pos.z + .ac * .step * 2 + .ac * .dist + .bc
-set s__YDWETimerPattern__Thread_step[this]=s__YDWETimerPattern__Thread_step[this] + s__YDWETimerPattern__Thread_dist[this]
+                call s__YDWETimerPattern___Thread__set_x(this,GetUnitX(s__YDWETimerPattern___Thread_obj[this]) + s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_vel[this]]) //.pos.x + .vel.x
+call s__YDWETimerPattern___Thread__set_y(this,GetUnitY(s__YDWETimerPattern___Thread_obj[this]) + s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_vel[this]]) //.pos.y + .vel.y
+call s__YDWETimerPattern___Thread__set_z(this,YDWETimerPattern___GetUnitZ(s__YDWETimerPattern___Thread_obj[this]) + s__YDWETimerPattern___Thread_ac[this] * s__YDWETimerPattern___Thread_step[this] * 2 + s__YDWETimerPattern___Thread_ac[this] * s__YDWETimerPattern___Thread_dist[this] + s__YDWETimerPattern___Thread_bc[this]) //.pos.z + .ac * .step * 2 + .ac * .dist + .bc
+set s__YDWETimerPattern___Thread_step[this]=s__YDWETimerPattern___Thread_step[this] + s__YDWETimerPattern___Thread_dist[this]
                 //debug call BJDebugMsg("|cff00ff00[YDWE] Timer Pattern : |r high = ." + R2S(GetLocationZ(yd_loc)))
-                if (RMinBJ(RMaxBJ(((s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]])*1.0), yd_MapMinX), yd_MapMaxX)) != s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]] or (RMinBJ(RMaxBJ(((s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]])*1.0), yd_MapMinY), yd_MapMaxY)) != s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]] or s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_pos[this]] <= GetLocationZ(YDWETimerPattern__yd_loc) then // INLINED!!
-                    set s__YDWETimerPattern__Thread_switch[this]=0
+                if (RMinBJ(RMaxBJ(((s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]])*1.0), yd_MapMinX), yd_MapMaxX)) != s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]] or (RMinBJ(RMaxBJ(((s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]])*1.0), yd_MapMinY), yd_MapMaxY)) != s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]] or s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_pos[this]] <= GetLocationZ(YDWETimerPattern___yd_loc) then // INLINED!!
+                    set s__YDWETimerPattern___Thread_switch[this]=0
                 endif
-                if s__YDWETimerPattern__Thread_amount[this] > 0.0 then
+                if s__YDWETimerPattern___Thread_amount[this] > 0.0 then
                     //call this.damage(.caster, .pos.x + .vel.x, .pos.y + .vel.y, GetUnitZ(.obj), false, false)
-                    set YDWETimerPattern__tmp_data=(this)
-                    call GroupEnumUnitsInRange(s__YDWETimerPattern__Thread_g[this], s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]] + s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_vel[this]], s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]] + s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_vel[this]], 120.0, Condition(function YDWETimerPattern__DamageFilter))
+                    set YDWETimerPattern___tmp_data=(this)
+                    call GroupEnumUnitsInRange(s__YDWETimerPattern___Thread_g[this], s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]] + s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_vel[this]], s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]] + s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_vel[this]], 120.0, Condition(function YDWETimerPattern___DamageFilter))
                     //debug call BJDebugMsg("|cff00ff00[YDWE] Timer Pattern : |r Area damage.")
                 endif
             //else
                 //set .switch = 0
             //endif
-            if s__YDWETimerPattern__Thread_switch[this] == 0 then
-                call SetUnitFlyHeight(s__YDWETimerPattern__Thread_obj[this], GetUnitDefaultFlyHeight(s__YDWETimerPattern__Thread_obj[this]), 200.0)
-                call SetUnitTimeScale(s__YDWETimerPattern__Thread_obj[this], 1)
+            if s__YDWETimerPattern___Thread_switch[this] == 0 then
+                call SetUnitFlyHeight(s__YDWETimerPattern___Thread_obj[this], GetUnitDefaultFlyHeight(s__YDWETimerPattern___Thread_obj[this]), 200.0)
+                call SetUnitTimeScale(s__YDWETimerPattern___Thread_obj[this], 1)
                 //YDWETriggerEvent
-                call YDWESyStemAbilityCastingOverTriggerAction(s__YDWETimerPattern__Thread_obj[this] , 7)
-                call sc__YDWETimerPattern__Thread_deallocate(this)
+                call YDWESyStemAbilityCastingOverTriggerAction(s__YDWETimerPattern___Thread_obj[this] , 7)
+                call sc__YDWETimerPattern___Thread_deallocate(this)
             endif
         endfunction
-        function s__YDWETimerPattern__Parabola_create takes unit source,unit object,real angle,real distance,real time,real interval,real high,real damage,string attach,string deff returns integer
-            local integer this= s__YDWETimerPattern__Parabola__allocate()
+        function s__YDWETimerPattern___Parabola_create takes unit source,unit object,real angle,real distance,real time,real interval,real high,real damage,string attach,string deff returns integer
+            local integer this= s__YDWETimerPattern___Parabola__allocate()
             local real vx= 0.0
             local real vy= 0.0
             local real vz= 0.0
-            set s__YDWETimerPattern__Thread_des[this]=s__YDWETimerPattern__YDVector3__allocate()
-            set s__YDWETimerPattern__Thread_pos[this]=s__YDWETimerPattern__YDVector3__allocate()
-            set s__YDWETimerPattern__Thread_vel[this]=s__YDWETimerPattern__YDVector3__allocate()
-            set s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]]=GetUnitX(object)
-            set s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]]=GetUnitY(object)
-            set s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_pos[this]]=YDWETimerPattern__GetUnitZ(object)
-            set s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_des[this]]=s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]] + distance * Cos(angle)
-            set s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_des[this]]=s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]] + distance * Sin(angle)
-            call MoveLocation(YDWETimerPattern__yd_loc, s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_des[this]], s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_des[this]])
-            set s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_des[this]]=GetLocationZ(YDWETimerPattern__yd_loc)
-            if s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_pos[this]] > s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_des[this]] then
-                set high=high + s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_pos[this]]
+            set s__YDWETimerPattern___Thread_des[this]=s__YDWETimerPattern___YDVector3__allocate()
+            set s__YDWETimerPattern___Thread_pos[this]=s__YDWETimerPattern___YDVector3__allocate()
+            set s__YDWETimerPattern___Thread_vel[this]=s__YDWETimerPattern___YDVector3__allocate()
+            set s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]]=GetUnitX(object)
+            set s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]]=GetUnitY(object)
+            set s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_pos[this]]=YDWETimerPattern___GetUnitZ(object)
+            set s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_des[this]]=s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]] + distance * Cos(angle)
+            set s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_des[this]]=s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]] + distance * Sin(angle)
+            call MoveLocation(YDWETimerPattern___yd_loc, s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_des[this]], s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_des[this]])
+            set s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_des[this]]=GetLocationZ(YDWETimerPattern___yd_loc)
+            if s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_pos[this]] > s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_des[this]] then
+                set high=high + s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_pos[this]]
             else
-                set high=high + s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_des[this]]
+                set high=high + s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_des[this]]
             endif
-            set s__YDWETimerPattern__Thread_ac[this]=( 2 * ( s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_pos[this]] + s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_des[this]] ) - 4 * high ) / ( distance * distance )
-            set s__YDWETimerPattern__Thread_bc[this]=( s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_des[this]] - s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_pos[this]] - s__YDWETimerPattern__Thread_ac[this] * distance * distance ) / distance
-            set s__YDWETimerPattern__Thread_dist[this]=distance * interval / time
-            set s__YDWETimerPattern__Thread_ac[this]=s__YDWETimerPattern__Thread_ac[this] * s__YDWETimerPattern__Thread_dist[this]
-            set s__YDWETimerPattern__Thread_bc[this]=s__YDWETimerPattern__Thread_bc[this] * s__YDWETimerPattern__Thread_dist[this]
-            set s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_vel[this]]=s__YDWETimerPattern__Thread_dist[this] * Cos(angle)
-            set s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_vel[this]]=s__YDWETimerPattern__Thread_dist[this] * Sin(angle)
-            set s__YDWETimerPattern__Thread_step[this]=0.0
-            set s__YDWETimerPattern__Thread_caster[this]=source
-            set s__YDWETimerPattern__Thread_obj[this]=object
-            set s__YDWETimerPattern__Thread_amount[this]=damage
-            set s__YDWETimerPattern__Thread_dsfx[this]=deff
-            set s__YDWETimerPattern__Thread_part[this]=attach
-            set s__YDWETimerPattern__Thread_switch[this]=1
-            set s__YDWETimerPattern__Thread_recycle[this]=true
-            set s__YDWETimerPattern__Thread_t[this]=CreateTimer()
-            set s__YDWETimerPattern__Thread_g[this]=CreateGroup()
-            call UnitAddAbility(s__YDWETimerPattern__Thread_obj[this], 'Amrf')
-            call UnitRemoveAbility(s__YDWETimerPattern__Thread_obj[this], 'Amrf')
-            call TimerStart(s__YDWETimerPattern__Thread_t[this], interval, true, function s__YDWETimerPattern__Parabola_move)
-            call GroupAddUnit(s__YDWETimerPattern__Thread_g[this], object)
+            set s__YDWETimerPattern___Thread_ac[this]=( 2 * ( s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_pos[this]] + s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_des[this]] ) - 4 * high ) / ( distance * distance )
+            set s__YDWETimerPattern___Thread_bc[this]=( s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_des[this]] - s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_pos[this]] - s__YDWETimerPattern___Thread_ac[this] * distance * distance ) / distance
+            set s__YDWETimerPattern___Thread_dist[this]=distance * interval / time
+            set s__YDWETimerPattern___Thread_ac[this]=s__YDWETimerPattern___Thread_ac[this] * s__YDWETimerPattern___Thread_dist[this]
+            set s__YDWETimerPattern___Thread_bc[this]=s__YDWETimerPattern___Thread_bc[this] * s__YDWETimerPattern___Thread_dist[this]
+            set s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_vel[this]]=s__YDWETimerPattern___Thread_dist[this] * Cos(angle)
+            set s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_vel[this]]=s__YDWETimerPattern___Thread_dist[this] * Sin(angle)
+            set s__YDWETimerPattern___Thread_step[this]=0.0
+            set s__YDWETimerPattern___Thread_caster[this]=source
+            set s__YDWETimerPattern___Thread_obj[this]=object
+            set s__YDWETimerPattern___Thread_amount[this]=damage
+            set s__YDWETimerPattern___Thread_dsfx[this]=deff
+            set s__YDWETimerPattern___Thread_part[this]=attach
+            set s__YDWETimerPattern___Thread_switch[this]=1
+            set s__YDWETimerPattern___Thread_recycle[this]=true
+            set s__YDWETimerPattern___Thread_t[this]=CreateTimer()
+            set s__YDWETimerPattern___Thread_g[this]=CreateGroup()
+            call UnitAddAbility(s__YDWETimerPattern___Thread_obj[this], 'Amrf')
+            call UnitRemoveAbility(s__YDWETimerPattern___Thread_obj[this], 'Amrf')
+            call TimerStart(s__YDWETimerPattern___Thread_t[this], interval, true, function s__YDWETimerPattern___Parabola_move)
+            call GroupAddUnit(s__YDWETimerPattern___Thread_g[this], object)
             call SaveInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((object))))) )), ( ( (this)))) // INLINED!!
-            call SaveInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern__Thread_t[this]))))) )), ( ( (this)))) // INLINED!!
+            call SaveInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern___Thread_t[this]))))) )), ( ( (this)))) // INLINED!!
             return this
         endfunction
     // uniform speed
-        function s__YDWETimerPattern__Linear_move takes nothing returns nothing
+        function s__YDWETimerPattern___Linear_move takes nothing returns nothing
             local integer this= (LoadInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((GetExpiredTimer()))))))))) // INLINED!!
-            if s__YDWETimerPattern__Thread_step[this] > s__YDWETimerPattern__Thread_dist[this] then
-                call s__YDWETimerPattern__Thread__set_x(this,GetUnitX(s__YDWETimerPattern__Thread_obj[this]) + s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_vel[this]]) //.pos.x + .vel.x
-call s__YDWETimerPattern__Thread__set_y(this,GetUnitY(s__YDWETimerPattern__Thread_obj[this]) + s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_vel[this]]) //.pos.y + .vel.y
+            if s__YDWETimerPattern___Thread_step[this] > s__YDWETimerPattern___Thread_dist[this] then
+                call s__YDWETimerPattern___Thread__set_x(this,GetUnitX(s__YDWETimerPattern___Thread_obj[this]) + s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_vel[this]]) //.pos.x + .vel.x
+call s__YDWETimerPattern___Thread__set_y(this,GetUnitY(s__YDWETimerPattern___Thread_obj[this]) + s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_vel[this]]) //.pos.y + .vel.y
 //set .pos.z = GetUnitZ(.obj)
-set s__YDWETimerPattern__Thread_step[this]=s__YDWETimerPattern__Thread_step[this] - s__YDWETimerPattern__Thread_dist[this]
+set s__YDWETimerPattern___Thread_step[this]=s__YDWETimerPattern___Thread_step[this] - s__YDWETimerPattern___Thread_dist[this]
                 //call this.damage(.caster, .pos.x, .pos.y, .pos.z, true, true)
-                set YDWETimerPattern__tmp_data=(this)
-                call GroupEnumUnitsInRange(s__YDWETimerPattern__Thread_g[this], s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]] + s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_vel[this]], s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]] + s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_vel[this]], 120.0, Condition(function YDWETimerPattern__DamageFilter))
-                if (RMinBJ(RMaxBJ(((s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]])*1.0), yd_MapMinX), yd_MapMaxX)) != s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]] or (RMinBJ(RMaxBJ(((s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]])*1.0), yd_MapMinY), yd_MapMaxY)) != s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]] then // INLINED!!
-                    set s__YDWETimerPattern__Thread_switch[this]=0
+                set YDWETimerPattern___tmp_data=(this)
+                call GroupEnumUnitsInRange(s__YDWETimerPattern___Thread_g[this], s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]] + s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_vel[this]], s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]] + s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_vel[this]], 120.0, Condition(function YDWETimerPattern___DamageFilter))
+                if (RMinBJ(RMaxBJ(((s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]])*1.0), yd_MapMinX), yd_MapMaxX)) != s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]] or (RMinBJ(RMaxBJ(((s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]])*1.0), yd_MapMinY), yd_MapMaxY)) != s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]] then // INLINED!!
+                    set s__YDWETimerPattern___Thread_switch[this]=0
                 endif
             else
-                set s__YDWETimerPattern__Thread_switch[this]=0
+                set s__YDWETimerPattern___Thread_switch[this]=0
             endif
-            if s__YDWETimerPattern__Thread_switch[this] == 0 then
+            if s__YDWETimerPattern___Thread_switch[this] == 0 then
                 // YDWETriggerEvent
-                if s__YDWETimerPattern__Thread_target[this] != null then
+                if s__YDWETimerPattern___Thread_target[this] != null then
                     //debug call BJDebugMsg("|cff00ff00[YDWE] Timer Pattern : |r  |cffff0000" + GetUnitName(.target) + "|r was hit!!!")
                     //call YDWESaveUnitByString(I2S(YDWEH2I(.caster)), "MoonPriestessArrow", .target)
-                    set bj_lastAbilityTargetUnit=s__YDWETimerPattern__Thread_target[this]
-                    call YDWESyStemAbilityCastingOverTriggerAction(s__YDWETimerPattern__Thread_caster[this] , 8)
+                    set bj_lastAbilityTargetUnit=s__YDWETimerPattern___Thread_target[this]
+                    call YDWESyStemAbilityCastingOverTriggerAction(s__YDWETimerPattern___Thread_caster[this] , 8)
                 else
-                    call YDWESyStemAbilityCastingOverTriggerAction(s__YDWETimerPattern__Thread_caster[this] , 9)
+                    call YDWESyStemAbilityCastingOverTriggerAction(s__YDWETimerPattern___Thread_caster[this] , 9)
                 endif
                 //call KillUnit(.obj)
-                call RemoveUnit(s__YDWETimerPattern__Thread_obj[this])
-                call sc__YDWETimerPattern__Thread_deallocate(this)
+                call RemoveUnit(s__YDWETimerPattern___Thread_obj[this])
+                call sc__YDWETimerPattern___Thread_deallocate(this)
             endif
         endfunction
-        function s__YDWETimerPattern__Linear_create takes unit source,unit object,real angle,real distance,real time,real interval,integer uid,integer aid,integer lv,integer orderid,string attach,string sfx returns integer
-            local integer this= s__YDWETimerPattern__Linear__allocate()
-            set s__YDWETimerPattern__Thread_des[this]=s__YDWETimerPattern__YDVector3__allocate()
-            set s__YDWETimerPattern__Thread_pos[this]=s__YDWETimerPattern__YDVector3__allocate()
-            set s__YDWETimerPattern__Thread_vel[this]=s__YDWETimerPattern__YDVector3__allocate()
-            set s__YDWETimerPattern__Thread_step[this]=distance
-            set s__YDWETimerPattern__Thread_dist[this]=distance * interval / time
-            set s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_vel[this]]=s__YDWETimerPattern__Thread_dist[this] * Cos(angle)
-            set s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_vel[this]]=s__YDWETimerPattern__Thread_dist[this] * Sin(angle)
-            set s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]]=GetUnitX(object)
-            set s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]]=GetUnitY(object)
-            set s__YDWETimerPattern__Thread_caster[this]=source
-            set s__YDWETimerPattern__Thread_obj[this]=object
-            set s__YDWETimerPattern__Thread_unitid[this]=uid
-            set s__YDWETimerPattern__Thread_skills[this]=aid
-            set s__YDWETimerPattern__Thread_level[this]=lv
-            set s__YDWETimerPattern__Thread_order[this]=orderid
-            set s__YDWETimerPattern__Thread_part[this]=attach
-            set s__YDWETimerPattern__Thread_gsfx[this]=sfx
-            set s__YDWETimerPattern__Thread_switch[this]=1
-            set s__YDWETimerPattern__Thread_recycle[this]=false
-            set s__YDWETimerPattern__Thread_t[this]=CreateTimer()
-            set s__YDWETimerPattern__Thread_g[this]=CreateGroup()
-            call TimerStart(s__YDWETimerPattern__Thread_t[this], interval, true, function s__YDWETimerPattern__Linear_move)
-            call SaveInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern__Thread_t[this]))))) )), ( ( (this)))) // INLINED!!
+        function s__YDWETimerPattern___Linear_create takes unit source,unit object,real angle,real distance,real time,real interval,integer uid,integer aid,integer lv,integer orderid,string attach,string sfx returns integer
+            local integer this= s__YDWETimerPattern___Linear__allocate()
+            set s__YDWETimerPattern___Thread_des[this]=s__YDWETimerPattern___YDVector3__allocate()
+            set s__YDWETimerPattern___Thread_pos[this]=s__YDWETimerPattern___YDVector3__allocate()
+            set s__YDWETimerPattern___Thread_vel[this]=s__YDWETimerPattern___YDVector3__allocate()
+            set s__YDWETimerPattern___Thread_step[this]=distance
+            set s__YDWETimerPattern___Thread_dist[this]=distance * interval / time
+            set s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_vel[this]]=s__YDWETimerPattern___Thread_dist[this] * Cos(angle)
+            set s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_vel[this]]=s__YDWETimerPattern___Thread_dist[this] * Sin(angle)
+            set s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]]=GetUnitX(object)
+            set s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]]=GetUnitY(object)
+            set s__YDWETimerPattern___Thread_caster[this]=source
+            set s__YDWETimerPattern___Thread_obj[this]=object
+            set s__YDWETimerPattern___Thread_unitid[this]=uid
+            set s__YDWETimerPattern___Thread_skills[this]=aid
+            set s__YDWETimerPattern___Thread_level[this]=lv
+            set s__YDWETimerPattern___Thread_order[this]=orderid
+            set s__YDWETimerPattern___Thread_part[this]=attach
+            set s__YDWETimerPattern___Thread_gsfx[this]=sfx
+            set s__YDWETimerPattern___Thread_switch[this]=1
+            set s__YDWETimerPattern___Thread_recycle[this]=false
+            set s__YDWETimerPattern___Thread_t[this]=CreateTimer()
+            set s__YDWETimerPattern___Thread_g[this]=CreateGroup()
+            call TimerStart(s__YDWETimerPattern___Thread_t[this], interval, true, function s__YDWETimerPattern___Linear_move)
+            call SaveInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern___Thread_t[this]))))) )), ( ( (this)))) // INLINED!!
             return this
         endfunction
     // Uniform deceleration
-        function s__YDWETimerPattern__Deceleration_move takes nothing returns nothing
+        function s__YDWETimerPattern___Deceleration_move takes nothing returns nothing
             local integer this= (LoadInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((GetExpiredTimer()))))))))) // INLINED!!
-            local real l__xp= GetUnitX(s__YDWETimerPattern__Thread_obj[this]) + s__YDWETimerPattern__Thread_dist[this] * s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_vel[this]]
-            local real l__yp= GetUnitY(s__YDWETimerPattern__Thread_obj[this]) + s__YDWETimerPattern__Thread_dist[this] * s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_vel[this]]
-            if s__YDWETimerPattern__Thread_volume[this] == false then
+            local real l__xp= GetUnitX(s__YDWETimerPattern___Thread_obj[this]) + s__YDWETimerPattern___Thread_dist[this] * s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_vel[this]]
+            local real l__yp= GetUnitY(s__YDWETimerPattern___Thread_obj[this]) + s__YDWETimerPattern___Thread_dist[this] * s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_vel[this]]
+            if s__YDWETimerPattern___Thread_volume[this] == false then
                 //debug call BJDebugMsg("|cff00ff00[YDWE] Timer Pattern : |rPathable without terrain.")
                 if IsTerrainPathable(l__xp, l__yp, PATHING_TYPE_WALKABILITY) then
-                    set s__YDWETimerPattern__Thread_switch[this]=0
+                    set s__YDWETimerPattern___Thread_switch[this]=0
                 else
-                    call s__YDWETimerPattern__Thread__set_x(this,l__xp)
-                    call s__YDWETimerPattern__Thread__set_y(this,l__yp)
+                    call s__YDWETimerPattern___Thread__set_x(this,l__xp)
+                    call s__YDWETimerPattern___Thread__set_y(this,l__yp)
                 endif
             else
-                call s__YDWETimerPattern__Thread__set_x(this,l__xp)
-                call s__YDWETimerPattern__Thread__set_y(this,l__yp)
+                call s__YDWETimerPattern___Thread__set_x(this,l__xp)
+                call s__YDWETimerPattern___Thread__set_y(this,l__yp)
             endif
-            if s__YDWETimerPattern__Thread_follow[this] == 0 then
-                if GetUnitFlyHeight(s__YDWETimerPattern__Thread_obj[this]) < 5. then
-                    if IsTerrainPathable(s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]], s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]], PATHING_TYPE_FLOATABILITY) then
-                        call DestroyEffect(AddSpecialEffect(s__YDWETimerPattern__Thread_gsfx[this], s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]], s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]]))
+            if s__YDWETimerPattern___Thread_follow[this] == 0 then
+                if GetUnitFlyHeight(s__YDWETimerPattern___Thread_obj[this]) < 5. then
+                    if IsTerrainPathable(s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]], s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]], PATHING_TYPE_FLOATABILITY) then
+                        call DestroyEffect(AddSpecialEffect(s__YDWETimerPattern___Thread_gsfx[this], s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]], s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]]))
                     else
-                        call DestroyEffect(AddSpecialEffect(s__YDWETimerPattern__Thread_wsfx[this], s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]], s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]]))
+                        call DestroyEffect(AddSpecialEffect(s__YDWETimerPattern___Thread_wsfx[this], s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]], s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]]))
                     endif
                 endif
             endif
-            set s__YDWETimerPattern__Thread_follow[this]=s__YDWETimerPattern__Thread_follow[this] + 1
-            if s__YDWETimerPattern__Thread_follow[this] == 2 then
-                set s__YDWETimerPattern__Thread_follow[this]=0
+            set s__YDWETimerPattern___Thread_follow[this]=s__YDWETimerPattern___Thread_follow[this] + 1
+            if s__YDWETimerPattern___Thread_follow[this] == 2 then
+                set s__YDWETimerPattern___Thread_follow[this]=0
             endif
-            if s__YDWETimerPattern__Thread_killdest[this] then
-                call MoveRectTo(YDWETimerPattern__Area, s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]], s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]])
-                call EnumDestructablesInRect(YDWETimerPattern__Area, YDWETimerPattern__Bexpr, function YDWETimerPattern__TreeKill)
+            if s__YDWETimerPattern___Thread_killdest[this] then
+                call MoveRectTo(YDWETimerPattern___Area, s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]], s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]])
+                call EnumDestructablesInRect(YDWETimerPattern___Area, YDWETimerPattern___Bexpr, function YDWETimerPattern___TreeKill)
             endif
-            if s__YDWETimerPattern__Thread_amount[this] > 0.0 then
+            if s__YDWETimerPattern___Thread_amount[this] > 0.0 then
                 //call this.damage(.caster, .pos.x, .pos.y, 0.0, false, .recycle)
-                set YDWETimerPattern__tmp_data=(this)
-                call GroupEnumUnitsInRange(s__YDWETimerPattern__Thread_g[this], s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]], s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]], 120.0, Condition(function YDWETimerPattern__DamageFilter))
+                set YDWETimerPattern___tmp_data=(this)
+                call GroupEnumUnitsInRange(s__YDWETimerPattern___Thread_g[this], s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]], s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]], 120.0, Condition(function YDWETimerPattern___DamageFilter))
             endif
-            set s__YDWETimerPattern__Thread_dist[this]=s__YDWETimerPattern__Thread_dist[this] - s__YDWETimerPattern__Thread_step[this]
-            if s__YDWETimerPattern__Thread_dist[this] <= 0.0 or (RMinBJ(RMaxBJ(((s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]])*1.0), yd_MapMinX), yd_MapMaxX)) != s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]] or (RMinBJ(RMaxBJ(((s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]])*1.0), yd_MapMinY), yd_MapMaxY)) != s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]] then // INLINED!!
-                set s__YDWETimerPattern__Thread_switch[this]=0
+            set s__YDWETimerPattern___Thread_dist[this]=s__YDWETimerPattern___Thread_dist[this] - s__YDWETimerPattern___Thread_step[this]
+            if s__YDWETimerPattern___Thread_dist[this] <= 0.0 or (RMinBJ(RMaxBJ(((s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]])*1.0), yd_MapMinX), yd_MapMaxX)) != s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]] or (RMinBJ(RMaxBJ(((s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]])*1.0), yd_MapMinY), yd_MapMaxY)) != s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]] then // INLINED!!
+                set s__YDWETimerPattern___Thread_switch[this]=0
             endif
-            if s__YDWETimerPattern__Thread_switch[this] == 0 then
-                call SetUnitFlyHeight(s__YDWETimerPattern__Thread_obj[this], GetUnitDefaultFlyHeight(s__YDWETimerPattern__Thread_obj[this]), 200.0)
-                call SetUnitTimeScale(s__YDWETimerPattern__Thread_obj[this], 1)
+            if s__YDWETimerPattern___Thread_switch[this] == 0 then
+                call SetUnitFlyHeight(s__YDWETimerPattern___Thread_obj[this], GetUnitDefaultFlyHeight(s__YDWETimerPattern___Thread_obj[this]), 200.0)
+                call SetUnitTimeScale(s__YDWETimerPattern___Thread_obj[this], 1)
                 // YDWETriggerEvent
-                call YDWESyStemAbilityCastingOverTriggerAction(s__YDWETimerPattern__Thread_obj[this] , 6)
-                call sc__YDWETimerPattern__Thread_deallocate(this)
+                call YDWESyStemAbilityCastingOverTriggerAction(s__YDWETimerPattern___Thread_obj[this] , 6)
+                call sc__YDWETimerPattern___Thread_deallocate(this)
             endif
         endfunction
-        function s__YDWETimerPattern__Deceleration_create takes unit source,unit object,real angle,real distance,real time,real interval,real damage,boolean killtrees,boolean cycle,boolean path,string part,string geff,string weff returns integer
-            local integer this= s__YDWETimerPattern__Deceleration__allocate()
+        function s__YDWETimerPattern___Deceleration_create takes unit source,unit object,real angle,real distance,real time,real interval,real damage,boolean killtrees,boolean cycle,boolean path,string part,string geff,string weff returns integer
+            local integer this= s__YDWETimerPattern___Deceleration__allocate()
 local real vx= 0.0
             local real vy= 0.0
             local real l__l= 0.0
-            set s__YDWETimerPattern__Thread_des[this]=s__YDWETimerPattern__YDVector3__allocate()
-            set s__YDWETimerPattern__Thread_pos[this]=s__YDWETimerPattern__YDVector3__allocate()
-            set s__YDWETimerPattern__Thread_vel[this]=s__YDWETimerPattern__YDVector3__allocate()
-            set s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_vel[this]]=Cos(angle)
-            set s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_vel[this]]=Sin(angle)
-            set s__YDWETimerPattern__Thread_dist[this]=2 * distance * interval / time
-            set s__YDWETimerPattern__Thread_step[this]=s__YDWETimerPattern__Thread_dist[this] * interval / time
-            set s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]]=GetUnitX(object)
-            set s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]]=GetUnitY(object)
-            set s__YDWETimerPattern__Thread_caster[this]=source
-            set s__YDWETimerPattern__Thread_obj[this]=object
-            set s__YDWETimerPattern__Thread_amount[this]=damage
-            set s__YDWETimerPattern__Thread_killdest[this]=killtrees
-            set s__YDWETimerPattern__Thread_recycle[this]=cycle
-            set s__YDWETimerPattern__Thread_volume[this]=path
-            set s__YDWETimerPattern__Thread_gsfx[this]=geff
-            set s__YDWETimerPattern__Thread_wsfx[this]=weff
-            set s__YDWETimerPattern__Thread_switch[this]=1
-            set s__YDWETimerPattern__Thread_follow[this]=0
-            set s__YDWETimerPattern__Thread_g[this]=CreateGroup()
-            set s__YDWETimerPattern__Thread_t[this]=CreateTimer()
-            call TimerStart(s__YDWETimerPattern__Thread_t[this], interval, true, function s__YDWETimerPattern__Deceleration_move)
-            call SaveInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern__Thread_t[this]))))) )), ( ( (this)))) // INLINED!!
+            set s__YDWETimerPattern___Thread_des[this]=s__YDWETimerPattern___YDVector3__allocate()
+            set s__YDWETimerPattern___Thread_pos[this]=s__YDWETimerPattern___YDVector3__allocate()
+            set s__YDWETimerPattern___Thread_vel[this]=s__YDWETimerPattern___YDVector3__allocate()
+            set s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_vel[this]]=Cos(angle)
+            set s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_vel[this]]=Sin(angle)
+            set s__YDWETimerPattern___Thread_dist[this]=2 * distance * interval / time
+            set s__YDWETimerPattern___Thread_step[this]=s__YDWETimerPattern___Thread_dist[this] * interval / time
+            set s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]]=GetUnitX(object)
+            set s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]]=GetUnitY(object)
+            set s__YDWETimerPattern___Thread_caster[this]=source
+            set s__YDWETimerPattern___Thread_obj[this]=object
+            set s__YDWETimerPattern___Thread_amount[this]=damage
+            set s__YDWETimerPattern___Thread_killdest[this]=killtrees
+            set s__YDWETimerPattern___Thread_recycle[this]=cycle
+            set s__YDWETimerPattern___Thread_volume[this]=path
+            set s__YDWETimerPattern___Thread_gsfx[this]=geff
+            set s__YDWETimerPattern___Thread_wsfx[this]=weff
+            set s__YDWETimerPattern___Thread_switch[this]=1
+            set s__YDWETimerPattern___Thread_follow[this]=0
+            set s__YDWETimerPattern___Thread_g[this]=CreateGroup()
+            set s__YDWETimerPattern___Thread_t[this]=CreateTimer()
+            call TimerStart(s__YDWETimerPattern___Thread_t[this], interval, true, function s__YDWETimerPattern___Deceleration_move)
+            call SaveInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern___Thread_t[this]))))) )), ( ( (this)))) // INLINED!!
             return this
         endfunction
     // Jump Attack PUI
@@ -6708,7 +6722,7 @@ local real vx= 0.0
             //debug call BJDebugMsg("|cff00ff00[YDWE] Timer Pattern : |r No object!")
             return
         endif
-        call s__YDWETimerPattern__Parabola_create(u , u , Deg2Rad(face) , RMaxBJ(dis, 0) , RMaxBJ(lasttime, 0) , RMaxBJ(timeout, 0) , high , damage , part , dsfx)
+        call s__YDWETimerPattern___Parabola_create(u , u , Deg2Rad(face) , RMaxBJ(dis, 0) , RMaxBJ(lasttime, 0) , RMaxBJ(timeout, 0) , high , damage , part , dsfx)
     endfunction
     // Moon Priestess Arrow PUI
     function YDWETimerPatternMoonPriestessArrow takes unit u,real face,real dis,real lasttime,real timeout,integer lv,integer aid,integer uid,string order,string part,string dsfx returns nothing
@@ -6721,7 +6735,7 @@ local real vx= 0.0
         if sour == null then
             set sour=u
         endif
-        call s__YDWETimerPattern__Linear_create(sour , u , Deg2Rad(face) , RMaxBJ(dis, 0) , RMaxBJ(lasttime, 0) , RMaxBJ(timeout, 0) , uid , aid , IMaxBJ(lv, 1) , OrderId(order) , part , dsfx)
+        call s__YDWETimerPattern___Linear_create(sour , u , Deg2Rad(face) , RMaxBJ(dis, 0) , RMaxBJ(lasttime, 0) , RMaxBJ(timeout, 0) , uid , aid , IMaxBJ(lv, 1) , OrderId(order) , part , dsfx)
         //call YDWEFlushMissionByString(I2S(YDWEH2I(u)))
         set sour=null
     endfunction
@@ -6731,11 +6745,11 @@ local real vx= 0.0
             //debug call BJDebugMsg("|cff00ff00[YDWE] Timer Pattern : |r No object!")
             return
         endif
-        call s__YDWETimerPattern__Deceleration_create(u , u , Deg2Rad(face) , RMaxBJ(dis, 0) , RMaxBJ(lasttime, 0) , RMaxBJ(timeout, 0) , damage , killtrees , cycle , path , part , gsfx , wsfx)
+        call s__YDWETimerPattern___Deceleration_create(u , u , Deg2Rad(face) , RMaxBJ(dis, 0) , RMaxBJ(lasttime, 0) , RMaxBJ(timeout, 0) , damage , killtrees , cycle , path , part , gsfx , wsfx)
     endfunction
-    function YDWETimerPattern__Init takes nothing returns nothing
-        set YDWETimerPattern__Area=Rect(- 120.0, - 120.0, 120.0, 120.0)
-        set YDWETimerPattern__Bexpr=Filter(function YDWETimerPattern__TreeFilter)
+    function YDWETimerPattern___Init takes nothing returns nothing
+        set YDWETimerPattern___Area=Rect(- 120.0, - 120.0, 120.0, 120.0)
+        set YDWETimerPattern___Bexpr=Filter(function YDWETimerPattern___TreeFilter)
     endfunction
 
 //library YDWETimerPattern ends
@@ -7139,7 +7153,7 @@ endfunction
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Fri Jul 22 08:56:01 2022
+//   Date: Fri Jul 22 14:23:13 2022
 //   Map Author: 云杨 zei_kale
 // 
 //===========================================================================
@@ -8108,8 +8122,8 @@ function TransferJY takes nothing returns nothing
 endfunction
 // 按几何正态分布进行随机
 function GetGeoNormRandomReal takes real r1,real r2 returns real
- local real rr1= (YDWELogarithm__Log2(((r1)*1.0)) * 0.3010300) // INLINED!!
- local real rr2= (YDWELogarithm__Log2(((r2)*1.0)) * 0.3010300) // INLINED!!
+ local real rr1= (YDWELogarithm___Log2(((r1)*1.0)) * 0.3010300) // INLINED!!
+ local real rr2= (YDWELogarithm___Log2(((r2)*1.0)) * 0.3010300) // INLINED!!
  local real rr3= GetRandomReal(rr1, rr2)
  local real rr4= GetRandomReal(rr1, rr2)
  local real rr5= GetRandomReal(rr1, rr2)
@@ -9394,6 +9408,10 @@ function randomMenpai takes player p,integer status returns nothing
         call addAllAttrs(i , 1)
         call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15., "|CFFff9933玩家" + GetPlayerName(p) + "随机选择了〓雪山派〓|r")
         call SetPlayerName(p, "〓雪山派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+	elseif udg_runamen[i] == 25 then
+        call addAllAttrs(i , 1)
+        call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15., "|CFFff9933玩家" + GetPlayerName(p) + "随机选择了〓汝阳王府〓|r")
+        call SetPlayerName(p, "〓汝阳王府〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 	endif
 	if status == 1 then
 		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFF00FFFF提示：|r请在NPC|CFF00EE00郭靖|r处选择副职")
@@ -9723,103 +9741,87 @@ function IncAbilityAndItemCharge takes unit u,integer id returns nothing
 	endloop
 endfunction
 function kungfuLevelUp takes unit u,integer id,real r returns nothing
- local integer level=GetUnitAbilityLevel(u, id)
- local player p=GetOwningPlayer(u)
- local integer i=1 + GetPlayerId(p)
- local integer jingyan= 0
-	if level > 0 and level < 7 then
-		set jingyan=( 3 + udg_xinggeA[i] ) * ( wuxing[i] + 5 + GetRandomInt(0, R2I(r / 60)) ) * ( 4 + 2 * udg_jwjs[i] ) * ( 2 + QiJueCoefficient(u) ) / 40
-		// 慕容家训
-		if UnitHasBuffBJ(u, 'B010') then
-			set jingyan=( 3 + udg_xinggeA[i] ) * ( wuxing[i] + 5 + GetRandomInt(0, R2I(r / 60)) ) * ( 5 + GetUnitAbilityLevel(u, 'A02V') / 2 + 2 * udg_jwjs[i] ) * ( 2 + QiJueCoefficient(u) ) / 40
-		endif
-		// 天赋：天纵奇才 增加升重速度
-		if UnitHasBuffBJ(u, 'B01O') then
-			set jingyan=R2I(jingyan * ( 1.5 + bigTalent[i] * 0.5 ))
-		endif
-		call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id, LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id) + jingyan)
-		call SaveStr(YDHT, GetHandleId(GetOwningPlayer(u)), id * 2, I2S(LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id)) + "/" + I2S(R2I(r * level)))
-		if LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id) > R2I(r) * level then
-			call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id, 0)
-			call IncAbilityAndItemCharge(u , id)
-			call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id * 5, GetUnitAbilityLevel(u, id))
+ local integer level= GetUnitAbilityLevel(u, id)
+ local player p= GetOwningPlayer(u)
+ local integer i= 1 + GetPlayerId(p)
+ local integer needExp= level * level * R2I(r) / 6
+local integer baseExp= ( 20 + udg_xinggeA[i] + wuxing[i] / 3 ) * 2
+local real extraTimes= 1
+ local integer realExp= 0
+ local integer add= 0
+	// 慕容家训
+	if UnitHasBuffBJ(u, 'B010') then
+		set extraTimes=extraTimes + 0.1 * GetUnitAbilityLevel(u, 'A02V')
+	endif
+	// 精武师九重武学影响
+	set extraTimes=extraTimes + udg_jwjs[i] * 0.1
+	// 天赋：天纵奇才 增加升重速度
+	if UnitHasBuffBJ(u, 'B01O') then
+		set extraTimes=extraTimes + 0.2 + 0.1 * bigTalent[i]
+	endif
+	// 七绝护符或新手神器增加升重速度
+	if UnitHaveItem(u , 'I01J') or UnitHaveItem(u , 'I0DB') then
+		set extraTimes=extraTimes + 0.2
+	endif
+	// 激活九阳真经残卷
+	if JYd[i] == 1 then
+		set extraTimes=extraTimes + 0.4
+	endif
+	// 神仙姐姐称号增加升重速度
+	if isTitle(i , 44) then
+		set extraTimes=extraTimes + 0.4
+	endif
+	set realExp=R2I(baseExp * extraTimes)
+	if level > 0 and level < 9 then
+		call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id, LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id) + realExp)
+		call SaveStr(YDHT, GetHandleId(GetOwningPlayer(u)), id * 2, I2S(LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id)) + "/" + I2S(needExp))
+	endif
+	if level > 0 and level < 9 and LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id) >= needExp then
+		call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id, LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id) - needExp)
+		call IncAbilityAndItemCharge(u , id)
+		call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id * 5, GetUnitAbilityLevel(u, id))
+		if GetPlayerController(p) == MAP_CONTROL_USER then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "领悟了武功：" + GetObjectName(id) + "第" + I2S(level + 1) + "重")
-			if id == 'A0DP' then // 归元吐纳功
+		endif
+				
+		if id == 'A0DP' then // 归元吐纳功
 set fuyuan[i]=fuyuan[i] + 2
-				set gengu[i]=gengu[i] + 2
-				set wuxing[i]=wuxing[i] + 2
-				set jingmai[i]=jingmai[i] + 2
-				set danpo[i]=danpo[i] + 2
-				set yishu[i]=yishu[i] + 2
+			set gengu[i]=gengu[i] + 2
+			set wuxing[i]=wuxing[i] + 2
+			set jingmai[i]=jingmai[i] + 2
+			set danpo[i]=danpo[i] + 2
+			set yishu[i]=yishu[i] + 2
+		endif
+		if level + 1 == 9 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
+			set wuxuedian[i]=wuxuedian[i] + 2
+			call DisplayTextToPlayer(p, 0, 0, "|cff66ff00精武师有技能升级到九重，获得两个自创武学点")
+			if ( udg_jwjs[i] <= 2 ) and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
+				set udg_jwjs[i]=udg_jwjs[i] + 1
+				call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您练成第" + I2S(udg_jwjs[i]) + "个九重武功，练成3个可获得宗师哦")
+			endif
+			if ( udg_jwjs[i] == 3 ) and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
+				call Deputy_setMaster(i , JING_WU)
+				call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFF66FF00恭喜" + GetPlayerName(p) + "获得精武宗师")
+				call SetPlayerName(p, "〓精武宗师〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 			endif
 		endif
-	elseif level > 0 and level < 9 then
-		if ( GetRandomReal(1., r * I2R(level)) <= I2R(wuxing[i]) / 2 * ( 1 + 0.6 * udg_jwjs[i] ) ) or ( ( UnitHasBuffBJ(u, 'B010') or UnitHasBuffBJ(u, 'B01O') ) and GetRandomReal(1., r * I2R(level)) <= I2R(wuxing[i]) / 2 * ( 2 + 0.3 * GetUnitAbilityLevel(u, 'A02V') + 0.6 * udg_jwjs[i] ) ) then
-			if id != 'A07W' then
-				call IncAbilityAndItemCharge(u , id)
-				call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id * 5, GetUnitAbilityLevel(u, id))
-				call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "领悟了武功：" + GetObjectName(id) + "第" + I2S(level + 1) + "重")
-				if level + 1 == 9 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
-					set wuxuedian[i]=wuxuedian[i] + 2
-					call DisplayTextToPlayer(p, 0, 0, "|cff66ff00精武师有技能升级到九重，获得两个自创武学点")
-					if ( udg_jwjs[i] <= 2 ) and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
-						set udg_jwjs[i]=udg_jwjs[i] + 1
-						call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您练成第" + I2S(udg_jwjs[i]) + "个九重武功，练成3个可获得宗师哦")
-					endif
-					if ( udg_jwjs[i] == 3 ) and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
-						call Deputy_setMaster(i , JING_WU)
-						// call SaveStr(YDHT, GetHandleId(p), GetHandleId(p), "〓精武宗师〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-						call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFF66FF00恭喜" + GetPlayerName(p) + "获得精武宗师")
-						call SetPlayerName(p, "〓精武宗师〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-					endif
-				endif
+		// 嫁衣神功 增加悟性和伤害倍数
+		if level + 1 == 9 and GetUnitAbilityLevel(u, JIA_YI_SHEN_GONG) > 0 then
+			set add=GetUnitAbilityLevel(u, JIA_YI_SHEN_GONG) + 3
+			if isTitle(i , 49) then
+				// 绍敏郡主称号 增加值翻倍
+				set add=add * 2
 			endif
-		else
-			if udg_xinggeB[i] >= 4 or UnitHaveItem(u , 'I01J') or UnitHaveItem(u , 'I0DB') or JYd[i] == 1 then
-				if id != 'A07W' then
-					if UnitHasBuffBJ(u, 'B010') then
-						set jingyan=LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id) + ( 3 + udg_xinggeA[i] ) * ( wuxing[i] + 5 + GetRandomInt(0, R2I(r / 60)) ) * ( 2 + QiJueCoefficient(u) ) / 20 * ( 2 + GetUnitAbilityLevel(u, 'A02V') / 4 + udg_jwjs[i] ) / 3 * 2
-					else
-						set jingyan=LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id) + ( 3 + udg_xinggeA[i] ) * ( wuxing[i] + 5 + GetRandomInt(0, R2I(r / 60)) ) * ( 2 + QiJueCoefficient(u) ) / 20 * ( 2 + udg_jwjs[i] ) / 3 * 2
-					endif
-					// 天赋：天纵奇才 增加升重速度
-					if UnitHasBuffBJ(u, 'B01O') then
-						set jingyan=R2I(jingyan * ( 1.5 + bigTalent[i] * 0.5 ))
-					endif
-					call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id, jingyan)
-				endif
-				call SaveStr(YDHT, GetHandleId(GetOwningPlayer(u)), id * 2, I2S(LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id)) + "/" + I2S(R2I(r * level)))
-				if LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id) > R2I(r) * level then
-					call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id, 0)
-					call IncAbilityAndItemCharge(u , id)
-					call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id * 5, GetUnitAbilityLevel(u, id))
-					call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "领悟了武功：" + GetObjectName(id) + "第" + I2S(level + 1) + "重")
-					if id == 'A0DP' then // 归元吐纳功
-set fuyuan[i]=fuyuan[i] + 2
-						set gengu[i]=gengu[i] + 2
-						set wuxing[i]=wuxing[i] + 2
-						set jingmai[i]=jingmai[i] + 2
-						set danpo[i]=danpo[i] + 2
-						set yishu[i]=yishu[i] + 2
-					endif
-					if level + 1 == 9 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
-						set wuxuedian[i]=wuxuedian[i] + 2
-						call DisplayTextToPlayer(p, 0, 0, "|cff66ff00精武师有技能升级到九重，获得两个自创武学点")
-						if ( udg_jwjs[i] <= 2 ) and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
-							set udg_jwjs[i]=udg_jwjs[i] + 1
-							call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您练成第" + I2S(udg_jwjs[i]) + "个九重武功，练成3个可获得宗师哦")
-						endif
-						if ( udg_jwjs[i] == 3 ) and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
-							call Deputy_setMaster(i , JING_WU)
-							// call SaveStr(YDHT, GetHandleId(p), GetHandleId(p), "〓精武宗师〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-							call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFF66FF00恭喜" + GetPlayerName(p) + "获得精武宗师")
-							call SetPlayerName(p, "〓精武宗师〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-						endif
-					endif
-				endif
+			if (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( YA_HUAN) - 1)])) != 0) then // INLINED!!
+				// 郡主称号 增加值翻倍
+				set add=add * 2
 			endif
+			set wuxing[i]=wuxing[i] + add
+			set udg_shanghaijiacheng[i]=udg_shanghaijiacheng[i] + add * 0.005
+			call DisplayTextToPlayer(p, 0, 0, "|cffffcc00发动了嫁衣神功，悟性增加了" + I2S(add) + "点，伤害加成增加了" + R2S(add * 0.005) + "倍")
 		endif
 	endif
+	set p=null
 endfunction
 // 成为掌门
 function becomeChief takes unit u,integer denomination,string title,integer strAward,integer agiAward,integer intAward returns nothing
@@ -9832,7 +9834,24 @@ set special1=4
 	elseif denomination == 20 then // 唐门
 set special0=1
 	endif
-	if not (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( denomination) - 1)])) != 0) and GetUnitAbilityLevel(u, X7[denomination]) >= 6 and GetUnitAbilityLevel(u, Z7[denomination]) >= 6 and GetUnitAbilityLevel(u, Y7[denomination]) >= 6 and ( GetUnitAbilityLevel(u, Q8[denomination]) >= special0 or GetUnitAbilityLevel(u, P8[denomination]) >= special1 ) then // INLINED!!
+	if denomination == 25 then // 汝阳王府
+if not (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 25) - 1)])) != 0) and ( GetUnitAbilityLevel(u, denomFourth[25]) >= 6 or GetUnitAbilityLevel(u, denomFifth[25]) >= 6 ) then // INLINED!!
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：" + title)
+			if strAward > 0 then
+				call ModifyHeroStat(0, u, 0, strAward)
+			endif
+			if agiAward > 0 then
+				call ModifyHeroStat(1, u, 0, agiAward)
+			endif
+			if intAward > 0 then
+				call ModifyHeroStat(2, u, 0, intAward)
+			endif
+			call SetPlayerName(p, "〓" + title + "〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call setChiefNumber(i , denomination)
+		endif
+		return
+	endif
+	if not (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( denomination) - 1)])) != 0) and GetUnitAbilityLevel(u, denomFirst[denomination]) >= 6 and GetUnitAbilityLevel(u, denomThird[denomination]) >= 6 and GetUnitAbilityLevel(u, denomSecond[denomination]) >= 6 and ( GetUnitAbilityLevel(u, denomFourth[denomination]) >= special0 or GetUnitAbilityLevel(u, denomFifth[denomination]) >= special1 ) then // INLINED!!
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：" + title)
 		if strAward > 0 then
 			call ModifyHeroStat(0, u, 0, strAward)
@@ -10426,6 +10445,20 @@ function determineYeLuoTitle takes unit u returns nothing
 	endif
 	set p=null
 endfunction
+function determineRuYangTitle takes unit u returns nothing
+ local player p= GetOwningPlayer(u)
+ local integer i= 1 + GetPlayerId(p)
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 25) - 1)])) != 0) then // INLINED!!
+		if touKanCounter[i] > 10 and not isTitle(i , 49) then
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：绍敏郡主")
+			call ModifyHeroStat(0, u, 0, 200)
+			call ModifyHeroStat(2, u, 0, 400)
+			call SetPlayerName(p, "〓绍敏郡主〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call setTitleNumber(i , 49)
+		endif
+	endif
+	set p=null
+endfunction
 function determineJiangHuTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
@@ -10555,6 +10588,7 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
 		call becomeChief(u , 21 , "五毒教主" , 300 , 225 , 0)
 		call becomeChief(u , 22 , "桃花岛主" , 225 , 0 , 300)
 		call becomeChief(u , 23 , "野螺掌派" , 225 , 300 , 0)
+		call becomeChief(u , 25 , "汝阳王" , 200 , 200 , 200)
 		
 		call determineShaoLinTitle(u)
 		call determineGuMuTitle(u)
@@ -10577,6 +10611,7 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
 		call determineWuDuTitle(u)
 		call determineTaoHuaDaoTitle(u)
 		call determineYeLuoTitle(u)
+		call determineRuYangTitle(u)
 		call determineJiangHuTitle(u)
 		
 	endif
@@ -10673,6 +10708,9 @@ function checkPurchase takes nothing returns nothing
         if DzAPI_Map_HasMallItem(Player(i - 1), PROPERTY_TAOHUA) or udg_isTest[i - 1] then
             set taohua_flag[i]=1
         endif
+        if DzAPI_Map_HasMallItem(Player(i - 1), PROPERTY_RUYANG) or udg_isTest[i - 1] then
+            set ruyang_flag[i]=1
+        endif
         if DzAPI_Map_HasMallItem(Player(i - 1), PROPERTY_DOUBLE_POINT) or udg_isTest[i - 1] then
             set mall_addition[i]=1
         endif
@@ -10699,6 +10737,7 @@ function mallInit takes nothing returns nothing
         set tangmen_flag[i]=0
         set wudu_flag[i]=0
         set taohua_flag[i]=0
+        set ruyang_flag[i]=0
         set talent_flag[i]=0
         set mall_addition[i]=0
         set level_award[i]=0
@@ -11083,6 +11122,21 @@ function JiaRuMenPai takes nothing returns nothing
 					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00选择桃花岛")
 				else
 					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00尚未解锁，不能选择桃花岛")
+				endif
+			endif
+			// 自由改投汝阳王府
+			if GetItemTypeId(GetManipulatedItem()) == 'I0F0' then
+				if ruyang_flag[i] == 1 then
+					call addAllAttrs(i , 1)
+					set udg_runamen[i]=25
+					call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15., "|CFFff9933玩家" + GetPlayerName(p) + "改拜入了〓汝阳王府〓，大家一起膜拜他|r")
+					call SetPlayerName(p, "〓汝阳王府〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+					
+					set udg_shuxing[i]=udg_shuxing[i] - 5
+					call AdjustPlayerStateBJ(- 60, p, PLAYER_STATE_RESOURCE_LUMBER)
+					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00选择汝阳王府")
+				else
+					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00尚未解锁，不能选择汝阳王府")
 				endif
 			endif
 		else
@@ -13265,19 +13319,19 @@ if ( udg_runamen[i] == d8[i] ) then
 				// 自由3级自动学技能begin
 				if d8[i] == 11 then
 					if GetRandomInt(1, 100) <= 50 then
-						set X7[d8[i]]=LoadInteger(YDHT, StringHash("武学") + GetRandomInt(1, 18), 2)
+						set denomFirst[d8[i]]=LoadInteger(YDHT, StringHash("武学") + GetRandomInt(1, 18), 2)
 					else
-						set X7[d8[i]]=LoadInteger(YDHT, StringHash("武学") + GetRandomInt(39, 41), 2)
+						set denomFirst[d8[i]]=LoadInteger(YDHT, StringHash("武学") + GetRandomInt(39, 41), 2)
 					endif
-					call UnitAddAbility(u, X7[d8[i]])
-					call DisplayTextToPlayer(p, 0, 0, "|cff00FF66恭喜领悟技能：" + GetObjectName(X7[d8[i]]))
+					call UnitAddAbility(u, denomFirst[d8[i]])
+					call DisplayTextToPlayer(p, 0, 0, "|cff00FF66恭喜领悟技能：" + GetObjectName(denomFirst[d8[i]]))
 				endif
 				// 自由3级自动学技能end
 				
 				if d8[i] != 11 then
-					call UnitAddAbility(u, X7[d8[i]])
-					call UnitMakeAbilityPermanent(u, true, X7[d8[i]])
-					call DisplayTextToPlayer(p, 0, 0, "|cff00FF66恭喜领悟技能：" + GetObjectName(X7[d8[i]]))
+					call UnitAddAbility(u, denomFirst[d8[i]])
+					call UnitMakeAbilityPermanent(u, true, denomFirst[d8[i]])
+					call DisplayTextToPlayer(p, 0, 0, "|cff00FF66恭喜领悟技能：" + GetObjectName(denomFirst[d8[i]]))
 					call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FF66玩家" + I2S(1 + GetPlayerId(p)) + "成为" + udg_menpainame[udg_runamen[i]] + "初级弟子")
 					call SetPlayerName(p, "〓" + udg_menpainame[udg_runamen[i]] + "初级弟子〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 				endif
@@ -13299,7 +13353,7 @@ if ( udg_runamen[i] == d8[i] ) then
 					set S9=1
 					loop
 					exitwhen S9 > 20
-						if ( X7[d8[i]] == MM9[S9] ) then
+						if ( denomFirst[d8[i]] == MM9[S9] ) then
 							set udg_shanghaijiacheng[i]=udg_shanghaijiacheng[i] + udg_jueneishjc[S9]
 							call ModifyHeroStat(1, u, 0, udg_jueneiminjie[S9])
 							set udg_baojilv[i]=udg_baojilv[i] + udg_jueneibaojilv[S9]
@@ -13317,7 +13371,7 @@ if ( udg_runamen[i] == d8[i] ) then
 				exitwhen L7[i] > wugongshu[i]
 					if ( I7[( GetPlayerId(p) * 20 + L7[i] )] != 'AEfk' ) then
 					else
-						set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=X7[d8[i]]
+						set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=denomFirst[d8[i]]
 					exitwhen true
 					endif
 					set L7[i]=L7[i] + 1
@@ -13326,16 +13380,16 @@ if ( udg_runamen[i] == d8[i] ) then
 			set d8[i]=d8[i] + 1
 		endloop
 	endif
-	if ( ( GetUnitLevel(u) >= 3 ) and GetUnitAbilityLevel(u, X7[udg_runamen[i]]) >= 2 and ( e9[i] == false ) ) then
+	if ( ( GetUnitLevel(u) >= 3 ) and GetUnitAbilityLevel(u, denomFirst[udg_runamen[i]]) >= 2 and ( e9[i] == false ) ) then
 		set e9[i]=true
 		set d8[i]=1
 		loop
 		exitwhen d8[i] > DENOMINATION_NUMBER
 			if d8[i] != 11 then
 				if ( ( udg_runamen[i] == d8[i] ) ) then
-					call UnitAddAbility(u, Z7[d8[i]])
-					call UnitMakeAbilityPermanent(u, true, Z7[d8[i]])
-					call DisplayTextToPlayer(p, 0, 0, ( "|cff00FF66恭喜领悟技能：" + GetObjectName(Z7[d8[i]]) ))
+					call UnitAddAbility(u, denomThird[d8[i]])
+					call UnitMakeAbilityPermanent(u, true, denomThird[d8[i]])
+					call DisplayTextToPlayer(p, 0, 0, ( "|cff00FF66恭喜领悟技能：" + GetObjectName(denomThird[d8[i]]) ))
 					call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FF66玩家" + I2S(1 + GetPlayerId(p)) + "成为" + udg_menpainame[udg_runamen[i]] + "中级弟子")
 					call SetPlayerName(p, "〓" + udg_menpainame[udg_runamen[i]] + "中级弟子〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 					set L7[i]=1
@@ -13343,7 +13397,7 @@ if ( udg_runamen[i] == d8[i] ) then
 					exitwhen L7[i] > wugongshu[i]
 						if ( ( I7[( ( GetPlayerId(p) * 20 ) + L7[i] )] != 'AEfk' ) ) then
 						else
-							set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=Z7[d8[i]]
+							set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=denomThird[d8[i]]
 						exitwhen true
 						endif
 						set L7[i]=L7[i] + 1
@@ -13353,24 +13407,24 @@ if ( udg_runamen[i] == d8[i] ) then
 			set d8[i]=d8[i] + 1
 		endloop
 	endif
-	if ( ( GetUnitLevel(u) >= 3 ) and GetUnitAbilityLevel(u, Z7[udg_runamen[i]]) >= 2 and ( d9[i] == false ) ) then
+	if ( ( GetUnitLevel(u) >= 3 ) and GetUnitAbilityLevel(u, denomThird[udg_runamen[i]]) >= 2 and ( d9[i] == false ) ) then
 		set d9[i]=true
 		set d8[i]=1
 		loop
 		exitwhen d8[i] > DENOMINATION_NUMBER
 			if d8[i] != 11 then
 				if ( ( udg_runamen[i] == d8[i] ) ) then
-					call UnitAddAbility(u, Y7[d8[i]])
-					call DisplayTextToPlayer(p, 0, 0, ( "|cff00FF66恭喜领悟技能：" + GetObjectName(Y7[d8[i]]) ))
+					call UnitAddAbility(u, denomSecond[d8[i]])
+					call DisplayTextToPlayer(p, 0, 0, ( "|cff00FF66恭喜领悟技能：" + GetObjectName(denomSecond[d8[i]]) ))
 					call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FF66玩家" + I2S(1 + GetPlayerId(p)) + "成为" + udg_menpainame[udg_runamen[i]] + "高级弟子")
 					call SetPlayerName(p, "〓" + udg_menpainame[udg_runamen[i]] + "高级弟子〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-					call UnitMakeAbilityPermanent(u, true, Y7[d8[i]])
+					call UnitMakeAbilityPermanent(u, true, denomSecond[d8[i]])
 					set L7[i]=1
 					loop
 					exitwhen L7[i] > wugongshu[i]
 						if ( ( I7[( ( GetPlayerId(p) * 20 ) + L7[i] )] != 'AEfk' ) ) then
 						else
-							set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=Y7[d8[i]]
+							set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=denomSecond[d8[i]]
 						exitwhen true
 						endif
 						set L7[i]=L7[i] + 1
@@ -13383,14 +13437,14 @@ if ( udg_runamen[i] == d8[i] ) then
 	if ( ( GetUnitLevel(u) == 10 ) ) then
 		// 自由10级自动学绝内
 		if udg_runamen[i] == 11 then
-			set Z7[udg_runamen[i]]=LoadInteger(YDHT, StringHash("武学") + GetRandomInt(29, 36), 2) // 37逆九阴和38医疗篇去除
-call UnitAddAbility(u, Z7[udg_runamen[i]])
-			call DisplayTextToPlayer(p, 0, 0, "|cff00FF66恭喜领悟技能：" + GetObjectName(Z7[udg_runamen[i]]))
+			set denomThird[udg_runamen[i]]=LoadInteger(YDHT, StringHash("武学") + GetRandomInt(29, 36), 2) // 37逆九阴和38医疗篇去除
+call UnitAddAbility(u, denomThird[udg_runamen[i]])
+			call DisplayTextToPlayer(p, 0, 0, "|cff00FF66恭喜领悟技能：" + GetObjectName(denomThird[udg_runamen[i]]))
 			// 自由自动学的技能补属性begin
 			set S9=1
 			loop
 			exitwhen S9 > 20
-				if ( Z7[udg_runamen[i]] == MM9[S9] ) then
+				if ( denomThird[udg_runamen[i]] == MM9[S9] ) then
 					set udg_shanghaijiacheng[i]=udg_shanghaijiacheng[i] + udg_jueneishjc[S9]
 					call ModifyHeroStat(1, u, 0, udg_jueneiminjie[S9])
 					set udg_baojilv[i]=udg_baojilv[i] + udg_jueneibaojilv[S9]
@@ -13405,7 +13459,7 @@ call UnitAddAbility(u, Z7[udg_runamen[i]])
 			exitwhen L7[i] > wugongshu[i]
 				if ( ( I7[( ( GetPlayerId(p) * 20 ) + L7[i] )] != 'AEfk' ) ) then
 				else
-					set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=Z7[udg_runamen[i]]
+					set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=denomThird[udg_runamen[i]]
 				exitwhen true
 				endif
 				set L7[i]=L7[i] + 1
@@ -14394,6 +14448,7 @@ endfunction
 function Forget takes player p,integer num returns nothing
  local integer i= 1 + GetPlayerId(p)
  local integer level= 0
+ local integer add= 0
 	if I7[( i - 1 ) * 20 + num] == 'A03N' and UnitHasBuffBJ(udg_hero[i], 'BOwk') then
 		call DisplayTimedTextToPlayer(p, 0, 0, 10., "|CFFFF9933" + GetObjectName(I7[( i - 1 ) * 20 + num]) + "施展期间不能遗忘！！！")
 	else
@@ -14440,6 +14495,23 @@ set level=GetUnitAbilityLevel(udg_hero[i], I7[20 * ( i - 1 ) + num])
 		endif
 		set I7[20 * ( i - 1 ) + num]='AEfk'
 		call RemoveItem(FetchUnitItem(P4[i] , 'I06K'))
+		// 嫁衣神功 增加三围 
+		if GetUnitAbilityLevel(udg_hero[i], JIA_YI_SHEN_GONG) > 0 then
+			set add=GetUnitAbilityLevel(udg_hero[i], JIA_YI_SHEN_GONG) + GetRandomInt(1, 5)
+			if isTitle(i , 49) then
+				// 绍敏郡主称号 增加值翻倍
+				set add=add * 2
+			endif
+			if (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( YA_HUAN) - 1)])) != 0) then // INLINED!!
+				// 郡主称号 增加值翻倍
+				set add=add * 2
+			endif
+			call ModifyHeroStat(0, udg_hero[i], 0, add)
+			call ModifyHeroStat(1, udg_hero[i], 0, add)
+			call ModifyHeroStat(2, udg_hero[i], 0, add)
+			call DisplayTextToPlayer(p, 0, 0, "|cffffcc00发动了嫁衣神功，|r 增加三围：" + I2S(add))
+			call WuGongShengChong(udg_hero[i] , JIA_YI_SHEN_GONG , 150)
+		endif
 	endif
 endfunction
 function jB takes nothing returns nothing
@@ -14890,9 +14962,9 @@ function LearnNeiGong takes nothing returns nothing
  local integer id=LoadInteger(YDHT, StringHash("门派内功"), 4)
  local player p= GetOwningPlayer(u)
 	if b == LoadButtonHandle(YDHT, StringHash("门派内功"), 1) then
-		call UnitAddAbility(u, Q8[id])
-		call UnitMakeAbilityPermanent(u, true, Q8[id])
-		call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, ( "|cff00FF66恭喜领悟技能：" + GetObjectName(Q8[id]) ))
+		call UnitAddAbility(u, denomFourth[id])
+		call UnitMakeAbilityPermanent(u, true, denomFourth[id])
+		call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, ( "|cff00FF66恭喜领悟技能：" + GetObjectName(denomFourth[id]) ))
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FF66玩家" + I2S(1 + GetPlayerId(p)) + "成为" + udg_menpainame[udg_runamen[i]] + "长老")
 		call SetPlayerName(p, "〓" + udg_menpainame[udg_runamen[i]] + "长老〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 		set L7[i]=1
@@ -14900,33 +14972,33 @@ function LearnNeiGong takes nothing returns nothing
 		exitwhen L7[i] > wugongshu[i]
 			if ( ( I7[( ( ( i - 1 ) * 20 ) + L7[i] )] != 'AEfk' ) ) then
 			else
-				set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=Q8[id]
+				set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=denomFourth[id]
 			exitwhen true
 			endif
 			set L7[i]=L7[i] + 1
 		endloop
 	elseif b == LoadButtonHandle(YDHT, StringHash("门派内功"), 2) then
 		// 明教乾坤
-		if P8[id] == 'A07W' then
+		if denomFifth[id] == 'A07W' then
 			if GetUnitAbilityLevel(u, 'A07W') >= 1 then
-				call IncUnitAbilityLevel(u, P8[id])
+				call IncUnitAbilityLevel(u, denomFifth[id])
 			else
-				call UnitAddAbility(u, P8[id])
+				call UnitAddAbility(u, denomFifth[id])
 				set L7[i]=1
 				loop
 				exitwhen L7[i] > wugongshu[i]
 					if ( ( I7[( ( ( i - 1 ) * 20 ) + L7[i] )] != 'AEfk' ) ) then
 					else
-						set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=P8[id]
+						set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=denomFifth[id]
 					exitwhen true
 					endif
 					set L7[i]=L7[i] + 1
 				endloop
 			endif
-			call IncUnitAbilityLevel(u, P8[id])
+			call IncUnitAbilityLevel(u, denomFifth[id])
 		else
-			call UnitAddAbility(u, P8[id])
-			if P8[id] == 'A0DP' then // 归元吐纳功
+			call UnitAddAbility(u, denomFifth[id])
+			if denomFifth[id] == 'A0DP' then // 归元吐纳功
 set fuyuan[i]=fuyuan[i] + 2
 				set gengu[i]=gengu[i] + 2
 				set wuxing[i]=wuxing[i] + 2
@@ -14934,24 +15006,24 @@ set fuyuan[i]=fuyuan[i] + 2
 				set danpo[i]=danpo[i] + 2
 				set yishu[i]=yishu[i] + 2
 			endif
-			if P8[id] == QI_MEN_SHU_SHU then
+			if denomFifth[id] == QI_MEN_SHU_SHU then
 				if Player(i - 1) == GetLocalPlayer() then
 					call s__Frame_show(qimen_widget)
 				endif
 			endif
-			call UnitMakeAbilityPermanent(u, true, P8[id])
+			call UnitMakeAbilityPermanent(u, true, denomFifth[id])
 			set L7[i]=1
 			loop
 			exitwhen L7[i] > wugongshu[i]
 				if ( ( I7[( ( ( i - 1 ) * 20 ) + L7[i] )] != 'AEfk' ) ) then
 				else
-					set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=P8[id]
+					set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=denomFifth[id]
 				exitwhen true
 				endif
 				set L7[i]=L7[i] + 1
 			endloop
 		endif
-		call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, ( "|cff00FF66恭喜领悟技能：" + GetObjectName(P8[id]) ))
+		call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, ( "|cff00FF66恭喜领悟技能：" + GetObjectName(denomFifth[id]) ))
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FF66玩家" + I2S(1 + GetPlayerId(p)) + "成为" + udg_menpainame[udg_runamen[i]] + "长老")
 		call SetPlayerName(p, "〓" + udg_menpainame[udg_runamen[i]] + "长老〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 		
@@ -14984,8 +15056,8 @@ function qR takes nothing returns nothing
 		if ( ( O8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) ) then
 			call DisplayTextToPlayer(Player(- 1 + i), 0, 0, "|CFF34FF00你已经修行过了")
 		else
-			if GetUnitAbilityLevel(udg_hero[i], Y7[udg_runamen[i]]) < 2 then
-				call DisplayTimedTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, 15, "你的" + GetAbilityName(Y7[udg_runamen[i]]) + "|r还没修炼到位")
+			if GetUnitAbilityLevel(udg_hero[i], denomSecond[udg_runamen[i]]) < 2 and udg_runamen[i] != 25 then
+				call DisplayTimedTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, 15, "你的" + GetAbilityName(denomSecond[udg_runamen[i]]) + "|r还没修炼到位")
 			else
 				set j=1
 				loop
@@ -15014,8 +15086,8 @@ function qR takes nothing returns nothing
 								if ( ( udg_runamen[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == bj_forLoopBIndex ) ) then
 									set udg_menpaineigong=DialogCreate()
 									call DialogSetMessage(udg_menpaineigong, "请选择你要修习的内功")
-									set b1=DialogAddButtonBJ(udg_menpaineigong, GetObjectName(Q8[bj_forLoopBIndex]))
-									set b2=DialogAddButtonBJ(udg_menpaineigong, GetObjectName(P8[bj_forLoopBIndex]))
+									set b1=DialogAddButtonBJ(udg_menpaineigong, GetObjectName(denomFourth[bj_forLoopBIndex]))
+									set b2=DialogAddButtonBJ(udg_menpaineigong, GetObjectName(denomFifth[bj_forLoopBIndex]))
 									call SaveButtonHandle(YDHT, StringHash("门派内功"), 1, b1)
 									call SaveButtonHandle(YDHT, StringHash("门派内功"), 2, b2)
 									call SaveUnitHandle(YDHT, StringHash("门派内功"), 3, GetTriggerUnit())
@@ -15053,8 +15125,8 @@ function MuRongNeiGong takes nothing returns nothing
 		if ( UnitHaveItem(u , 1227895642) == false ) then
 			call DisplayTextToPlayer(p, 0, 0, "|CFF34FF00你必须携带门派毕业卷才能获得修习资格")
 		else
-			if GetUnitAbilityLevel(u, Y7[udg_runamen[i]]) < 2 then
-				call DisplayTimedTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, 15, "你的" + GetAbilityName(Y7[udg_runamen[i]]) + "|r还没修炼到位")
+			if GetUnitAbilityLevel(u, denomSecond[udg_runamen[i]]) < 2 then
+				call DisplayTimedTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, 15, "你的" + GetAbilityName(denomSecond[udg_runamen[i]]) + "|r还没修炼到位")
 			else
 				if ( O8[i] == 1 ) then
 					call DisplayTextToPlayer(p, 0, 0, "|CFF34FF00你已经修行过了")
@@ -15070,9 +15142,9 @@ function MuRongNeiGong takes nothing returns nothing
 							set O8[i]=1
 							call RemoveItem(FetchUnitItem(u , 1227895642))
 							if danpo[i] > 20 then
-								call UnitAddAbility(u, P8[13])
-								call UnitMakeAbilityPermanent(u, true, P8[13])
-								call DisplayTextToPlayer(p, 0, 0, "|cff00FF66恭喜领悟技能：" + GetObjectName(P8[13]))
+								call UnitAddAbility(u, denomFifth[13])
+								call UnitMakeAbilityPermanent(u, true, denomFifth[13])
+								call DisplayTextToPlayer(p, 0, 0, "|cff00FF66恭喜领悟技能：" + GetObjectName(denomFifth[13]))
 								call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FF66玩家" + I2S(1 + GetPlayerId(p)) + "成为" + udg_menpainame[udg_runamen[i]] + "长老")
 								call SetPlayerName(p, "〓" + udg_menpainame[udg_runamen[i]] + "长老〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 								set L7[i]=1
@@ -15080,15 +15152,15 @@ function MuRongNeiGong takes nothing returns nothing
 								exitwhen L7[i] > wugongshu[i]
 									if ( ( I7[( ( ( i - 1 ) * 20 ) + L7[i] )] != 'AEfk' ) ) then
 									else
-										set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=P8[13]
+										set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=denomFifth[13]
 									exitwhen true
 									endif
 									set L7[i]=L7[i] + 1
 								endloop
 							else
-								call UnitAddAbility(u, Q8[13])
-								call UnitMakeAbilityPermanent(u, true, Q8[13])
-								call DisplayTextToPlayer(p, 0, 0, "|cff00FF66你还是先掌握" + GetObjectName(Q8[13]) + "吧")
+								call UnitAddAbility(u, denomFourth[13])
+								call UnitMakeAbilityPermanent(u, true, denomFourth[13])
+								call DisplayTextToPlayer(p, 0, 0, "|cff00FF66你还是先掌握" + GetObjectName(denomFourth[13]) + "吧")
 								call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FF66玩家" + I2S(1 + GetPlayerId(p)) + "成为" + udg_menpainame[udg_runamen[i]] + "长老")
 								call SetPlayerName(p, "〓" + udg_menpainame[udg_runamen[i]] + "长老〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 								set L7[i]=1
@@ -15096,7 +15168,7 @@ function MuRongNeiGong takes nothing returns nothing
 								exitwhen L7[i] > wugongshu[i]
 									if ( ( I7[( ( ( i - 1 ) * 20 ) + L7[i] )] != 'AEfk' ) ) then
 									else
-										set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=Q8[13]
+										set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=denomFourth[13]
 									exitwhen true
 									endif
 									set L7[i]=L7[i] + 1
@@ -17302,6 +17374,7 @@ function gz takes nothing returns nothing
 				call YDWEGeneralBounsSystemUnitSetBonus(u , 3 , 0 , 1000)
 				set gengu[i]=( gengu[i] + 2 )
 				set wuxing[i]=( wuxing[i] + 1 )
+				set special_attack[i]=special_attack[i] + 30
 				call DisplayTextToPlayer(p, 0, 0, "|cFFFF6600集齐青龙套装：")
 				call DisplayTextToPlayer(p, 0, 0, "|cFFcc99ff――――――――――")
 				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF招式伤害+200")
@@ -17311,6 +17384,7 @@ function gz takes nothing returns nothing
 				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF攻击+1000")
 				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF根骨+2")
 				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF悟性+1")
+				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF特攻+30")
 			elseif ( ii1 == 2 ) then
 				call ModifyHeroStat(1, u, 0, $96)
 				set juexuelingwu[i]=( juexuelingwu[i] + 1 )
@@ -17319,6 +17393,7 @@ function gz takes nothing returns nothing
 				call UnitAddAbility(u, 1093677107)
 				set yishu[i]=( yishu[i] + 1 )
 				set jingmai[i]=( jingmai[i] + 2 )
+				set special_attack[i]=special_attack[i] + 30
 				call DisplayTextToPlayer(p, 0, 0, "|cFFFF6600集齐朱雀套装：")
 				call DisplayTextToPlayer(p, 0, 0, "|cFFcc99ff――――――――――")
 				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF内力+150")
@@ -17328,6 +17403,7 @@ function gz takes nothing returns nothing
 				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF法术回复+10")
 				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF医术+1")
 				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF经脉+2")
+				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF特攻+30")
 			elseif ( ii1 == 3 ) then
 				call ModifyHeroStat(0, u, 0, $96)
 				set juexuelingwu[i]=( juexuelingwu[i] + 1 )
@@ -17336,6 +17412,7 @@ function gz takes nothing returns nothing
 				call YDWEGeneralBounsSystemUnitSetBonus(u , 2 , 0 , $C8)
 				set wuxing[i]=( wuxing[i] + 2 )
 				set danpo[i]=( danpo[i] + 1 )
+				set special_attack[i]=special_attack[i] + 30
 				call DisplayTextToPlayer(p, 0, 0, "|cFFFF6600集齐玄武套装：")
 				call DisplayTextToPlayer(p, 0, 0, "|cFFcc99ff――――――――――")
 				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF招式伤害+150")
@@ -17345,6 +17422,7 @@ function gz takes nothing returns nothing
 				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF防御+200")
 				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF悟性+2")
 				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF胆魄+1")
+				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF特攻+30")
 			elseif ( ii1 == 4 ) then
 				call ModifyHeroStat(1, u, 0, $C8)
 				call ModifyHeroStat(2, u, 0, 100)
@@ -17352,6 +17430,7 @@ function gz takes nothing returns nothing
 				set juexuelingwu[i]=( juexuelingwu[i] + 2 )
 				set fuyuan[i]=( fuyuan[i] + 2 )
 				set danpo[i]=( danpo[i] + 1 )
+				set special_attack[i]=special_attack[i] + 30
 				call DisplayTextToPlayer(p, 0, 0, "|cFFFF6600集齐白虎套装：")
 				call DisplayTextToPlayer(p, 0, 0, "|cFFcc99ff――――――――――")
 				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF内力+200")
@@ -17360,6 +17439,7 @@ function gz takes nothing returns nothing
 				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF移动速度最大化")
 				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF福缘+2")
 				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF胆魄+1")
+				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF特攻+30")
 			endif
 		else
 			if ( ii1 == 1 ) then
@@ -17610,6 +17690,7 @@ function jz takes nothing returns nothing
 				call YDWEGeneralBounsSystemUnitSetBonus(u , 3 , 1 , 1000)
 				set gengu[i]=( gengu[i] - 2 )
 				set wuxing[i]=( wuxing[i] - 1 )
+				set special_attack[i]=special_attack[i] - 30
 				call DisplayTextToPlayer(GetTriggerPlayer(), 0, 0, "|cFFFF0000失去青龙套装")
 			elseif ( ii1 == 2 ) then
 				call ModifyHeroStat(1, u, 1, $96)
@@ -17619,6 +17700,7 @@ function jz takes nothing returns nothing
 				call UnitRemoveAbility(u, 1093677107)
 				set yishu[i]=( yishu[i] - 1 )
 				set jingmai[i]=( jingmai[i] - 2 )
+				set special_attack[i]=special_attack[i] - 30
 				call DisplayTextToPlayer(GetTriggerPlayer(), 0, 0, "|cFFFF0000失去朱雀套装")
 			elseif ( ii1 == 3 ) then
 				call ModifyHeroStat(0, u, 1, $96)
@@ -17628,6 +17710,7 @@ function jz takes nothing returns nothing
 				call YDWEGeneralBounsSystemUnitSetBonus(u , 2 , 1 , $C8)
 				set wuxing[i]=( wuxing[i] - 2 )
 				set danpo[i]=( danpo[i] - 1 )
+				set special_attack[i]=special_attack[i] - 30
 				call DisplayTextToPlayer(GetTriggerPlayer(), 0, 0, "|cFFFF0000失去玄武套装")
 			elseif ( ii1 == 4 ) then
 				call ModifyHeroStat(1, u, 1, $C8)
@@ -17636,6 +17719,7 @@ function jz takes nothing returns nothing
 				set juexuelingwu[i]=( juexuelingwu[i] - 2 )
 				set fuyuan[i]=( fuyuan[i] - 2 )
 				set danpo[i]=( danpo[i] - 1 )
+				set special_attack[i]=special_attack[i] - 30
 				call DisplayTextToPlayer(GetTriggerPlayer(), 0, 0, "|cFFFF0000失去白虎套装")
 			endif
 		endif
@@ -26277,7 +26361,7 @@ function shieldReduceDamage takes nothing returns nothing
     if LoadReal(YDHT, GetHandleId(u), $FED) > 0 and GetEventDamage() > 50 then
         set boss_index=( udg_boshu - 1 ) / 4 + 1
         // call BJDebugMsg(R2S(YDWELogarithmLg(GetEventDamage())))
-        set loss=Pow(2, (YDWELogarithm__Log2(((GetEventDamage())*1.0)) * 0.3010300)) * 100 / Pow(2, 9 + boss_index) // INLINED!!
+        set loss=Pow(2, (YDWELogarithm___Log2(((GetEventDamage())*1.0)) * 0.3010300)) * 100 / Pow(2, 9 + boss_index) // INLINED!!
         call EXSetEventDamage(0)
         call SaveReal(YDHT, GetHandleId(u), $FED, LoadReal(YDHT, GetHandleId(u), $FED) - loss)
     endif
@@ -31156,7 +31240,7 @@ if s == "+" then
 		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF整理物品完成")
 	endif
 	if s == "ver" then
-		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF决战江湖1.6.32测试2版本")
+		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF决战江湖1.6.49版本")
 	endif
 	if s == "cx" or s == "CX" then
 		call DisplayTimedTextToPlayer(Player(pId), 0, 0, 10, "|cFFFF00CC" + "查询玩家:" + "|r" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
@@ -38597,12 +38681,12 @@ function DiQingXiangLongSH takes nothing returns nothing
     local real shxishu= 1
     local real shanghai=0.
     if ( ( GetUnitAbilityLevel(u, 'A07M') != 0 ) ) then //加七伤拳
-	    call WanBuff(u , l__ut , GetRandomInt(1, 13))
+call WanBuff(u , l__ut , GetRandomInt(1, 13))
 	else
 		call WanBuff(u , l__ut , 9)
     endif
     if ( ( GetUnitAbilityLevel(u, 'A03T') != 0 ) ) then //加须弥山掌
-        set shxishu=shxishu + 1.2
+set shxishu=shxishu + 1.2
     endif
     // 专属加成
 	if UnitHasDenomWeapon(u , 'I0DZ') then
@@ -41901,6 +41985,369 @@ function daGongGaoCheng takes unit u returns nothing
 		call SetUnitLifePercentBJ(u, 100)
 	endif
 	
+endfunction
+// 门派：雪山
+// 1技能 雪山剑法：攻击随机造成前方直线上敌人冻住，并造成伤害
+// 2技能 风沙莽莽
+// 3技能 金乌刀法
+// 毕业技能1 心法：雪花六出
+// 毕业技能2 特殊：无妄神功
+// 专属：雪山细剑
+
+// function xueShanJianFaCondition takes nothing returns boolean
+//     return IsUnitAliveBJ(GetFilterUnit()) and IsUnitEnemy(GetFilterUnit(), Player(0))
+// endfunction
+// function xueShanJianFaDizzy takes nothing returns nothing
+//     local timer t = GetExpiredTimer()
+//     local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 6)
+//     local location loc = GetUnitLoc(GetEnumUnit())
+//     call CreateNUnitsAtLoc(1, 'e000', GetOwningPlayer(u),loc,bj_UNIT_FACING)
+//     call ShowUnitHide(bj_lastCreatedUnit)
+//     call UnitAddAbility(bj_lastCreatedUnit,'A0DF')
+//     call IssueTargetOrder(bj_lastCreatedUnit,"thunderbolt", GetEnumUnit())
+//     call UnitApplyTimedLife(bj_lastCreatedUnit,1112045413,3.)
+//     call RemoveLocation(loc)
+//     set u = null
+//     set t = null
+//     set loc = null
+// endfunction
+// function xueShanJianFaAction takes nothing returns nothing
+//     local timer t = GetExpiredTimer()
+//     local integer times = LoadInteger(YDHT, GetHandleId(t), 0)
+//     local real sourceX = LoadReal(YDHT, GetHandleId(t), 1)
+//     local real sourceY = LoadReal(YDHT, GetHandleId(t), 2)
+//     local real angle = LoadReal(YDHT, GetHandleId(t), 5)
+//     local real x
+//     local real y
+//     local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 6)
+//     local group g = null
+//     set x = sourceX + 100 * times * Cos(angle * bj_DEGTORAD)
+//     set y = sourceY + 100 * times * Sin(angle * bj_DEGTORAD)
+//     if times < 11 then
+//         call YDWETimerDestroyEffect(0.10, AddSpecialEffect("Abilities\\Weapons\\FrostWyrmMissile\\FrostWyrmMissile.mdl", x, y))
+//         call YDWETimerRemoveUnit( 2.00, CreateUnit(GetOwningPlayer(u), 'nhem', x, y, GetRandomDirectionDeg()))
+//     elseif times > 24 and times < 35 then
+//         call YDWETimerDestroyEffect(0.10, AddSpecialEffect("Abilities\\Weapons\\FrostWyrmMissile\\FrostWyrmMissile.mdl", x, y))
+//         set g = GetUnitsInRangeMatching(170.00, x, y, Condition(function xueShanJianFaCondition))
+//         call ForGroup(g, function xueShanJianFaDizzy)
+//         call DestroyGroup(g)
+//     elseif times >= 35 then
+//         call FlushChildHashtable(YDHT, GetHandleId(t))
+//         call PauseTimer(t)
+//         call DestroyTimer(t)
+//     endif
+//     call SaveInteger(YDHT, GetHandleId(t), 0, times + 1)
+//     set g = null
+//     set t = null
+//     set u = null
+// endfunction
+// function xueShanJianFa takes nothing returns nothing
+//     local timer t = CreateTimer()
+//     local real sourceX = GetUnitX(GetTriggerUnit())
+//     local real sourceY = GetUnitY(GetTriggerUnit())
+//     local real targetX = GetSpellTargetX()
+//     local real targetY = GetSpellTargetY()
+//     local real angle = Atan2(targetY - sourceY, targetX - sourceX)
+//     call SaveInteger(YDHT, GetHandle(t), 0, 0) // 计数35次
+//     call SaveReal(YDHT, GetHandle(t), 1, sourceX)
+//     call SaveReal(YDHT, GetHandle(t), 2, sourceY)
+//     call SaveReal(YDHT, GetHandle(t), 5, angle)
+//     call SaveUnitHandle(YDHT, GetHandle(t), 6, GetTriggerUnit())
+//     call TimerStart(t, 0.02, true, function xueShanJianFaAction)
+//     set t = null
+// endfunction
+//---------------------------------------------------
+// 汝阳一技能 偷看偷学
+// 效果：
+// 第一次使用在所有门派一技能中随机出五个进行选择
+// 第二次使用在所有门派二技能中随机出五个进行选择
+// 第三次使用在所有门派三技能中随机出五个进行选择
+// 第四次使用在所有门派毕业技中随机出五个进行选择
+// 第五次开始在所有技能中随机五个进行选择
+//
+// + 乾坤大挪移 学习武功等级+1
+// + “郡主”称号 学习武功等级+1
+// + 龙象般若功 学习武功等级+1
+// + 自创武学 学习武功等级+2
+//---------------------------------------------------
+function isKungfuFull takes integer i returns boolean
+    local integer j= 1
+    loop
+        exitwhen j > wugongshu[i]
+        if I7[20 * ( i - 1 ) + j] == 1095067243 then
+            return false
+        endif
+        call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFFF0033学习技能已达上限，请先遗忘部分技能")
+        set j=j + 1
+    endloop
+    return true
+endfunction
+function touKanTouXue takes unit u returns nothing
+    local integer i= 1 + GetPlayerId(GetOwningPlayer(u))
+    local integer array randList
+    local integer j= 1
+    local integer k= 1
+    local integer temp= 0
+    set touKanCounter[i]=touKanCounter[i] + 1
+    if isKungfuFull(i) then
+        return
+    endif
+    loop
+        exitwhen j > DENOMINATION_NUMBER
+        set randList[j]=j
+        set j=j + 1
+    endloop
+    loop
+        exitwhen j > DENOMINATION_NUMBER
+        set k=GetRandomInt(1, DENOMINATION_NUMBER)
+        set temp=randList[j]
+        set randList[j]=randList[k]
+        set randList[k]=temp
+        set j=j + 1
+    endloop
+    if touKanCounter[i] == 1 then
+        set touKanIds[1]=denomFirst[randList[1]]
+        set touKanIds[2]=denomFirst[randList[2]]
+        set touKanIds[3]=denomFirst[randList[3]]
+        set touKanIds[4]=denomFirst[randList[4]]
+        set touKanIds[5]=denomFirst[randList[5]]
+    endif
+    if touKanCounter[i] == 2 then
+        set touKanIds[1]=denomSecond[randList[1]]
+        set touKanIds[2]=denomSecond[randList[2]]
+        set touKanIds[3]=denomSecond[randList[3]]
+        set touKanIds[4]=denomSecond[randList[4]]
+        set touKanIds[5]=denomSecond[randList[5]]
+    endif
+    if touKanCounter[i] == 3 then
+        set touKanIds[1]=denomThird[randList[1]]
+        set touKanIds[2]=denomThird[randList[2]]
+        set touKanIds[3]=denomThird[randList[3]]
+        set touKanIds[4]=denomThird[randList[4]]
+        set touKanIds[5]=denomThird[randList[5]]
+    endif
+    if touKanCounter[i] == 4 then
+        if GetRandomInt(1, 2) == 1 then
+            set touKanIds[1]=denomFourth[randList[1]]
+            set touKanIds[2]=denomFourth[randList[2]]
+            set touKanIds[3]=denomFourth[randList[3]]
+            set touKanIds[4]=denomFourth[randList[4]]
+            set touKanIds[5]=denomFourth[randList[5]]
+        else
+            set touKanIds[1]=denomFifth[randList[1]]
+            set touKanIds[2]=denomFifth[randList[2]]
+            set touKanIds[3]=denomFifth[randList[3]]
+            set touKanIds[4]=denomFifth[randList[4]]
+            set touKanIds[5]=denomFifth[randList[5]]
+        endif
+    endif
+    if touKanCounter[i] >= 5 then
+        set touKanIds[1]=denomFirst[randList[1]]
+        set touKanIds[2]=denomSecond[randList[2]]
+        set touKanIds[3]=denomThird[randList[3]]
+        set touKanIds[4]=denomFourth[randList[4]]
+        set touKanIds[5]=denomFifth[randList[5]]
+        set touKanIds[6]=LoadInteger(YDHT, StringHash("武学") + GetRandomInt(1, MAX_WU_GONG_NUM), 2)
+    endif
+    call DialogSetMessage(ruyangDialog[i], "|CFF00FFFF请选择要偷学的武功!")
+    set k=1
+    set j=1
+    loop
+        exitwhen k > 6
+        if touKanIds[k] != 1095067243 then
+            call SaveButtonHandle(YDHT, ruyangButtonKey + i, j, DialogAddButtonBJ(ruyangDialog[i], GetObjectName(touKanIds[k])))
+            call SaveInteger(YDHT, ruyangButtonKey + i, j, touKanIds[k])
+            set j=j + 1
+        endif
+        set k=k + 1
+    endloop
+    call DialogDisplay(GetOwningPlayer(u), ruyangDialog[i], true)
+endfunction
+function touKanAction takes nothing returns nothing
+    local player p= GetTriggerPlayer()
+    local integer i= 1 + GetPlayerId(p)
+    local integer k= 1
+    local integer j= 1
+    local integer id= 0
+    local integer level= 1
+    local integer l__kk= 1
+    loop
+        exitwhen k > 6
+        if GetClickedButton() == LoadButtonHandle(YDHT, ruyangButtonKey + i, k) then
+            set id=LoadInteger(YDHT, ruyangButtonKey + i, k)
+            if GetUnitAbilityLevel(udg_hero[i], id) > 0 then
+                call DisplayTextToPlayer(p, 0, 0, "|CFFFF0033你已经拥有此武功了")
+                call FlushChildHashtable(YDHT, ruyangButtonKey + i)
+                call DialogClear(ruyangDialog[i])
+                return
+            endif
+            if GetUnitAbilityLevel(udg_hero[i], QIAN_KUN) > 0 then
+                set level=level + 1
+            endif
+            if (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( YA_HUAN) - 1)])) != 0) then // INLINED!!
+                set level=level + 1
+            endif
+            if GetUnitAbilityLevel(udg_hero[i], LONG_XIANG) > 0 then
+                set level=level + 1
+            endif
+            if GetUnitAbilityLevel(udg_hero[i], ZI_CHUANG_WU_XUE) > 0 then
+                set level=level + 2
+            endif
+            call UnitAddAbility(udg_hero[i], id)
+            call UnitMakeAbilityPermanent(udg_hero[i], true, id)
+            call SetUnitAbilityLevel(udg_hero[i], id, IMaxBJ(level, LoadInteger(YDHT, GetHandleId(p), id * 5)))
+            
+            set j=1
+            loop
+                exitwhen j > wugongshu[i]
+                if I7[20 * ( i - 1 ) + j] == 1095067243 then
+                    set I7[20 * ( i - 1 ) + j]=id
+                    exitwhen true
+                endif
+                set j=j + 1
+            endloop
+            call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF0033恭喜" + GetPlayerName(p) + "习得" + GetObjectName(id) + "|r")
+            set l__kk=1
+            loop
+                exitwhen l__kk > 20
+                if id == MM9[l__kk] then
+                    set udg_shanghaijiacheng[i]=udg_shanghaijiacheng[i] + udg_jueneishjc[l__kk]
+                    call ModifyHeroStat(1, udg_hero[i], 0, udg_jueneiminjie[l__kk])
+                    set udg_baojilv[i]=udg_baojilv[i] + udg_jueneibaojilv[l__kk]
+                    set juexuelingwu[i]=juexuelingwu[i] + udg_jueneijxlw[l__kk]
+                    set udg_shanghaixishou[i]=udg_shanghaixishou[i] + udg_jueneishxs[l__kk]
+                endif
+                set l__kk=l__kk + 1
+            endloop
+            call FlushChildHashtable(YDHT, ruyangButtonKey + i)
+            call DialogClear(ruyangDialog[i])
+            return
+        endif
+        set k=k + 1
+    endloop
+    set p=null
+endfunction
+//---------------------------------------------------
+// 汝阳毕业技能一 玄冥神掌
+// 效果：攻击时造成伤害并几率使敌人深度中毒
+// + 九阴真经·内功 每杀100个敌人加1点特攻
+// + 乾坤大挪移 几率使敌人虚弱
+// + 九阳神功 该武功失去效果
+// + 七伤拳 伤害+100%
+// + 龙象般若功 伤害+150%
+// 特攻：伤害范围
+//---------------------------------------------------
+function xuanMingAction takes unit u,unit enumUnit returns nothing
+    local real coefficient= 1
+    local real damage= 0
+    if GetUnitAbilityLevel(u, QI_SHANG_QUAN) > 0 then
+        set coefficient=coefficient + 1
+    endif
+    if GetUnitAbilityLevel(u, LONG_XIANG) > 0 then
+        set coefficient=coefficient + 1.5
+    endif
+    if UnitHasDenomWeapon(u , 'I00B') then
+        set coefficient=coefficient * 8
+    endif
+    call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl", u, "overhead"))
+    if GetRandomInt(1, 5) <= 2 then
+        // 几率深度中毒
+        call WanBuff(u , enumUnit , 14)
+    endif
+    if GetUnitAbilityLevel(u, QIAN_KUN) > 0 then
+        // 几率使敌人虚弱
+        call WanBuff(u , enumUnit , 16)
+    endif
+    set damage=ShangHaiGongShi(u , enumUnit , 100 , 120 , coefficient , XUAN_MING_SHEN_ZHANG)
+    call WuGongShangHai(u , enumUnit , damage)
+endfunction
+function xuanMingShenZhang takes unit u returns nothing
+    local player p= GetOwningPlayer(u)
+    local integer i= 1 + GetPlayerId(p)
+    local real range= 0
+    local group g= null
+    local real x= GetUnitX(u)
+    local real y= GetUnitY(u)
+    local unit enumUnit= null
+    if GetRandomReal(0, 100) <= 15 + fuyuan[i] * 0.2 + wuxing[i] * 0.1 then
+        call WuGongShengChong(u , XUAN_MING_SHEN_ZHANG , 360.0)
+        set range=400 + special_attack[i] * 10
+        set g=CreateGroup()
+        call GroupEnumUnitsInRange(g, x, y, range, null)
+        loop
+            set enumUnit=FirstOfGroup(g)
+            exitwhen enumUnit == null
+            if IsUnitEnemy(enumUnit, p) and IsUnitAliveBJ(enumUnit) then
+                call xuanMingAction(u , enumUnit)
+            endif
+            call GroupRemoveUnit(g, enumUnit)
+        endloop
+    endif
+    set enumUnit=null
+    set g=null
+    set p=null
+endfunction
+// 玄冥神掌杀100个敌人加1点特殊攻击力
+function xuanMingAddSpecialAttack takes unit u returns nothing
+    local integer i= 1 + GetPlayerId(GetOwningPlayer(u))
+    set xuanMingCounter[i]=xuanMingCounter[i] + 1
+    if xuanMingCounter[i] >= 100 then
+        set xuanMingCounter[i]=0
+        set special_attack[i]=special_attack[i] + 1
+        call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "|CFFFF0033你的特殊攻击力提升了")
+    endif
+endfunction
+//----------------------------------------------------
+//- 汝阳毕业技能二 嫁衣神功
+//- 效果1：主动使用时，提升攻击速度和闪避率，持续(技能等级*2)秒
+//- 效果2：遗忘武功时，增加三围
+//- 效果3：有武功到达9重时，增加悟性和伤害倍数
+//- 等级 增加值
+//- “郡主”称号 增加值翻倍
+//- “绍敏郡主”称号 增加值翻倍
+//----------------------------------------------------
+function jiaYiShenGongRemoveAbilities takes nothing returns nothing
+    local timer t= GetExpiredTimer()
+    local unit u= LoadUnitHandle(YDHT, GetHandleId(t), 0)
+    call UnitRemoveAbility(u, 1093682242)
+    call UnitRemoveAbility(u, 1093682242)
+    call FlushChildHashtable(YDHT, GetHandleId(t))
+    call PauseTimer(t)
+    call DestroyTimer(t)
+    set u=null
+    set t=null
+endfunction
+function jiaYiShenGong takes unit u returns nothing
+    local real time= GetUnitAbilityLevel(u, JIA_YI_SHEN_GONG) * 2
+    local timer t= CreateTimer()
+    call UnitAddAbility(u, 1093682242)
+    call SetUnitAbilityLevel(u, 1093682242, GetUnitAbilityLevel(u, JIA_YI_SHEN_GONG))
+    call UnitAddAbility(u, 1098084450)
+    call SetPlayerAbilityAvailableBJ(false, 1098084450, GetOwningPlayer(u))
+    call SetUnitAbilityLevel(u, 1093682244, GetUnitAbilityLevel(u, JIA_YI_SHEN_GONG))
+    call WuGongShengChong(u , JIA_YI_SHEN_GONG , 150)
+    call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
+    call TimerStart(t, time, false, function jiaYiShenGongRemoveAbilities)
+    set t=null
+endfunction
+function initRuYang takes nothing returns nothing
+    local integer i= 1
+    local trigger t= CreateTrigger()
+    loop
+        exitwhen i > 5
+        set touKanCounter[i]=0
+        set touKanIds[i]=0
+        set xuanMingCounter[i]=0
+        set ruyangDialog[i]=DialogCreate()
+        set i=i + 1
+    endloop
+    set i=1
+    loop
+        exitwhen i > 5
+        call TriggerRegisterDialogEvent(t, ruyangDialog[i])
+        set i=i + 1
+    endloop
+    call TriggerAddAction(t, function touKanAction)
 endfunction
 //------------江湖武功开始------------
 //弹指神通
@@ -51259,6 +51706,10 @@ function UnitAttack_Conditions takes nothing returns boolean
 	if PassiveWuGongCondition(u , l__ut , ZAO_LEI_PI) and GetRandomReal(1, 100) <= 16 + fuyuan[i] * 0.2 then
 		call zaoLeiPi(u , l__ut)
 	endif
+	// 玄冥神掌
+	if GetUnitAbilityLevel(u, XUAN_MING_SHEN_ZHANG) > 0 and GetUnitAbilityLevel(u, JIU_YANG) == 0 and IsUnitEnemy(u, GetOwningPlayer(l__ut)) then
+	    call xuanMingShenZhang(u)
+	endif
 	call RemoveLocation(loc)
 	call RemoveLocation(loc2)
 	set u=null
@@ -51327,6 +51778,14 @@ function UseAbility_Conditions takes nothing returns boolean
 	// 野螺派：乾坤一掷
 	if id == QIAN_KUN_YI_ZHI then
 		call qianKunYiZhi(u)
+	endif
+	// 汝阳王府：嫁衣神功
+	if id == JIA_YI_SHEN_GONG then
+		call jiaYiShenGong(u)
+	endif
+	// 汝阳王府：偷看偷学
+	if id == TOU_KAN_TOU_XUE then
+		call touKanTouXue(u)
 	endif
  
 	set u=null
@@ -51425,6 +51884,10 @@ function UnitDeath_Conditions takes nothing returns boolean
 			call SaveInteger(YDHT, GetHandleId(u), BI_BO_POINT, LoadInteger(YDHT, GetHandleId(u), BI_BO_POINT) + j)
 			call DisplayTextToPlayer(Player(i - 1), 0, 0, "碧波心经点数+" + I2S(j))
 		endif
+	endif
+	if GetUnitAbilityLevel(u, XUAN_MING_SHEN_ZHANG) > 0 and GetUnitAbilityLevel(u, JIU_YIN) > 0 and GetUnitAbilityLevel(u, JIU_YANG) == 0 then
+		// 玄冥神掌杀100个敌人加1点特攻
+		call xuanMingAddSpecialAttack(u)
 	endif
 	
 	set u=null
@@ -52255,150 +52718,156 @@ endfunction
 //门派武功
 function InitDenominationSkills takes nothing returns nothing
 	set udg_menpainame[1]="少林派"
-	set X7[1]='A05G'
-	set Z7[1]='A000'
-	set Y7[1]='A05K'
-	set Q8[1]='A05O'
-	set P8[1]='S000'
+	set denomFirst[1]='A05G'
+	set denomThird[1]='A000'
+	set denomSecond[1]='A05K'
+	set denomFourth[1]='A05O'
+	set denomFifth[1]='S000'
 	set udg_menpainame[2]="古墓派"
-	set X7[2]='A09E'
-	set Z7[2]='A09J'
-	set Y7[2]='A09M'
-	set Q8[2]='A09T'
-	set P8[2]='A09U'
+	set denomFirst[2]='A09E'
+	set denomThird[2]='A09J'
+	set denomSecond[2]='A09M'
+	set denomFourth[2]='A09T'
+	set denomFifth[2]='A09U'
 	set udg_menpainame[3]="丐帮"
-	set X7[3]='A0C9'
-	set Z7[3]='A0CB'
-	set Y7[3]='A0C8'
-	set Q8[3]='A0CA'
-	set P8[3]='A0DI'
+	set denomFirst[3]='A0C9'
+	set denomThird[3]='A0CB'
+	set denomSecond[3]='A0C8'
+	set denomFourth[3]='A0CA'
+	set denomFifth[3]='A0DI'
 	set udg_menpainame[4]="华山派"
-	set X7[4]='A08Y'
-	set Z7[4]='A08W'
-	set Y7[4]='A08X'
-	set Q8[4]='A037'
-	set P8[4]='A091'
+	set denomFirst[4]='A08Y'
+	set denomThird[4]='A08W'
+	set denomSecond[4]='A08X'
+	set denomFourth[4]='A037'
+	set denomFifth[4]='A091'
 	set udg_menpainame[5]="全真教"
-	set X7[5]='A0CF'
-	set Z7[5]='A0DA'
-	set Y7[5]='A0CM'
-	set Q8[5]='A0CH'
-	set P8[5]='A0DE'
+	set denomFirst[5]='A0CF'
+	set denomThird[5]='A0DA'
+	set denomSecond[5]='A0CM'
+	set denomFourth[5]='A0CH'
+	set denomFifth[5]='A0DE'
 	set udg_menpainame[6]="血刀门"
-	set X7[6]='A0CI'
-	set Z7[6]='A0CJ'
-	set Y7[6]='A0CN'
-	set Q8[6]='A0CK'
-	set P8[6]='A0DH'
+	set denomFirst[6]='A0CI'
+	set denomThird[6]='A0CJ'
+	set denomSecond[6]='A0CN'
+	set denomFourth[6]='A0CK'
+	set denomFifth[6]='A0DH'
 	set udg_menpainame[7]="恒山派"
-	set X7[7]='A021'
-	set Z7[7]='A01Z'
-	set Y7[7]='A0CD'
-	set Q8[7]='A023'
-	set P8[7]='A024'
+	set denomFirst[7]='A021'
+	set denomThird[7]='A01Z'
+	set denomSecond[7]='A0CD'
+	set denomFourth[7]='A023'
+	set denomFifth[7]='A024'
 	set udg_menpainame[8]="峨眉派"
-	set X7[8]='A0C7'
-	set Z7[8]='A0C2'
-	set Y7[8]='A0C5'
-	set Q8[8]='A0C4'
-	set P8[8]='A0C6'
+	set denomFirst[8]='A0C7'
+	set denomThird[8]='A0C2'
+	set denomSecond[8]='A0C5'
+	set denomFourth[8]='A0C4'
+	set denomFifth[8]='A0C6'
 	set udg_menpainame[9]="武当派"
-	set X7[9]='A04D'
-	set Z7[9]='A08S'
-	set Y7[9]='A08R'
-	set Q8[9]='A08Q'
-	set P8[9]='A08V'
+	set denomFirst[9]='A04D'
+	set denomThird[9]='A08S'
+	set denomSecond[9]='A08R'
+	set denomFourth[9]='A08Q'
+	set denomFifth[9]='A08V'
 	set udg_menpainame[10]="星宿派"
-	set X7[10]='A0BP'
-	set Z7[10]='A0BS'
-	set Y7[10]='A0BQ'
-	set Q8[10]='A0BT'
-	set P8[10]='A0BV'
+	set denomFirst[10]='A0BP'
+	set denomThird[10]='A0BS'
+	set denomSecond[10]='A0BQ'
+	set denomFourth[10]='A0BT'
+	set denomFifth[10]='A0BV'
 	set udg_menpainame[11]="自由门派"
-	set X7[11]='AEfk'
-	set Z7[11]='AEfk'
-	set Y7[11]='AEfk'
-	set Q8[11]='AEfk'
-	set P8[11]='AEfk'
+	set denomFirst[11]='AEfk'
+	set denomThird[11]='AEfk'
+	set denomSecond[11]='AEfk'
+	set denomFourth[11]='AEfk'
+	set denomFifth[11]='AEfk'
 	set udg_menpainame[12]="灵鹫宫"
-	set X7[12]='A02B'
-	set Z7[12]='A02C'
-	set Y7[12]='A02F'
-	set Q8[12]='A02G'
-	set P8[12]='A02H'
+	set denomFirst[12]='A02B'
+	set denomThird[12]='A02C'
+	set denomSecond[12]='A02F'
+	set denomFourth[12]='A02G'
+	set denomFifth[12]='A02H'
 	set udg_menpainame[13]="姑苏慕容"
-	set X7[13]='A02K'
-	set Z7[13]='A0CC'
-	set Y7[13]='A02M'
-	set Q8[13]='A02V'
-	set P8[13]='A02R'
+	set denomFirst[13]='A02K'
+	set denomThird[13]='A0CC'
+	set denomSecond[13]='A02M'
+	set denomFourth[13]='A02V'
+	set denomFifth[13]='A02R'
 	set udg_menpainame[14]="明教"
-	set X7[14]='A030'
-	set Z7[14]='A032'
-	set Y7[14]='A06R'
-	set Q8[14]='A034'
-	set P8[14]='A07W'
+	set denomFirst[14]='A030'
+	set denomThird[14]='A032'
+	set denomSecond[14]='A06R'
+	set denomFourth[14]='A034'
+	set denomFifth[14]='A07W'
 	set udg_menpainame[15]="衡山派"
-	set X7[15]='A04M'
-	set Z7[15]='A04N'
-	set Y7[15]='A04P'
-	set Q8[15]='A026'
-	set P8[15]='A04R'
+	set denomFirst[15]='A04M'
+	set denomThird[15]='A04N'
+	set denomSecond[15]='A04P'
+	set denomFourth[15]='A026'
+	set denomFifth[15]='A04R'
 	set udg_menpainame[16]="神龙教"
-	set X7[16]='A04W'
-	set Z7[16]='A04Z'
-	set Y7[16]='A051'
-	set Q8[16]='A057'
-	set P8[16]='A059'
+	set denomFirst[16]='A04W'
+	set denomThird[16]='A04Z'
+	set denomSecond[16]='A051'
+	set denomFourth[16]='A057'
+	set denomFifth[16]='A059'
 	set udg_menpainame[17]="神龙教"
-	set X7[17]='A056'
-	set Z7[17]='A054'
-	set Y7[17]='A04X'
-	set Q8[17]='A057'
-	set P8[17]='A059'
+	set denomFirst[17]='A056'
+	set denomThird[17]='A054'
+	set denomSecond[17]='A04X'
+	set denomFourth[17]='A057'
+	set denomFifth[17]='A059'
 	set udg_menpainame[18]="泰山派"
-	set X7[18]='A08A'
-	set Z7[18]='A08B'
-	set Y7[18]='A08E'
-	set Q8[18]='A08G'
-	// set P8[18]='A08H' // 快活三剑太卡，不用
-	set P8[18]='A08G'
+	set denomFirst[18]='A08A'
+	set denomThird[18]='A08B'
+	set denomSecond[18]='A08E'
+	set denomFourth[18]='A08G'
+	// set denomFifth[18]='A08H' // 快活三剑太卡，不用
+	set denomFifth[18]='A08G'
 	set udg_menpainame[19]="铁掌帮"
-	set X7[19]='A06Y'
-	set Z7[19]='A06Z'
-	set Y7[19]='A07Y'
-	set Q8[19]='A070'
-	set P8[19]='A0DP'
+	set denomFirst[19]='A06Y'
+	set denomThird[19]='A06Z'
+	set denomSecond[19]='A07Y'
+	set denomFourth[19]='A070'
+	set denomFifth[19]='A0DP'
 	set udg_menpainame[20]="唐门"
-	set X7[20]='A098'
-	set Z7[20]='A09A'
-	set Y7[20]='A0B0'
-	set Q8[20]='A0B6'
-	set P8[20]='A0B1'
+	set denomFirst[20]='A098'
+	set denomThird[20]='A09A'
+	set denomSecond[20]='A0B0'
+	set denomFourth[20]='A0B6'
+	set denomFifth[20]='A0B1'
 	set udg_menpainame[21]="五毒教"
-	set X7[21]='A0BL'
-	set Z7[21]='A0DU'
-	set Y7[21]='A0DT'
-	set Q8[21]='A0DS'
-	set P8[21]='A0DR'
+	set denomFirst[21]='A0BL'
+	set denomThird[21]='A0DU'
+	set denomSecond[21]='A0DT'
+	set denomFourth[21]='A0DS'
+	set denomFifth[21]='A0DR'
 	set udg_menpainame[22]="桃花岛"
-	set X7[22]='A0EE'
-	set Z7[22]='A0EG'
-	set Y7[22]='A0EI'
-	set Q8[22]='A0EK'
-	set P8[22]='A0EL'
+	set denomFirst[22]='A0EE'
+	set denomThird[22]='A0EG'
+	set denomSecond[22]='A0EI'
+	set denomFourth[22]='A0EK'
+	set denomFifth[22]='A0EL'
 	set udg_menpainame[23]="野螺派"
-	set X7[23]=ZAO_LEI_PI
-	set Z7[23]=BA_MIAN_LING_LONG
-	set Y7[23]=FAN_SHOU_QIAN_ZHU
-	set Q8[23]=QIAN_KUN_YI_ZHI
-	set P8[23]=DA_GONG_GAO_CHENG
+	set denomFirst[23]=ZAO_LEI_PI
+	set denomThird[23]=BA_MIAN_LING_LONG
+	set denomSecond[23]=FAN_SHOU_QIAN_ZHU
+	set denomFourth[23]=QIAN_KUN_YI_ZHI
+	set denomFifth[23]=DA_GONG_GAO_CHENG
 	set udg_menpainame[24]="雪山派"
-	set X7[24]='A0EX'
-    set Z7[24]='A0EY'
-    set Y7[24]='A0EZ'
-    set Q8[24]='A0F0'
-    set P8[24]='A0F1'
+	set denomFirst[24]='A0EX'
+    set denomThird[24]='A0EY'
+    set denomSecond[24]='A0EZ'
+    set denomFourth[24]='A0F0'
+    set denomFifth[24]='A0F1'
+    set udg_menpainame[25]="汝阳王府"
+    set denomFirst[25]=TOU_KAN_TOU_XUE
+    set denomThird[25]='AEfk'
+    set denomSecond[25]='AEfk'
+    set denomFourth[25]=XUAN_MING_SHEN_ZHANG
+    set denomFifth[25]=JIA_YI_SHEN_GONG
 endfunction
 function InitSkillBooks takes nothing returns nothing
 	set udg_jianghu[1]='I03J'
@@ -53099,11 +53568,11 @@ set qiankunCd[i]=false // 乾坤是否处理CD中
 	loop
 	exitwhen ( i > 20 )
 		set udg_menpainame[i]="未加入"
-		set X7[i]='AEfk'
-		set Y7[i]='AEfk'
-		set Z7[i]='AEfk'
-		set P8[i]='AEfk'
-		set Q8[i]='AEfk'
+		set denomFirst[i]='AEfk'
+		set denomSecond[i]='AEfk'
+		set denomThird[i]='AEfk'
+		set denomFifth[i]='AEfk'
+		set denomFourth[i]='AEfk'
 		set nd[i]=0
 		set od[i]=0
 		set i=i + 1
@@ -53568,7 +54037,7 @@ endfunction
 function Trig____________________004Actions takes nothing returns nothing
     call main2()
     call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 0 , 0 , 300)
-    call YDWESetLocalVariableReal("R" , (YDWELogarithm__Log2(((0.01)*1.0)) * 0.3010300)) // INLINED!!
+    call YDWESetLocalVariableReal("R" , (YDWELogarithm___Log2(((0.01)*1.0)) * 0.3010300)) // INLINED!!
 endfunction
 //===========================================================================
 function InitTrig____________________004 takes nothing returns nothing
@@ -54235,18 +54704,18 @@ function main takes nothing returns nothing
     call CreateAllUnits()
     call InitBlizzard()
 
-call ExecuteFunc("jasshelper__initstructs1270848562")
+call ExecuteFunc("jasshelper__initstructs1290480500")
 call ExecuteFunc("FrameLibrary___init")
 call ExecuteFunc("UniMissileSystem3D___Init")
 call ExecuteFunc("YDTriggerSaveLoadSystem___Init")
 call ExecuteFunc("InitializeYD")
 call ExecuteFunc("YDWEBitwise___onInit")
-call ExecuteFunc("YDWEGeneralBounsSystem__Initialize")
-call ExecuteFunc("YDWELogarithm__onInit")
-call ExecuteFunc("YDWESync__onInit")
-call ExecuteFunc("YDWEPreloadSL__Init")
-call ExecuteFunc("YDWEStringFormula__Init")
-call ExecuteFunc("YDWETimerPattern__Init")
+call ExecuteFunc("YDWEGeneralBounsSystem___Initialize")
+call ExecuteFunc("YDWELogarithm___onInit")
+call ExecuteFunc("YDWESync___onInit")
+call ExecuteFunc("YDWEPreloadSL___Init")
+call ExecuteFunc("YDWEStringFormula___Init")
+call ExecuteFunc("YDWETimerPattern___Init")
 call ExecuteFunc("YDWETimerSystem___Init")
 call ExecuteFunc("init")
 
@@ -54279,22 +54748,22 @@ function config takes nothing returns nothing
     call InitCustomTeams()
     call InitAllyPriorities()
 endfunction
+     
+ 
+                 
 //===========================================================================
 //修改生命
 //===========================================================================
 //===========================================================================
-//��Ծϵͳ 
+//ϵͳ-TimerSystem
 //===========================================================================
 //===========================================================================  
 //===========================================================================  
 //�Զ����¼� 
 //===========================================================================
 //===========================================================================   
-     
- 
-                 
 //===========================================================================
-//ϵͳ-TimerSystem
+//��Ծϵͳ 
 //===========================================================================
 
 
@@ -54389,46 +54858,46 @@ local integer this=f__arg_this
 set f__result_string= s
    return true
 endfunction
-function sa__YDWEStringFormula__Inventory_onDestroy takes nothing returns boolean
+function sa__YDWEStringFormula___Inventory_onDestroy takes nothing returns boolean
 local integer this=f__arg_this
             call FlushChildHashtable(YDHT, StringHash(("YDWEStringFormula." + I2S(this)))) // INLINED!!
    return true
 endfunction
-function sa__YDWETimerPattern__Thread_onDestroy takes nothing returns boolean
+function sa__YDWETimerPattern___Thread_onDestroy takes nothing returns boolean
 local integer this=f__arg_this
-            call RemoveSavedInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern__Thread_obj[this])))))))) // INLINED!!
-            call RemoveSavedInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern__Thread_t[this])))))))) // INLINED!!
-            call GroupClear(s__YDWETimerPattern__Thread_g[this])
-            call DestroyGroup(s__YDWETimerPattern__Thread_g[this])
-            call PauseTimer(s__YDWETimerPattern__Thread_t[this])
-            call DestroyTimer(s__YDWETimerPattern__Thread_t[this])
-            call s__YDWETimerPattern__YDVector3_deallocate(s__YDWETimerPattern__Thread_des[this])
-            call s__YDWETimerPattern__YDVector3_deallocate(s__YDWETimerPattern__Thread_pos[this])
-            call s__YDWETimerPattern__YDVector3_deallocate(s__YDWETimerPattern__Thread_vel[this])
-            set s__YDWETimerPattern__Thread_caster[this]=null
-            set s__YDWETimerPattern__Thread_target[this]=null
-            set s__YDWETimerPattern__Thread_obj[this]=null
-            set s__YDWETimerPattern__Thread_g[this]=null
-            set s__YDWETimerPattern__Thread_t[this]=null
-            set s__YDWETimerPattern__Thread_amount[this]=0
-            set s__YDWETimerPattern__Thread_skills[this]=0
-            set s__YDWETimerPattern__Thread_order[this]=0
-            set s__YDWETimerPattern__Thread_dsfx[this]=""
-            set s__YDWETimerPattern__Thread_gsfx[this]=""
-            set s__YDWETimerPattern__Thread_wsfx[this]=""
-            set s__YDWETimerPattern__Thread_part[this]=""
+            call RemoveSavedInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern___Thread_obj[this])))))))) // INLINED!!
+            call RemoveSavedInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern___Thread_t[this])))))))) // INLINED!!
+            call GroupClear(s__YDWETimerPattern___Thread_g[this])
+            call DestroyGroup(s__YDWETimerPattern___Thread_g[this])
+            call PauseTimer(s__YDWETimerPattern___Thread_t[this])
+            call DestroyTimer(s__YDWETimerPattern___Thread_t[this])
+            call s__YDWETimerPattern___YDVector3_deallocate(s__YDWETimerPattern___Thread_des[this])
+            call s__YDWETimerPattern___YDVector3_deallocate(s__YDWETimerPattern___Thread_pos[this])
+            call s__YDWETimerPattern___YDVector3_deallocate(s__YDWETimerPattern___Thread_vel[this])
+            set s__YDWETimerPattern___Thread_caster[this]=null
+            set s__YDWETimerPattern___Thread_target[this]=null
+            set s__YDWETimerPattern___Thread_obj[this]=null
+            set s__YDWETimerPattern___Thread_g[this]=null
+            set s__YDWETimerPattern___Thread_t[this]=null
+            set s__YDWETimerPattern___Thread_amount[this]=0
+            set s__YDWETimerPattern___Thread_skills[this]=0
+            set s__YDWETimerPattern___Thread_order[this]=0
+            set s__YDWETimerPattern___Thread_dsfx[this]=""
+            set s__YDWETimerPattern___Thread_gsfx[this]=""
+            set s__YDWETimerPattern___Thread_wsfx[this]=""
+            set s__YDWETimerPattern___Thread_part[this]=""
    return true
 endfunction
-function sa__YDWEStringFormula__Sorting_onDestroy takes nothing returns boolean
+function sa__YDWEStringFormula___Sorting_onDestroy takes nothing returns boolean
 local integer this=f__arg_this
             local integer i= 0
             loop
-                exitwhen i == s___YDWEStringFormula__Sorting_stack_size
-                set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+i]=0
-                set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+i]=0
+                exitwhen i == s___YDWEStringFormula___Sorting_stack_size
+                set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+i]=0
+                set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+i]=0
                 set i=i + 1
             endloop
-            set s__YDWEStringFormula__Sorting_char[this]=""
+            set s__YDWEStringFormula___Sorting_char[this]=""
    return true
 endfunction
 function sa___prototype4_SetUnitMoveSpeedEx takes nothing returns boolean
@@ -54436,7 +54905,7 @@ function sa___prototype4_SetUnitMoveSpeedEx takes nothing returns boolean
     return true
 endfunction
 
-function jasshelper__initstructs1270848562 takes nothing returns nothing
+function jasshelper__initstructs1290480500 takes nothing returns nothing
     set st__Frame_onDestroy=CreateTrigger()
     call TriggerAddCondition(st__Frame_onDestroy,Condition( function sa__Frame_onDestroy))
     set st__ShopWeapon_onDestroy=CreateTrigger()
@@ -54451,22 +54920,22 @@ function jasshelper__initstructs1270848562 takes nothing returns nothing
     call TriggerAddCondition(st__DaPei_onDestroy,Condition( function sa__DaPei_onDestroy))
     set st__DaPei_XiaoGuoShuoMing=CreateTrigger()
     call TriggerAddCondition(st__DaPei_XiaoGuoShuoMing,Condition( function sa__DaPei_XiaoGuoShuoMing))
-    set st__YDWEStringFormula__Inventory_onDestroy[3]=CreateTrigger()
-    set st__YDWEStringFormula__Inventory_onDestroy[4]=st__YDWEStringFormula__Inventory_onDestroy[3]
-    call TriggerAddCondition(st__YDWEStringFormula__Inventory_onDestroy[3],Condition( function sa__YDWEStringFormula__Inventory_onDestroy))
-    set st__YDWETimerPattern__Thread_onDestroy[11]=CreateTrigger()
-    set st__YDWETimerPattern__Thread_onDestroy[12]=st__YDWETimerPattern__Thread_onDestroy[11]
-    set st__YDWETimerPattern__Thread_onDestroy[13]=st__YDWETimerPattern__Thread_onDestroy[11]
-    set st__YDWETimerPattern__Thread_onDestroy[14]=st__YDWETimerPattern__Thread_onDestroy[11]
-    call TriggerAddCondition(st__YDWETimerPattern__Thread_onDestroy[11],Condition( function sa__YDWETimerPattern__Thread_onDestroy))
-    set st__YDWEStringFormula__Sorting_onDestroy=CreateTrigger()
-    call TriggerAddCondition(st__YDWEStringFormula__Sorting_onDestroy,Condition( function sa__YDWEStringFormula__Sorting_onDestroy))
+    set st__YDWEStringFormula___Inventory_onDestroy[3]=CreateTrigger()
+    set st__YDWEStringFormula___Inventory_onDestroy[4]=st__YDWEStringFormula___Inventory_onDestroy[3]
+    call TriggerAddCondition(st__YDWEStringFormula___Inventory_onDestroy[3],Condition( function sa__YDWEStringFormula___Inventory_onDestroy))
+    set st__YDWETimerPattern___Thread_onDestroy[11]=CreateTrigger()
+    set st__YDWETimerPattern___Thread_onDestroy[12]=st__YDWETimerPattern___Thread_onDestroy[11]
+    set st__YDWETimerPattern___Thread_onDestroy[13]=st__YDWETimerPattern___Thread_onDestroy[11]
+    set st__YDWETimerPattern___Thread_onDestroy[14]=st__YDWETimerPattern___Thread_onDestroy[11]
+    call TriggerAddCondition(st__YDWETimerPattern___Thread_onDestroy[11],Condition( function sa__YDWETimerPattern___Thread_onDestroy))
+    set st__YDWEStringFormula___Sorting_onDestroy=CreateTrigger()
+    call TriggerAddCondition(st__YDWEStringFormula___Sorting_onDestroy,Condition( function sa__YDWEStringFormula___Sorting_onDestroy))
     set st___prototype4[1]=CreateTrigger()
     call TriggerAddAction(st___prototype4[1],function sa___prototype4_SetUnitMoveSpeedEx)
     call TriggerAddCondition(st___prototype4[1],Condition(function sa___prototype4_SetUnitMoveSpeedEx))
 
 
-call ExecuteFunc("s__ModSpeed_Init__onInit")
+call ExecuteFunc("s__ModSpeed_Init___onInit")
 
 
 
@@ -54483,7 +54952,7 @@ call ExecuteFunc("s__ModSpeed_Init__onInit")
 
 
 
-    call ExecuteFunc("s__YDWEStringFormula__ItemIdMatrix_onInit")
-    call ExecuteFunc("s__YDWEStringFormula__FormulaMatrix_onInit")
+    call ExecuteFunc("s__YDWEStringFormula___ItemIdMatrix_onInit")
+    call ExecuteFunc("s__YDWEStringFormula___FormulaMatrix_onInit")
 endfunction
 

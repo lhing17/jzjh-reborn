@@ -58,6 +58,8 @@
 #include "denomination/WuDu.j"
 #include "denomination/TaoHua.j" // 桃花岛武功
 #include "denomination/YeLuo.j" // 野螺派武功
+#include "denomination/XueShan.j" // 雪山派武功
+#include "denomination/RuYang.j" // 汝阳王府武功
 
 #include "denomination/JiangHuWuGong.j"
 #include "denomination/JueShiWuGong.j"
@@ -116,6 +118,7 @@ globals
 	integer array qimen_status // 奇门术数标识
 	
 	integer array ateDenom // 是否吞了专属
+	integer array ateTianShu // 是否吞了天书
 	boolean array qiankunCd // 乾坤是否处于CD中
 
 	// 多通速17门派数组，每位玩家的通关门派
@@ -215,7 +218,6 @@ globals
 	integer array udg_juexue
 	integer array udg_juenei
 	integer array udg_canzhang
-	integer array udg_diershi
 	integer array udg_qiwu
 	integer array udg_dan
 	integer array udg_weapon
@@ -356,9 +358,9 @@ globals
 	real U7=0
 	real array udg_MaxDamage
 	string array udg_menpainame
-	integer array X7
-	integer array Y7
-	integer array Z7
+	integer array denomFirst
+	integer array denomSecond
+	integer array denomThird
 	integer array d8
 	integer array e8
 	integer array shengwang
@@ -402,8 +404,8 @@ globals
 	integer array MM8
 	integer array N8
 	integer array O8
-	integer array P8
-	integer array Q8
+	integer array denomFifth
+	integer array denomFourth
 	integer array R8
 	integer array S8
 	integer array udg_blgg
@@ -733,7 +735,6 @@ globals
 	trigger Ph=null
 	trigger Qh=null
 	trigger Rh=null
-	trigger Sh=null
 	trigger Th=null
 	trigger Uh=null
 	trigger Vh=null
@@ -1207,16 +1208,7 @@ globals
 	trigger rs=null
 	trigger ss=null
 	trigger ts=null
-	trigger us=null
 	trigger vs=null
-	trigger ws=null
-	trigger xs=null
-	trigger ys=null
-	trigger zs=null
-	trigger As=null
-	trigger as=null
-	trigger Bs=null
-	trigger Cs=null
 	trigger cs=null
 	trigger Ds=null
 	trigger Es=null
@@ -1630,150 +1622,156 @@ endfunction
 //门派武功
 function InitDenominationSkills takes nothing returns nothing
 	set udg_menpainame[1]="少林派"
-	set X7[1]='A05G'
-	set Z7[1]='A000'
-	set Y7[1]='A05K'
-	set Q8[1]='A05O'
-	set P8[1]='S000'
+	set denomFirst[1]='A05G'
+	set denomThird[1]='A000'
+	set denomSecond[1]='A05K'
+	set denomFourth[1]='A05O'
+	set denomFifth[1]='S000'
 	set udg_menpainame[2]="古墓派"
-	set X7[2]='A09E'
-	set Z7[2]='A09J'
-	set Y7[2]='A09M'
-	set Q8[2]='A09T'
-	set P8[2]='A09U'
+	set denomFirst[2]='A09E'
+	set denomThird[2]='A09J'
+	set denomSecond[2]='A09M'
+	set denomFourth[2]='A09T'
+	set denomFifth[2]='A09U'
 	set udg_menpainame[3]="丐帮"
-	set X7[3]='A0C9'
-	set Z7[3]='A0CB'
-	set Y7[3]='A0C8'
-	set Q8[3]='A0CA'
-	set P8[3]='A0DI'
+	set denomFirst[3]='A0C9'
+	set denomThird[3]='A0CB'
+	set denomSecond[3]='A0C8'
+	set denomFourth[3]='A0CA'
+	set denomFifth[3]='A0DI'
 	set udg_menpainame[4]="华山派"
-	set X7[4]='A08Y'
-	set Z7[4]='A08W'
-	set Y7[4]='A08X'
-	set Q8[4]='A037'
-	set P8[4]='A091'
+	set denomFirst[4]='A08Y'
+	set denomThird[4]='A08W'
+	set denomSecond[4]='A08X'
+	set denomFourth[4]='A037'
+	set denomFifth[4]='A091'
 	set udg_menpainame[5]="全真教"
-	set X7[5]='A0CF'
-	set Z7[5]='A0DA'
-	set Y7[5]='A0CM'
-	set Q8[5]='A0CH'
-	set P8[5]='A0DE'
+	set denomFirst[5]='A0CF'
+	set denomThird[5]='A0DA'
+	set denomSecond[5]='A0CM'
+	set denomFourth[5]='A0CH'
+	set denomFifth[5]='A0DE'
 	set udg_menpainame[6]="血刀门"
-	set X7[6]='A0CI'
-	set Z7[6]='A0CJ'
-	set Y7[6]='A0CN'
-	set Q8[6]='A0CK'
-	set P8[6]='A0DH'
+	set denomFirst[6]='A0CI'
+	set denomThird[6]='A0CJ'
+	set denomSecond[6]='A0CN'
+	set denomFourth[6]='A0CK'
+	set denomFifth[6]='A0DH'
 	set udg_menpainame[7]="恒山派"
-	set X7[7]='A021'
-	set Z7[7]='A01Z'
-	set Y7[7]='A0CD'
-	set Q8[7]='A023'
-	set P8[7]='A024'
+	set denomFirst[7]='A021'
+	set denomThird[7]='A01Z'
+	set denomSecond[7]='A0CD'
+	set denomFourth[7]='A023'
+	set denomFifth[7]='A024'
 	set udg_menpainame[8]="峨眉派"
-	set X7[8]='A0C7'
-	set Z7[8]='A0C2'
-	set Y7[8]='A0C5'
-	set Q8[8]='A0C4'
-	set P8[8]='A0C6'
+	set denomFirst[8]='A0C7'
+	set denomThird[8]='A0C2'
+	set denomSecond[8]='A0C5'
+	set denomFourth[8]='A0C4'
+	set denomFifth[8]='A0C6'
 	set udg_menpainame[9]="武当派"
-	set X7[9]='A04D'
-	set Z7[9]='A08S'
-	set Y7[9]='A08R'
-	set Q8[9]='A08Q'
-	set P8[9]='A08V'
+	set denomFirst[9]='A04D'
+	set denomThird[9]='A08S'
+	set denomSecond[9]='A08R'
+	set denomFourth[9]='A08Q'
+	set denomFifth[9]='A08V'
 	set udg_menpainame[10]="星宿派"
-	set X7[10]='A0BP'
-	set Z7[10]='A0BS'
-	set Y7[10]='A0BQ'
-	set Q8[10]='A0BT'
-	set P8[10]='A0BV'
+	set denomFirst[10]='A0BP'
+	set denomThird[10]='A0BS'
+	set denomSecond[10]='A0BQ'
+	set denomFourth[10]='A0BT'
+	set denomFifth[10]='A0BV'
 	set udg_menpainame[11]="自由门派"
-	set X7[11]='AEfk'
-	set Z7[11]='AEfk'
-	set Y7[11]='AEfk'
-	set Q8[11]='AEfk'
-	set P8[11]='AEfk'
+	set denomFirst[11]='AEfk'
+	set denomThird[11]='AEfk'
+	set denomSecond[11]='AEfk'
+	set denomFourth[11]='AEfk'
+	set denomFifth[11]='AEfk'
 	set udg_menpainame[12]="灵鹫宫"
-	set X7[12]='A02B'
-	set Z7[12]='A02C'
-	set Y7[12]='A02F'
-	set Q8[12]='A02G'
-	set P8[12]='A02H'
+	set denomFirst[12]='A02B'
+	set denomThird[12]='A02C'
+	set denomSecond[12]='A02F'
+	set denomFourth[12]='A02G'
+	set denomFifth[12]='A02H'
 	set udg_menpainame[13]="姑苏慕容"
-	set X7[13]='A02K'
-	set Z7[13]='A0CC'
-	set Y7[13]='A02M'
-	set Q8[13]='A02V'
-	set P8[13]='A02R'
+	set denomFirst[13]='A02K'
+	set denomThird[13]='A0CC'
+	set denomSecond[13]='A02M'
+	set denomFourth[13]='A02V'
+	set denomFifth[13]='A02R'
 	set udg_menpainame[14]="明教"
-	set X7[14]='A030'
-	set Z7[14]='A032'
-	set Y7[14]='A06R'
-	set Q8[14]='A034'
-	set P8[14]='A07W'
+	set denomFirst[14]='A030'
+	set denomThird[14]='A032'
+	set denomSecond[14]='A06R'
+	set denomFourth[14]='A034'
+	set denomFifth[14]='A07W'
 	set udg_menpainame[15]="衡山派"
-	set X7[15]='A04M'
-	set Z7[15]='A04N'
-	set Y7[15]='A04P'
-	set Q8[15]='A026'
-	set P8[15]='A04R'
+	set denomFirst[15]='A04M'
+	set denomThird[15]='A04N'
+	set denomSecond[15]='A04P'
+	set denomFourth[15]='A026'
+	set denomFifth[15]='A04R'
 	set udg_menpainame[16]="神龙教"
-	set X7[16]='A04W'
-	set Z7[16]='A04Z'
-	set Y7[16]='A051'
-	set Q8[16]='A057'
-	set P8[16]='A059'
+	set denomFirst[16]='A04W'
+	set denomThird[16]='A04Z'
+	set denomSecond[16]='A051'
+	set denomFourth[16]='A057'
+	set denomFifth[16]='A059'
 	set udg_menpainame[17]="神龙教"
-	set X7[17]='A056'
-	set Z7[17]='A054'
-	set Y7[17]='A04X'
-	set Q8[17]='A057'
-	set P8[17]='A059'
+	set denomFirst[17]='A056'
+	set denomThird[17]='A054'
+	set denomSecond[17]='A04X'
+	set denomFourth[17]='A057'
+	set denomFifth[17]='A059'
 	set udg_menpainame[18]="泰山派"
-	set X7[18]='A08A'
-	set Z7[18]='A08B'
-	set Y7[18]='A08E'
-	set Q8[18]='A08G'
-	// set P8[18]='A08H' // 快活三剑太卡，不用
-	set P8[18]='A08G'
+	set denomFirst[18]='A08A'
+	set denomThird[18]='A08B'
+	set denomSecond[18]='A08E'
+	set denomFourth[18]='A08G'
+	// set denomFifth[18]='A08H' // 快活三剑太卡，不用
+	set denomFifth[18]='A08G'
 	set udg_menpainame[19]="铁掌帮"
-	set X7[19]='A06Y'
-	set Z7[19]='A06Z'
-	set Y7[19]='A07Y'
-	set Q8[19]='A070'
-	set P8[19]='A0DP'
+	set denomFirst[19]='A06Y'
+	set denomThird[19]='A06Z'
+	set denomSecond[19]='A07Y'
+	set denomFourth[19]='A070'
+	set denomFifth[19]='A0DP'
 	set udg_menpainame[20]="唐门"
-	set X7[20]='A098'
-	set Z7[20]='A09A'
-	set Y7[20]='A0B0'
-	set Q8[20]='A0B6'
-	set P8[20]='A0B1'
+	set denomFirst[20]='A098'
+	set denomThird[20]='A09A'
+	set denomSecond[20]='A0B0'
+	set denomFourth[20]='A0B6'
+	set denomFifth[20]='A0B1'
 	set udg_menpainame[21]="五毒教"
-	set X7[21]='A0BL'
-	set Z7[21]='A0DU'
-	set Y7[21]='A0DT'
-	set Q8[21]='A0DS'
-	set P8[21]='A0DR'
+	set denomFirst[21]='A0BL'
+	set denomThird[21]='A0DU'
+	set denomSecond[21]='A0DT'
+	set denomFourth[21]='A0DS'
+	set denomFifth[21]='A0DR'
 	set udg_menpainame[22]="桃花岛"
-	set X7[22]='A0EE'
-	set Z7[22]='A0EG'
-	set Y7[22]='A0EI'
-	set Q8[22]='A0EK'
-	set P8[22]='A0EL'
+	set denomFirst[22]='A0EE'
+	set denomThird[22]='A0EG'
+	set denomSecond[22]='A0EI'
+	set denomFourth[22]='A0EK'
+	set denomFifth[22]='A0EL'
 	set udg_menpainame[23]="野螺派"
-	set X7[23]= ZAO_LEI_PI
-	set Z7[23]= BA_MIAN_LING_LONG
-	set Y7[23]= FAN_SHOU_QIAN_ZHU
-	set Q8[23]= QIAN_KUN_YI_ZHI
-	set P8[23]= DA_GONG_GAO_CHENG
+	set denomFirst[23]= ZAO_LEI_PI
+	set denomThird[23]= BA_MIAN_LING_LONG
+	set denomSecond[23]= FAN_SHOU_QIAN_ZHU
+	set denomFourth[23]= QIAN_KUN_YI_ZHI
+	set denomFifth[23]= DA_GONG_GAO_CHENG
 	set udg_menpainame[24]="雪山派"
-	set X7[24]='A0EX'
-    set Z7[24]='A0EY'
-    set Y7[24]='A0EZ'
-    set Q8[24]='A0F0'
-    set P8[24]='A0F1'
+	set denomFirst[24]='A0EX'
+    set denomThird[24]='A0EY'
+    set denomSecond[24]='A0EZ'
+    set denomFourth[24]='A0F0'
+    set denomFifth[24]='A0F1'
+    set udg_menpainame[25] = "汝阳王府"
+    set denomFirst[25]= TOU_KAN_TOU_XUE
+    set denomThird[25]='AEfk'
+    set denomSecond[25]='AEfk'
+    set denomFourth[25] = XUAN_MING_SHEN_ZHANG
+    set denomFifth[25] = JIA_YI_SHEN_GONG
 endfunction
 
 function InitSkillBooks takes nothing returns nothing
@@ -1827,17 +1825,7 @@ function InitSkillBooks takes nothing returns nothing
 	set udg_canzhang[10]='I063'
 	set udg_canzhang[11]='I0CW'
 	
-	set udg_diershi[1]='I09E'
-	set udg_diershi[2]='I09F'
-	set udg_diershi[3]='I09G'
-	set udg_diershi[4]='I09H'
-	set udg_diershi[5]='I09I'
-	set udg_diershi[6]='I09J'
-	set udg_diershi[7]='I09K'
-	set udg_diershi[8]='I09L'
-	set udg_diershi[9]='I09M'
-	set udg_diershi[10]='I09N'
-	
+
 	set udg_qiwu[1] = 'I0C2'
 	set udg_qiwu[2] = 'I0C3'
 	set udg_qiwu[3] = 'I0C4'
@@ -2340,6 +2328,7 @@ function main1 takes nothing returns nothing
 		
 		set qimen_status[i] = 0 // 奇门术数标识
 		set ateDenom[i] = 0 // 是否吞了专属
+		set ateTianShu[i] = 0 // 是否吞了天书
 		set qiankunCd[i] = false // 乾坤是否处理CD中
 
 		set wuxing[i] = 9
@@ -2489,11 +2478,11 @@ function main1 takes nothing returns nothing
 	loop
 	exitwhen(i>20)
 		set udg_menpainame[i]="未加入"
-		set X7[i]='AEfk'
-		set Y7[i]='AEfk'
-		set Z7[i]='AEfk'
-		set P8[i]='AEfk'
-		set Q8[i]='AEfk'
+		set denomFirst[i]='AEfk'
+		set denomSecond[i]='AEfk'
+		set denomThird[i]='AEfk'
+		set denomFifth[i]='AEfk'
+		set denomFourth[i]='AEfk'
 		set nd[i]=0
 		set od[i]=0
 		set i=i+1

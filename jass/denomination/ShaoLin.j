@@ -54,7 +54,6 @@ function WeiTuoGun takes nothing returns nothing
 	        endif
 			// 概率狂暴
 			if GetRandomReal(0,100) <= 15 + GetUnitAbilityLevel(u,'A07U')*20 then
-	        // if((GetUnitAbilityLevel(u,'A07U')!=0)and(GetRandomReal(.0,100.)<=15.))then
 	            call CreateNUnitsAtLoc(1,'e000',GetOwningPlayer(u),loc1,bj_UNIT_FACING)
 	            call ShowUnitHide(bj_lastCreatedUnit)
 	            call UnitAddAbility(bj_lastCreatedUnit,1093681496)

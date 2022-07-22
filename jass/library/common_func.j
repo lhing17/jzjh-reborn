@@ -34,6 +34,11 @@ globals
 	constant integer FAN_SHOU_QIAN_ZHU = 'A0ES' // 反手牵猪
 	constant integer QIAN_KUN_YI_ZHI = 'A0ET' // 乾坤一掷
 	constant integer DA_GONG_GAO_CHENG = 'A0ER' // 大功告成
+
+	// 汝阳王府武功
+	constant integer TOU_KAN_TOU_XUE = 'A0F4' // 偷看偷学
+	constant integer XUAN_MING_SHEN_ZHANG = 'A0F6' // 玄冥神掌
+	constant integer JIA_YI_SHEN_GONG = 'A0F5' // 嫁衣神功
 	
 	constant integer SHUANG_SHOU = 'A07U' // 双手互搏
 	constant integer KUI_HUA = 'A07T' // 葵花宝典
@@ -44,8 +49,12 @@ globals
 	constant integer BI_HAI = 'A018' // 碧海潮生曲
 	constant integer JIU_YIN = 'A07S' // 九阴真经内功
 	constant integer JIU_ZHAO = 'A07N' // 九阴白骨爪
+	constant integer QIAN_KUN = 'A07W' // 乾坤大挪移
+	constant integer QI_SHANG_QUAN = 'A07M' // 七伤拳
+	constant integer JIU_YANG = 'A0DN' // 九阳神功
 	
 	constant integer DA_GOU = 'A07L' // 打狗棒法
+	constant integer ZI_CHUANG_WU_XUE = 'A036' // 自创武学
 	
 	constant integer LONG_XIANG = 'S002' // 龙象般若功
 	constant integer XIAO_WU_XIANG = 'A083' // 小无相功
@@ -53,8 +62,6 @@ globals
 	constant integer MIAO_SHOU_KONG_KONG = 'A03O' // 妙手空空
 	constant integer GUI_XI_GONG = 'A0CE' // 龟息功
 	constant integer SHEN_XING_BAI_BIAN = 'A03N' // 神行百变
-	
-	
 	
 	constant integer POISONED_BUFF = 'BEsh' // 中毒buff
 	constant integer DEEP_POISONED_BUFF = 'B01J' // 深度中毒buff
@@ -1508,7 +1515,7 @@ function ShangHaiGongShi takes unit u, unit uc,real w1, real w2, real shxishu, i
 			set attack = attack * 3
 		endif
 		// 携带十四天书神器，加强所有伤害2倍
-		if UnitHaveItem(u,'I0EE') then
+		if UnitHaveItem(u,'I0EE') or ateTianShu[i] == 1 then
 			set attack = attack * 3
 		endif
 		
@@ -1546,7 +1553,9 @@ function ShangHaiGongShi takes unit u, unit uc,real w1, real w2, real shxishu, i
 	
 	// 特殊防御
 	// 如果特攻大于等于42或者敌方虚弱
-	if special_attack[i] >= 6 * (1 + udg_nandu) or UnitHasBuffBJ(uc, 'B022') then
+	if UnitHasBuffBJ(uc, 'B022') then
+		set special_def = 1 + special_attack[i] * 0.06
+	elseif special_attack[i] >= 6 * (1 + udg_nandu)  then
 		// 特防 = 1+(特攻-42)*0.06，和1比取大值
 		set special_def = RMaxBJ(1 + (special_attack[i] - 6 * (1 + udg_nandu)) * 0.06, 1)
 	else
@@ -1565,7 +1574,7 @@ function ShangHaiGongShi takes unit u, unit uc,real w1, real w2, real shxishu, i
 		endif
 	endif
 	// 随机因子 = 0.95到0.95+(b性格/20)取随机数
-	set random = GetRandomReal(0.95, 0.95 + I2R(udg_xinggeB[i]) / 20)
+	set random = GetRandomReal(0.95, 0.95 + I2R(udg_xinggeB[i]) * 0.05)
 	// 伤害 = 攻击因子 * 敌方防御因子 * 随机因子 * 特防
 	set basic_damage = attack * target_def * random * special_def
 	
@@ -1868,6 +1877,10 @@ function randomMenpai takes player p,integer status returns nothing
         call addAllAttrs(i , 1)
         call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓雪山派〓|r")
         call SetPlayerName(p,"〓雪山派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+	elseif udg_runamen[i] == 25 then
+        call addAllAttrs(i , 1)
+        call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓汝阳王府〓|r")
+        call SetPlayerName(p,"〓汝阳王府〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
 	endif
 	if status == 1 then
 		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFF00FFFF提示：|r请在NPC|CFF00EE00郭靖|r处选择副职")

@@ -367,13 +367,13 @@ function DiQingXiangLongSH takes nothing returns nothing
     local unit ut=GetTriggerUnit()
     local real shxishu= 1
     local real shanghai=0.
-    if((GetUnitAbilityLevel(u,'A07M')!=0))then//加七伤拳
+    if((GetUnitAbilityLevel(u,'A07M')!=0))then //加七伤拳
 	    call WanBuff(u, ut, GetRandomInt(1, 13))
 	else
 		call WanBuff(u, ut, 9)
     endif
 
-    if((GetUnitAbilityLevel(u,'A03T')!=0))then//加须弥山掌
+    if((GetUnitAbilityLevel(u,'A03T')!=0))then //加须弥山掌
         set shxishu=shxishu+1.2
     endif
     // 专属加成

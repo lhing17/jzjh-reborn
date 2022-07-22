@@ -16,6 +16,11 @@ function UnitDeath_Conditions takes nothing returns boolean
 			call DisplayTextToPlayer(Player(i - 1), 0, 0, "碧波心经点数+"+I2S(j))
 		endif
 	endif
+
+	if GetUnitAbilityLevel(u, XUAN_MING_SHEN_ZHANG) > 0 and GetUnitAbilityLevel(u, JIU_YIN) > 0 and GetUnitAbilityLevel(u, JIU_YANG) == 0 then
+		// 玄冥神掌杀100个敌人加1点特攻
+		call xuanMingAddSpecialAttack(u)
+	endif
 	
 	set u = null
 	set ut = null

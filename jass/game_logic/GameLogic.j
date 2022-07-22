@@ -24,9 +24,7 @@
 
 
 globals
-	constant integer DENOMINATION_NUMBER = 24
-	
-	boolean firstTime = true // 是否第一次选择难度
+	constant integer DENOMINATION_NUMBER = 25
 endglobals
 
 
@@ -318,6 +316,7 @@ function ox takes nothing returns boolean
 	or (GetItemTypeId(GetManipulatedItem())=='I09N') or (GetItemTypeId(GetManipulatedItem())=='I0A2')  or (GetItemTypeId(GetManipulatedItem())=='I0CK')				\
 	or (GetItemTypeId(GetManipulatedItem())=='I0CX') or (GetItemTypeId(GetManipulatedItem())=='I0E1') or (GetItemTypeId(GetManipulatedItem())=='I0EH')\
 	or (GetItemTypeId(GetManipulatedItem())=='I0EO') or (GetItemTypeId(GetManipulatedItem())=='I0AA') or (GetItemTypeId(GetManipulatedItem())=='I0AG') \
+	or (GetItemTypeId(GetManipulatedItem())=='I0F0')  \
 	or (GetItemTypeId(GetManipulatedItem())=='I0ET') or (GetItemTypeId(GetManipulatedItem())=='I0EV')  or (GetItemTypeId(GetManipulatedItem())=='I0EY') ))
 endfunction
 function JiaRuMenPai takes nothing returns nothing
@@ -401,6 +400,21 @@ function JiaRuMenPai takes nothing returns nothing
 					call DisplayTimedTextToPlayer(p,0,0,5,"|cFF66CC00选择桃花岛")
 				else
 					call DisplayTimedTextToPlayer(p,0,0,5,"|cFF66CC00尚未解锁，不能选择桃花岛")
+				endif
+			endif
+			// 自由改投汝阳王府
+			if GetItemTypeId(GetManipulatedItem())=='I0F0' then
+				if ruyang_flag[i] == 1 then
+					call addAllAttrs(i, 1)
+					set udg_runamen[i] = 25
+					call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"改拜入了〓汝阳王府〓，大家一起膜拜他|r")
+					call SetPlayerName(p,"〓汝阳王府〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+					
+					set udg_shuxing[i]=udg_shuxing[i]-5
+					call AdjustPlayerStateBJ(-60, p, PLAYER_STATE_RESOURCE_LUMBER)
+					call DisplayTimedTextToPlayer(p,0,0,5,"|cFF66CC00选择汝阳王府")
+				else
+					call DisplayTimedTextToPlayer(p,0,0,5,"|cFF66CC00尚未解锁，不能选择汝阳王府")
 				endif
 			endif
 		else
@@ -920,7 +934,7 @@ function ChooseMoshi_Auto takes nothing returns nothing
 	if moshiFlag == false then
 		call DialogDisplayBJ(false,udg_index,Player(0))
 		set udg_teshushijian=true
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "主机默认选择了|cff00FFFF特殊事件|r模式")
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "主机默认选择了|cff00FFFF正常|r模式")
 	endif
 	call PauseTimer(t)
 	call DestroyTimer(t)
@@ -931,7 +945,7 @@ function ChooseMoShi takes nothing returns nothing
 	if(Trig_____________u_Func002C())then
 		call DialogClear(udg_index)
 		call DialogSetMessage(udg_index,"请选择游戏模式，20秒时间")
-		set udg_index1=DialogAddButtonBJ(udg_index,"|cFFCC0066特殊事件模式")
+		set udg_index1=DialogAddButtonBJ(udg_index,"|cFFCC0066正常模式")
 		set udg_index3 = DialogAddButtonBJ(udg_index,"|cFF6600FF挑战模式（3倍积分）")
 		set udg_index4 = DialogAddButtonBJ(udg_index,"|cff91e226返璞归真（6倍积分）")
 		set udg_index2=DialogAddButtonBJ(udg_index,"|cFFCC7766养老模式（30倍伤害，无积分）")
@@ -1013,7 +1027,7 @@ endfunction
 function ChooseMoShi_Action takes nothing returns nothing
     local integer i = 1
 	if GetClickedButton()==udg_index1 then
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cff00FFFF主机选择了特殊事件模式")
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cff00FFFF主机选择了正常模式")
 		set udg_teshushijian=true
 	endif
 	if GetClickedButton()==udg_index2 then
@@ -1043,58 +1057,18 @@ function ChooseMoShi_Action takes nothing returns nothing
 	set moshiFlag = true
 endfunction
 
-//调整游戏难度
-function GameNanDu_Condition takes nothing returns boolean
-	//非特殊事件模式
-	return udg_teshushijian==false
-endfunction
-function GameNanDu takes nothing returns nothing
-	local trigger t=GetTriggeringTrigger()
-	local integer id=GetHandleId(t)
-	local integer i=0
-	local integer level=0
-	if((S2I(SubStringBJ(GetEventPlayerChatString(),3,5))==0))then
-		set i=10
-	else
-		set i=S2I(SubStringBJ(GetEventPlayerChatString(),3,5))*10
-	endif
-	set level=GetPlayerTechCountSimple('R001',Player(12))
-	if(level==50)then
-		call DisplayTextToPlayer(Player(0),0,0,"当前已为最高难度了")
-	else
-		if level+i>=50 then
-			set i=50-level
-		endif
-		call AddPlayerTechResearched(Player(12),'R001',i)
-		call AddPlayerTechResearched(Player(6),'R001',i)
-		call AddPlayerTechResearched(Player(15),'R001',i)
-		set udg_nandu=udg_nandu+i/10
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,("玩家1输入“up”提高了游戏难度，目前游戏难度为"+I2S(udg_nandu)))
-		if udg_nandu == 5 then
-			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cff00FFFF该模式下进攻怪具有|cFFFF0000抽血术")
-		endif
-	endif
-	set t=null
-endfunction
 
-
-
-// 超时默认难度选择难7
+// 超时默认难度选择难1
 function ChooseNanDu_Auto takes nothing returns nothing
 	local timer t = GetExpiredTimer()
-	if (udg_boshu < 5 and nanduFlag == 0) or (udg_boshu == 5 and nanduFlag == 1) then
+	if nanduFlag == 0 then
 		call DialogDisplayBJ(false,udg_nan,Player(0))
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cff00FFFF默认选择了难度|cFF999900决战江湖")
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cFF999900该模式下进攻怪具有|cFFFF0000抽血术加强版")
-		call SetPlayerTechResearched(Player(12),'R001',50)
-		call SetPlayerTechResearched(Player(6),'R001',50)
-		call SetPlayerTechResearched(Player(15),'R001',50)
-		call setDifficultyAndExpRate(6)
-		if udg_boshu < 5 then
-			set get_zdl = 7
-		else
-			set get_zdl = get_zdl + 7*2
-		endif
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cff00FFFF默认选择了难度|cFF999900小试牛刀")
+		call SetPlayerTechResearched(Player(12),'R001', 0)
+		call SetPlayerTechResearched(Player(6),'R001', 0)
+		call SetPlayerTechResearched(Player(15),'R001', 0)
+		call setDifficultyAndExpRate(0)
+		set get_zdl = 5
 	endif
 	call PauseTimer(t)
 	call DestroyTimer(t)
@@ -1106,27 +1080,9 @@ function ChooseNanDu takes nothing returns nothing
 	if(Trig_____________u_Func002C())then
 		call DialogClear(udg_nan)
 		call DialogSetMessage(udg_nan,"请选择游戏难度")
-		if firstTime or udg_nandu<=0 then
-			set udg_nan0=DialogAddButtonBJ(udg_nan,"|cFF00CC00初入江湖")
-		endif
-		if firstTime or udg_nandu<=1 then
-			set udg_nan1=DialogAddButtonBJ(udg_nan,"|cFFCC0066牛刀小试")
-		endif
-		if firstTime or udg_nandu<=2 then
-			set udg_nan2=DialogAddButtonBJ(udg_nan,"|cFFFF6600登堂入室")
-		endif
-		if firstTime or (udg_nandu<=3) then
-			set udg_nan3=DialogAddButtonBJ(udg_nan,"|cFF0041FF炉火纯青")
-		endif
-		if firstTime or (udg_nandu<=4 and udg_nandu >= 1) then
-			set udg_nan4=DialogAddButtonBJ(udg_nan,"|cFF1FBF00华山论剑")
-		endif
-		if firstTime or (udg_nandu<=5 and udg_nandu >= 2) then
-			set udg_nan5=DialogAddButtonBJ(udg_nan,"|cFFFF0000独孤求败")
-		endif
-		if firstTime or (udg_nandu <= 6 and udg_nandu >= 3) then
-			set udg_nan7=DialogAddButtonBJ(udg_nan,"|cFF999900决战江湖")
-		endif
+		set udg_nan0=DialogAddButtonBJ(udg_nan,"|cFF00CC00小试牛刀")
+		set udg_nan2=DialogAddButtonBJ(udg_nan,"|cFFFF6600登堂入室")
+		set udg_nan7=DialogAddButtonBJ(udg_nan,"|cFF999900决战江湖")
 		call DialogDisplayBJ(true,udg_nan,Player(0))
 		// 开启计时器，20s不选难度默认选择最高难度
 		call TimerStart(CreateTimer(),20,false,function ChooseNanDu_Auto)
@@ -1135,28 +1091,12 @@ endfunction
 
 function ChooseNanDu_Action takes nothing returns nothing
 	if GetClickedButton()==udg_nan0 then
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cff00FFFF主机选择了难度|cFF00CC00初入江湖")
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cff00FFFF主机选择了难度|cFF00CC00小试牛刀")
 		call SetPlayerTechResearched(Player(12),'R001',0)
 		call SetPlayerTechResearched(Player(6),'R001',0)
 		call SetPlayerTechResearched(Player(15),'R001',0)
 		call setDifficultyAndExpRate(0)
-		if udg_boshu < 5 then
-			set get_zdl = 1
-		else
-			set get_zdl = get_zdl + 1*2
-		endif
-	endif
-	if GetClickedButton()==udg_nan1 then
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cff00FFFF主机选择了难度|cFFCC0066牛刀小试")
-		call SetPlayerTechResearched(Player(12),'R001',10)
-		call SetPlayerTechResearched(Player(6),'R001',10)
-		call SetPlayerTechResearched(Player(15),'R001',10)
-		call setDifficultyAndExpRate(1)
-		if udg_boshu < 5 then
-			set get_zdl = 2
-		else
-			set get_zdl = get_zdl + 2*2
-		endif
+		set get_zdl = 5
 	endif
 	if GetClickedButton()==udg_nan2 then
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cff00FFFF主机选择了难度|cFFFF6600登堂入室")
@@ -1164,48 +1104,7 @@ function ChooseNanDu_Action takes nothing returns nothing
 		call SetPlayerTechResearched(Player(6),'R001',20)
 		call SetPlayerTechResearched(Player(15),'R001',20)
 		call setDifficultyAndExpRate(2)
-		if udg_boshu < 5 then
-			set get_zdl = 3
-		else
-			set get_zdl = get_zdl + 3*2
-		endif
-	endif
-	if GetClickedButton()==udg_nan3 then
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cff00FFFF主机选择了难度|cFF0041FF炉火纯青")
-		call SetPlayerTechResearched(Player(12),'R001',30)
-		call SetPlayerTechResearched(Player(6),'R001',30)
-		call SetPlayerTechResearched(Player(15),'R001',30)
-		call setDifficultyAndExpRate(3)
-		if udg_boshu < 5 then
-			set get_zdl = 4
-		else
-			set get_zdl = get_zdl + 4*2
-		endif
-	endif
-	if GetClickedButton()==udg_nan4 then
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cff00FFFF主机选择了难度|cFF1FBF00华山论剑")
-		call SetPlayerTechResearched(Player(12),'R001',40)
-		call SetPlayerTechResearched(Player(6),'R001',40)
-		call SetPlayerTechResearched(Player(15),'R001',40)
-		call setDifficultyAndExpRate(4)
-		if udg_boshu < 5 then
-			set get_zdl = 5
-		else
-			set get_zdl = get_zdl + 5*2
-		endif
-	endif
-	if GetClickedButton()==udg_nan5 then
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cff00FFFF主机选择了难度|cFFFF0000独孤求败")
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cff00FFFF该模式下进攻怪具有|cFFFF0000抽血术")
-		call SetPlayerTechResearched(Player(12),'R001',50)
-		call SetPlayerTechResearched(Player(6),'R001',50)
-		call SetPlayerTechResearched(Player(15),'R001',50)
-		call setDifficultyAndExpRate(5) 
-		if udg_boshu < 5 then
-			set get_zdl = 6
-		else
-			set get_zdl = get_zdl + 6*2
-		endif
+		set get_zdl = 10
 	endif
 	if GetClickedButton()==udg_nan7 then
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cff00FFFF主机选择了难度|cFF999900决战江湖")
@@ -1214,12 +1113,8 @@ function ChooseNanDu_Action takes nothing returns nothing
 		call SetPlayerTechResearched(Player(6),'R001',50)
 		call SetPlayerTechResearched(Player(15),'R001',50)
 		call setDifficultyAndExpRate(6)
-		if udg_boshu < 5 then
-			set get_zdl = 7
-			set topDegreeFlag = true
-		else
-			set get_zdl = get_zdl + 7*2
-		endif
+		set get_zdl = 15
+		set topDegreeFlag = true
 	endif
 	if udg_boshu < 5 then 
 		set nanduFlag = 1
@@ -1575,7 +1470,7 @@ endfunction
 
 globals
 	boolean is_victory = false
-	constant string VERSION = "1.6.41"
+	constant string VERSION = "1.6.49"
 endglobals
 
 //失败动作
@@ -2074,10 +1969,6 @@ function HA takes nothing returns nothing
 		call DestroyTimer(shiWanTimer)
 		call DestroyTimerDialog(shiWanTimerDialog)
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,("|CFFFF0033试玩结束，开始刷怪"))
-	endif
-	if udg_boshu==5 and udg_teshushijian==true then
-		set firstTime = false
-		call ChooseNanDu() // 第二次选择难度
 	endif
 	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,("|CFFFF0033邪教势力：第"+(I2S(udg_boshu)+"|CFFFF0033波")))
 	if udg_boshu==9 then
@@ -2656,19 +2547,19 @@ function HeroLevel takes nothing returns nothing
 				// 自由3级自动学技能begin
 				if d8[i]==11 then
 					if GetRandomInt(1,100)<=50 then
-						set X7[d8[i]] = LoadInteger(YDHT, StringHash("武学")+GetRandomInt(1,18), 2)
+						set denomFirst[d8[i]] = LoadInteger(YDHT, StringHash("武学")+GetRandomInt(1,18), 2)
 					else
-						set X7[d8[i]] = LoadInteger(YDHT, StringHash("武学")+GetRandomInt(39,41), 2) 
+						set denomFirst[d8[i]] = LoadInteger(YDHT, StringHash("武学")+GetRandomInt(39,41), 2)
 					endif
-					call UnitAddAbility(u,X7[d8[i]])
-					call DisplayTextToPlayer(p,0,0,"|cff00FF66恭喜领悟技能："+GetObjectName(X7[d8[i]]))
+					call UnitAddAbility(u,denomFirst[d8[i]])
+					call DisplayTextToPlayer(p,0,0,"|cff00FF66恭喜领悟技能："+GetObjectName(denomFirst[d8[i]]))
 				endif
 				// 自由3级自动学技能end
 				
 				if d8[i]!=11 then
-					call UnitAddAbility(u,X7[d8[i]])
-					call UnitMakeAbilityPermanent(u, true, X7[d8[i]])
-					call DisplayTextToPlayer(p,0,0,"|cff00FF66恭喜领悟技能："+GetObjectName(X7[d8[i]]))
+					call UnitAddAbility(u,denomFirst[d8[i]])
+					call UnitMakeAbilityPermanent(u, true, denomFirst[d8[i]])
+					call DisplayTextToPlayer(p,0,0,"|cff00FF66恭喜领悟技能："+GetObjectName(denomFirst[d8[i]]))
 					call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cff00FF66玩家"+I2S(1+GetPlayerId(p))+"成为"+udg_menpainame[udg_runamen[i]]+"初级弟子")
 					call SetPlayerName(p,"〓"+udg_menpainame[udg_runamen[i]]+"初级弟子〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
 				endif
@@ -2690,7 +2581,7 @@ function HeroLevel takes nothing returns nothing
 					set S9=1
 					loop
 					exitwhen S9>20
-						if (X7[d8[i]]==MM9[S9]) then
+						if (denomFirst[d8[i]]==MM9[S9]) then
 							set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + udg_jueneishjc[S9]
 							call ModifyHeroStat(1,u,0,udg_jueneiminjie[S9])
 							set udg_baojilv[i] = udg_baojilv[i] + udg_jueneibaojilv[S9]
@@ -2708,7 +2599,7 @@ function HeroLevel takes nothing returns nothing
 				exitwhen L7[i]>wugongshu[i]
 					if (I7[(GetPlayerId(p)*20+L7[i])]!='AEfk') then
 					else
-						set I7[(((i-1)*20)+L7[i])]=X7[d8[i]]
+						set I7[(((i-1)*20)+L7[i])]=denomFirst[d8[i]]
 					exitwhen true
 					endif
 					set L7[i]=L7[i]+1
@@ -2717,16 +2608,16 @@ function HeroLevel takes nothing returns nothing
 			set d8[i]=d8[i]+1
 		endloop
 	endif
-	if((GetUnitLevel(u)>=3)and GetUnitAbilityLevel(u,X7[udg_runamen[i]])>=2 and (e9[i]==false))then
+	if((GetUnitLevel(u)>=3)and GetUnitAbilityLevel(u,denomFirst[udg_runamen[i]])>=2 and (e9[i]==false))then
 		set e9[i]=true
 		set d8[i]=1
 		loop
 		exitwhen d8[i]>DENOMINATION_NUMBER
 			if d8[i]!=11 then
 				if((udg_runamen[i]==d8[i]))then
-					call UnitAddAbility(u,Z7[d8[i]])
-					call UnitMakeAbilityPermanent(u, true, Z7[d8[i]])
-					call DisplayTextToPlayer(p,0,0,("|cff00FF66恭喜领悟技能："+GetObjectName(Z7[d8[i]])))
+					call UnitAddAbility(u,denomThird[d8[i]])
+					call UnitMakeAbilityPermanent(u, true, denomThird[d8[i]])
+					call DisplayTextToPlayer(p,0,0,("|cff00FF66恭喜领悟技能："+GetObjectName(denomThird[d8[i]])))
 					call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cff00FF66玩家"+I2S(1+GetPlayerId(p))+"成为"+udg_menpainame[udg_runamen[i]]+"中级弟子")
 					call SetPlayerName(p,"〓"+udg_menpainame[udg_runamen[i]]+"中级弟子〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
 					set L7[i]=1
@@ -2734,7 +2625,7 @@ function HeroLevel takes nothing returns nothing
 					exitwhen L7[i]>wugongshu[i]
 						if((I7[((GetPlayerId(p)*20)+L7[i])]!='AEfk'))then
 						else
-							set I7[(((i-1)*20)+L7[i])]=Z7[d8[i]]
+							set I7[(((i-1)*20)+L7[i])]=denomThird[d8[i]]
 						exitwhen true
 						endif
 						set L7[i]=L7[i]+1
@@ -2744,24 +2635,24 @@ function HeroLevel takes nothing returns nothing
 			set d8[i]=d8[i]+1
 		endloop
 	endif
-	if((GetUnitLevel(u)>=3) and GetUnitAbilityLevel(u,Z7[udg_runamen[i]])>=2 and (d9[i]==false))then
+	if((GetUnitLevel(u)>=3) and GetUnitAbilityLevel(u,denomThird[udg_runamen[i]])>=2 and (d9[i]==false))then
 		set d9[i]=true
 		set d8[i]=1
 		loop
 		exitwhen d8[i]>DENOMINATION_NUMBER
 			if d8[i]!=11 then
 				if((udg_runamen[i]==d8[i]))then
-					call UnitAddAbility(u,Y7[d8[i]])
-					call DisplayTextToPlayer(p,0,0,("|cff00FF66恭喜领悟技能："+GetObjectName(Y7[d8[i]])))
+					call UnitAddAbility(u,denomSecond[d8[i]])
+					call DisplayTextToPlayer(p,0,0,("|cff00FF66恭喜领悟技能："+GetObjectName(denomSecond[d8[i]])))
 					call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cff00FF66玩家"+I2S(1+GetPlayerId(p))+"成为"+udg_menpainame[udg_runamen[i]]+"高级弟子")
 					call SetPlayerName(p,"〓"+udg_menpainame[udg_runamen[i]]+"高级弟子〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
-					call UnitMakeAbilityPermanent(u, true, Y7[d8[i]])
+					call UnitMakeAbilityPermanent(u, true, denomSecond[d8[i]])
 					set L7[i]=1
 					loop
 					exitwhen L7[i]>wugongshu[i]
 						if((I7[((GetPlayerId(p)*20)+L7[i])]!='AEfk'))then
 						else
-							set I7[(((i-1)*20)+L7[i])]=Y7[d8[i]]
+							set I7[(((i-1)*20)+L7[i])]=denomSecond[d8[i]]
 						exitwhen true
 						endif
 						set L7[i]=L7[i]+1
@@ -2774,14 +2665,14 @@ function HeroLevel takes nothing returns nothing
 	if((GetUnitLevel(u)==10))then
 		// 自由10级自动学绝内
 		if udg_runamen[i]==11 then
-			set Z7[udg_runamen[i]] = LoadInteger(YDHT, StringHash("武学")+GetRandomInt(29,36), 2) // 37逆九阴和38医疗篇去除
-			call UnitAddAbility(u,Z7[udg_runamen[i]])
-			call DisplayTextToPlayer(p,0,0,"|cff00FF66恭喜领悟技能："+GetObjectName(Z7[udg_runamen[i]]))
+			set denomThird[udg_runamen[i]] = LoadInteger(YDHT, StringHash("武学")+GetRandomInt(29,36), 2) // 37逆九阴和38医疗篇去除
+			call UnitAddAbility(u,denomThird[udg_runamen[i]])
+			call DisplayTextToPlayer(p,0,0,"|cff00FF66恭喜领悟技能："+GetObjectName(denomThird[udg_runamen[i]]))
 			// 自由自动学的技能补属性begin
 			set S9=1
 			loop
 			exitwhen S9>20
-				if (Z7[udg_runamen[i]]==MM9[S9]) then
+				if (denomThird[udg_runamen[i]]==MM9[S9]) then
 					set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + udg_jueneishjc[S9]
 					call ModifyHeroStat(1,u,0,udg_jueneiminjie[S9])
 					set udg_baojilv[i] = udg_baojilv[i] + udg_jueneibaojilv[S9]
@@ -2796,7 +2687,7 @@ function HeroLevel takes nothing returns nothing
 			exitwhen L7[i]>wugongshu[i]
 				if((I7[((GetPlayerId(p)*20)+L7[i])]!='AEfk'))then
 				else
-					set I7[(((i-1)*20)+L7[i])]=Z7[udg_runamen[i]]
+					set I7[(((i-1)*20)+L7[i])]=denomThird[udg_runamen[i]]
 				exitwhen true
 				endif
 				set L7[i]=L7[i]+1
@@ -2996,8 +2887,8 @@ function MQ takes nothing returns nothing
 	if(GetUnitLevel(u)<40) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
 		call DisplayTextToPlayer(p,0,0,"|cFFFF0000等级不足40级无法传送")
 	else
-		if((shengwang[i]<$9C4)) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
-			call DisplayTextToPlayer(p,0,0,"|cFFFF0000江湖声望不足2500无法传送")
+		if((shengwang[i]<2800)) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
+			call DisplayTextToPlayer(p,0,0,"|cFFFF0000江湖声望不足2800无法传送")
 		else
 			set loc = GetRectCenter(Bg)
 			call SetUnitPositionLoc(u,loc)
@@ -3022,8 +2913,8 @@ function PQ takes nothing returns nothing
 	if(GetUnitLevel(u)<55) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
 		call DisplayTextToPlayer(p,0,0,"|cFFFF0000等级不足55级无法传送")
 	else
-		if((shengwang[i]<$FA0)) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
-			call DisplayTextToPlayer(p,0,0,"|cFFFF0000江湖声望不足4000无法传送")
+		if((shengwang[i]<4800)) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
+			call DisplayTextToPlayer(p,0,0,"|cFFFF0000江湖声望不足4800无法传送")
 		else
 			set loc = GetRectCenter(Lg)
 			call SetUnitPositionLoc(u,loc)
@@ -3048,8 +2939,8 @@ function SQ takes nothing returns nothing
 	if(GetUnitLevel(u)<70) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
 		call DisplayTextToPlayer(p,0,0,"|cFFFF0000等级不足70级无法传送")
 	else
-		if((shengwang[i]<6000)) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
-			call DisplayTextToPlayer(p,0,0,"|cFFFF0000江湖声望不足6000无法传送")
+		if((shengwang[i]<6500)) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
+			call DisplayTextToPlayer(p,0,0,"|cFFFF0000江湖声望不足6500无法传送")
 		else
 			set loc = GetRectCenter(Rg)
 			call SetUnitPositionLoc(u,loc)
@@ -3148,10 +3039,15 @@ function YiZhanChuanSong takes nothing returns nothing
         call DisplayTextToPlayer(p,0,0,"|CFF00ff33传送至蒙古大营")
     endif
 	if GetItemTypeId(GetManipulatedItem())=='I0AF' then
-		call DisplayTextToPlayer(p,0,0,"|CFF00ff33传送至琉球岛")
-		call SetUnitPosition(udg_hero[i],10943,6760)
-		call PanCameraToTimedForPlayer(p, 10943, 6760, 0)
-		call DisplayTextToPlayer(p, 0, 0, "|cffff0000你已深入到海外琉球岛，看看有什么发现吧")
+		if xiuxing[i] <= 5 then
+			call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00修行达到6才可以进入,你的修行不足，请前往地图指示点修行去吧")
+			call AdjustPlayerStateBJ(100, p, PLAYER_STATE_RESOURCE_GOLD)
+		else
+			call DisplayTextToPlayer(p,0,0,"|CFF00ff33传送至琉球岛")
+			call SetUnitPosition(udg_hero[i],10943,6760)
+			call PanCameraToTimedForPlayer(p, 10943, 6760, 0)
+			call DisplayTextToPlayer(p, 0, 0, "|cffff0000你已深入到海外琉球岛，看看有什么发现吧")
+		endif
 	endif
 	set p = null
 	set u = null
@@ -3242,30 +3138,6 @@ function x5 takes nothing returns nothing
 	set p = null
 endfunction
 //卖古董
-function z5 takes nothing returns boolean
-	return((GetItemTypeId(GetManipulatedItem())==1227896113))
-endfunction
-function A5 takes nothing returns nothing
-	local unit u = GetTriggerUnit()
-	local player p = GetOwningPlayer(u)
-	local integer i = 1
-	loop
-	exitwhen i>10
-		if (GetItemTypeId(UnitItemInSlotBJ(u,1))==gudong[i]) then
-			if not Deputy_isDeputy(1+GetPlayerId(p), JIAN_DING) then
-				call DisplayTimedTextToPlayer(p,0,0,30,("|CFF00FF00卖出"+GetItemName(UnitItemInSlotBJ(u,1))+"，获得金钱+"+I2S(pd[i])))
-				call AdjustPlayerStateBJ(pd[i], p, PLAYER_STATE_RESOURCE_GOLD)
-			else
-				call DisplayTimedTextToPlayer(p,0,0,30,("|CFF00FF00你是鉴定师，以最高价格卖出"+GetItemName(UnitItemInSlotBJ(u,1))+"，获得金钱+"+I2S(od[i])))
-				call AdjustPlayerStateBJ(od[i], p, PLAYER_STATE_RESOURCE_GOLD)
-			endif
-			call RemoveItem(UnitItemInSlotBJ(u, 1))
-		endif
-		set i=i+1
-	endloop
-	set u = null
-	set p = null
-endfunction
 function B5 takes nothing returns boolean
 	return((GetItemTypeId(GetManipulatedItem())==1227896114))
 endfunction
@@ -3434,201 +3306,9 @@ function CollectGuDong_Actions takes nothing returns nothing
 endfunction
 
 /*
-* 13. 剑意系统
+* 13. 剑意系统(删除)
 */
 
-//剑意系统
-function c5 takes nothing returns boolean
-	return (UnitTypeNotNull(GetTriggerUnit(),UNIT_TYPE_HERO) and GetPlayerController(GetOwningPlayer(GetTriggerUnit()))==MAP_CONTROL_USER)
-endfunction
-function D5 takes nothing returns nothing
-	local unit u = GetTriggerUnit()
-	local player p = GetOwningPlayer(u)
-	local integer i = 1 + GetPlayerId(p)
-	if (GetItemType(UnitItemInSlotBJ(u,1))!=ITEM_TYPE_ARTIFACT and GetItemType(UnitItemInSlotBJ(u,2))!=ITEM_TYPE_ARTIFACT and GetItemType(UnitItemInSlotBJ(u,3))!=ITEM_TYPE_ARTIFACT and GetItemType(UnitItemInSlotBJ(u,4))!=ITEM_TYPE_ARTIFACT and GetItemType(UnitItemInSlotBJ(u,5))!=ITEM_TYPE_ARTIFACT and GetItemType(UnitItemInSlotBJ(u,6))!=ITEM_TYPE_ARTIFACT) then
-		call SetUnitPosition(u,-10510,-9660)
-		call PanCameraToTimedForPlayer(p, -10510, -9660, 0)
-	else
-		call DisplayTextToPlayer(p,0,0,"|CFF34FF00独孤求败：年轻人，你的杀气太重了，看来你我无缘啊")
-	endif
-	set u = null
-	set p = null
-endfunction
-function XiuWei takes unit u, integer num, integer id, string s returns nothing
-	local player p = GetOwningPlayer(u)
-	local integer i = 1 + GetPlayerId(p)
-	if (wugongxiuwei[i]>=num) then
-		call DisplayTextToPlayer(p,0,0,"|cFFFF0000你已经完成这个修为了")
-	elseif (wugongxiuwei[i]<num-1) then
-		call DisplayTextToPlayer(p,0,0,"|cFFFF0000你还需要完成上一层修为")
-	elseif(((xiuxing[i]<num)or(UnitHaveItem(u,id)==false)))then
-		call DisplayTextToPlayer(p,0,0,"|cFFFF0000条件不足")
-	else
-		call RemoveItem(FetchUnitItem(u,id))
-		set udg_shanghaijiacheng[i]=udg_shanghaijiacheng[i]+0.05
-		set wugongxiuwei[i]=num
-		call DisplayTextToPlayer(p,0,0,"|cFF00FF00修行成功，武学修为达到第"+s+"层，武功提升5%")
-	endif
-	set p = null
-endfunction
-function F5 takes nothing returns boolean
-	return((UnitTypeNotNull(GetTriggerUnit(),UNIT_TYPE_HERO))and(GetPlayerController(GetOwningPlayer(GetTriggerUnit()))==MAP_CONTROL_USER)and(GetItemTypeId(GetManipulatedItem())==1227896136))
-endfunction
-function G5 takes nothing returns nothing
-	call XiuWei(GetTriggerUnit(), 1, 'I01L', "一")
-endfunction
-function I5 takes nothing returns boolean
-	return((UnitTypeNotNull(GetTriggerUnit(),UNIT_TYPE_HERO))and(GetPlayerController(GetOwningPlayer(GetTriggerUnit()))==MAP_CONTROL_USER)and(GetItemTypeId(GetManipulatedItem())==1227896137))
-endfunction
-function l5 takes nothing returns nothing
-	call XiuWei(GetTriggerUnit(), 2, 1227895094, "二")
-endfunction
-function K5 takes nothing returns boolean
-	return((UnitTypeNotNull(GetTriggerUnit(),UNIT_TYPE_HERO))and(GetPlayerController(GetOwningPlayer(GetTriggerUnit()))==MAP_CONTROL_USER)and(GetItemTypeId(GetManipulatedItem())=='I05G'))
-endfunction
-function L5 takes nothing returns nothing
-	call XiuWei(GetTriggerUnit(), 3, 1227895091, "三")
-endfunction
-function N5 takes nothing returns boolean
-	return((UnitTypeNotNull(GetTriggerUnit(),UNIT_TYPE_HERO))and(GetPlayerController(GetOwningPlayer(GetTriggerUnit()))==MAP_CONTROL_USER)and(GetItemTypeId(GetManipulatedItem())==1227896134))
-endfunction
-function O5 takes nothing returns nothing
-	call XiuWei(GetTriggerUnit(), 4, 'I02S', "四")
-endfunction
-function Q5 takes nothing returns boolean
-	return((UnitTypeNotNull(GetTriggerUnit(),UNIT_TYPE_HERO))and(GetPlayerController(GetOwningPlayer(GetTriggerUnit()))==MAP_CONTROL_USER)and(GetItemTypeId(GetManipulatedItem())==1227896138))
-endfunction
-function R5 takes nothing returns nothing
-	call XiuWei(GetTriggerUnit(), 5, 'I00P', "五")
-endfunction
-function LingWuJY_Conditions takes nothing returns boolean
-	return((GetPlayerController(GetOwningPlayer(GetTriggerUnit()))==MAP_CONTROL_USER)and(GetItemTypeId(GetManipulatedItem())==1227896914))
-endfunction
-function LingWuJY takes nothing returns nothing
-	local trigger t=GetTriggeringTrigger()
-	local integer id=GetHandleId(t)
-	local integer cx=LoadInteger(YDHT,id,-$3021938A)
-	local unit u=GetTriggerUnit()
-	local player p=GetOwningPlayer(u)
-	local integer i=1+GetPlayerId(p)
-	set cx=cx+3
-	call SaveInteger(YDHT,id,-$3021938A,cx)
-	call SaveInteger(YDHT,id,-$1317DA19,cx)
-	call SaveInteger(YDHT,id*cx,-$5E9EB4B3,i)
-	call SaveUnitHandle(YDHT,id*cx,-$2EC5CBA0,u)
-	if((UnitTypeNotNull(u,UNIT_TYPE_HERO)==false))then
-		call AdjustPlayerStateBJ(5,p,PLAYER_STATE_RESOURCE_LUMBER)
-		call DisplayTextToPlayer(Player(-1+i),0,0,"|cFFFF0000需要主角才能领悟")
-	else
-		if((wugongxiuwei[i]<1))then
-			call AdjustPlayerStateBJ(5,p,PLAYER_STATE_RESOURCE_LUMBER)
-			call DisplayTextToPlayer(Player(-1+i),0,0,"|cFFFF0000你的武功修为不足")
-		else
-			if((yd[i]==1))then
-				set wuxing[i]=(wuxing[i]-xd[i])
-			elseif((yd[i]==2))then
-				set gengu[i]=(gengu[i]-xd[i])
-			elseif((yd[i]==3))then
-				set danpo[i]=(danpo[i]-xd[i])
-			elseif((yd[i]==4))then
-				set yishu[i]=(yishu[i]-xd[i])
-			elseif((yd[i]==5))then
-				set fuyuan[i]=(fuyuan[i]-xd[i])
-			elseif((yd[i]==6))then
-				set jingmai[i]=(jingmai[i]-xd[i])
-			endif
-			if((wugongxiuwei[i]==1))then
-				set xd[i]=GetRandomInt(xd[i],2)
-			elseif((wugongxiuwei[i]==2))then
-				set xd[i]=GetRandomInt(xd[i],4)
-			elseif((wugongxiuwei[i]==3))then
-				set xd[i]=GetRandomInt(xd[i],6)
-			elseif((wugongxiuwei[i]==4))then
-				set xd[i]=GetRandomInt(xd[i],8)
-			elseif((wugongxiuwei[i]==5))then
-				set xd[i]=GetRandomInt(xd[i],10)
-			endif
-			set yd[i]=0
-			call DisplayTimedTextToPlayer(Player(-1+i),0,0,20.,("|cff00ff00恭喜领悟到第"+(I2S(xd[i])+"层剑意")))
-			call DisplayTimedTextToPlayer(Player(-1+i),0,0,20.,"|cffffff00输入聊天信息“jy”可以把剑意转化为一种性格属性，但是每次转化需要消耗5个珍稀币")
-			if((xd[i]==2))then
-				call DestroyEffect(vd[i])
-				call AddSpecialEffectTargetUnitBJ("chest",u,"war3mapImported\\fairywing.MDX")
-				set vd[i]=bj_lastCreatedEffect
-			elseif((xd[i]==4))then
-				call DestroyEffect(vd[i])
-				call AddSpecialEffectTargetUnitBJ("chest",u,"war3mapImported\\fenlie.MDX")
-				set vd[i]=bj_lastCreatedEffect
-			elseif((xd[i]==6))then
-				call DestroyEffect(vd[i])
-				call AddSpecialEffectTargetUnitBJ("chest",u,"war3mapImported\\HeroByakuyaWing.MDX")
-				set vd[i]=bj_lastCreatedEffect
-			elseif((xd[i]==8))then
-				call DestroyEffect(vd[i])
-				call AddSpecialEffectTargetUnitBJ("chest",u,"war3mapImported\\AWING.MDX")
-				set vd[i]=bj_lastCreatedEffect
-			elseif((xd[i]==10))then
-				call DestroyEffect(vd[i])
-				call AddSpecialEffectTargetUnitBJ("chest",u,"war3mapImported\\FWIND.MDX")
-				set vd[i]=bj_lastCreatedEffect
-			endif
-		endif
-	endif
-	call FlushChildHashtable(YDHT,id*cx)
-	set t=null
-	set u=null
-	set p=null
-endfunction
-
-//转化剑意
-function ZhuanHuaJY_Conditions takes nothing returns boolean
-	return((Ad[(1+GetPlayerId(GetTriggerPlayer()))]))
-endfunction
-function ZhuanHuaJY takes nothing returns nothing
-	local player p = GetTriggerPlayer()
-	local integer i = 1 + GetPlayerId(p)
-	set Ad[i]=false
-	if((GetClickedButton()==B8[i]))then
-		call DialogClear(v8[i])
-	else
-		if((yd[i]==1))then
-			set wuxing[i]=(wuxing[i]-xd[i])
-		elseif((yd[i]==2))then
-			set gengu[i]=(gengu[i]-xd[i])
-		elseif((yd[i]==3))then
-			set danpo[i]=(danpo[i]-xd[i])
-		elseif((yd[i]==4))then
-			set yishu[i]=(yishu[i]-xd[i])
-		elseif((yd[i]==5))then
-			set fuyuan[i]=(fuyuan[i]-xd[i])
-		elseif((yd[i]==6))then
-			set jingmai[i]=(jingmai[i]-xd[i])
-		endif
-		if((GetClickedButton()==w8[i]))then
-			set gengu[i]=(gengu[i]+xd[i])
-			set yd[i]=2
-		elseif((GetClickedButton()==y8[i]))then
-			set wuxing[i]=(wuxing[i]+xd[i])
-			set yd[i]=1
-		elseif((GetClickedButton()==z8[i]))then
-			set fuyuan[i]=(fuyuan[i]+xd[i])
-			set yd[i]=5
-		elseif((GetClickedButton()==A8[i]))then
-			set danpo[i]=(danpo[i]+xd[i])
-			set yd[i]=3
-		elseif((GetClickedButton()==a8[i]))then
-			set yishu[i]=(yishu[i]+xd[i])
-			set yd[i]=4
-		elseif((GetClickedButton()==x8[i]))then
-			set jingmai[i]=(jingmai[i]+xd[i])
-			set yd[i]=6
-		endif
-		call AdjustPlayerStateBJ(-5,p,PLAYER_STATE_RESOURCE_LUMBER)
-		call DisplayTextToPlayer(p,0,0,"|cFF99FFCC转化成功|r")
-		call DialogClear(v8[i])
-	endif
-	set p=null
-endfunction
 /*
 * 14. 积分和声望换物品、武学精要
 */
@@ -3808,6 +3488,7 @@ endfunction
 function Forget takes player p, integer num returns nothing
 	local integer i = 1 + GetPlayerId(p)
 	local integer level = 0
+	local integer add = 0
 	if I7[(i-1)*20+num]=='A03N' and UnitHasBuffBJ(udg_hero[i], 'BOwk') then
 		call DisplayTimedTextToPlayer(p,0,0,10.,"|CFFFF9933"+GetObjectName(I7[(i-1)*20+num])+"施展期间不能遗忘！！！")
 	else
@@ -3854,6 +3535,24 @@ function Forget takes player p, integer num returns nothing
 		endif
 		set I7[20*(i-1)+num]='AEfk'
 		call RemoveItem(FetchUnitItem(P4[i],'I06K'))
+
+		// 嫁衣神功 增加三围 
+		if GetUnitAbilityLevel(udg_hero[i], JIA_YI_SHEN_GONG) > 0 then
+			set add = GetUnitAbilityLevel(udg_hero[i], JIA_YI_SHEN_GONG) + GetRandomInt(1, 5)
+			if isTitle(i, 49) then
+				// 绍敏郡主称号 增加值翻倍
+				set add = add * 2
+			endif
+			if Deputy_isMaster(i, YA_HUAN) then
+				// 郡主称号 增加值翻倍
+				set add = add * 2
+			endif
+			call ModifyHeroStat(0, udg_hero[i], 0, add)
+			call ModifyHeroStat(1, udg_hero[i], 0, add)
+			call ModifyHeroStat(2, udg_hero[i], 0, add)
+			call DisplayTextToPlayer(p, 0, 0, "|cffffcc00发动了嫁衣神功，|r 增加三围：" + I2S(add))
+			call WuGongShengChong(udg_hero[i], JIA_YI_SHEN_GONG, 150)
+		endif
 	endif
 endfunction
 function jB takes nothing returns nothing
@@ -4314,9 +4013,9 @@ function LearnNeiGong takes nothing returns nothing
 	local integer id=LoadInteger(YDHT,StringHash("门派内功"),4)
 	local player p = GetOwningPlayer(u)
 	if b==LoadButtonHandle(YDHT,StringHash("门派内功"),1) then
-		call UnitAddAbility(u,Q8[id])
-		call UnitMakeAbilityPermanent(u, true, Q8[id])
-		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,("|cff00FF66恭喜领悟技能："+GetObjectName(Q8[id])))
+		call UnitAddAbility(u,denomFourth[id])
+		call UnitMakeAbilityPermanent(u, true, denomFourth[id])
+		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,("|cff00FF66恭喜领悟技能："+GetObjectName(denomFourth[id])))
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cff00FF66玩家"+I2S(1+GetPlayerId(p))+"成为"+udg_menpainame[udg_runamen[i]]+"长老")
 		call SetPlayerName(p,"〓"+udg_menpainame[udg_runamen[i]]+"长老〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
 		set L7[i]=1
@@ -4324,33 +4023,33 @@ function LearnNeiGong takes nothing returns nothing
 		exitwhen L7[i]>wugongshu[i]
 			if((I7[(((i-1)*20)+L7[i])]!='AEfk'))then
 			else
-				set I7[(((i-1)*20)+L7[i])]=Q8[id]
+				set I7[(((i-1)*20)+L7[i])]=denomFourth[id]
 			exitwhen true
 			endif
 			set L7[i]=L7[i]+1
 		endloop
 	elseif b==LoadButtonHandle(YDHT,StringHash("门派内功"),2) then
 		// 明教乾坤
-		if P8[id] == 'A07W' then
+		if denomFifth[id] == 'A07W' then
 			if GetUnitAbilityLevel(u, 'A07W') >= 1 then
-				call IncUnitAbilityLevel(u, P8[id])
+				call IncUnitAbilityLevel(u, denomFifth[id])
 			else
-				call UnitAddAbility(u,P8[id])
+				call UnitAddAbility(u,denomFifth[id])
 				set L7[i]=1
 				loop
 				exitwhen L7[i]>wugongshu[i]
 					if((I7[(((i-1)*20)+L7[i])]!='AEfk'))then
 					else
-						set I7[(((i-1)*20)+L7[i])]=P8[id]
+						set I7[(((i-1)*20)+L7[i])]=denomFifth[id]
 					exitwhen true
 					endif
 					set L7[i]=L7[i]+1
 				endloop
 			endif
-			call IncUnitAbilityLevel(u, P8[id])
+			call IncUnitAbilityLevel(u, denomFifth[id])
 		else
-			call UnitAddAbility(u,P8[id])
-			if P8[id] == 'A0DP' then // 归元吐纳功
+			call UnitAddAbility(u,denomFifth[id])
+			if denomFifth[id] == 'A0DP' then // 归元吐纳功
 				set fuyuan[i] = fuyuan[i] + 2
 				set gengu[i] = gengu[i] + 2
 				set wuxing[i] = wuxing[i] + 2
@@ -4358,24 +4057,24 @@ function LearnNeiGong takes nothing returns nothing
 				set danpo[i] = danpo[i] + 2
 				set yishu[i] = yishu[i] + 2
 			endif
-			if P8[id] == QI_MEN_SHU_SHU then
+			if denomFifth[id] == QI_MEN_SHU_SHU then
 				if Player(i - 1) == GetLocalPlayer() then
 					call qimen_widget.show()
 				endif
 			endif
-			call UnitMakeAbilityPermanent(u, true, P8[id])
+			call UnitMakeAbilityPermanent(u, true, denomFifth[id])
 			set L7[i]=1
 			loop
 			exitwhen L7[i]>wugongshu[i]
 				if((I7[(((i-1)*20)+L7[i])]!='AEfk'))then
 				else
-					set I7[(((i-1)*20)+L7[i])]=P8[id]
+					set I7[(((i-1)*20)+L7[i])]=denomFifth[id]
 				exitwhen true
 				endif
 				set L7[i]=L7[i]+1
 			endloop
 		endif
-		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,("|cff00FF66恭喜领悟技能："+GetObjectName(P8[id])))
+		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,("|cff00FF66恭喜领悟技能："+GetObjectName(denomFifth[id])))
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cff00FF66玩家"+I2S(1+GetPlayerId(p))+"成为"+udg_menpainame[udg_runamen[i]]+"长老")
 		call SetPlayerName(p,"〓"+udg_menpainame[udg_runamen[i]]+"长老〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
 		
@@ -4408,8 +4107,8 @@ function qR takes nothing returns nothing
 		if((O8[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1))then
 			call DisplayTextToPlayer(Player(-1+i),0,0,"|CFF34FF00你已经修行过了")
 		else
-			if GetUnitAbilityLevel(udg_hero[i],Y7[udg_runamen[i]])<2 then
-				call DisplayTimedTextToPlayer(GetOwningPlayer(GetTriggerUnit()),0,0,15,"你的"+GetAbilityName(Y7[udg_runamen[i]])+"|r还没修炼到位")
+			if GetUnitAbilityLevel(udg_hero[i],denomSecond[udg_runamen[i]])<2 and udg_runamen[i] != 25 then
+				call DisplayTimedTextToPlayer(GetOwningPlayer(GetTriggerUnit()),0,0,15,"你的"+GetAbilityName(denomSecond[udg_runamen[i]])+"|r还没修炼到位")
 			else
 				set j=1
 				loop
@@ -4429,17 +4128,12 @@ function qR takes nothing returns nothing
 							if((udg_runamen[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==11))then
 								call DisplayTimedTextToPlayer(GetOwningPlayer(GetTriggerUnit()),0,0,15,"自由门派没有内功")
 							exitwhen true
-							elseif (udg_runamen[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==13) then
-								call DisplayTimedTextToPlayer(GetOwningPlayer(GetTriggerUnit()),0,0,15,"该门派不在此学习内功")
-								call unitadditembyidswapped(1227895642, GetTriggerUnit())
-								set O8[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
-							exitwhen true
 							else
 								if((udg_runamen[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==bj_forLoopBIndex))then
 									set udg_menpaineigong=DialogCreate()
 									call DialogSetMessage(udg_menpaineigong,"请选择你要修习的内功")
-									set b1= DialogAddButtonBJ(udg_menpaineigong,GetObjectName(Q8[bj_forLoopBIndex]))
-									set b2= DialogAddButtonBJ(udg_menpaineigong,GetObjectName(P8[bj_forLoopBIndex]))
+									set b1= DialogAddButtonBJ(udg_menpaineigong,GetObjectName(denomFourth[bj_forLoopBIndex]))
+									set b2= DialogAddButtonBJ(udg_menpaineigong,GetObjectName(denomFifth[bj_forLoopBIndex]))
 									call SaveButtonHandle(YDHT,StringHash("门派内功"),1,b1)
 									call SaveButtonHandle(YDHT,StringHash("门派内功"),2,b2)
 									call SaveUnitHandle(YDHT,StringHash("门派内功"),3,GetTriggerUnit())
@@ -4462,80 +4156,6 @@ function qR takes nothing returns nothing
 	set b1=null
 	set b2=null
 	set t = null
-endfunction
-function IsMuRongNeiGong takes nothing returns boolean
-	return((UnitTypeNotNull(GetTriggerUnit(),UNIT_TYPE_HERO))and(GetPlayerController(GetOwningPlayer(GetTriggerUnit()))==MAP_CONTROL_USER)and(GetItemTypeId(GetManipulatedItem())=='I09F'))
-endfunction
-function MuRongNeiGong takes nothing returns nothing
-	local unit u = GetTriggerUnit()
-	local player p = GetOwningPlayer(u)
-	local integer i = 1 + GetPlayerId(p)
-	local integer j = 1
-	if (udg_runamen[i]!=13) then
-		call DisplayTextToPlayer(p,0,0,"|CFF34FF00你没有拜入姑苏慕容")
-	else
-		if (UnitHaveItem(u,1227895642)==false) then
-			call DisplayTextToPlayer(p,0,0,"|CFF34FF00你必须携带门派毕业卷才能获得修习资格")
-		else
-			if GetUnitAbilityLevel(u,Y7[udg_runamen[i]])<2 then
-				call DisplayTimedTextToPlayer(GetOwningPlayer(GetTriggerUnit()),0,0,15,"你的"+GetAbilityName(Y7[udg_runamen[i]])+"|r还没修炼到位")
-			else
-				if (O8[i]==1) then
-					call DisplayTextToPlayer(p, 0, 0, "|CFF34FF00你已经修行过了")
-				else
-					set j=1
-					loop
-					exitwhen j>wugongshu[i]
-						if (I7[(i-1)*20+j])!='AEfk' then
-							if j==wugongshu[i] then
-								call DisplayTextToPlayer(p,0,0,"|CFF34FF00学习技能已达上限，请先遗忘部分技能")
-							endif
-						else
-							set O8[i]=1
-							call RemoveItem(FetchUnitItem(u,1227895642))
-							if danpo[i]>20 then
-								call UnitAddAbility(u,P8[13])
-								call UnitMakeAbilityPermanent(u, true, P8[13])
-								call DisplayTextToPlayer(p,0,0, "|cff00FF66恭喜领悟技能："+GetObjectName(P8[13]))
-								call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cff00FF66玩家"+I2S(1+GetPlayerId(p))+"成为"+udg_menpainame[udg_runamen[i]]+"长老")
-								call SetPlayerName(p,"〓"+udg_menpainame[udg_runamen[i]]+"长老〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
-								set L7[i]=1
-								loop
-								exitwhen L7[i]>wugongshu[i]
-									if((I7[(((i-1)*20)+L7[i])]!='AEfk'))then
-									else
-										set I7[(((i-1)*20)+L7[i])]=P8[13]
-									exitwhen true
-									endif
-									set L7[i]=L7[i]+1
-								endloop
-							else
-								call UnitAddAbility(u,Q8[13])
-								call UnitMakeAbilityPermanent(u, true, Q8[13])
-								call DisplayTextToPlayer(p,0,0, "|cff00FF66你还是先掌握"+GetObjectName(Q8[13])+"吧")
-								call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cff00FF66玩家"+I2S(1+GetPlayerId(p))+"成为"+udg_menpainame[udg_runamen[i]]+"长老")
-								call SetPlayerName(p,"〓"+udg_menpainame[udg_runamen[i]]+"长老〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
-								set L7[i]=1
-								loop
-								exitwhen L7[i]>wugongshu[i]
-									if((I7[(((i-1)*20)+L7[i])]!='AEfk'))then
-									else
-										set I7[(((i-1)*20)+L7[i])]=Q8[13]
-									exitwhen true
-									endif
-									set L7[i]=L7[i]+1
-								endloop
-							endif
-						exitwhen true
-						endif
-						set j=j+1
-					endloop
-				endif
-			endif
-		endif
-	endif
-	set u = null
-	set p = null
 endfunction
 /*
 * 16. 合成物品
@@ -5641,6 +5261,35 @@ function f2TownPortal takes nothing returns nothing
 	call SelectUnitForPlayerSingle(udg_hero[i],GetOwningPlayer(GetTriggerUnit()))
 endfunction
 
+// 吃书类物品排泄
+// 吃书类的问题使用之后不会自动移除，而会将生命值设置为0，然后缩小模型
+// 而生命值为0的物品无法被移除，因此要排泄这类物品，需要捕捉单位丢弃物品事件
+// 然后将物品的生命值设置为1后再移除
+function isDeadItem takes nothing returns boolean
+	return GetWidgetLife(GetManipulatedItem()) < 0.5
+endfunction
+
+function removeDeadItem_1 takes nothing returns nothing
+	local timer t = GetExpiredTimer()
+	local item it = LoadItemHandle(YDHT, GetHandleId(t), 0)
+	
+	call SetWidgetLife(it, 1)
+	call RemoveItem(it)
+
+	call FlushChildHashtable(YDHT, GetHandleId(t))
+	call PauseTimer(t)
+	call DestroyTimer(t)
+	set t = null
+	set it = null
+endfunction
+
+function removeDeadItem takes nothing returns nothing
+	local timer t = CreateTimer()
+	call SaveItemHandle(YDHT, GetHandleId(t), 0, GetManipulatedItem())
+	call TimerStart(t, 0, false, function removeDeadItem_1)
+	set t = null
+endfunction
+
 /*
 * 游戏逻辑触发器
 */
@@ -5683,11 +5332,6 @@ function GameLogic_Trigger takes nothing returns nothing
 	call TriggerAddCondition(Mh,Condition(function WuMenPai_Condition))
 	call TriggerAddAction(Mh,function WuMenPai_Action)
 	
-	// up提升游戏难度
-	set Sh=CreateTrigger()
-	call TriggerRegisterPlayerChatEvent(Sh,Player(0),"up",false)
-	call TriggerAddCondition(Sh,Condition(function GameNanDu_Condition))
-	call TriggerAddAction(Sh,function GameNanDu)
 	// 玩家英雄阵亡
 	set Th=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(Th,EVENT_PLAYER_UNIT_DEATH)
@@ -6122,11 +5766,6 @@ function GameLogic_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(br,EVENT_PLAYER_UNIT_PICKUP_ITEM)
 	call TriggerAddCondition(br,Condition(function pR))
 	call TriggerAddAction(br,function qR)
-	// 学习慕容派内功
-	set br=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(br,EVENT_PLAYER_UNIT_PICKUP_ITEM)
-	call TriggerAddCondition(br,Condition(function IsMuRongNeiGong))
-	call TriggerAddAction(br,function MuRongNeiGong)
 	
 	// 初始化古董价格区间
 	set rs=CreateTrigger()
@@ -6142,10 +5781,6 @@ function GameLogic_Trigger takes nothing returns nothing
 	call TriggerAddCondition(ts,Condition(function w5))
 	call TriggerAddAction(ts,function x5)
 	// 卖古董
-	set us=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(us,EVENT_PLAYER_UNIT_PICKUP_ITEM)
-	call TriggerAddCondition(us,Condition(function z5))
-	call TriggerAddAction(us,function A5)
 	set vs=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(vs,EVENT_PLAYER_UNIT_PICKUP_ITEM)
 	call TriggerAddCondition(vs,Condition(function B5))
@@ -6155,11 +5790,7 @@ function GameLogic_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(vs,EVENT_PLAYER_UNIT_PICKUP_ITEM)
 	call TriggerAddCondition(vs,Condition(function CollectGuDong_Conditions))
 	call TriggerAddAction(vs,function CollectGuDong_Actions)
-	// 进入剑意系统
-	set ws=CreateTrigger()
-	call TriggerAddRect(ws,Sg)
-	call TriggerAddCondition(ws,Condition(function c5))
-	call TriggerAddAction(ws,function D5)
+
 	// 合成物品
 	set t = CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ( t, EVENT_PLAYER_UNIT_PICKUP_ITEM )
@@ -6172,41 +5803,7 @@ function GameLogic_Trigger takes nothing returns nothing
 	call TriggerAddAction(t, function HeCheng2_Actions)
 	
 	
-	// 达到第几层修为
-	set xs=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(xs,EVENT_PLAYER_UNIT_PICKUP_ITEM)
-	call TriggerAddCondition(xs,Condition(function F5))
-	call TriggerAddAction(xs,function G5)
-	set ys=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(ys,EVENT_PLAYER_UNIT_PICKUP_ITEM)
-	call TriggerAddCondition(ys,Condition(function I5))
-	call TriggerAddAction(ys,function l5)
-	set zs=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(zs,EVENT_PLAYER_UNIT_PICKUP_ITEM)
-	call TriggerAddCondition(zs,Condition(function K5))
-	call TriggerAddAction(zs,function L5)
-	set As=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(As,EVENT_PLAYER_UNIT_PICKUP_ITEM)
-	call TriggerAddCondition(As,Condition(function N5))
-	call TriggerAddAction(As,function O5)
-	set as=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(as,EVENT_PLAYER_UNIT_PICKUP_ITEM)
-	call TriggerAddCondition(as,Condition(function Q5))
-	call TriggerAddAction(as,function R5)
-	// 领悟剑意
-	set Bs=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(Bs,EVENT_PLAYER_UNIT_PICKUP_ITEM)
-	call TriggerAddCondition(Bs,Condition(function LingWuJY_Conditions))
-	call TriggerAddAction(Bs,function LingWuJY)
-	// 选择转化剑意
-	set Cs=CreateTrigger()
-	call TriggerRegisterDialogEvent(Cs,v8[1])
-	call TriggerRegisterDialogEvent(Cs,v8[2])
-	call TriggerRegisterDialogEvent(Cs,v8[3])
-	call TriggerRegisterDialogEvent(Cs,v8[4])
-	call TriggerRegisterDialogEvent(Cs,v8[5])
-	call TriggerAddCondition(Cs,Condition(function ZhuanHuaJY_Conditions))
-	call TriggerAddAction(Cs,function ZhuanHuaJY)
+	
 	// 买黄纸
 	set cs=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(cs,EVENT_PLAYER_UNIT_PICKUP_ITEM)
@@ -6266,6 +5863,11 @@ function GameLogic_Trigger takes nothing returns nothing
 	call TriggerRegisterPlayerSelectionEventBJ(t,Player(4),true)
 	call TriggerAddCondition(t,Condition(function isF2TownPortal))
 	call TriggerAddAction(t,function f2TownPortal)
+
+	set t = CreateTrigger()
+	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_DROP_ITEM)
+	call TriggerAddCondition(t,Condition(function isDeadItem))
+	call TriggerAddAction(t,function removeDeadItem)
 	set t = null
 endfunction
 

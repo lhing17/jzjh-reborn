@@ -64,6 +64,11 @@ function UnitAttack_Conditions takes nothing returns boolean
 		call zaoLeiPi(u, ut)
 	endif
 
+	// 玄冥神掌
+	if GetUnitAbilityLevel(u, XUAN_MING_SHEN_ZHANG) > 0 and GetUnitAbilityLevel(u, JIU_YANG) == 0 and IsUnitEnemy(u, GetOwningPlayer(ut)) then
+	    call xuanMingShenZhang(u)
+	endif
+
 	call RemoveLocation(loc)
 	call RemoveLocation(loc2)
 	set u = null

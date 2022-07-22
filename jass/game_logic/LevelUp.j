@@ -56,6 +56,8 @@ endfunction
 * 45 婆婆姊姊
 * 46 女中诸葛
 * 47 爵爷
+* 48 石破天惊
+* 49 绍敏郡主
 */
 function setTitleNumber takes integer i, integer title returns nothing
 	if title <= 30 then
@@ -94,6 +96,8 @@ endfunction
 * 21 五毒
 * 22 桃花岛
 * 23 野螺派
+* 24 雪山派
+* 25 汝阳王府
 */
 function setChiefNumber takes integer i, integer denomination returns nothing
 	set chief[i] = YDWEBitwise_OR(chief[i], YDWEBitwise_LShift(1, denomination - 1))
@@ -141,103 +145,98 @@ function IncAbilityAndItemCharge takes unit u, integer id returns nothing
 endfunction
 
 function kungfuLevelUp takes unit u,integer id,real r returns nothing
-	local integer level=GetUnitAbilityLevel(u, id)
-	local player p=GetOwningPlayer(u)
-	local integer i=1 + GetPlayerId(p)
-	local integer jingyan = 0
-	if level > 0 and level < 7 then
-		set jingyan = ( 3 + udg_xinggeA[i] ) * ( wuxing[i] + 5 + GetRandomInt(0, R2I(r / 60)) ) * ( 4 + 2 * udg_jwjs[i] ) * ( 2 + QiJueCoefficient(u) ) / 40
-		// 慕容家训
-		if UnitHasBuffBJ(u, 'B010') then
-			set jingyan = ( 3 + udg_xinggeA[i] ) * ( wuxing[i] + 5 + GetRandomInt(0, R2I(r / 60)) ) * ( 5 + GetUnitAbilityLevel(u, 'A02V') / 2 + 2 * udg_jwjs[i] ) * ( 2 + QiJueCoefficient(u) ) / 40
-		endif
-		// 天赋：天纵奇才 增加升重速度
-		if UnitHasBuffBJ(u, 'B01O') then
-			set jingyan = R2I(jingyan * (1.5 + bigTalent[i]*0.5))
-		endif
-		call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id, LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id) + jingyan)
-		call SaveStr(YDHT, GetHandleId(GetOwningPlayer(u)), id * 2, I2S(LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id)) + "/" + I2S(R2I(r * level)))
-		if LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id) > R2I(r) * level then
-			call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id, 0)
-			call IncAbilityAndItemCharge(u, id)
-			call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id * 5, GetUnitAbilityLevel(u, id))
+	local integer level = GetUnitAbilityLevel(u, id)
+	local player p = GetOwningPlayer(u)
+	local integer i = 1 + GetPlayerId(p)
+	local integer needExp = level * level * R2I(r) / 6 // 升级所需经验
+	local integer baseExp = (20 + udg_xinggeA[i] + wuxing[i] / 3) * 2 // 基础经验
+	local real extraTimes = 1
+	local integer realExp = 0
+	local integer add = 0
+
+	// 慕容家训
+	if UnitHasBuffBJ(u, 'B010') then
+		set extraTimes = extraTimes + 0.1 * GetUnitAbilityLevel(u, 'A02V')
+	endif
+
+	// 精武师九重武学影响
+	set extraTimes = extraTimes + udg_jwjs[i] * 0.1
+
+	// 天赋：天纵奇才 增加升重速度
+	if UnitHasBuffBJ(u, 'B01O') then
+		set extraTimes = extraTimes + 0.2 + 0.1 * bigTalent[i]
+	endif 
+
+	// 七绝护符或新手神器增加升重速度
+	if UnitHaveItem(u, 'I01J') or UnitHaveItem(u, 'I0DB') then
+		set extraTimes = extraTimes + 0.2
+	endif
+
+	// 激活九阳真经残卷
+	if JYd[i] == 1 then
+		set extraTimes = extraTimes + 0.4
+	endif
+
+	// 神仙姐姐称号增加升重速度
+	if isTitle(i, 44) then
+		set extraTimes = extraTimes + 0.4
+	endif
+
+	set realExp = R2I(baseExp * extraTimes)
+
+	if level > 0 and level < 9 then
+		call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id, LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id) + realExp)
+		call SaveStr(YDHT, GetHandleId(GetOwningPlayer(u)), id * 2, I2S(LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id)) + "/" + I2S(needExp))
+	endif
+
+	if level > 0 and level < 9 and LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id) >= needExp then
+		call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id, LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id) - needExp)
+		call IncAbilityAndItemCharge(u, id)
+		call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id * 5, GetUnitAbilityLevel(u, id))
+		if GetPlayerController(p) == MAP_CONTROL_USER then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "领悟了武功：" + GetObjectName(id) + "第" + I2S(level + 1) + "重")
-			if id == 'A0DP' then // 归元吐纳功
-				set fuyuan[i] = fuyuan[i] + 2
-				set gengu[i] = gengu[i] + 2
-				set wuxing[i] = wuxing[i] + 2
-				set jingmai[i] = jingmai[i] + 2
-				set danpo[i] = danpo[i] + 2
-				set yishu[i] = yishu[i] + 2
+		endif
+				
+		if id == 'A0DP' then // 归元吐纳功
+			set fuyuan[i] = fuyuan[i] + 2
+			set gengu[i] = gengu[i] + 2
+			set wuxing[i] = wuxing[i] + 2
+			set jingmai[i] = jingmai[i] + 2
+			set danpo[i] = danpo[i] + 2
+			set yishu[i] = yishu[i] + 2
+		endif
+		if level + 1 == 9 and Deputy_isDeputy(i, JING_WU) then
+			set wuxuedian[i]=wuxuedian[i] + 2
+			call DisplayTextToPlayer(p, 0, 0, "|cff66ff00精武师有技能升级到九重，获得两个自创武学点")
+			if ( udg_jwjs[i] <= 2 ) and not Deputy_isMaster(i, JING_WU) then
+				set udg_jwjs[i]=udg_jwjs[i] + 1
+				call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您练成第" + I2S(udg_jwjs[i]) + "个九重武功，练成3个可获得宗师哦")
+			endif
+			if ( udg_jwjs[i] == 3 ) and not Deputy_isMaster(i, JING_WU) then
+				call Deputy_setMaster(i, JING_WU)
+				call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFF66FF00恭喜" + GetPlayerName(p) + "获得精武宗师")
+				call SetPlayerName(p, "〓精武宗师〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 			endif
 		endif
-	elseif level > 0 and level < 9 then
-		if ( GetRandomReal(1., r * I2R(level)) <= I2R(wuxing[i]) / 2 * ( 1 + 0.6 * udg_jwjs[i] ) ) or ( (UnitHasBuffBJ(u, 'B010') or UnitHasBuffBJ(u, 'B01O')) and GetRandomReal(1., r * I2R(level)) <= I2R(wuxing[i]) / 2 * ( 2 + 0.3 * GetUnitAbilityLevel(u, 'A02V') + 0.6 * udg_jwjs[i] ) ) then
-			if id != 'A07W' then
-				call IncAbilityAndItemCharge(u, id)
-				call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id * 5, GetUnitAbilityLevel(u, id))
-				call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "领悟了武功：" + GetObjectName(id) + "第" + I2S(level + 1) + "重")
-				if level + 1 == 9 and Deputy_isDeputy(i, JING_WU) then
-					set wuxuedian[i]=wuxuedian[i] + 2
-					call DisplayTextToPlayer(p, 0, 0, "|cff66ff00精武师有技能升级到九重，获得两个自创武学点")
-					if ( udg_jwjs[i] <= 2 ) and not Deputy_isMaster(i, JING_WU) then
-						set udg_jwjs[i]=udg_jwjs[i] + 1
-						call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您练成第" + I2S(udg_jwjs[i]) + "个九重武功，练成3个可获得宗师哦")
-					endif
-					if ( udg_jwjs[i] == 3 ) and not Deputy_isMaster(i, JING_WU) then
-						call Deputy_setMaster(i, JING_WU)
-						// call SaveStr(YDHT, GetHandleId(p), GetHandleId(p), "〓精武宗师〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-						call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFF66FF00恭喜" + GetPlayerName(p) + "获得精武宗师")
-						call SetPlayerName(p, "〓精武宗师〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-					endif
-				endif
+
+		// 嫁衣神功 增加悟性和伤害倍数
+		if level + 1 == 9 and GetUnitAbilityLevel(u, JIA_YI_SHEN_GONG) > 0 then
+			set add = GetUnitAbilityLevel(u, JIA_YI_SHEN_GONG) + 3
+			if isTitle(i, 49) then
+				// 绍敏郡主称号 增加值翻倍
+				set add = add  * 2
 			endif
-		else
-			if udg_xinggeB[i] >= 4 or UnitHaveItem(u , 'I01J') or UnitHaveItem(u , 'I0DB') or JYd[i] == 1 then
-				if id != 'A07W' then
-					if UnitHasBuffBJ(u, 'B010') then
-						set jingyan = LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id) + ( 3 + udg_xinggeA[i] ) * ( wuxing[i] + 5 + GetRandomInt(0, R2I(r / 60)) ) * ( 2 + QiJueCoefficient(u) ) / 20 * ( 2 + GetUnitAbilityLevel(u, 'A02V') / 4 + udg_jwjs[i] ) / 3 * 2
-					else
-						set jingyan = LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id) + ( 3 + udg_xinggeA[i] ) * ( wuxing[i] + 5 + GetRandomInt(0, R2I(r / 60)) ) * ( 2 + QiJueCoefficient(u) ) / 20 * ( 2 + udg_jwjs[i] ) / 3 * 2
-					endif
-					// 天赋：天纵奇才 增加升重速度
-					if UnitHasBuffBJ(u, 'B01O') then
-						set jingyan = R2I(jingyan * (1.5 + bigTalent[i]*0.5))
-					endif
-					call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id, jingyan)
-				endif
-				call SaveStr(YDHT, GetHandleId(GetOwningPlayer(u)), id * 2, I2S(LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id)) + "/" + I2S(R2I(r * level)))
-				if LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id) > R2I(r) * level then
-					call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id, 0)
-					call IncAbilityAndItemCharge(u, id)
-					call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id * 5, GetUnitAbilityLevel(u, id))
-					call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "领悟了武功：" + GetObjectName(id) + "第" + I2S(level + 1) + "重")
-					if id == 'A0DP' then // 归元吐纳功
-						set fuyuan[i] = fuyuan[i] + 2
-						set gengu[i] = gengu[i] + 2
-						set wuxing[i] = wuxing[i] + 2
-						set jingmai[i] = jingmai[i] + 2
-						set danpo[i] = danpo[i] + 2
-						set yishu[i] = yishu[i] + 2
-					endif
-					if level + 1 == 9 and Deputy_isDeputy(i, JING_WU) then
-						set wuxuedian[i]=wuxuedian[i] + 2
-						call DisplayTextToPlayer(p, 0, 0, "|cff66ff00精武师有技能升级到九重，获得两个自创武学点")
-						if ( udg_jwjs[i] <= 2 ) and not Deputy_isMaster(i, JING_WU) then
-							set udg_jwjs[i]=udg_jwjs[i] + 1
-							call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您练成第" + I2S(udg_jwjs[i]) + "个九重武功，练成3个可获得宗师哦")
-						endif
-						if ( udg_jwjs[i] == 3 ) and not Deputy_isMaster(i, JING_WU) then
-							call Deputy_setMaster(i, JING_WU)
-							// call SaveStr(YDHT, GetHandleId(p), GetHandleId(p), "〓精武宗师〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-							call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFF66FF00恭喜" + GetPlayerName(p) + "获得精武宗师")
-							call SetPlayerName(p, "〓精武宗师〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-						endif
-					endif
-				endif
+			if Deputy_isMaster(i, YA_HUAN) then
+				// 郡主称号 增加值翻倍
+				set add = add  * 2
 			endif
+			set wuxing[i] = wuxing[i] + add
+			set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + add * 0.005
+			call DisplayTextToPlayer(p, 0, 0, "|cffffcc00发动了嫁衣神功，悟性增加了" + I2S(add) + "点，伤害加成增加了" + R2S(add * 0.005) + "倍")
 		endif
 	endif
+
+	set p = null
 endfunction
 
 
@@ -253,9 +252,26 @@ function becomeChief takes unit u, integer denomination, string title, integer s
 	elseif denomination == 20 then // 唐门
 		set special0 = 1
 	endif
-	if not isChief(i, denomination) and GetUnitAbilityLevel(u, X7[denomination]) >= 6 and GetUnitAbilityLevel(u, Z7[denomination]) >= 6 \
-		and GetUnitAbilityLevel(u, Y7[denomination]) >= 6 \
-		and ( GetUnitAbilityLevel(u, Q8[denomination]) >= special0 or GetUnitAbilityLevel(u, P8[denomination]) >= special1 ) then
+	if denomination == 25 then // 汝阳王府
+		if not isChief(i, 25) and (GetUnitAbilityLevel(u, denomFourth[25]) >= 6 or GetUnitAbilityLevel(u, denomFifth[25]) >= 6) then
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：" + title)
+			if strAward > 0 then
+				call ModifyHeroStat(0, u, 0, strAward)
+			endif
+			if agiAward > 0 then
+				call ModifyHeroStat(1, u, 0, agiAward)
+			endif
+			if intAward > 0 then
+				call ModifyHeroStat(2, u, 0, intAward)
+			endif
+			call SetPlayerName(p, "〓"+ title +"〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call setChiefNumber(i, denomination)
+		endif
+		return
+	endif
+	if not isChief(i, denomination) and GetUnitAbilityLevel(u, denomFirst[denomination]) >= 6 and GetUnitAbilityLevel(u, denomThird[denomination]) >= 6 \
+		and GetUnitAbilityLevel(u, denomSecond[denomination]) >= 6 \
+		and ( GetUnitAbilityLevel(u, denomFourth[denomination]) >= special0 or GetUnitAbilityLevel(u, denomFifth[denomination]) >= special1 ) then
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：" + title)
 		if strAward > 0 then
 			call ModifyHeroStat(0, u, 0, strAward)
@@ -871,6 +887,21 @@ function determineYeLuoTitle takes unit u returns nothing
 	set p = null
 endfunction
 
+function determineRuYangTitle takes unit u returns nothing
+	local player p = GetOwningPlayer(u)
+	local integer i = 1 + GetPlayerId(p)
+	if isChief(i, 25) then
+		if touKanCounter[i] > 10 and not isTitle(i, 49) then
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：绍敏郡主")
+			call ModifyHeroStat(0, u, 0, 200)
+			call ModifyHeroStat(2, u, 0, 400)
+			call SetPlayerName(p, "〓绍敏郡主〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call setTitleNumber(i, 49)
+		endif
+	endif
+	set p = null
+endfunction
+
 function determineJiangHuTitle takes unit u returns nothing
 	local player p = GetOwningPlayer(u)
 	local integer i = 1 + GetPlayerId(p)
@@ -1001,6 +1032,7 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
 		call becomeChief(u, 21, "五毒教主", 300, 225, 0)
 		call becomeChief(u, 22, "桃花岛主", 225, 0, 300)
 		call becomeChief(u, 23, "野螺掌派", 225, 300, 0)
+		call becomeChief(u, 25, "汝阳王", 200, 200, 200)
 		
 		call determineShaoLinTitle(u)
 		call determineGuMuTitle(u)
@@ -1023,6 +1055,7 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
 		call determineWuDuTitle(u)
 		call determineTaoHuaDaoTitle(u)
 		call determineYeLuoTitle(u)
+		call determineRuYangTitle(u)
 		call determineJiangHuTitle(u)
 		
 	endif

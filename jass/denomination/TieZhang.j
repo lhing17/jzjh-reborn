@@ -254,7 +254,6 @@ function selectAttr takes nothing returns nothing
 	local string s = GetEventPlayerChatString()
 	local integer i = 1 + GetPlayerId(p)
 	// 归元吐纳+七伤拳改成+铁掌水上漂称号
-	// if GetUnitAbilityLevel(udg_hero[i], 'A07M') >= 1 and GetUnitAbilityLevel(udg_hero[i], 'A0DP') >= 1 then
 	if isTitle(i, 35) and GetUnitAbilityLevel(udg_hero[i], 'A0DP') >= 1 then
 		if s == "jwx" then
 			set selected_attr[i] = 1

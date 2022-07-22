@@ -443,6 +443,7 @@ function gz takes nothing returns nothing
 				call YDWEGeneralBounsSystemUnitSetBonus(u,3,0,1000)
 				set gengu[i]=(gengu[i]+2)
 				set wuxing[i]=(wuxing[i]+1)
+				set special_attack[i] = special_attack[i] + 30
 				call DisplayTextToPlayer(p,0,0,"|cFFFF6600集齐青龙套装：")
 				call DisplayTextToPlayer(p,0,0,"|cFFcc99ff――――――――――")
 				call DisplayTextToPlayer(p,0,0,"|cFF00FFFF招式伤害+200")
@@ -452,6 +453,7 @@ function gz takes nothing returns nothing
 				call DisplayTextToPlayer(p,0,0,"|cFF00FFFF攻击+1000")
 				call DisplayTextToPlayer(p,0,0,"|cFF00FFFF根骨+2")
 				call DisplayTextToPlayer(p,0,0,"|cFF00FFFF悟性+1")
+				call DisplayTextToPlayer(p,0,0,"|cFF00FFFF特攻+30")
 			elseif(ii1==2)then
 				call ModifyHeroStat(1,u,0,$96)
 				set juexuelingwu[i]=(juexuelingwu[i]+1)
@@ -460,6 +462,7 @@ function gz takes nothing returns nothing
 				call UnitAddAbility(u,1093677107)
 				set yishu[i]=(yishu[i]+1)
 				set jingmai[i]=(jingmai[i]+2)
+				set special_attack[i] = special_attack[i] + 30
 				call DisplayTextToPlayer(p,0,0,"|cFFFF6600集齐朱雀套装：")
 				call DisplayTextToPlayer(p,0,0,"|cFFcc99ff――――――――――")
 				call DisplayTextToPlayer(p,0,0,"|cFF00FFFF内力+150")
@@ -469,6 +472,7 @@ function gz takes nothing returns nothing
 				call DisplayTextToPlayer(p,0,0,"|cFF00FFFF法术回复+10")
 				call DisplayTextToPlayer(p,0,0,"|cFF00FFFF医术+1")
 				call DisplayTextToPlayer(p,0,0,"|cFF00FFFF经脉+2")
+				call DisplayTextToPlayer(p,0,0,"|cFF00FFFF特攻+30")
 			elseif(ii1==3)then
 				call ModifyHeroStat(0,u,0,$96)
 				set juexuelingwu[i]=(juexuelingwu[i]+1)
@@ -477,6 +481,7 @@ function gz takes nothing returns nothing
 				call YDWEGeneralBounsSystemUnitSetBonus(u,2,0,$C8)
 				set wuxing[i]=(wuxing[i]+2)
 				set danpo[i]=(danpo[i]+1)
+				set special_attack[i] = special_attack[i] + 30
 				call DisplayTextToPlayer(p,0,0,"|cFFFF6600集齐玄武套装：")
 				call DisplayTextToPlayer(p,0,0,"|cFFcc99ff――――――――――")
 				call DisplayTextToPlayer(p,0,0,"|cFF00FFFF招式伤害+150")
@@ -486,6 +491,7 @@ function gz takes nothing returns nothing
 				call DisplayTextToPlayer(p,0,0,"|cFF00FFFF防御+200")
 				call DisplayTextToPlayer(p,0,0,"|cFF00FFFF悟性+2")
 				call DisplayTextToPlayer(p,0,0,"|cFF00FFFF胆魄+1")
+				call DisplayTextToPlayer(p,0,0,"|cFF00FFFF特攻+30")
 			elseif(ii1==4)then
 				call ModifyHeroStat(1,u,0,$C8)
 				call ModifyHeroStat(2,u,0,100)
@@ -493,6 +499,7 @@ function gz takes nothing returns nothing
 				set juexuelingwu[i]=(juexuelingwu[i]+2)
 				set fuyuan[i]=(fuyuan[i]+2)
 				set danpo[i]=(danpo[i]+1)
+				set special_attack[i] = special_attack[i] + 30
 				call DisplayTextToPlayer(p,0,0,"|cFFFF6600集齐白虎套装：")
 				call DisplayTextToPlayer(p,0,0,"|cFFcc99ff――――――――――")
 				call DisplayTextToPlayer(p,0,0,"|cFF00FFFF内力+200")
@@ -501,6 +508,7 @@ function gz takes nothing returns nothing
 				call DisplayTextToPlayer(p,0,0,"|cFF00FFFF移动速度最大化")
 				call DisplayTextToPlayer(p,0,0,"|cFF00FFFF福缘+2")
 				call DisplayTextToPlayer(p,0,0,"|cFF00FFFF胆魄+1")
+				call DisplayTextToPlayer(p,0,0,"|cFF00FFFF特攻+30")
 			endif
 		else
 			if(ii1==1)then
@@ -751,6 +759,7 @@ function jz takes nothing returns nothing
 				call YDWEGeneralBounsSystemUnitSetBonus(u,3,1,1000)
 				set gengu[i]=(gengu[i]-2)
 				set wuxing[i]=(wuxing[i]-1)
+				set special_attack[i] = special_attack[i] - 30
 				call DisplayTextToPlayer(GetTriggerPlayer(),0,0,"|cFFFF0000失去青龙套装")
 			elseif (ii1==2) then
 				call ModifyHeroStat(1,u,1,$96)
@@ -760,6 +769,7 @@ function jz takes nothing returns nothing
 				call UnitRemoveAbility(u,1093677107)
 				set yishu[i]=(yishu[i]-1)
 				set jingmai[i]=(jingmai[i]-2)
+				set special_attack[i] = special_attack[i] - 30
 				call DisplayTextToPlayer(GetTriggerPlayer(),0,0,"|cFFFF0000失去朱雀套装")
 			elseif (ii1==3) then
 				call ModifyHeroStat(0,u,1,$96)
@@ -769,6 +779,7 @@ function jz takes nothing returns nothing
 				call YDWEGeneralBounsSystemUnitSetBonus(u,2,1,$C8)
 				set wuxing[i]=(wuxing[i]-2)
 				set danpo[i]=(danpo[i]-1)
+				set special_attack[i] = special_attack[i] - 30
 				call DisplayTextToPlayer(GetTriggerPlayer(),0,0,"|cFFFF0000失去玄武套装")
 			elseif (ii1==4) then
 				call ModifyHeroStat(1,u,1,$C8)
@@ -777,6 +788,7 @@ function jz takes nothing returns nothing
 				set juexuelingwu[i]=(juexuelingwu[i]-2)
 				set fuyuan[i]=(fuyuan[i]-2)
 				set danpo[i]=(danpo[i]-1)
+				set special_attack[i] = special_attack[i] - 30
 				call DisplayTextToPlayer(GetTriggerPlayer(),0,0,"|cFFFF0000失去白虎套装")
 			endif
 		endif
@@ -1290,6 +1302,7 @@ function XiangQian takes unit u, item it, item it2, integer id, integer i return
 	local integer ii1 = ModuloInteger(GetItemUserData(it)/1000, 10)
 	local integer ii2 = ModuloInteger(GetItemUserData(it)/100, 10)
 	local integer ii3 = ModuloInteger(GetItemUserData(it)/10, 10)
+	local integer k = 1 + GetPlayerId(p)
 	if GetItemTypeId(it2)==id then
 		if (ii1==0) then
 			call AdjustPlayerStateBJ(20000,p,PLAYER_STATE_RESOURCE_GOLD)
@@ -1305,6 +1318,16 @@ function XiangQian takes unit u, item it, item it2, integer id, integer i return
 					call SetItemUserData(it,GetItemUserData(it)+1*i-1000)
 				endif
 			endif
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00镶嵌成功")
+			if Deputy_isDeputy(k, DUAN_ZAO) and udg_dzds[k] <= 5 then
+                set udg_dzds[k] = udg_dzds[k] + 1
+                call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您锻造成功第" + I2S(udg_dzds[k]) + "件装备，锻造成功5件装备可以获得锻造大师哦")
+            endif
+            if Deputy_isDeputy(k, DUAN_ZAO) and udg_dzds[k] >= 5 and not (Deputy_isMaster(k, DUAN_ZAO)) then
+                call Deputy_setMaster(k, DUAN_ZAO)
+                call DZDSBuShuXing(udg_hero[k])
+                call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFF66FF00恭喜" + GetPlayerName(p) + "获得锻造大师")
+            endif
 			call UnitAddItem(u,it)
 		endif
 	endif
