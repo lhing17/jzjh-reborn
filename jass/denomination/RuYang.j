@@ -65,14 +65,14 @@ function touKanTouXue takes unit u returns nothing
         set touKanIds[4] = denomFirst[randList[4]]
         set touKanIds[5] = denomFirst[randList[5]]
     endif
-    if touKanCounter[i] == 2 then
+    if touKanCounter[i] == 3 then
         set touKanIds[1] = denomSecond[randList[1]]
         set touKanIds[2] = denomSecond[randList[2]]
         set touKanIds[3] = denomSecond[randList[3]]
         set touKanIds[4] = denomSecond[randList[4]]
         set touKanIds[5] = denomSecond[randList[5]]
     endif
-    if touKanCounter[i] == 3 then
+    if touKanCounter[i] == 2 then
         set touKanIds[1] = denomThird[randList[1]]
         set touKanIds[2] = denomThird[randList[2]]
         set touKanIds[3] = denomThird[randList[3]]

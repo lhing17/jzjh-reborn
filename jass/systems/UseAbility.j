@@ -247,6 +247,21 @@ function UseAbility_Conditions takes nothing returns boolean
 	if id == 'A08O' then
 		call piLiangJianDing(u, GetSpellTargetX(), GetSpellTargetY())
 	endif
+
+	// 雪山：风沙莽莽
+	if id == FENG_SHA_MANG_MANG then
+		call fengShaMangMang(u)
+	endif
+
+	// 雪山：雪花六出
+	if id == XUE_HUA_LIU_CHU or (id == 'A07A' and GetUnitAbilityLevel(u, XUE_HUA_LIU_CHU) > 0)  then
+		call xueHuaLiuChu(u)
+	endif
+
+	// 雪山：无妄神功
+	if id == WU_WANG_SHEN_GONG then
+		call wuWangShenGong(u)
+	endif
  
 	set u = null
 	set ut = null

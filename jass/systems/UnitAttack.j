@@ -69,6 +69,21 @@ function UnitAttack_Conditions takes nothing returns boolean
 	    call xuanMingShenZhang(u)
 	endif
 
+	// 雪山剑法
+	if PassiveWuGongCondition(u, ut, XUE_SHAN_JIAN_FA)  and GetRandomReal(1, 100) <= 16 + fuyuan[i] * 0.2 then
+		call xueShanJianFa(u, ut)
+	endif
+
+	// 金乌刀法
+	if PassiveWuGongCondition(ut, u, JIN_WU_DAO_FA) and GetRandomReal(1, 100) <= 10 + fuyuan[1 + GetPlayerId(GetOwningPlayer(ut))] * 0.4 then
+		call jinWuDaoFa(ut, u)
+	endif
+
+	// 无妄神功
+	if PassiveWuGongCondition(u, ut, WU_WANG_SHEN_GONG) then
+		call wuWangShenGongSpecial(u, ut)
+	endif
+
 	call RemoveLocation(loc)
 	call RemoveLocation(loc2)
 	set u = null

@@ -47,6 +47,16 @@ function UnitDamage_Conditions takes nothing returns boolean
 	if damage > GetWidgetLife(ut) and GetUnitAbilityLevel(ut, DA_GONG_GAO_CHENG) >= 1 then
 		call daGongGaoCheng(ut)
 	endif
+
+	// 风沙莽莽
+	if damage == 0.58 then
+		call fengShaMangMangDamage(udg_hero[i], ut)
+	endif
+
+	// 雪花六出
+	if damage == 0.59 then
+		call xueHuaLiChuDamage(udg_hero[i], ut)
+	endif
 	
 	set t = null
 	set u = null

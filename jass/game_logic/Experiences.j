@@ -825,9 +825,9 @@ function OR takes nothing returns nothing
 		set LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
 		if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1))then
 			call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
+			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4
 			// 动态调整难度
 			call dynamicDifficultyAdjustment(4)
-			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4
 			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
 				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',5)
 				call SetUnitAcquireRange(GetKillingUnit(), 1000)
@@ -884,9 +884,9 @@ function RR takes nothing returns nothing
 		set LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
 		if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1))then
 			call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
+			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4
 			// 动态调整难度
 			call dynamicDifficultyAdjustment(4)
-			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4
 			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
 				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',5)
 				call SetUnitAcquireRange(GetKillingUnit(), 1000)
@@ -943,9 +943,9 @@ function UR takes nothing returns nothing
 		set LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
 		if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1))then
 			call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
+			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4
 			// 动态调整难度
 			call dynamicDifficultyAdjustment(4)
-			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4
 			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
 				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',5)
 				call SetUnitAcquireRange(GetKillingUnit(), 1000)

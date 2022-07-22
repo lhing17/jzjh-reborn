@@ -35,6 +35,13 @@ globals
 	constant integer QIAN_KUN_YI_ZHI = 'A0ET' // 乾坤一掷
 	constant integer DA_GONG_GAO_CHENG = 'A0ER' // 大功告成
 
+	// 雪山武功
+	constant integer XUE_SHAN_JIAN_FA = 'A0EX' // 雪山剑法
+	constant integer FENG_SHA_MANG_MANG = 'A0EY' // 风沙莽莽
+	constant integer JIN_WU_DAO_FA = 'A0EZ' // 金乌刀法
+	constant integer XUE_HUA_LIU_CHU = 'A0F0' // 雪花六出
+	constant integer WU_WANG_SHEN_GONG = 'A0F1' // 无妄神功
+
 	// 汝阳王府武功
 	constant integer TOU_KAN_TOU_XUE = 'A0F4' // 偷看偷学
 	constant integer XUAN_MING_SHEN_ZHANG = 'A0F6' // 玄冥神掌
@@ -2213,14 +2220,14 @@ function dynamicDifficultyAdjustment takes integer experience returns nothing
         endif
         if xiuxing[i] == experience then
             set count = count + 1
-            set whichPlayer = i - 1
+            set whichPlayer = i
         endif
 		set i = i + 1
     endloop
-    if count == 1 and udg_boshu <= 2 * experience then
+    if count == 1 and udg_boshu <= 4 * experience then
         // 如果当前难度为0或2，则科技+10
-        if udg_nandu == 0 or udg_nandu == 2 then
-            call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "由于玩家" + I2S(whichPlayer + 1) + "完成了历练" + I2S(experience) + "，难度动态调整，怪物科技上升")
+        if udg_nandu <= 2 then
+            call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "由于玩家" + I2S(whichPlayer) + "完成了历练" + I2S(experience) + "，难度动态调整，怪物科技上升")
             call SetPlayerTechResearched(Player(12), 1378889777, GetPlayerTechCount(Player(12), 1378889777, true) + 10)
             call SetPlayerTechResearched(Player(6), 1378889777, GetPlayerTechCount(Player(6), 1378889777, true) + 10)
             call SetPlayerTechResearched(Player(15), 1378889777, GetPlayerTechCount(Player(15), 1378889777, true) + 10)

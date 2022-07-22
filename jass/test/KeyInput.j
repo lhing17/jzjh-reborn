@@ -379,10 +379,6 @@ function KeyInput takes nothing returns nothing
 			call DisplayTextToPlayer(GetTriggerPlayer(),0,0,"创建飞行点")
 			call RemoveLocation(loc)
 			set loc = null
-                set qiankunCd[i] = true
-                call YDWEPolledWaitNull(120)
-                set qiankunCd[i] = false
-
             endif
 		endif
 	endif

@@ -1761,11 +1761,11 @@ function InitDenominationSkills takes nothing returns nothing
 	set denomFourth[23]= QIAN_KUN_YI_ZHI
 	set denomFifth[23]= DA_GONG_GAO_CHENG
 	set udg_menpainame[24]="雪山派"
-	set denomFirst[24]='A0EX'
-    set denomThird[24]='A0EY'
-    set denomSecond[24]='A0EZ'
-    set denomFourth[24]='A0F0'
-    set denomFifth[24]='A0F1'
+	set denomFirst[24]= XUE_SHAN_JIAN_FA
+    set denomThird[24]= FENG_SHA_MANG_MANG
+    set denomSecond[24]= JIN_WU_DAO_FA
+    set denomFourth[24]= XUE_HUA_LIU_CHU
+    set denomFifth[24]= WU_WANG_SHEN_GONG
     set udg_menpainame[25] = "汝阳王府"
     set denomFirst[25]= TOU_KAN_TOU_XUE
     set denomThird[25]='AEfk'
@@ -2131,6 +2131,7 @@ function MenPai_Trigger takes nothing returns nothing
 	call WuDang_Trigger() //武当武功触发
 	call XueDao_Trigger() //血刀门武功触发
 	call XingXiu_Trigger() //星宿武功触发
+	call initXueShan() // 初始化雪山变量
 	call initRuYang() // 初始化汝阳变量
 	
 	call JiangHuNeiGong_Trigger() //江湖内功触发（含九阴、绝内）
