@@ -1,6 +1,180 @@
 globals
-	
+	integer itemScore = 0
+	integer antiqueIndex = 0
+	constant integer antiqueKey = $98988
 endglobals
+
+
+function isDAntique takes integer id returns boolean
+	return id == 'I053' or id == 'I054' or id == 'I055'
+endfunction
+
+function isCAntique takes integer id returns boolean
+	return id == 'I056' or id == 'I057' or id == 'I058'
+endfunction
+
+function isBAntique takes integer id returns boolean
+	return id == 'I059' or id == 'I05A' or id == 'I05B'
+endfunction
+
+function isAAntique takes integer id returns boolean
+	return id == 'I05C'
+endfunction
+
+
+function doExchangeBooks takes nothing returns nothing
+	local integer id = GetItemTypeId(GetEnumItem())
+	local integer dSuit = 0
+	local item itemD1 = null
+	local item itemD2 = null
+	local item itemD3 = null
+	local item itemC1 = null
+	local item itemC2 = null
+	local item itemC3 = null
+	local item itemB1 = null
+	local item itemB2 = null
+	local item itemB3 = null
+	local item itemA1 = null
+	local item itemA2 = null
+	local integer cSuit = 0
+	local integer bSuit = 0
+	local integer aSuit = 0
+	local integer i = 1
+	local real x = GetItemX(GetEnumItem())
+	local real y = GetItemY(GetEnumItem())
+
+	set antiqueIndex = antiqueIndex + 1
+	call SaveItemHandle(YDHT, antiqueKey, antiqueIndex, GetEnumItem())
+	if isDAntique(id) then
+		loop
+			exitwhen i > antiqueIndex
+			if GetItemTypeId(LoadItemHandle(YDHT, antiqueKey, i)) == 'I053' then
+				set dSuit = YDWEBitwise_OR(dSuit, 1)
+				set itemD1 = LoadItemHandle(YDHT, antiqueKey, i)
+			endif
+			if GetItemTypeId(LoadItemHandle(YDHT, antiqueKey, i)) == 'I054' then
+				set dSuit = YDWEBitwise_OR(dSuit, 2)
+				set itemD2 = LoadItemHandle(YDHT, antiqueKey, i)
+			endif
+			if GetItemTypeId(LoadItemHandle(YDHT, antiqueKey, i)) == 'I055' then
+				set dSuit = YDWEBitwise_OR(dSuit, 4)
+				set itemD3 = LoadItemHandle(YDHT, antiqueKey, i)
+			endif
+			set i = i + 1
+		endloop
+		if dSuit == 7 then
+			call RemoveItem(itemD1)
+			call RemoveItem(itemD2)
+			call RemoveItem(itemD3)
+			call CreateItem( udg_jianghu[GetRandomInt(1, 18)], x, y)
+			set itemScore = itemScore + 2
+		endif
+	endif
+	if isCAntique(id) then
+		loop
+			exitwhen i > antiqueIndex
+			if GetItemTypeId(LoadItemHandle(YDHT, antiqueKey, i)) == 'I056' then
+				set cSuit = YDWEBitwise_OR(cSuit, 1)
+				set itemC1 = LoadItemHandle(YDHT, antiqueKey, i)
+			endif
+			if GetItemTypeId(LoadItemHandle(YDHT, antiqueKey, i)) == 'I057' then
+				set cSuit = YDWEBitwise_OR(cSuit, 2)
+				set itemC2 = LoadItemHandle(YDHT, antiqueKey, i)
+			endif
+			if GetItemTypeId(LoadItemHandle(YDHT, antiqueKey, i)) == 'I058' then
+				set cSuit = YDWEBitwise_OR(cSuit, 4)
+				set itemC3 = LoadItemHandle(YDHT, antiqueKey, i)
+			endif
+			set i = i + 1
+		endloop
+		if cSuit == 7 then
+			call RemoveItem(itemC1)
+			call RemoveItem(itemC2)
+			call RemoveItem(itemC3)
+			call CreateItem( udg_juexue[GetRandomInt(1, 10)], x, y)
+			set itemScore = itemScore + 4
+		endif
+	endif
+	if isBAntique(id) then
+		loop
+			exitwhen i > antiqueIndex
+			if GetItemTypeId(LoadItemHandle(YDHT, antiqueKey, i)) == 'I059' then
+				set bSuit = YDWEBitwise_OR(bSuit, 1)
+				set itemB1 = LoadItemHandle(YDHT, antiqueKey, i)
+			endif
+			if GetItemTypeId(LoadItemHandle(YDHT, antiqueKey, i)) == 'I05A' then
+				set bSuit = YDWEBitwise_OR(bSuit, 2)
+				set itemB2 = LoadItemHandle(YDHT, antiqueKey, i)
+			endif
+			if GetItemTypeId(LoadItemHandle(YDHT, antiqueKey, i)) == 'I05B' then
+				set bSuit = YDWEBitwise_OR(bSuit, 4)
+				set itemB3 = LoadItemHandle(YDHT, antiqueKey, i)
+			endif
+			set i = i + 1
+		endloop
+		if bSuit == 7 then
+			call RemoveItem(itemB1)
+			call RemoveItem(itemB2)
+			call RemoveItem(itemB3)
+			call CreateItem( udg_juenei[GetRandomInt(1, 8)], x, y)
+			set itemScore = itemScore + 6
+		endif
+	endif
+	if isAAntique(id) then
+		loop
+			exitwhen i > antiqueIndex
+			if GetItemTypeId(LoadItemHandle(YDHT, antiqueKey, i)) == 'I05C' then
+				if itemA1 == null then
+					set aSuit = YDWEBitwise_OR(aSuit, 1)
+					set itemA1 = LoadItemHandle(YDHT, antiqueKey, i)
+				else
+					set aSuit = YDWEBitwise_OR(aSuit, 2)
+					set itemA2 = LoadItemHandle(YDHT, antiqueKey, i)
+				endif
+			endif
+			set i = i + 1
+		endloop
+		if aSuit == 3 then
+			call RemoveItem(itemA1)
+			call RemoveItem(itemA2)
+			call CreateItem( udg_canzhang[GetRandomInt(1, 10)], x, y)
+			set itemScore = itemScore + 10
+		endif
+	endif
+	set itemD1 = null
+	set itemD2 = null
+	set itemD3 = null
+	set itemC1 = null
+	set itemC2 = null
+	set itemC3 = null
+	set itemB1 = null
+	set itemB2 = null
+	set itemB3 = null
+	set itemA1 = null
+	set itemA2 = null
+endfunction
+
+function piLiangJianDing takes unit u, real x, real y returns nothing
+	local rect r = Rect(x - 300, y - 300, x + 300, y + 300)
+	local player p = GetOwningPlayer(u)
+	local integer i = 1 + GetPlayerId(p)
+
+	set antiqueIndex = 0
+	call EnumItemsInRect(r, null, function doExchangeBooks)
+
+	call FlushChildHashtable(YDHT, antiqueKey)
+	set udg_jdds[i] = udg_jdds[i] + itemScore
+	if udg_jdds[i] <= 10 and not (Deputy_isMaster(i, JIAN_DING)) and Deputy_isDeputy(i, JIAN_DING) then
+		call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00您的鉴定师已经得了" + I2S(udg_jdds[i]) + "分，得到10分可获得鉴定大师哦")
+	endif
+	if udg_jdds[i] >= 10 and not (Deputy_isMaster(i, JIAN_DING)) and Deputy_isDeputy(i, JIAN_DING) then
+		set wuxing[i] = wuxing[i] + 10 // 悟性加10
+		call Deputy_setMaster(i, JIAN_DING)
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFF66FF00恭喜" + GetPlayerName(p) + "获得鉴定大师")
+		call SetPlayerName(p, "〓鉴定大师〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+	endif
+
+endfunction
 
 
 //使用技能系统
@@ -68,6 +242,11 @@ function UseAbility_Conditions takes nothing returns boolean
 	if id == TOU_KAN_TOU_XUE then
 		call touKanTouXue(u)
 	endif
+
+	// 宠物：批量鉴定
+	if id == 'A08O' then
+		call piLiangJianDing(u, GetSpellTargetX(), GetSpellTargetY())
+	endif
  
 	set u = null
 	set ut = null
@@ -81,7 +260,7 @@ endfunction
 function UseAbility takes nothing returns nothing
 	local trigger t = CreateTrigger()
 	
-	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
-	call TriggerAddCondition(t,Condition(function UseAbility_Conditions))
+	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
+	call TriggerAddCondition(t, Condition(function UseAbility_Conditions))
 	set t = null
 endfunction

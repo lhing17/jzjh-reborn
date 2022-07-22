@@ -2131,6 +2131,7 @@ function MenPai_Trigger takes nothing returns nothing
 	call WuDang_Trigger() //武当武功触发
 	call XueDao_Trigger() //血刀门武功触发
 	call XingXiu_Trigger() //星宿武功触发
+	call initRuYang() // 初始化汝阳变量
 	
 	call JiangHuNeiGong_Trigger() //江湖内功触发（含九阴、绝内）
 	call JiangHuWuGong_Trigger() //江湖武功触发

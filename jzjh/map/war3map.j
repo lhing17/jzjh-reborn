@@ -18,58 +18,58 @@ constant real MaxSpeed___MIN_SPEED= 500.0
 //endglobals from MaxSpeed
 //globals from UniMissileSystem3D:
 constant boolean LIBRARY_UniMissileSystem3D=true
-real array UniMissileSystem3D___SP
-real array UniMissileSystem3D___RA
-real array UniMissileSystem3D___DM
-real array UniMissileSystem3D___DI
-real array UniMissileSystem3D___AN
-real array UniMissileSystem3D___ANZ
-real array UniMissileSystem3D___HE
-real array UniMissileSystem3D___HEMax
-real array UniMissileSystem3D___SH
-real array UniMissileSystem3D___US
-real array UniMissileSystem3D___MX
-real array UniMissileSystem3D___MY
-real array UniMissileSystem3D___MZ
-real array UniMissileSystem3D___ARC
-real array UniMissileSystem3D___HP
-real array UniMissileSystem3D___OF
-real array UniMissileSystem3D___OS
-real array UniMissileSystem3D___TIM
-real array UniMissileSystem3D___LT
-real array UniMissileSystem3D___SZ
-real array UniMissileSystem3D___RI
-real array UniMissileSystem3D___R01
-real array UniMissileSystem3D___R02
-real array UniMissileSystem3D___MGra
-real array UniMissileSystem3D___LOC
-real array UniMissileSystem3D___OH
-real UniMissileSystem3D___Gravity=0.40
-unit array UniMissileSystem3D___MU
-unit array UniMissileSystem3D___MT
-unit UniMissileSystem3D___DamageUnit
-string array UniMissileSystem3D___EF
-effect array UniMissileSystem3D___EFL
-real array UniMissileSystem3D___ACC
-real array UniMissileSystem3D___MaxS
-real array UniMissileSystem3D___SPX
-real array UniMissileSystem3D___SPY
-real array UniMissileSystem3D___LastX
-real array UniMissileSystem3D___LastY
-real array UniMissileSystem3D___MKs
-integer array UniMissileSystem3D___IN
-integer UniMissileSystem3D___Top=- 1
-real UniMissileSystem3D___TIMOut=0.03
-group UniMissileSystem3D___DamageGroup
-timer UniMissileSystem3D___TIMr
-location UniMissileSystem3D___HeroLoc
-location array UniMissileSystem3D___MLoc
-player array UniMissileSystem3D___LastOwner
+real array UniMissileSystem3D__SP
+real array UniMissileSystem3D__RA
+real array UniMissileSystem3D__DM
+real array UniMissileSystem3D__DI
+real array UniMissileSystem3D__AN
+real array UniMissileSystem3D__ANZ
+real array UniMissileSystem3D__HE
+real array UniMissileSystem3D__HEMax
+real array UniMissileSystem3D__SH
+real array UniMissileSystem3D__US
+real array UniMissileSystem3D__MX
+real array UniMissileSystem3D__MY
+real array UniMissileSystem3D__MZ
+real array UniMissileSystem3D__ARC
+real array UniMissileSystem3D__HP
+real array UniMissileSystem3D__OF
+real array UniMissileSystem3D__OS
+real array UniMissileSystem3D__TIM
+real array UniMissileSystem3D__LT
+real array UniMissileSystem3D__SZ
+real array UniMissileSystem3D__RI
+real array UniMissileSystem3D__R01
+real array UniMissileSystem3D__R02
+real array UniMissileSystem3D__MGra
+real array UniMissileSystem3D__LOC
+real array UniMissileSystem3D__OH
+real UniMissileSystem3D__Gravity=0.40
+unit array UniMissileSystem3D__MU
+unit array UniMissileSystem3D__MT
+unit UniMissileSystem3D__DamageUnit
+string array UniMissileSystem3D__EF
+effect array UniMissileSystem3D__EFL
+real array UniMissileSystem3D__ACC
+real array UniMissileSystem3D__MaxS
+real array UniMissileSystem3D__SPX
+real array UniMissileSystem3D__SPY
+real array UniMissileSystem3D__LastX
+real array UniMissileSystem3D__LastY
+real array UniMissileSystem3D__MKs
+integer array UniMissileSystem3D__IN
+integer UniMissileSystem3D__Top=- 1
+real UniMissileSystem3D__TIMOut=0.03
+group UniMissileSystem3D__DamageGroup
+timer UniMissileSystem3D__TIMr
+location UniMissileSystem3D__HeroLoc
+location array UniMissileSystem3D__MLoc
+player array UniMissileSystem3D__LastOwner
 boolean MissileTimerPause=false
-real UniMissileSystem3D___map_max_X
-real UniMissileSystem3D___map_max_Y
-real UniMissileSystem3D___map_min_X
-real UniMissileSystem3D___map_min_Y
+real UniMissileSystem3D__map_max_X
+real UniMissileSystem3D__map_max_Y
+real UniMissileSystem3D__map_min_X
+real UniMissileSystem3D__map_min_Y
 //endglobals from UniMissileSystem3D
 //globals from YDTriggerSaveLoadSystem:
 constant boolean LIBRARY_YDTriggerSaveLoadSystem=true
@@ -78,47 +78,47 @@ hashtable YDLOC
 //endglobals from YDTriggerSaveLoadSystem
 //globals from YDWEAbilityState:
 constant boolean LIBRARY_YDWEAbilityState=true
-constant integer YDWEAbilityState___ABILITY_STATE_COOLDOWN= 1
-constant integer YDWEAbilityState___ABILITY_DATA_TARGS= 100
-constant integer YDWEAbilityState___ABILITY_DATA_CAST= 101
-constant integer YDWEAbilityState___ABILITY_DATA_DUR= 102
-constant integer YDWEAbilityState___ABILITY_DATA_HERODUR= 103
-constant integer YDWEAbilityState___ABILITY_DATA_COST= 104
-constant integer YDWEAbilityState___ABILITY_DATA_COOL= 105
-constant integer YDWEAbilityState___ABILITY_DATA_AREA= 106
-constant integer YDWEAbilityState___ABILITY_DATA_RNG= 107
-constant integer YDWEAbilityState___ABILITY_DATA_DATA_A= 108
-constant integer YDWEAbilityState___ABILITY_DATA_DATA_B= 109
-constant integer YDWEAbilityState___ABILITY_DATA_DATA_C= 110
-constant integer YDWEAbilityState___ABILITY_DATA_DATA_D= 111
-constant integer YDWEAbilityState___ABILITY_DATA_DATA_E= 112
-constant integer YDWEAbilityState___ABILITY_DATA_DATA_F= 113
-constant integer YDWEAbilityState___ABILITY_DATA_DATA_G= 114
-constant integer YDWEAbilityState___ABILITY_DATA_DATA_H= 115
-constant integer YDWEAbilityState___ABILITY_DATA_DATA_I= 116
-constant integer YDWEAbilityState___ABILITY_DATA_UNITID= 117
+constant integer YDWEAbilityState__ABILITY_STATE_COOLDOWN= 1
+constant integer YDWEAbilityState__ABILITY_DATA_TARGS= 100
+constant integer YDWEAbilityState__ABILITY_DATA_CAST= 101
+constant integer YDWEAbilityState__ABILITY_DATA_DUR= 102
+constant integer YDWEAbilityState__ABILITY_DATA_HERODUR= 103
+constant integer YDWEAbilityState__ABILITY_DATA_COST= 104
+constant integer YDWEAbilityState__ABILITY_DATA_COOL= 105
+constant integer YDWEAbilityState__ABILITY_DATA_AREA= 106
+constant integer YDWEAbilityState__ABILITY_DATA_RNG= 107
+constant integer YDWEAbilityState__ABILITY_DATA_DATA_A= 108
+constant integer YDWEAbilityState__ABILITY_DATA_DATA_B= 109
+constant integer YDWEAbilityState__ABILITY_DATA_DATA_C= 110
+constant integer YDWEAbilityState__ABILITY_DATA_DATA_D= 111
+constant integer YDWEAbilityState__ABILITY_DATA_DATA_E= 112
+constant integer YDWEAbilityState__ABILITY_DATA_DATA_F= 113
+constant integer YDWEAbilityState__ABILITY_DATA_DATA_G= 114
+constant integer YDWEAbilityState__ABILITY_DATA_DATA_H= 115
+constant integer YDWEAbilityState__ABILITY_DATA_DATA_I= 116
+constant integer YDWEAbilityState__ABILITY_DATA_UNITID= 117
 
-constant integer YDWEAbilityState___ABILITY_DATA_HOTKET= 200
-constant integer YDWEAbilityState___ABILITY_DATA_UNHOTKET= 201
-constant integer YDWEAbilityState___ABILITY_DATA_RESEARCH_HOTKEY= 202
-constant integer YDWEAbilityState___ABILITY_DATA_NAME= 203
-constant integer YDWEAbilityState___ABILITY_DATA_ART= 204
-constant integer YDWEAbilityState___ABILITY_DATA_TARGET_ART= 205
-constant integer YDWEAbilityState___ABILITY_DATA_CASTER_ART= 206
-constant integer YDWEAbilityState___ABILITY_DATA_EFFECT_ART= 207
-constant integer YDWEAbilityState___ABILITY_DATA_AREAEFFECT_ART= 208
-constant integer YDWEAbilityState___ABILITY_DATA_MISSILE_ART= 209
-constant integer YDWEAbilityState___ABILITY_DATA_SPECIAL_ART= 210
-constant integer YDWEAbilityState___ABILITY_DATA_LIGHTNING_EFFECT= 211
-constant integer YDWEAbilityState___ABILITY_DATA_BUFF_TIP= 212
-constant integer YDWEAbilityState___ABILITY_DATA_BUFF_UBERTIP= 213
-constant integer YDWEAbilityState___ABILITY_DATA_RESEARCH_TIP= 214
-constant integer YDWEAbilityState___ABILITY_DATA_TIP= 215
-constant integer YDWEAbilityState___ABILITY_DATA_UNTIP= 216
-constant integer YDWEAbilityState___ABILITY_DATA_RESEARCH_UBERTIP= 217
-constant integer YDWEAbilityState___ABILITY_DATA_UBERTIP= 218
-constant integer YDWEAbilityState___ABILITY_DATA_UNUBERTIP= 219
-constant integer YDWEAbilityState___ABILITY_DATA_UNART= 220
+constant integer YDWEAbilityState__ABILITY_DATA_HOTKET= 200
+constant integer YDWEAbilityState__ABILITY_DATA_UNHOTKET= 201
+constant integer YDWEAbilityState__ABILITY_DATA_RESEARCH_HOTKEY= 202
+constant integer YDWEAbilityState__ABILITY_DATA_NAME= 203
+constant integer YDWEAbilityState__ABILITY_DATA_ART= 204
+constant integer YDWEAbilityState__ABILITY_DATA_TARGET_ART= 205
+constant integer YDWEAbilityState__ABILITY_DATA_CASTER_ART= 206
+constant integer YDWEAbilityState__ABILITY_DATA_EFFECT_ART= 207
+constant integer YDWEAbilityState__ABILITY_DATA_AREAEFFECT_ART= 208
+constant integer YDWEAbilityState__ABILITY_DATA_MISSILE_ART= 209
+constant integer YDWEAbilityState__ABILITY_DATA_SPECIAL_ART= 210
+constant integer YDWEAbilityState__ABILITY_DATA_LIGHTNING_EFFECT= 211
+constant integer YDWEAbilityState__ABILITY_DATA_BUFF_TIP= 212
+constant integer YDWEAbilityState__ABILITY_DATA_BUFF_UBERTIP= 213
+constant integer YDWEAbilityState__ABILITY_DATA_RESEARCH_TIP= 214
+constant integer YDWEAbilityState__ABILITY_DATA_TIP= 215
+constant integer YDWEAbilityState__ABILITY_DATA_UNTIP= 216
+constant integer YDWEAbilityState__ABILITY_DATA_RESEARCH_UBERTIP= 217
+constant integer YDWEAbilityState__ABILITY_DATA_UBERTIP= 218
+constant integer YDWEAbilityState__ABILITY_DATA_UNUBERTIP= 219
+constant integer YDWEAbilityState__ABILITY_DATA_UNART= 220
 //endglobals from YDWEAbilityState
 //globals from YDWEBase:
 constant boolean LIBRARY_YDWEBase=true
@@ -138,30 +138,30 @@ real yd_MapMaxX= 0
 real yd_MapMinX= 0
 real yd_MapMaxY= 0
 real yd_MapMinY= 0
-string array YDWEBase___yd_PlayerColor
-trigger array YDWEBase___AbilityCastingOverEventQueue
-integer array YDWEBase___AbilityCastingOverEventType
-integer YDWEBase___AbilityCastingOverEventNumber= 0
+string array YDWEBase__yd_PlayerColor
+trigger array YDWEBase__AbilityCastingOverEventQueue
+integer array YDWEBase__AbilityCastingOverEventType
+integer YDWEBase__AbilityCastingOverEventNumber= 0
 //endglobals from YDWEBase
 //globals from YDWEBitwise:
 constant boolean LIBRARY_YDWEBitwise=true
-integer array YDWEBitwise___C2
-constant string YDWEBitwise___hexstr= "0123456789ABCDEF"
+integer array YDWEBitwise__C2
+constant string YDWEBitwise__hexstr= "0123456789ABCDEF"
 //endglobals from YDWEBitwise
 //globals from YDWEGeneralBounsSystem:
 constant boolean LIBRARY_YDWEGeneralBounsSystem=true
-integer array YDWEGeneralBounsSystem___ABILITY_COUNT
-integer array YDWEGeneralBounsSystem___ABILITY_NUM
-integer array YDWEGeneralBounsSystem___BonusAbilitys
-integer array YDWEGeneralBounsSystem___PowersOf2
-integer YDWEGeneralBounsSystem___PRELOAD_DUMMY_UNIT= 'hpea'
-integer array YDWEGeneralBounsSystem___YDWEBONUS_MyChar
-boolean YDWEGeneralBounsSystem___PRELOAD_ABILITYS= true
-constant integer YDWEGeneralBounsSystem___BONUS_TYPES= 4
-integer array YDWEGeneralBounsSystem___MaxBonus
-integer array YDWEGeneralBounsSystem___MinBonus
-unit array YDWEGeneralBounsSystem___Units
-integer YDWEGeneralBounsSystem___UnitCount= 0
+integer array YDWEGeneralBounsSystem__ABILITY_COUNT
+integer array YDWEGeneralBounsSystem__ABILITY_NUM
+integer array YDWEGeneralBounsSystem__BonusAbilitys
+integer array YDWEGeneralBounsSystem__PowersOf2
+integer YDWEGeneralBounsSystem__PRELOAD_DUMMY_UNIT= 'hpea'
+integer array YDWEGeneralBounsSystem__YDWEBONUS_MyChar
+boolean YDWEGeneralBounsSystem__PRELOAD_ABILITYS= true
+constant integer YDWEGeneralBounsSystem__BONUS_TYPES= 4
+integer array YDWEGeneralBounsSystem__MaxBonus
+integer array YDWEGeneralBounsSystem__MinBonus
+unit array YDWEGeneralBounsSystem__Units
+integer YDWEGeneralBounsSystem__UnitCount= 0
 //endglobals from YDWEGeneralBounsSystem
 //globals from YDWEGetUnitsInRangeOfLocMatchingNull:
 constant boolean LIBRARY_YDWEGetUnitsInRangeOfLocMatchingNull=true
@@ -185,14 +185,14 @@ boolean YDWESync___m_mutex_state= false
 //globals from YDWETriggerEvent:
 constant boolean LIBRARY_YDWETriggerEvent=true
 trigger yd_DamageEventTrigger= null
-trigger array YDWETriggerEvent___DamageEventQueue
-integer YDWETriggerEvent___DamageEventNumber= 0
+trigger array YDWETriggerEvent__DamageEventQueue
+integer YDWETriggerEvent__DamageEventNumber= 0
 	
 item bj_lastMovedItemInItemSlot= null
 	
-trigger YDWETriggerEvent___MoveItemEventTrigger= null
-trigger array YDWETriggerEvent___MoveItemEventQueue
-integer YDWETriggerEvent___MoveItemEventNumber= 0
+trigger YDWETriggerEvent__MoveItemEventTrigger= null
+trigger array YDWETriggerEvent__MoveItemEventQueue
+integer YDWETriggerEvent__MoveItemEventNumber= 0
 //endglobals from YDWETriggerEvent
 //globals from YDWETriggerRegisterLeaveRectSimpleNull:
 constant boolean LIBRARY_YDWETriggerRegisterLeaveRectSimpleNull=true
@@ -425,8 +425,6 @@ string PROPERTY_PANDA= "ARPANDA072"
 string PROPERTY_DOUBLE_POINT= "BC98FNY5L9"
 string PROPERTY_LEVEL_AWARD= "BYOUARES13"
 constant integer DENOMINATION_NUMBER= 25
-	
-boolean firstTime= true
 boolean moshiFlag= false
 integer nanduFlag= 0
 boolean tiaoZhanFlag= false
@@ -435,8 +433,8 @@ boolean is_victory= false
 constant string VERSION= "1.6.49"
 timer shiWanTimer= null
 timerdialog shiWanTimerDialog= null
-dialog wuhun=DialogCreate()
-dialog chuansong=DialogCreate()
+dialog wuhun= DialogCreate()
+dialog chuansong= DialogCreate()
 button array wuhun1
 button array chuansong1
 integer array duanZao_level
@@ -620,7 +618,9 @@ unit array udg_shenxingfuzhu
 unit array udg_miaoshoufuzhu
 real array guixihuixie
 integer array shopweapon
-	
+integer itemScore= 0
+integer antiqueIndex= 0
+constant integer antiqueKey= $98988
 unit array vipbanlv
 item yd_NullTempItem
 unit w=null
@@ -651,14 +651,15 @@ integer array master
 integer array qimen_status
 
 integer array ateDenom
+integer array ateTianShu
 boolean array qiankunCd
 
 	// 多通速17门派数组，每位玩家的通关门派
 string array manySuccess
 	// 单通速17门派数组，每位玩家的通关门派
 string array singleSuccess
-string initMpSaveStr= "000000000000000000"
-string fullMpSaveStr= "111111111111111111"
+string initMpSaveStr= "0000000000000000000000000"
+string fullMpSaveStr= "1111111111111111111111111"
 	
 	// 是否第一次难度为最高
 boolean topDegreeFlag= false
@@ -750,7 +751,6 @@ integer array udg_jianghu
 integer array udg_juexue
 integer array udg_juenei
 integer array udg_canzhang
-integer array udg_diershi
 integer array udg_qiwu
 integer array udg_dan
 integer array udg_weapon
@@ -1268,7 +1268,6 @@ trigger Oh=null
 trigger Ph=null
 trigger Qh=null
 trigger Rh=null
-trigger Sh=null
 trigger Th=null
 trigger Uh=null
 trigger Vh=null
@@ -1742,16 +1741,7 @@ trigger qs=null
 trigger rs=null
 trigger ss=null
 trigger ts=null
-trigger us=null
 trigger vs=null
-trigger ws=null
-trigger xs=null
-trigger ys=null
-trigger zs=null
-trigger As=null
-trigger as=null
-trigger Bs=null
-trigger Cs=null
 trigger cs=null
 trigger Ds=null
 trigger Es=null
@@ -2775,7 +2765,7 @@ function s__Frame_deallocate takes integer this returns nothing
     set si__Frame_V[this]=si__Frame_F
     set si__Frame_F=this
 endfunction
-    function FrameLibrary___init takes nothing returns nothing
+    function FrameLibrary__init takes nothing returns nothing
         local integer f= DzFrameGetTooltip()
         local real size= 0.75
         set GUI=s__Frame_getFrame(DzGetGameUI())
@@ -2956,19 +2946,19 @@ endfunction
 //library MaxSpeed ends
 //library UniMissileSystem3D:
 // 计算两点间的距离
-function UniMissileSystem3D___DistanceBetweenXY takes real x1,real x2,real y1,real y2 returns real
+function UniMissileSystem3D__DistanceBetweenXY takes real x1,real x2,real y1,real y2 returns real
     return SquareRoot(( x1 - x2 ) * ( x1 - x2 ) + ( y1 - y2 ) * ( y1 - y2 ))
 endfunction
 // 计算两点间的角度（角度制）
-function UniMissileSystem3D___AngleBetweenXY takes real x1,real x2,real y1,real y2 returns real
+function UniMissileSystem3D__AngleBetweenXY takes real x1,real x2,real y1,real y2 returns real
     return bj_RADTODEG * Atan2(y2 - y1, x2 - x1)
 endfunction
 // 计算两个单位间的角度
-function UniMissileSystem3D___GetAngleBetweenUnits takes unit l__A,unit l__B returns real
+function UniMissileSystem3D__GetAngleBetweenUnits takes unit l__A,unit l__B returns real
     return Atan2(GetUnitY(l__B) - GetUnitY(l__A), GetUnitX(l__B) - GetUnitX(l__A))
 endfunction
 // 计算两个单位间的距离
-function UniMissileSystem3D___DistanceBetweenUnits takes unit l__A,unit l__B returns real
+function UniMissileSystem3D__DistanceBetweenUnits takes unit l__A,unit l__B returns real
     local real x1=GetUnitX(l__A)
     local real x2=GetUnitX(l__B)
     local real y1=GetUnitY(l__A)
@@ -2979,7 +2969,7 @@ endfunction
 // s = v0 * t + 1/2 * a * t * t
 // a * t * t  + 2 * v0 * t - 2 * s = 0
 // time1 = (- 2 * v0 + SquareRoot ( 4 * v0 *v0 + 8 * a * s)) / (2 * a)
-function UniMissileSystem3D___GetAcceleratedTime takes real dis,real originspeed,real accel returns real
+function UniMissileSystem3D__GetAcceleratedTime takes real dis,real originspeed,real accel returns real
     local real time1=0.0
     local real time2=0.0
     set time1=( - 1 * originspeed + SquareRoot(Pow(originspeed, 2.0) + 2 * accel * dis) ) / accel
@@ -2996,68 +2986,68 @@ function UniMissileSystem3D___GetAcceleratedTime takes real dis,real originspeed
     return time2
 endfunction
 // 登记弹幕
-function UniMissileSystem3D___MRegister takes unit missile returns nothing
+function UniMissileSystem3D__MRegister takes unit missile returns nothing
     call UnitAddAbility(missile, 'Arav') // 风暴之鸦
 call UnitRemoveAbility(missile, 'Arav')
     call SetUnitPosition(missile, GetUnitX(missile), GetUnitY(missile))
     call SetUnitAnimationByIndex(missile, 90)
 endfunction
 // 将i从栈中移除，使用栈顶元素补充i
-function UniMissileSystem3D___MPop takes integer i returns nothing
-     if GetUnitState(UniMissileSystem3D___MU[i], UNIT_STATE_LIFE) > 0.4 then
-        call KillUnit(UniMissileSystem3D___MU[i])
+function UniMissileSystem3D__MPop takes integer i returns nothing
+     if GetUnitState(UniMissileSystem3D__MU[i], UNIT_STATE_LIFE) > 0.4 then
+        call KillUnit(UniMissileSystem3D__MU[i])
      endif
-     call DestroyEffect(UniMissileSystem3D___EFL[i])
-     set UniMissileSystem3D___MU[i]=UniMissileSystem3D___MU[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___SP[i]=UniMissileSystem3D___SP[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___RA[i]=UniMissileSystem3D___RA[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___DM[i]=UniMissileSystem3D___DM[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___DI[i]=UniMissileSystem3D___DI[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___AN[i]=UniMissileSystem3D___AN[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___HE[i]=UniMissileSystem3D___HE[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___HEMax[i]=UniMissileSystem3D___HEMax[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___US[i]=UniMissileSystem3D___US[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___ARC[i]=UniMissileSystem3D___ARC[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___HP[i]=UniMissileSystem3D___HP[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___EF[i]=UniMissileSystem3D___EF[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___EFL[i]=UniMissileSystem3D___EFL[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___SH[i]=UniMissileSystem3D___SH[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___MGra[i]=UniMissileSystem3D___MGra[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___LOC[i]=UniMissileSystem3D___LOC[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___TIM[i]=UniMissileSystem3D___TIM[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___LT[i]=UniMissileSystem3D___LT[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___SZ[i]=UniMissileSystem3D___SZ[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___RI[i]=UniMissileSystem3D___RI[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___R01[i]=UniMissileSystem3D___R01[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___R02[i]=UniMissileSystem3D___R02[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___MT[i]=UniMissileSystem3D___MT[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___OH[i]=UniMissileSystem3D___OH[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___OS[i]=UniMissileSystem3D___OS[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___OF[i]=UniMissileSystem3D___OF[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___ACC[i]=UniMissileSystem3D___ACC[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___MaxS[i]=UniMissileSystem3D___MaxS[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___MKs[i]=UniMissileSystem3D___MKs[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___SPX[i]=UniMissileSystem3D___SPX[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___SPY[i]=UniMissileSystem3D___SPY[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___LastX[i]=UniMissileSystem3D___LastX[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___LastY[i]=UniMissileSystem3D___LastY[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___IN[i]=UniMissileSystem3D___IN[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___LastOwner[i]=UniMissileSystem3D___LastOwner[UniMissileSystem3D___Top]
-     set UniMissileSystem3D___MU[UniMissileSystem3D___Top]=null
-     set UniMissileSystem3D___MT[UniMissileSystem3D___Top]=null
-     set UniMissileSystem3D___Top=UniMissileSystem3D___Top - 1
+     call DestroyEffect(UniMissileSystem3D__EFL[i])
+     set UniMissileSystem3D__MU[i]=UniMissileSystem3D__MU[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__SP[i]=UniMissileSystem3D__SP[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__RA[i]=UniMissileSystem3D__RA[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__DM[i]=UniMissileSystem3D__DM[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__DI[i]=UniMissileSystem3D__DI[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__AN[i]=UniMissileSystem3D__AN[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__HE[i]=UniMissileSystem3D__HE[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__HEMax[i]=UniMissileSystem3D__HEMax[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__US[i]=UniMissileSystem3D__US[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__ARC[i]=UniMissileSystem3D__ARC[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__HP[i]=UniMissileSystem3D__HP[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__EF[i]=UniMissileSystem3D__EF[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__EFL[i]=UniMissileSystem3D__EFL[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__SH[i]=UniMissileSystem3D__SH[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__MGra[i]=UniMissileSystem3D__MGra[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__LOC[i]=UniMissileSystem3D__LOC[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__TIM[i]=UniMissileSystem3D__TIM[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__LT[i]=UniMissileSystem3D__LT[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__SZ[i]=UniMissileSystem3D__SZ[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__RI[i]=UniMissileSystem3D__RI[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__R01[i]=UniMissileSystem3D__R01[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__R02[i]=UniMissileSystem3D__R02[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__MT[i]=UniMissileSystem3D__MT[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__OH[i]=UniMissileSystem3D__OH[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__OS[i]=UniMissileSystem3D__OS[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__OF[i]=UniMissileSystem3D__OF[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__ACC[i]=UniMissileSystem3D__ACC[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__MaxS[i]=UniMissileSystem3D__MaxS[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__MKs[i]=UniMissileSystem3D__MKs[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__SPX[i]=UniMissileSystem3D__SPX[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__SPY[i]=UniMissileSystem3D__SPY[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__LastX[i]=UniMissileSystem3D__LastX[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__LastY[i]=UniMissileSystem3D__LastY[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__IN[i]=UniMissileSystem3D__IN[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__LastOwner[i]=UniMissileSystem3D__LastOwner[UniMissileSystem3D__Top]
+     set UniMissileSystem3D__MU[UniMissileSystem3D__Top]=null
+     set UniMissileSystem3D__MT[UniMissileSystem3D__Top]=null
+     set UniMissileSystem3D__Top=UniMissileSystem3D__Top - 1
 endfunction
 // 判断是否越界
-function UniMissileSystem3D___MLimit takes real x,real y returns boolean
-     if x > UniMissileSystem3D___map_max_X or x < UniMissileSystem3D___map_min_X or y > UniMissileSystem3D___map_max_Y or y < UniMissileSystem3D___map_min_Y then //边界判定
+function UniMissileSystem3D__MLimit takes real x,real y returns boolean
+     if x > UniMissileSystem3D__map_max_X or x < UniMissileSystem3D__map_min_X or y > UniMissileSystem3D__map_max_Y or y < UniMissileSystem3D__map_min_Y then //边界判定
         return true
      else
         return false
      endif
 endfunction
 // 弹幕循环
-function UniMissileSystem3D___MLoop takes nothing returns nothing
-     local integer i=UniMissileSystem3D___Top
+function UniMissileSystem3D__MLoop takes nothing returns nothing
+     local integer i=UniMissileSystem3D__Top
      local real array x
      local real array y
      local real array zLoc
@@ -3083,103 +3073,103 @@ function UniMissileSystem3D___MLoop takes nothing returns nothing
          exitwhen i < 0
          set addh=0.0
          set udis=0.0
-         set x[1]=GetUnitX(UniMissileSystem3D___MU[i])
-         set y[1]=GetUnitY(UniMissileSystem3D___MU[i])
-         set height=GetUnitFlyHeight(UniMissileSystem3D___MU[i])
-         if UniMissileSystem3D___DI[i] <= 0.0 or GetUnitState(UniMissileSystem3D___MU[i], UNIT_STATE_LIFE) < 0.4 or height <= 0.1 or UniMissileSystem3D___HP[i] <= 0.0 or UniMissileSystem3D___MLimit(x[1] , y[1]) == true or height >= 9999.1 then
-             call UniMissileSystem3D___MPop(i)
+         set x[1]=GetUnitX(UniMissileSystem3D__MU[i])
+         set y[1]=GetUnitY(UniMissileSystem3D__MU[i])
+         set height=GetUnitFlyHeight(UniMissileSystem3D__MU[i])
+         if UniMissileSystem3D__DI[i] <= 0.0 or GetUnitState(UniMissileSystem3D__MU[i], UNIT_STATE_LIFE) < 0.4 or height <= 0.1 or UniMissileSystem3D__HP[i] <= 0.0 or UniMissileSystem3D__MLimit(x[1] , y[1]) == true or height >= 9999.1 then
+             call UniMissileSystem3D__MPop(i)
          else
-             if UniMissileSystem3D___MT[i] != null then
-                set UniMissileSystem3D___AN[i]=UniMissileSystem3D___AngleBetweenXY(x[1] , GetUnitX(UniMissileSystem3D___MT[i]) , y[1] , GetUnitY(UniMissileSystem3D___MT[i]))
-                set ang=UniMissileSystem3D___AN[i] * bj_DEGTORAD
-                if UniMissileSystem3D___IN[i] == 0 then
-                   set UniMissileSystem3D___SPX[i]=UniMissileSystem3D___SP[i] * Cos(ang)
-                   set UniMissileSystem3D___SPY[i]=UniMissileSystem3D___SP[i] * Sin(ang)
+             if UniMissileSystem3D__MT[i] != null then
+                set UniMissileSystem3D__AN[i]=UniMissileSystem3D__AngleBetweenXY(x[1] , GetUnitX(UniMissileSystem3D__MT[i]) , y[1] , GetUnitY(UniMissileSystem3D__MT[i]))
+                set ang=UniMissileSystem3D__AN[i] * bj_DEGTORAD
+                if UniMissileSystem3D__IN[i] == 0 then
+                   set UniMissileSystem3D__SPX[i]=UniMissileSystem3D__SP[i] * Cos(ang)
+                   set UniMissileSystem3D__SPY[i]=UniMissileSystem3D__SP[i] * Sin(ang)
                 else
-                   set ang=ang + UniMissileSystem3D___OF[i]
-                   set UniMissileSystem3D___SPX[i]=UniMissileSystem3D___SPX[i] * UniMissileSystem3D___MKs[i] + UniMissileSystem3D___ACC[i] * Cos(ang)
-                   set UniMissileSystem3D___SPY[i]=UniMissileSystem3D___SPY[i] * UniMissileSystem3D___MKs[i] + UniMissileSystem3D___ACC[i] * Sin(ang)
+                   set ang=ang + UniMissileSystem3D__OF[i]
+                   set UniMissileSystem3D__SPX[i]=UniMissileSystem3D__SPX[i] * UniMissileSystem3D__MKs[i] + UniMissileSystem3D__ACC[i] * Cos(ang)
+                   set UniMissileSystem3D__SPY[i]=UniMissileSystem3D__SPY[i] * UniMissileSystem3D__MKs[i] + UniMissileSystem3D__ACC[i] * Sin(ang)
                 endif
-                if IsUnitType(UniMissileSystem3D___MT[i], UNIT_TYPE_DEAD) == true then
-                   set UniMissileSystem3D___MT[i]=null
+                if IsUnitType(UniMissileSystem3D__MT[i], UNIT_TYPE_DEAD) == true then
+                   set UniMissileSystem3D__MT[i]=null
                 endif
-                set udis=UniMissileSystem3D___DistanceBetweenUnits(UniMissileSystem3D___MT[i] , UniMissileSystem3D___MU[i]) / 100.
+                set udis=UniMissileSystem3D__DistanceBetweenUnits(UniMissileSystem3D__MT[i] , UniMissileSystem3D__MU[i]) / 100.
                 if udis == 0. then
                    set udis=0.01
                 endif
-                set targetheight=GetUnitFlyHeight(UniMissileSystem3D___MT[i])
-                if RAbsBJ(height - targetheight) > UniMissileSystem3D___RA[i] then
+                set targetheight=GetUnitFlyHeight(UniMissileSystem3D__MT[i])
+                if RAbsBJ(height - targetheight) > UniMissileSystem3D__RA[i] then
                    if targetheight > height then
-                      set addh=RAbsBJ(UniMissileSystem3D___SP[i]) / udis
+                      set addh=RAbsBJ(UniMissileSystem3D__SP[i]) / udis
                       if addh + height > targetheight then
                          set addh=addh / 10.
-                         call SetUnitFlyHeight(UniMissileSystem3D___MU[i], targetheight, 0.0)
+                         call SetUnitFlyHeight(UniMissileSystem3D__MU[i], targetheight, 0.0)
                          set height=targetheight
                       endif
                    elseif targetheight < height then
-                          set addh=RAbsBJ(UniMissileSystem3D___SP[i]) * ( - 1. ) / udis
+                          set addh=RAbsBJ(UniMissileSystem3D__SP[i]) * ( - 1. ) / udis
                           if addh + height < targetheight then
-                             call SetUnitFlyHeight(UniMissileSystem3D___MU[i], targetheight, 0.0)
+                             call SetUnitFlyHeight(UniMissileSystem3D__MU[i], targetheight, 0.0)
                              set height=targetheight
                           endif
                    endif
                 endif
              else
-                set ang=UniMissileSystem3D___AN[i] * bj_DEGTORAD
-                set UniMissileSystem3D___SPX[i]=UniMissileSystem3D___SP[i] * Cos(ang)
-                set UniMissileSystem3D___SPY[i]=UniMissileSystem3D___SP[i] * Sin(ang)
-                if UniMissileSystem3D___LOC[i] == 0.0 then
-                   set UniMissileSystem3D___SP[i]=UniMissileSystem3D___SP[i] + UniMissileSystem3D___ACC[i]
+                set ang=UniMissileSystem3D__AN[i] * bj_DEGTORAD
+                set UniMissileSystem3D__SPX[i]=UniMissileSystem3D__SP[i] * Cos(ang)
+                set UniMissileSystem3D__SPY[i]=UniMissileSystem3D__SP[i] * Sin(ang)
+                if UniMissileSystem3D__LOC[i] == 0.0 then
+                   set UniMissileSystem3D__SP[i]=UniMissileSystem3D__SP[i] + UniMissileSystem3D__ACC[i]
                 else
-                   if UniMissileSystem3D___SP[i] <= UniMissileSystem3D___MaxS[i] then
-                     set UniMissileSystem3D___SP[i]=UniMissileSystem3D___SP[i] + UniMissileSystem3D___ACC[i]
+                   if UniMissileSystem3D__SP[i] <= UniMissileSystem3D__MaxS[i] then
+                     set UniMissileSystem3D__SP[i]=UniMissileSystem3D__SP[i] + UniMissileSystem3D__ACC[i]
                    else
-                     set UniMissileSystem3D___SP[i]=UniMissileSystem3D___MaxS[i]
+                     set UniMissileSystem3D__SP[i]=UniMissileSystem3D__MaxS[i]
                    endif
                 endif
              endif
-             set x[2]=x[1] + UniMissileSystem3D___SPX[i]
-             set y[2]=y[1] + UniMissileSystem3D___SPY[i]
-             set UniMissileSystem3D___MLoc[1]=Location(x[1], y[1])
-             set UniMissileSystem3D___MLoc[2]=Location(x[2], y[2])
-             set zLoc[1]=GetLocationZ(UniMissileSystem3D___MLoc[1])
-             set zLoc[2]=GetLocationZ(UniMissileSystem3D___MLoc[2])
-             call SetUnitX(UniMissileSystem3D___MU[i], x[2])
-             call SetUnitY(UniMissileSystem3D___MU[i], y[2])
-             set UniMissileSystem3D___LastX[i]=x[2]
-             set UniMissileSystem3D___LastY[i]=y[2]
-             set addxy=UniMissileSystem3D___DistanceBetweenXY(x[2] , x[1] , y[2] , y[1])
-             call SetUnitFacing(UniMissileSystem3D___MU[i], UniMissileSystem3D___AN[i])
-             call GroupEnumUnitsInRange(UniMissileSystem3D___DamageGroup, x[2], y[2], UniMissileSystem3D___RA[i], null)
+             set x[2]=x[1] + UniMissileSystem3D__SPX[i]
+             set y[2]=y[1] + UniMissileSystem3D__SPY[i]
+             set UniMissileSystem3D__MLoc[1]=Location(x[1], y[1])
+             set UniMissileSystem3D__MLoc[2]=Location(x[2], y[2])
+             set zLoc[1]=GetLocationZ(UniMissileSystem3D__MLoc[1])
+             set zLoc[2]=GetLocationZ(UniMissileSystem3D__MLoc[2])
+             call SetUnitX(UniMissileSystem3D__MU[i], x[2])
+             call SetUnitY(UniMissileSystem3D__MU[i], y[2])
+             set UniMissileSystem3D__LastX[i]=x[2]
+             set UniMissileSystem3D__LastY[i]=y[2]
+             set addxy=UniMissileSystem3D__DistanceBetweenXY(x[2] , x[1] , y[2] , y[1])
+             call SetUnitFacing(UniMissileSystem3D__MU[i], UniMissileSystem3D__AN[i])
+             call GroupEnumUnitsInRange(UniMissileSystem3D__DamageGroup, x[2], y[2], UniMissileSystem3D__RA[i], null)
              loop
-                 set UniMissileSystem3D___DamageUnit=FirstOfGroup(UniMissileSystem3D___DamageGroup)
-                 if GetUnitState(UniMissileSystem3D___DamageUnit, UNIT_STATE_LIFE) > 0.4 and ( UniMissileSystem3D___MT[i] == UniMissileSystem3D___DamageUnit or IsUnitEnemy(UniMissileSystem3D___DamageUnit, GetOwningPlayer(UniMissileSystem3D___MU[i])) ) then
-                     if RAbsBJ(height - GetUnitFlyHeight(UniMissileSystem3D___DamageUnit)) <= UniMissileSystem3D___RA[i] then
-                        call UnitDamageTarget(UniMissileSystem3D___MU[i], UniMissileSystem3D___DamageUnit, UniMissileSystem3D___DM[i], true, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
-                        set UniMissileSystem3D___HP[i]=UniMissileSystem3D___HP[i] - 1.
-                        set UniMissileSystem3D___DM[i]=UniMissileSystem3D___DM[i] * 0.5
+                 set UniMissileSystem3D__DamageUnit=FirstOfGroup(UniMissileSystem3D__DamageGroup)
+                 if GetUnitState(UniMissileSystem3D__DamageUnit, UNIT_STATE_LIFE) > 0.4 and ( UniMissileSystem3D__MT[i] == UniMissileSystem3D__DamageUnit or IsUnitEnemy(UniMissileSystem3D__DamageUnit, GetOwningPlayer(UniMissileSystem3D__MU[i])) ) then
+                     if RAbsBJ(height - GetUnitFlyHeight(UniMissileSystem3D__DamageUnit)) <= UniMissileSystem3D__RA[i] then
+                        call UnitDamageTarget(UniMissileSystem3D__MU[i], UniMissileSystem3D__DamageUnit, UniMissileSystem3D__DM[i], true, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+                        set UniMissileSystem3D__HP[i]=UniMissileSystem3D__HP[i] - 1.
+                        set UniMissileSystem3D__DM[i]=UniMissileSystem3D__DM[i] * 0.5
                      endif
                  endif
-                 call GroupRemoveUnit(UniMissileSystem3D___DamageGroup, UniMissileSystem3D___DamageUnit)
-                 exitwhen UniMissileSystem3D___DamageUnit == null
+                 call GroupRemoveUnit(UniMissileSystem3D__DamageGroup, UniMissileSystem3D__DamageUnit)
+                 exitwhen UniMissileSystem3D__DamageUnit == null
              endloop
-             call GroupClear(UniMissileSystem3D___DamageGroup)
-             set UniMissileSystem3D___TIM[i]=UniMissileSystem3D___TIM[i] + UniMissileSystem3D___TIMOut
-            if UniMissileSystem3D___MGra[i] == 0.0 then
-            set h=0.11 + UniMissileSystem3D___SZ[i] - zLoc[2]
+             call GroupClear(UniMissileSystem3D__DamageGroup)
+             set UniMissileSystem3D__TIM[i]=UniMissileSystem3D__TIM[i] + UniMissileSystem3D__TIMOut
+            if UniMissileSystem3D__MGra[i] == 0.0 then
+            set h=0.11 + UniMissileSystem3D__SZ[i] - zLoc[2]
             endif
-            if UniMissileSystem3D___LOC[i] == 0.0 then
-             if UniMissileSystem3D___MGra[i] == 0.0 then
+            if UniMissileSystem3D__LOC[i] == 0.0 then
+             if UniMissileSystem3D__MGra[i] == 0.0 then
              else
-             set h=UniMissileSystem3D___HEMax[i] - UniMissileSystem3D___R01[i] * ( UniMissileSystem3D___TIM[i] - UniMissileSystem3D___LT[i] / 2 ) * ( UniMissileSystem3D___TIM[i] - UniMissileSystem3D___LT[i] / 2 ) + UniMissileSystem3D___TIM[i] * UniMissileSystem3D___R02[i] + UniMissileSystem3D___SZ[i] - zLoc[2]
+             set h=UniMissileSystem3D__HEMax[i] - UniMissileSystem3D__R01[i] * ( UniMissileSystem3D__TIM[i] - UniMissileSystem3D__LT[i] / 2 ) * ( UniMissileSystem3D__TIM[i] - UniMissileSystem3D__LT[i] / 2 ) + UniMissileSystem3D__TIM[i] * UniMissileSystem3D__R02[i] + UniMissileSystem3D__SZ[i] - zLoc[2]
              endif
             else
-             set UniMissileSystem3D___US[i]=UniMissileSystem3D___US[i] - UniMissileSystem3D___MGra[i]
+             set UniMissileSystem3D__US[i]=UniMissileSystem3D__US[i] - UniMissileSystem3D__MGra[i]
             endif
              set lastheight=height
-             set UniMissileSystem3D___HE[i]=UniMissileSystem3D___HE[i] * UniMissileSystem3D___LOC[i] + UniMissileSystem3D___SH[i] + UniMissileSystem3D___US[i] * UniMissileSystem3D___LOC[i] + h * ( 1 - UniMissileSystem3D___LOC[i] ) + addh
-             set height=UniMissileSystem3D___HE[i] - zLoc[2] * UniMissileSystem3D___LOC[i]
-             call SetUnitFlyHeight(UniMissileSystem3D___MU[i], height, 0.0)
+             set UniMissileSystem3D__HE[i]=UniMissileSystem3D__HE[i] * UniMissileSystem3D__LOC[i] + UniMissileSystem3D__SH[i] + UniMissileSystem3D__US[i] * UniMissileSystem3D__LOC[i] + h * ( 1 - UniMissileSystem3D__LOC[i] ) + addh
+             set height=UniMissileSystem3D__HE[i] - zLoc[2] * UniMissileSystem3D__LOC[i]
+             call SetUnitFlyHeight(UniMissileSystem3D__MU[i], height, 0.0)
              set addz=height - lastheight
              if addxy == 0. then
                 set addxy=1.
@@ -3193,11 +3183,11 @@ function UniMissileSystem3D___MLoop takes nothing returns nothing
              elseif aniI > 181 then
                 set aniI=181
              endif
-             call SetUnitAnimationByIndex(UniMissileSystem3D___MU[i], aniI)
-             set UniMissileSystem3D___DI[i]=UniMissileSystem3D___DI[i] - UniMissileSystem3D___SP[i] * UniMissileSystem3D___LOC[i]
-             set UniMissileSystem3D___US[i]=UniMissileSystem3D___US[i] - UniMissileSystem3D___MGra[i]
-             call RemoveLocation(UniMissileSystem3D___MLoc[1])
-             call RemoveLocation(UniMissileSystem3D___MLoc[2])
+             call SetUnitAnimationByIndex(UniMissileSystem3D__MU[i], aniI)
+             set UniMissileSystem3D__DI[i]=UniMissileSystem3D__DI[i] - UniMissileSystem3D__SP[i] * UniMissileSystem3D__LOC[i]
+             set UniMissileSystem3D__US[i]=UniMissileSystem3D__US[i] - UniMissileSystem3D__MGra[i]
+             call RemoveLocation(UniMissileSystem3D__MLoc[1])
+             call RemoveLocation(UniMissileSystem3D__MLoc[2])
          endif
          set i=i - 1
      endloop
@@ -3216,9 +3206,9 @@ function MissileCast takes unit caster,unit missile,real originspeed,real maxspe
      if loc == null then
         return
      endif
-     set UniMissileSystem3D___Top=UniMissileSystem3D___Top + 1
-     set i=UniMissileSystem3D___Top
-     set UniMissileSystem3D___HeroLoc=GetUnitLoc(caster)
+     set UniMissileSystem3D__Top=UniMissileSystem3D__Top + 1
+     set i=UniMissileSystem3D__Top
+     set UniMissileSystem3D__HeroLoc=GetUnitLoc(caster)
      if speed == 0. then
         set speed=0.01
      endif
@@ -3234,106 +3224,106 @@ function MissileCast takes unit caster,unit missile,real originspeed,real maxspe
      if height == 0. then
         set height=0.1
      endif
-     if GetLocationX(loc) != GetLocationX(UniMissileSystem3D___HeroLoc) or GetLocationY(loc) != GetLocationY(UniMissileSystem3D___HeroLoc) then
+     if GetLocationX(loc) != GetLocationX(UniMissileSystem3D__HeroLoc) or GetLocationY(loc) != GetLocationY(UniMissileSystem3D__HeroLoc) then
         set x=GetLocationX(loc)
         set y=GetLocationY(loc)
-        set ang=UniMissileSystem3D___AngleBetweenXY(GetUnitX(caster) , x , GetUnitY(caster) , y)
-        set dis=UniMissileSystem3D___DistanceBetweenXY(x , GetUnitX(caster) , y , GetUnitY(caster))
-        set UniMissileSystem3D___LOC[i]=0.0
+        set ang=UniMissileSystem3D__AngleBetweenXY(GetUnitX(caster) , x , GetUnitY(caster) , y)
+        set dis=UniMissileSystem3D__DistanceBetweenXY(x , GetUnitX(caster) , y , GetUnitY(caster))
+        set UniMissileSystem3D__LOC[i]=0.0
      else
         set ang=angle
         set dis=distance
-        set UniMissileSystem3D___LOC[i]=1.0
+        set UniMissileSystem3D__LOC[i]=1.0
      endif
      if gravity == true then
-        set UniMissileSystem3D___MGra[i]=UniMissileSystem3D___Gravity
+        set UniMissileSystem3D__MGra[i]=UniMissileSystem3D__Gravity
      else
-        set UniMissileSystem3D___MGra[i]=0.0
+        set UniMissileSystem3D__MGra[i]=0.0
      endif
-     set UniMissileSystem3D___MU[i]=missile
-     call UniMissileSystem3D___MRegister(UniMissileSystem3D___MU[i])
-     set UniMissileSystem3D___OH[i]=GetUnitFlyHeight(caster) + height
-     set UniMissileSystem3D___SZ[i]=GetLocationZ(UniMissileSystem3D___HeroLoc) + UniMissileSystem3D___OH[i]
+     set UniMissileSystem3D__MU[i]=missile
+     call UniMissileSystem3D__MRegister(UniMissileSystem3D__MU[i])
+     set UniMissileSystem3D__OH[i]=GetUnitFlyHeight(caster) + height
+     set UniMissileSystem3D__SZ[i]=GetLocationZ(UniMissileSystem3D__HeroLoc) + UniMissileSystem3D__OH[i]
      if originspeed == maxspeed then
         set speed=originspeed
         set accel=0.0
         set inertia=false
-        set UniMissileSystem3D___LT[i]=dis / speed
+        set UniMissileSystem3D__LT[i]=dis / speed
      else
         set inertia=true
-        set UniMissileSystem3D___LT[i]=UniMissileSystem3D___GetAcceleratedTime(dis , originspeed , accel)
+        set UniMissileSystem3D__LT[i]=UniMissileSystem3D__GetAcceleratedTime(dis , originspeed , accel)
      endif
-     set UniMissileSystem3D___SP[i]=originspeed * UniMissileSystem3D___TIMOut
-     set UniMissileSystem3D___MaxS[i]=maxspeed
-     set UniMissileSystem3D___RI[i]=( GetLocationZ(loc) - UniMissileSystem3D___SZ[i] ) / dis
-     set UniMissileSystem3D___TIM[i]=0
-     set UniMissileSystem3D___IN[i]=0
+     set UniMissileSystem3D__SP[i]=originspeed * UniMissileSystem3D__TIMOut
+     set UniMissileSystem3D__MaxS[i]=maxspeed
+     set UniMissileSystem3D__RI[i]=( GetLocationZ(loc) - UniMissileSystem3D__SZ[i] ) / dis
+     set UniMissileSystem3D__TIM[i]=0
+     set UniMissileSystem3D__IN[i]=0
      if target != null then
         if GetUnitState(target, UNIT_STATE_LIFE) > 0.4 then
-        set UniMissileSystem3D___MT[i]=target
+        set UniMissileSystem3D__MT[i]=target
         if inertia == true then
-           set UniMissileSystem3D___OS[i]=originspeed * UniMissileSystem3D___TIMOut
-           set UniMissileSystem3D___OF[i]=Deg2Rad(50)
-           set UniMissileSystem3D___SPX[i]=UniMissileSystem3D___OS[i] * Cos(ang)
-           set UniMissileSystem3D___SPY[i]=UniMissileSystem3D___OS[i] * Sin(ang)
-           set UniMissileSystem3D___MKs[i]=1 - accel * UniMissileSystem3D___TIMOut / maxspeed
+           set UniMissileSystem3D__OS[i]=originspeed * UniMissileSystem3D__TIMOut
+           set UniMissileSystem3D__OF[i]=Deg2Rad(50)
+           set UniMissileSystem3D__SPX[i]=UniMissileSystem3D__OS[i] * Cos(ang)
+           set UniMissileSystem3D__SPY[i]=UniMissileSystem3D__OS[i] * Sin(ang)
+           set UniMissileSystem3D__MKs[i]=1 - accel * UniMissileSystem3D__TIMOut / maxspeed
         endif
         endif
      endif
-     set UniMissileSystem3D___ACC[i]=accel * UniMissileSystem3D___TIMOut * UniMissileSystem3D___TIMOut
+     set UniMissileSystem3D__ACC[i]=accel * UniMissileSystem3D__TIMOut * UniMissileSystem3D__TIMOut
      if inertia == true then
-        set UniMissileSystem3D___IN[i]=1
+        set UniMissileSystem3D__IN[i]=1
      endif
-     set UniMissileSystem3D___RA[i]=range
-     set UniMissileSystem3D___DM[i]=damage
-     set UniMissileSystem3D___AN[i]=ang
-     set UniMissileSystem3D___ARC[i]=arc
-     set UniMissileSystem3D___MaxS[i]=maxspeed * UniMissileSystem3D___TIMOut
+     set UniMissileSystem3D__RA[i]=range
+     set UniMissileSystem3D__DM[i]=damage
+     set UniMissileSystem3D__AN[i]=ang
+     set UniMissileSystem3D__ARC[i]=arc
+     set UniMissileSystem3D__MaxS[i]=maxspeed * UniMissileSystem3D__TIMOut
      if arc != 0.0 then
-        set UniMissileSystem3D___HEMax[i]=dis * UniMissileSystem3D___ARC[i]
+        set UniMissileSystem3D__HEMax[i]=dis * UniMissileSystem3D__ARC[i]
      else
-        set UniMissileSystem3D___HEMax[i]=height
+        set UniMissileSystem3D__HEMax[i]=height
      endif
-     if GetLocationX(loc) == GetLocationX(UniMissileSystem3D___HeroLoc) and GetLocationY(loc) == GetLocationY(UniMissileSystem3D___HeroLoc) then
-        set UniMissileSystem3D___ANZ[i]=AtanBJ(arc)
-        set UniMissileSystem3D___US[i]=arc * UniMissileSystem3D___SP[i]
-        set UniMissileSystem3D___DI[i]=distance
+     if GetLocationX(loc) == GetLocationX(UniMissileSystem3D__HeroLoc) and GetLocationY(loc) == GetLocationY(UniMissileSystem3D__HeroLoc) then
+        set UniMissileSystem3D__ANZ[i]=AtanBJ(arc)
+        set UniMissileSystem3D__US[i]=arc * UniMissileSystem3D__SP[i]
+        set UniMissileSystem3D__DI[i]=distance
      else
-        set UniMissileSystem3D___US[i]=0
-        set UniMissileSystem3D___DI[i]=dis
+        set UniMissileSystem3D__US[i]=0
+        set UniMissileSystem3D__DI[i]=dis
      endif
-     call SetUnitX(UniMissileSystem3D___MU[i], GetLocationX(UniMissileSystem3D___HeroLoc))
-     call SetUnitY(UniMissileSystem3D___MU[i], GetLocationY(UniMissileSystem3D___HeroLoc))
-     call SetUnitOwner(UniMissileSystem3D___MU[i], GetOwningPlayer(caster), true)
-     call SetUnitFacing(UniMissileSystem3D___MU[i], UniMissileSystem3D___AN[i])
-     set UniMissileSystem3D___HE[i]=UniMissileSystem3D___OH[i] + GetLocationZ(UniMissileSystem3D___HeroLoc) + 0.11
-     set UniMissileSystem3D___SH[i]=0 * speed
-     set UniMissileSystem3D___LastX[i]=0.0
-     set UniMissileSystem3D___LastY[i]=0.0
-     set UniMissileSystem3D___R01[i]=UniMissileSystem3D___HEMax[i] / UniMissileSystem3D___LT[i] / UniMissileSystem3D___LT[i] * 4
-     set UniMissileSystem3D___R02[i]=UniMissileSystem3D___SP[i] * UniMissileSystem3D___RI[i] / UniMissileSystem3D___TIMOut
-     set UniMissileSystem3D___HP[i]=l__hp
-     set UniMissileSystem3D___DM[i]=damage
-     set UniMissileSystem3D___EF[i]=Effect
-     call SetUnitFlyHeight(UniMissileSystem3D___MU[i], UniMissileSystem3D___HE[i] - GetLocationZ(UniMissileSystem3D___HeroLoc), 0.0)
-     set UniMissileSystem3D___EFL[i]=AddSpecialEffectTarget(UniMissileSystem3D___EF[i], UniMissileSystem3D___MU[i], "chest")
-     set UniMissileSystem3D___LastOwner[i]=GetOwningPlayer(caster)
-     call RemoveLocation(UniMissileSystem3D___HeroLoc)
-     set UniMissileSystem3D___HeroLoc=null
+     call SetUnitX(UniMissileSystem3D__MU[i], GetLocationX(UniMissileSystem3D__HeroLoc))
+     call SetUnitY(UniMissileSystem3D__MU[i], GetLocationY(UniMissileSystem3D__HeroLoc))
+     call SetUnitOwner(UniMissileSystem3D__MU[i], GetOwningPlayer(caster), true)
+     call SetUnitFacing(UniMissileSystem3D__MU[i], UniMissileSystem3D__AN[i])
+     set UniMissileSystem3D__HE[i]=UniMissileSystem3D__OH[i] + GetLocationZ(UniMissileSystem3D__HeroLoc) + 0.11
+     set UniMissileSystem3D__SH[i]=0 * speed
+     set UniMissileSystem3D__LastX[i]=0.0
+     set UniMissileSystem3D__LastY[i]=0.0
+     set UniMissileSystem3D__R01[i]=UniMissileSystem3D__HEMax[i] / UniMissileSystem3D__LT[i] / UniMissileSystem3D__LT[i] * 4
+     set UniMissileSystem3D__R02[i]=UniMissileSystem3D__SP[i] * UniMissileSystem3D__RI[i] / UniMissileSystem3D__TIMOut
+     set UniMissileSystem3D__HP[i]=l__hp
+     set UniMissileSystem3D__DM[i]=damage
+     set UniMissileSystem3D__EF[i]=Effect
+     call SetUnitFlyHeight(UniMissileSystem3D__MU[i], UniMissileSystem3D__HE[i] - GetLocationZ(UniMissileSystem3D__HeroLoc), 0.0)
+     set UniMissileSystem3D__EFL[i]=AddSpecialEffectTarget(UniMissileSystem3D__EF[i], UniMissileSystem3D__MU[i], "chest")
+     set UniMissileSystem3D__LastOwner[i]=GetOwningPlayer(caster)
+     call RemoveLocation(UniMissileSystem3D__HeroLoc)
+     set UniMissileSystem3D__HeroLoc=null
 endfunction
-function UniMissileSystem3D___Init takes nothing returns nothing
-     set UniMissileSystem3D___map_max_X=GetRectMaxX(bj_mapInitialPlayableArea)
-     set UniMissileSystem3D___map_max_Y=GetRectMaxY(bj_mapInitialPlayableArea)
-     set UniMissileSystem3D___map_min_X=GetRectMinX(bj_mapInitialPlayableArea)
-     set UniMissileSystem3D___map_min_Y=GetRectMinY(bj_mapInitialPlayableArea)
-     set UniMissileSystem3D___DamageGroup=CreateGroup()
-     set UniMissileSystem3D___TIMr=CreateTimer()
-     call TimerStart(UniMissileSystem3D___TIMr, UniMissileSystem3D___TIMOut, true, function UniMissileSystem3D___MLoop)
+function UniMissileSystem3D__Init takes nothing returns nothing
+     set UniMissileSystem3D__map_max_X=GetRectMaxX(bj_mapInitialPlayableArea)
+     set UniMissileSystem3D__map_max_Y=GetRectMaxY(bj_mapInitialPlayableArea)
+     set UniMissileSystem3D__map_min_X=GetRectMinX(bj_mapInitialPlayableArea)
+     set UniMissileSystem3D__map_min_Y=GetRectMinY(bj_mapInitialPlayableArea)
+     set UniMissileSystem3D__DamageGroup=CreateGroup()
+     set UniMissileSystem3D__TIMr=CreateTimer()
+     call TimerStart(UniMissileSystem3D__TIMr, UniMissileSystem3D__TIMOut, true, function UniMissileSystem3D__MLoop)
 endfunction
 
 //library UniMissileSystem3D ends
 //library YDTriggerSaveLoadSystem:
-    function YDTriggerSaveLoadSystem___Init takes nothing returns nothing
+    function YDTriggerSaveLoadSystem__Init takes nothing returns nothing
             set YDHT=InitHashtable()
         set YDLOC=InitHashtable()
     endfunction
@@ -3378,7 +3368,7 @@ endfunction
 
  function YDWEUnitTransform takes unit u,integer abilcode,integer targetid returns nothing
 		call UnitAddAbility(u, abilcode)
-		call EXSetAbilityDataInteger(EXGetUnitAbility(u, abilcode), 1, YDWEAbilityState___ABILITY_DATA_UNITID, GetUnitTypeId(u))
+		call EXSetAbilityDataInteger(EXGetUnitAbility(u, abilcode), 1, YDWEAbilityState__ABILITY_DATA_UNITID, GetUnitTypeId(u))
 		call EXSetAbilityAEmeDataA(EXGetUnitAbility(u, abilcode), GetUnitTypeId(u))
 		call UnitRemoveAbility(u, abilcode)
 		call UnitAddAbility(u, abilcode)
@@ -3994,11 +3984,11 @@ endfunction
 function YDWESyStemAbilityCastingOverTriggerAction takes unit hero,integer index returns nothing
  local integer i= 0
     loop
-        exitwhen i >= YDWEBase___AbilityCastingOverEventNumber
-        if YDWEBase___AbilityCastingOverEventType[i] == index then
+        exitwhen i >= YDWEBase__AbilityCastingOverEventNumber
+        if YDWEBase__AbilityCastingOverEventType[i] == index then
             set bj_lastAbilityCastingUnit=hero
-			if YDWEBase___AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase___AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase___AbilityCastingOverEventQueue[i]) then
-				call TriggerExecute(YDWEBase___AbilityCastingOverEventQueue[i])
+			if YDWEBase__AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase__AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase__AbilityCastingOverEventQueue[i]) then
+				call TriggerExecute(YDWEBase__AbilityCastingOverEventQueue[i])
 			endif
 		endif
         set i=i + 1
@@ -4008,9 +3998,9 @@ endfunction
 //YDWE技能捕捉事件 
 //===========================================================================  
 function YDWESyStemAbilityCastingOverRegistTrigger takes trigger trg,integer index returns nothing
-	set YDWEBase___AbilityCastingOverEventQueue[YDWEBase___AbilityCastingOverEventNumber]=trg
-	set YDWEBase___AbilityCastingOverEventType[YDWEBase___AbilityCastingOverEventNumber]=index
-	set YDWEBase___AbilityCastingOverEventNumber=YDWEBase___AbilityCastingOverEventNumber + 1
+	set YDWEBase__AbilityCastingOverEventQueue[YDWEBase__AbilityCastingOverEventNumber]=trg
+	set YDWEBase__AbilityCastingOverEventType[YDWEBase__AbilityCastingOverEventNumber]=index
+	set YDWEBase__AbilityCastingOverEventNumber=YDWEBase__AbilityCastingOverEventNumber + 1
 endfunction 
 //===========================================================================
 //系统函数完善
@@ -4047,7 +4037,7 @@ endfunction
 //unitpool bj_lastCreatedPool=null
 //unit bj_lastPoolAbstractedUnit=null
 function YDWEGetPlayerColorString takes player p,string s returns string
-    return YDWEBase___yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
+    return YDWEBase__yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
 endfunction
 //===========================================================================
 //===========================================================================
@@ -4094,22 +4084,22 @@ function InitializeYD takes nothing returns nothing
 	set yd_MapMaxX=GetCameraBoundMaxX() + GetCameraMargin(CAMERA_MARGIN_RIGHT)
 	set yd_MapMaxY=GetCameraBoundMaxY() + GetCameraMargin(CAMERA_MARGIN_TOP)
 	
-    set YDWEBase___yd_PlayerColor[0]="|cFFFF0303"
-    set YDWEBase___yd_PlayerColor[1]="|cFF0042FF"
-    set YDWEBase___yd_PlayerColor[2]="|cFF1CE6B9"
-    set YDWEBase___yd_PlayerColor[3]="|cFF540081"
-    set YDWEBase___yd_PlayerColor[4]="|cFFFFFC01"
-    set YDWEBase___yd_PlayerColor[5]="|cFFFE8A0E"
-    set YDWEBase___yd_PlayerColor[6]="|cFF20C000"
-    set YDWEBase___yd_PlayerColor[7]="|cFFE55BB0"
-    set YDWEBase___yd_PlayerColor[8]="|cFF959697"
-    set YDWEBase___yd_PlayerColor[9]="|cFF7EBFF1"
-    set YDWEBase___yd_PlayerColor[10]="|cFF106246"
-    set YDWEBase___yd_PlayerColor[11]="|cFF4E2A04"
-    set YDWEBase___yd_PlayerColor[12]="|cFF282828"
-    set YDWEBase___yd_PlayerColor[13]="|cFF282828"
-    set YDWEBase___yd_PlayerColor[14]="|cFF282828"
-    set YDWEBase___yd_PlayerColor[15]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[0]="|cFFFF0303"
+    set YDWEBase__yd_PlayerColor[1]="|cFF0042FF"
+    set YDWEBase__yd_PlayerColor[2]="|cFF1CE6B9"
+    set YDWEBase__yd_PlayerColor[3]="|cFF540081"
+    set YDWEBase__yd_PlayerColor[4]="|cFFFFFC01"
+    set YDWEBase__yd_PlayerColor[5]="|cFFFE8A0E"
+    set YDWEBase__yd_PlayerColor[6]="|cFF20C000"
+    set YDWEBase__yd_PlayerColor[7]="|cFFE55BB0"
+    set YDWEBase__yd_PlayerColor[8]="|cFF959697"
+    set YDWEBase__yd_PlayerColor[9]="|cFF7EBFF1"
+    set YDWEBase__yd_PlayerColor[10]="|cFF106246"
+    set YDWEBase__yd_PlayerColor[11]="|cFF4E2A04"
+    set YDWEBase__yd_PlayerColor[12]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[13]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[14]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[15]="|cFF282828"
     //=================显示版本=====================
     call YDWEVersion_Init()
 endfunction
@@ -4117,18 +4107,18 @@ endfunction
 //library YDWEBase ends
 //library YDWEBitwise:
     
-    function YDWEBitwise___Bit takes integer x returns boolean
+    function YDWEBitwise__Bit takes integer x returns boolean
         return ( x - x / 2 * 2 ) != 0
     endfunction 
     
- function YDWEBitwise___NOT_P takes integer x returns integer
+ function YDWEBitwise__NOT_P takes integer x returns integer
   local integer l__z= 0
   local integer i= 0
 	
 		loop
 			exitwhen ( i == 31 )
-			if not YDWEBitwise___Bit(x) then
-				set l__z=l__z + YDWEBitwise___C2[i]
+			if not YDWEBitwise__Bit(x) then
+				set l__z=l__z + YDWEBitwise__C2[i]
 			endif
 			set x=x / 2
 			set i=i + 1
@@ -4138,20 +4128,20 @@ endfunction
 	endfunction
  function YDWEBitwise_NOT takes integer x returns integer
 		if x >= 0 then
-            return YDWEBitwise___NOT_P(x) + YDWEBitwise___C2[31]
+            return YDWEBitwise__NOT_P(x) + YDWEBitwise__C2[31]
         else
             return - x - 1
         endif
 	endfunction
     
-    function YDWEBitwise___AND_P takes integer x,integer y returns integer
+    function YDWEBitwise__AND_P takes integer x,integer y returns integer
   local integer l__z= 0
   local integer i= 0
 	
 		loop
 			exitwhen ( i == 31 )
-			if YDWEBitwise___Bit(x) and YDWEBitwise___Bit(y) then
-				set l__z=l__z + YDWEBitwise___C2[i]
+			if YDWEBitwise__Bit(x) and YDWEBitwise__Bit(y) then
+				set l__z=l__z + YDWEBitwise__C2[i]
 			endif
 			set x=x / 2
 			set y=y / 2
@@ -4163,27 +4153,27 @@ endfunction
     function YDWEBitwise_AND takes integer x,integer y returns integer
 		if x >= 0 then
             if y >= 0 then
-                return YDWEBitwise___AND_P(x , y)
+                return YDWEBitwise__AND_P(x , y)
             else
-                return YDWEBitwise___AND_P(x , YDWEBitwise___NOT_P(- y - 1))
+                return YDWEBitwise__AND_P(x , YDWEBitwise__NOT_P(- y - 1))
             endif
         else
             if y >= 0 then
-                return YDWEBitwise___AND_P(YDWEBitwise___NOT_P(- x - 1) , y)
+                return YDWEBitwise__AND_P(YDWEBitwise__NOT_P(- x - 1) , y)
             else
-                return YDWEBitwise___AND_P(YDWEBitwise___NOT_P(- x - 1) , YDWEBitwise___NOT_P(- y - 1)) + YDWEBitwise___C2[31]
+                return YDWEBitwise__AND_P(YDWEBitwise__NOT_P(- x - 1) , YDWEBitwise__NOT_P(- y - 1)) + YDWEBitwise__C2[31]
             endif
         endif
     endfunction
     
-    function YDWEBitwise___OR_P takes integer x,integer y returns integer
+    function YDWEBitwise__OR_P takes integer x,integer y returns integer
   local integer l__z= 0
   local integer i= 0
 	
 		loop
 			exitwhen ( i == 31 )
-			if YDWEBitwise___Bit(x) or YDWEBitwise___Bit(y) then
-				set l__z=l__z + YDWEBitwise___C2[i]
+			if YDWEBitwise__Bit(x) or YDWEBitwise__Bit(y) then
+				set l__z=l__z + YDWEBitwise__C2[i]
 			endif
 			set x=x / 2
 			set y=y / 2
@@ -4195,26 +4185,26 @@ endfunction
     function YDWEBitwise_OR takes integer x,integer y returns integer
 		if x >= 0 then
             if y >= 0 then
-                return YDWEBitwise___OR_P(x , y)
+                return YDWEBitwise__OR_P(x , y)
             else
-                return YDWEBitwise___OR_P(x , YDWEBitwise___NOT_P(- y - 1)) + YDWEBitwise___C2[31]
+                return YDWEBitwise__OR_P(x , YDWEBitwise__NOT_P(- y - 1)) + YDWEBitwise__C2[31]
             endif
         else
             if y >= 0 then
-                return YDWEBitwise___OR_P(YDWEBitwise___NOT_P(- x - 1) , y) + YDWEBitwise___C2[31]
+                return YDWEBitwise__OR_P(YDWEBitwise__NOT_P(- x - 1) , y) + YDWEBitwise__C2[31]
             else
-                return YDWEBitwise___OR_P(YDWEBitwise___NOT_P(- x - 1) , YDWEBitwise___NOT_P(- y - 1)) + YDWEBitwise___C2[31]
+                return YDWEBitwise__OR_P(YDWEBitwise__NOT_P(- x - 1) , YDWEBitwise__NOT_P(- y - 1)) + YDWEBitwise__C2[31]
             endif
         endif
     endfunction
-    function YDWEBitwise___XOR_P takes integer x,integer y returns integer
+    function YDWEBitwise__XOR_P takes integer x,integer y returns integer
   local integer l__z= 0
   local integer i= 0
 	
 		loop
 			exitwhen ( i == 31 )
-			if YDWEBitwise___Bit(x) != YDWEBitwise___Bit(y) then
-				set l__z=l__z + YDWEBitwise___C2[i]
+			if YDWEBitwise__Bit(x) != YDWEBitwise__Bit(y) then
+				set l__z=l__z + YDWEBitwise__C2[i]
 			endif
 			set x=x / 2
 			set y=y / 2
@@ -4226,71 +4216,71 @@ endfunction
     function YDWEBitwise_XOR takes integer x,integer y returns integer
 		if x >= 0 then
             if y >= 0 then
-                return YDWEBitwise___XOR_P(x , y)
+                return YDWEBitwise__XOR_P(x , y)
             else
-                return YDWEBitwise___XOR_P(x , YDWEBitwise___NOT_P(- y - 1)) + YDWEBitwise___C2[31]
+                return YDWEBitwise__XOR_P(x , YDWEBitwise__NOT_P(- y - 1)) + YDWEBitwise__C2[31]
             endif
         else
             if y >= 0 then
-                return YDWEBitwise___XOR_P(YDWEBitwise___NOT_P(- x - 1) , y) + YDWEBitwise___C2[31]
+                return YDWEBitwise__XOR_P(YDWEBitwise__NOT_P(- x - 1) , y) + YDWEBitwise__C2[31]
             else
-                return YDWEBitwise___XOR_P(YDWEBitwise___NOT_P(- x - 1) , YDWEBitwise___NOT_P(- y - 1))
+                return YDWEBitwise__XOR_P(YDWEBitwise__NOT_P(- x - 1) , YDWEBitwise__NOT_P(- y - 1))
             endif
         endif
     endfunction
     
-    function YDWEBitwise___LShift_P takes integer x,integer n returns integer
-        return x * YDWEBitwise___C2[n]
+    function YDWEBitwise__LShift_P takes integer x,integer n returns integer
+        return x * YDWEBitwise__C2[n]
     endfunction
     function YDWEBitwise_LShift takes integer x,integer n returns integer
-        return x * YDWEBitwise___C2[n]
+        return x * YDWEBitwise__C2[n]
     endfunction
     
-    function YDWEBitwise___RShift_P takes integer x,integer n returns integer
-        return x / YDWEBitwise___C2[n]
+    function YDWEBitwise__RShift_P takes integer x,integer n returns integer
+        return x / YDWEBitwise__C2[n]
     endfunction
     function YDWEBitwise_RShift takes integer x,integer n returns integer
 		if x >= 0 then
-            return ((x ) / YDWEBitwise___C2[( n)]) // INLINED!!
+            return ((x ) / YDWEBitwise__C2[( n)]) // INLINED!!
         else
-            return ((YDWEBitwise___NOT_P(- x - 1) ) / YDWEBitwise___C2[( n)]) + YDWEBitwise___C2[31 - n] // INLINED!!
+            return ((YDWEBitwise__NOT_P(- x - 1) ) / YDWEBitwise__C2[( n)]) + YDWEBitwise__C2[31 - n] // INLINED!!
         endif
     endfunction
     
-    function YDWEBitwise___ToHexChar takes integer x returns string
-        return SubString(YDWEBitwise___hexstr, x, x + 1)
+    function YDWEBitwise__ToHexChar takes integer x returns string
+        return SubString(YDWEBitwise__hexstr, x, x + 1)
     endfunction 
-    function YDWEBitwise___ToHexChar7 takes integer x returns string
+    function YDWEBitwise__ToHexChar7 takes integer x returns string
         local string s= ""
-        set s=YDWEBitwise___ToHexChar(x - x / $10 * $10) + s
+        set s=YDWEBitwise__ToHexChar(x - x / $10 * $10) + s
         set x=x / $10
-        set s=YDWEBitwise___ToHexChar(x - x / $10 * $10) + s
+        set s=YDWEBitwise__ToHexChar(x - x / $10 * $10) + s
         set x=x / $10
-        set s=YDWEBitwise___ToHexChar(x - x / $10 * $10) + s
+        set s=YDWEBitwise__ToHexChar(x - x / $10 * $10) + s
         set x=x / $10
-        set s=YDWEBitwise___ToHexChar(x - x / $10 * $10) + s
+        set s=YDWEBitwise__ToHexChar(x - x / $10 * $10) + s
         set x=x / $10
-        set s=YDWEBitwise___ToHexChar(x - x / $10 * $10) + s
+        set s=YDWEBitwise__ToHexChar(x - x / $10 * $10) + s
         set x=x / $10
-        set s=YDWEBitwise___ToHexChar(x - x / $10 * $10) + s
+        set s=YDWEBitwise__ToHexChar(x - x / $10 * $10) + s
         set x=x / $10
-        return YDWEBitwise___ToHexChar(x - x / $10 * $10) + s
+        return YDWEBitwise__ToHexChar(x - x / $10 * $10) + s
     endfunction
     function YDWEBitwise_ToHexString takes integer x returns string
 		if x >= 0 then
-            return YDWEBitwise___ToHexChar(x / $10000000) + YDWEBitwise___ToHexChar7(x)
+            return YDWEBitwise__ToHexChar(x / $10000000) + YDWEBitwise__ToHexChar7(x)
         else
-            set x=YDWEBitwise___NOT_P(- x - 1)
-            return YDWEBitwise___ToHexChar($8 + x / $10000000) + YDWEBitwise___ToHexChar7(x)
+            set x=YDWEBitwise__NOT_P(- x - 1)
+            return YDWEBitwise__ToHexChar($8 + x / $10000000) + YDWEBitwise__ToHexChar7(x)
         endif
     endfunction
 
- function YDWEBitwise___onInit takes nothing returns nothing
+ function YDWEBitwise__onInit takes nothing returns nothing
   local integer i= 1
-		set YDWEBitwise___C2[0]=1
+		set YDWEBitwise__C2[0]=1
 		loop
 			exitwhen ( i == 32 )
-			set YDWEBitwise___C2[i]=YDWEBitwise___C2[i - 1] * 2
+			set YDWEBitwise__C2[i]=YDWEBitwise__C2[i - 1] * 2
 			set i=i + 1
 		endloop
 
@@ -4300,7 +4290,7 @@ endfunction
 //library YDWEGeneralBounsSystem:
 
 //以下函数仅仅是让技能ID出现在代码里，不然SLK优化器会删除这些技能
-function YDWEGeneralBounsSystem___DisplayAllAbilityId takes nothing returns nothing
+function YDWEGeneralBounsSystem__DisplayAllAbilityId takes nothing returns nothing
     local integer aid=0
     set aid='YDl0'
     set aid='YDl1'
@@ -4372,22 +4362,22 @@ function YDWEGeneralBounsSystem___DisplayAllAbilityId takes nothing returns noth
     set aid='YDbm'
     set aid='YDbn'
 endfunction
-    function YDWEGeneralBounsSystem___UnitClearBonus takes unit u,integer bonusType returns nothing
-        local integer i=YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType + 1] - 1
+    function YDWEGeneralBounsSystem__UnitClearBonus takes unit u,integer bonusType returns nothing
+        local integer i=YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType + 1] - 1
         loop
-            exitwhen i < YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType]
-            call UnitRemoveAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[i])
+            exitwhen i < YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType]
+            call UnitRemoveAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[i])
             set i=i - 1
         endloop
         call SaveInteger(YDHT, StringHash((I2S((GetHandleId((u)))) )), StringHash(( "bonusType" + I2S(bonusType) )), ( 0)) // INLINED!!
     endfunction
-    function YDWEGeneralBounsSystem___SetUnitMaxState takes unit u,integer bonusType,real value returns boolean
+    function YDWEGeneralBounsSystem__SetUnitMaxState takes unit u,integer bonusType,real value returns boolean
         local integer v=R2I(value)
         local integer s=0
         local integer o=0
         local unitstate state
-        local integer i=YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType + 1] - 2
-        local integer a=YDWEGeneralBounsSystem___ABILITY_NUM[bonusType]
+        local integer i=YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType + 1] - 2
+        local integer a=YDWEGeneralBounsSystem__ABILITY_NUM[bonusType]
         if value > 65535 or value <= 0 then
             return false
         endif
@@ -4409,60 +4399,60 @@ endfunction
             return false
         endif
         loop
-            exitwhen i < YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType]
-            if v >= YDWEGeneralBounsSystem___PowersOf2[i] then
-                call UnitAddAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[i])
-                call SetUnitAbilityLevel(u, YDWEGeneralBounsSystem___BonusAbilitys[i], o)
-                call UnitRemoveAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[i])
-                set v=v - YDWEGeneralBounsSystem___PowersOf2[i]
+            exitwhen i < YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType]
+            if v >= YDWEGeneralBounsSystem__PowersOf2[i] then
+                call UnitAddAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[i])
+                call SetUnitAbilityLevel(u, YDWEGeneralBounsSystem__BonusAbilitys[i], o)
+                call UnitRemoveAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[i])
+                set v=v - YDWEGeneralBounsSystem__PowersOf2[i]
             endif
             set i=i - 1
         endloop
         return true
     endfunction
-function YDWEGeneralBounsSystem___UnitSetBonus takes unit u,integer bonusType,integer ammount returns boolean
+function YDWEGeneralBounsSystem__UnitSetBonus takes unit u,integer bonusType,integer ammount returns boolean
     local integer i
     //设置属性为0不进行Loop
     if ammount == 0 then
-        call YDWEGeneralBounsSystem___UnitClearBonus(u , bonusType)
+        call YDWEGeneralBounsSystem__UnitClearBonus(u , bonusType)
         return false
     endif
-    if ammount < YDWEGeneralBounsSystem___MinBonus[bonusType] or ammount > YDWEGeneralBounsSystem___MaxBonus[bonusType] then
+    if ammount < YDWEGeneralBounsSystem__MinBonus[bonusType] or ammount > YDWEGeneralBounsSystem__MaxBonus[bonusType] then
         return false
-    elseif bonusType < 0 or bonusType >= YDWEGeneralBounsSystem___BONUS_TYPES then
+    elseif bonusType < 0 or bonusType >= YDWEGeneralBounsSystem__BONUS_TYPES then
         return false
     endif
     call SaveInteger(YDHT, StringHash((I2S((GetHandleId((u)))) )), StringHash(( "bonusType" + I2S(bonusType) )), ( ammount)) // INLINED!!
     if ammount < 0 then
-        set ammount=YDWEGeneralBounsSystem___MaxBonus[bonusType] + ammount + 1
-        call UnitAddAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType + 1] - 1])
-        call UnitMakeAbilityPermanent(u, true, YDWEGeneralBounsSystem___BonusAbilitys[YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType + 1] - 1])
+        set ammount=YDWEGeneralBounsSystem__MaxBonus[bonusType] + ammount + 1
+        call UnitAddAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType + 1] - 1])
+        call UnitMakeAbilityPermanent(u, true, YDWEGeneralBounsSystem__BonusAbilitys[YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType + 1] - 1])
       else
-        call UnitRemoveAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType + 1] - 1])
+        call UnitRemoveAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType + 1] - 1])
     endif
-    set i=YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType + 1] - 2
+    set i=YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType + 1] - 2
     loop
-        exitwhen i < YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType]
-        if ammount >= YDWEGeneralBounsSystem___PowersOf2[i] then
-            call UnitAddAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[i])
-            call UnitMakeAbilityPermanent(u, true, YDWEGeneralBounsSystem___BonusAbilitys[i])
-            set ammount=ammount - YDWEGeneralBounsSystem___PowersOf2[i]
+        exitwhen i < YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType]
+        if ammount >= YDWEGeneralBounsSystem__PowersOf2[i] then
+            call UnitAddAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[i])
+            call UnitMakeAbilityPermanent(u, true, YDWEGeneralBounsSystem__BonusAbilitys[i])
+            set ammount=ammount - YDWEGeneralBounsSystem__PowersOf2[i]
         else
-            call UnitRemoveAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[i])
+            call UnitRemoveAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[i])
         endif
         set i=i - 1
     endloop
     if not (LoadBoolean(YDHT, StringHash((I2S((GetHandleId((u)))) )), StringHash(( "bonusMark")))) then // INLINED!!
         call SaveBoolean(YDHT, StringHash((I2S((GetHandleId((u)))) )), StringHash(( "bonusMark" )), ( true)) // INLINED!!
-        set YDWEGeneralBounsSystem___UnitCount=YDWEGeneralBounsSystem___UnitCount + 1
-        set YDWEGeneralBounsSystem___Units[YDWEGeneralBounsSystem___UnitCount]=u
+        set YDWEGeneralBounsSystem__UnitCount=YDWEGeneralBounsSystem__UnitCount + 1
+        set YDWEGeneralBounsSystem__Units[YDWEGeneralBounsSystem__UnitCount]=u
     endif
     return true
 endfunction
-function YDWEGeneralBounsSystem___UnitGetBonus takes unit u,integer bonusType returns integer
+function YDWEGeneralBounsSystem__UnitGetBonus takes unit u,integer bonusType returns integer
     return (LoadInteger(YDHT, StringHash((I2S((GetHandleId((u)))) )), StringHash(( "bonusType" + I2S(bonusType))))) // INLINED!!
 endfunction
-function YDWEGeneralBounsSystem___AddUnitMaxState takes unit u,integer bonusType,real value returns boolean
+function YDWEGeneralBounsSystem__AddUnitMaxState takes unit u,integer bonusType,real value returns boolean
     local unitstate state
     if bonusType == 0 then
         set state=UNIT_STATE_MAX_LIFE
@@ -4471,42 +4461,42 @@ function YDWEGeneralBounsSystem___AddUnitMaxState takes unit u,integer bonusType
       else
         return false
     endif
-    return YDWEGeneralBounsSystem___SetUnitMaxState(u , bonusType , value + GetUnitState(u, state))
+    return YDWEGeneralBounsSystem__SetUnitMaxState(u , bonusType , value + GetUnitState(u, state))
 endfunction
-function YDWEGeneralBounsSystem___UnitAddBonus takes unit u,integer bonusType,integer ammount returns boolean
-    return YDWEGeneralBounsSystem___UnitSetBonus(u , bonusType , (LoadInteger(YDHT, StringHash((I2S((GetHandleId(((u ))))) )), StringHash(( "bonusType" + I2S(( bonusType)))))) + ammount) // INLINED!!
+function YDWEGeneralBounsSystem__UnitAddBonus takes unit u,integer bonusType,integer ammount returns boolean
+    return YDWEGeneralBounsSystem__UnitSetBonus(u , bonusType , (LoadInteger(YDHT, StringHash((I2S((GetHandleId(((u ))))) )), StringHash(( "bonusType" + I2S(( bonusType)))))) + ammount) // INLINED!!
 endfunction
-function YDWEGeneralBounsSystem___FlushUnits takes nothing returns nothing
-    local integer i= YDWEGeneralBounsSystem___UnitCount
+function YDWEGeneralBounsSystem__FlushUnits takes nothing returns nothing
+    local integer i= YDWEGeneralBounsSystem__UnitCount
     local string h
     loop
         exitwhen i < 1
-        if GetUnitTypeId(YDWEGeneralBounsSystem___Units[i]) == 0 then
-            set h=I2S((GetHandleId((YDWEGeneralBounsSystem___Units[i])))) // INLINED!!
+        if GetUnitTypeId(YDWEGeneralBounsSystem__Units[i]) == 0 then
+            set h=I2S((GetHandleId((YDWEGeneralBounsSystem__Units[i])))) // INLINED!!
             call SaveInteger(YDHT, StringHash((h )), StringHash(( "bonusType0" )), ( 0)) // INLINED!!
             call SaveInteger(YDHT, StringHash((h )), StringHash(( "bonusType1" )), ( 0)) // INLINED!!
             call SaveInteger(YDHT, StringHash((h )), StringHash(( "bonusType2" )), ( 0)) // INLINED!!
             call SaveInteger(YDHT, StringHash((h )), StringHash(( "bonusType3" )), ( 0)) // INLINED!!
             call SaveBoolean(YDHT, StringHash((h )), StringHash(( "bonusMark" )), ( false)) // INLINED!!
-            set YDWEGeneralBounsSystem___Units[i]=YDWEGeneralBounsSystem___Units[YDWEGeneralBounsSystem___UnitCount]
-            set YDWEGeneralBounsSystem___Units[YDWEGeneralBounsSystem___UnitCount]=null
-            set YDWEGeneralBounsSystem___UnitCount=YDWEGeneralBounsSystem___UnitCount - 1
+            set YDWEGeneralBounsSystem__Units[i]=YDWEGeneralBounsSystem__Units[YDWEGeneralBounsSystem__UnitCount]
+            set YDWEGeneralBounsSystem__Units[YDWEGeneralBounsSystem__UnitCount]=null
+            set YDWEGeneralBounsSystem__UnitCount=YDWEGeneralBounsSystem__UnitCount - 1
         endif
         set i=i - 1
     endloop
 endfunction
 function YDWEUnitSetBonus takes unit u,integer bonusType,integer ammount returns nothing
     if bonusType == 0 or bonusType == 1 then
-        call YDWEGeneralBounsSystem___SetUnitMaxState(u , bonusType , ammount)
+        call YDWEGeneralBounsSystem__SetUnitMaxState(u , bonusType , ammount)
       else
-        call YDWEGeneralBounsSystem___UnitSetBonus(u , bonusType , ammount)
+        call YDWEGeneralBounsSystem__UnitSetBonus(u , bonusType , ammount)
     endif
 endfunction
 function YDWEUnitAddBonus takes unit u,integer bonusType,integer ammount returns nothing
     if bonusType == 0 or bonusType == 1 then
-        call YDWEGeneralBounsSystem___AddUnitMaxState(u , bonusType , ammount)
+        call YDWEGeneralBounsSystem__AddUnitMaxState(u , bonusType , ammount)
       else
-        call YDWEGeneralBounsSystem___UnitAddBonus(u , bonusType , ammount)
+        call YDWEGeneralBounsSystem__UnitAddBonus(u , bonusType , ammount)
     endif
 endfunction
 function YDWEGeneralBounsSystemUnitSetBonus takes unit u,integer bonusType,integer mod,integer ammount returns nothing
@@ -4522,100 +4512,100 @@ function YDWEGeneralBounsSystemUnitGetBonus takes unit u,integer bonusType retur
     return (LoadInteger(YDHT, StringHash((I2S((GetHandleId((u)))) )), StringHash(( "bonusType" + I2S(bonusType))))) // INLINED!!
 endfunction
 //private keyword BonusAbilitys
-function YDWEGeneralBounsSystem___InitializeAbilitys takes nothing returns nothing
+function YDWEGeneralBounsSystem__InitializeAbilitys takes nothing returns nothing
     local integer i=0
     local integer m=0
-    set YDWEGeneralBounsSystem___ABILITY_COUNT[0]=0 //life max
-set YDWEGeneralBounsSystem___ABILITY_COUNT[1]=15 //mana max
-set YDWEGeneralBounsSystem___ABILITY_COUNT[2]=30 //armor
-set YDWEGeneralBounsSystem___ABILITY_COUNT[3]=43 //attack
-set YDWEGeneralBounsSystem___ABILITY_COUNT[4]=67
-    set YDWEGeneralBounsSystem___ABILITY_NUM[0]=15
-    set YDWEGeneralBounsSystem___ABILITY_NUM[1]=15
-    set YDWEGeneralBounsSystem___ABILITY_NUM[2]=13
-    set YDWEGeneralBounsSystem___ABILITY_NUM[3]=24
+    set YDWEGeneralBounsSystem__ABILITY_COUNT[0]=0 //life max
+set YDWEGeneralBounsSystem__ABILITY_COUNT[1]=15 //mana max
+set YDWEGeneralBounsSystem__ABILITY_COUNT[2]=30 //armor
+set YDWEGeneralBounsSystem__ABILITY_COUNT[3]=43 //attack
+set YDWEGeneralBounsSystem__ABILITY_COUNT[4]=67
+    set YDWEGeneralBounsSystem__ABILITY_NUM[0]=15
+    set YDWEGeneralBounsSystem__ABILITY_NUM[1]=15
+    set YDWEGeneralBounsSystem__ABILITY_NUM[2]=13
+    set YDWEGeneralBounsSystem__ABILITY_NUM[3]=24
     // Bonus Mod - armor abilitys
     loop
         exitwhen i > 9
-        set YDWEGeneralBounsSystem___YDWEBONUS_MyChar[i]='0' + m
+        set YDWEGeneralBounsSystem__YDWEBONUS_MyChar[i]='0' + m
         set m=m + 1
         set i=i + 1
     endloop
     set m=0
     loop
         exitwhen i > 26
-        set YDWEGeneralBounsSystem___YDWEBONUS_MyChar[i]='a' + m
+        set YDWEGeneralBounsSystem__YDWEBONUS_MyChar[i]='a' + m
         set m=m + 1
         set i=i + 1
     endloop
     set i=0
     set m=0
     loop
-        exitwhen m > ( YDWEGeneralBounsSystem___ABILITY_NUM[0] - 1 )
-        set YDWEGeneralBounsSystem___BonusAbilitys[i]='YDl0' - '0' + YDWEGeneralBounsSystem___YDWEBONUS_MyChar[m] // +1
+        exitwhen m > ( YDWEGeneralBounsSystem__ABILITY_NUM[0] - 1 )
+        set YDWEGeneralBounsSystem__BonusAbilitys[i]='YDl0' - '0' + YDWEGeneralBounsSystem__YDWEBONUS_MyChar[m] // +1
         set i=i + 1
         set m=m + 1
     endloop
     // Bonus Mod - Damage abilitys
     set m=0
     loop
-        exitwhen m > ( YDWEGeneralBounsSystem___ABILITY_NUM[1] - 1 )
-        set YDWEGeneralBounsSystem___BonusAbilitys[i]='YDm0' - '0' + YDWEGeneralBounsSystem___YDWEBONUS_MyChar[m] // +1
+        exitwhen m > ( YDWEGeneralBounsSystem__ABILITY_NUM[1] - 1 )
+        set YDWEGeneralBounsSystem__BonusAbilitys[i]='YDm0' - '0' + YDWEGeneralBounsSystem__YDWEBONUS_MyChar[m] // +1
         set i=i + 1
         set m=m + 1
     endloop
     // Bonus Mod - Life MaxState abilitys
     set m=0
     loop
-        exitwhen m > ( YDWEGeneralBounsSystem___ABILITY_NUM[2] - 1 )
-        set YDWEGeneralBounsSystem___BonusAbilitys[i]='YDc0' - '0' + YDWEGeneralBounsSystem___YDWEBONUS_MyChar[m] // +1
+        exitwhen m > ( YDWEGeneralBounsSystem__ABILITY_NUM[2] - 1 )
+        set YDWEGeneralBounsSystem__BonusAbilitys[i]='YDc0' - '0' + YDWEGeneralBounsSystem__YDWEBONUS_MyChar[m] // +1
         set i=i + 1
         set m=m + 1
     endloop
     // Bonus Mod - Mana MaxState abilitys
     set m=0
     loop
-        exitwhen m > ( YDWEGeneralBounsSystem___ABILITY_NUM[3] - 1 )
-        set YDWEGeneralBounsSystem___BonusAbilitys[i]='YDb0' - '0' + YDWEGeneralBounsSystem___YDWEBONUS_MyChar[m] // +1
+        exitwhen m > ( YDWEGeneralBounsSystem__ABILITY_NUM[3] - 1 )
+        set YDWEGeneralBounsSystem__BonusAbilitys[i]='YDb0' - '0' + YDWEGeneralBounsSystem__YDWEBONUS_MyChar[m] // +1
         set i=i + 1
         set m=m + 1
     endloop
 endfunction
-function YDWEGeneralBounsSystem___Initialize takes nothing returns nothing
+function YDWEGeneralBounsSystem__Initialize takes nothing returns nothing
     local integer i= 1
     local unit u
     local integer n=0
     local integer add=0
-    call YDWEGeneralBounsSystem___InitializeAbilitys()
+    call YDWEGeneralBounsSystem__InitializeAbilitys()
     loop
         set i=1
-        set YDWEGeneralBounsSystem___PowersOf2[add]=1
+        set YDWEGeneralBounsSystem__PowersOf2[add]=1
             loop
-                set YDWEGeneralBounsSystem___PowersOf2[add + 1]=YDWEGeneralBounsSystem___PowersOf2[add] * 2
+                set YDWEGeneralBounsSystem__PowersOf2[add + 1]=YDWEGeneralBounsSystem__PowersOf2[add] * 2
                 set add=add + 1
                 set i=i + 1
-                exitwhen i == YDWEGeneralBounsSystem___ABILITY_NUM[n]
+                exitwhen i == YDWEGeneralBounsSystem__ABILITY_NUM[n]
             endloop
-        set YDWEGeneralBounsSystem___MaxBonus[n]=YDWEGeneralBounsSystem___PowersOf2[add] - 1
-        set YDWEGeneralBounsSystem___MinBonus[n]=- YDWEGeneralBounsSystem___PowersOf2[add]
+        set YDWEGeneralBounsSystem__MaxBonus[n]=YDWEGeneralBounsSystem__PowersOf2[add] - 1
+        set YDWEGeneralBounsSystem__MinBonus[n]=- YDWEGeneralBounsSystem__PowersOf2[add]
         set add=add + 1
         set n=n + 1
         exitwhen n >= 4
     endloop
     //预读技能
-    if YDWEGeneralBounsSystem___PRELOAD_ABILITYS then
-        set u=CreateUnit(Player(15), YDWEGeneralBounsSystem___PRELOAD_DUMMY_UNIT, 0, 0, 0)
+    if YDWEGeneralBounsSystem__PRELOAD_ABILITYS then
+        set u=CreateUnit(Player(15), YDWEGeneralBounsSystem__PRELOAD_DUMMY_UNIT, 0, 0, 0)
         set i=0
         loop
-            exitwhen i == YDWEGeneralBounsSystem___ABILITY_COUNT[5]
-            call UnitAddAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[i])
+            exitwhen i == YDWEGeneralBounsSystem__ABILITY_COUNT[5]
+            call UnitAddAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[i])
             set i=i + 1
         endloop
         call RemoveUnit(u)
         set u=null
     endif
     //回收数据
-    call TimerStart(CreateTimer(), 10, true, function YDWEGeneralBounsSystem___FlushUnits)
+    call TimerStart(CreateTimer(), 10, true, function YDWEGeneralBounsSystem__FlushUnits)
 endfunction
 function YDWELifeChange takes unit u,integer mod,integer ch,integer id returns nothing
     local integer a
@@ -4924,9 +4914,9 @@ function YDWEAnyUnitDamagedTriggerAction takes nothing returns nothing
     local integer i= 0
     
     loop
-        exitwhen i >= YDWETriggerEvent___DamageEventNumber
-        if YDWETriggerEvent___DamageEventQueue[i] != null and IsTriggerEnabled(YDWETriggerEvent___DamageEventQueue[i]) and TriggerEvaluate(YDWETriggerEvent___DamageEventQueue[i]) then
-            call TriggerExecute(YDWETriggerEvent___DamageEventQueue[i])
+        exitwhen i >= YDWETriggerEvent__DamageEventNumber
+        if YDWETriggerEvent__DamageEventQueue[i] != null and IsTriggerEnabled(YDWETriggerEvent__DamageEventQueue[i]) and TriggerEvaluate(YDWETriggerEvent__DamageEventQueue[i]) then
+            call TriggerExecute(YDWETriggerEvent__DamageEventQueue[i])
         endif
         set i=i + 1
     endloop
@@ -4955,14 +4945,14 @@ function YDWESyStemAnyUnitDamagedRegistTrigger takes trigger trg returns nothing
         return
     endif
         
-    if YDWETriggerEvent___DamageEventNumber == 0 then
+    if YDWETriggerEvent__DamageEventNumber == 0 then
         set yd_DamageEventTrigger=CreateTrigger()
         call TriggerAddAction(yd_DamageEventTrigger, function YDWEAnyUnitDamagedTriggerAction)
         call YDWEAnyUnitDamagedEnumUnit()
     endif
     
-    set YDWETriggerEvent___DamageEventQueue[YDWETriggerEvent___DamageEventNumber]=trg
-    set YDWETriggerEvent___DamageEventNumber=YDWETriggerEvent___DamageEventNumber + 1
+    set YDWETriggerEvent__DamageEventQueue[YDWETriggerEvent__DamageEventNumber]=trg
+    set YDWETriggerEvent__DamageEventNumber=YDWETriggerEvent__DamageEventNumber + 1
 endfunction
 //===========================================================================  
 //�ƶ���Ʒ�¼� 
@@ -4973,9 +4963,9 @@ function YDWESyStemItemUnmovableTriggerAction takes nothing returns nothing
     if GetIssuedOrderId() >= 852002 and GetIssuedOrderId() <= 852007 then
 		set bj_lastMovedItemInItemSlot=GetOrderTargetItem()
     	loop
-        	exitwhen i >= YDWETriggerEvent___MoveItemEventNumber
-        	if YDWETriggerEvent___MoveItemEventQueue[i] != null and IsTriggerEnabled(YDWETriggerEvent___MoveItemEventQueue[i]) and TriggerEvaluate(YDWETriggerEvent___MoveItemEventQueue[i]) then
-        	    call TriggerExecute(YDWETriggerEvent___MoveItemEventQueue[i])
+        	exitwhen i >= YDWETriggerEvent__MoveItemEventNumber
+        	if YDWETriggerEvent__MoveItemEventQueue[i] != null and IsTriggerEnabled(YDWETriggerEvent__MoveItemEventQueue[i]) and TriggerEvaluate(YDWETriggerEvent__MoveItemEventQueue[i]) then
+        	    call TriggerExecute(YDWETriggerEvent__MoveItemEventQueue[i])
         	endif
         	set i=i + 1
     	endloop
@@ -4986,14 +4976,14 @@ function YDWESyStemItemUnmovableRegistTrigger takes trigger trg returns nothing
         return
     endif
         
-    if YDWETriggerEvent___MoveItemEventNumber == 0 then
-        set YDWETriggerEvent___MoveItemEventTrigger=CreateTrigger()
-        call TriggerAddAction(YDWETriggerEvent___MoveItemEventTrigger, function YDWESyStemItemUnmovableTriggerAction)
-        call TriggerRegisterAnyUnitEventBJ(YDWETriggerEvent___MoveItemEventTrigger, EVENT_PLAYER_UNIT_ISSUED_TARGET_ORDER)
+    if YDWETriggerEvent__MoveItemEventNumber == 0 then
+        set YDWETriggerEvent__MoveItemEventTrigger=CreateTrigger()
+        call TriggerAddAction(YDWETriggerEvent__MoveItemEventTrigger, function YDWESyStemItemUnmovableTriggerAction)
+        call TriggerRegisterAnyUnitEventBJ(YDWETriggerEvent__MoveItemEventTrigger, EVENT_PLAYER_UNIT_ISSUED_TARGET_ORDER)
     endif
     
-    set YDWETriggerEvent___MoveItemEventQueue[YDWETriggerEvent___MoveItemEventNumber]=trg
-    set YDWETriggerEvent___MoveItemEventNumber=YDWETriggerEvent___MoveItemEventNumber + 1
+    set YDWETriggerEvent__MoveItemEventQueue[YDWETriggerEvent__MoveItemEventNumber]=trg
+    set YDWETriggerEvent__MoveItemEventNumber=YDWETriggerEvent__MoveItemEventNumber + 1
 endfunction
 function GetLastMovedItemInItemSlot takes nothing returns item
     return bj_lastMovedItemInItemSlot
@@ -5029,22 +5019,22 @@ endfunction
 //library Deputy:
 	// 判断是否具备某副职
  function Deputy_isDeputy takes integer i,integer whichDeputy returns boolean
-		return YDWEBitwise_AND(deputy[i] , ((1 ) * YDWEBitwise___C2[( whichDeputy - 1)])) != 0 // INLINED!!
+		return YDWEBitwise_AND(deputy[i] , ((1 ) * YDWEBitwise__C2[( whichDeputy - 1)])) != 0 // INLINED!!
 	endfunction
 	
 	// 设置副职
  function Deputy_setDeputy takes integer i,integer whichDeputy returns nothing
-		set deputy[i]=YDWEBitwise_OR(deputy[i] , ((1 ) * YDWEBitwise___C2[( whichDeputy - 1)])) // INLINED!!
+		set deputy[i]=YDWEBitwise_OR(deputy[i] , ((1 ) * YDWEBitwise__C2[( whichDeputy - 1)])) // INLINED!!
 	endfunction
 	
 	// 判断是否具备某副职的大师
  function Deputy_isMaster takes integer i,integer whichMaster returns boolean
-		return YDWEBitwise_AND(master[i] , ((1 ) * YDWEBitwise___C2[( whichMaster - 1)])) != 0 // INLINED!!
+		return YDWEBitwise_AND(master[i] , ((1 ) * YDWEBitwise__C2[( whichMaster - 1)])) != 0 // INLINED!!
 	endfunction
 	
 	// 设置副职大师
  function Deputy_setMaster takes integer i,integer whichMaster returns nothing
-		set master[i]=YDWEBitwise_OR(master[i] , ((1 ) * YDWEBitwise___C2[( whichMaster - 1)])) // INLINED!!
+		set master[i]=YDWEBitwise_OR(master[i] , ((1 ) * YDWEBitwise__C2[( whichMaster - 1)])) // INLINED!!
 	endfunction
 
 //library Deputy ends
@@ -7060,14 +7050,14 @@ endfunction
 		elseif level == 7 then
 			set r=2.0
 		endif
-		if LoadReal(YDHT, GetHandleId(GetOwningPlayer(u)), itemid) < 3000. * ( 1 + WeaponLevel(itemid) ) or ( LoadReal(YDHT, GetHandleId(GetOwningPlayer(u)), itemid) < 5000. * ( 1 + WeaponLevel(itemid) ) and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(u)) )] , ((1 ) * YDWEBitwise___C2[( ( BING_QI) - 1)])) != 0) ) then // INLINED!!
+		if LoadReal(YDHT, GetHandleId(GetOwningPlayer(u)), itemid) < 3000. * ( 1 + WeaponLevel(itemid) ) or ( LoadReal(YDHT, GetHandleId(GetOwningPlayer(u)), itemid) < 5000. * ( 1 + WeaponLevel(itemid) ) and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(u)) )] , ((1 ) * YDWEBitwise__C2[( ( BING_QI) - 1)])) != 0) ) then // INLINED!!
 			if ( ModuloInteger(GetUnitPointValue(uc), 50) != 0 ) and ( GetUnitPointValue(uc) / 100 == 1 or GetUnitPointValue(uc) / 100 >= 5 ) then
 				call SaveReal(YDHT, GetHandleId(GetOwningPlayer(u)), itemid, LoadReal(YDHT, GetHandleId(GetOwningPlayer(u)), itemid) + r * 200 * udg_lilianxishu[1 + GetPlayerId(GetOwningPlayer(u))] * wugongxiuwei[1 + GetPlayerId(GetOwningPlayer(u))])
 			else
 				call SaveReal(YDHT, GetHandleId(GetOwningPlayer(u)), itemid, LoadReal(YDHT, GetHandleId(GetOwningPlayer(u)), itemid) + r * 2 * udg_lilianxishu[1 + GetPlayerId(GetOwningPlayer(u))] * wugongxiuwei[1 + GetPlayerId(GetOwningPlayer(u))])
 			endif
 		endif
-		if (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(u)) )] , ((1 ) * YDWEBitwise___C2[( ( BING_QI) - 1)])) != 0) and LoadReal(YDHT, GetHandleId(GetOwningPlayer(u)), itemid) < 10000. * ( 1 + WeaponLevel(itemid) ) then // INLINED!!
+		if (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(u)) )] , ((1 ) * YDWEBitwise__C2[( ( BING_QI) - 1)])) != 0) and LoadReal(YDHT, GetHandleId(GetOwningPlayer(u)), itemid) < 10000. * ( 1 + WeaponLevel(itemid) ) then // INLINED!!
 			call SaveReal(YDHT, GetHandleId(GetOwningPlayer(u)), itemid, LoadReal(YDHT, GetHandleId(GetOwningPlayer(u)), itemid) + r * 6 * udg_lilianxishu[1 + GetPlayerId(GetOwningPlayer(u))] * wugongxiuwei[1 + GetPlayerId(GetOwningPlayer(u))])
 		endif
 		//call BJDebugMsg("什么情况2，"+R2S(r)+","+R2S(LoadReal(YDHT,GetHandleId(GetOwningPlayer(u)),itemid)))
@@ -7101,7 +7091,7 @@ endfunction
 				//非镇妖
 				if GetItemTypeId(it) != 'I02S' and GetItemTypeId(it) != 'I02M' and GetItemTypeId(it) != 'I02Q' and GetItemTypeId(it) != 'I02R' and GetItemTypeId(it) != 'I02P' then
 					call WeaponQiHe(u , GetTriggerUnit() , GetItemTypeId(it))
-					if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( BING_QI) - 1)])) != 0) and (YDWEBitwise_AND(deputy[(j )] , ((1 ) * YDWEBitwise___C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
+					if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( BING_QI) - 1)])) != 0) and (YDWEBitwise_AND(deputy[(j )] , ((1 ) * YDWEBitwise__C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
 						if LoadBoolean(YDHT, GetHandleId(GetOwningPlayer(u)), GetItemTypeId(it)) == false and LoadReal(YDHT, GetHandleId(GetOwningPlayer(u)), GetItemTypeId(it)) >= 5000. * ( 1 + WeaponLevel(GetItemTypeId(it)) ) then
 							//set udg_bqds[j] = udg_bqds[j] + 1
 							call SaveBoolean(YDHT, GetHandleId(GetOwningPlayer(u)), GetItemTypeId(it), true)
@@ -7109,7 +7099,7 @@ endfunction
 						endif
 					endif
 					if LoadInteger(YDHT, GetHandleId(it), 0) > 0 then
-						if not (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(u)) )] , ((1 ) * YDWEBitwise___C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
+						if not (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(u)) )] , ((1 ) * YDWEBitwise__C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
 							call SaveInteger(YDHT, GetHandleId(it), 0, LoadInteger(YDHT, GetHandleId(it), 0) - 1)
 						endif
 					endif
@@ -7153,7 +7143,7 @@ endfunction
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Fri Jul 22 14:23:13 2022
+//   Date: Fri Jul 22 20:14:25 2022
 //   Map Author: 云杨 zei_kale
 // 
 //===========================================================================
@@ -7963,7 +7953,7 @@ function BaoWuDiaoLuo takes unit u,unit l__ut,integer baolv1,integer id1,integer
 	if id1 == 0 then
 		set j=0
 	endif
-	if ( GetRandomInt(1, 1000) <= fuyuan[i] or ( GetRandomInt(1, 100) <= 35 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+	if ( GetRandomInt(1, 1000) <= fuyuan[i] or ( GetRandomInt(1, 100) <= 35 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 		set MM7=2
 	else
 		set MM7=1
@@ -7981,7 +7971,7 @@ function BaoWuDiaoLuo takes unit u,unit l__ut,integer baolv1,integer id1,integer
 		if ( baolv2 != 0 ) then
 			if ( ( GetRandomInt(1, 100) <= baolv2 ) ) then
 				call createitemloc(id5 , loc)
-				if IsYaoCao(id5) and (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
+				if IsYaoCao(id5) and (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
 					call createitemloc(id5 , loc)
 				endif
 			endif
@@ -8002,7 +7992,7 @@ function dropItem takes unit u,integer itemId,integer itemId2,integer possibilit
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
  local location loc= GetUnitLoc(u)
-	if ( GetRandomInt(1, 1000) <= fuyuan[i] or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+	if ( GetRandomInt(1, 1000) <= fuyuan[i] or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 		set MM7=2
 	else
 		set MM7=1
@@ -9067,7 +9057,7 @@ if (IsUnitType((u ), ( UNIT_TYPE_HERO)) != null) then // INLINED!!
 			set attack=attack * 3
 		endif
 		// 携带十四天书神器，加强所有伤害2倍
-		if UnitHaveItem(u , 'I0EE') then
+		if UnitHaveItem(u , 'I0EE') or ateTianShu[i] == 1 then
 			set attack=attack * 3
 		endif
 		
@@ -9105,7 +9095,9 @@ if (IsUnitType((u ), ( UNIT_TYPE_HERO)) != null) then // INLINED!!
 	
 	// 特殊防御
 	// 如果特攻大于等于42或者敌方虚弱
-	if special_attack[i] >= 6 * ( 1 + udg_nandu ) or UnitHasBuffBJ(uc, 'B022') then
+	if UnitHasBuffBJ(uc, 'B022') then
+		set special_def=1 + special_attack[i] * 0.06
+	elseif special_attack[i] >= 6 * ( 1 + udg_nandu ) then
 		// 特防 = 1+(特攻-42)*0.06，和1比取大值
 		set special_def=RMaxBJ(1 + ( special_attack[i] - 6 * ( 1 + udg_nandu ) ) * 0.06, 1)
 	else
@@ -9124,7 +9116,7 @@ if (IsUnitType((u ), ( UNIT_TYPE_HERO)) != null) then // INLINED!!
 		endif
 	endif
 	// 随机因子 = 0.95到0.95+(b性格/20)取随机数
-	set random=GetRandomReal(0.95, 0.95 + I2R(udg_xinggeB[i]) / 20)
+	set random=GetRandomReal(0.95, 0.95 + I2R(udg_xinggeB[i]) * 0.05)
 	// 伤害 = 攻击因子 * 敌方防御因子 * 随机因子 * 特防
 	set basic_damage=attack * target_def * random * special_def
 	
@@ -9678,28 +9670,55 @@ endfunction
 function isPlayersEnemy takes nothing returns boolean
 	return IsUnitEnemy(GetFilterUnit(), Player(5)) and IsUnitAliveBJ(GetFilterUnit())
 endfunction
+// 动态调整难度
+function dynamicDifficultyAdjustment takes integer experience returns nothing
+    // 查看玩家1到玩家5的历练值，是否当前为唯一的最高值，如果是，则调整难度
+    local integer count= 0
+    local integer whichPlayer= 0
+ local integer i= 1
+    loop
+		exitwhen i > 5
+        if xiuxing[i] > experience then
+            return
+        endif
+        if xiuxing[i] == experience then
+            set count=count + 1
+            set whichPlayer=i - 1
+        endif
+		set i=i + 1
+    endloop
+    if count == 1 and udg_boshu <= 2 * experience then
+        // 如果当前难度为0或2，则科技+10
+        if udg_nandu == 0 or udg_nandu == 2 then
+            call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "由于玩家" + I2S(whichPlayer + 1) + "完成了历练" + I2S(experience) + "，难度动态调整，怪物科技上升")
+            call SetPlayerTechResearched(Player(12), 1378889777, GetPlayerTechCount(Player(12), 1378889777, true) + 10)
+            call SetPlayerTechResearched(Player(6), 1378889777, GetPlayerTechCount(Player(6), 1378889777, true) + 10)
+            call SetPlayerTechResearched(Player(15), 1378889777, GetPlayerTechCount(Player(15), 1378889777, true) + 10)
+        endif
+    endif
+endfunction
 // 武功升重系统
 function isTitle takes integer i,integer title returns boolean
 	if title <= 30 then
-		return YDWEBitwise_AND(title0[i] , ((1 ) * YDWEBitwise___C2[( title - 1)])) != 0 // INLINED!!
+		return YDWEBitwise_AND(title0[i] , ((1 ) * YDWEBitwise__C2[( title - 1)])) != 0 // INLINED!!
 	else
-		return YDWEBitwise_AND(title1[i] , ((1 ) * YDWEBitwise___C2[( title - 31)])) != 0 // INLINED!!
+		return YDWEBitwise_AND(title1[i] , ((1 ) * YDWEBitwise__C2[( title - 31)])) != 0 // INLINED!!
 	endif
 endfunction
 
 function setTitleNumber takes integer i,integer title returns nothing
 	if title <= 30 then
-		set title0[i]=YDWEBitwise_OR(title0[i] , ((1 ) * YDWEBitwise___C2[( title - 1)])) // INLINED!!
+		set title0[i]=YDWEBitwise_OR(title0[i] , ((1 ) * YDWEBitwise__C2[( title - 1)])) // INLINED!!
 	else
-		set title1[i]=YDWEBitwise_OR(title1[i] , ((1 ) * YDWEBitwise___C2[( title - 31)])) // INLINED!!
+		set title1[i]=YDWEBitwise_OR(title1[i] , ((1 ) * YDWEBitwise__C2[( title - 31)])) // INLINED!!
 	endif
 endfunction
 function isChief takes integer i,integer denomination returns boolean
-	return YDWEBitwise_AND(chief[i] , ((1 ) * YDWEBitwise___C2[( denomination - 1)])) != 0 // INLINED!!
+	return YDWEBitwise_AND(chief[i] , ((1 ) * YDWEBitwise__C2[( denomination - 1)])) != 0 // INLINED!!
 endfunction
 
 function setChiefNumber takes integer i,integer denomination returns nothing
-	set chief[i]=YDWEBitwise_OR(chief[i] , ((1 ) * YDWEBitwise___C2[( denomination - 1)])) // INLINED!!
+	set chief[i]=YDWEBitwise_OR(chief[i] , ((1 ) * YDWEBitwise__C2[( denomination - 1)])) // INLINED!!
 endfunction
 function QiJueCoefficient takes unit u returns integer
 	// 是否激活九阳真经残卷
@@ -9792,14 +9811,14 @@ set fuyuan[i]=fuyuan[i] + 2
 			set danpo[i]=danpo[i] + 2
 			set yishu[i]=yishu[i] + 2
 		endif
-		if level + 1 == 9 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
+		if level + 1 == 9 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
 			set wuxuedian[i]=wuxuedian[i] + 2
 			call DisplayTextToPlayer(p, 0, 0, "|cff66ff00精武师有技能升级到九重，获得两个自创武学点")
-			if ( udg_jwjs[i] <= 2 ) and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
+			if ( udg_jwjs[i] <= 2 ) and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
 				set udg_jwjs[i]=udg_jwjs[i] + 1
 				call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您练成第" + I2S(udg_jwjs[i]) + "个九重武功，练成3个可获得宗师哦")
 			endif
-			if ( udg_jwjs[i] == 3 ) and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
+			if ( udg_jwjs[i] == 3 ) and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
 				call Deputy_setMaster(i , JING_WU)
 				call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFF66FF00恭喜" + GetPlayerName(p) + "获得精武宗师")
 				call SetPlayerName(p, "〓精武宗师〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
@@ -9812,7 +9831,7 @@ set fuyuan[i]=fuyuan[i] + 2
 				// 绍敏郡主称号 增加值翻倍
 				set add=add * 2
 			endif
-			if (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( YA_HUAN) - 1)])) != 0) then // INLINED!!
+			if (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( YA_HUAN) - 1)])) != 0) then // INLINED!!
 				// 郡主称号 增加值翻倍
 				set add=add * 2
 			endif
@@ -9835,7 +9854,7 @@ set special1=4
 set special0=1
 	endif
 	if denomination == 25 then // 汝阳王府
-if not (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 25) - 1)])) != 0) and ( GetUnitAbilityLevel(u, denomFourth[25]) >= 6 or GetUnitAbilityLevel(u, denomFifth[25]) >= 6 ) then // INLINED!!
+if not (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 25) - 1)])) != 0) and ( GetUnitAbilityLevel(u, denomFourth[25]) >= 6 or GetUnitAbilityLevel(u, denomFifth[25]) >= 6 ) then // INLINED!!
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：" + title)
 			if strAward > 0 then
 				call ModifyHeroStat(0, u, 0, strAward)
@@ -9851,7 +9870,7 @@ if not (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 25) - 1)])) !
 		endif
 		return
 	endif
-	if not (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( denomination) - 1)])) != 0) and GetUnitAbilityLevel(u, denomFirst[denomination]) >= 6 and GetUnitAbilityLevel(u, denomThird[denomination]) >= 6 and GetUnitAbilityLevel(u, denomSecond[denomination]) >= 6 and ( GetUnitAbilityLevel(u, denomFourth[denomination]) >= special0 or GetUnitAbilityLevel(u, denomFifth[denomination]) >= special1 ) then // INLINED!!
+	if not (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( denomination) - 1)])) != 0) and GetUnitAbilityLevel(u, denomFirst[denomination]) >= 6 and GetUnitAbilityLevel(u, denomThird[denomination]) >= 6 and GetUnitAbilityLevel(u, denomSecond[denomination]) >= 6 and ( GetUnitAbilityLevel(u, denomFourth[denomination]) >= special0 or GetUnitAbilityLevel(u, denomFifth[denomination]) >= special1 ) then // INLINED!!
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：" + title)
 		if strAward > 0 then
 			call ModifyHeroStat(0, u, 0, strAward)
@@ -9870,7 +9889,7 @@ endfunction
 function determineShaoLinTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 1) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 1) - 1)])) != 0) then // INLINED!!
 		if GetUnitAbilityLevel(u, 'A05O') >= 1 and yishu[i] >= 32 and not isTitle(i , 1) then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：扫地神僧")
 			call ModifyHeroStat(1, u, 0, 720)
@@ -9915,7 +9934,7 @@ endfunction
 function determineGuMuTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 2) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 2) - 1)])) != 0) then // INLINED!!
 		if GetUnitAbilityLevel(u, 'A07G') >= 1 and UnitHaveItem(u , 'I099') and not isTitle(i , 5) then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：神雕侠")
 			call ModifyHeroStat(0, u, 0, 480)
@@ -9954,7 +9973,7 @@ endfunction
 function determineGaiBangTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 3) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 3) - 1)])) != 0) then // INLINED!!
 		// 学降龙、打狗，带打狗棒
 		if GetUnitAbilityLevel(u, 'A07L') >= 1 and GetUnitAbilityLevel(u, 'A07E') >= 1 and UnitHaveItem(u , 'I097') and not isTitle(i , 9) then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：北丐")
@@ -9985,7 +10004,7 @@ endfunction
 function determineHuaShanTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 4) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 4) - 1)])) != 0) then // INLINED!!
 		if GetUnitAbilityLevel(u, 'A07T') >= 1 and GetUnitAbilityLevel(u, 'A07J') >= 1 and not isTitle(i , 11) then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：君子剑")
 			call ModifyHeroStat(0, u, 0, 600)
@@ -10014,7 +10033,7 @@ endfunction
 function determineQuanZhenTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 5) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 5) - 1)])) != 0) then // INLINED!!
 		if GetUnitAbilityLevel(u, 'A017') >= 1 and GetUnitAbilityLevel(u, 'A07U') >= 1 and GetUnitAbilityLevel(u, 'A0D1') >= 1 and not isTitle(i , 13) then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：老顽童")
 			call ModifyHeroStat(1, u, 0, 360)
@@ -10039,7 +10058,7 @@ endfunction
 function determineXueDaoTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 6) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 6) - 1)])) != 0) then // INLINED!!
 		if UnitHaveItem(u , 'I098') and not isTitle(i , 15) then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：血刀老祖")
 			call ModifyHeroStat(0, u, 0, 480)
@@ -10065,7 +10084,7 @@ endfunction
 function determineHengShanTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 7) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 7) - 1)])) != 0) then // INLINED!!
 		// 前3个技能大于等于7级，获得仪琳称号
 		if GetUnitAbilityLevel(u, 'A01Z') >= 7 and GetUnitAbilityLevel(u, 'A021') >= 7 and GetUnitAbilityLevel(u, 'A0CD') >= 7 and not isTitle(i , 17) then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：仪琳")
@@ -10095,7 +10114,7 @@ endfunction
 function determineEMeiTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 8) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 8) - 1)])) != 0) then // INLINED!!
 		if GetUnitAbilityLevel(u, 'A07N') >= 1 and UnitHaveItem(u , 'I00B') and not isTitle(i , 19) then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：芷若")
 			call ModifyHeroStat(0, u, 0, 480)
@@ -10117,7 +10136,7 @@ endfunction
 function determineWuDangTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 9) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 9) - 1)])) != 0) then // INLINED!!
 		if GetUnitAbilityLevel(u, 'A0DN') >= 1 and GetUnitAbilityLevel(u, 'A09D') >= 1 and not isTitle(i , 21) then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：邋遢仙人")
 			call ModifyHeroStat(1, u, 0, 420)
@@ -10142,7 +10161,7 @@ endfunction
 function determineXingXiuTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 10) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 10) - 1)])) != 0) then // INLINED!!
 		if GetUnitAbilityLevel(u, 'A07P') >= 1 and GetUnitAbilityLevel(u, 'A083') >= 1 and not isTitle(i , 23) then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：星宿老仙")
 			call ModifyHeroStat(1, u, 0, 600)
@@ -10161,7 +10180,7 @@ endfunction
 function determineLingJiuTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 12) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 12) - 1)])) != 0) then // INLINED!!
 		// 大招学八荒，同时学会生死符（冰魄加北冥）
 		if GetUnitAbilityLevel(u, 'A02G') >= 6 and GetUnitAbilityLevel(u, 'A07A') >= 1 and GetUnitAbilityLevel(u, 'A082') >= 1 and not isTitle(i , 24) then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：天山童姥")
@@ -10192,7 +10211,7 @@ endfunction
 function determineMuRongTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 13) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 13) - 1)])) != 0) then // INLINED!!
 		// 慕容龙城，搭配斗转
 		if GetUnitAbilityLevel(u, 'A07Q') >= 1 and not isTitle(i , 26) then // +斗转星移
 call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：慕容龙城")
@@ -10208,7 +10227,7 @@ endfunction
 function determineMingJiaoTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 14) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 14) - 1)])) != 0) then // INLINED!!
 		if GetUnitAbilityLevel(u, 'A030') >= 9 and not isTitle(i , 27) then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：白眉鹰王")
 			call SetPlayerName(p, "〓白眉鹰王〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
@@ -10249,7 +10268,7 @@ function determineHengShan2Title takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
  local integer idd= 0
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 15) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 15) - 1)])) != 0) then // INLINED!!
 		if GetUnitAbilityLevel(u, 'A04M') >= 7 and GetUnitAbilityLevel(u, 'A04N') >= 7 and GetUnitAbilityLevel(u, 'A04P') >= 7 and not isTitle(i , 31) then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：莫大先生")
 			call SetPlayerName(p, "〓莫大先生〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
@@ -10286,7 +10305,7 @@ endfunction
 function determineShenLongTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 16) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 16) - 1)])) != 0) then // INLINED!!
 		// 学九阳+龙象，神龙教主
 		if GetUnitAbilityLevel(u, 'A0DN') >= 1 and GetUnitAbilityLevel(u, 'S002') >= 1 and not isTitle(i , 32) then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：神龙教主")
@@ -10297,7 +10316,7 @@ function determineShenLongTitle takes unit u returns nothing
 			call setTitleNumber(i , 32)
 		endif
 	endif
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 17) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 17) - 1)])) != 0) then // INLINED!!
 		// 学九阴+小无相，教主夫人
 		if GetUnitAbilityLevel(u, 'A07S') >= 1 and GetUnitAbilityLevel(u, 'A083') >= 1 and not isTitle(i , 33) then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：教主夫人")
@@ -10313,7 +10332,7 @@ endfunction
 function determineTaiShanTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 18) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 18) - 1)])) != 0) then // INLINED!!
 		// 天门道长，学会小无相
 		if GetUnitAbilityLevel(u, 'A083') >= 1 and not isTitle(i , 34) then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：天门道长")
@@ -10328,7 +10347,7 @@ endfunction
 function determineTieZhangTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 19) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 19) - 1)])) != 0) then // INLINED!!
 		// 学乾坤+双手+铁掌令，铁掌水上漂
 		if GetUnitAbilityLevel(u, 'A07W') >= 1 and GetUnitAbilityLevel(u, 'A07U') >= 1 and UnitHaveItem(u , 'I0EJ') and not isTitle(i , 35) then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：铁掌水上漂")
@@ -10344,7 +10363,7 @@ endfunction
 function determineTangMenTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 20) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 20) - 1)])) != 0) then // INLINED!!
 		// 学小无相+冰魄银针，搜魂侠
 		if GetUnitAbilityLevel(u, 'A083') >= 1 and GetUnitAbilityLevel(u, 'A07A') >= 1 and not isTitle(i , 36) then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：搜魂侠")
@@ -10360,7 +10379,7 @@ endfunction
 function determineWuDuTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 21) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 21) - 1)])) != 0) then // INLINED!!
 		// 学龙象+葵花，婆婆姊姊
 		if GetUnitAbilityLevel(u, LONG_XIANG) >= 1 and GetUnitAbilityLevel(u, KUI_HUA) >= 1 and not isTitle(i , 45) then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：婆婆姊姊")
@@ -10377,7 +10396,7 @@ function determineTaoHuaDaoTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
  local integer idd
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 22) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 22) - 1)])) != 0) then // INLINED!!
 		// 学九阴内功+打狗棒法，女中诸葛
 		if GetUnitAbilityLevel(u, JIU_YIN) >= 1 and GetUnitAbilityLevel(u, DA_GOU) >= 1 and not isTitle(i , 46) then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：女中诸葛")
@@ -10432,7 +10451,7 @@ endfunction
 function determineYeLuoTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 23) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 23) - 1)])) != 0) then // INLINED!!
 		// 学神行百变+60W金钱，爵爷
 		if GetUnitAbilityLevel(u, SHEN_XING_BAI_BIAN) >= 1 and GetPlayerState(p, PLAYER_STATE_RESOURCE_GOLD) >= 600000 and not isTitle(i , 47) then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：爵爷")
@@ -10448,7 +10467,7 @@ endfunction
 function determineRuYangTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 25) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 25) - 1)])) != 0) then // INLINED!!
 		if touKanCounter[i] > 10 and not isTitle(i , 49) then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：绍敏郡主")
 			call ModifyHeroStat(0, u, 0, 200)
@@ -10672,6 +10691,7 @@ function WanBuff takes unit u,unit l__ut,integer buffnum returns nothing
 	call WanBuff_1(buffnum , 14 , u , 'A074' , $D022F , l__ut , "深度中毒")
     call WanBuff_1(buffnum , 15 , u , 'A097' , $D00DE , l__ut , "致盲")
     call WanBuff_1(buffnum , 16 , u , 'A0DV' , $D00DE , l__ut , "虚弱")
+    call WanBuff_1(buffnum , 17 , u , 'A0EW' , $D007F , l__ut , "冰冻")
 endfunction
 // 加密
 function encryptInt takes integer src,player p returns string
@@ -10811,7 +10831,7 @@ function laojiayouren takes nothing returns boolean
 endfunction
 function JiDiAiDa_Actions takes nothing returns nothing
 	//==============反仇恨机制定义单位组==============
- local group g=CreateGroup()
+ local group g= CreateGroup()
 	//==============反仇恨机制定义单位组==============
 	if GetRandomInt(1, 50) == 48 then
 		call PingMinimapForForce(bj_FORCE_ALL_PLAYERS, GetUnitX(udg_ZhengPaiWL), GetUnitY(udg_ZhengPaiWL), 1)
@@ -10842,7 +10862,7 @@ function ShengChengFang takes nothing returns nothing
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, ( "|cFFFFD700在玩家：" + ( GetPlayerName(GetOwningPlayer(GetTriggerUnit())) + "的无私奉献下，正派武林的城防得到加强了" ) ))
 		set i=1
 		loop
-		exitwhen i >= 6
+			exitwhen i >= 6
 			set shoujiajf[i]=shoujiajf[i] + 15
 			set i=i + 1
 		endloop
@@ -10866,7 +10886,7 @@ function ShengGaoChengFang takes nothing returns nothing
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, ( "|cFFFFD700在玩家：" + ( GetPlayerName(GetOwningPlayer(GetTriggerUnit())) + "的无私奉献下，正派武林的高级城防得到加强了" ) ))
 			set i=1
 			loop
-			exitwhen i >= 6
+				exitwhen i >= 6
 				set shoujiajf[i]=shoujiajf[i] + 25
 				set i=i + 1
 			endloop
@@ -10893,9 +10913,9 @@ function playAttackAnimation takes unit u returns nothing
 	call ResetUnitAnimation(u)
 endfunction
 function SelectHero takes nothing returns nothing
- local player p=GetTriggerPlayer()
- local integer i=1 + GetPlayerId(p)
- local unit u=GetTriggerUnit()
+ local player p= GetTriggerPlayer()
+ local integer i= 1 + GetPlayerId(p)
+ local unit u= GetTriggerUnit()
 	if ( GetUnitTypeId(L4[i]) == GetUnitTypeId(u) ) then
 		if u == K4[1] or u == K4[2] or u == K4[3] or u == K4[4] or u == K4[5] or ( u == K4[6] and udg_vip[i] > 0 ) or ( u == K4[7] and ( udg_changevip[i] > 0 or udg_vip[i] == 2 ) ) then
 			set Q4=GetRandomLocInRect(Ge)
@@ -11009,9 +11029,9 @@ function WuMenPai_Condition takes nothing returns boolean
 endfunction
 //自由门派
 function WuMenPai_Action takes nothing returns nothing
- local unit u=GetLeavingUnit()
- local player p=GetOwningPlayer(u)
- local integer i=1 + GetPlayerId(p)
+ local unit u= GetLeavingUnit()
+ local player p= GetOwningPlayer(u)
+ local integer i= 1 + GetPlayerId(p)
 	set udg_runamen[i]=11
 	call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15., "|CFFff9933玩家" + GetPlayerName(p) + "选择了〓自由门派〓|r")
 	call SetPlayerName(p, "〓自由门派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
@@ -11039,12 +11059,12 @@ function WuMenPai_Action takes nothing returns nothing
 endfunction
 // 加入门派的itemid
 function ox takes nothing returns boolean
-	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( ( GetItemTypeId(GetManipulatedItem()) == 1227894833 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894834 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894835 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894836 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894837 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894838 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894839 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894840 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894841 ) or ( GetItemTypeId(GetManipulatedItem()) == 'I09E' ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894849 ) or ( GetItemTypeId(GetManipulatedItem()) == 'I09N' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0A2' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0CK' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0CX' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0E1' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0EH' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0EO' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0AA' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0AG' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0ET' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0EV' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0EY' ) ) ) // INLINED!!
+	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( ( GetItemTypeId(GetManipulatedItem()) == 1227894833 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894834 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894835 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894836 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894837 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894838 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894839 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894840 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894841 ) or ( GetItemTypeId(GetManipulatedItem()) == 'I09E' ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894849 ) or ( GetItemTypeId(GetManipulatedItem()) == 'I09N' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0A2' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0CK' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0CX' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0E1' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0EH' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0EO' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0AA' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0AG' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0F0' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0ET' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0EV' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0EY' ) ) ) // INLINED!!
 endfunction
 function JiaRuMenPai takes nothing returns nothing
- local unit u=GetTriggerUnit()
- local player p=GetOwningPlayer(u)
- local integer i=1 + GetPlayerId(p)
+ local unit u= GetTriggerUnit()
+ local player p= GetOwningPlayer(u)
+ local integer i= 1 + GetPlayerId(p)
 	if ( ( udg_runamen[i] != 0 ) ) then
 		if udg_runamen[i] == 11 and GetUnitLevel(u) <= 2 and GetPlayerState(p, PLAYER_STATE_RESOURCE_LUMBER) >= 60 then
 			// 自由改投慕容
@@ -11301,254 +11321,307 @@ function JiaRuMenPai takes nothing returns nothing
 		call RemoveLocation(Q4)
 		call UnitAddItemByIdSwapped(1227896394, u)
 	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 1227894837 ) ) then
-	if ( ( GetUnitTypeId(u) != 'O001' ) and ( GetUnitTypeId(u) != 'O002' ) ) then
-		set udg_runamen[i]=6
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓血刀门〓，请在NPC郭靖处选择副职|r")
-		call SetPlayerName(p, "〓血刀门〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-		call UnitAddAbility(u, 'A05R')
-		call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
-		call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
-		if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
-			call UnitAddAbility(u, 'A040')
-			call UnitAddAbility(u, 'A041')
-			call UnitAddAbility(u, 'A042')
+		if ( ( GetUnitTypeId(u) != 'O001' ) and ( GetUnitTypeId(u) != 'O002' ) ) then
+			set udg_runamen[i]=6
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓血刀门〓，请在NPC郭靖处选择副职|r")
+			call SetPlayerName(p, "〓血刀门〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+			call UnitAddAbility(u, 'A05R')
+			call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+			call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+			if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+				call UnitAddAbility(u, 'A040')
+				call UnitAddAbility(u, 'A041')
+				call UnitAddAbility(u, 'A042')
+			endif
+			set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+			call UnitRemoveAbility(u, 'Avul')
+			set Q4=GetRandomLocInRect(He)
+			call SetUnitPositionLoc(u, Q4)
+			call PanCameraToTimedLocForPlayer(p, Q4, 0)
+			call createPartnerAndTownPortalDummy(i , Q4)
+			set gengu[i]=( gengu[i] + 2 )
+			set danpo[i]=( danpo[i] + 3 )
+			call RemoveLocation(Q4)
+			call UnitAddItemByIdSwapped(1227896394, u)
+		else
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
 		endif
-		set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
-		call UnitRemoveAbility(u, 'Avul')
-		set Q4=GetRandomLocInRect(He)
-		call SetUnitPositionLoc(u, Q4)
-		call PanCameraToTimedLocForPlayer(p, Q4, 0)
-		call createPartnerAndTownPortalDummy(i , Q4)
-		set gengu[i]=( gengu[i] + 2 )
-		set danpo[i]=( danpo[i] + 3 )
-		call RemoveLocation(Q4)
-		call UnitAddItemByIdSwapped(1227896394, u)
-	else
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
-	endif
 	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 1227894838 ) ) then
-	if ( ( GetUnitTypeId(u) != 'O004' ) and ( GetUnitTypeId(u) != 'O000' ) and ( GetUnitTypeId(u) != 'O001' ) ) then
-		set udg_runamen[i]=7
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓恒山派〓，请在NPC郭靖处选择副职|r")
-		call SetPlayerName(p, "〓恒山派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-		call UnitAddAbility(u, 'A05R')
-		call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
-		call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
-		if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
-			call UnitAddAbility(u, 'A040')
-			call UnitAddAbility(u, 'A041')
-			call UnitAddAbility(u, 'A042')
+		if ( ( GetUnitTypeId(u) != 'O004' ) and ( GetUnitTypeId(u) != 'O000' ) and ( GetUnitTypeId(u) != 'O001' ) ) then
+			set udg_runamen[i]=7
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓恒山派〓，请在NPC郭靖处选择副职|r")
+			call SetPlayerName(p, "〓恒山派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+			call UnitAddAbility(u, 'A05R')
+			call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+			call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+			if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+				call UnitAddAbility(u, 'A040')
+				call UnitAddAbility(u, 'A041')
+				call UnitAddAbility(u, 'A042')
+			endif
+			set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+			call UnitRemoveAbility(u, 'Avul')
+			set Q4=GetRandomLocInRect(He)
+			call SetUnitPositionLoc(u, Q4)
+			call PanCameraToTimedLocForPlayer(p, Q4, 0)
+			call createPartnerAndTownPortalDummy(i , Q4)
+			set yishu[i]=( yishu[i] + 3 )
+			set fuyuan[i]=( fuyuan[i] + 2 )
+			call RemoveLocation(Q4)
+			call UnitAddItemByIdSwapped(1227896394, u)
+		else
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
 		endif
-		set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
-		call UnitRemoveAbility(u, 'Avul')
-		set Q4=GetRandomLocInRect(He)
-		call SetUnitPositionLoc(u, Q4)
-		call PanCameraToTimedLocForPlayer(p, Q4, 0)
-		call createPartnerAndTownPortalDummy(i , Q4)
-		set yishu[i]=( yishu[i] + 3 )
-		set fuyuan[i]=( fuyuan[i] + 2 )
-		call RemoveLocation(Q4)
-		call UnitAddItemByIdSwapped(1227896394, u)
-	else
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
-	endif
 	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 1227894839 ) ) then
-	if ( ( GetUnitTypeId(u) != 'O004' ) ) then
-		set udg_runamen[i]=8
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓峨眉派〓，请在NPC郭靖处选择副职|r")
-		call SetPlayerName(p, "〓峨眉派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-		call UnitAddAbility(u, 'A05R')
-		call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
-		call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+		if ( ( GetUnitTypeId(u) != 'O004' ) ) then
+			set udg_runamen[i]=8
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓峨眉派〓，请在NPC郭靖处选择副职|r")
+			call SetPlayerName(p, "〓峨眉派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+			call UnitAddAbility(u, 'A05R')
+			call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+			call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
 		
-		if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
-			call UnitAddAbility(u, 'A040')
-			call UnitAddAbility(u, 'A041')
-			call UnitAddAbility(u, 'A042')
+			if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+				call UnitAddAbility(u, 'A040')
+				call UnitAddAbility(u, 'A041')
+				call UnitAddAbility(u, 'A042')
+			endif
+			set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+			call UnitRemoveAbility(u, 'Avul')
+			set Q4=GetRandomLocInRect(He)
+			call SetUnitPositionLoc(u, Q4)
+			call PanCameraToTimedLocForPlayer(p, Q4, 0)
+			call createPartnerAndTownPortalDummy(i , Q4)
+			set yishu[i]=( yishu[i] + 1 )
+			set jingmai[i]=( jingmai[i] + 1 )
+			set fuyuan[i]=( fuyuan[i] + 3 )
+			call RemoveLocation(Q4)
+			call UnitAddItemByIdSwapped(1227896394, u)
+		else
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
 		endif
-		set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
-		call UnitRemoveAbility(u, 'Avul')
-		set Q4=GetRandomLocInRect(He)
-		call SetUnitPositionLoc(u, Q4)
-		call PanCameraToTimedLocForPlayer(p, Q4, 0)
-		call createPartnerAndTownPortalDummy(i , Q4)
-		set yishu[i]=( yishu[i] + 1 )
-		set jingmai[i]=( jingmai[i] + 1 )
-		set fuyuan[i]=( fuyuan[i] + 3 )
-		call RemoveLocation(Q4)
-		call UnitAddItemByIdSwapped(1227896394, u)
-	else
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
-	endif
 	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 1227894840 ) ) then
-	if ( ( GetUnitTypeId(u) != 'O001' ) ) then
-		set udg_runamen[i]=$A
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓星宿派〓，请在NPC郭靖处选择副职|r")
-		call SetPlayerName(p, "〓星宿派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-		call UnitAddAbility(u, 'A05R')
-		call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
-		call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
-		if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
-			call UnitAddAbility(u, 'A040')
-			call UnitAddAbility(u, 'A041')
-			call UnitAddAbility(u, 'A042')
+		if ( ( GetUnitTypeId(u) != 'O001' ) ) then
+			set udg_runamen[i]=$A
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓星宿派〓，请在NPC郭靖处选择副职|r")
+			call SetPlayerName(p, "〓星宿派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+			call UnitAddAbility(u, 'A05R')
+			call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+			call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+			if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+				call UnitAddAbility(u, 'A040')
+				call UnitAddAbility(u, 'A041')
+				call UnitAddAbility(u, 'A042')
+			endif
+			set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+			set Q4=GetRandomLocInRect(He)
+			call UnitRemoveAbility(u, 'Avul')
+			call SetUnitPositionLoc(u, Q4)
+			call PanCameraToTimedLocForPlayer(p, Q4, 0)
+			call createPartnerAndTownPortalDummy(i , Q4)
+			set danpo[i]=( danpo[i] + 2 )
+			set yishu[i]=( yishu[i] + 1 )
+			set jingmai[i]=( jingmai[i] + 2 )
+			call RemoveLocation(Q4)
+			call UnitAddItemByIdSwapped(1227896394, u)
+		else
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
 		endif
-		set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
-		set Q4=GetRandomLocInRect(He)
-		call UnitRemoveAbility(u, 'Avul')
-		call SetUnitPositionLoc(u, Q4)
-		call PanCameraToTimedLocForPlayer(p, Q4, 0)
-		call createPartnerAndTownPortalDummy(i , Q4)
-		set danpo[i]=( danpo[i] + 2 )
-		set yishu[i]=( yishu[i] + 1 )
-		set jingmai[i]=( jingmai[i] + 2 )
-		call RemoveLocation(Q4)
-		call UnitAddItemByIdSwapped(1227896394, u)
-	else
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
-	endif
 	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 1227894841 ) ) then
-	if ( ( GetUnitTypeId(u) != 'O003' ) ) then
-		set udg_runamen[i]=9
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓武当派〓，请在NPC郭靖处选择副职|r")
-		call SetPlayerName(p, "〓武当派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-		call UnitAddAbility(u, 'A05R')
-		call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
-		call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
-		if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
-			call UnitAddAbility(u, 'A040')
-			call UnitAddAbility(u, 'A041')
-			call UnitAddAbility(u, 'A042')
+		if ( ( GetUnitTypeId(u) != 'O003' ) ) then
+			set udg_runamen[i]=9
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓武当派〓，请在NPC郭靖处选择副职|r")
+			call SetPlayerName(p, "〓武当派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+			call UnitAddAbility(u, 'A05R')
+			call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+			call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+			if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+				call UnitAddAbility(u, 'A040')
+				call UnitAddAbility(u, 'A041')
+				call UnitAddAbility(u, 'A042')
+			endif
+			set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+			set Q4=GetRandomLocInRect(He)
+			call SetUnitPositionLoc(u, Q4)
+			call UnitRemoveAbility(u, 'Avul')
+			call PanCameraToTimedLocForPlayer(p, Q4, 0)
+			call createPartnerAndTownPortalDummy(i , Q4)
+			set gengu[i]=( gengu[i] + 1 )
+			set jingmai[i]=( jingmai[i] + 2 )
+			set fuyuan[i]=( fuyuan[i] + 2 )
+			call RemoveLocation(Q4)
+			call UnitAddItemByIdSwapped(1227896394, u)
+		else
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
 		endif
-		set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
-		set Q4=GetRandomLocInRect(He)
-		call SetUnitPositionLoc(u, Q4)
-		call UnitRemoveAbility(u, 'Avul')
-		call PanCameraToTimedLocForPlayer(p, Q4, 0)
-		call createPartnerAndTownPortalDummy(i , Q4)
-		set gengu[i]=( gengu[i] + 1 )
-		set jingmai[i]=( jingmai[i] + 2 )
-		set fuyuan[i]=( fuyuan[i] + 2 )
-		call RemoveLocation(Q4)
-		call UnitAddItemByIdSwapped(1227896394, u)
-	else
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
-	endif
 	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 1227894849 ) ) then
-	if ( ( GetUnitTypeId(u) != 'O000' ) ) then
-		set udg_runamen[i]=2
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓古墓派〓，请在NPC郭靖处选择副职|r")
-		call SetPlayerName(p, "〓古墓派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-		call UnitAddAbility(u, 'A05R')
-		call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
-		call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
-		if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
-			call UnitAddAbility(u, 'A040')
-			call UnitAddAbility(u, 'A041')
-			call UnitAddAbility(u, 'A042')
+		if ( ( GetUnitTypeId(u) != 'O000' ) ) then
+			set udg_runamen[i]=2
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓古墓派〓，请在NPC郭靖处选择副职|r")
+			call SetPlayerName(p, "〓古墓派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+			call UnitAddAbility(u, 'A05R')
+			call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+			call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+			if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+				call UnitAddAbility(u, 'A040')
+				call UnitAddAbility(u, 'A041')
+				call UnitAddAbility(u, 'A042')
+			endif
+			set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+			call UnitRemoveAbility(u, 'Avul')
+			set Q4=GetRandomLocInRect(He)
+			call SetUnitPositionLoc(u, Q4)
+			call PanCameraToTimedLocForPlayer(p, Q4, 0)
+			call createPartnerAndTownPortalDummy(i , Q4)
+			set wuxing[i]=( wuxing[i] + 2 )
+			set jingmai[i]=( jingmai[i] + 1 )
+			set fuyuan[i]=( fuyuan[i] + 2 )
+			call RemoveLocation(Q4)
+			call UnitAddItemByIdSwapped(1227896394, u)
+		else
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
 		endif
-		set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
-		call UnitRemoveAbility(u, 'Avul')
-		set Q4=GetRandomLocInRect(He)
-		call SetUnitPositionLoc(u, Q4)
-		call PanCameraToTimedLocForPlayer(p, Q4, 0)
-		call createPartnerAndTownPortalDummy(i , Q4)
-		set wuxing[i]=( wuxing[i] + 2 )
-		set jingmai[i]=( jingmai[i] + 1 )
-		set fuyuan[i]=( fuyuan[i] + 2 )
-		call RemoveLocation(Q4)
-		call UnitAddItemByIdSwapped(1227896394, u)
-	else
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
-	endif
 	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 'I0A2' ) ) then
-	if ( ( GetUnitTypeId(u) != 'O002' ) and ( GetUnitTypeId(u) != 'O003' ) ) then
-		set udg_runamen[i]=15
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓衡山派〓，请在NPC郭靖处选择副职|r")
-		call SetPlayerName(p, "〓衡山派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-		call UnitAddAbility(u, 'A05R')
-		call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
-		call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
-		if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
-			call UnitAddAbility(u, 'A040')
-			call UnitAddAbility(u, 'A041')
-			call UnitAddAbility(u, 'A042')
+		if ( ( GetUnitTypeId(u) != 'O002' ) and ( GetUnitTypeId(u) != 'O003' ) ) then
+			set udg_runamen[i]=15
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓衡山派〓，请在NPC郭靖处选择副职|r")
+			call SetPlayerName(p, "〓衡山派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+			call UnitAddAbility(u, 'A05R')
+			call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+			call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+			if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+				call UnitAddAbility(u, 'A040')
+				call UnitAddAbility(u, 'A041')
+				call UnitAddAbility(u, 'A042')
+			endif
+			set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+			call UnitRemoveAbility(u, 'Avul')
+			set Q4=GetRandomLocInRect(He)
+			call SetUnitPositionLoc(u, Q4)
+			call PanCameraToTimedLocForPlayer(p, Q4, 0)
+			call createPartnerAndTownPortalDummy(i , Q4)
+			set wuxing[i]=( wuxing[i] + 3 )
+			set yishu[i]=( yishu[i] + 2 )
+			call RemoveLocation(Q4)
+			call UnitAddItemByIdSwapped(1227896394, u)
+		else
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
 		endif
-		set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
-		call UnitRemoveAbility(u, 'Avul')
-		set Q4=GetRandomLocInRect(He)
-		call SetUnitPositionLoc(u, Q4)
-		call PanCameraToTimedLocForPlayer(p, Q4, 0)
-		call createPartnerAndTownPortalDummy(i , Q4)
-		set wuxing[i]=( wuxing[i] + 3 )
-		set yishu[i]=( yishu[i] + 2 )
-		call RemoveLocation(Q4)
-		call UnitAddItemByIdSwapped(1227896394, u)
-	else
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
-	endif
 	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 'I0CK' ) ) then
-	if ( GetUnitTypeId(u) == 'O000' or GetUnitTypeId(u) == 'O001' or GetUnitTypeId(u) == 'O004' or GetUnitTypeId(u) == 'O02J' ) then
-		set udg_runamen[i]=16
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓神龙教〓，请在NPC郭靖处选择副职|r")
-		call SetPlayerName(p, "〓神龙教〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-		call UnitAddAbility(u, 'A05R')
-		call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
-		call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
-		if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
-			call UnitAddAbility(u, 'A040')
-			call UnitAddAbility(u, 'A041')
-			call UnitAddAbility(u, 'A042')
+		if ( GetUnitTypeId(u) == 'O000' or GetUnitTypeId(u) == 'O001' or GetUnitTypeId(u) == 'O004' or GetUnitTypeId(u) == 'O02J' ) then
+			set udg_runamen[i]=16
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓神龙教〓，请在NPC郭靖处选择副职|r")
+			call SetPlayerName(p, "〓神龙教〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+			call UnitAddAbility(u, 'A05R')
+			call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+			call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+			if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+				call UnitAddAbility(u, 'A040')
+				call UnitAddAbility(u, 'A041')
+				call UnitAddAbility(u, 'A042')
+			endif
+			set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+			call UnitRemoveAbility(u, 'Avul')
+			set Q4=GetRandomLocInRect(He)
+			call SetUnitPositionLoc(u, Q4)
+			call PanCameraToTimedLocForPlayer(p, Q4, 0)
+			call createPartnerAndTownPortalDummy(i , Q4)
+			set gengu[i]=gengu[i] + 2
+			set fuyuan[i]=fuyuan[i] + 2
+			set danpo[i]=danpo[i] + 1
+			call RemoveLocation(Q4)
+			call UnitAddItemByIdSwapped(1227896394, u)
+		else
+			set udg_runamen[i]=17
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓神龙教〓，请在NPC郭靖处选择副职|r")
+			call SetPlayerName(p, "〓神龙教〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+			call UnitAddAbility(u, 'A05R')
+			call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+			call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+			if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+				call UnitAddAbility(u, 'A040')
+				call UnitAddAbility(u, 'A041')
+				call UnitAddAbility(u, 'A042')
+			endif
+			set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+			call UnitRemoveAbility(u, 'Avul')
+			set Q4=GetRandomLocInRect(He)
+			call SetUnitPositionLoc(u, Q4)
+			call PanCameraToTimedLocForPlayer(p, Q4, 0)
+			call createPartnerAndTownPortalDummy(i , Q4)
+			set gengu[i]=gengu[i] + 2
+			set fuyuan[i]=fuyuan[i] + 2
+			set danpo[i]=danpo[i] + 1
+			call RemoveLocation(Q4)
+			call UnitAddItemByIdSwapped(1227896394, u)
 		endif
-		set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
-		call UnitRemoveAbility(u, 'Avul')
-		set Q4=GetRandomLocInRect(He)
-		call SetUnitPositionLoc(u, Q4)
-		call PanCameraToTimedLocForPlayer(p, Q4, 0)
-		call createPartnerAndTownPortalDummy(i , Q4)
-		set gengu[i]=gengu[i] + 2
-		set fuyuan[i]=fuyuan[i] + 2
-		set danpo[i]=danpo[i] + 1
-		call RemoveLocation(Q4)
-		call UnitAddItemByIdSwapped(1227896394, u)
-	else
-		set udg_runamen[i]=17
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓神龙教〓，请在NPC郭靖处选择副职|r")
-		call SetPlayerName(p, "〓神龙教〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-		call UnitAddAbility(u, 'A05R')
-		call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
-		call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
-		if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
-			call UnitAddAbility(u, 'A040')
-			call UnitAddAbility(u, 'A041')
-			call UnitAddAbility(u, 'A042')
-		endif
-		set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
-		call UnitRemoveAbility(u, 'Avul')
-		set Q4=GetRandomLocInRect(He)
-		call SetUnitPositionLoc(u, Q4)
-		call PanCameraToTimedLocForPlayer(p, Q4, 0)
-		call createPartnerAndTownPortalDummy(i , Q4)
-		set gengu[i]=gengu[i] + 2
-		set fuyuan[i]=fuyuan[i] + 2
-		set danpo[i]=danpo[i] + 1
-		call RemoveLocation(Q4)
-		call UnitAddItemByIdSwapped(1227896394, u)
-	endif
 	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 'I0CX' ) ) then
-	if ( GetUnitTypeId(u) != 'O003' ) then
-		set udg_runamen[i]=18
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓泰山派〓，请在NPC郭靖处选择副职|r")
-		call SetPlayerName(p, "〓泰山派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+		if ( GetUnitTypeId(u) != 'O003' ) then
+			set udg_runamen[i]=18
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓泰山派〓，请在NPC郭靖处选择副职|r")
+			call SetPlayerName(p, "〓泰山派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+			call UnitAddAbility(u, 'A05R')
+			call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+			call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+			if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+				call UnitAddAbility(u, 'A040')
+				call UnitAddAbility(u, 'A041')
+				call UnitAddAbility(u, 'A042')
+			endif
+			set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+			call UnitRemoveAbility(u, 'Avul')
+			set Q4=GetRandomLocInRect(He)
+			call SetUnitPositionLoc(u, Q4)
+			call PanCameraToTimedLocForPlayer(p, Q4, 0)
+			call createPartnerAndTownPortalDummy(i , Q4)
+			set gengu[i]=gengu[i] + 3
+			set wuxing[i]=wuxing[i] + 1
+			set yishu[i]=yishu[i] + 1
+			call RemoveLocation(Q4)
+			call UnitAddItemByIdSwapped(1227896394, u)
+		else
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
+		endif
+	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 'I0EV' ) ) then
+		if not udg_fpgz then
+			set udg_runamen[i]=23
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓野螺派〓，请在NPC郭靖处选择副职|r")
+			call SetPlayerName(p, "〓野螺派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+			call UnitAddAbility(u, 'A05R')
+			call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+			call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+			if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+				call UnitAddAbility(u, 'A040')
+				call UnitAddAbility(u, 'A041')
+				call UnitAddAbility(u, 'A042')
+			endif
+			set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+			call UnitRemoveAbility(u, 'Avul')
+			set Q4=GetRandomLocInRect(He)
+			call SetUnitPositionLoc(u, Q4)
+			call PanCameraToTimedLocForPlayer(p, Q4, 0)
+			call createPartnerAndTownPortalDummy(i , Q4)
+			set danpo[i]=danpo[i] + 5
+			call RemoveLocation(Q4)
+			call UnitAddItemByIdSwapped(1227896394, u)
+		else
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000返璞归真模式不能手动选择该门派")
+		endif
+	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 'I0EY' ) ) then
+		set udg_runamen[i]=24
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓雪山派〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p, "〓雪山派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
 		call UnitAddAbility(u, 'A05R')
 		call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
@@ -11564,64 +11637,11 @@ function JiaRuMenPai takes nothing returns nothing
 		call SetUnitPositionLoc(u, Q4)
 		call PanCameraToTimedLocForPlayer(p, Q4, 0)
 		call createPartnerAndTownPortalDummy(i , Q4)
-		set gengu[i]=gengu[i] + 3
-		set wuxing[i]=wuxing[i] + 1
-		set yishu[i]=yishu[i] + 1
+		call addAllAttrs(i , 1)
 		call RemoveLocation(Q4)
 		call UnitAddItemByIdSwapped(1227896394, u)
-	else
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
-	endif
-	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 'I0EV' ) ) then
-	if not udg_fpgz then
-	set udg_runamen[i]=23
-	call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓野螺派〓，请在NPC郭靖处选择副职|r")
-	call SetPlayerName(p, "〓野螺派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-	call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-	call UnitAddAbility(u, 'A05R')
-	call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
-	call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
-	if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
-		call UnitAddAbility(u, 'A040')
-		call UnitAddAbility(u, 'A041')
-		call UnitAddAbility(u, 'A042')
-	endif
-	set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
-	call UnitRemoveAbility(u, 'Avul')
-	set Q4=GetRandomLocInRect(He)
-	call SetUnitPositionLoc(u, Q4)
-	call PanCameraToTimedLocForPlayer(p, Q4, 0)
-	call createPartnerAndTownPortalDummy(i , Q4)
-	set danpo[i]=danpo[i] + 5
-        call RemoveLocation(Q4)
-		call UnitAddItemByIdSwapped(1227896394, u)
-	else
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000返璞归真模式不能手动选择该门派")
-	endif
-    elseif ( ( GetItemTypeId(GetManipulatedItem()) == 'I0EY' ) ) then
-            set udg_runamen[i]=24
-            call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓雪山派〓，请在NPC郭靖处选择副职|r")
-            call SetPlayerName(p, "〓雪山派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-            call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-            call UnitAddAbility(u, 'A05R')
-            call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
-            call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
-            if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
-                call UnitAddAbility(u, 'A040')
-                call UnitAddAbility(u, 'A041')
-                call UnitAddAbility(u, 'A042')
-            endif
-            set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
-            call UnitRemoveAbility(u, 'Avul')
-            set Q4=GetRandomLocInRect(He)
-            call SetUnitPositionLoc(u, Q4)
-            call PanCameraToTimedLocForPlayer(p, Q4, 0)
-            call createPartnerAndTownPortalDummy(i , Q4)
-            call addAllAttrs(i , 1)
-	call RemoveLocation(Q4)
-	call UnitAddItemByIdSwapped(1227896394, u)
 	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 'I0AG' ) ) then
-	call randomMenpai(p , 1)
+		call randomMenpai(p , 1)
 	endif
 	set p=null
 	set u=null
@@ -11646,7 +11666,7 @@ function ChooseMoshi_Auto takes nothing returns nothing
 	if moshiFlag == false then
 		call DialogDisplayBJ(false, udg_index, Player(0))
 		set udg_teshushijian=true
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "主机默认选择了|cff00FFFF特殊事件|r模式")
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "主机默认选择了|cff00FFFF正常|r模式")
 	endif
 	call PauseTimer(t)
 	call DestroyTimer(t)
@@ -11657,7 +11677,7 @@ function ChooseMoShi takes nothing returns nothing
 	if ( (( GetPlayerController(Player(0)) == MAP_CONTROL_USER ) and ( GetPlayerSlotState(Player(0)) == PLAYER_SLOT_STATE_PLAYING )) ) then // INLINED!!
 		call DialogClear(udg_index)
 		call DialogSetMessage(udg_index, "请选择游戏模式，20秒时间")
-		set udg_index1=DialogAddButtonBJ(udg_index, "|cFFCC0066特殊事件模式")
+		set udg_index1=DialogAddButtonBJ(udg_index, "|cFFCC0066正常模式")
 		set udg_index3=DialogAddButtonBJ(udg_index, "|cFF6600FF挑战模式（3倍积分）")
 		set udg_index4=DialogAddButtonBJ(udg_index, "|cff91e226返璞归真（6倍积分）")
 		set udg_index2=DialogAddButtonBJ(udg_index, "|cFFCC7766养老模式（30倍伤害，无积分）")
@@ -11711,7 +11731,7 @@ function TiaoZhanMoshi_Action takes nothing returns nothing
 		set tiaoZhanIndex=2
 		// 移除技能书商店
 		loop
-		exitwhen i > 3
+			exitwhen i > 3
 			call RemoveUnit(udg_sellSkillBook[i])
 			set i=i + 1
 		endloop
@@ -11731,9 +11751,9 @@ endif
 endfunction
 //  =====================挑战模式结束========================================
 function ChooseMoShi_Action takes nothing returns nothing
-    local integer i= 1
+ local integer i= 1
 	if GetClickedButton() == udg_index1 then
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FFFF主机选择了特殊事件模式")
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FFFF主机选择了正常模式")
 		set udg_teshushijian=true
 	endif
 	if GetClickedButton() == udg_index2 then
@@ -11761,55 +11781,17 @@ function ChooseMoShi_Action takes nothing returns nothing
 	// 已选难度
 	set moshiFlag=true
 endfunction
-//调整游戏难度
-function GameNanDu_Condition takes nothing returns boolean
-	//非特殊事件模式
-	return udg_teshushijian == false
-endfunction
-function GameNanDu takes nothing returns nothing
- local trigger t=GetTriggeringTrigger()
- local integer id=GetHandleId(t)
- local integer i=0
- local integer level=0
-	if ( ( S2I(SubStringBJ(GetEventPlayerChatString(), 3, 5)) == 0 ) ) then
-		set i=10
-	else
-		set i=S2I(SubStringBJ(GetEventPlayerChatString(), 3, 5)) * 10
-	endif
-	set level=GetPlayerTechCountSimple('R001', Player(12))
-	if ( level == 50 ) then
-		call DisplayTextToPlayer(Player(0), 0, 0, "当前已为最高难度了")
-	else
-		if level + i >= 50 then
-			set i=50 - level
-		endif
-		call AddPlayerTechResearched(Player(12), 'R001', i)
-		call AddPlayerTechResearched(Player(6), 'R001', i)
-		call AddPlayerTechResearched(Player(15), 'R001', i)
-		set udg_nandu=udg_nandu + i / 10
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, ( "玩家1输入“up”提高了游戏难度，目前游戏难度为" + I2S(udg_nandu) ))
-		if udg_nandu == 5 then
-			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FFFF该模式下进攻怪具有|cFFFF0000抽血术")
-		endif
-	endif
-	set t=null
-endfunction
-// 超时默认难度选择难7
+// 超时默认难度选择难1
 function ChooseNanDu_Auto takes nothing returns nothing
  local timer t= GetExpiredTimer()
-	if ( udg_boshu < 5 and nanduFlag == 0 ) or ( udg_boshu == 5 and nanduFlag == 1 ) then
+	if nanduFlag == 0 then
 		call DialogDisplayBJ(false, udg_nan, Player(0))
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FFFF默认选择了难度|cFF999900决战江湖")
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cFF999900该模式下进攻怪具有|cFFFF0000抽血术加强版")
-		call SetPlayerTechResearched(Player(12), 'R001', 50)
-		call SetPlayerTechResearched(Player(6), 'R001', 50)
-		call SetPlayerTechResearched(Player(15), 'R001', 50)
-		call setDifficultyAndExpRate(6)
-		if udg_boshu < 5 then
-			set get_zdl=7
-		else
-			set get_zdl=get_zdl + 7 * 2
-		endif
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FFFF默认选择了难度|cFF999900小试牛刀")
+		call SetPlayerTechResearched(Player(12), 'R001', 0)
+		call SetPlayerTechResearched(Player(6), 'R001', 0)
+		call SetPlayerTechResearched(Player(15), 'R001', 0)
+		call setDifficultyAndExpRate(0)
+		set get_zdl=5
 	endif
 	call PauseTimer(t)
 	call DestroyTimer(t)
@@ -11820,27 +11802,9 @@ function ChooseNanDu takes nothing returns nothing
 	if ( (( GetPlayerController(Player(0)) == MAP_CONTROL_USER ) and ( GetPlayerSlotState(Player(0)) == PLAYER_SLOT_STATE_PLAYING )) ) then // INLINED!!
 		call DialogClear(udg_nan)
 		call DialogSetMessage(udg_nan, "请选择游戏难度")
-		if firstTime or udg_nandu <= 0 then
-			set udg_nan0=DialogAddButtonBJ(udg_nan, "|cFF00CC00初入江湖")
-		endif
-		if firstTime or udg_nandu <= 1 then
-			set udg_nan1=DialogAddButtonBJ(udg_nan, "|cFFCC0066牛刀小试")
-		endif
-		if firstTime or udg_nandu <= 2 then
-			set udg_nan2=DialogAddButtonBJ(udg_nan, "|cFFFF6600登堂入室")
-		endif
-		if firstTime or ( udg_nandu <= 3 ) then
-			set udg_nan3=DialogAddButtonBJ(udg_nan, "|cFF0041FF炉火纯青")
-		endif
-		if firstTime or ( udg_nandu <= 4 and udg_nandu >= 1 ) then
-			set udg_nan4=DialogAddButtonBJ(udg_nan, "|cFF1FBF00华山论剑")
-		endif
-		if firstTime or ( udg_nandu <= 5 and udg_nandu >= 2 ) then
-			set udg_nan5=DialogAddButtonBJ(udg_nan, "|cFFFF0000独孤求败")
-		endif
-		if firstTime or ( udg_nandu <= 6 and udg_nandu >= 3 ) then
-			set udg_nan7=DialogAddButtonBJ(udg_nan, "|cFF999900决战江湖")
-		endif
+		set udg_nan0=DialogAddButtonBJ(udg_nan, "|cFF00CC00小试牛刀")
+		set udg_nan2=DialogAddButtonBJ(udg_nan, "|cFFFF6600登堂入室")
+		set udg_nan7=DialogAddButtonBJ(udg_nan, "|cFF999900决战江湖")
 		call DialogDisplayBJ(true, udg_nan, Player(0))
 		// 开启计时器，20s不选难度默认选择最高难度
 		call TimerStart(CreateTimer(), 20, false, function ChooseNanDu_Auto)
@@ -11848,28 +11812,12 @@ function ChooseNanDu takes nothing returns nothing
 endfunction
 function ChooseNanDu_Action takes nothing returns nothing
 	if GetClickedButton() == udg_nan0 then
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FFFF主机选择了难度|cFF00CC00初入江湖")
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FFFF主机选择了难度|cFF00CC00小试牛刀")
 		call SetPlayerTechResearched(Player(12), 'R001', 0)
 		call SetPlayerTechResearched(Player(6), 'R001', 0)
 		call SetPlayerTechResearched(Player(15), 'R001', 0)
 		call setDifficultyAndExpRate(0)
-		if udg_boshu < 5 then
-			set get_zdl=1
-		else
-			set get_zdl=get_zdl + 1 * 2
-		endif
-	endif
-	if GetClickedButton() == udg_nan1 then
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FFFF主机选择了难度|cFFCC0066牛刀小试")
-		call SetPlayerTechResearched(Player(12), 'R001', 10)
-		call SetPlayerTechResearched(Player(6), 'R001', 10)
-		call SetPlayerTechResearched(Player(15), 'R001', 10)
-		call setDifficultyAndExpRate(1)
-		if udg_boshu < 5 then
-			set get_zdl=2
-		else
-			set get_zdl=get_zdl + 2 * 2
-		endif
+		set get_zdl=5
 	endif
 	if GetClickedButton() == udg_nan2 then
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FFFF主机选择了难度|cFFFF6600登堂入室")
@@ -11877,48 +11825,7 @@ function ChooseNanDu_Action takes nothing returns nothing
 		call SetPlayerTechResearched(Player(6), 'R001', 20)
 		call SetPlayerTechResearched(Player(15), 'R001', 20)
 		call setDifficultyAndExpRate(2)
-		if udg_boshu < 5 then
-			set get_zdl=3
-		else
-			set get_zdl=get_zdl + 3 * 2
-		endif
-	endif
-	if GetClickedButton() == udg_nan3 then
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FFFF主机选择了难度|cFF0041FF炉火纯青")
-		call SetPlayerTechResearched(Player(12), 'R001', 30)
-		call SetPlayerTechResearched(Player(6), 'R001', 30)
-		call SetPlayerTechResearched(Player(15), 'R001', 30)
-		call setDifficultyAndExpRate(3)
-		if udg_boshu < 5 then
-			set get_zdl=4
-		else
-			set get_zdl=get_zdl + 4 * 2
-		endif
-	endif
-	if GetClickedButton() == udg_nan4 then
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FFFF主机选择了难度|cFF1FBF00华山论剑")
-		call SetPlayerTechResearched(Player(12), 'R001', 40)
-		call SetPlayerTechResearched(Player(6), 'R001', 40)
-		call SetPlayerTechResearched(Player(15), 'R001', 40)
-		call setDifficultyAndExpRate(4)
-		if udg_boshu < 5 then
-			set get_zdl=5
-		else
-			set get_zdl=get_zdl + 5 * 2
-		endif
-	endif
-	if GetClickedButton() == udg_nan5 then
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FFFF主机选择了难度|cFFFF0000独孤求败")
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FFFF该模式下进攻怪具有|cFFFF0000抽血术")
-		call SetPlayerTechResearched(Player(12), 'R001', 50)
-		call SetPlayerTechResearched(Player(6), 'R001', 50)
-		call SetPlayerTechResearched(Player(15), 'R001', 50)
-		call setDifficultyAndExpRate(5)
-		if udg_boshu < 5 then
-			set get_zdl=6
-		else
-			set get_zdl=get_zdl + 6 * 2
-		endif
+		set get_zdl=10
 	endif
 	if GetClickedButton() == udg_nan7 then
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FFFF主机选择了难度|cFF999900决战江湖")
@@ -11927,12 +11834,8 @@ function ChooseNanDu_Action takes nothing returns nothing
 		call SetPlayerTechResearched(Player(6), 'R001', 50)
 		call SetPlayerTechResearched(Player(15), 'R001', 50)
 		call setDifficultyAndExpRate(6)
-		if udg_boshu < 5 then
-			set get_zdl=7
-			set topDegreeFlag=true
-		else
-			set get_zdl=get_zdl + 7 * 2
-		endif
+		set get_zdl=15
+		set topDegreeFlag=true
 	endif
 	if udg_boshu < 5 then
 		set nanduFlag=1
@@ -11944,7 +11847,7 @@ endfunction
 
 //系统窗口
 function SystemWindow takes nothing returns nothing
- local integer i=0
+ local integer i= 0
  local string s= null
 	call CreateMultiboardBJ(5, 20, "系统窗口")
 	call MultiboardSetItemsStyle(bj_lastCreatedMultiboard, true, false)
@@ -11952,7 +11855,7 @@ function SystemWindow takes nothing returns nothing
 	set i=1
 	
 	loop
-	exitwhen i >= 6
+		exitwhen i >= 6
 		if udg_MaxDamage[i] < 10000. then
 			set s=R2S(udg_MaxDamage[i])
 		elseif udg_MaxDamage[i] < 100000000. then
@@ -11970,28 +11873,28 @@ function SystemWindow takes nothing returns nothing
 		call DuoMianBan(bj_lastCreatedMultiboard , 3 , 4 * i - 3 , "|cFF00CCFF" + udg_menpainame[udg_runamen[i]])
 		call DuoMianBan(bj_lastCreatedMultiboard , 4 , 4 * i - 3 , "|cFFFF6600" + "最高伤害：" + s)
 		set s="|c00FFEE99"
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
 			set s=s + "丹"
 		endif
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 			set s=s + "锻"
 		endif
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
 			set s=s + "兵"
 		endif
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
 			set s=s + "鉴"
 		endif
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_QI) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_QI) - 1)])) != 0) then // INLINED!!
 			set s=s + "气"
 		endif
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) then // INLINED!!
 			set s=s + "宝"
 		endif
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( YA_HUAN) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( YA_HUAN) - 1)])) != 0) then // INLINED!!
 			set s=s + "丫"
 		endif
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
 			set s=s + "武"
 		endif
 		call DuoMianBan(bj_lastCreatedMultiboard , 5 , 4 * i - 3 , s)
@@ -12033,13 +11936,13 @@ function SystemWindow takes nothing returns nothing
 	call MultiboardDisplay(bj_lastCreatedMultiboard, true)
 endfunction
 function uuyy takes nothing returns nothing
- local integer i=0
+ local integer i= 0
  local string s= null
  local string title= ""
 	set i=1
 	
 	loop
-	exitwhen i >= 6
+		exitwhen i >= 6
 		if udg_MaxDamage[i] < 10000. then
 			set s=I2S(R2I(udg_MaxDamage[i] / 1.))
 		elseif udg_MaxDamage[i] < 100000000. then
@@ -12062,28 +11965,28 @@ function uuyy takes nothing returns nothing
 		call DuoMianBan(bj_lastCreatedMultiboard , 3 , 4 * i - 3 , "|cFF00CCFF" + udg_menpainame[udg_runamen[i]])
 		call DuoMianBan(bj_lastCreatedMultiboard , 4 , 4 * i - 3 , "|cFFFF6600" + "最高伤害：" + s)
 		set s="|c00FFEE99"
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
 			set s=s + "丹"
 		endif
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 			set s=s + "锻"
 		endif
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
 			set s=s + "兵"
 		endif
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
 			set s=s + "鉴"
 		endif
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_QI) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_QI) - 1)])) != 0) then // INLINED!!
 			set s=s + "气"
 		endif
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) then // INLINED!!
 			set s=s + "宝"
 		endif
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( YA_HUAN) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( YA_HUAN) - 1)])) != 0) then // INLINED!!
 			set s=s + "丫"
 		endif
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
 			set s=s + "武"
 		endif
 		call DuoMianBan(bj_lastCreatedMultiboard , 5 , 4 * i - 3 , s)
@@ -12135,7 +12038,7 @@ function Xx takes nothing returns nothing
 	set bj_forLoopBIndex=1
 	set bj_forLoopBIndexEnd=6
 	loop
-	exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
+		exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
 		call UnitRemoveItemSwapped(UnitItemInSlotBJ(GetEnumUnit(), bj_forLoopBIndex), GetEnumUnit())
 		set bj_forLoopBIndex=bj_forLoopBIndex + 1
 	endloop
@@ -12165,8 +12068,8 @@ function Qx takes nothing returns nothing
 endfunction
 //ESC查看人物属性
 function RenWuShuXing takes nothing returns nothing
- local player p=GetTriggerPlayer()
- local integer i=1 + GetPlayerId(p)
+ local player p= GetTriggerPlayer()
+ local integer i= 1 + GetPlayerId(p)
 	call ClearTextMessagesBJ(ov(p))
 	call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000人物属性：")
 	call DisplayTextToPlayer(p, 0, 0, "|cFFcc99ff〓〓〓〓〓〓〓〓〓〓〓")
@@ -12187,7 +12090,7 @@ function RenWuShuXing takes nothing returns nothing
 	call DisplayTextToPlayer(p, 0, 0, ( "|cFF33FF00武学修为：第" + ( I2S(wugongxiuwei[i]) + "层" ) ))
 	call DisplayTextToPlayer(p, 0, 0, ( "|cFF33FF00江湖声望：" + I2S(shengwang[i]) ))
 	call DisplayTextToPlayer(p, 0, 0, ( "|cFF33FF00守家积分：" + I2S(shoujiajf[i]) ))
-	if not (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
+	if not (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
 		call DisplayTextToPlayer(p, 0, 0, ( "|cFF33FF00当前用丹数量：" + ( I2S(yongdanshu[i]) + " / 10" ) ))
 	else
 		call DisplayTextToPlayer(p, 0, 0, ( "|cFF33FF00当前用丹数量：" + ( I2S(yongdanshu[i]) + " / 15" ) ))
@@ -12278,11 +12181,11 @@ function IsVictory takes nothing returns nothing
 endfunction
 //失败动作
 function Lose takes nothing returns nothing
- local integer i=0
+ local integer i= 0
 	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, ( "|CFFFF00B2决战江湖" + VERSION + "的游戏总评分：" + ( I2S(ae) + "分（战败）" ) ))
 	set i=1
 	loop
-	exitwhen i >= 6
+		exitwhen i >= 6
 		set udg_MeiJuJiFen[i]=udg_MeiJuJiFen[i] + ae / 100
 		call YDWE_PreloadSL_Set(Player(i - 1) , "总积分" , 1 , udg_MeiJuJiFen[i])
 		call YDWE_PreloadSL_Save(Player(i - 1) , "JueZhan" , "JiangHu" + I2S(i) , 1)
@@ -12313,9 +12216,9 @@ endfunction
 //胜利动作
 function Victory takes nothing returns nothing
  local timer ky
- local integer id=GetHandleId(GetTriggeringTrigger())
- local integer cx=LoadInteger(YDHT, id, - $3021938A)
- local integer i=0
+ local integer id= GetHandleId(GetTriggeringTrigger())
+ local integer cx= LoadInteger(YDHT, id, - $3021938A)
+ local integer i= 0
 	
 	
 	
@@ -12325,7 +12228,7 @@ function Victory takes nothing returns nothing
 	if udg_yanglao then
 		set i=1
 		loop
-		exitwhen i >= 6
+			exitwhen i >= 6
 			call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFF99CC00养老模式下无积分")
 			set i=i + 1
 		endloop
@@ -12358,7 +12261,7 @@ function Victory takes nothing returns nothing
 		
 		set i=1
 		loop
-		exitwhen i >= 6
+			exitwhen i >= 6
 			if saveFlag[i - 1] == false then
 				if mall_addition[i] == 0 then
 					call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFF99CC00获得战斗力和积分：" + I2S(( get_zdl + damage_jf ) * extraDoubleJf[i - 1]))
@@ -12381,20 +12284,29 @@ function Victory takes nothing returns nothing
 					if singleSuccess[i - 1] == "" then
 						set singleSuccess[i - 1]=initMpSaveStr
 					endif
+					// 如果字符串长度<门派总数，后面补0
+					loop
+						exitwhen StringLength(singleSuccess[i - 1]) >= DENOMINATION_NUMBER
+						set singleSuccess[i - 1]=singleSuccess[i - 1] + "0"
+					endloop
 					if manySuccess[i - 1] == "" then
 						set manySuccess[i - 1]=initMpSaveStr
 					endif
+					loop
+						exitwhen StringLength(manySuccess[i - 1]) >= DENOMINATION_NUMBER
+						set manySuccess[i - 1]=manySuccess[i - 1] + "0"
+					endloop
 					
 					// 单通
 					if udg_wanjiashu == 1 then
-						set singleSuccess[i - 1]=SubString(singleSuccess[i - 1], 0, udg_runamen[i] - 1) + "1" + SubString(singleSuccess[i - 1], udg_runamen[i], 18)
+						set singleSuccess[i - 1]=SubString(singleSuccess[i - 1], 0, udg_runamen[i] - 1) + "1" + SubString(singleSuccess[i - 1], udg_runamen[i], DENOMINATION_NUMBER)
 						call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFF99CC00本局单通门派：" + udg_menpainame[udg_runamen[i]])
 						call DzAPI_Map_StoreString(Player(i - 1) , "singleSuccess" , singleSuccess[i - 1])
 					endif
 					
 					// 多通（单通也算多通）
 					if udg_wanjiashu >= 1 then
-						set manySuccess[i - 1]=SubString(manySuccess[i - 1], 0, udg_runamen[i] - 1) + "1" + SubString(manySuccess[i - 1], udg_runamen[i], 18)
+						set manySuccess[i - 1]=SubString(manySuccess[i - 1], 0, udg_runamen[i] - 1) + "1" + SubString(manySuccess[i - 1], udg_runamen[i], DENOMINATION_NUMBER)
 						call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFF99CC00本局多通门派：" + udg_menpainame[udg_runamen[i]])
 						call DzAPI_Map_StoreString(Player(i - 1) , "manySuccess" , manySuccess[i - 1])
 					endif
@@ -12460,9 +12372,9 @@ function Ex takes nothing returns boolean
 	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) ) // INLINED!!
 endfunction
 function PlayerDeath takes nothing returns nothing
- local unit u=GetTriggerUnit()
- local player p=GetOwningPlayer(u)
- local integer i=1 + GetPlayerId(p)
+ local unit u= GetTriggerUnit()
+ local player p= GetOwningPlayer(u)
+ local integer i= 1 + GetPlayerId(p)
  local real time= 15
 	if ( ge[i] ) then
 		set time=7
@@ -12481,7 +12393,7 @@ function PlayerDeath takes nothing returns nothing
 	call GroupRemoveUnit(s9, u)
 	call GroupRemoveUnit(r9, u)
 	if ( UnitHaveItem(u , 'I02S') or UnitHaveItem(u , 1227895373) or UnitHaveItem(u , 1227895377) or UnitHaveItem(u , 1227895378) or UnitHaveItem(u , 1227895376) ) then
-		if not (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
 			call DisplayTextToPlayer(p, 0, 0, "|cFFff0000养武消失了")
 		endif
 	endif
@@ -12506,7 +12418,7 @@ function PlayerReviveA takes nothing returns nothing
 	call RemoveLocation(Q4)
 	set he[1]=false
 	if ( ( ( UnitHaveItem(udg_hero[1] , 'I02S') ) or ( UnitHaveItem(udg_hero[1] , 1227895373) ) or ( UnitHaveItem(udg_hero[1] , 1227895377) ) or ( UnitHaveItem(udg_hero[1] , 1227895378) ) or ( UnitHaveItem(udg_hero[1] , 1227895376) ) ) ) then
-		if not (YDWEBitwise_AND(deputy[(1 )] , ((1 ) * YDWEBitwise___C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(deputy[(1 )] , ((1 ) * YDWEBitwise__C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
 			call RemoveItem(FetchUnitItem(udg_hero[1] , 'I02S'))
 			call RemoveItem(FetchUnitItem(udg_hero[1] , 1227895373))
 			call RemoveItem(FetchUnitItem(udg_hero[1] , 1227895377))
@@ -12536,7 +12448,7 @@ function PlayerReviveB takes nothing returns nothing
 	call RemoveLocation(Q4)
 	set he[2]=false
 	if ( ( ( UnitHaveItem(udg_hero[2] , 'I02S') ) or ( UnitHaveItem(udg_hero[2] , 1227895373) ) or ( UnitHaveItem(udg_hero[2] , 1227895377) ) or ( UnitHaveItem(udg_hero[2] , 1227895378) ) or ( UnitHaveItem(udg_hero[2] , 1227895376) ) ) ) then
-		if not (YDWEBitwise_AND(deputy[(2 )] , ((1 ) * YDWEBitwise___C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(deputy[(2 )] , ((1 ) * YDWEBitwise__C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
 			call RemoveItem(FetchUnitItem(udg_hero[2] , 'I02S'))
 			call RemoveItem(FetchUnitItem(udg_hero[2] , 1227895373))
 			call RemoveItem(FetchUnitItem(udg_hero[2] , 1227895377))
@@ -12566,7 +12478,7 @@ function PlayerReviveC takes nothing returns nothing
 	call RemoveLocation(Q4)
 	set he[3]=false
 	if ( ( ( UnitHaveItem(udg_hero[3] , 'I02S') ) or ( UnitHaveItem(udg_hero[3] , 1227895373) ) or ( UnitHaveItem(udg_hero[3] , 1227895377) ) or ( UnitHaveItem(udg_hero[3] , 1227895378) ) or ( UnitHaveItem(udg_hero[3] , 1227895376) ) ) ) then
-		if not (YDWEBitwise_AND(deputy[(3 )] , ((1 ) * YDWEBitwise___C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(deputy[(3 )] , ((1 ) * YDWEBitwise__C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
 			call RemoveItem(FetchUnitItem(udg_hero[3] , 'I02S'))
 			call RemoveItem(FetchUnitItem(udg_hero[3] , 1227895373))
 			call RemoveItem(FetchUnitItem(udg_hero[3] , 1227895377))
@@ -12596,7 +12508,7 @@ function PlayerReviveD takes nothing returns nothing
 	call RemoveLocation(Q4)
 	set he[4]=false
 	if ( ( ( UnitHaveItem(udg_hero[4] , 'I02S') ) or ( UnitHaveItem(udg_hero[4] , 1227895373) ) or ( UnitHaveItem(udg_hero[4] , 1227895377) ) or ( UnitHaveItem(udg_hero[4] , 1227895378) ) or ( UnitHaveItem(udg_hero[4] , 1227895376) ) ) ) then
-		if not (YDWEBitwise_AND(deputy[(4 )] , ((1 ) * YDWEBitwise___C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(deputy[(4 )] , ((1 ) * YDWEBitwise__C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
 			call RemoveItem(FetchUnitItem(udg_hero[4] , 'I02S'))
 			call RemoveItem(FetchUnitItem(udg_hero[4] , 1227895373))
 			call RemoveItem(FetchUnitItem(udg_hero[4] , 1227895377))
@@ -12626,7 +12538,7 @@ function PlayerReviveE takes nothing returns nothing
 	call RemoveLocation(Q4)
 	set he[5]=false
 	if ( ( ( UnitHaveItem(udg_hero[5] , 'I02S') ) or ( UnitHaveItem(udg_hero[5] , 1227895373) ) or ( UnitHaveItem(udg_hero[5] , 1227895377) ) or ( UnitHaveItem(udg_hero[5] , 1227895378) ) or ( UnitHaveItem(udg_hero[5] , 1227895376) ) ) ) then
-		if not (YDWEBitwise_AND(deputy[(5 )] , ((1 ) * YDWEBitwise___C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(deputy[(5 )] , ((1 ) * YDWEBitwise__C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
 			call RemoveItem(FetchUnitItem(udg_hero[5] , 'I02S'))
 			call RemoveItem(FetchUnitItem(udg_hero[5] , 1227895373))
 			call RemoveItem(FetchUnitItem(udg_hero[5] , 1227895377))
@@ -12666,7 +12578,7 @@ function EA takes nothing returns nothing
 		//call BJDebugMsg(I2S(GetUnitTypeId(GetTriggerUnit())))
 		loop
 			
-		exitwhen s7 > ( nn7 + o7 )
+			exitwhen s7 > ( nn7 + o7 )
 			if ( ( GetTriggerUnit() == r7[s7] ) ) then
 				if ( ( s7 <= nn7 ) ) then
 					//call BJDebugMsg("s7="+I2S(s7))
@@ -12703,7 +12615,7 @@ function GA takes nothing returns boolean
 endfunction
 //BOSS成长
 function BOSSChengZhang takes nothing returns nothing
- local timer t=GetExpiredTimer()
+ local timer t= GetExpiredTimer()
 	if udg_boss[udg_boshu / 4] != null then
 		if IsUnitAliveBJ(udg_boss[udg_boshu / 4]) then
 			if GetUnitAbilityLevel(udg_boss[udg_boshu / 4], 'A0DB') == 0 then
@@ -12736,11 +12648,11 @@ function BOSSChengZhang takes nothing returns nothing
 endfunction
 //玩家等级大于波数*4
 function LevelGuoGao takes nothing returns boolean
- local integer i=0
- local integer totallevel=0
- local real r=0.
+ local integer i= 0
+ local integer totallevel= 0
+ local real r= 0.
 	loop
-	exitwhen i > 11
+		exitwhen i > 11
 		if udg_hero[i] != null then
 			set totallevel=totallevel + GetUnitLevel(udg_hero[i])
 		endif
@@ -12750,7 +12662,7 @@ function LevelGuoGao takes nothing returns boolean
 endfunction
 //刷怪
 function HA takes nothing returns nothing
- local timer t=CreateTimer()
+ local timer t= CreateTimer()
  local integer i= 0
 	// 试玩结束
 	if ShiFouShuaGuai == false then
@@ -12759,10 +12671,6 @@ function HA takes nothing returns nothing
 		call DestroyTimerDialog(shiWanTimerDialog)
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, ( "|CFFFF0033试玩结束，开始刷怪" ))
 	endif
-	if udg_boshu == 5 and udg_teshushijian == true then
-		set firstTime=false
-		call ChooseNanDu() // 第二次选择难度
-endif
 	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, ( "|CFFFF0033邪教势力：第" + ( I2S(udg_boshu) + "|CFFFF0033波" ) ))
 	if udg_boshu == 9 then
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, ( "|CFFFF0033※警告※：下一波怪拥有技能神圣护甲和10倍暴击" ))
@@ -13028,9 +12936,9 @@ function NA takes nothing returns nothing
 		set r2=1.52
 	endif
 	loop
-	exitwhen i > ue
+		exitwhen i > ue
 		loop
-		exitwhen j > udg_boshu
+			exitwhen j > udg_boshu
 			if ( j < udg_boshu ) then
 				set rr3=rr3 * r1
 				set rr4=rr4 * r2
@@ -13150,19 +13058,19 @@ endfunction
 function ba takes nothing returns nothing
 	set B7=1
 	loop
-	exitwhen B7 > 6
+		exitwhen B7 > 6
 		call UnitAddItem(b7[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )], UnitItemInSlotBJ(C7[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )], B7))
 		set B7=B7 + 1
 	endloop
 	set B7=1
 	loop
-	exitwhen B7 > 6
+		exitwhen B7 > 6
 		call UnitAddItem(C7[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )], UnitItemInSlotBJ(GetTriggerUnit(), B7))
 		set B7=B7 + 1
 	endloop
 	set B7=1
 	loop
-	exitwhen B7 > 6
+		exitwhen B7 > 6
 		call UnitAddItem(GetTriggerUnit(), UnitItemInSlotBJ(b7[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )], B7))
 		set B7=B7 + 1
 	endloop
@@ -13241,14 +13149,14 @@ function cmd takes nothing returns nothing
  local unit u= GetTriggerUnit()
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
- local integer j=0
+ local integer j= 0
 	// ckjn指令
 	if GetSpellAbilityId() == 'A0DZ' then
 		call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000人物性格：你学武资质" + XingGeA(udg_xinggeA[i]) + "，态度" + XingGeB(udg_xinggeB[i]))
 		call DisplayTextToPlayer(p, 0, 0, "|cFFcc99ff〓〓〓〓〓〓〓〓〓〓〓")
 		set j=1
 		loop
-		exitwhen j > wugongshu[i]
+			exitwhen j > wugongshu[i]
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF" + GetAbilityName(I7[( i - 1 ) * 20 + j]) + "第" + I2S(GetUnitAbilityLevel(udg_hero[i], I7[( i - 1 ) * 20 + j])) + "重，升级进度：" + LoadStr(YDHT, GetHandleId(p), I7[( i - 1 ) * 20 + j] * 2))
 			set j=j + 1
 		endloop
@@ -13278,7 +13186,7 @@ function HeroLevel takes nothing returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
  local location loc= null
-	if ( (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_QI) - 1)])) != 0) ) then // INLINED!!
+	if ( (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_QI) - 1)])) != 0) ) then // INLINED!!
 		if GetRandomInt(1, 3) == 1 then
 			call ModifyHeroStat(0, u, 0, GetRandomInt(4, 12))
 		elseif GetRandomInt(1, 2) == 1 then
@@ -13286,7 +13194,7 @@ function HeroLevel takes nothing returns nothing
 		else
 			call ModifyHeroStat(2, u, 0, GetRandomInt(4, 12))
 		endif
-		if ( GetUnitLevel(u) >= 80 ) and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_QI) - 1)])) != 0) then // INLINED!!
+		if ( GetUnitLevel(u) >= 80 ) and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_QI) - 1)])) != 0) then // INLINED!!
 			call Deputy_setMaster(i , LIAN_QI)
 			set juexuelingwu[i]=juexuelingwu[i] + 50
 			// call SaveStr(YDHT, GetHandleId(p), GetHandleId(p),"〓练气大师〓"+LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
@@ -13314,7 +13222,7 @@ function HeroLevel takes nothing returns nothing
 		set Z8[i]=true
 		set d8[i]=1
 		loop
-		exitwhen d8[i] > DENOMINATION_NUMBER //门派数
+			exitwhen d8[i] > DENOMINATION_NUMBER //门派数
 if ( udg_runamen[i] == d8[i] ) then
 				// 自由3级自动学技能begin
 				if d8[i] == 11 then
@@ -13352,7 +13260,7 @@ if ( udg_runamen[i] == d8[i] ) then
 					// 自由自动学的技能补属性begin
 					set S9=1
 					loop
-					exitwhen S9 > 20
+						exitwhen S9 > 20
 						if ( denomFirst[d8[i]] == MM9[S9] ) then
 							set udg_shanghaijiacheng[i]=udg_shanghaijiacheng[i] + udg_jueneishjc[S9]
 							call ModifyHeroStat(1, u, 0, udg_jueneiminjie[S9])
@@ -13368,11 +13276,11 @@ if ( udg_runamen[i] == d8[i] ) then
 				// 填充技能格子
 				set L7[i]=1
 				loop
-				exitwhen L7[i] > wugongshu[i]
+					exitwhen L7[i] > wugongshu[i]
 					if ( I7[( GetPlayerId(p) * 20 + L7[i] )] != 'AEfk' ) then
 					else
 						set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=denomFirst[d8[i]]
-					exitwhen true
+						exitwhen true
 					endif
 					set L7[i]=L7[i] + 1
 				endloop
@@ -13384,7 +13292,7 @@ if ( udg_runamen[i] == d8[i] ) then
 		set e9[i]=true
 		set d8[i]=1
 		loop
-		exitwhen d8[i] > DENOMINATION_NUMBER
+			exitwhen d8[i] > DENOMINATION_NUMBER
 			if d8[i] != 11 then
 				if ( ( udg_runamen[i] == d8[i] ) ) then
 					call UnitAddAbility(u, denomThird[d8[i]])
@@ -13394,11 +13302,11 @@ if ( udg_runamen[i] == d8[i] ) then
 					call SetPlayerName(p, "〓" + udg_menpainame[udg_runamen[i]] + "中级弟子〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 					set L7[i]=1
 					loop
-					exitwhen L7[i] > wugongshu[i]
+						exitwhen L7[i] > wugongshu[i]
 						if ( ( I7[( ( GetPlayerId(p) * 20 ) + L7[i] )] != 'AEfk' ) ) then
 						else
 							set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=denomThird[d8[i]]
-						exitwhen true
+							exitwhen true
 						endif
 						set L7[i]=L7[i] + 1
 					endloop
@@ -13411,7 +13319,7 @@ if ( udg_runamen[i] == d8[i] ) then
 		set d9[i]=true
 		set d8[i]=1
 		loop
-		exitwhen d8[i] > DENOMINATION_NUMBER
+			exitwhen d8[i] > DENOMINATION_NUMBER
 			if d8[i] != 11 then
 				if ( ( udg_runamen[i] == d8[i] ) ) then
 					call UnitAddAbility(u, denomSecond[d8[i]])
@@ -13421,11 +13329,11 @@ if ( udg_runamen[i] == d8[i] ) then
 					call UnitMakeAbilityPermanent(u, true, denomSecond[d8[i]])
 					set L7[i]=1
 					loop
-					exitwhen L7[i] > wugongshu[i]
+						exitwhen L7[i] > wugongshu[i]
 						if ( ( I7[( ( GetPlayerId(p) * 20 ) + L7[i] )] != 'AEfk' ) ) then
 						else
 							set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=denomSecond[d8[i]]
-						exitwhen true
+							exitwhen true
 						endif
 						set L7[i]=L7[i] + 1
 					endloop
@@ -13443,7 +13351,7 @@ call UnitAddAbility(u, denomThird[udg_runamen[i]])
 			// 自由自动学的技能补属性begin
 			set S9=1
 			loop
-			exitwhen S9 > 20
+				exitwhen S9 > 20
 				if ( denomThird[udg_runamen[i]] == MM9[S9] ) then
 					set udg_shanghaijiacheng[i]=udg_shanghaijiacheng[i] + udg_jueneishjc[S9]
 					call ModifyHeroStat(1, u, 0, udg_jueneiminjie[S9])
@@ -13456,11 +13364,11 @@ call UnitAddAbility(u, denomThird[udg_runamen[i]])
 			// 自由自动学的技能补属性end
 			set L7[i]=1
 			loop
-			exitwhen L7[i] > wugongshu[i]
+				exitwhen L7[i] > wugongshu[i]
 				if ( ( I7[( ( GetPlayerId(p) * 20 ) + L7[i] )] != 'AEfk' ) ) then
 				else
 					set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=denomThird[udg_runamen[i]]
-				exitwhen true
+					exitwhen true
 				endif
 				set L7[i]=L7[i] + 1
 			endloop
@@ -13527,7 +13435,7 @@ endfunction
 function YiShuHuiXie takes nothing returns nothing
 	set c7=1
 	loop
-	exitwhen c7 > 5
+		exitwhen c7 > 5
 		if ( ( GetPlayerController(Player(- 1 + ( c7 ))) == MAP_CONTROL_USER ) ) and UnitHasBuffBJ(udg_hero[c7], 'B014') == false then
 			call SetUnitLifePercentBJ(udg_hero[c7], GetUnitLifePercent(udg_hero[c7]) + I2R(yishu[c7]) / 2000. + 10 * GetUnitAbilityLevel(udg_hero[c7], 'A0D4') + guixihuixie[c7])
 			if ( UnitHaveItem(udg_hero[c7] , 'I01D') ) then
@@ -13553,10 +13461,10 @@ function Ua takes nothing returns boolean
 	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) ) // INLINED!!
 endfunction
 function Va takes nothing returns nothing
- local unit u=GetTriggerUnit()
- local player p=GetOwningPlayer(u)
- local integer i=1 + GetPlayerId(p)
- local real r=( 1 - RMinBJ(udg_shanghaixishou[i], .8) ) * GetEventDamage()
+ local unit u= GetTriggerUnit()
+ local player p= GetOwningPlayer(u)
+ local integer i= 1 + GetPlayerId(p)
+ local real r= ( 1 - RMinBJ(udg_shanghaixishou[i], .8) ) * GetEventDamage()
 	call SetWidgetLife(udg_hero[i], ( GetUnitState(udg_hero[i], UNIT_STATE_LIFE) + ( RMinBJ(udg_shanghaixishou[i], .8) * GetEventDamage() ) ))
 	if ( ( UnitHasBuffBJ(GetTriggerUnit(), 1110454340) ) and ( GetUnitAbilityLevel(GetTriggerUnit(), 1093678930) != 0 ) ) then
 		call SetWidgetLife(udg_hero[i], ( GetUnitState(udg_hero[i], UNIT_STATE_LIFE) + ( .3 * GetEventDamage() ) ))
@@ -13651,8 +13559,8 @@ function MQ takes nothing returns nothing
 	if ( GetUnitLevel(u) < 40 ) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
 		call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000等级不足40级无法传送")
 	else
-		if ( ( shengwang[i] < $9C4 ) ) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000江湖声望不足2500无法传送")
+		if ( ( shengwang[i] < 2800 ) ) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
+			call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000江湖声望不足2800无法传送")
 		else
 			set loc=GetRectCenter(Bg)
 			call SetUnitPositionLoc(u, loc)
@@ -13677,8 +13585,8 @@ function PQ takes nothing returns nothing
 	if ( GetUnitLevel(u) < 55 ) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
 		call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000等级不足55级无法传送")
 	else
-		if ( ( shengwang[i] < $FA0 ) ) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000江湖声望不足4000无法传送")
+		if ( ( shengwang[i] < 4800 ) ) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
+			call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000江湖声望不足4800无法传送")
 		else
 			set loc=GetRectCenter(Lg)
 			call SetUnitPositionLoc(u, loc)
@@ -13703,8 +13611,8 @@ function SQ takes nothing returns nothing
 	if ( GetUnitLevel(u) < 70 ) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
 		call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000等级不足70级无法传送")
 	else
-		if ( ( shengwang[i] < 6000 ) ) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000江湖声望不足6000无法传送")
+		if ( ( shengwang[i] < 6500 ) ) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
+			call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000江湖声望不足6500无法传送")
 		else
 			set loc=GetRectCenter(Rg)
 			call SetUnitPositionLoc(u, loc)
@@ -13748,9 +13656,9 @@ function IsYiZhan takes nothing returns boolean
 	return (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) and GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER and ( GetItemTypeId(GetManipulatedItem()) == 'I0BP' or GetItemTypeId(GetManipulatedItem()) == 'I0BQ' or GetItemTypeId(GetManipulatedItem()) == 'I0BR' or GetItemTypeId(GetManipulatedItem()) == 'I0BS' or GetItemTypeId(GetManipulatedItem()) == 'I0BT' or GetItemTypeId(GetManipulatedItem()) == 'I0BU' or GetItemTypeId(GetManipulatedItem()) == 'I0BV' or GetItemTypeId(GetManipulatedItem()) == 'I0BW' or GetItemTypeId(GetManipulatedItem()) == 'I0BX' or GetItemTypeId(GetManipulatedItem()) == 'I0AF' or GetItemTypeId(GetManipulatedItem()) == 'I0EX' ) // INLINED!!
 endfunction
 function YiZhanChuanSong takes nothing returns nothing
- local unit u=GetTriggerUnit()
- local player p=GetOwningPlayer(u)
- local integer i=1 + GetPlayerId(p)
+ local unit u= GetTriggerUnit()
+ local player p= GetOwningPlayer(u)
+ local integer i= 1 + GetPlayerId(p)
 	if GetItemTypeId(GetManipulatedItem()) == 'I0BP' then
 		call SetUnitPosition(udg_hero[i], 3763, - 9091)
 		call PanCameraToTimedForPlayer(GetTriggerPlayer(), 3763, - 9091, 0)
@@ -13797,15 +13705,20 @@ function YiZhanChuanSong takes nothing returns nothing
 		call DisplayTextToPlayer(p, 0, 0, "|CFF00ff33传送至聚贤庄")
 	endif
 	if GetItemTypeId(GetManipulatedItem()) == 'I0EX' then
-        call SetUnitPosition(udg_hero[i], 7271, 2955)
-        call PanCameraToTimedForPlayer(GetTriggerPlayer(), 7271, 2955, 0)
-        call DisplayTextToPlayer(p, 0, 0, "|CFF00ff33传送至蒙古大营")
-    endif
+		call SetUnitPosition(udg_hero[i], 7271, 2955)
+		call PanCameraToTimedForPlayer(GetTriggerPlayer(), 7271, 2955, 0)
+		call DisplayTextToPlayer(p, 0, 0, "|CFF00ff33传送至蒙古大营")
+	endif
 	if GetItemTypeId(GetManipulatedItem()) == 'I0AF' then
-		call DisplayTextToPlayer(p, 0, 0, "|CFF00ff33传送至琉球岛")
-		call SetUnitPosition(udg_hero[i], 10943, 6760)
-		call PanCameraToTimedForPlayer(p, 10943, 6760, 0)
-		call DisplayTextToPlayer(p, 0, 0, "|cffff0000你已深入到海外琉球岛，看看有什么发现吧")
+		if xiuxing[i] <= 5 then
+			call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00修行达到6才可以进入,你的修行不足，请前往地图指示点修行去吧")
+			call AdjustPlayerStateBJ(100, p, PLAYER_STATE_RESOURCE_GOLD)
+		else
+			call DisplayTextToPlayer(p, 0, 0, "|CFF00ff33传送至琉球岛")
+			call SetUnitPosition(udg_hero[i], 10943, 6760)
+			call PanCameraToTimedForPlayer(p, 10943, 6760, 0)
+			call DisplayTextToPlayer(p, 0, 0, "|cffff0000你已深入到海外琉球岛，看看有什么发现吧")
+		endif
 	endif
 	set p=null
 	set u=null
@@ -13878,7 +13791,7 @@ function x5 takes nothing returns nothing
  local integer i= 1
 	set i=1
 	loop
-	exitwhen i > 10
+		exitwhen i > 10
 		call createitemloc(gudong[i] , v7[9])
 		if ( UnitHaveItem(u , gudong[i]) ) then
 			call DisplayTimedTextToPlayer(p, 0, 0, 30, "|cff00ff00" + GetItemName(bj_lastCreatedItem) + "：" + I2S(pd[i]) + " ( " + I2S(nd[i]) + " ， " + I2S(od[i]) + " )")
@@ -13892,30 +13805,6 @@ function x5 takes nothing returns nothing
 	set p=null
 endfunction
 //卖古董
-function z5 takes nothing returns boolean
-	return ( ( GetItemTypeId(GetManipulatedItem()) == 1227896113 ) )
-endfunction
-function A5 takes nothing returns nothing
- local unit u= GetTriggerUnit()
- local player p= GetOwningPlayer(u)
- local integer i= 1
-	loop
-	exitwhen i > 10
-		if ( GetItemTypeId(UnitItemInSlotBJ(u, 1)) == gudong[i] ) then
-			if not (YDWEBitwise_AND(deputy[(1 + GetPlayerId(p) )] , ((1 ) * YDWEBitwise___C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
-				call DisplayTimedTextToPlayer(p, 0, 0, 30, ( "|CFF00FF00卖出" + GetItemName(UnitItemInSlotBJ(u, 1)) + "，获得金钱+" + I2S(pd[i]) ))
-				call AdjustPlayerStateBJ(pd[i], p, PLAYER_STATE_RESOURCE_GOLD)
-			else
-				call DisplayTimedTextToPlayer(p, 0, 0, 30, ( "|CFF00FF00你是鉴定师，以最高价格卖出" + GetItemName(UnitItemInSlotBJ(u, 1)) + "，获得金钱+" + I2S(od[i]) ))
-				call AdjustPlayerStateBJ(od[i], p, PLAYER_STATE_RESOURCE_GOLD)
-			endif
-			call RemoveItem(UnitItemInSlotBJ(u, 1))
-		endif
-		set i=i + 1
-	endloop
-	set u=null
-	set p=null
-endfunction
 function B5 takes nothing returns boolean
 	return ( ( GetItemTypeId(GetManipulatedItem()) == 1227896114 ) )
 endfunction
@@ -13926,12 +13815,12 @@ function b5 takes nothing returns nothing
  local integer j= 1
 	set j=1
 	loop
-	exitwhen j > 6
+		exitwhen j > 6
 		set i=1
 		loop
-		exitwhen i > 10
+			exitwhen i > 10
 			if ( ( GetItemTypeId(UnitItemInSlotBJ(u, j)) == gudong[i] ) ) then
-				if not (YDWEBitwise_AND(deputy[(1 + GetPlayerId(p) )] , ((1 ) * YDWEBitwise___C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
+				if not (YDWEBitwise_AND(deputy[(1 + GetPlayerId(p) )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
 					call DisplayTimedTextToPlayer(p, 0, 0, 30, ( "|CFF00FF00卖出" + ( GetItemName(UnitItemInSlotBJ(u, j)) + ( "，获得金钱+" + I2S(pd[i]) ) ) ))
 					call AdjustPlayerStateBJ(pd[i], GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
 				else
@@ -13952,11 +13841,11 @@ function CollectGuDong_Conditions takes nothing returns boolean
 	return ( ( GetItemTypeId(GetManipulatedItem()) == 'I093' ) ) or ( ( GetItemTypeId(GetManipulatedItem()) == 'I094' ) ) or ( ( GetItemTypeId(GetManipulatedItem()) == 'I095' ) ) or ( ( GetItemTypeId(GetManipulatedItem()) == 'I096' ) )
 endfunction
 function CollectGuDong_Actions takes nothing returns nothing
- local unit u=GetTriggerUnit()
- local player p=GetOwningPlayer(u)
+ local unit u= GetTriggerUnit()
+ local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
 	if GetItemTypeId(GetManipulatedItem()) == 'I093' then
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
 			if udg_gudongD == 0 then
 				call DisplayTimedTextToPlayer(p, 0, 0, 15, "|CFF00FF00我自幼喜欢收集古董，如果你能收集一套D等级古董，我将送你一本秘籍")
 				set udg_gudongD=1
@@ -13968,7 +13857,7 @@ function CollectGuDong_Actions takes nothing returns nothing
 					call DisplayTimedTextToPlayer(p, 0, 0, 15, "|CFF00FF00谢谢你的古董，这本江湖秘籍送给你了")
 					call unitadditembyidswapped(udg_jianghu[GetRandomInt(1, 18)] , u)
 					set udg_jdds[i]=udg_jdds[i] + 2
-					if udg_jdds[i] <= 10 and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( JIAN_DING) - 1)])) != 0) and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
+					if udg_jdds[i] <= 10 and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
 						call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00您的鉴定师已经得了" + I2S(udg_jdds[i]) + "分，得到10分可获得鉴定大师哦")
 					endif
 					//if Ce[1+GetPlayerId(p)]==4 then
@@ -13984,7 +13873,7 @@ function CollectGuDong_Actions takes nothing returns nothing
 			call DisplayTimedTextToPlayer(p, 0, 0, 15, "|CFF00FF00非鉴定师不能接此任务")
 		endif
 	elseif GetItemTypeId(GetManipulatedItem()) == 'I094' then
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
 			if udg_gudongC == 0 then
 				call DisplayTimedTextToPlayer(p, 0, 0, 15, "|CFF00FF00我自幼喜欢收集古董，如果你能收集一套C等级古董，我将送你一本秘籍")
 				set udg_gudongC=1
@@ -13996,7 +13885,7 @@ function CollectGuDong_Actions takes nothing returns nothing
 					call DisplayTimedTextToPlayer(p, 0, 0, 15, "|CFF00FF00谢谢你的古董，这本绝学秘籍送给你了")
 					call unitadditembyidswapped(udg_juexue[GetRandomInt(1, 10)] , u)
 					set udg_jdds[i]=udg_jdds[i] + 4
-					if udg_jdds[i] <= 10 and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( JIAN_DING) - 1)])) != 0) and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
+					if udg_jdds[i] <= 10 and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
 						call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00您的鉴定师已经得了" + I2S(udg_jdds[i]) + "分，得到10分可获得鉴定大师哦")
 					endif
 					//   if Ce[1+GetPlayerId(p)]==4 then
@@ -14012,7 +13901,7 @@ function CollectGuDong_Actions takes nothing returns nothing
 			call DisplayTimedTextToPlayer(p, 0, 0, 15, "|CFF00FF00非鉴定师不能接此任务")
 		endif
 	elseif GetItemTypeId(GetManipulatedItem()) == 'I095' then
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
 			if udg_gudongB == 0 then
 				call DisplayTimedTextToPlayer(p, 0, 0, 15, "|CFF00FF00我自幼喜欢收集古董，如果你能收集一套B等级古董，我将送你一本秘籍")
 				set udg_gudongB=1
@@ -14024,7 +13913,7 @@ function CollectGuDong_Actions takes nothing returns nothing
 					call DisplayTimedTextToPlayer(p, 0, 0, 15, "|CFF00FF00谢谢你的古董，这本绝内秘籍送给你了")
 					call unitadditembyidswapped(udg_juenei[GetRandomInt(1, 8)] , u)
 					set udg_jdds[i]=udg_jdds[i] + 6
-					if udg_jdds[i] <= 10 and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( JIAN_DING) - 1)])) != 0) and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
+					if udg_jdds[i] <= 10 and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
 						call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00您的鉴定师已经得了" + I2S(udg_jdds[i]) + "分，得到10分可获得鉴定大师哦")
 					endif
 					//   if Ce[1+GetPlayerId(p)]==4 then
@@ -14040,7 +13929,7 @@ function CollectGuDong_Actions takes nothing returns nothing
 			call DisplayTimedTextToPlayer(p, 0, 0, 15, "|CFF00FF00非鉴定师不能接此任务")
 		endif
 	elseif GetItemTypeId(GetManipulatedItem()) == 'I096' then
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
 			if udg_gudongA == 0 then
 				call DisplayTimedTextToPlayer(p, 0, 0, 15, "|CFF00FF00我自幼喜欢收集古董，如果你能收集两个A等级古董，我将送你一本秘籍")
 				set udg_gudongA=1
@@ -14052,7 +13941,7 @@ function CollectGuDong_Actions takes nothing returns nothing
 						call DisplayTimedTextToPlayer(p, 0, 0, 15, "|CFF00FF00谢谢你的古董，这本残章送给你了")
 						call unitadditembyidswapped(udg_canzhang[GetRandomInt(1, 10)] , u)
 						set udg_jdds[i]=udg_jdds[i] + 10
-						if udg_jdds[i] <= 10 and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( JIAN_DING) - 1)])) != 0) and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
+						if udg_jdds[i] <= 10 and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
 							call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00您的鉴定师已经得了" + I2S(udg_jdds[i]) + "分，得到10分可获得鉴定大师哦")
 						endif
 						//   if Ce[1+GetPlayerId(p)]==4 then
@@ -14072,7 +13961,7 @@ function CollectGuDong_Actions takes nothing returns nothing
 			call DisplayTimedTextToPlayer(p, 0, 0, 15, "|CFF00FF00非鉴定师不能接此任务")
 		endif
 	endif
-	if udg_jdds[i] >= 10 and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( JIAN_DING) - 1)])) != 0) and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
+	if udg_jdds[i] >= 10 and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
 		set wuxing[i]=wuxing[i] + 10 // 悟性加10
 call Deputy_setMaster(i , JIAN_DING)
 		// call SaveStr(YDHT, GetHandleId(p), GetHandleId(p),"〓鉴定大师〓"+LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
@@ -14083,197 +13972,6 @@ call Deputy_setMaster(i , JIAN_DING)
 	set p=null
 endfunction
 
-//剑意系统
-function c5 takes nothing returns boolean
-	return ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) and GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) // INLINED!!
-endfunction
-function D5 takes nothing returns nothing
- local unit u= GetTriggerUnit()
- local player p= GetOwningPlayer(u)
- local integer i= 1 + GetPlayerId(p)
-	if ( GetItemType(UnitItemInSlotBJ(u, 1)) != ITEM_TYPE_ARTIFACT and GetItemType(UnitItemInSlotBJ(u, 2)) != ITEM_TYPE_ARTIFACT and GetItemType(UnitItemInSlotBJ(u, 3)) != ITEM_TYPE_ARTIFACT and GetItemType(UnitItemInSlotBJ(u, 4)) != ITEM_TYPE_ARTIFACT and GetItemType(UnitItemInSlotBJ(u, 5)) != ITEM_TYPE_ARTIFACT and GetItemType(UnitItemInSlotBJ(u, 6)) != ITEM_TYPE_ARTIFACT ) then
-		call SetUnitPosition(u, - 10510, - 9660)
-		call PanCameraToTimedForPlayer(p, - 10510, - 9660, 0)
-	else
-		call DisplayTextToPlayer(p, 0, 0, "|CFF34FF00独孤求败：年轻人，你的杀气太重了，看来你我无缘啊")
-	endif
-	set u=null
-	set p=null
-endfunction
-function XiuWei takes unit u,integer num,integer id,string s returns nothing
- local player p= GetOwningPlayer(u)
- local integer i= 1 + GetPlayerId(p)
-	if ( wugongxiuwei[i] >= num ) then
-		call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000你已经完成这个修为了")
-	elseif ( wugongxiuwei[i] < num - 1 ) then
-		call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000你还需要完成上一层修为")
-	elseif ( ( ( xiuxing[i] < num ) or ( UnitHaveItem(u , id) == false ) ) ) then
-		call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000条件不足")
-	else
-		call RemoveItem(FetchUnitItem(u , id))
-		set udg_shanghaijiacheng[i]=udg_shanghaijiacheng[i] + 0.05
-		set wugongxiuwei[i]=num
-		call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00修行成功，武学修为达到第" + s + "层，武功提升5%")
-	endif
-	set p=null
-endfunction
-function F5 takes nothing returns boolean
-	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 1227896136 ) ) // INLINED!!
-endfunction
-function G5 takes nothing returns nothing
-	call XiuWei(GetTriggerUnit() , 1 , 'I01L' , "一")
-endfunction
-function I5 takes nothing returns boolean
-	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 1227896137 ) ) // INLINED!!
-endfunction
-function l5 takes nothing returns nothing
-	call XiuWei(GetTriggerUnit() , 2 , 1227895094 , "二")
-endfunction
-function K5 takes nothing returns boolean
-	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 'I05G' ) ) // INLINED!!
-endfunction
-function L5 takes nothing returns nothing
-	call XiuWei(GetTriggerUnit() , 3 , 1227895091 , "三")
-endfunction
-function N5 takes nothing returns boolean
-	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 1227896134 ) ) // INLINED!!
-endfunction
-function O5 takes nothing returns nothing
-	call XiuWei(GetTriggerUnit() , 4 , 'I02S' , "四")
-endfunction
-function Q5 takes nothing returns boolean
-	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 1227896138 ) ) // INLINED!!
-endfunction
-function R5 takes nothing returns nothing
-	call XiuWei(GetTriggerUnit() , 5 , 'I00P' , "五")
-endfunction
-function LingWuJY_Conditions takes nothing returns boolean
-	return ( ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 1227896914 ) )
-endfunction
-function LingWuJY takes nothing returns nothing
- local trigger t=GetTriggeringTrigger()
- local integer id=GetHandleId(t)
- local integer cx=LoadInteger(YDHT, id, - $3021938A)
- local unit u=GetTriggerUnit()
- local player p=GetOwningPlayer(u)
- local integer i=1 + GetPlayerId(p)
-	set cx=cx + 3
-	call SaveInteger(YDHT, id, - $3021938A, cx)
-	call SaveInteger(YDHT, id, - $1317DA19, cx)
-	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, i)
-	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, u)
-	if ( ( (IsUnitType((u ), ( UNIT_TYPE_HERO)) != null) == false ) ) then // INLINED!!
-		call AdjustPlayerStateBJ(5, p, PLAYER_STATE_RESOURCE_LUMBER)
-		call DisplayTextToPlayer(Player(- 1 + i), 0, 0, "|cFFFF0000需要主角才能领悟")
-	else
-		if ( ( wugongxiuwei[i] < 1 ) ) then
-			call AdjustPlayerStateBJ(5, p, PLAYER_STATE_RESOURCE_LUMBER)
-			call DisplayTextToPlayer(Player(- 1 + i), 0, 0, "|cFFFF0000你的武功修为不足")
-		else
-			if ( ( yd[i] == 1 ) ) then
-				set wuxing[i]=( wuxing[i] - xd[i] )
-			elseif ( ( yd[i] == 2 ) ) then
-				set gengu[i]=( gengu[i] - xd[i] )
-			elseif ( ( yd[i] == 3 ) ) then
-				set danpo[i]=( danpo[i] - xd[i] )
-			elseif ( ( yd[i] == 4 ) ) then
-				set yishu[i]=( yishu[i] - xd[i] )
-			elseif ( ( yd[i] == 5 ) ) then
-				set fuyuan[i]=( fuyuan[i] - xd[i] )
-			elseif ( ( yd[i] == 6 ) ) then
-				set jingmai[i]=( jingmai[i] - xd[i] )
-			endif
-			if ( ( wugongxiuwei[i] == 1 ) ) then
-				set xd[i]=GetRandomInt(xd[i], 2)
-			elseif ( ( wugongxiuwei[i] == 2 ) ) then
-				set xd[i]=GetRandomInt(xd[i], 4)
-			elseif ( ( wugongxiuwei[i] == 3 ) ) then
-				set xd[i]=GetRandomInt(xd[i], 6)
-			elseif ( ( wugongxiuwei[i] == 4 ) ) then
-				set xd[i]=GetRandomInt(xd[i], 8)
-			elseif ( ( wugongxiuwei[i] == 5 ) ) then
-				set xd[i]=GetRandomInt(xd[i], 10)
-			endif
-			set yd[i]=0
-			call DisplayTimedTextToPlayer(Player(- 1 + i), 0, 0, 20., ( "|cff00ff00恭喜领悟到第" + ( I2S(xd[i]) + "层剑意" ) ))
-			call DisplayTimedTextToPlayer(Player(- 1 + i), 0, 0, 20., "|cffffff00输入聊天信息“jy”可以把剑意转化为一种性格属性，但是每次转化需要消耗5个珍稀币")
-			if ( ( xd[i] == 2 ) ) then
-				call DestroyEffect(vd[i])
-				call AddSpecialEffectTargetUnitBJ("chest", u, "war3mapImported\\fairywing.MDX")
-				set vd[i]=bj_lastCreatedEffect
-			elseif ( ( xd[i] == 4 ) ) then
-				call DestroyEffect(vd[i])
-				call AddSpecialEffectTargetUnitBJ("chest", u, "war3mapImported\\fenlie.MDX")
-				set vd[i]=bj_lastCreatedEffect
-			elseif ( ( xd[i] == 6 ) ) then
-				call DestroyEffect(vd[i])
-				call AddSpecialEffectTargetUnitBJ("chest", u, "war3mapImported\\HeroByakuyaWing.MDX")
-				set vd[i]=bj_lastCreatedEffect
-			elseif ( ( xd[i] == 8 ) ) then
-				call DestroyEffect(vd[i])
-				call AddSpecialEffectTargetUnitBJ("chest", u, "war3mapImported\\AWING.MDX")
-				set vd[i]=bj_lastCreatedEffect
-			elseif ( ( xd[i] == 10 ) ) then
-				call DestroyEffect(vd[i])
-				call AddSpecialEffectTargetUnitBJ("chest", u, "war3mapImported\\FWIND.MDX")
-				set vd[i]=bj_lastCreatedEffect
-			endif
-		endif
-	endif
-	call FlushChildHashtable(YDHT, id * cx)
-	set t=null
-	set u=null
-	set p=null
-endfunction
-//转化剑意
-function ZhuanHuaJY_Conditions takes nothing returns boolean
-	return ( ( Ad[( 1 + GetPlayerId(GetTriggerPlayer()) )] ) )
-endfunction
-function ZhuanHuaJY takes nothing returns nothing
- local player p= GetTriggerPlayer()
- local integer i= 1 + GetPlayerId(p)
-	set Ad[i]=false
-	if ( ( GetClickedButton() == B8[i] ) ) then
-		call DialogClear(v8[i])
-	else
-		if ( ( yd[i] == 1 ) ) then
-			set wuxing[i]=( wuxing[i] - xd[i] )
-		elseif ( ( yd[i] == 2 ) ) then
-			set gengu[i]=( gengu[i] - xd[i] )
-		elseif ( ( yd[i] == 3 ) ) then
-			set danpo[i]=( danpo[i] - xd[i] )
-		elseif ( ( yd[i] == 4 ) ) then
-			set yishu[i]=( yishu[i] - xd[i] )
-		elseif ( ( yd[i] == 5 ) ) then
-			set fuyuan[i]=( fuyuan[i] - xd[i] )
-		elseif ( ( yd[i] == 6 ) ) then
-			set jingmai[i]=( jingmai[i] - xd[i] )
-		endif
-		if ( ( GetClickedButton() == w8[i] ) ) then
-			set gengu[i]=( gengu[i] + xd[i] )
-			set yd[i]=2
-		elseif ( ( GetClickedButton() == y8[i] ) ) then
-			set wuxing[i]=( wuxing[i] + xd[i] )
-			set yd[i]=1
-		elseif ( ( GetClickedButton() == z8[i] ) ) then
-			set fuyuan[i]=( fuyuan[i] + xd[i] )
-			set yd[i]=5
-		elseif ( ( GetClickedButton() == A8[i] ) ) then
-			set danpo[i]=( danpo[i] + xd[i] )
-			set yd[i]=3
-		elseif ( ( GetClickedButton() == a8[i] ) ) then
-			set yishu[i]=( yishu[i] + xd[i] )
-			set yd[i]=4
-		elseif ( ( GetClickedButton() == x8[i] ) ) then
-			set jingmai[i]=( jingmai[i] + xd[i] )
-			set yd[i]=6
-		endif
-		call AdjustPlayerStateBJ(- 5, p, PLAYER_STATE_RESOURCE_LUMBER)
-		call DisplayTextToPlayer(p, 0, 0, "|cFF99FFCC转化成功|r")
-		call DialogClear(v8[i])
-	endif
-	set p=null
-endfunction
 
 //--------守家积分换物品系统开始--------//
 function IsJiFenHuan takes item it returns boolean
@@ -14454,7 +14152,7 @@ function Forget takes player p,integer num returns nothing
 	else
 		set S9=1
 		loop
-		exitwhen S9 > 20
+			exitwhen S9 > 20
 			if ( ( I7[20 * ( i - 1 ) + num] == MM9[S9] ) ) then
 				set udg_shanghaijiacheng[i]=( udg_shanghaijiacheng[i] - udg_jueneishjc[S9] )
 				call ModifyHeroStat(1, udg_hero[i], 1, udg_jueneiminjie[S9])
@@ -14502,7 +14200,7 @@ set level=GetUnitAbilityLevel(udg_hero[i], I7[20 * ( i - 1 ) + num])
 				// 绍敏郡主称号 增加值翻倍
 				set add=add * 2
 			endif
-			if (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( YA_HUAN) - 1)])) != 0) then // INLINED!!
+			if (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( YA_HUAN) - 1)])) != 0) then // INLINED!!
 				// 郡主称号 增加值翻倍
 				set add=add * 2
 			endif
@@ -14546,7 +14244,7 @@ endfunction
 function GetBookNum takes integer id returns integer
  local integer i= 1
 	loop
-	exitwhen i > MAX_WU_GONG_NUM
+		exitwhen i > MAX_WU_GONG_NUM
 		if LoadInteger(YDHT, StringHash("武学") + i, 1) == id then
 			return i
 		endif
@@ -14579,7 +14277,7 @@ function LearnJiNeng takes unit l__ut,item it returns nothing
 			else
 				set L7[i]=1
 				loop
-				exitwhen L7[i] > wugongshu[i]
+					exitwhen L7[i] > wugongshu[i]
 					if ( I7[20 * ( i - 1 ) + L7[i]] != 'AEfk' ) then
 						if ( ( L7[i] == wugongshu[i] ) ) then
 							call DisplayTextToPlayer(p, 0, 0, "|CFFFF0033学习技能已达上限，请先遗忘部分技能")
@@ -14599,7 +14297,7 @@ function LearnJiNeng takes unit l__ut,item it returns nothing
 						endif
 						set S9=1
 						loop
-						exitwhen S9 > 20
+							exitwhen S9 > 20
 							if ( id == MM9[S9] ) then
 								set udg_shanghaijiacheng[i]=udg_shanghaijiacheng[i] + udg_jueneishjc[S9]
 								call ModifyHeroStat(1, u, 0, udg_jueneiminjie[S9])
@@ -14609,7 +14307,7 @@ function LearnJiNeng takes unit l__ut,item it returns nothing
 							endif
 							set S9=S9 + 1
 						endloop
-					exitwhen true
+						exitwhen true
 					endif
 					set L7[i]=L7[i] + 1
 				endloop
@@ -14862,9 +14560,9 @@ function IsWuHunShi takes nothing returns boolean
 	return false
 endfunction
 function WuHunShi takes nothing returns nothing
- local unit u=GetTriggerUnit()
- local player p=GetOwningPlayer(u)
- local integer i=1 + GetPlayerId(p)
+ local unit u= GetTriggerUnit()
+ local player p= GetOwningPlayer(u)
+ local integer i= 1 + GetPlayerId(p)
 	call DialogClear(wuhun)
 	call RemoveItem(GetManipulatedItem())
 	call DialogSetMessage(wuhun, "请选择要激活的残章")
@@ -14904,8 +14602,8 @@ function WuHunShi takes nothing returns nothing
 	set p=null
 endfunction
 function JiHuoCanZhang takes nothing returns nothing
- local player p=GetTriggerPlayer()
- local integer i=1 + GetPlayerId(p)
+ local player p= GetTriggerPlayer()
+ local integer i= 1 + GetPlayerId(p)
 	if GetClickedButton() == wuhun1[1] then
 		call DisplayTextToPlayer(p, 0, 0, "|CFF00ff33恭喜激活了反两仪刀法第1式：行气如虹")
 		set Jd[i]=1
@@ -14956,10 +14654,10 @@ function pR takes nothing returns boolean
 	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 1227895856 ) ) // INLINED!!
 endfunction
 function LearnNeiGong takes nothing returns nothing
- local button b=GetClickedButton()
- local unit u=LoadUnitHandle(YDHT, StringHash("门派内功"), 3)
- local integer i=1 + GetPlayerId(GetOwningPlayer(u))
- local integer id=LoadInteger(YDHT, StringHash("门派内功"), 4)
+ local button b= GetClickedButton()
+ local unit u= LoadUnitHandle(YDHT, StringHash("门派内功"), 3)
+ local integer i= 1 + GetPlayerId(GetOwningPlayer(u))
+ local integer id= LoadInteger(YDHT, StringHash("门派内功"), 4)
  local player p= GetOwningPlayer(u)
 	if b == LoadButtonHandle(YDHT, StringHash("门派内功"), 1) then
 		call UnitAddAbility(u, denomFourth[id])
@@ -14969,11 +14667,11 @@ function LearnNeiGong takes nothing returns nothing
 		call SetPlayerName(p, "〓" + udg_menpainame[udg_runamen[i]] + "长老〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 		set L7[i]=1
 		loop
-		exitwhen L7[i] > wugongshu[i]
+			exitwhen L7[i] > wugongshu[i]
 			if ( ( I7[( ( ( i - 1 ) * 20 ) + L7[i] )] != 'AEfk' ) ) then
 			else
 				set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=denomFourth[id]
-			exitwhen true
+				exitwhen true
 			endif
 			set L7[i]=L7[i] + 1
 		endloop
@@ -14986,11 +14684,11 @@ function LearnNeiGong takes nothing returns nothing
 				call UnitAddAbility(u, denomFifth[id])
 				set L7[i]=1
 				loop
-				exitwhen L7[i] > wugongshu[i]
+					exitwhen L7[i] > wugongshu[i]
 					if ( ( I7[( ( ( i - 1 ) * 20 ) + L7[i] )] != 'AEfk' ) ) then
 					else
 						set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=denomFifth[id]
-					exitwhen true
+						exitwhen true
 					endif
 					set L7[i]=L7[i] + 1
 				endloop
@@ -15014,11 +14712,11 @@ set fuyuan[i]=fuyuan[i] + 2
 			call UnitMakeAbilityPermanent(u, true, denomFifth[id])
 			set L7[i]=1
 			loop
-			exitwhen L7[i] > wugongshu[i]
+				exitwhen L7[i] > wugongshu[i]
 				if ( ( I7[( ( ( i - 1 ) * 20 ) + L7[i] )] != 'AEfk' ) ) then
 				else
 					set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=denomFifth[id]
-				exitwhen true
+					exitwhen true
 				endif
 				set L7[i]=L7[i] + 1
 			endloop
@@ -15038,13 +14736,13 @@ set fuyuan[i]=fuyuan[i] + 2
 	set p=null
 endfunction
 function qR takes nothing returns nothing
- local integer id=GetHandleId(GetTriggeringTrigger())
- local integer cx=LoadInteger(YDHT, id, - $3021938A)
- local integer i=1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
- local button b1=null
- local button b2=null
- local trigger t=CreateTrigger()
- local integer j=0
+ local integer id= GetHandleId(GetTriggeringTrigger())
+ local integer cx= LoadInteger(YDHT, id, - $3021938A)
+ local integer i= 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
+ local button b1= null
+ local button b2= null
+ local trigger t= CreateTrigger()
+ local integer j= 0
 	set cx=cx + 3
 	call SaveInteger(YDHT, id, - $3021938A, cx)
 	call SaveInteger(YDHT, id, - $1317DA19, cx)
@@ -15061,7 +14759,7 @@ function qR takes nothing returns nothing
 			else
 				set j=1
 				loop
-				exitwhen j > wugongshu[i]
+					exitwhen j > wugongshu[i]
 					if ( I7[GetPlayerId(GetOwningPlayer(GetTriggerUnit())) * 20 + j] ) != 'AEfk' then
 						//call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"j="+I2S(j))
 						if j == wugongshu[i] then
@@ -15073,15 +14771,10 @@ function qR takes nothing returns nothing
 						set bj_forLoopBIndex=1
 						set bj_forLoopBIndexEnd=DENOMINATION_NUMBER
 						loop
-						exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
+							exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
 							if ( ( udg_runamen[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 11 ) ) then
 								call DisplayTimedTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, 15, "自由门派没有内功")
-							exitwhen true
-							elseif ( udg_runamen[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 13 ) then
-								call DisplayTimedTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, 15, "该门派不在此学习内功")
-								call unitadditembyidswapped(1227895642 , GetTriggerUnit())
-								set O8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
-							exitwhen true
+								exitwhen true
 							else
 								if ( ( udg_runamen[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == bj_forLoopBIndex ) ) then
 									set udg_menpaineigong=DialogCreate()
@@ -15099,7 +14792,7 @@ function qR takes nothing returns nothing
 							endif
 							set bj_forLoopBIndex=bj_forLoopBIndex + 1
 						endloop
-					exitwhen true
+						exitwhen true
 					endif
 					set j=j + 1
 				endloop
@@ -15111,86 +14804,12 @@ function qR takes nothing returns nothing
 	set b2=null
 	set t=null
 endfunction
-function IsMuRongNeiGong takes nothing returns boolean
-	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 'I09F' ) ) // INLINED!!
-endfunction
-function MuRongNeiGong takes nothing returns nothing
- local unit u= GetTriggerUnit()
- local player p= GetOwningPlayer(u)
- local integer i= 1 + GetPlayerId(p)
- local integer j= 1
-	if ( udg_runamen[i] != 13 ) then
-		call DisplayTextToPlayer(p, 0, 0, "|CFF34FF00你没有拜入姑苏慕容")
-	else
-		if ( UnitHaveItem(u , 1227895642) == false ) then
-			call DisplayTextToPlayer(p, 0, 0, "|CFF34FF00你必须携带门派毕业卷才能获得修习资格")
-		else
-			if GetUnitAbilityLevel(u, denomSecond[udg_runamen[i]]) < 2 then
-				call DisplayTimedTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, 15, "你的" + GetAbilityName(denomSecond[udg_runamen[i]]) + "|r还没修炼到位")
-			else
-				if ( O8[i] == 1 ) then
-					call DisplayTextToPlayer(p, 0, 0, "|CFF34FF00你已经修行过了")
-				else
-					set j=1
-					loop
-					exitwhen j > wugongshu[i]
-						if ( I7[( i - 1 ) * 20 + j] ) != 'AEfk' then
-							if j == wugongshu[i] then
-								call DisplayTextToPlayer(p, 0, 0, "|CFF34FF00学习技能已达上限，请先遗忘部分技能")
-							endif
-						else
-							set O8[i]=1
-							call RemoveItem(FetchUnitItem(u , 1227895642))
-							if danpo[i] > 20 then
-								call UnitAddAbility(u, denomFifth[13])
-								call UnitMakeAbilityPermanent(u, true, denomFifth[13])
-								call DisplayTextToPlayer(p, 0, 0, "|cff00FF66恭喜领悟技能：" + GetObjectName(denomFifth[13]))
-								call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FF66玩家" + I2S(1 + GetPlayerId(p)) + "成为" + udg_menpainame[udg_runamen[i]] + "长老")
-								call SetPlayerName(p, "〓" + udg_menpainame[udg_runamen[i]] + "长老〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-								set L7[i]=1
-								loop
-								exitwhen L7[i] > wugongshu[i]
-									if ( ( I7[( ( ( i - 1 ) * 20 ) + L7[i] )] != 'AEfk' ) ) then
-									else
-										set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=denomFifth[13]
-									exitwhen true
-									endif
-									set L7[i]=L7[i] + 1
-								endloop
-							else
-								call UnitAddAbility(u, denomFourth[13])
-								call UnitMakeAbilityPermanent(u, true, denomFourth[13])
-								call DisplayTextToPlayer(p, 0, 0, "|cff00FF66你还是先掌握" + GetObjectName(denomFourth[13]) + "吧")
-								call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FF66玩家" + I2S(1 + GetPlayerId(p)) + "成为" + udg_menpainame[udg_runamen[i]] + "长老")
-								call SetPlayerName(p, "〓" + udg_menpainame[udg_runamen[i]] + "长老〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-								set L7[i]=1
-								loop
-								exitwhen L7[i] > wugongshu[i]
-									if ( ( I7[( ( ( i - 1 ) * 20 ) + L7[i] )] != 'AEfk' ) ) then
-									else
-										set I7[( ( ( i - 1 ) * 20 ) + L7[i] )]=denomFourth[13]
-									exitwhen true
-									endif
-									set L7[i]=L7[i] + 1
-								endloop
-							endif
-						exitwhen true
-						endif
-						set j=j + 1
-					endloop
-				endif
-			endif
-		endif
-	endif
-	set u=null
-	set p=null
-endfunction
 
 //===========================================================================
 //合成物品
 function HeCheng_Conditions takes nothing returns boolean
 	//call BJDebugMsg(I2S(GetUnitTypeId(GetTriggerUnit())))
-	return (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) or GetItemTypeId(GetManipulatedItem()) == 'I099' or GetItemTypeId(GetManipulatedItem()) == 'I09A' or GetItemTypeId(GetManipulatedItem()) == 'I09B' or GetItemTypeId(GetManipulatedItem()) == 'I09D' or GetItemTypeId(GetManipulatedItem()) == 'I0DL' or GetItemTypeId(GetManipulatedItem()) == 'I0DJ' or GetItemTypeId(GetManipulatedItem()) == 'I02T' // INLINED!!
+	return (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) or GetItemTypeId(GetManipulatedItem()) == 'I099' or GetItemTypeId(GetManipulatedItem()) == 'I09A' or GetItemTypeId(GetManipulatedItem()) == 'I09B' or GetItemTypeId(GetManipulatedItem()) == 'I09D' or GetItemTypeId(GetManipulatedItem()) == 'I0DL' or GetItemTypeId(GetManipulatedItem()) == 'I0DJ' or GetItemTypeId(GetManipulatedItem()) == 'I02T' // INLINED!!
 endfunction
 function HeCheng_Actions takes nothing returns nothing
 	//二合一
@@ -15254,7 +14873,7 @@ function DZDSBuShuXing takes unit u returns nothing
  local integer i= 1 + GetPlayerId(GetOwningPlayer(u))
 	
 	loop
-	exitwhen j >= 7
+		exitwhen j >= 7
 		set it=UnitItemInSlotBJ(u, j)
 		set ii7=ModuloInteger(( GetItemUserData(it) / 100 ), 10)
 		set ii8=ModuloInteger(( GetItemUserData(it) / 10 ), 10)
@@ -15305,14 +14924,14 @@ function DZDSBuShuXing takes unit u returns nothing
 endfunction
 //为合成的武器增加耐久度
 function WuPinHeCheng takes nothing returns nothing
- local item it=(bj_lastCombinedItem) // INLINED!!
+ local item it= (bj_lastCombinedItem) // INLINED!!
  local integer i= 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
-	if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) and LoadBoolean(YDHT, GetHandleId(GetOwningPlayer(GetTriggerUnit())), GetItemTypeId(it)) == false and udg_dzds[i] <= 5 then // INLINED!!
+	if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) and LoadBoolean(YDHT, GetHandleId(GetOwningPlayer(GetTriggerUnit())), GetItemTypeId(it)) == false and udg_dzds[i] <= 5 then // INLINED!!
 		set udg_dzds[i]=udg_dzds[i] + 1
 		call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, "|CFF66FF00恭喜您锻造成功第" + I2S(udg_dzds[i]) + "件装备，锻造成功5件装备可以获得锻造大师哦")
 		call SaveBoolean(YDHT, GetHandleId(GetOwningPlayer(GetTriggerUnit())), GetItemTypeId(it), true)
 	endif
-	if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) and udg_dzds[i] >= 5 and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) and udg_dzds[i] >= 5 and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 		call Deputy_setMaster(i , DUAN_ZAO)
 		call DZDSBuShuXing(udg_hero[i])
 		// call SaveStr(YDHT, GetHandleId(GetOwningPlayer(GetTriggerUnit())), GetHandleId(GetOwningPlayer(GetTriggerUnit())),"〓锻造大师〓"+LoadStr(YDHT, GetHandleId(GetOwningPlayer(GetTriggerUnit())), GetHandleId(GetOwningPlayer(GetTriggerUnit()))))
@@ -15323,11 +14942,11 @@ function WuPinHeCheng takes nothing returns nothing
 endfunction
 
 function HeCheng2_Dzds takes integer i returns nothing
-	if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) and udg_dzds[i] <= 5 then // INLINED!!
+	if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) and udg_dzds[i] <= 5 then // INLINED!!
 		set udg_dzds[i]=udg_dzds[i] + 1
 		call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, "|CFF66FF00恭喜您锻造成功第" + I2S(udg_dzds[i]) + "件装备，锻造成功5件装备可以获得锻造大师哦")
 	endif
-	if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) and udg_dzds[i] >= 5 and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) and udg_dzds[i] >= 5 and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 		call Deputy_setMaster(i , DUAN_ZAO)
 		call DZDSBuShuXing(udg_hero[i])
 		// call SaveStr(YDHT, GetHandleId(GetOwningPlayer(GetTriggerUnit())), GetHandleId(GetOwningPlayer(GetTriggerUnit())),"〓锻造大师〓"+LoadStr(YDHT, GetHandleId(GetOwningPlayer(GetTriggerUnit())), GetHandleId(GetOwningPlayer(GetTriggerUnit()))))
@@ -15337,7 +14956,7 @@ function HeCheng2_Dzds takes integer i returns nothing
 endfunction
 //合成物品2，自由或者副职锻造可以合成
 function HeCheng2_Conditions takes nothing returns boolean
-	return ( ( udg_runamen[1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] == 11 or (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) ) and ( GetUnitTypeId(GetTriggerUnit()) == 'nvul' or GetUnitTypeId(GetTriggerUnit()) == 'n00W' or GetUnitTypeId(GetTriggerUnit()) == 'n00V' ) ) // INLINED!!
+	return ( ( udg_runamen[1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] == 11 or (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) ) and ( GetUnitTypeId(GetTriggerUnit()) == 'nvul' or GetUnitTypeId(GetTriggerUnit()) == 'n00W' or GetUnitTypeId(GetTriggerUnit()) == 'n00V' ) ) // INLINED!!
 endfunction
 function HeCheng2_Actions takes nothing returns nothing
  local unit u= GetTriggerUnit()
@@ -15461,11 +15080,11 @@ function OO takes nothing returns nothing
  local unit u= GetTriggerUnit()
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
- local integer j=1
+ local integer j= 1
  local location loc= GetUnitLoc(u)
 	if ( (IsUnitType((u ), ( UNIT_TYPE_HERO)) != null) ) then // INLINED!!
 		loop
-		exitwhen j > MAX_BAN_LV_NUM
+			exitwhen j > MAX_BAN_LV_NUM
 			if ( ( GetUnitTypeId(k8[i]) == R8[j] ) ) then
 				set jingmai[i]=( jingmai[i] - udg_bljm[j] )
 				set fuyuan[i]=( fuyuan[i] - udg_blfy[j] )
@@ -15479,7 +15098,7 @@ function OO takes nothing returns nothing
 		call RemoveUnit(k8[i])
 		set j=1
 		loop
-		exitwhen j > MAX_BAN_LV_NUM
+			exitwhen j > MAX_BAN_LV_NUM
 			if ( ( GetItemTypeId(GetManipulatedItem()) == S8[j] ) ) then
 				call PlaySoundOnUnitBJ(Fh, 100, u)
 				call CreateNUnitsAtLoc(1, R8[j], p, loc, bj_UNIT_FACING)
@@ -15543,7 +15162,7 @@ function Trig_ttConditions takes nothing returns boolean
 	return ( GetSpellAbilityId() == 'A02U' ) and ( IsUnitType(GetTriggerUnit(), UNIT_TYPE_HERO) == true )
 endfunction
 function qinggongxiaoshi takes nothing returns nothing
- local timer tm=GetExpiredTimer()
+ local timer tm= GetExpiredTimer()
  local unit u= LoadUnitHandle(YDHT, GetHandleId(tm), 0)
 	call DestroyEffect(udg_JTX[GetPlayerId(GetOwningPlayer(u)) + 1])
 	call PauseTimer(tm)
@@ -15554,11 +15173,11 @@ endfunction
 function Trig_ttActions takes nothing returns nothing
  local location d1= GetUnitLoc(GetTriggerUnit())
  local location d2= GetSpellTargetLoc()
- local real agi=I2R(GetHeroAgi(GetTriggerUnit(), false))
- local real l__jd=AngleBetweenPoints(d1, d2)
- local real distance=500 + I2R(GetHeroStr(GetTriggerUnit(), false)) / 3
- local real velocity=48.027 * Pow(agi, 0.3131)
- local real lasttime=5.0
+ local real agi= I2R(GetHeroAgi(GetTriggerUnit(), false))
+ local real l__jd= AngleBetweenPoints(d1, d2)
+ local real distance= 500 + I2R(GetHeroStr(GetTriggerUnit(), false)) / 3
+ local real velocity= 48.027 * Pow(agi, 0.3131)
+ local real lasttime= 5.0
  local timer tm= CreateTimer()
 	if velocity > 1000 then
 		set velocity=1000
@@ -15660,8 +15279,8 @@ function ey takes nothing returns boolean
 	return ( ( IsUnitEnemy(GetDyingUnit(), GetOwningPlayer(GetKillingUnit())) ) and ( ( GetOwningPlayer(GetTriggerUnit()) == Player(6) ) or ( GetOwningPlayer(GetTriggerUnit()) == Player(7) ) ) )
 endfunction
 function KillGuai takes nothing returns nothing
- local integer id=GetHandleId(GetTriggeringTrigger())
- local integer cx=LoadInteger(YDHT, id, - $3021938A)
+ local integer id= GetHandleId(GetTriggeringTrigger())
+ local integer cx= LoadInteger(YDHT, id, - $3021938A)
  local integer i= 1
 	set cx=cx + 3
 	call SaveInteger(YDHT, id, - $3021938A, cx)
@@ -15698,7 +15317,7 @@ function KillGuai takes nothing returns nothing
 		if ( ( GetUnitPointValue(GetTriggerUnit()) == 102 ) ) then
 			set i=1
 			loop
-			exitwhen i >= 6
+				exitwhen i >= 6
 				set shoujiajf[i]=shoujiajf[i] + 15 * ( 10 - GetNumPlayer() ) / 10
 				set i=i + 1
 			endloop
@@ -15707,7 +15326,7 @@ function KillGuai takes nothing returns nothing
 			call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
 			if ( ( GetRandomInt(1, 50) <= 5 ) ) then
 				call createitemloc(YaoCao[GetRandomInt(1, 12)] , LoadLocationHandle(YDHT, id * cx, $1769D332))
-				if (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
+				if (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
 					call createitemloc(YaoCao[GetRandomInt(1, 12)] , LoadLocationHandle(YDHT, id * cx, $1769D332))
 				endif
 			endif
@@ -15732,7 +15351,7 @@ function KillGuai takes nothing returns nothing
 			if ( ( GetUnitPointValue(GetTriggerUnit()) == 101 ) ) then
 				set i=1
 				loop
-				exitwhen i >= 6
+					exitwhen i >= 6
 					set shoujiajf[i]=shoujiajf[i] + 30 * ( 10 - GetNumPlayer() ) / 10
 					set i=i + 1
 				endloop
@@ -15746,7 +15365,7 @@ function KillGuai takes nothing returns nothing
 				call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
 				call createitemloc(YaoCao[GetRandomInt(1, 12)] , LoadLocationHandle(YDHT, id * cx, $1769D332))
 				call createitemloc(YaoCao[GetRandomInt(1, 12)] , LoadLocationHandle(YDHT, id * cx, $1769D332))
-				if (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
+				if (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
 					call createitemloc(YaoCao[GetRandomInt(1, 12)] , LoadLocationHandle(YDHT, id * cx, $1769D332))
 					call createitemloc(YaoCao[GetRandomInt(1, 12)] , LoadLocationHandle(YDHT, id * cx, $1769D332))
 				endif
@@ -15773,9 +15392,9 @@ function Xa takes nothing returns boolean
 	return ( ( GetPlayerController(GetOwningPlayer(GetKillingUnit())) == MAP_CONTROL_USER ) )
 endfunction
 function Ya takes nothing returns nothing
- local unit u=GetTriggerUnit()
- local player p=GetOwningPlayer(u)
- local integer i=1 + GetPlayerId(GetOwningPlayer(GetKillingUnit()))
+ local unit u= GetTriggerUnit()
+ local player p= GetOwningPlayer(u)
+ local integer i= 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit()))
  local real x
  local real y
  local integer coeff= 1
@@ -15807,7 +15426,7 @@ function dB takes nothing returns boolean
 	return ( ( GetPlayerController(GetOwningPlayer(GetKillingUnit())) == MAP_CONTROL_USER ) )
 endfunction
 function eB takes nothing returns nothing
- local integer i=1 + GetPlayerId(GetOwningPlayer(GetKillingUnit()))
+ local integer i= 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit()))
 	set shengwang[i]=( shengwang[i] + 1 )
 	if ( ( ModuloInteger(GetUnitPointValue(GetTriggerUnit()), 10) == 1 ) ) then
 		set shengwang[i]=shengwang[i] + 5
@@ -15837,7 +15456,7 @@ function sQ takes nothing returns nothing
 		call AdjustPlayerStateBJ(10000, p, PLAYER_STATE_RESOURCE_GOLD)
 		call DisplayTimedTextToPlayer(p, 0, 0, 15, "|cFFFFCC00等级高于100无法购买等级")
 	else
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_QI) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_QI) - 1)])) != 0) then // INLINED!!
 			call AdjustPlayerStateBJ(10000, p, PLAYER_STATE_RESOURCE_GOLD)
 			call DisplayTimedTextToPlayer(p, 0, 0, 15, "|cFFFFCC00选择该副职无法购买等级")
 		else
@@ -15855,7 +15474,7 @@ function vQ takes nothing returns nothing
  local unit u= GetTriggerUnit()
  local player p= GetOwningPlayer(u)
 	// 地图等级
- local integer level=DzAPI_Map_GetMapLevel(Player(GetPlayerId(p)))
+ local integer level= DzAPI_Map_GetMapLevel(Player(GetPlayerId(p)))
 	// 地图等级小于等级5级的或者返璞归真模式额外送一个新手神器
 	if level <= 5 or udg_fpgz then
 		call unitadditembyidswapped('I0DJ' , u) // 新手神器
@@ -15944,8 +15563,8 @@ function canJoinDeputy takes integer i returns boolean
 		return true
 	endif
 	loop
-	exitwhen j > MAX_DEPUTY
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( j) - 1)])) != 0) and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( j) - 1)])) != 0) then // INLINED!!
+		exitwhen j > MAX_DEPUTY
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( j) - 1)])) != 0) and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( j) - 1)])) != 0) then // INLINED!!
 			return false
 		endif
 		set j=j + 1
@@ -15953,7 +15572,7 @@ function canJoinDeputy takes integer i returns boolean
 	return true
 endfunction
 function notYetJoinDeputy takes integer i,integer whichDeputy returns boolean
-	if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( whichDeputy) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( whichDeputy) - 1)])) != 0) then // INLINED!!
 		call DisplayTimedTextToPlayer(Player(i - 1), 0, 0, 5., "|cffffff00已经加入过该副职了，不能重复加入")
 		return false
 	endif
@@ -15982,7 +15601,7 @@ function aQ takes nothing returns nothing
 			set wuxing[i]=wuxing[i] + 3
 			call Deputy_setDeputy(i , JIAN_DING)
 			call DisplayTimedTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, 5., "|cffffff00恭喜成为鉴定师，获得悟性+3")
-			//call UnitAddAbility(P4[i], 'A08O')
+			call UnitAddAbility(P4[i], 'A08O')
 		elseif ( GetItemTypeId(GetManipulatedItem()) == 'I0A5' ) and notYetJoinDeputy(i , LIAN_QI) then
 			set jingmai[i]=jingmai[i] + 3
 			call Deputy_setDeputy(i , LIAN_QI)
@@ -16026,9 +15645,9 @@ function IsHuangZhi takes nothing returns boolean
 	return ( ( GetItemTypeId(GetManipulatedItem()) == 'I05Y' ) )
 endfunction
 function ShaoHuangZhi takes nothing returns nothing
- local unit u=GetTriggerUnit()
- local player p=GetOwningPlayer(u)
- local integer i=1 + GetPlayerId(p)
+ local unit u= GetTriggerUnit()
+ local player p= GetOwningPlayer(u)
+ local integer i= 1 + GetPlayerId(p)
 	if ( ( Bd[i] ) ) then
 		call DisplayTimedTextToPlayer(p, 0, 0, 20., "|cffff0000你已经使用过黄纸了，还是等等另外一个人的响应吧")
 		call unitadditembyidswapped('I05Y' , GetTriggerUnit())
@@ -16054,7 +15673,7 @@ function mT takes nothing returns nothing
  local real x
  local real y
 	loop
-	exitwhen j > 6
+		exitwhen j > 6
 		if ( udg_hero[i] == bd[j] ) then
 			if ( ModuloInteger(j, 2) == 0 ) then
 				if ( bd[j - 1] != null ) then
@@ -16117,11 +15736,11 @@ function FT takes nothing returns boolean
 	return ( ( GetUnitAbilityLevel(GetTriggerUnit(), 'A0BU') != 0 ) )
 endfunction
 function GT takes nothing returns boolean
- local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer id= GetHandleId(GetTriggeringTrigger())
 	return ( ( ( IsUnitEnemy(GetFilterUnit(), GetOwningPlayer(LoadUnitHandle(YDHT, id * LoadInteger(YDHT, id, - $1317DA19), $59BEA0CB))) ) and ( IsUnitAliveBJ(GetFilterUnit()) ) ) )
 endfunction
 function HT takes nothing returns nothing
- local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer id= GetHandleId(GetTriggeringTrigger())
 	call SaveUnitHandle(YDHT, id * LoadInteger(YDHT, id, - $1317DA19), - $270B8163, GetEnumUnit())
 	call SetWidgetLife(LoadUnitHandle(YDHT, id * LoadInteger(YDHT, id, - $1317DA19), - $270B8163), ( GetUnitState(LoadUnitHandle(YDHT, id * LoadInteger(YDHT, id, - $1317DA19), - $270B8163), UNIT_STATE_LIFE) - ( 200. * I2R(GetUnitLevel(GetEnumUnit())) ) ))
 endfunction
@@ -16225,6 +15844,31 @@ function f2TownPortal takes nothing returns nothing
 	call ClearSelectionForPlayer(GetOwningPlayer(GetTriggerUnit()))
 	call SelectUnitForPlayerSingle(udg_hero[i], GetOwningPlayer(GetTriggerUnit()))
 endfunction
+// 吃书类物品排泄
+// 吃书类的问题使用之后不会自动移除，而会将生命值设置为0，然后缩小模型
+// 而生命值为0的物品无法被移除，因此要排泄这类物品，需要捕捉单位丢弃物品事件
+// 然后将物品的生命值设置为1后再移除
+function isDeadItem takes nothing returns boolean
+	return GetWidgetLife(GetManipulatedItem()) < 0.5
+endfunction
+function removeDeadItem_1 takes nothing returns nothing
+ local timer t= GetExpiredTimer()
+ local item it= LoadItemHandle(YDHT, GetHandleId(t), 0)
+	
+	call SetWidgetLife(it, 1)
+	call RemoveItem(it)
+	call FlushChildHashtable(YDHT, GetHandleId(t))
+	call PauseTimer(t)
+	call DestroyTimer(t)
+	set t=null
+	set it=null
+endfunction
+function removeDeadItem takes nothing returns nothing
+ local timer t= CreateTimer()
+	call SaveItemHandle(YDHT, GetHandleId(t), 0, GetManipulatedItem())
+	call TimerStart(t, 0, false, function removeDeadItem_1)
+	set t=null
+endfunction
 
 function GameLogic_Trigger takes nothing returns nothing
  local trigger t= CreateTrigger()
@@ -16264,11 +15908,6 @@ function GameLogic_Trigger takes nothing returns nothing
 	call TriggerAddCondition(Mh, Condition(function WuMenPai_Condition))
 	call TriggerAddAction(Mh, function WuMenPai_Action)
 	
-	// up提升游戏难度
-	set Sh=CreateTrigger()
-	call TriggerRegisterPlayerChatEvent(Sh, Player(0), "up", false)
-	call TriggerAddCondition(Sh, Condition(function GameNanDu_Condition))
-	call TriggerAddAction(Sh, function GameNanDu)
 	// 玩家英雄阵亡
 	set Th=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(Th, EVENT_PLAYER_UNIT_DEATH)
@@ -16418,7 +16057,7 @@ function GameLogic_Trigger takes nothing returns nothing
 	call TriggerAddAction(mj, function ka)
 	// 练功房刷怪
 	set nj=CreateTrigger()
-	call TriggerRegisterTimerEventPeriodic(nj, 6.)
+	call TriggerRegisterTimerEventPeriodic(nj, 8.)
 	call TriggerAddAction(nj, function qa)
 	// 进入练功房
 	set oj=CreateTrigger()
@@ -16703,11 +16342,6 @@ function GameLogic_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(br, EVENT_PLAYER_UNIT_PICKUP_ITEM)
 	call TriggerAddCondition(br, Condition(function pR))
 	call TriggerAddAction(br, function qR)
-	// 学习慕容派内功
-	set br=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(br, EVENT_PLAYER_UNIT_PICKUP_ITEM)
-	call TriggerAddCondition(br, Condition(function IsMuRongNeiGong))
-	call TriggerAddAction(br, function MuRongNeiGong)
 	
 	// 初始化古董价格区间
 	set rs=CreateTrigger()
@@ -16723,10 +16357,6 @@ function GameLogic_Trigger takes nothing returns nothing
 	call TriggerAddCondition(ts, Condition(function w5))
 	call TriggerAddAction(ts, function x5)
 	// 卖古董
-	set us=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(us, EVENT_PLAYER_UNIT_PICKUP_ITEM)
-	call TriggerAddCondition(us, Condition(function z5))
-	call TriggerAddAction(us, function A5)
 	set vs=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(vs, EVENT_PLAYER_UNIT_PICKUP_ITEM)
 	call TriggerAddCondition(vs, Condition(function B5))
@@ -16736,11 +16366,6 @@ function GameLogic_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(vs, EVENT_PLAYER_UNIT_PICKUP_ITEM)
 	call TriggerAddCondition(vs, Condition(function CollectGuDong_Conditions))
 	call TriggerAddAction(vs, function CollectGuDong_Actions)
-	// 进入剑意系统
-	set ws=CreateTrigger()
-	call TriggerAddRect(ws , Sg)
-	call TriggerAddCondition(ws, Condition(function c5))
-	call TriggerAddAction(ws, function D5)
 	// 合成物品
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_PICKUP_ITEM)
@@ -16753,41 +16378,7 @@ function GameLogic_Trigger takes nothing returns nothing
 	call TriggerAddAction(t, function HeCheng2_Actions)
 	
 	
-	// 达到第几层修为
-	set xs=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(xs, EVENT_PLAYER_UNIT_PICKUP_ITEM)
-	call TriggerAddCondition(xs, Condition(function F5))
-	call TriggerAddAction(xs, function G5)
-	set ys=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(ys, EVENT_PLAYER_UNIT_PICKUP_ITEM)
-	call TriggerAddCondition(ys, Condition(function I5))
-	call TriggerAddAction(ys, function l5)
-	set zs=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(zs, EVENT_PLAYER_UNIT_PICKUP_ITEM)
-	call TriggerAddCondition(zs, Condition(function K5))
-	call TriggerAddAction(zs, function L5)
-	set As=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(As, EVENT_PLAYER_UNIT_PICKUP_ITEM)
-	call TriggerAddCondition(As, Condition(function N5))
-	call TriggerAddAction(As, function O5)
-	set as=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(as, EVENT_PLAYER_UNIT_PICKUP_ITEM)
-	call TriggerAddCondition(as, Condition(function Q5))
-	call TriggerAddAction(as, function R5)
-	// 领悟剑意
-	set Bs=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(Bs, EVENT_PLAYER_UNIT_PICKUP_ITEM)
-	call TriggerAddCondition(Bs, Condition(function LingWuJY_Conditions))
-	call TriggerAddAction(Bs, function LingWuJY)
-	// 选择转化剑意
-	set Cs=CreateTrigger()
-	call TriggerRegisterDialogEvent(Cs, v8[1])
-	call TriggerRegisterDialogEvent(Cs, v8[2])
-	call TriggerRegisterDialogEvent(Cs, v8[3])
-	call TriggerRegisterDialogEvent(Cs, v8[4])
-	call TriggerRegisterDialogEvent(Cs, v8[5])
-	call TriggerAddCondition(Cs, Condition(function ZhuanHuaJY_Conditions))
-	call TriggerAddAction(Cs, function ZhuanHuaJY)
+	
 	// 买黄纸
 	set cs=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(cs, EVENT_PLAYER_UNIT_PICKUP_ITEM)
@@ -16847,42 +16438,22 @@ function GameLogic_Trigger takes nothing returns nothing
 	call TriggerRegisterPlayerSelectionEventBJ(t, Player(4), true)
 	call TriggerAddCondition(t, Condition(function isF2TownPortal))
 	call TriggerAddAction(t, function f2TownPortal)
+	set t=CreateTrigger()
+	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_DROP_ITEM)
+	call TriggerAddCondition(t, Condition(function isDeadItem))
+	call TriggerAddAction(t, function removeDeadItem)
 	set t=null
 endfunction
 //----------------------------------------------
 //游戏细节处理——一般情况下不需要修改
 // 1. 用移动模拟攻击、巡逻模拟移动 对地面
 //----------------------------------------------
-function rx takes nothing returns boolean
-	return ( ( GetPlayerController(GetOwningPlayer(GetOrderedUnit())) == MAP_CONTROL_USER ) and ( ( GetIssuedOrderId() == $D0012 ) or ( GetIssuedOrderId() == $D0016 ) ) )
-endfunction
-//用移动模拟攻击、巡逻模拟移动 对地面
-function sx takes nothing returns nothing
-	set udg_loc1=GetOrderPointLoc()
-	if ( ( GetIssuedOrderId() == $D0012 ) ) then
-		call IssuePointOrderByIdLoc(GetOrderedUnit(), $D000F, udg_loc1)
-	else
-		if ( ( GetIssuedOrderId() == $D0016 ) ) then
-			call IssuePointOrderByIdLoc(GetOrderedUnit(), $D0012, udg_loc1)
-		endif
-	endif
-	call RemoveLocation(udg_loc1)
-endfunction
 //右键点击己方单位
 function uuxx takes nothing returns boolean
 	return ( ( GetPlayerController(GetOwningPlayer(GetOrderedUnit())) == MAP_CONTROL_USER ) and ( IsPlayerAlly(GetOwningPlayer(GetOrderedUnit()), GetOwningPlayer(GetOrderTargetUnit())) ) and ( GetIssuedOrderId() == $D0003 ) )
 endfunction
 function vvxx takes nothing returns nothing
-	set udg_loc1=GetUnitLoc(GetOrderTargetUnit())
-	call IssuePointOrderByIdLoc(GetOrderedUnit(), $D0003, udg_loc1)
-	call RemoveLocation(udg_loc1)
-endfunction
-//用移动模拟攻击 对点
-function xx takes nothing returns boolean
-	return ( ( GetPlayerController(GetOwningPlayer(GetOrderedUnit())) == MAP_CONTROL_USER ) and ( GetIssuedOrderId() == $D0012 ) )
-endfunction
-function yx takes nothing returns nothing
-	call IssueTargetOrderById(GetOrderedUnit(), $D000F, GetOrderTargetUnit())
+	call IssuePointOrderById(GetOrderedUnit(), $D0003, GetUnitX(GetOrderTargetUnit()), GetUnitY(GetOrderTargetUnit()))
 endfunction
 //优化速度加快
 function Ax takes nothing returns nothing
@@ -16903,18 +16474,10 @@ function ha takes nothing returns nothing
 endfunction
 function GameDetail_Trigger takes nothing returns nothing
  local trigger t= CreateTrigger()
-	//用移动模拟攻击、巡逻模拟移动 对地面
-	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_ISSUED_POINT_ORDER)
-	call TriggerAddCondition(t, Condition(function rx))
-	call TriggerAddAction(t, function sx)
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_ISSUED_TARGET_ORDER)
 	call TriggerAddCondition(t, Condition(function uuxx))
 	call TriggerAddAction(t, function vvxx)
-	set t=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_ISSUED_TARGET_ORDER)
-	call TriggerAddCondition(t, Condition(function xx))
-	call TriggerAddAction(t, function yx)
 	// 友方单位A基地
 	set ei=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(ei, EVENT_PLAYER_UNIT_ATTACKED)
@@ -17008,111 +16571,111 @@ function dz takes nothing returns nothing
 	call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff装备剩余凹槽：" + I2S(ii6))
 	call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff镶嵌效果：")
 	if ( ii7 == 1 ) then
-		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff根骨+1")
 		else
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff根骨+3")
 		endif
 	elseif ( ii7 == 2 ) then
-		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff悟性+1")
 		else
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff悟性+3")
 		endif
 	elseif ( ii7 == 3 ) then
-		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff经脉+1")
 		else
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff经脉+3")
 		endif
 	elseif ( ii7 == 4 ) then
-		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff福缘+1")
 		else
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff福缘+3")
 		endif
 	elseif ( ii7 == 5 ) then
-		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff胆魄+1")
 		else
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff胆魄+3")
 		endif
 	elseif ( ii7 == 6 ) then
-		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff医术+1")
 		else
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff医术+3")
 		endif
 	endif
 	if ( ii8 == 1 ) then
-		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff根骨+1")
 		else
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff根骨+3")
 		endif
 	elseif ( ii8 == 2 ) then
-		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff悟性+1")
 		else
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff悟性+3")
 		endif
 	elseif ( ii8 == 3 ) then
-		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff经脉+1")
 		else
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff经脉+3")
 		endif
 	elseif ( ii8 == 4 ) then
-		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff福缘+1")
 		else
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff福缘+3")
 		endif
 	elseif ( ii8 == 5 ) then
-		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff胆魄+1")
 		else
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff胆魄+3")
 		endif
 	elseif ( ii8 == 6 ) then
-		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff医术+1")
 		else
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff医术+3")
 		endif
 	endif
 	if ( ii9 == 1 ) then
-		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff根骨+1")
 		else
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff根骨+3")
 		endif
 	elseif ( ii9 == 2 ) then
-		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff悟性+1")
 		else
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff悟性+3")
 		endif
 	elseif ( ii9 == 3 ) then
-		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff经脉+1")
 		else
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff经脉+3")
 		endif
 	elseif ( ii9 == 4 ) then
-		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff福缘+1")
 		else
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff福缘+3")
 		endif
 	elseif ( ii9 == 5 ) then
-		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff胆魄+1")
 		else
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff胆魄+3")
 		endif
 	elseif ( ii9 == 6 ) then
-		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff医术+1")
 		else
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff医术+3")
@@ -17202,7 +16765,7 @@ function gz takes nothing returns nothing
 		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff装备剩余凹槽：" + I2S(ii6))
 		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff镶嵌效果：")
 		if ( ii7 == 1 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff根骨+1")
 				set gengu[i]=gengu[i] + 1
 			else
@@ -17210,7 +16773,7 @@ function gz takes nothing returns nothing
 				set gengu[i]=gengu[i] + 3
 			endif
 		elseif ( ii7 == 2 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff悟性+1")
 				set wuxing[i]=wuxing[i] + 1
 			else
@@ -17218,7 +16781,7 @@ function gz takes nothing returns nothing
 				set wuxing[i]=wuxing[i] + 3
 			endif
 		elseif ( ii7 == 3 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff经脉+1")
 				set jingmai[i]=jingmai[i] + 1
 			else
@@ -17226,7 +16789,7 @@ function gz takes nothing returns nothing
 				set jingmai[i]=jingmai[i] + 3
 			endif
 		elseif ( ii7 == 4 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff福缘+1")
 				set fuyuan[i]=fuyuan[i] + 1
 			else
@@ -17234,7 +16797,7 @@ function gz takes nothing returns nothing
 				set fuyuan[i]=fuyuan[i] + 3
 			endif
 		elseif ( ii7 == 5 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff胆魄+1")
 				set danpo[i]=danpo[i] + 1
 			else
@@ -17242,7 +16805,7 @@ function gz takes nothing returns nothing
 				set danpo[i]=danpo[i] + 3
 			endif
 		elseif ( ii7 == 6 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff医术+1")
 				set yishu[i]=yishu[i] + 1
 			else
@@ -17251,7 +16814,7 @@ function gz takes nothing returns nothing
 			endif
 		endif
 		if ( ii8 == 1 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff根骨+1")
 				set gengu[i]=gengu[i] + 1
 			else
@@ -17259,7 +16822,7 @@ function gz takes nothing returns nothing
 				set gengu[i]=gengu[i] + 3
 			endif
 		elseif ( ii8 == 2 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff悟性+1")
 				set wuxing[i]=wuxing[i] + 1
 			else
@@ -17267,7 +16830,7 @@ function gz takes nothing returns nothing
 				set wuxing[i]=wuxing[i] + 3
 			endif
 		elseif ( ii8 == 3 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff经脉+1")
 				set jingmai[i]=jingmai[i] + 1
 			else
@@ -17275,7 +16838,7 @@ function gz takes nothing returns nothing
 				set jingmai[i]=jingmai[i] + 3
 			endif
 		elseif ( ii8 == 4 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff福缘+1")
 				set fuyuan[i]=fuyuan[i] + 1
 			else
@@ -17283,7 +16846,7 @@ function gz takes nothing returns nothing
 				set fuyuan[i]=fuyuan[i] + 3
 			endif
 		elseif ( ii8 == 5 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff胆魄+1")
 				set danpo[i]=danpo[i] + 1
 			else
@@ -17291,7 +16854,7 @@ function gz takes nothing returns nothing
 				set danpo[i]=danpo[i] + 3
 			endif
 		elseif ( ii8 == 6 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff医术+1")
 				set yishu[i]=yishu[i] + 1
 			else
@@ -17300,7 +16863,7 @@ function gz takes nothing returns nothing
 			endif
 		endif
 		if ( ii9 == 1 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff根骨+1")
 				set gengu[i]=gengu[i] + 1
 			else
@@ -17308,7 +16871,7 @@ function gz takes nothing returns nothing
 				set gengu[i]=gengu[i] + 3
 			endif
 		elseif ( ii9 == 2 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff悟性+1")
 				set wuxing[i]=wuxing[i] + 1
 			else
@@ -17316,7 +16879,7 @@ function gz takes nothing returns nothing
 				set wuxing[i]=wuxing[i] + 3
 			endif
 		elseif ( ii9 == 3 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff经脉+1")
 				set jingmai[i]=jingmai[i] + 1
 			else
@@ -17324,7 +16887,7 @@ function gz takes nothing returns nothing
 				set jingmai[i]=jingmai[i] + 3
 			endif
 		elseif ( ii9 == 4 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff福缘+1")
 				set fuyuan[i]=fuyuan[i] + 1
 			else
@@ -17332,7 +16895,7 @@ function gz takes nothing returns nothing
 				set fuyuan[i]=fuyuan[i] + 3
 			endif
 		elseif ( ii9 == 5 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff胆魄+1")
 				set danpo[i]=danpo[i] + 1
 			else
@@ -17340,7 +16903,7 @@ function gz takes nothing returns nothing
 				set danpo[i]=danpo[i] + 3
 			endif
 		elseif ( ii9 == 6 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff医术+1")
 				set yishu[i]=yishu[i] + 1
 			else
@@ -17527,7 +17090,7 @@ function jz takes nothing returns nothing
 		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff装备剩余凹槽：" + I2S(ii6))
 		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff镶嵌效果：")
 		if ( ii7 == 1 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff根骨+1")
 				set gengu[i]=gengu[i] - 1
 			else
@@ -17535,7 +17098,7 @@ function jz takes nothing returns nothing
 				set gengu[i]=gengu[i] - 3
 			endif
 		elseif ( ii7 == 2 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff悟性+1")
 				set wuxing[i]=wuxing[i] - 1
 			else
@@ -17543,7 +17106,7 @@ function jz takes nothing returns nothing
 				set wuxing[i]=wuxing[i] - 3
 			endif
 		elseif ( ii7 == 3 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff经脉+1")
 				set jingmai[i]=jingmai[i] - 1
 			else
@@ -17551,7 +17114,7 @@ function jz takes nothing returns nothing
 				set jingmai[i]=jingmai[i] - 3
 			endif
 		elseif ( ii7 == 4 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff福缘+1")
 				set fuyuan[i]=fuyuan[i] - 1
 			else
@@ -17559,7 +17122,7 @@ function jz takes nothing returns nothing
 				set fuyuan[i]=fuyuan[i] - 3
 			endif
 		elseif ( ii7 == 5 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff胆魄+1")
 				set danpo[i]=danpo[i] - 1
 			else
@@ -17567,7 +17130,7 @@ function jz takes nothing returns nothing
 				set danpo[i]=danpo[i] - 3
 			endif
 		elseif ( ii7 == 6 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff医术+1")
 				set yishu[i]=yishu[i] - 1
 			else
@@ -17576,7 +17139,7 @@ function jz takes nothing returns nothing
 			endif
 		endif
 		if ( ii8 == 1 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff根骨+1")
 				set gengu[i]=gengu[i] - 1
 			else
@@ -17584,7 +17147,7 @@ function jz takes nothing returns nothing
 				set gengu[i]=gengu[i] - 3
 			endif
 		elseif ( ii8 == 2 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff悟性+1")
 				set wuxing[i]=wuxing[i] - 1
 			else
@@ -17592,7 +17155,7 @@ function jz takes nothing returns nothing
 				set wuxing[i]=wuxing[i] - 3
 			endif
 		elseif ( ii8 == 3 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff经脉+1")
 				set jingmai[i]=jingmai[i] - 1
 			else
@@ -17600,7 +17163,7 @@ function jz takes nothing returns nothing
 				set jingmai[i]=jingmai[i] - 3
 			endif
 		elseif ( ii8 == 4 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff福缘+1")
 				set fuyuan[i]=fuyuan[i] - 1
 			else
@@ -17608,7 +17171,7 @@ function jz takes nothing returns nothing
 				set fuyuan[i]=fuyuan[i] - 3
 			endif
 		elseif ( ii8 == 5 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff胆魄+1")
 				set danpo[i]=danpo[i] - 1
 			else
@@ -17616,7 +17179,7 @@ function jz takes nothing returns nothing
 				set danpo[i]=danpo[i] - 3
 			endif
 		elseif ( ii8 == 6 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff医术+1")
 				set yishu[i]=yishu[i] - 1
 			else
@@ -17625,7 +17188,7 @@ function jz takes nothing returns nothing
 			endif
 		endif
 		if ( ii9 == 1 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff根骨+1")
 				set gengu[i]=gengu[i] - 1
 			else
@@ -17633,7 +17196,7 @@ function jz takes nothing returns nothing
 				set gengu[i]=gengu[i] - 3
 			endif
 		elseif ( ii9 == 2 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff悟性+1")
 				set wuxing[i]=wuxing[i] - 1
 			else
@@ -17641,7 +17204,7 @@ function jz takes nothing returns nothing
 				set wuxing[i]=wuxing[i] - 3
 			endif
 		elseif ( ii9 == 3 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff经脉+1")
 				set jingmai[i]=jingmai[i] - 1
 			else
@@ -17649,7 +17212,7 @@ function jz takes nothing returns nothing
 				set jingmai[i]=jingmai[i] - 3
 			endif
 		elseif ( ii9 == 4 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff福缘+1")
 				set fuyuan[i]=fuyuan[i] - 1
 			else
@@ -17657,7 +17220,7 @@ function jz takes nothing returns nothing
 				set fuyuan[i]=fuyuan[i] - 3
 			endif
 		elseif ( ii9 == 5 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff胆魄+1")
 				set danpo[i]=danpo[i] - 1
 			else
@@ -17665,7 +17228,7 @@ function jz takes nothing returns nothing
 				set danpo[i]=danpo[i] - 3
 			endif
 		elseif ( ii9 == 6 ) then
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 				call DisplayTimedTextToPlayer(p, 0, 0, 15., "|cFFff66ff医术+1")
 				set yishu[i]=yishu[i] - 1
 			else
@@ -17859,7 +17422,7 @@ function ItemChongFu takes nothing returns nothing
                 set udg_yifushu[i]=udg_yifushu[i] + 1
             endif
             if ( GetItemType(UnitItemInSlotBJ(u, E8)) == ITEM_TYPE_ARTIFACT or GetItemType(UnitItemInSlotBJ(u, E8)) == ITEM_TYPE_PURCHASABLE ) then
-                if ( ( GetItemType(UnitItemInSlotBJ(u, E8)) == GetItemType(GetManipulatedItem()) ) and ( UnitItemInSlotBJ(u, E8) != GetManipulatedItem() ) and not (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( YA_HUAN) - 1)])) != 0) and not isTitle(i , 11) ) then // INLINED!!
+                if ( ( GetItemType(UnitItemInSlotBJ(u, E8)) == GetItemType(GetManipulatedItem()) ) and ( UnitItemInSlotBJ(u, E8) != GetManipulatedItem() ) and not (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( YA_HUAN) - 1)])) != 0) and not isTitle(i , 11) ) then // INLINED!!
                     call UnitRemoveItemSwapped(UnitItemInSlotBJ(u, E8), u)
                     call DisplayTimedTextToPlayer(p, 0, 0, 30, "|cffff0000非丫鬟角色最多只能携带一件武器和衣服")
                 endif
@@ -17867,7 +17430,7 @@ function ItemChongFu takes nothing returns nothing
 		endif
 		set E8=E8 + 1
 	endloop
-	if ( (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( YA_HUAN) - 1)])) != 0) or isTitle(i , 11) ) and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( YA_HUAN) - 1)])) != 0) then // INLINED!!
+	if ( (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( YA_HUAN) - 1)])) != 0) or isTitle(i , 11) ) and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( YA_HUAN) - 1)])) != 0) then // INLINED!!
 		if GetItemType(GetManipulatedItem()) == ITEM_TYPE_ARTIFACT and udg_wuqishu[i] >= 3 then
 			call UnitRemoveItemSwapped(GetManipulatedItem(), u)
 			call DisplayTimedTextToPlayer(p, 0, 0, 30, "|cffff0000丫鬟最多只能携带两件武器")
@@ -18209,7 +17772,7 @@ endfunction
 //-------镶嵌宝石系统开始-------//
 function IsXiangQian takes item it,unit u returns boolean
 	if GetItemTypeId(it) == 'I05R' or GetItemTypeId(it) == 'I05Q' or GetItemTypeId(it) == 'I05M' or GetItemTypeId(it) == 'I05O' or GetItemTypeId(it) == 'I05P' or GetItemTypeId(it) == 'I05N' then
-		if not (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(u)) )] , ((1 ) * YDWEBitwise___C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(u)) )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) then // INLINED!!
 			call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "|cFFFFCC00你不是锻造师，不可以镶嵌宝石")
 			call AdjustPlayerStateBJ(20000, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
 			return false
@@ -18227,6 +17790,7 @@ function XiangQian takes unit u,item it,item it2,integer id,integer i returns no
  local integer ii1= ModuloInteger(GetItemUserData(it) / 1000, 10)
  local integer ii2= ModuloInteger(GetItemUserData(it) / 100, 10)
  local integer ii3= ModuloInteger(GetItemUserData(it) / 10, 10)
+ local integer k= 1 + GetPlayerId(p)
 	if GetItemTypeId(it2) == id then
 		if ( ii1 == 0 ) then
 			call AdjustPlayerStateBJ(20000, p, PLAYER_STATE_RESOURCE_GOLD)
@@ -18242,6 +17806,16 @@ function XiangQian takes unit u,item it,item it2,integer id,integer i returns no
 					call SetItemUserData(it, GetItemUserData(it) + 1 * i - 1000)
 				endif
 			endif
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00镶嵌成功")
+			if (YDWEBitwise_AND(deputy[(k )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) and udg_dzds[k] <= 5 then // INLINED!!
+                set udg_dzds[k]=udg_dzds[k] + 1
+                call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您锻造成功第" + I2S(udg_dzds[k]) + "件装备，锻造成功5件装备可以获得锻造大师哦")
+            endif
+            if (YDWEBitwise_AND(deputy[(k )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) and udg_dzds[k] >= 5 and not ( (YDWEBitwise_AND(master[(k )] , ((1 ) * YDWEBitwise__C2[( ( DUAN_ZAO) - 1)])) != 0) ) then // INLINED!!
+                call Deputy_setMaster(k , DUAN_ZAO)
+                call DZDSBuShuXing(udg_hero[k])
+                call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFF66FF00恭喜" + GetPlayerName(p) + "获得锻造大师")
+            endif
 			call UnitAddItem(u, it)
 		endif
 	endif
@@ -18332,7 +17906,7 @@ function XI takes nothing returns nothing
 	call SaveInteger(YDHT, id, - $3021938A, cx)
 	call SaveInteger(YDHT, id, - $1317DA19, cx)
 	call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-	if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+	if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 		set MM7=2
 	else
 		set MM7=1
@@ -18412,7 +17986,7 @@ function jl takes nothing returns nothing
 		//火功头陀
 	elseif ( GetUnitTypeId(GetTriggerUnit()) == 'otau' ) then
 		call BaoWuDiaoLuo(GetKillingUnit() , GetTriggerUnit() , 100 , 'I02Z' , 'I03D' , 0 , 0 , 0 , 0)
-		if GetRandomReal(1, 100) <= 3. or ( GetRandomReal(1, 100) <= 6. and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) ) then // INLINED!!
+		if GetRandomReal(1, 100) <= 3. or ( GetRandomReal(1, 100) <= 6. and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( JING_WU) - 1)])) != 0) ) then // INLINED!!
 		    // FIXME leak
 			call createitemloc('I0C5' , GetUnitLoc(GetKillingUnit()))
 		endif
@@ -18421,7 +17995,7 @@ function jl takes nothing returns nothing
 		//毒手药王
 	elseif ( GetUnitTypeId(GetTriggerUnit()) == 'uaco' ) then
 		call BaoWuDiaoLuo(GetKillingUnit() , GetTriggerUnit() , 100 , 'I02L' , 'I02N' , 'I02K' , 0 , 0 , 0)
-		if GetRandomReal(1, 100) <= 50. or (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
+		if GetRandomReal(1, 100) <= 50. or (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
 		    // FIXME leak
 			call createitemloc('I0CB' , GetUnitLoc(GetKillingUnit()))
 		endif
@@ -18488,7 +18062,7 @@ function Rl takes nothing returns nothing
 	// call DisplayTextToPlayer(GetOwningPlayer(GetKillingUnit()),0,0,"|cff00ff00击杀林朝英，获得江湖声望+50")
 	//call BJDebugMsg(I2S(LoadInteger(YDHT, StringHash("武学")+GetRandomInt(42, 46), 2)))
 	call BaoWuDiaoLuo(GetKillingUnit() , GetTriggerUnit() , 100 , udg_jianghu[GetRandomInt(1, 18)] , 0 , 0 , 0 , 0 , 0)
-	if (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
 		if GetRandomReal(1, 100) <= 10. then
 		call createitemloc('I0C4' , loc)
 		endif
@@ -18515,7 +18089,7 @@ function Rl takes nothing returns nothing
 			call createitemloc('I0CJ' , loc)
 		endif
 	endif
-	if (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
+	if (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
 		call createitemloc(YaoCao[9] , loc)
 	endif
 	set i=0
@@ -18579,7 +18153,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -18622,7 +18196,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -18661,7 +18235,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -18694,7 +18268,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -18708,7 +18282,7 @@ else
 call createitemloc(1227895094 , LoadLocationHandle(YDHT, id * cx, $1769D332))
 endif
 //擒龙控鹤
-if GetRandomReal(1, 100) <= 10. or ( GetRandomReal(1, 100) <= 20. and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) ) then // INLINED!!
+if GetRandomReal(1, 100) <= 50. or (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
 	call createitemloc('I0CC' , LoadLocationHandle(YDHT, id * cx, $1769D332))
 endif
 set N7=N7 + 1
@@ -18727,7 +18301,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -18756,7 +18330,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -18785,7 +18359,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -18874,7 +18448,7 @@ call RemoveLocation(LoadLocationHandle(YDHT, id * cx, - $185C9FC2))
 call SaveLocationHandle(YDHT, id * cx, - $185C9FC2, pu(LoadLocationHandle(YDHT, id * cx, $1769D332) , GetRandomReal(30., 120.) , ( GetRandomReal(0, 360.) )))
 call createitemloc('texp' , LoadLocationHandle(YDHT, id * cx, - $185C9FC2))
 call createitemloc(YaoCao[10] , LoadLocationHandle(YDHT, id * cx, $1769D332))
-if (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
+if (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
     call createitemloc(YaoCao[10] , LoadLocationHandle(YDHT, id * cx, $1769D332))
 endif
 call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $1769D332))
@@ -18911,7 +18485,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -18950,7 +18524,7 @@ function H1 takes nothing returns nothing
  local location loc= GetUnitLoc(u)
 	set shengwang[i]=shengwang[i] + 100
 	call DisplayTextToPlayer(p, 0, 0, "|cff00ff00击杀扫地神僧，获得江湖声望+100")
-	if ( GetRandomInt(1, 1000) <= fuyuan[i] or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+	if ( GetRandomInt(1, 1000) <= fuyuan[i] or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 		set MM7=2
 	else
 		set MM7=1
@@ -18960,28 +18534,12 @@ function H1 takes nothing returns nothing
 		exitwhen N7 > MM7
 		call createitemloc(udg_juexue[GetRandomInt(1, 10)] , loc)
 		call createitemloc(YaoCao[9] , loc)
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
-			if GetRandomReal(1, 100) <= 10. then
-				call createitemloc('I0C3' , loc)
-			endif
-			if GetRandomReal(1, 100) <= 10. then
-				call createitemloc('I0C9' , loc)
-			endif
-			if GetRandomReal(1, 100) <= 10. then
-				call createitemloc('I0CD' , loc)
-			endif
-		else
-			if GetRandomReal(1, 100) <= 5. then
-				call createitemloc('I0C3' , loc)
-			endif
-			if GetRandomReal(1, 100) <= 5. then
-				call createitemloc('I0C9' , loc)
-			endif
-			if GetRandomReal(1, 100) <= 5. then
-				call createitemloc('I0CD' , loc)
-			endif
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
+		    // 无相劫指 须弥山掌 枯荣禅功
+            call BaoWuDiaoLuo(GetKillingUnit() , GetTriggerUnit() , 100 , 'I0C3' , 'I0C9' , 'I0CD' , 0 , 0 , 0)
 		endif
-		if (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
+		call BaoWuDiaoLuo(GetKillingUnit() , GetTriggerUnit() , 100 , 'I0C3' , 'I0C9' , 'I0CD' , 0 , 0 , 0)
+		if (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
 			call createitemloc(YaoCao[9] , loc)
 		endif
 		set N7=N7 + 1
@@ -19002,7 +18560,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -19014,7 +18572,7 @@ call createitemloc('I09I' , LoadLocationHandle(YDHT, id * cx, $1769D332))
 if ( ( GetRandomInt(1, 50) <= 30 ) ) then
 call createitemloc(YaoCao[6] , LoadLocationHandle(YDHT, id * cx, $1769D332))
 call createitemloc('I0EQ' , LoadLocationHandle(YDHT, id * cx, $1769D332))
-if (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
+if (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
     call createitemloc(YaoCao[6] , LoadLocationHandle(YDHT, id * cx, $1769D332))
 endif
 endif
@@ -19034,7 +18592,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -19072,7 +18630,7 @@ function O1 takes nothing returns boolean
 endfunction
 function P1 takes nothing returns nothing
  local location loc=GetUnitLoc(GetTriggerUnit())
-	if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+	if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 		set MM7=2
 	else
 		set MM7=1
@@ -19097,7 +18655,7 @@ function R1 takes nothing returns boolean
 endfunction
 function S1 takes nothing returns nothing
  local location loc=GetUnitLoc(GetTriggerUnit())
-	if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+	if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 		set MM7=2
 	else
 		set MM7=1
@@ -19126,7 +18684,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -19163,7 +18721,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -19202,7 +18760,7 @@ function eJ takes nothing returns nothing
 	call SaveInteger(YDHT, id, - $3021938A, cx)
 	call SaveInteger(YDHT, id, - $1317DA19, cx)
 	call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-	if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+	if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 		set MM7=2
 	else
 		set MM7=1
@@ -19246,7 +18804,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -19289,7 +18847,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -19312,7 +18870,7 @@ function oJ takes nothing returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
  local location loc= GetUnitLoc(u)
-	if ( GetRandomInt(1, 1000) <= fuyuan[i] or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+	if ( GetRandomInt(1, 1000) <= fuyuan[i] or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 		set MM7=2
 	else
 		set MM7=1
@@ -19351,7 +18909,7 @@ call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
 set shengwang[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )]=( shengwang[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] + $C8 )
 call DisplayTextToPlayer(GetOwningPlayer(GetKillingUnit()), 0, 0, "|cff00ff00击杀黄裳，获得江湖声望+200")
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -19389,7 +18947,7 @@ endif
 endif
 endif
 call createitemloc(YaoCao[12] , LoadLocationHandle(YDHT, id * cx, $1769D332))
-if (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
+if (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
     call createitemloc(YaoCao[12] , LoadLocationHandle(YDHT, id * cx, $1769D332))
 endif
 set N7=N7 + 1
@@ -19408,7 +18966,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -19447,7 +19005,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -19486,7 +19044,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -19510,7 +19068,7 @@ call SaveInteger(YDHT, id * cx, - $6F9D2AE1, 0)
 call SetItemUserData(bj_lastCreatedItem, ( ( ( ( ( ( ( ( ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) * $5F5E100 ) + ( LoadInteger(YDHT, id * cx, $648579A8) * $989680 ) ) + ( LoadInteger(YDHT, id * cx, - $180E5D51) * $F4240 ) ) + ( LoadInteger(YDHT, id * cx, - $77543A28) * $186A0 ) ) + ( LoadInteger(YDHT, id * cx, - $2D2EBEF5) * $2710 ) ) + ( LoadInteger(YDHT, id * cx, 1732931645) * $3E8 ) ) + ( LoadInteger(YDHT, id * cx, - $4E51D54A) * 100 ) ) + ( LoadInteger(YDHT, id * cx, $44078039) * $A ) ) + LoadInteger(YDHT, id * cx, - $6F9D2AE1) ))
 endif
 call createitemloc(YaoCao[8] , LoadLocationHandle(YDHT, id * cx, $1769D332))
-if (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
+if (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
     call createitemloc(YaoCao[8] , LoadLocationHandle(YDHT, id * cx, $1769D332))
 endif
 set N7=N7 + 1
@@ -19529,7 +19087,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -19614,7 +19172,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -19681,11 +19239,11 @@ function KK takes nothing returns nothing
 			endif
 		endif
 		// 寻宝摧心掌爆率翻倍
-		if GetRandomInt(1, 100) <= 10 or ( (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) and GetRandomInt(1, 100) <= 20 ) then // INLINED!!
+		if GetRandomInt(1, 100) <= 10 or ( (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) and GetRandomInt(1, 100) <= 20 ) then // INLINED!!
 			call unitadditembyidswapped('I09K' , u)
 		endif
 		// 寻宝新手神器爆率翻倍
-		if GetRandomInt(1, 100) <= 10 or ( (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) and GetRandomInt(1, 100) <= 20 ) then // INLINED!!
+		if GetRandomInt(1, 100) <= 10 or ( (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) and GetRandomInt(1, 100) <= 20 ) then // INLINED!!
 			call unitadditembyidswapped('I0DJ' , u)
 		endif
 	elseif GetUnitTypeId(uc) == 'nlv3' then
@@ -19715,7 +19273,7 @@ function IsFuBen takes item it returns boolean
 endfunction
 function ShenMiGuaiWu takes unit u,location loc,integer FBNum,integer gw1,integer gw2,integer gw3 returns nothing
  local integer i= 1 + GetPlayerId(GetOwningPlayer(u))
-	if ( GetRandomInt(1, 100) <= 20 and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( JIAN_DING) - 1)])) != 0) ) then // INLINED!!
+	if ( GetRandomInt(1, 100) <= 20 and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) ) then // INLINED!!
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 30, "|cFFFFCC33载入神秘怪物：|cFF33FFFF无")
 	else
 		if ( ( GetRandomInt(1, 60) <= 20 ) ) then
@@ -19731,7 +19289,7 @@ function ShenMiGuaiWu takes unit u,location loc,integer FBNum,integer gw1,intege
 endfunction
 function XiYouDiaoLuo takes unit u,integer FBNum,integer dl1,integer dl2,integer dl3,integer dl4 returns nothing
  local integer i= 1 + GetPlayerId(GetOwningPlayer(u))
-	if ( ( GetRandomInt(1, 100) <= 20 and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( JIAN_DING) - 1)])) != 0) ) ) then // INLINED!!
+	if ( ( GetRandomInt(1, 100) <= 20 and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) ) ) then // INLINED!!
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 30, "|cFFFFCC33载入稀有掉落：|cFF33FFFF无")
 		set q8[FBNum]='crys'
 	else
@@ -19752,7 +19310,7 @@ endfunction
 function QiYuanNPC takes unit u,integer FBNum,integer id,integer id2,rect rt1,rect rt2,rect rt3,rect rt4,rect rt5,rect rt6 returns nothing
  local location loc3= null
  local integer i= 1 + GetPlayerId(GetOwningPlayer(u))
-	if ( ( GetRandomInt(1, 100) <= 50 and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( JIAN_DING) - 1)])) != 0) ) ) then // INLINED!!
+	if ( ( GetRandomInt(1, 100) <= 50 and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) ) ) then // INLINED!!
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 30, "|cFFFFCC33载入奇缘NPC：|cFF33FFFF无")
 	else
 		if ( id != 'crys' ) then
@@ -19970,7 +19528,7 @@ function LL takes nothing returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
  local location loc= GetUnitLoc(u)
-	if ( ( GetRandomInt(1, 1000) <= fuyuan[i] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+	if ( ( GetRandomInt(1, 1000) <= fuyuan[i] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 		set MM7=2
 	else
 		set MM7=1
@@ -20013,26 +19571,10 @@ function RL takes nothing returns nothing
 		call SetPlayerStateBJ(p, PLAYER_STATE_RESOURCE_GOLD, ( GetPlayerState(s8, PLAYER_STATE_RESOURCE_GOLD) * 2 ))
 		call DisplayTextToPlayer(p, 0, 0, "赌赢了~")
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFF66FF00有玩家和韦小宝赌博赢得了大量的金钱，停怪就靠他了")
-		//if Ce[i]==4 then
-		//	if udg_jdds[i]<1 then
-		//		set udg_jdds[i] = udg_jdds[i]+1
-		//		call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您和韦小宝赌赢了"+I2S(udg_jdds[i])+"次，赌赢2次可获得鉴定大师哦")
-		//	else
-		//		if udg_jddsbool[i] == false then
-		//			set udg_jddsbool[i] = true
-		//			if udg_zhangmen[i]==true then
-		//			else
-		//				call SaveStr(YDHT, GetHandleId(p), GetHandleId(p),"〓鉴定大师〓"+LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-		//			endif
-		//			call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFF66FF00恭喜"+GetPlayerName(p)+"获得鉴定大师")
-		//			call SetPlayerName(p, "〓鉴定大师〓"+GetPlayerName(p))
-		//		endif
-		//	endif
-		//endif
 	else
 		call SetPlayerStateBJ(p, PLAYER_STATE_RESOURCE_GOLD, 0)
 		call DisplayTextToPlayer(p, 0, 0, "赌输了！！")
-		if GetRandomInt(1, 100) <= 50 or (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
+		if GetRandomInt(1, 100) <= 50 or (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
 		// FIXME leak
 			call createitemloc('I0C2' , GetUnitLoc(udg_hero[i]))
 		endif
@@ -20051,25 +19593,10 @@ function UL takes nothing returns nothing
 		call SetPlayerStateBJ(p, PLAYER_STATE_RESOURCE_GOLD, ( GetPlayerState(p, PLAYER_STATE_RESOURCE_GOLD) * 5 / 4 ))
 		call DisplayTextToPlayer(p, 0, 0, "赌赢了~")
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFF66FF00有玩家和韦小宝赌博赢得了大量的金钱，停怪就靠他了")
-		//if Ce[i]==4 then
-		//	if udg_jdds[i]<6 then
-		//		set udg_jdds[i] = udg_jdds[i]+1
-		//	else
-		//		if udg_jddsbool[i] == false then
-		//			set udg_jddsbool[i] = true
-		//			if udg_zhangmen[i]==true then
-		//			else
-		//				call SaveStr(YDHT, GetHandleId(p), GetHandleId(p),"〓鉴定大师〓"+LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-		//			endif
-		//			call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFF66FF00恭喜"+GetPlayerName(p)+"获得鉴定大师")
-		//			call SetPlayerName(p, "〓鉴定大师〓"+GetPlayerName(p))
-		//		endif
-		//	endif
-		//endif
 	else
 		call SetPlayerStateBJ(p, PLAYER_STATE_RESOURCE_GOLD, ( GetPlayerState(p, PLAYER_STATE_RESOURCE_GOLD) * 3 / 4 ))
 		call DisplayTextToPlayer(p, 0, 0, "赌输了！！")
-		if GetRandomInt(1, 100) <= 50 or (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
+		if GetRandomInt(1, 100) <= 50 or (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
 		// FIXME leak
 			call createitemloc('I0C2' , GetUnitLoc(udg_hero[i]))
 		endif
@@ -20088,25 +19615,10 @@ function XL takes nothing returns nothing
 		call SetPlayerStateBJ(p, PLAYER_STATE_RESOURCE_GOLD, ( GetPlayerState(p, PLAYER_STATE_RESOURCE_GOLD) * 3 / 2 ))
 		call DisplayTextToPlayer(p, 0, 0, "赌赢了~")
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFF66FF00有玩家和韦小宝赌博赢得了大量的金钱，停怪就靠他了")
-		//if Ce[i]==4 then
-		//	if udg_jdds[i]<6 then
-		//		set udg_jdds[i] = udg_jdds[i]+1
-		//	else
-		//		if udg_jddsbool[i] == false then
-		//			set udg_jddsbool[i] = true
-		//			if udg_zhangmen[i]==true then
-		//			else
-		//				call SaveStr(YDHT, GetHandleId(p), GetHandleId(p),"〓鉴定大师〓"+LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-		//			endif
-		//			call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFF66FF00恭喜"+GetPlayerName(p)+"获得鉴定大师")
-		//			call SetPlayerName(p, "〓鉴定大师〓"+GetPlayerName(p))
-		//		endif
-		//	endif
-		//endif
 	else
 		call SetPlayerStateBJ(p, PLAYER_STATE_RESOURCE_GOLD, ( GetPlayerState(p, PLAYER_STATE_RESOURCE_GOLD) / 2 ))
 		call DisplayTextToPlayer(p, 0, 0, "赌输了！！")
-		if GetRandomInt(1, 100) <= 50 or (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
+		if GetRandomInt(1, 100) <= 50 or (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
 		// FIXME leak
 			call createitemloc('I0C2' , GetUnitLoc(udg_hero[i]))
 		endif
@@ -20133,7 +19645,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -20346,7 +19858,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -20643,7 +20155,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -20708,7 +20220,7 @@ call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(G
 set u9=( u9 + 1 )
 if ( ( u9 >= 7 ) ) then
 set u9=0
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -20774,7 +20286,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -20869,7 +20381,7 @@ set cx=cx + 3
 call SaveInteger(YDHT, id, - $3021938A, cx)
 call SaveInteger(YDHT, id, - $1317DA19, cx)
 call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+if ( ( GetRandomInt(1, 1000) <= fuyuan[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] ) or ( GetRandomInt(1, 100) <= 30 and (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 set MM7=2
 else
 set MM7=1
@@ -21622,14 +21134,8 @@ function eR takes nothing returns nothing
 	endif
 	if GetUnitTypeId(GetTriggerUnit()) == 'nw2w' then
 		set LLguaiG[i]=1
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( JING_WU) - 1)])) != 0) then // INLINED!!
-			if GetRandomReal(1, 100) <= 40. then
-				call createitemloc('I0C6' , GetUnitLoc(u))
-			endif
-		else
-			if GetRandomReal(1, 100) <= 20. then
-				call createitemloc('I0C6' , GetUnitLoc(u))
-			endif
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( JING_WU) - 1)])) != 0) or GetRandomReal(1, 100) <= 50.0 then // INLINED!!
+			call createitemloc('I0C6' , GetUnitLoc(u))
 		endif
 	endif
 	if GetUnitTypeId(GetTriggerUnit()) == 'ohun' then
@@ -21785,8 +21291,8 @@ function jR takes nothing returns nothing
 		if ( ( GetUnitLevel(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0)) < 25 ) ) then
 			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFF0000等级不足25级无法接取该任务")
 		else
-			if ( ( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] < 1800 ) ) then
-				call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFF0000江湖声望不足1800无法接取该任务")
+			if ( ( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] < 1500 ) ) then
+				call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFF0000江湖声望不足1500无法接取该任务")
 			else
 				if ( ( xiuxing[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] < 1 ) ) then
 					call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFF0000你必须先完成历练1任务")
@@ -21903,6 +21409,8 @@ function nR takes nothing returns nothing
 		else
 			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务十八罗汉阵，获得修行+1，全性格属性+1")
 		endif
+		// 动态调整难度
+		call dynamicDifficultyAdjustment(2)
 		// 单通5门派奖励
 		if LoadInteger(YDHT, LoadInteger(YDHT, id * cx, - $5E9EB4B3), StringHash("单通门派数量")) >= 5 then
 			set udg_shuxing[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=udg_shuxing[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1
@@ -21957,8 +21465,8 @@ function tR takes nothing returns nothing
 		if ( ( GetUnitLevel(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0)) < 40 ) ) then
 			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFF0000等级不足40级无法接取该任务")
 		else
-			if ( ( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] < 3200 ) ) then
-				call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFF0000江湖声望不足3200无法接取该任务")
+			if ( ( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] < 2800 ) ) then
+				call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFF0000江湖声望不足2800无法接取该任务")
 			else
 				if ( ( xiuxing[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] < 2 ) ) then
 					call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFF0000你必须先完成历练2任务")
@@ -22194,8 +21702,8 @@ function GR takes nothing returns nothing
 		if ( ( GetUnitLevel(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0)) < 55 ) ) then
 			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFF0000等级不足55级无法接取该任务")
 		else
-			if ( ( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] < 5500 ) ) then
-				call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFF0000江湖声望不足5500无法接取该任务")
+			if ( ( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] < 4800 ) ) then
+				call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFF0000江湖声望不足4800无法接取该任务")
 			else
 				if ( ( xiuxing[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] < 3 ) ) then
 					call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFF0000你必须先完成历练3任务")
@@ -22263,6 +21771,8 @@ function lR takes nothing returns nothing
 		if ( ( LLguaiA[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) and ( LLguaiB[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) and ( LLguaiC[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) and ( LLguaiD[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) and ( LLguaiE[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) ) then
 			call PlaySoundOnUnitBJ(Hh, 100, GetKillingUnit())
 			set xiuxing[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=4
+			// 动态调整难度
+			call dynamicDifficultyAdjustment(4)
 			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') != 0 then
 				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()), 'Rhri', 5)
 				call SetUnitAcquireRange(GetKillingUnit(), 1000)
@@ -22320,6 +21830,8 @@ function LR takes nothing returns nothing
 		if ( ( LLguaiA[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) and ( LLguaiB[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) and ( LLguaiC[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) and ( LLguaiD[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) and ( LLguaiE[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) ) then
 			call PlaySoundOnUnitBJ(Hh, 100, GetKillingUnit())
 			set xiuxing[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=4
+			// 动态调整难度
+			call dynamicDifficultyAdjustment(4)
 			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') != 0 then
 				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()), 'Rhri', 5)
 				call SetUnitAcquireRange(GetKillingUnit(), 1000)
@@ -22376,6 +21888,8 @@ function OR takes nothing returns nothing
 		set LLguaiC[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=1
 		if ( ( LLguaiA[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) and ( LLguaiB[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) and ( LLguaiC[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) and ( LLguaiD[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) and ( LLguaiE[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) ) then
 			call PlaySoundOnUnitBJ(Hh, 100, GetKillingUnit())
+			// 动态调整难度
+			call dynamicDifficultyAdjustment(4)
 			set xiuxing[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=4
 			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') != 0 then
 				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()), 'Rhri', 5)
@@ -22433,6 +21947,8 @@ function RR takes nothing returns nothing
 		set LLguaiD[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=1
 		if ( ( LLguaiA[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) and ( LLguaiB[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) and ( LLguaiC[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) and ( LLguaiD[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) and ( LLguaiE[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) ) then
 			call PlaySoundOnUnitBJ(Hh, 100, GetKillingUnit())
+			// 动态调整难度
+			call dynamicDifficultyAdjustment(4)
 			set xiuxing[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=4
 			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') != 0 then
 				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()), 'Rhri', 5)
@@ -22490,6 +22006,8 @@ function UR takes nothing returns nothing
 		set LLguaiE[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=1
 		if ( ( LLguaiA[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) and ( LLguaiB[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) and ( LLguaiC[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) and ( LLguaiD[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) and ( LLguaiE[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) ) then
 			call PlaySoundOnUnitBJ(Hh, 100, GetKillingUnit())
+			// 动态调整难度
+			call dynamicDifficultyAdjustment(4)
 			set xiuxing[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=4
 			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') != 0 then
 				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()), 'Rhri', 5)
@@ -22684,8 +22202,8 @@ function kS takes nothing returns nothing
 		if ( ( GetUnitLevel(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0)) < 70 ) ) then
 			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFF0000等级不足70级无法接取该任务")
 		else
-			if ( ( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] < 7500 ) ) then
-				call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFF0000江湖声望不足7500无法接取该任务")
+			if ( ( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] < 6500 ) ) then
+				call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFF0000江湖声望不足6500无法接取该任务")
 			else
 				if ( ( xiuxing[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] < 4 ) ) then
 					call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFF0000你必须先完成历练4任务")
@@ -23108,8 +22626,8 @@ function LS takes nothing returns nothing
 	else
 		if ( GetUnitLevel(u) < 100 ) then
 			call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000等级不足100级无法接取该任务")
-		elseif ( shengwang[i] < 11000 ) then
-			call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000江湖声望不足11000无法接取该任务")
+		elseif ( shengwang[i] < 9000 ) then
+			call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000江湖声望不足9000无法接取该任务")
 		elseif ( xiuxing[i] < 5 ) then
 			call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000你必须先完成历练5任务")
 			set loc=GetRectCenter(Rg)
@@ -23167,6 +22685,8 @@ function OS takes nothing returns nothing
 		if ( ( LLguaiA[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 3 ) and ( LLguaiB[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 3 ) and ( LLguaiC[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 3 ) and ( LLguaiD[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 3 ) ) then
 			call PlaySoundOnUnitBJ(Hh, 100, GetKillingUnit())
 			set xiuxing[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=6
+			// 动态调整难度
+			call dynamicDifficultyAdjustment(6)
 			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') != 0 then
 				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()), 'Rhri', 7)
 				call SetUnitAcquireRange(GetKillingUnit(), 1200)
@@ -23222,6 +22742,8 @@ function RS takes nothing returns nothing
 		if ( ( LLguaiA[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 3 ) and ( LLguaiB[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 3 ) and ( LLguaiC[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 3 ) and ( LLguaiD[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 3 ) ) then
 			call PlaySoundOnUnitBJ(Hh, 100, GetKillingUnit())
 			set xiuxing[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=6
+			// 动态调整难度
+			call dynamicDifficultyAdjustment(6)
 			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') != 0 then
 				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()), 'Rhri', 7)
 				call SetUnitAcquireRange(GetKillingUnit(), 1200)
@@ -23277,6 +22799,8 @@ function US takes nothing returns nothing
 		if ( ( LLguaiA[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 3 ) and ( LLguaiB[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 3 ) and ( LLguaiC[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 3 ) and ( LLguaiD[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 3 ) ) then
 			call PlaySoundOnUnitBJ(Hh, 100, GetKillingUnit())
 			set xiuxing[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=6
+			// 动态调整难度
+			call dynamicDifficultyAdjustment(6)
 			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') != 0 then
 				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()), 'Rhri', 7)
 				call SetUnitAcquireRange(GetKillingUnit(), 1200)
@@ -23332,6 +22856,8 @@ function XS takes nothing returns nothing
 		if ( ( LLguaiA[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 3 ) and ( LLguaiB[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 3 ) and ( LLguaiC[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 3 ) and ( LLguaiD[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 3 ) ) then
 			call PlaySoundOnUnitBJ(Hh, 100, GetKillingUnit())
 			set xiuxing[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=6
+			// 动态调整难度
+			call dynamicDifficultyAdjustment(6)
 			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') != 0 then
 				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()), 'Rhri', 7)
 				call SetUnitAcquireRange(GetKillingUnit(), 1200)
@@ -23656,22 +23182,6 @@ function LJ takes nothing returns nothing
 	set p=null
 endfunction
 // 狼皮任务
-function isWolfSkin takes nothing returns boolean
-	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 'I0DQ' ) ) // INLINED!!
-endfunction
-function wolfSkin takes nothing returns nothing
- local unit u=GetTriggerUnit()
-local player p=GetOwningPlayer(u)
-local integer i=1 + GetPlayerId(p)
-	if wolfSkinFlag[i] == 0 then
-		set wolfSkinFlag[i]=1
-		call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00店小二：|r |cFF99FFCC即将入冬，请大侠帮忙提供10张狼皮|r\n|cFFFFCC00提示：|r |cFF99FFCC可以杀多点一次性交任务|r\n")
-	else
-		call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00店小二：|r |cFF99FFCC你已经接受任务了|r\n")
-	endif
-	set u=null
-	set p=null
-endfunction
 //杀狼任务——青铜刀
 function TI takes nothing returns boolean
 	return ( ( GetUnitTypeId(GetTriggerUnit()) == 'nwlt' ) ) // 狼死触发
@@ -23698,20 +23208,14 @@ function UI takes nothing returns nothing
 			call DisplayTextToPlayer(p, 0, 0, ( "野狼：" + ( I2S(P7[i]) + " / 6" ) ))
 		endif
 	endif
-	if wolfSkinFlag[i] == 1 or wolfSkinFlag[i] == 2 then
-		set wolfSkinCount[i]=( wolfSkinCount[i] + 1 )
-		call DisplayTextToPlayer(p, 0, 0, ( "狼皮数量：" + ( I2S(wolfSkinCount[i]) + " /10" ) ))
-		if wolfSkinCount[i] >= 10 then
-			// 10狼皮任务可以提交
-			set wolfSkinFlag[i]=2
-		endif
-	endif
+	set wolfSkinCount[i]=( wolfSkinCount[i] + 1 )
+	call DisplayTextToPlayer(p, 0, 0, ( "狼皮数量：" + ( I2S(wolfSkinCount[i]) + " /10" ) ))
 	set u=null
 	set p=null
 endfunction
 // 完成狼皮任务，靠近店小二提交任务
 function isFinishWolfSkin takes nothing returns boolean
-	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( wolfSkinFlag[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] == 2 ) ) // INLINED!!
+	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) ) // INLINED!!
 endfunction
 function finishWolfSkin takes nothing returns nothing
  local unit u= GetTriggerUnit()
@@ -23721,17 +23225,20 @@ function finishWolfSkin takes nothing returns nothing
 local integer l__xp= 0
 local integer gold= 0
 local integer sw= 0
-set count=wolfSkinCount[i] / 10 // 取整
+if wolfSkinCount[i] >= 10 then
+		set count=wolfSkinCount[i] / 10 // 取整
 set l__xp=1000 * count
-	set gold=2000 * count
-	set sw=50 * count
-	call AddHeroXP(u, l__xp, true) // 奖励经验
+		set gold=2000 * count
+		set sw=50 * count
+		call AddHeroXP(u, l__xp, true) // 奖励经验
 call AdjustPlayerStateBJ(gold, p, PLAYER_STATE_RESOURCE_GOLD) // 奖励金钱
 set shengwang[i]=shengwang[i] + sw // 奖励声望
 call PlaySoundOnUnitBJ(Hh, 100, u)
-	call DisplayTextToPlayer(p, 0, 0, ( "|CFF34FF00完成任务获得经验+" + I2S(l__xp) + "、金钱" + I2S(gold) + "、江湖声望" + I2S(sw) ))
-	set wolfSkinFlag[i]=0
-	set wolfSkinCount[i]=0
+		call DisplayTextToPlayer(p, 0, 0, ( "|CFF34FF00完成任务获得经验+" + I2S(l__xp) + "、金钱" + I2S(gold) + "、江湖声望" + I2S(sw) ))
+		set wolfSkinCount[i]=wolfSkinCount[i] - count * 10
+	else
+		call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00店小二：|r |cFF99FFCC即将入冬，请大侠帮忙收集一些狼皮|r\n|cFFFFCC00提示：|r |cFF99FFCC可以杀多点一次性交任务|r\n")
+	endif
 	set u=null
 	set p=null
 endfunction
@@ -23848,12 +23355,12 @@ function WanChengWuPin takes nothing returns nothing
 			call unitadditembyidswapped('I04T' , udg_hero[i])
 			call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00完成任务，奖励声望" + I2S(40 * ( xiuxing[i] + 1 )) + "点，经验" + I2S(15 * GetHeroLevel(udg_hero[i]) * GetHeroLevel(udg_hero[i]) * ( xiuxing[i] + 1 )) + "点，九阳丹一颗|r\n")
 		endif
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) then // INLINED!!
 			if udg_xbds[i] < 4 then
 				set udg_xbds[i]=udg_xbds[i] + 1
 				call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您完成了" + I2S(udg_xbds[i]) + "次寻宝任务，完成5次可获得寻宝大师哦")
 			else
-				if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) then // INLINED!!
+				if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) then // INLINED!!
 					call Deputy_setMaster(i , XUN_BAO)
 					// call SaveStr(YDHT, GetHandleId(p), GetHandleId(p),"〓寻宝大师〓"+LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 					call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFF66FF00恭喜" + GetPlayerName(p) + "获得寻宝大师")
@@ -24794,25 +24301,25 @@ function UJ takes nothing returns nothing
 	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
 	if ( ( GetRandomInt(1, 50) <= 25 ) ) then
 		call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 0 , 0 , 500)
-		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、生命+500\n")
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+3000、江湖声望+60、生命+500\n")
 	else
 		if ( ( GetRandomInt(1, 50) <= 25 ) ) then
 			call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 3 , 0 , $C8)
-			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、攻击+200")
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+3000、江湖声望+60、攻击+200")
 		else
 			call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 2 , 0 , 30)
-			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、防御+30\n")
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+3000、江湖声望+60、防御+30\n")
 		endif
 	endif
 	if ( ( GetRandomInt(1, 50) <= 40 ) ) then
 		call unitadditembyidswapped(YaoCao[5] , GetTriggerUnit())
 		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00意外获得了一个锦灯笼")
 	endif
-	call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 100, true)
+	call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 3000, true)
 	call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
 	set jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
 	set kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
-	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + $F )
+	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 60 )
 	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 function WJ takes nothing returns boolean
@@ -24828,25 +24335,25 @@ function XJ takes nothing returns nothing
 	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
 	if ( ( GetRandomInt(1, 50) <= 25 ) ) then
 		call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 0 , 0 , 500)
-		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、生命+500\n")
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+3000、江湖声望+60、生命+500\n")
 	else
 		if ( ( GetRandomInt(1, 50) <= 25 ) ) then
 			call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 3 , 0 , $C8)
-			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、攻击+200")
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+3000、江湖声望+60、攻击+200")
 		else
 			call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 2 , 0 , 30)
-			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、防御+30\n")
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+3000、江湖声望+60、防御+30\n")
 		endif
 	endif
 	if ( ( GetRandomInt(1, 50) <= 40 ) ) then
 		call unitadditembyidswapped(YaoCao[5] , GetTriggerUnit())
 		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00意外获得了一个锦灯笼")
 	endif
-	call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 100, true)
+	call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 3000, true)
 	call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
 	set jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
 	set kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
-	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + $F )
+	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 60 )
 	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 function ZJ takes nothing returns boolean
@@ -24862,25 +24369,25 @@ function dK takes nothing returns nothing
 	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
 	if ( ( GetRandomInt(1, 50) <= 25 ) ) then
 		call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 0 , 0 , 500)
-		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、生命+500\n")
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+3000、江湖声望+60、生命+500\n")
 	else
 		if ( ( GetRandomInt(1, 50) <= 25 ) ) then
 			call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 3 , 0 , $C8)
-			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、攻击+200")
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+3000、江湖声望+60、攻击+200")
 		else
 			call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 2 , 0 , 30)
-			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、防御+30\n")
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+3000、江湖声望+60、防御+30\n")
 		endif
 	endif
 	if ( ( GetRandomInt(1, 50) <= 40 ) ) then
 		call unitadditembyidswapped(YaoCao[5] , GetTriggerUnit())
 		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00意外获得了一个锦灯笼")
 	endif
-	call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 100, true)
+	call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 3000, true)
 	call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
 	set jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
 	set kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
-	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + $F )
+	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 60 )
 	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 function fK takes nothing returns boolean
@@ -26090,10 +25597,6 @@ function Tasks_Trigger takes nothing returns nothing
 	call TriggerAddAction(qp, function EL)
 	
 	// 狼皮任务
-	set t=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_PICKUP_ITEM)
-	call TriggerAddCondition(t, Condition(function isWolfSkin))
-	call TriggerAddAction(t, function wolfSkin)
 	
 	// 完成狼皮任务
 	set t=CreateTrigger()
@@ -26693,7 +26196,7 @@ function toggleAttrBoard takes nothing returns nothing
 		call DzFrameSetText(s__Frame_id[(zwidget[126])], ("第" + I2S(wugongxiuwei[i]) + "层")) // INLINED!!
 		call DzFrameSetText(s__Frame_id[(zwidget[128])], (I2S(shengwang[i]))) // INLINED!!
 		call DzFrameSetText(s__Frame_id[(zwidget[130])], (I2S(shoujiajf[i]))) // INLINED!!
-		if not (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
 			call DzFrameSetText(s__Frame_id[(zwidget[132])], (I2S(yongdanshu[i]) + " / 10")) // INLINED!!
 		else
 			call DzFrameSetText(s__Frame_id[(zwidget[132])], (I2S(yongdanshu[i]) + " / 15")) // INLINED!!
@@ -26791,7 +26294,7 @@ function pressEsc takes nothing returns nothing
 		call DzFrameSetText(s__Frame_id[(zwidget[126])], ("第" + I2S(wugongxiuwei[i]) + "层")) // INLINED!!
 		call DzFrameSetText(s__Frame_id[(zwidget[128])], (I2S(shengwang[i]))) // INLINED!!
 		call DzFrameSetText(s__Frame_id[(zwidget[130])], (I2S(shoujiajf[i]))) // INLINED!!
-		if not (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
 			call DzFrameSetText(s__Frame_id[(zwidget[132])], (I2S(yongdanshu[i]) + " / 10")) // INLINED!!
 		else
 			call DzFrameSetText(s__Frame_id[(zwidget[132])], (I2S(yongdanshu[i]) + " / 15")) // INLINED!!
@@ -27113,7 +26616,7 @@ function WO takes nothing returns nothing
  local unit u= GetTriggerUnit()
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if ( yongdanshu[i] < 10 ) or ( yongdanshu[i] < 15 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) ) then // INLINED!!
+	if ( yongdanshu[i] < 10 ) or ( yongdanshu[i] < 15 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) ) then // INLINED!!
 		set yongdanshu[i]=yongdanshu[i] + 1
 		call PlaySoundOnUnitBJ(Eh, 100, u)
 		if GetItemTypeId(GetManipulatedItem()) == 1227895375 then
@@ -27141,7 +26644,7 @@ function WO takes nothing returns nothing
             call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00使用成功|r|cFF99FFCC胆魄+1|r")
             call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00当前胆魄为：|r|cFF99FFCC" + I2S(danpo[i]))
         endif
-		if not (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
 		    call DisplayTextToPlayer(p, 0, 0, ( "|cFFFFCC00当前已经服用属性丹数量：|r|cFF99FFCC" + ( I2S(yongdanshu[i]) + " / 10" ) ))
 		else
 		    call DisplayTextToPlayer(p, 0, 0, ( "|cFFFFCC00当前已经服用属性丹数量：|r|cFF99FFCC" + ( I2S(yongdanshu[i]) + " / 15" ) ))
@@ -27160,7 +26663,7 @@ function s0 takes nothing returns nothing
  local unit u= GetTriggerUnit()
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if ( ( yongdanshu[i] < $A ) ) or ( yongdanshu[i] < 15 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) ) then // INLINED!!
+	if ( ( yongdanshu[i] < $A ) ) or ( yongdanshu[i] < 15 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) ) then // INLINED!!
 		call DialogSetMessage(v8[i], "请选择要减1的属性")
 		call DialogAddButtonBJ(v8[i], "根骨")
 		set w8[i]=bj_lastCreatedButton
@@ -27262,7 +26765,7 @@ function y0 takes nothing returns nothing
 	call DialogClear(D8[i])
 	set yongdanshu[i]=( yongdanshu[i] + 1 )
 	call PlaySoundOnUnitBJ(Eh, 100, udg_hero[i])
-	if not (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
+	if not (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
 	    call DisplayTextToPlayer(p, 0, 0, ( "|cFFFFCC00当前已经服用属性丹数量：|r|cFF99FFCC" + ( I2S(yongdanshu[i]) + " / 10" ) ))
 	else
 	    call DisplayTextToPlayer(p, 0, 0, ( "|cFFFFCC00当前已经服用属性丹数量：|r|cFF99FFCC" + ( I2S(yongdanshu[i]) + " / 15" ) ))
@@ -27276,7 +26779,7 @@ function a0 takes nothing returns nothing
  local unit u= GetTriggerUnit()
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if ( yongdanshu[i] < $A ) or ( yongdanshu[i] < 15 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) ) then // INLINED!!
+	if ( yongdanshu[i] < $A ) or ( yongdanshu[i] < 15 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) ) then // INLINED!!
 		if ( ( GetRandomInt(1, 5) == 3 ) ) then
 			if ( ( GetRandomInt(1, 6) == 1 ) ) then
 				set yishu[i]=( yishu[i] + 1 )
@@ -27358,7 +26861,7 @@ function a0 takes nothing returns nothing
 		endif
 		call PlaySoundOnUnitBJ(Eh, 100, u)
 		set yongdanshu[i]=( yongdanshu[i] + 1 )
-		if not (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
 		    call DisplayTextToPlayer(p, 0, 0, ( "|cFFFFCC00当前已经服用属性丹数量：|r|cFF99FFCC" + ( I2S(yongdanshu[i]) + " / 10" ) ))
 		else
 		    call DisplayTextToPlayer(p, 0, 0, ( "|cFFFFCC00当前已经服用属性丹数量：|r|cFF99FFCC" + ( I2S(yongdanshu[i]) + " / 15" ) ))
@@ -27377,7 +26880,7 @@ function C0 takes nothing returns nothing
  local unit u= GetTriggerUnit()
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if ( ( yongdanshu[i] < $A ) ) or ( yongdanshu[i] < 15 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) ) then // INLINED!!
+	if ( ( yongdanshu[i] < $A ) ) or ( yongdanshu[i] < 15 and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) ) then // INLINED!!
 		call DialogSetMessage(v8[i], "请选择要+6的属性")
 		call DialogAddButtonBJ(v8[i], "根骨")
 		set w8[i]=bj_lastCreatedButton
@@ -27465,7 +26968,7 @@ function E0 takes nothing returns nothing
 		call DisplayTextToPlayer(p, 0, 0, "|cFF99FFCC其它属性-1|r")
 		set yongdanshu[i]=( yongdanshu[i] + 1 )
 		call PlaySoundOnUnitBJ(Eh, 100, udg_hero[i])
-		if not (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
+		if not (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
 		    call DisplayTextToPlayer(p, 0, 0, ( "|cFFFFCC00当前已经服用属性丹数量：|r|cFF99FFCC" + ( I2S(yongdanshu[i]) + " / 10" ) ))
 		else
 		    call DisplayTextToPlayer(p, 0, 0, ( "|cFFFFCC00当前已经服用属性丹数量：|r|cFF99FFCC" + ( I2S(yongdanshu[i]) + " / 15" ) ))
@@ -27482,12 +26985,12 @@ function H0 takes nothing returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
 	// 丫鬟也可以无限吃，不然先吃再丫鬟就不能郡主了
-	if v9[i] == false or (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( YA_HUAN) - 1)])) != 0) or (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( YA_HUAN) - 1)])) != 0) then // INLINED!!
+	if v9[i] == false or (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( YA_HUAN) - 1)])) != 0) or (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( YA_HUAN) - 1)])) != 0) then // INLINED!!
 		set v9[i]=true
 		call PlaySoundOnUnitBJ(Eh, 100, u)
 		call ModifyHeroStat(2, udg_hero[i], 0, 50)
 		call DisplayTextToPlayer(Player(- 1 + ( i )), 0, 0, "|cFFFFCC00使用成功|r|cFF99FFCC真实伤害提升50|r")
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( YA_HUAN) - 1)])) != 0) and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( YA_HUAN) - 1)])) != 0) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( YA_HUAN) - 1)])) != 0) and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( YA_HUAN) - 1)])) != 0) then // INLINED!!
 			call Deputy_setMaster(i , YA_HUAN)
 			// call SaveStr(YDHT, GetHandleId(p), GetHandleId(p),"〓郡主〓"+LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 			call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFF66FF00恭喜" + GetPlayerName(p) + "获得郡主")
@@ -27509,7 +27012,7 @@ function J0 takes nothing returns nothing
  local unit u= GetTriggerUnit()
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if ( ( w9[i] == false or (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( YA_HUAN) - 1)])) != 0) ) ) then // INLINED!!
+	if ( ( w9[i] == false or (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( YA_HUAN) - 1)])) != 0) ) ) then // INLINED!!
 		set w9[i]=true
 		call PlaySoundOnUnitBJ(Eh, 100, u)
 		call UnitAddAbility(udg_hero[i], 1093678923)
@@ -27530,7 +27033,7 @@ function M0 takes nothing returns nothing
  local unit u= GetTriggerUnit()
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if ( ( y9[i] == false or (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( YA_HUAN) - 1)])) != 0) ) ) then // INLINED!!
+	if ( ( y9[i] == false or (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( YA_HUAN) - 1)])) != 0) ) ) then // INLINED!!
 		set y9[i]=true
 		call PlaySoundOnUnitBJ(Eh, 100, u)
 		call ModifyHeroStat(1, udg_hero[i], 0, 40)
@@ -27551,7 +27054,7 @@ function P0 takes nothing returns nothing
  local unit u= GetTriggerUnit()
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	if ( ( x9[i] == false or (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( YA_HUAN) - 1)])) != 0) ) ) then // INLINED!!
+	if ( ( x9[i] == false or (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( YA_HUAN) - 1)])) != 0) ) ) then // INLINED!!
 		set x9[i]=true
 		call PlaySoundOnUnitBJ(Eh, 100, u)
 		set juexuelingwu[i]=( juexuelingwu[i] + 1 )
@@ -27927,7 +27430,7 @@ function CorresDan takes integer dan returns integer
 endfunction
 function EP takes nothing returns boolean
 	if ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and isLianDanItem(GetManipulatedItem()) then
-    	if not (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) and UnitHaveItem(udg_hero[1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] , 'I0AM') == false then // INLINED!!
+    	if not (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) and UnitHaveItem(udg_hero[1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] , 'I0AM') == false then // INLINED!!
     		call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, "|cFFFFCC00你不是炼丹师，并且未携带神木王鼎，不可以炼制丹药")
     		call AdjustPlayerStateBJ(2000, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
     		return false
@@ -27937,7 +27440,7 @@ function EP takes nothing returns boolean
     endif
     return false
 endfunction
-function LianSomeDan takes unit u,item it,integer dan,integer l__ys,integer y1,integer y2,integer yy returns nothing
+function LianSomeDan takes unit u,item it,integer dan,integer ys,integer y1,integer y2,integer yy returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
  local integer j= 0
@@ -27945,7 +27448,7 @@ function LianSomeDan takes unit u,item it,integer dan,integer l__ys,integer y1,i
  local integer yang= 0
  local integer que= 0
 	if ( GetItemTypeId(it) == dan ) then
-		if ( yishu[i] < l__ys ) then
+		if ( yishu[i] < ys ) then
 			call AdjustPlayerStateBJ(2000, p, PLAYER_STATE_RESOURCE_GOLD)
 			call DisplayTimedTextToPlayer(p, 0, 0, 5., "|cffff0000医术不足！")
 		elseif ( UnitHaveItem(u , yy) == false ) then
@@ -28015,7 +27518,7 @@ function LianSomeDan takes unit u,item it,integer dan,integer l__ys,integer y1,i
 				set que=que + y2 - yang
 				call DisplayTimedTextToPlayer(p, 0, 0, 5., "|cff00ff33阳性缺" + I2S(y2 - yang) + "，炼制成功率降低了" + I2S(( y2 - yang ) * 5) + "%")
 			endif
-			if (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
+			if (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
 				set que=que - 4
 				call DisplayTimedTextToPlayer(p, 0, 0, 5., "|cff00ff33由于你是炼丹大师，炼制成功率提高20%")
 			endif
@@ -28024,10 +27527,10 @@ function LianSomeDan takes unit u,item it,integer dan,integer l__ys,integer y1,i
 				call DisplayTimedTextToPlayer(p, 0, 0, 5., "|cff00ffff恭喜炼制成功！")
 				set biYuAddition[i]=biYuAddition[i] + 0.5
 				set udg_ldds[i]=udg_ldds[i] + 1
-				if ( udg_ldds[i] <= 5 ) and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
+				if ( udg_ldds[i] <= 5 ) and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
 					call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您炼成第" + I2S(udg_ldds[i]) + "颗丹药，炼成5颗可获得大师哦")
 				endif
-				if ( udg_ldds[i] == 5 ) and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
+				if ( udg_ldds[i] == 5 ) and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
 				    call Deputy_setMaster(i , LIAN_DAN)
 					// call SaveStr(YDHT, GetHandleId(p), GetHandleId(p),"〓炼丹大师〓"+LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 					call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFF66FF00恭喜" + GetPlayerName(p) + "获得炼丹大师")
@@ -30986,13 +30489,13 @@ endfunction
 //键盘输入系统
 //========================================================================
 function getDeputyString takes integer i,integer l__deputy,string deputyStr returns string
-    if (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( l__deputy) - 1)])) != 0) then // INLINED!!
+    if (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( l__deputy) - 1)])) != 0) then // INLINED!!
         return deputyStr
     endif
     return ""
 endfunction
 function getChiefString takes integer i,integer denomination,string chiefStr returns string
-    if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( denomination) - 1)])) != 0) then // INLINED!!
+    if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( denomination) - 1)])) != 0) then // INLINED!!
         return chiefStr
     endif
     return ""
@@ -31695,7 +31198,7 @@ endfunction
 function TaoHuaDao takes nothing returns nothing
  local integer i= 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
 	if ( GetItemTypeId(GetManipulatedItem()) == 'I09S' ) then
-		if taohuakai or (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) or udg_runamen[i] == 22 or udg_runamen[i] == 3 then // INLINED!!
+		if taohuakai or (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) or udg_runamen[i] == 22 or udg_runamen[i] == 3 then // INLINED!!
 			if ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) ) then // INLINED!!
 				call SetUnitPosition(GetTriggerUnit(), 9631, 1139)
 				call PanCameraToTimedForPlayer(GetOwningPlayer(GetTriggerUnit()), 9631, 1139, 0)
@@ -31787,32 +31290,32 @@ function TaoHuaGun takes nothing returns nothing
 			// 90级才爆武器
 			if GetUnitLevel(u) >= 90 then
 				// 黄药师掉落玉箫60%概率，寻宝大师90%
-				if GetUnitTypeId(GetTriggerUnit()) == 'ogrk' and ( ( GetRandomInt(1, 100) <= 60 ) or ( GetRandomInt(1, 100) <= 90 and (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+				if GetUnitTypeId(GetTriggerUnit()) == 'ogrk' and ( ( GetRandomInt(1, 100) <= 60 ) or ( GetRandomInt(1, 100) <= 90 and (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 					call unitadditembyidswapped('I0A1' , u)
 				endif
 				// 欧阳锋掉落蛇杖
-				if GetUnitTypeId(GetTriggerUnit()) == 'nslf' and ( ( GetRandomInt(1, 100) <= 40 ) or ( GetRandomInt(1, 100) <= 80 and (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+				if GetUnitTypeId(GetTriggerUnit()) == 'nslf' and ( ( GetRandomInt(1, 100) <= 40 ) or ( GetRandomInt(1, 100) <= 80 and (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 					call unitadditembyidswapped('I09B' , u)
 				endif
 				// 洪七公掉落打狗棒
-				if GetUnitTypeId(GetTriggerUnit()) == 'nwnr' and ( ( GetRandomInt(1, 100) <= 60 ) or ( GetRandomInt(1, 100) <= 90 and (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+				if GetUnitTypeId(GetTriggerUnit()) == 'nwnr' and ( ( GetRandomInt(1, 100) <= 60 ) or ( GetRandomInt(1, 100) <= 90 and (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 					call unitadditembyidswapped('I097' , u)
 				endif
 			else
 				call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "|cFFFFCC00什么都没爆，请90级再来")
 			endif
 			
-			if GetUnitTypeId(GetTriggerUnit()) == 'o021' and ( ( GetRandomInt(1, 100) <= 30 ) or ( GetRandomInt(1, 100) <= 70 and (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+			if GetUnitTypeId(GetTriggerUnit()) == 'o021' and ( ( GetRandomInt(1, 100) <= 30 ) or ( GetRandomInt(1, 100) <= 70 and (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 				call unitadditembyidswapped('I067' , u)
 			endif
-			if GetUnitTypeId(GetTriggerUnit()) == 'o022' and ( ( GetRandomInt(1, 100) <= 30 ) or ( GetRandomInt(1, 100) <= 70 and (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+			if GetUnitTypeId(GetTriggerUnit()) == 'o022' and ( ( GetRandomInt(1, 100) <= 30 ) or ( GetRandomInt(1, 100) <= 70 and (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 				call unitadditembyidswapped('I061' , u)
 			endif
-			if GetUnitTypeId(GetTriggerUnit()) == 'n00A' and ( ( GetRandomInt(1, 100) <= 30 ) or ( GetRandomInt(1, 100) <= 70 and (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+			if GetUnitTypeId(GetTriggerUnit()) == 'n00A' and ( ( GetRandomInt(1, 100) <= 30 ) or ( GetRandomInt(1, 100) <= 70 and (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 				call unitadditembyidswapped('I060' , u)
 			endif
 			// 失心疯n00D，寻宝大师100%爆逆九阴
-			if GetUnitTypeId(GetTriggerUnit()) == 'n00D' and ( ( GetRandomInt(1, 100) <= 80 ) or ( GetRandomInt(1, 100) <= 100 and (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
+			if GetUnitTypeId(GetTriggerUnit()) == 'n00D' and ( ( GetRandomInt(1, 100) <= 80 ) or ( GetRandomInt(1, 100) <= 100 and (YDWEBitwise_AND(master[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) ) ) then // INLINED!!
 				call unitadditembyidswapped('I09G' , u) // 逆九阴
 endif
 		endif
@@ -31929,14 +31432,13 @@ function WeiTuoGun takes nothing returns nothing
 	        endif
 			// 概率狂暴
 			if GetRandomReal(0, 100) <= 15 + GetUnitAbilityLevel(u, 'A07U') * 20 then
-	        // if((GetUnitAbilityLevel(u,'A07U')!=0)and(GetRandomReal(.0,100.)<=15.))then
 	            call CreateNUnitsAtLoc(1, 'e000', GetOwningPlayer(u), loc1, bj_UNIT_FACING)
 	            call ShowUnitHide(bj_lastCreatedUnit)
 	            call UnitAddAbility(bj_lastCreatedUnit, 1093681496)
 	            call IssueTargetOrderById(bj_lastCreatedUnit, $D0085, u)
 	            call UnitApplyTimedLife(bj_lastCreatedUnit, 'BHwe', 3.)
 	        endif
-	        call WuGongShengChong(u , 'A05G' , 1200.)
+	        call WuGongShengChong(u , 'A05G' , 900.)
 	    endif
 	endif
 	call RemoveLocation(loc1)
@@ -32031,7 +31533,7 @@ function xc takes nothing returns nothing
 	    call IssuePointOrderByIdLoc(bj_lastCreatedUnit, $D0271, loc2)
 	    call UnitApplyTimedLife(bj_lastCreatedUnit, 'BHwe', 6.)
 	endif
-	call WuGongShengChong(u , 'A000' , 150.)
+	call WuGongShengChong(u , 'A000' , 120.)
 	call RemoveLocation(loc)
 	call RemoveLocation(loc2)
 	set u=null
@@ -32095,7 +31597,7 @@ function Bc takes nothing returns nothing
  local real x=GetUnitX(uc)
  local real y=GetUnitY(uc)
  local group g=CreateGroup()
-	call WuGongShengChong(u , 'A05K' , 160.)
+	call WuGongShengChong(u , 'A05K' , 120.)
 	if ( ( GetUnitAbilityLevel(u, 1093678932) != 0 ) and ( GetUnitAbilityLevel(u, 'A07O') != 0 ) ) then
 	    call GroupEnumUnitsInRange(g, x, y, 500, Condition(function Ac))
 	else
@@ -32132,7 +31634,7 @@ function cc takes nothing returns nothing
 	call AddSpecialEffectTargetUnitBJ("chest", u, "war3mapImported\\DefensiveBarrierBig.mdx")
 	call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, ( "|cff00ccff金钟罩效果总值：" + I2S(R2I(D7[i])) ))
 	set E7[i]=bj_lastCreatedEffect
-	call WuGongShengChong(u , 'A05O' , 100.)
+	call WuGongShengChong(u , 'A05O' , 90.)
 	set u=null
 	set p=null
 endfunction
@@ -32268,7 +31770,7 @@ function Mc takes nothing returns nothing
 	    endif
 	endif
 	if GetRandomReal(1, 100) <= 15 + fuyuan[i] / 5 then
-	    call WuGongShengChong(GetTriggerUnit() , 'S000' , 6000.)
+	    call WuGongShengChong(GetTriggerUnit() , 'S000' , 3600.)
 	endif
 	set u=null
 	set p=null
@@ -36045,7 +35547,7 @@ function WanHuaJian takes nothing returns nothing
  local location loc=GetUnitLoc(u)
  local location array loc2
  local integer i=0
-	call WuGongShengChong(GetTriggerUnit() , 'A021' , 350)
+	call WuGongShengChong(GetTriggerUnit() , 'A021' , 240)
 	set i=1
 	loop
 		exitwhen i > 6
@@ -36097,7 +35599,7 @@ function WanHuaMaJia takes nothing returns nothing
 	if UnitHasDenomWeapon(u , 'I0DU') then
 	    set shxishu=shxishu * 2
     endif
-    set shanghai=ShangHaiGongShi(u , uc , 5. , 5. , shxishu , 'A021')
+    set shanghai=ShangHaiGongShi(u , uc , 10. , 10. , shxishu , 'A021')
     call WuGongShangHai(u , uc , shanghai)
     call RemoveLocation(loc2)
     set u=null
@@ -36111,7 +35613,7 @@ endfunction
 function FuChenGong takes nothing returns nothing
  local location loc=GetSpellTargetLoc()
  local unit u=null
-	call WuGongShengChong(GetTriggerUnit() , 'A01Z' , 250)
+	call WuGongShengChong(GetTriggerUnit() , 'A01Z' , 180)
 	call CreateNUnitsAtLoc(1, 'h00F', GetOwningPlayer(GetTriggerUnit()), loc, bj_UNIT_FACING)
 	set u=bj_lastCreatedUnit
 	call ShowUnitHide(u)
@@ -36144,7 +35646,7 @@ function FuChenMaJia takes nothing returns nothing
  local unit uc=GetTriggerUnit()
  local real shxishu=1
     local real shanghai=0.
-    local real r1=GetRandomReal(1., 24.) * 6.
+    local real r1=GetRandomReal(1., 24.) * 12.
     if GetUnitAbilityLevel(u, 'A07J') >= 1 then
 		set shxishu=shxishu + 1
 	endif
@@ -36184,7 +35686,7 @@ function TianShanZhang takes nothing returns nothing
 	if GetUnitAbilityLevel(u, 'A07F') >= 1 then
 		set r=2.0
 	endif
-	call WuGongShengChong(u , 'A0CD' , 500)
+	call WuGongShengChong(u , 'A0CD' , 480)
 	call GroupEnumUnitsInRangeOfLoc(g, loc, 700, Condition(function TianShan_Condition))
 	set uc=GroupPickRandomUnit(g)
 	if uc != null then
@@ -36330,7 +35832,7 @@ function PuSaYin takes nothing returns nothing
 	if GetRandomInt(1, 100) < 15 + fuyuan[i] / 5 then
 		set shanghai=ShangHaiGongShi(u , uc , 160. , 80. , shxishu , 'A024')
    		call WuGongShangHai(u , uc , shanghai)
-   		call WuGongShengChong(u , 'A024' , 700)
+   		call WuGongShengChong(u , 'A024' , 300)
    		if GetUnitAbilityLevel(u, 'A09D') >= 1 and GetRandomInt(1, 100) <= 20 then
    			set level=GetUnitAbilityLevel(u, 'A024')
 	    	call UnitRemoveAbility(u, 'A024')
@@ -39913,7 +39415,7 @@ function biYuAction takes nothing returns nothing
 		set shxishu=shxishu + 2.0
 	endif
 	// 神木王鼎或炼丹师
-	if UnitHaveItem(GetAttacker() , 'I0AM') or (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
+	if UnitHaveItem(GetAttacker() , 'I0AM') or (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) then // INLINED!!
 	    set shxishu=shxishu + 2.0
     endif
     // 搜魂侠加成
@@ -40223,7 +39725,6 @@ function selectAttr takes nothing returns nothing
  local string s= GetEventPlayerChatString()
  local integer i= 1 + GetPlayerId(p)
 	// 归元吐纳+七伤拳改成+铁掌水上漂称号
-	// if GetUnitAbilityLevel(udg_hero[i], 'A07M') >= 1 and GetUnitAbilityLevel(udg_hero[i], 'A0DP') >= 1 then
 	if isTitle(i , 35) and GetUnitAbilityLevel(udg_hero[i], 'A0DP') >= 1 then
 		if s == "jwx" then
 			set selected_attr[i]=1
@@ -41815,7 +41316,7 @@ function fanShouQianZhu takes unit u,unit l__ut returns nothing
 		call AdjustPlayerStateBJ(lumber_num, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_LUMBER)
 		call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "|cFFFFCC00偷取了金币+|r" + I2S(gold_num))
 		call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "|cFFFFCC00偷取了珍稀币+|r" + I2S(lumber_num))
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) and GetRandomInt(1, 100) <= R2I(20 * addition) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) and GetRandomInt(1, 100) <= R2I(20 * addition) then // INLINED!!
 			call UnitAddItemById(u, udg_qiwu[qiwu_rand])
 			call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "|cFFFFCC00偷取了奇武|r" + GetObjectName(udg_qiwu[qiwu_rand]))
 		endif
@@ -41836,11 +41337,11 @@ function fanShouQianZhu takes unit u,unit l__ut returns nothing
 			call UnitAddItemById(u, item_id)
 			call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "|cFFFFCC00偷取了秘籍|r" + GetObjectName(item_id))
 		endif
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) and GetRandomInt(1, 100) <= R2I(20 * addition) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) and GetRandomInt(1, 100) <= R2I(20 * addition) then // INLINED!!
 			call UnitAddItemById(u, udg_dan[dan_rand])
 			call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "|cFFFFCC00偷取了丹药|r" + GetObjectName(udg_dan[dan_rand]))
 		endif
-		if (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) and GetRandomInt(1, 100) <= R2I(20 * addition) then // INLINED!!
+		if (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) and GetRandomInt(1, 100) <= R2I(20 * addition) then // INLINED!!
 			if GetRandomInt(1, 100) <= 50 then
 				set item_id=ITEM_YE_LUO
 				call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "|cFFFFCC00偷取了野螺|r")
@@ -41857,7 +41358,7 @@ function fanShouQianZhu takes unit u,unit l__ut returns nothing
 		call AdjustPlayerStateBJ(lumber_num, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_LUMBER)
 		call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "|cFFFFCC00偷取了金币+|r" + I2S(gold_num))
 		call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "|cFFFFCC00偷取了珍稀币+|r" + I2S(lumber_num))
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) and GetRandomInt(1, 100) <= R2I(7 * addition) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) and GetRandomInt(1, 100) <= R2I(7 * addition) then // INLINED!!
 			call UnitAddItemById(u, udg_qiwu[qiwu_rand])
 			call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "|cFFFFCC00偷取了奇武" + GetObjectName(udg_qiwu[qiwu_rand]))
 		endif
@@ -41878,11 +41379,11 @@ function fanShouQianZhu takes unit u,unit l__ut returns nothing
 			call UnitAddItemById(u, item_id)
 			call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "|cFFFFCC00偷取了秘籍|r" + GetObjectName(item_id))
 		endif
-		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( LIAN_DAN) - 1)])) != 0) and GetRandomInt(1, 100) <= R2I(7 * addition) then // INLINED!!
+		if (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( LIAN_DAN) - 1)])) != 0) and GetRandomInt(1, 100) <= R2I(7 * addition) then // INLINED!!
 			call UnitAddItemById(u, udg_dan[dan_rand])
 			call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "|cFFFFCC00偷取了丹药|r" + GetObjectName(udg_dan[dan_rand]))
 		endif
-		if (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( XUN_BAO) - 1)])) != 0) and GetRandomInt(1, 100) <= R2I(7 * addition) then // INLINED!!
+		if (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( XUN_BAO) - 1)])) != 0) and GetRandomInt(1, 100) <= R2I(7 * addition) then // INLINED!!
 			if GetRandomInt(1, 100) <= 50 then
 				set item_id=ITEM_YE_LUO
 				call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "|cFFFFCC00偷取了野螺|r")
@@ -42074,12 +41575,13 @@ function isKungfuFull takes integer i returns boolean
     local integer j= 1
     loop
         exitwhen j > wugongshu[i]
+        // call BJDebugMsg(I2S(I7[20 * ( i - 1 ) + j]))
         if I7[20 * ( i - 1 ) + j] == 1095067243 then
             return false
         endif
-        call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFFF0033学习技能已达上限，请先遗忘部分技能")
         set j=j + 1
     endloop
+    call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFFF0033学习技能已达上限，请先遗忘部分技能")
     return true
 endfunction
 function touKanTouXue takes unit u returns nothing
@@ -42097,6 +41599,7 @@ function touKanTouXue takes unit u returns nothing
         set randList[j]=j
         set j=j + 1
     endloop
+    set j=1
     loop
         exitwhen j > DENOMINATION_NUMBER
         set k=GetRandomInt(1, DENOMINATION_NUMBER)
@@ -42154,7 +41657,7 @@ function touKanTouXue takes unit u returns nothing
     set j=1
     loop
         exitwhen k > 6
-        if touKanIds[k] != 1095067243 then
+        if touKanIds[k] != 1095067243 and touKanIds[k] != 0 then
             call SaveButtonHandle(YDHT, ruyangButtonKey + i, j, DialogAddButtonBJ(ruyangDialog[i], GetObjectName(touKanIds[k])))
             call SaveInteger(YDHT, ruyangButtonKey + i, j, touKanIds[k])
             set j=j + 1
@@ -42184,7 +41687,7 @@ function touKanAction takes nothing returns nothing
             if GetUnitAbilityLevel(udg_hero[i], QIAN_KUN) > 0 then
                 set level=level + 1
             endif
-            if (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( YA_HUAN) - 1)])) != 0) then // INLINED!!
+            if (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( YA_HUAN) - 1)])) != 0) then // INLINED!!
                 set level=level + 1
             endif
             if GetUnitAbilityLevel(udg_hero[i], LONG_XIANG) > 0 then
@@ -42348,6 +41851,7 @@ function initRuYang takes nothing returns nothing
         set i=i + 1
     endloop
     call TriggerAddAction(t, function touKanAction)
+    set t=null
 endfunction
 //------------江湖武功开始------------
 //弹指神通
@@ -46528,7 +46032,7 @@ function XueZhenFa takes nothing returns nothing
 			if GetUnitAbilityLevel(u, 'A03J') != 0 then
 				call DisplayTextToPlayer(p, 0, 0, "|cff00FF66您已经修行过该阵法")
 			else
-				if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 9) - 1)])) != 0) and GetUnitAbilityLevel(u, 'A08R') == 9 then // INLINED!!
+				if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 9) - 1)])) != 0) and GetUnitAbilityLevel(u, 'A08R') == 9 then // INLINED!!
 					set j=1
 		        	loop
 		        	exitwhen j > wugongshu[i]
@@ -46561,7 +46065,7 @@ function XueZhenFa takes nothing returns nothing
 			if GetUnitAbilityLevel(u, 'A039') != 0 then
 				call DisplayTextToPlayer(p, 0, 0, "|cff00FF66您已经修行过该阵法")
 			else
-				if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 1) - 1)])) != 0) and GetUnitAbilityLevel(u, 'A05K') == 9 then // INLINED!!
+				if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 1) - 1)])) != 0) and GetUnitAbilityLevel(u, 'A05K') == 9 then // INLINED!!
 					set j=1
 		        	loop
 		        	exitwhen j > wugongshu[i]
@@ -46594,7 +46098,7 @@ function XueZhenFa takes nothing returns nothing
 			if GetUnitAbilityLevel(u, 'A03F') != 0 then
 				call DisplayTextToPlayer(p, 0, 0, "|cff00FF66您已经修行过该阵法")
 			else
-				if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 2) - 1)])) != 0) and GetUnitAbilityLevel(u, 'A09M') == 9 then // INLINED!!
+				if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 2) - 1)])) != 0) and GetUnitAbilityLevel(u, 'A09M') == 9 then // INLINED!!
 					set j=1
 		        	loop
 		        	exitwhen j > wugongshu[i]
@@ -46627,7 +46131,7 @@ function XueZhenFa takes nothing returns nothing
 			if GetUnitAbilityLevel(u, 'A03G') != 0 then
 				call DisplayTextToPlayer(p, 0, 0, "|cff00FF66您已经修行过该阵法")
 			else
-				if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 5) - 1)])) != 0) and GetUnitAbilityLevel(u, 'A0CM') == 9 then // INLINED!!
+				if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 5) - 1)])) != 0) and GetUnitAbilityLevel(u, 'A0CM') == 9 then // INLINED!!
 					set j=1
 		        	loop
 		        	exitwhen j > wugongshu[i]
@@ -46660,7 +46164,7 @@ function XueZhenFa takes nothing returns nothing
             if GetUnitAbilityLevel(u, 'A03G') != 0 then
                 call DisplayTextToPlayer(p, 0, 0, "|cff00FF66您已经修行过该阵法")
             else
-                if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 20) - 1)])) != 0) and GetUnitAbilityLevel(u, 'A09A') == 9 then // 唐门门主、漫天飞花达到9级 // INLINED!!
+                if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise__C2[( ( 20) - 1)])) != 0) and GetUnitAbilityLevel(u, 'A09A') == 9 then // 唐门门主、漫天飞花达到9级 // INLINED!!
 set j=1
                     loop
                     exitwhen j > wugongshu[i]
@@ -47710,7 +47214,7 @@ endfunction
 		if ( udg_runamen[1 + GetPlayerId(GetOwningPlayer(u))] == 9 ) and GetItemTypeId(it) == 'I0DK' then
 			set s__ShopWeapon_zhuanshu[this]=true
 		endif
-		if xiuxing[1 + GetPlayerId(GetOwningPlayer(u))] < s__ShopWeapon_min_xiuxing[this] and s__ShopWeapon_zhuanshu[this] == false and not (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(u)) )] , ((1 ) * YDWEBitwise___C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
+		if xiuxing[1 + GetPlayerId(GetOwningPlayer(u))] < s__ShopWeapon_min_xiuxing[this] and s__ShopWeapon_zhuanshu[this] == false and not (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(u)) )] , ((1 ) * YDWEBitwise__C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
 			call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "需历练" + I2S(s__ShopWeapon_min_xiuxing[this]) + "以上方可冶炼该武器")
 			call AdjustPlayerStateBJ(30000, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
 			return false
@@ -47764,7 +47268,7 @@ endfunction
 		if udg_runamen[1 + GetPlayerId(GetOwningPlayer(u))] == 11 and ( GetItemTypeId(it) == 'I09B' or GetItemTypeId(it) == 'I09D' ) then
 			set s__ShopWeapon_zhuanshu[this]=true
 		endif
-		if xiuxing[1 + GetPlayerId(GetOwningPlayer(u))] < s__ShopWeapon_min_xiuxing[this] - 1 and s__ShopWeapon_zhuanshu[this] == false and not (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(u)) )] , ((1 ) * YDWEBitwise___C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
+		if xiuxing[1 + GetPlayerId(GetOwningPlayer(u))] < s__ShopWeapon_min_xiuxing[this] - 1 and s__ShopWeapon_zhuanshu[this] == false and not (YDWEBitwise_AND(deputy[(1 + GetPlayerId(GetOwningPlayer(u)) )] , ((1 ) * YDWEBitwise__C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
 			call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "需历练" + I2S(s__ShopWeapon_min_xiuxing[this] - 1) + "以上方可使用该武器")
 			call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
 			call SaveItemHandle(YDHT, GetHandleId(t), 1, it)
@@ -47830,11 +47334,11 @@ function YeLianWuQi takes nothing returns nothing
 	else
 		if GetRandomReal(0., 100.) < sjgl then
 			call DisplayTimedTextToPlayer(p, 0, 0, 30, "|cffff0000恭喜你，冶炼成功")
-			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( BING_QI) - 1)])) != 0) and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
+			if not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( BING_QI) - 1)])) != 0) and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
 				set udg_bqds[i]=udg_bqds[i] + 1
 				call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您冶炼成功第" + I2S(udg_bqds[i]) + "次，您需要冶炼成功5次才能获得兵器大师哦")
 			endif
-			if udg_bqds[i] >= 5 and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( BING_QI) - 1)])) != 0) and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise___C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
+			if udg_bqds[i] >= 5 and not (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( BING_QI) - 1)])) != 0) and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
 			    call Deputy_setMaster(i , BING_QI)
 				// call SaveStr(YDHT, GetHandleId(p), GetHandleId(p),"〓兵器大师〓"+LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 				call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFF66FF00恭喜" + GetPlayerName(p) + "获得兵器大师")
@@ -47863,7 +47367,7 @@ function YeLianWuQi takes nothing returns nothing
 				//set wdxx=LoadReal(YDHT,GetHandleId(it),StringHash("吸血"))
 				// set gjsd=LoadReal(YDHT,GetHandleId(it),StringHash("攻击速度"))
 			endif
-			if (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise___C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
+			if (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( BING_QI) - 1)])) != 0) then // INLINED!!
 				set sjgl=sjgl * GetGeoNormRandomReal(0.78 , 0.95)
 			else
 				set sjgl=sjgl * GetGeoNormRandomReal(0.68 , 0.95)
@@ -51382,12 +50886,6 @@ set ot=CreateUnit(p, 1865429058, 347.5, - 3809.3, 20.701)
 	set Ct=CreateUnit(p, 1865429296, - 129.2, - 2927.6, 277.91)
 	set GU_DONG_SHANG_REN=CreateUnit(p, 'o011', 670.9, - 1270.5, 175.947)
 	set ct=CreateUnit(p, 1865429298, - 11366.8, 10882.4, 86.53)
-	set u=CreateUnit(p, 1865429299, - 10757.5, - 9392.7, 335.57)
-	set u=CreateUnit(p, 1865429300, - 10267.3, - 9397., 236.63)
-	set u=CreateUnit(p, 1865429301, - 10757.4, - 8828.2, 287.56)
-	set u=CreateUnit(p, 1865429302, - 10344.1, - 8824.9, 251.35)
-	set u=CreateUnit(p, 1865429303, - 10584.5, - 8441.9, 294.94)
-	//set u=CreateUnit(p,1865429321,521.6,-61.5,181.21)
 	set Dt=CreateUnit(p, 1865429314, - 10140.6, 719.9, 154.876)
 	set Et=CreateUnit(p, 1865429315, - 9636.7, - 400.7, 28.58)
 	set Ft=CreateUnit(p, 1865429320, - 8902.4, - 26., 141.62)
@@ -51726,6 +51224,166 @@ function UnitAttack takes nothing returns nothing
 	call TriggerAddCondition(t, Condition(function UnitAttack_Conditions))
 	set t=null
 endfunction
+function isDAntique takes integer id returns boolean
+	return id == 'I053' or id == 'I054' or id == 'I055'
+endfunction
+function isCAntique takes integer id returns boolean
+	return id == 'I056' or id == 'I057' or id == 'I058'
+endfunction
+function isBAntique takes integer id returns boolean
+	return id == 'I059' or id == 'I05A' or id == 'I05B'
+endfunction
+function isAAntique takes integer id returns boolean
+	return id == 'I05C'
+endfunction
+function doExchangeBooks takes nothing returns nothing
+ local integer id= GetItemTypeId(GetEnumItem())
+ local integer dSuit= 0
+ local item itemD1= null
+ local item itemD2= null
+ local item itemD3= null
+ local item itemC1= null
+ local item itemC2= null
+ local item itemC3= null
+ local item itemB1= null
+ local item itemB2= null
+ local item itemB3= null
+ local item itemA1= null
+ local item itemA2= null
+ local integer cSuit= 0
+ local integer bSuit= 0
+ local integer aSuit= 0
+ local integer i= 1
+ local real x= GetItemX(GetEnumItem())
+ local real y= GetItemY(GetEnumItem())
+	set antiqueIndex=antiqueIndex + 1
+	call SaveItemHandle(YDHT, antiqueKey, antiqueIndex, GetEnumItem())
+	if isDAntique(id) then
+		loop
+			exitwhen i > antiqueIndex
+			if GetItemTypeId(LoadItemHandle(YDHT, antiqueKey, i)) == 'I053' then
+				set dSuit=YDWEBitwise_OR(dSuit , 1)
+				set itemD1=LoadItemHandle(YDHT, antiqueKey, i)
+			endif
+			if GetItemTypeId(LoadItemHandle(YDHT, antiqueKey, i)) == 'I054' then
+				set dSuit=YDWEBitwise_OR(dSuit , 2)
+				set itemD2=LoadItemHandle(YDHT, antiqueKey, i)
+			endif
+			if GetItemTypeId(LoadItemHandle(YDHT, antiqueKey, i)) == 'I055' then
+				set dSuit=YDWEBitwise_OR(dSuit , 4)
+				set itemD3=LoadItemHandle(YDHT, antiqueKey, i)
+			endif
+			set i=i + 1
+		endloop
+		if dSuit == 7 then
+			call RemoveItem(itemD1)
+			call RemoveItem(itemD2)
+			call RemoveItem(itemD3)
+			call CreateItem(udg_jianghu[GetRandomInt(1, 18)], x, y)
+			set itemScore=itemScore + 2
+		endif
+	endif
+	if isCAntique(id) then
+		loop
+			exitwhen i > antiqueIndex
+			if GetItemTypeId(LoadItemHandle(YDHT, antiqueKey, i)) == 'I056' then
+				set cSuit=YDWEBitwise_OR(cSuit , 1)
+				set itemC1=LoadItemHandle(YDHT, antiqueKey, i)
+			endif
+			if GetItemTypeId(LoadItemHandle(YDHT, antiqueKey, i)) == 'I057' then
+				set cSuit=YDWEBitwise_OR(cSuit , 2)
+				set itemC2=LoadItemHandle(YDHT, antiqueKey, i)
+			endif
+			if GetItemTypeId(LoadItemHandle(YDHT, antiqueKey, i)) == 'I058' then
+				set cSuit=YDWEBitwise_OR(cSuit , 4)
+				set itemC3=LoadItemHandle(YDHT, antiqueKey, i)
+			endif
+			set i=i + 1
+		endloop
+		if cSuit == 7 then
+			call RemoveItem(itemC1)
+			call RemoveItem(itemC2)
+			call RemoveItem(itemC3)
+			call CreateItem(udg_juexue[GetRandomInt(1, 10)], x, y)
+			set itemScore=itemScore + 4
+		endif
+	endif
+	if isBAntique(id) then
+		loop
+			exitwhen i > antiqueIndex
+			if GetItemTypeId(LoadItemHandle(YDHT, antiqueKey, i)) == 'I059' then
+				set bSuit=YDWEBitwise_OR(bSuit , 1)
+				set itemB1=LoadItemHandle(YDHT, antiqueKey, i)
+			endif
+			if GetItemTypeId(LoadItemHandle(YDHT, antiqueKey, i)) == 'I05A' then
+				set bSuit=YDWEBitwise_OR(bSuit , 2)
+				set itemB2=LoadItemHandle(YDHT, antiqueKey, i)
+			endif
+			if GetItemTypeId(LoadItemHandle(YDHT, antiqueKey, i)) == 'I05B' then
+				set bSuit=YDWEBitwise_OR(bSuit , 4)
+				set itemB3=LoadItemHandle(YDHT, antiqueKey, i)
+			endif
+			set i=i + 1
+		endloop
+		if bSuit == 7 then
+			call RemoveItem(itemB1)
+			call RemoveItem(itemB2)
+			call RemoveItem(itemB3)
+			call CreateItem(udg_juenei[GetRandomInt(1, 8)], x, y)
+			set itemScore=itemScore + 6
+		endif
+	endif
+	if ((id) == 'I05C') then // INLINED!!
+		loop
+			exitwhen i > antiqueIndex
+			if GetItemTypeId(LoadItemHandle(YDHT, antiqueKey, i)) == 'I05C' then
+				if itemA1 == null then
+					set aSuit=YDWEBitwise_OR(aSuit , 1)
+					set itemA1=LoadItemHandle(YDHT, antiqueKey, i)
+				else
+					set aSuit=YDWEBitwise_OR(aSuit , 2)
+					set itemA2=LoadItemHandle(YDHT, antiqueKey, i)
+				endif
+			endif
+			set i=i + 1
+		endloop
+		if aSuit == 3 then
+			call RemoveItem(itemA1)
+			call RemoveItem(itemA2)
+			call CreateItem(udg_canzhang[GetRandomInt(1, 10)], x, y)
+			set itemScore=itemScore + 10
+		endif
+	endif
+	set itemD1=null
+	set itemD2=null
+	set itemD3=null
+	set itemC1=null
+	set itemC2=null
+	set itemC3=null
+	set itemB1=null
+	set itemB2=null
+	set itemB3=null
+	set itemA1=null
+	set itemA2=null
+endfunction
+function piLiangJianDing takes unit u,real x,real y returns nothing
+ local rect r= Rect(x - 300, y - 300, x + 300, y + 300)
+ local player p= GetOwningPlayer(u)
+ local integer i= 1 + GetPlayerId(p)
+	set antiqueIndex=0
+	call EnumItemsInRect(r, null, function doExchangeBooks)
+	call FlushChildHashtable(YDHT, antiqueKey)
+	set udg_jdds[i]=udg_jdds[i] + itemScore
+	if udg_jdds[i] <= 10 and not ( (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) ) and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
+		call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00您的鉴定师已经得了" + I2S(udg_jdds[i]) + "分，得到10分可获得鉴定大师哦")
+	endif
+	if udg_jdds[i] >= 10 and not ( (YDWEBitwise_AND(master[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) ) and (YDWEBitwise_AND(deputy[(i )] , ((1 ) * YDWEBitwise__C2[( ( JIAN_DING) - 1)])) != 0) then // INLINED!!
+		set wuxing[i]=wuxing[i] + 10 // 悟性加10
+call Deputy_setMaster(i , JIAN_DING)
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFF66FF00恭喜" + GetPlayerName(p) + "获得鉴定大师")
+		call SetPlayerName(p, "〓鉴定大师〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+	endif
+endfunction
 //使用技能系统
 function UseAbility_Conditions takes nothing returns boolean
  local integer id= GetSpellAbilityId()
@@ -51786,6 +51444,10 @@ function UseAbility_Conditions takes nothing returns boolean
 	// 汝阳王府：偷看偷学
 	if id == TOU_KAN_TOU_XUE then
 		call touKanTouXue(u)
+	endif
+	// 宠物：批量鉴定
+	if id == 'A08O' then
+		call piLiangJianDing(u , GetSpellTargetX() , GetSpellTargetY())
 	endif
  
 	set u=null
@@ -52517,7 +52179,7 @@ function Zw takes nothing returns nothing
 		set bj_forLoopAIndex=bj_forLoopAIndex + 1
 	endloop
 	call YDWEPolledWaitNull(40.)
-	call StartTimerBJ(A7[3], false, 120.)
+	call StartTimerBJ(A7[3], false, 90.)
 	call CreateTimerDialogBJ(bj_lastStartedTimer, "邪教进攻倒计时：")
 	call TimerDialogDisplay(bj_lastCreatedTimerDialog, true)
 	set z7[3]=bj_lastCreatedTimerDialog
@@ -52920,17 +52582,6 @@ function InitSkillBooks takes nothing returns nothing
 	set udg_canzhang[10]='I063'
 	set udg_canzhang[11]='I0CW'
 	
-	set udg_diershi[1]='I09E'
-	set udg_diershi[2]='I09F'
-	set udg_diershi[3]='I09G'
-	set udg_diershi[4]='I09H'
-	set udg_diershi[5]='I09I'
-	set udg_diershi[6]='I09J'
-	set udg_diershi[7]='I09K'
-	set udg_diershi[8]='I09L'
-	set udg_diershi[9]='I09M'
-	set udg_diershi[10]='I09N'
-	
 	set udg_qiwu[1]='I0C2'
 	set udg_qiwu[2]='I0C3'
 	set udg_qiwu[3]='I0C4'
@@ -53223,6 +52874,7 @@ call VIPMingJiao_Trigger() //明教武功触发
 call WuDang_Trigger() //武当武功触发
 call XueDao_Trigger() //血刀门武功触发
 call XingXiu_Trigger() //星宿武功触发
+call initRuYang() // 初始化汝阳变量
 
 	call JiangHuNeiGong_Trigger() //江湖内功触发（含九阴、绝内）
 call JiangHuWuGong_Trigger() //江湖武功触发
@@ -53419,6 +53071,7 @@ set master[i]=0 // 大师
 
 		set qimen_status[i]=0 // 奇门术数标识
 set ateDenom[i]=0 // 是否吞了专属
+set ateTianShu[i]=0 // 是否吞了天书
 set qiankunCd[i]=false // 乾坤是否处理CD中
 
 		set wuxing[i]=9
@@ -53441,7 +53094,7 @@ set qiankunCd[i]=false // 乾坤是否处理CD中
 		set O7[i]=0
 		set P7[i]=0
 		set wolfSkinCount[i]=0
-		set wolfSkinFlag[i]=0
+		set wolfSkinFlag[i]=1
 		set udg_revivetimer[i]=CreateTimer()
 		set S7[i]=0
 		set udg_MaxDamage[i]=0
@@ -54704,13 +54357,13 @@ function main takes nothing returns nothing
     call CreateAllUnits()
     call InitBlizzard()
 
-call ExecuteFunc("jasshelper__initstructs1290480500")
-call ExecuteFunc("FrameLibrary___init")
-call ExecuteFunc("UniMissileSystem3D___Init")
-call ExecuteFunc("YDTriggerSaveLoadSystem___Init")
+call ExecuteFunc("jasshelper__initstructs168907734")
+call ExecuteFunc("FrameLibrary__init")
+call ExecuteFunc("UniMissileSystem3D__Init")
+call ExecuteFunc("YDTriggerSaveLoadSystem__Init")
 call ExecuteFunc("InitializeYD")
-call ExecuteFunc("YDWEBitwise___onInit")
-call ExecuteFunc("YDWEGeneralBounsSystem___Initialize")
+call ExecuteFunc("YDWEBitwise__onInit")
+call ExecuteFunc("YDWEGeneralBounsSystem__Initialize")
 call ExecuteFunc("YDWELogarithm___onInit")
 call ExecuteFunc("YDWESync___onInit")
 call ExecuteFunc("YDWEPreloadSL___Init")
@@ -54748,23 +54401,23 @@ function config takes nothing returns nothing
     call InitCustomTeams()
     call InitAllyPriorities()
 endfunction
-     
- 
-                 
-//===========================================================================
-//修改生命
-//===========================================================================
-//===========================================================================
-//ϵͳ-TimerSystem
-//===========================================================================
 //===========================================================================  
 //===========================================================================  
 //�Զ����¼� 
 //===========================================================================
 //===========================================================================   
 //===========================================================================
+//修改生命
+//===========================================================================
+//===========================================================================
+//ϵͳ-TimerSystem
+//===========================================================================
+//===========================================================================
 //��Ծϵͳ 
 //===========================================================================
+     
+ 
+                 
 
 
 
@@ -54905,7 +54558,7 @@ function sa___prototype4_SetUnitMoveSpeedEx takes nothing returns boolean
     return true
 endfunction
 
-function jasshelper__initstructs1290480500 takes nothing returns nothing
+function jasshelper__initstructs168907734 takes nothing returns nothing
     set st__Frame_onDestroy=CreateTrigger()
     call TriggerAddCondition(st__Frame_onDestroy,Condition( function sa__Frame_onDestroy))
     set st__ShopWeapon_onDestroy=CreateTrigger()
