@@ -1,0 +1,4 @@
+事件
+    YDWESyStemAnyUnitDamagedRegistTrigger
+    TriggerRegisterLeaveRectSimple
+        函数: GetCurrentCameraBoundsMapRectBJ

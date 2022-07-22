@@ -1,0 +1,27 @@
+事件
+    TriggerRegisterTimerEventSingle
+        常量: 1.00
+条件
+动作
+    ForLoopBMultiple
+        常量: 1
+        常量: 6
+        动作
+            YDWE_PreloadSL_Load
+                函数: ConvertedPlayer
+                    预设: bj_forLoopBIndex
+                常量: JueZhan
+                常量: JiangHu
+                常量: 1
+            SetVariable
+                数组: MeiJuJiFen
+                    预设: bj_forLoopBIndex
+                函数: OperatorInt
+                    数组: MeiJuJiFen
+                        预设: bj_forLoopBIndex
+                    预设: OperatorAdd
+                    函数: YDWE_PreloadSL_Get
+                        函数: ConvertedPlayer
+                            预设: bj_forLoopBIndex
+                        常量: 总积分
+                        常量: 1

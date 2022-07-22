@@ -1,0 +1,73 @@
+事件
+    TriggerRegisterAnyUnitEventBJ
+        预设: PlayerUnitEventSpellEffect
+条件
+    OperatorCompareAbilityId
+        函数: GetSpellAbilityId
+        预设: OperatorEqualENE
+        常量: A03Z
+动作
+    SetUnitLifePercentBJ
+        函数: GetTriggerUnit
+        函数: OperatorReal
+            函数: GetUnitLifePercent
+                函数: GetTriggerUnit
+            预设: OperatorDivide
+            常量: 2.00
+    YDWESetAnyTypeLocalVariable
+        预设: typename01_integer
+        常量: i
+        函数: YDWECustomScriptCode
+            常量: 150+150*xiuxing[1+GetPlayerId(GetOwningPlayer(GetTriggerUnit()))]
+    IfThenElseMultiple
+        条件
+            OperatorCompareInteger
+                函数: GetUnitAbilityLevel
+                    函数: GetKillingUnitBJ
+                    常量: A07P
+                预设: OperatorNotEqual
+                常量: 0
+        动作
+            YDWESetAnyTypeLocalVariable
+                预设: typename01_integer
+                常量: i
+                函数: YDWECustomScriptCode
+                    常量: 500+500*xiuxing[1+GetPlayerId(GetOwningPlayer(GetTriggerUnit()))]
+    ModifyHeroStat
+        预设: HeroStatStr
+        函数: GetTriggerUnit
+        预设: ModifyMethodAdd
+        函数: YDWEGetAnyTypeLocalVariable
+            常量: i
+    ModifyHeroStat
+        预设: HeroStatAgi
+        函数: GetTriggerUnit
+        预设: ModifyMethodAdd
+        函数: YDWEGetAnyTypeLocalVariable
+            常量: i
+    ModifyHeroStat
+        预设: HeroStatInt
+        函数: GetTriggerUnit
+        预设: ModifyMethodAdd
+        函数: YDWEGetAnyTypeLocalVariable
+            常量: i
+    PolledWait
+        常量: 15.00
+    ModifyHeroStat
+        预设: HeroStatStr
+        函数: GetTriggerUnit
+        预设: ModifyMethodSub
+        函数: YDWEGetAnyTypeLocalVariable
+            常量: i
+    ModifyHeroStat
+        预设: HeroStatAgi
+        函数: GetTriggerUnit
+        预设: ModifyMethodSub
+        函数: YDWEGetAnyTypeLocalVariable
+            常量: i
+    ModifyHeroStat
+        预设: HeroStatInt
+        函数: GetTriggerUnit
+        预设: ModifyMethodSub
+        函数: YDWEGetAnyTypeLocalVariable
+            常量: i

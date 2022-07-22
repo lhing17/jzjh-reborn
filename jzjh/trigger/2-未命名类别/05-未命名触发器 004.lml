@@ -1,0 +1,16 @@
+事件
+    TriggerRegisterTimerEventSingle
+        常量: 0.05
+条件
+动作
+    CustomScriptCode
+        常量: 'call main2()'
+    YDWEGeneralBounsSystemUnitSetBonus
+        函数: GetTriggerUnit
+        预设: bonusTypeA
+        预设: unitstatechangetypeA
+        常量: 300
+    YDWESetLocalVariableReal
+        常量: R
+        函数: YDWELogarithmLg
+            常量: 0.01

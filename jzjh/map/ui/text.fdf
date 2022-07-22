@@ -1,0 +1,52 @@
+﻿
+IncludeFile "UI\FrameDef\Glue\BattleNetTemplates.fdf",
+
+Frame "BACKDROP" "tiptools" {
+    BackdropTileBackground,
+    BackdropBackground  "UI\Widgets\EscMenu\Human\human-options-menu-background.blp",
+    BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+    BackdropCornerSize  0.016,
+    BackdropBackgroundSize  0.032,
+    BackdropBackgroundInsets 0.004 0.004 0.004 0.004,
+    BackdropEdgeFile  "UI\Widgets\EscMenu\Human\human-options-menu-border.blp",
+}
+
+Frame "BACKDROP" "tiptools1" {
+    BackdropTileBackground,
+    BackdropBackground  "UI\Widgets\ToolTips\Human\human-tooltip-background.blp",
+    BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+    BackdropCornerSize  0.012,
+    BackdropBackgroundSize  0.032,
+    BackdropBackgroundInsets 0.002 0.002 0.002 0.002,
+    BackdropEdgeFile  "UI\Widgets\ToolTips\Human\human-tooltip-border.blp",
+}
+
+Frame "BACKDROP" "tiptools2" {
+    BackdropTileBackground,
+    BackdropBackground  "UI\Widgets\ToolTips\Human\human-tooltip-background.blp",
+    BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+    BackdropCornerSize  0.016,
+    BackdropBackgroundSize  0.032,
+    BackdropBackgroundInsets 0.004 0.004 0.004 0.004,
+    BackdropEdgeFile  "UI\Widgets\ToolTips\Human\human-tooltip-border.blp",
+}
+
+Frame "BACKDROP" "tiptools3" {
+    BackdropTileBackground,
+    BackdropBackground  "UI\Widgets\EscMenu\Human\human-options-menu-background.blp",
+    BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+    BackdropCornerSize  0.016,
+    BackdropBackgroundSize  0.032,
+    BackdropBackgroundInsets 0.004 0.004 0.004 0.004,
+    BackdropEdgeFile  "UI\Widgets\EscMenu\Human\editbox-border.blp",
+}
+
+Frame "BACKDROP" "tiptools4" {
+    BackdropTileBackground,
+    BackdropBackground  "UI\Widgets\EscMenu\Human\editbox-background.blp",
+    BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+    BackdropCornerSize  0.006,
+    BackdropBackgroundSize  0.032,
+    BackdropBackgroundInsets 0.002 0.002 0.002 0.002,
+    BackdropEdgeFile  "war3mapImported\BJK.blp",
+}

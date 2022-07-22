@@ -1,0 +1,50 @@
+事件
+    MapInitializationEvent
+条件
+动作
+    CustomScriptCode
+        常量: 'call InitTrig_youLingChuan()'
+    SetPlayerState
+        预设: Player00
+        预设: PlayerStateFoodCap
+        常量: 50
+    SetPlayerState
+        预设: Player01
+        预设: PlayerStateFoodCap
+        常量: 50
+    SetPlayerState
+        预设: Player02
+        预设: PlayerStateFoodCap
+        常量: 50
+    SetPlayerState
+        预设: Player03
+        预设: PlayerStateFoodCap
+        常量: 50
+    SetPlayerState
+        预设: Player04
+        预设: PlayerStateFoodCap
+        常量: 50
+    SetPlayerState
+        预设: Player05
+        预设: PlayerStateFoodCap
+        常量: 50
+    ShowUnit
+        变量: gg_unit_nvl2_0005
+        预设: ShowHideHide
+    ShowUnit
+        变量: gg_unit_n00M_0131
+        预设: ShowHideHide
+    ShowUnit
+        变量: gg_unit_n00N_0132
+        预设: ShowHideHide
+    ShowUnit
+        变量: gg_unit_N00I_0116
+        预设: ShowHideShow
+    ShowUnit
+        变量: gg_unit_N007_0055
+        预设: ShowHideShow
+    CustomScriptCode
+        常量: 'call main1()'
+    YDWEActivateTrigger
+        变量: gg_trg_AM_1
+        预设: OnOffOff

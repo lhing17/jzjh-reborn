@@ -1,0 +1,32 @@
+事件
+    TriggerRegisterAnyUnitEventBJ
+        预设: PlayerUnitEventAttacked
+条件
+    AndMultiple
+        条件
+            OperatorCompareInteger
+                函数: GetUnitAbilityLevel
+                    函数: GetAttacker
+                    常量: A03Z
+                预设: OperatorNotEqual
+                常量: 0
+            OperatorCompareInteger
+                函数: GetUnitAbilityLevel
+                    函数: GetAttacker
+                    常量: A084
+                预设: OperatorNotEqual
+                常量: 0
+            OperatorCompareReal
+                函数: GetRandomReal
+                    常量: 0.00
+                    常量: 100.00
+                预设: OperatorLessEq
+                常量: 15.00
+动作
+    SetUnitLifePercentBJ
+        函数: GetTriggerUnit
+        函数: OperatorReal
+            函数: GetUnitLifePercent
+                函数: GetTriggerUnit
+            预设: OperatorMultiply
+            常量: 0.90

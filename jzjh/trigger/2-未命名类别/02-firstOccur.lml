@@ -1,0 +1,47 @@
+事件
+条件
+动作
+    YDWESetUnitAbilityDataString
+        函数: GetTriggerUnit
+        常量: A04B
+        常量: 1
+        预设: ABILITY_DATA_TIP
+        常量: 
+    YDWECreateEwsp
+        函数: GetTriggerUnit
+        常量: hfoo
+        常量: 1
+        常量: 300
+        常量: 20
+        常量: 0.01
+        常量: 1
+    ShowUnit
+        变量: gg_unit_N007_0055
+        预设: ShowHideShow
+    ShowUnit
+        变量: gg_unit_N012_0095
+        预设: ShowHideShow
+    ShowUnit
+        变量: gg_unit_N00F_0085
+        预设: ShowHideShow
+    ShowUnit
+        变量: gg_unit_N008_0054
+        预设: ShowHideShow
+    ShowUnit
+        变量: gg_unit_N00P_0084
+        预设: ShowHideShow
+    ShowUnit
+        变量: gg_unit_N00U_0092
+        预设: ShowHideShow
+    ShowUnit
+        变量: gg_unit_o02D_0069
+        预设: ShowHideShow
+    ShowUnit
+        变量: gg_unit_o00K_0126
+        预设: ShowHideShow
+    ShowUnit
+        变量: gg_unit_N00B_0086
+        预设: ShowHideShow
+    ShowUnit
+        变量: gg_unit_n00E_0066
+        预设: ShowHideShow

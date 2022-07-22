@@ -1,0 +1,16 @@
+事件
+条件
+动作
+    YDWETimerPatternRushSlide
+        函数: GetTriggerUnit
+        常量: 0
+        常量: 800
+        常量: 1
+        常量: 0.03
+        常量: 0
+        常量: false
+        常量: false
+        常量: false
+        常量: origin
+        常量: Abilities\Spells\Human\ManaShield\ManaShieldCaster.mdl
+        常量: hellscream.mdx

@@ -1,0 +1,83 @@
+事件
+    TriggerRegisterAnyUnitEventBJ
+        预设: PlayerUnitEventDeath
+条件
+    OperatorCompareInteger
+        函数: GetUnitAbilityLevel
+            函数: GetKillingUnitBJ
+            常量: A03Z
+        预设: OperatorNotEqual
+        常量: 0
+动作
+    YDWESetAnyTypeLocalVariable
+        预设: typename01_integer
+        常量: i
+        函数: GetConvertedPlayerId
+            函数: GetTriggerPlayer
+    SetVariable
+        数组: kurongsharen
+            函数: YDWEGetAnyTypeLocalVariable
+                常量: i
+        函数: OperatorInt
+            数组: kurongsharen
+                函数: YDWEGetAnyTypeLocalVariable
+                    常量: i
+            预设: OperatorAdd
+            常量: 1
+    IfThenElseMultiple
+        条件
+            OperatorCompareInteger
+                数组: kurongsharen
+                    函数: YDWEGetAnyTypeLocalVariable
+                        常量: i
+                预设: OperatorGreaterEq
+                常量: 300
+        动作
+            SetVariable
+                数组: kurongsharen
+                    函数: YDWEGetAnyTypeLocalVariable
+                        常量: i
+                常量: 0
+            IfThenElseMultiple
+                条件
+                    OperatorCompareReal
+                        函数: GetUnitState
+                            函数: GetKillingUnitBJ
+                            预设: UnitStateLife
+                        预设: OperatorGreater
+                        常量: 2000.00
+                动作
+                    YDWEGeneralBounsSystemUnitSetBonus
+                        函数: GetTriggerUnit
+                        预设: bonusTypeD
+                        预设: unitstatechangetypeB
+                        常量: 10
+                    ModifyHeroStat
+                        预设: HeroStatStr
+                        函数: GetKillingUnitBJ
+                        预设: ModifyMethodAdd
+                        常量: 20
+                    ModifyHeroStat
+                        预设: HeroStatAgi
+                        函数: GetKillingUnitBJ
+                        预设: ModifyMethodAdd
+                        常量: 30
+                    ModifyHeroStat
+                        预设: HeroStatInt
+                        函数: GetKillingUnitBJ
+                        预设: ModifyMethodAdd
+                        常量: 10
+                    IfThenElseMultiple
+                        条件
+                            OperatorCompareInteger
+                                函数: GetUnitAbilityLevel
+                                    函数: GetKillingUnitBJ
+                                    常量: A07W
+                                预设: OperatorNotEqual
+                                常量: 0
+                        动作
+                            ModifyHeroStat
+                                预设: HeroStatAgi
+                                函数: GetKillingUnitBJ
+                                预设: ModifyMethodAdd
+                                常量: 30

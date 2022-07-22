@@ -1,0 +1,129 @@
+事件
+    TriggerRegisterAnyUnitEventBJ
+        预设: PlayerUnitEventSpellEffect
+条件
+    AndMultiple
+        条件
+            OperatorCompareAbilityId
+                函数: GetSpellAbilityId
+                预设: OperatorEqualENE
+                常量: A03V
+            OperatorCompareUnit
+                函数: GetSpellTargetUnit
+                预设: OperatorNotEqualENE
+                变量: gg_unit_N008_0054
+动作
+    IfThenElseMultiple
+        条件
+            OperatorCompareUnit
+                函数: GetSpellTargetUnit
+                预设: OperatorEqualENE
+                函数: GetTriggerUnit
+        动作
+            YDWETimerPatternRushSlide
+                函数: GetSpellTargetUnit
+                函数: GetUnitFacing
+                    函数: GetTriggerUnit
+                常量: 1200.00
+                常量: 1.20
+                常量: 0.01
+                常量: 0
+                常量: false
+                常量: false
+                常量: true
+                常量: origin
+                常量: Abilities\Spells\Human\FlakCannons\FlakTarget.mdl
+                常量: Abilities\Spells\Human\FlakCannons\FlakTarget.mdl
+        动作
+            IfThenElseMultiple
+                条件
+                    OperatorCompareReal
+                        函数: YDWEDistanceBetweenUnits
+                            函数: GetTriggerUnit
+                            函数: GetSpellTargetUnit
+                        预设: OperatorGreaterEq
+                        常量: 1000.00
+                动作
+                    YDWETimerPatternRushSlide
+                        函数: GetSpellTargetUnit
+                        函数: YDWEAngleBetweenUnits
+                            函数: GetSpellTargetUnit
+                            函数: GetTriggerUnit
+                        函数: RMinBJ
+                            常量: 1200.00
+                            函数: YDWEDistanceBetweenUnits
+                                函数: GetTriggerUnit
+                                函数: GetLastCreatedUnit
+                        函数: RMinBJ
+                            常量: 1.20
+                            函数: OperatorReal
+                                函数: YDWEDistanceBetweenUnits
+                                    函数: GetTriggerUnit
+                                    函数: GetSpellTargetUnit
+                                预设: OperatorDivide
+                                常量: 1000.00
+                        常量: 0.01
+                        常量: 0
+                        常量: false
+                        常量: false
+                        常量: true
+                        常量: origin
+                        常量: Abilities\Spells\Human\FlakCannons\FlakTarget.mdl
+                        常量: Abilities\Spells\Human\FlakCannons\FlakTarget.mdl
+                动作
+                    YDWETimerPatternRushSlide
+                        函数: GetSpellTargetUnit
+                        函数: YDWEAngleBetweenUnits
+                            函数: GetTriggerUnit
+                            函数: GetSpellTargetUnit
+                        常量: 1200.00
+                        常量: 1.20
+                        常量: 0.01
+                        常量: 0
+                        常量: false
+                        常量: false
+                        常量: true
+                        常量: origin
+                        常量: Abilities\Spells\Human\FlakCannons\FlakTarget.mdl
+                        常量: Abilities\Spells\Human\FlakCannons\FlakTarget.mdl
+    IfThenElseMultiple
+        条件
+            AndMultiple
+                条件
+                    OperatorCompareInteger
+                        函数: GetUnitAbilityLevel
+                            函数: GetTriggerUnit
+                            常量: A06L
+                        预设: OperatorNotEqual
+                        常量: 0
+                    OperatorCompareBoolean
+                        函数: IsUnitAlly
+                            函数: GetSpellTargetUnit
+                            函数: GetOwningPlayer
+                                函数: GetTriggerUnit
+                        预设: OperatorEqualENE
+                        常量: true
+        动作
+            SetUnitLifePercentBJ
+                函数: GetSpellTargetUnit
+                常量: 100
+    IfThenElseMultiple
+        条件
+            AndMultiple
+                条件
+                    OperatorCompareInteger
+                        函数: GetUnitAbilityLevel
+                            函数: GetTriggerUnit
+                            常量: A0CE
+                        预设: OperatorNotEqual
+                        常量: 0
+                    OperatorCompareBoolean
+                        函数: IsUnitAlly
+                            函数: GetSpellTargetUnit
+                            函数: GetOwningPlayer
+                                函数: GetTriggerUnit
+                        预设: OperatorEqualENE
+                        常量: false
+        动作
+            CustomScriptCode
+                常量: 'call WanBuff(GetTriggerUnit(),GetSpellTargetUnit(), 11)'

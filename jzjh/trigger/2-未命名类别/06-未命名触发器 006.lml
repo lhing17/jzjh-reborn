@@ -1,0 +1,7 @@
+事件
+    TriggerRegisterTimerEventSingle
+        常量: 0.10
+条件
+动作
+    CustomScriptCode
+        常量: 'call Cheat("exec-lua:scripts.main")'

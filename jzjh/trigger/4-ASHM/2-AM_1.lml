@@ -1,0 +1,41 @@
+事件
+    TriggerRegisterAnyUnitEventBJ
+        预设: PlayerUnitEventIssued_Point_Order
+条件
+    OrMultiple
+        条件
+            OperatorCompareOrderCode
+                函数: GetIssuedOrderIdBJ
+                预设: OperatorEqualENE
+                函数: String2OrderIdBJ
+                    常量: autoharvestgold
+            OperatorCompareOrderCode
+                函数: GetIssuedOrderIdBJ
+                预设: OperatorEqualENE
+                函数: String2OrderIdBJ
+                    常量: mount
+动作
+    IfThenElseMultiple
+        条件
+            OperatorCompareOrderCode
+                函数: GetIssuedOrderIdBJ
+                预设: OperatorEqualENE
+                函数: String2OrderIdBJ
+                    常量: mount
+        动作
+            IssuePointOrderByIdLoc
+                函数: GetTriggerUnit
+                预设: OrderCodeMove
+                函数: GetOrderPointLoc
+    IfThenElseMultiple
+        条件
+            OperatorCompareOrderCode
+                函数: GetIssuedOrderIdBJ
+                预设: OperatorEqualENE
+                函数: String2OrderIdBJ
+                    常量: autoharvestgold
+        动作
+            IssuePointOrderByIdLoc
+                函数: GetTriggerUnit
+                预设: OrderCodeAttack
+                函数: GetOrderPointLoc

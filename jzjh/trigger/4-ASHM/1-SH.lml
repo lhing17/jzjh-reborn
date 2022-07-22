@@ -1,0 +1,39 @@
+事件
+    TriggerRegisterAnyUnitEventBJ
+        预设: PlayerUnitEventIssued_Order
+条件
+    OrMultiple
+        条件
+            OperatorCompareOrderCode
+                函数: GetIssuedOrderIdBJ
+                预设: OperatorEqualENE
+                函数: String2OrderIdBJ
+                    常量: stoneform
+            OperatorCompareOrderCode
+                函数: GetIssuedOrderIdBJ
+                预设: OperatorEqualENE
+                函数: String2OrderIdBJ
+                    常量: hex
+动作
+    IfThenElseMultiple
+        条件
+            OperatorCompareOrderCode
+                函数: GetIssuedOrderIdBJ
+                预设: OperatorEqualENE
+                函数: String2OrderIdBJ
+                    常量: stoneform
+        动作
+            IssueImmediateOrder
+                函数: GetTriggerUnit
+                预设: UnitOrderStop
+    IfThenElseMultiple
+        条件
+            OperatorCompareOrderCode
+                函数: GetIssuedOrderIdBJ
+                预设: OperatorEqualENE
+                函数: String2OrderIdBJ
+                    常量: hex
+        动作
+            IssueImmediateOrder
+                函数: GetTriggerUnit
+                预设: UnitOrderHoldPosition

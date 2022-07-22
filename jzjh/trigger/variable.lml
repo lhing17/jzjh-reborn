@@ -1,0 +1,30 @@
+UG_ResidualImage: group
+A_Unit: unit
+A_Unit2: unit
+A_PlayerHero: unit
+    数组: 1
+Player_Hero: unit
+    数组: 1
+Unit_B: unit
+    数组: 1
+A_UG: group
+A_Piont: location
+A_Piont2: location
+A_Angle: degree
+A_Ang: real
+A_Ang_2: real
+A_hurt: real
+A_num: real
+x: real
+y: real
+Player: player
+    数组: 1
+A_Int: integer
+Number_player: integer
+MeiJuJiFen: integer
+    数组: 7
+kurongsharen: integer
+    数组: 5
+HuanZhuangCD: boolean
+    数组: 5
+youLingChuan: trigger

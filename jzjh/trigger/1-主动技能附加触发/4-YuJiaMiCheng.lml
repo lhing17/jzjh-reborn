@@ -1,0 +1,313 @@
+事件
+    TriggerRegisterAnyUnitEventBJ
+        预设: PlayerUnitEventSpellCast
+条件
+    OperatorCompareAbilityId
+        函数: GetSpellAbilityId
+        预设: OperatorEqualENE
+        常量: q01k
+动作
+    CommentString
+        常量: 伤害设置
+    YDWESetAnyTypeLocalVariable
+        预设: typename07_unit
+        常量: unit
+        函数: GetTriggerUnit
+    YDWESetAnyTypeLocalVariable
+        预设: typename07_unit
+        常量: u
+        函数: GetTriggerUnit
+    YDWESetAnyTypeLocalVariable
+        预设: typename02_real
+        常量: damage
+        常量: 1.00
+    CommentString
+        常量: 伤害设置
+    YDWETimerStartMultiple
+        函数: CreateTimer
+        常量: 0.25
+        预设: PeriodicOptionPeriodic
+        动作
+            YDWESetAnyTypeLocalVariable
+                预设: typename02_real
+                常量: t
+                常量: 0.00
+            YDWESetAnyTypeLocalVariable
+                预设: typename07_unit
+                常量: u
+                函数: YDWEGetAnyTypeLocalVariable
+                    常量: u
+        动作
+            YDWESetAnyTypeLocalVariable
+                预设: typename02_real
+                常量: t
+                函数: OperatorRealAdd
+                    常量: 0.25
+                    函数: YDWEGetAnyTypeLocalVariable
+                        常量: t
+            YDWESetAnyTypeLocalVariable
+                预设: typename14_location
+                常量: q
+                函数: GetUnitLoc
+                    函数: YDWEGetAnyTypeLocalVariable
+                        常量: u
+            YDWESetAnyTypeLocalVariable
+                预设: typename38_degree
+                常量: j
+                函数: GetUnitFacing
+                    函数: YDWEGetAnyTypeLocalVariable
+                        常量: u
+            YDWESetAnyTypeLocalVariable
+                预设: typename20_effect
+                常量: c
+                函数: AddSpecialEffectTarget
+                    常量: war3mapImported\IceNova.mdx
+                    函数: YDWEGetAnyTypeLocalVariable
+                        常量: u
+                    常量: origin
+            DestroyEffectBJ
+                函数: YDWEGetAnyTypeLocalVariable
+                    常量: c
+            ForLoopAMultiple
+                常量: 1
+                常量: 6
+                动作
+                    YDWESetAnyTypeLocalVariable
+                        预设: typename38_degree
+                        常量: jj
+                        函数: OperatorDegreeAdd
+                            函数: OperatorDegreeSubtract
+                                函数: YDWEGetAnyTypeLocalVariable
+                                    常量: j
+                                常量: 40.00
+                            函数: OperatorDegreeMultiply
+                                常量: 16.00
+                                函数: OperatorRealSubtract
+                                    函数: I2R
+                                        预设: bj_forLoopAIndex
+                                    常量: 1.00
+                    YDWESetAnyTypeLocalVariable
+                        预设: typename14_location
+                        常量: pp
+                        函数: PolarProjectionBJ
+                            函数: YDWEGetAnyTypeLocalVariable
+                                常量: q
+                            常量: 1000.00
+                            函数: YDWEGetAnyTypeLocalVariable
+                                常量: jj
+                    YDWESetAnyTypeLocalVariable
+                        预设: typename07_unit
+                        常量: n
+                        函数: CreateUnitAtLoc
+                            函数: GetOwningPlayer
+                                函数: YDWEGetAnyTypeLocalVariable
+                                    常量: u
+                            常量: q01s
+                            函数: YDWEGetAnyTypeLocalVariable
+                                常量: q
+                            函数: YDWEGetAnyTypeLocalVariable
+                                常量: jj
+                    PauseUnitBJ
+                        预设: PauseUnpauseOptionPause
+                        函数: YDWEGetAnyTypeLocalVariable
+                            常量: n
+                    YDWETimerPatternRushSlide
+                        函数: YDWEGetAnyTypeLocalVariable
+                            常量: n
+                        函数: YDWEGetAnyTypeLocalVariable
+                            常量: jj
+                        常量: 850.00
+                        常量: 0.50
+                        常量: 0.03
+                        常量: 0
+                        常量: false
+                        常量: false
+                        常量: false
+                        常量: origin
+                        常量: 
+                        常量: 
+                    YDWETimerStartMultiple
+                        函数: CreateTimer
+                        常量: 0.03
+                        预设: PeriodicOptionPeriodic
+                        动作
+                            YDWESetAnyTypeLocalVariable
+                                预设: typename02_real
+                                常量: tt
+                                常量: 0.00
+                            YDWESetAnyTypeLocalVariable
+                                预设: typename07_unit
+                                常量: u
+                                函数: YDWEGetAnyTypeLocalVariable
+                                    常量: u
+                            YDWESetAnyTypeLocalVariable
+                                预设: typename07_unit
+                                常量: n
+                                函数: YDWEGetAnyTypeLocalVariable
+                                    常量: n
+                            YDWESetAnyTypeLocalVariable
+                                预设: typename12_group
+                                常量: g0
+                                函数: CreateGroup
+                        动作
+                            YDWESetAnyTypeLocalVariable
+                                预设: typename02_real
+                                常量: tt
+                                函数: OperatorRealAdd
+                                    函数: YDWEGetAnyTypeLocalVariable
+                                        常量: tt
+                                    常量: 0.03
+                            YDWESetAnyTypeLocalVariable
+                                预设: typename14_location
+                                常量: p
+                                函数: GetUnitLoc
+                                    函数: YDWEGetAnyTypeLocalVariable
+                                        常量: n
+                            YDWESetAnyTypeLocalVariable
+                                预设: typename12_group
+                                常量: g
+                                函数: GetUnitsInRangeOfLocMatching
+                                    常量: 150.00
+                                    函数: YDWEGetAnyTypeLocalVariable
+                                        常量: p
+                                    条件: OperatorCompareBoolean
+                                        函数: IsUnitEnemy
+                                            函数: GetFilterUnit
+                                            函数: GetOwningPlayer
+                                                函数: YDWEGetAnyTypeLocalVariable
+                                                    常量: u
+                                        预设: OperatorEqualENE
+                                        常量: true
+                            ForGroupMultiple
+                                函数: YDWEGetAnyTypeLocalVariable
+                                    常量: g
+                                动作
+                                    IfThenElseMultiple
+                                        条件
+                                            AndMultiple
+                                                条件
+                                                    OperatorCompareBoolean
+                                                        函数: IsUnitType
+                                                            函数: GetEnumUnit
+                                                            预设: UnitTypeStructure
+                                                        预设: OperatorEqualENE
+                                                        常量: false
+                                                    OperatorCompareBoolean
+                                                        函数: IsUnitType
+                                                            函数: GetEnumUnit
+                                                            预设: UnitTypeDead
+                                                        预设: OperatorEqualENE
+                                                        常量: false
+                                                    OperatorCompareBoolean
+                                                        函数: IsUnitType
+                                                            函数: GetEnumUnit
+                                                            预设: UnitTypeMagicImmune
+                                                        预设: OperatorEqualENE
+                                                        常量: false
+                                                    OperatorCompareBoolean
+                                                        函数: IsUnitInGroup
+                                                            函数: GetEnumUnit
+                                                            函数: YDWEGetAnyTypeLocalVariable
+                                                                常量: g0
+                                                        预设: OperatorEqualENE
+                                                        常量: false
+                                        动作
+                                            YDWESetAnyTypeLocalVariable
+                                                预设: typename07_unit
+                                                常量: m
+                                                函数: GetEnumUnit
+                                            GroupAddUnitSimple
+                                                函数: YDWEGetAnyTypeLocalVariable
+                                                    常量: m
+                                                函数: YDWEGetAnyTypeLocalVariable
+                                                    常量: g0
+                                            YDWESetAnyTypeLocalVariable
+                                                预设: typename02_real
+                                                常量: damage
+                                                函数: YDWECustomScriptCode
+                                                    常量: 'ShangHaiGongShi(GetTriggerUnit(),GetEnumUnit(), 5, 5, 1, ''q01k'')'
+                                            UnitDamageTargetBJ
+                                                函数: YDWEGetAnyTypeLocalVariable
+                                                    常量: u
+                                                函数: YDWEGetAnyTypeLocalVariable
+                                                    常量: m
+                                                函数: YDWEGetAnyTypeLocalVariable
+                                                    常量: damage
+                                                预设: AttackTypeNormal
+                                                预设: DamageTypeNormal
+                                            YDWESetAnyTypeLocalVariable
+                                                预设: typename20_effect
+                                                常量: cm1
+                                                函数: AddSpecialEffectTarget
+                                                    常量: Abilities\Weapons\ZigguratFrostMissile\ZigguratFrostMissile.mdl
+                                                    函数: YDWEGetAnyTypeLocalVariable
+                                                        常量: m
+                                                    常量: chest
+                                            YDWESetAnyTypeLocalVariable
+                                                预设: typename20_effect
+                                                常量: cm2
+                                                函数: AddSpecialEffectTarget
+                                                    常量: Objects\Spawnmodels\Human\HumanBlood\BloodElfSpellThiefBlood.mdl
+                                                    函数: YDWEGetAnyTypeLocalVariable
+                                                        常量: m
+                                                    常量: chest
+                                            DestroyEffectBJ
+                                                函数: YDWEGetAnyTypeLocalVariable
+                                                    常量: cm1
+                                            DestroyEffectBJ
+                                                函数: YDWEGetAnyTypeLocalVariable
+                                                    常量: cm2
+                                            YDWESetAnyTypeLocalVariable
+                                                预设: typename07_unit
+                                                常量: m
+                                                预设: UnitNull
+                                        动作
+                                            DoNothing
+                            DestroyGroup
+                                函数: YDWEGetAnyTypeLocalVariable
+                                    常量: g
+                            RemoveLocation
+                                函数: YDWEGetAnyTypeLocalVariable
+                                    常量: p
+                            IfThenElseMultiple
+                                条件
+                                    OperatorCompareReal
+                                        函数: YDWEGetAnyTypeLocalVariable
+                                            常量: tt
+                                        预设: OperatorGreaterEq
+                                        常量: 0.50
+                                动作
+                                    RemoveUnit
+                                        函数: YDWEGetAnyTypeLocalVariable
+                                            常量: n
+                                    DestroyGroup
+                                        函数: YDWEGetAnyTypeLocalVariable
+                                            常量: g0
+                                    YDWESetAnyTypeLocalVariable
+                                        预设: typename07_unit
+                                        常量: n
+                                        预设: UnitNull
+                                    RemoveLocation
+                                        函数: YDWEGetAnyTypeLocalVariable
+                                            常量: pp
+                                    YDWETimerStartFlush
+                                动作
+                                    DoNothing
+            RemoveLocation
+                函数: YDWEGetAnyTypeLocalVariable
+                    常量: q
+            IfThenElseMultiple
+                条件
+                    OperatorCompareReal
+                        函数: YDWEGetAnyTypeLocalVariable
+                            常量: t
+                        预设: OperatorGreater
+                        常量: 3.00
+                动作
+                    YDWESetAnyTypeLocalVariable
+                        预设: typename07_unit
+                        常量: u
+                        预设: UnitNull
+                    YDWETimerStartFlush
+                动作
+                    DoNothing

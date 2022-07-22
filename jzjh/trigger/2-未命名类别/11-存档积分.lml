@@ -1,0 +1,26 @@
+事件
+    TriggerRegisterPlayerChatEvent
+        预设: Player00
+        常量: -Test
+        预设: ChatMatchTypeExact
+条件
+动作
+    SetVariable
+        数组: MeiJuJiFen
+            常量: 1
+        函数: OperatorInt
+            数组: MeiJuJiFen
+                常量: 1
+            预设: OperatorAdd
+            常量: 500
+    YDWE_PreloadSL_Set
+        预设: Player00
+        常量: 总积分
+        常量: 1
+        数组: MeiJuJiFen
+            常量: 1
+    YDWE_PreloadSL_Save
+        预设: Player00
+        常量: JueZhan
+        常量: JiangHu
+        常量: 1
