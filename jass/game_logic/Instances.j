@@ -389,7 +389,7 @@ else
 call createitemloc(1227895094,LoadLocationHandle(YDHT,id*cx,$1769D332))
 endif
 //擒龙控鹤
-if GetRandomReal(1, 100)<=10. or(GetRandomReal(1, 100)<=20. and Deputy_isDeputy(1+GetPlayerId(GetOwningPlayer(GetKillingUnit())), JING_WU)) then
+if GetRandomReal(1, 100)<=50. or Deputy_isDeputy(1+GetPlayerId(GetOwningPlayer(GetKillingUnit())), JING_WU) then
 	call createitemloc('I0CC',LoadLocationHandle(YDHT,id*cx,$1769D332))
 endif
 set N7=N7+1
@@ -642,26 +642,10 @@ function H1 takes nothing returns nothing
 		call createitemloc(udg_juexue[GetRandomInt(1,10)],loc)
 		call createitemloc(YaoCao[9],loc)
 		if Deputy_isDeputy(i, JING_WU) then
-			if GetRandomReal(1, 100)<=10. then
-				call createitemloc('I0C3',loc)
-			endif
-			if GetRandomReal(1, 100)<=10. then
-				call createitemloc('I0C9',loc)
-			endif
-			if GetRandomReal(1, 100)<=10. then
-				call createitemloc('I0CD',loc)
-			endif
-		else
-			if GetRandomReal(1, 100)<=5. then
-				call createitemloc('I0C3',loc)
-			endif
-			if GetRandomReal(1, 100)<=5. then
-				call createitemloc('I0C9',loc)
-			endif
-			if GetRandomReal(1, 100)<=5. then
-				call createitemloc('I0CD',loc)
-			endif
+		    // 无相劫指 须弥山掌 枯荣禅功
+            call BaoWuDiaoLuo(GetKillingUnit(), GetTriggerUnit(), 100, 'I0C3', 'I0C9', 'I0CD', 0, 0, 0)
 		endif
+		call BaoWuDiaoLuo(GetKillingUnit(), GetTriggerUnit(), 100, 'I0C3', 'I0C9', 'I0CD', 0, 0, 0)
 		if Deputy_isMaster(i, LIAN_DAN) then
 			call createitemloc(YaoCao[9],loc)
 		endif
@@ -1696,22 +1680,6 @@ function RL takes nothing returns nothing
 		call SetPlayerStateBJ(p, PLAYER_STATE_RESOURCE_GOLD, (GetPlayerState(s8,PLAYER_STATE_RESOURCE_GOLD)*2))
 		call DisplayTextToPlayer(p,0,0,"赌赢了~")
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|CFF66FF00有玩家和韦小宝赌博赢得了大量的金钱，停怪就靠他了")
-		//if Ce[i]==4 then
-		//	if udg_jdds[i]<1 then
-		//		set udg_jdds[i] = udg_jdds[i]+1
-		//		call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您和韦小宝赌赢了"+I2S(udg_jdds[i])+"次，赌赢2次可获得鉴定大师哦")
-		//	else
-		//		if udg_jddsbool[i] == false then
-		//			set udg_jddsbool[i] = true
-		//			if udg_zhangmen[i]==true then
-		//			else
-		//				call SaveStr(YDHT, GetHandleId(p), GetHandleId(p),"〓鉴定大师〓"+LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-		//			endif
-		//			call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFF66FF00恭喜"+GetPlayerName(p)+"获得鉴定大师")
-		//			call SetPlayerName(p, "〓鉴定大师〓"+GetPlayerName(p))
-		//		endif
-		//	endif
-		//endif
 	else
 		call SetPlayerStateBJ(p,PLAYER_STATE_RESOURCE_GOLD,0)
 		call DisplayTextToPlayer(p,0,0,"赌输了！！")
@@ -1734,21 +1702,6 @@ function UL takes nothing returns nothing
 		call SetPlayerStateBJ(p, PLAYER_STATE_RESOURCE_GOLD, (GetPlayerState(p,PLAYER_STATE_RESOURCE_GOLD)*5/4))
 		call DisplayTextToPlayer(p,0,0,"赌赢了~")
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|CFF66FF00有玩家和韦小宝赌博赢得了大量的金钱，停怪就靠他了")
-		//if Ce[i]==4 then
-		//	if udg_jdds[i]<6 then
-		//		set udg_jdds[i] = udg_jdds[i]+1
-		//	else
-		//		if udg_jddsbool[i] == false then
-		//			set udg_jddsbool[i] = true
-		//			if udg_zhangmen[i]==true then
-		//			else
-		//				call SaveStr(YDHT, GetHandleId(p), GetHandleId(p),"〓鉴定大师〓"+LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-		//			endif
-		//			call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFF66FF00恭喜"+GetPlayerName(p)+"获得鉴定大师")
-		//			call SetPlayerName(p, "〓鉴定大师〓"+GetPlayerName(p))
-		//		endif
-		//	endif
-		//endif
 	else
 		call SetPlayerStateBJ(p,PLAYER_STATE_RESOURCE_GOLD,(GetPlayerState(p,PLAYER_STATE_RESOURCE_GOLD)*3/4))
 		call DisplayTextToPlayer(p,0,0,"赌输了！！")
@@ -1771,21 +1724,6 @@ function XL takes nothing returns nothing
 		call SetPlayerStateBJ(p, PLAYER_STATE_RESOURCE_GOLD, (GetPlayerState(p,PLAYER_STATE_RESOURCE_GOLD)*3/2))
 		call DisplayTextToPlayer(p,0,0,"赌赢了~")
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|CFF66FF00有玩家和韦小宝赌博赢得了大量的金钱，停怪就靠他了")
-		//if Ce[i]==4 then
-		//	if udg_jdds[i]<6 then
-		//		set udg_jdds[i] = udg_jdds[i]+1
-		//	else
-		//		if udg_jddsbool[i] == false then
-		//			set udg_jddsbool[i] = true
-		//			if udg_zhangmen[i]==true then
-		//			else
-		//				call SaveStr(YDHT, GetHandleId(p), GetHandleId(p),"〓鉴定大师〓"+LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-		//			endif
-		//			call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFF66FF00恭喜"+GetPlayerName(p)+"获得鉴定大师")
-		//			call SetPlayerName(p, "〓鉴定大师〓"+GetPlayerName(p))
-		//		endif
-		//	endif
-		//endif
 	else
 		call SetPlayerStateBJ(p,PLAYER_STATE_RESOURCE_GOLD,(GetPlayerState(p,PLAYER_STATE_RESOURCE_GOLD)/2))
 		call DisplayTextToPlayer(p,0,0,"赌输了！！")

@@ -70,14 +70,8 @@ function eR takes nothing returns nothing
 	endif
 	if GetUnitTypeId(GetTriggerUnit())=='nw2w' then
 		set LLguaiG[i] = 1
-		if Deputy_isDeputy(i, JING_WU) then
-			if GetRandomReal(1, 100)<=40. then
-				call createitemloc('I0C6',GetUnitLoc(u))
-			endif
-		else
-			if GetRandomReal(1, 100)<=20. then
-				call createitemloc('I0C6',GetUnitLoc(u))
-			endif
+		if Deputy_isDeputy(i, JING_WU) or GetRandomReal(1, 100) <= 50.0 then
+			call createitemloc('I0C6',GetUnitLoc(u))
 		endif
 	endif
 	if GetUnitTypeId(GetTriggerUnit())=='ohun' then
@@ -233,8 +227,8 @@ function jR takes nothing returns nothing
 		if((GetUnitLevel(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0))<25))then
 			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000等级不足25级无法接取该任务")
 		else
-			if((shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<1800))then
-				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000江湖声望不足1800无法接取该任务")
+			if((shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<1500))then
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000江湖声望不足1500无法接取该任务")
 			else
 				if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<1))then
 					call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你必须先完成历练1任务")
@@ -351,6 +345,9 @@ function nR takes nothing returns nothing
 		else
 			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务十八罗汉阵，获得修行+1，全性格属性+1")
 		endif
+		// 动态调整难度
+		call dynamicDifficultyAdjustment(2)
+
 		// 单通5门派奖励
 		if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
 			set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
@@ -405,8 +402,8 @@ function tR takes nothing returns nothing
 		if((GetUnitLevel(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0))<40))then
 			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000等级不足40级无法接取该任务")
 		else
-			if((shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<3200))then
-				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000江湖声望不足3200无法接取该任务")
+			if((shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<2800))then
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000江湖声望不足2800无法接取该任务")
 			else
 				if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<2))then
 					call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你必须先完成历练2任务")
@@ -642,8 +639,8 @@ function GR takes nothing returns nothing
 		if((GetUnitLevel(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0))<55))then
 			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000等级不足55级无法接取该任务")
 		else
-			if((shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<5500))then
-				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000江湖声望不足5500无法接取该任务")
+			if((shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<4800))then
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000江湖声望不足4800无法接取该任务")
 			else
 				if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<3))then
 					call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你必须先完成历练3任务")
@@ -711,6 +708,8 @@ function lR takes nothing returns nothing
 		if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1))then
 			call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
 			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4
+			// 动态调整难度
+			call dynamicDifficultyAdjustment(4)
 			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
 				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',5)
 				call SetUnitAcquireRange(GetKillingUnit(), 1000)
@@ -768,6 +767,8 @@ function LR takes nothing returns nothing
 		if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1))then
 			call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
 			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4
+			// 动态调整难度
+			call dynamicDifficultyAdjustment(4)
 			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
 				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',5)
 				call SetUnitAcquireRange(GetKillingUnit(), 1000)
@@ -824,6 +825,8 @@ function OR takes nothing returns nothing
 		set LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
 		if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1))then
 			call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
+			// 动态调整难度
+			call dynamicDifficultyAdjustment(4)
 			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4
 			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
 				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',5)
@@ -881,6 +884,8 @@ function RR takes nothing returns nothing
 		set LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
 		if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1))then
 			call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
+			// 动态调整难度
+			call dynamicDifficultyAdjustment(4)
 			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4
 			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
 				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',5)
@@ -938,6 +943,8 @@ function UR takes nothing returns nothing
 		set LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
 		if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1))then
 			call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
+			// 动态调整难度
+			call dynamicDifficultyAdjustment(4)
 			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4
 			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
 				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',5)
@@ -1132,8 +1139,8 @@ function kS takes nothing returns nothing
 		if((GetUnitLevel(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0))<70))then
 			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000等级不足70级无法接取该任务")
 		else
-			if((shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<7500))then
-				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000江湖声望不足7500无法接取该任务")
+			if((shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<6500))then
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000江湖声望不足6500无法接取该任务")
 			else
 				if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<4))then
 					call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你必须先完成历练4任务")
@@ -1556,8 +1563,8 @@ function LS takes nothing returns nothing
 	else
 		if (GetUnitLevel(u)<100) then
 			call DisplayTextToPlayer(p,0,0,"|cFFFF0000等级不足100级无法接取该任务")
-		elseif (shengwang[i]<11000) then
-			call DisplayTextToPlayer(p,0,0,"|cFFFF0000江湖声望不足11000无法接取该任务")
+		elseif (shengwang[i]<9000) then
+			call DisplayTextToPlayer(p,0,0,"|cFFFF0000江湖声望不足9000无法接取该任务")
 		elseif (xiuxing[i]<5) then
 			call DisplayTextToPlayer(p,0,0,"|cFFFF0000你必须先完成历练5任务")
 			set loc = GetRectCenter(Rg)
@@ -1615,6 +1622,8 @@ function OS takes nothing returns nothing
 		if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3))then
 			call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
 			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=6
+			// 动态调整难度
+			call dynamicDifficultyAdjustment(6)
 			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
 				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',7)
 				call SetUnitAcquireRange(GetKillingUnit(), 1200)
@@ -1670,6 +1679,8 @@ function RS takes nothing returns nothing
 		if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3))then
 			call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
 			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=6
+			// 动态调整难度
+			call dynamicDifficultyAdjustment(6)
 			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
 				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',7)
 				call SetUnitAcquireRange(GetKillingUnit(), 1200)
@@ -1725,6 +1736,8 @@ function US takes nothing returns nothing
 		if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3))then
 			call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
 			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=6
+			// 动态调整难度
+			call dynamicDifficultyAdjustment(6)
 			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
 				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',7)
 				call SetUnitAcquireRange(GetKillingUnit(), 1200)
@@ -1780,6 +1793,8 @@ function XS takes nothing returns nothing
 		if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3))then
 			call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
 			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=6
+			// 动态调整难度
+			call dynamicDifficultyAdjustment(6)
 			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
 				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',7)
 				call SetUnitAcquireRange(GetKillingUnit(), 1200)

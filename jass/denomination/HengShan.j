@@ -8,7 +8,7 @@ function WanHuaJian takes nothing returns nothing
 	local location loc=GetUnitLoc(u)
 	local location array loc2
 	local integer i=0
-	call WuGongShengChong(GetTriggerUnit(),'A021',350)
+	call WuGongShengChong(GetTriggerUnit(),'A021',240)
 	set i = 1
 	loop
 		exitwhen i > 6
@@ -60,7 +60,7 @@ function WanHuaMaJia takes nothing returns nothing
 	if UnitHasDenomWeapon(u, 'I0DU') then
 	    set shxishu = shxishu * 2
     endif
-    set shanghai=ShangHaiGongShi(u,uc,5.,5.,shxishu,'A021')
+    set shanghai=ShangHaiGongShi(u,uc,10.,10.,shxishu,'A021')
     call WuGongShangHai(u,uc,shanghai)
     call RemoveLocation(loc2)
     set u=null
@@ -74,7 +74,7 @@ endfunction
 function FuChenGong takes nothing returns nothing
 	local location loc=GetSpellTargetLoc()
 	local unit u=null
-	call WuGongShengChong(GetTriggerUnit(),'A01Z',250)
+	call WuGongShengChong(GetTriggerUnit(),'A01Z',180)
 	call CreateNUnitsAtLoc(1,'h00F',GetOwningPlayer(GetTriggerUnit()),loc,bj_UNIT_FACING)
 	set u=bj_lastCreatedUnit
 	call ShowUnitHide(u)
@@ -107,7 +107,7 @@ function FuChenMaJia takes nothing returns nothing
 	local unit uc=GetTriggerUnit()
 	local real shxishu=1
     local real shanghai=0.
-    local real r1=GetRandomReal(1., 24.)*6.
+    local real r1=GetRandomReal(1., 24.)*12.
     if GetUnitAbilityLevel(u,'A07J')>=1 then
 		set shxishu=shxishu+1
 	endif
@@ -147,7 +147,7 @@ function TianShanZhang takes nothing returns nothing
 	if GetUnitAbilityLevel(u,'A07F')>=1 then
 		set r=2.0
 	endif
-	call WuGongShengChong(u,'A0CD',500)
+	call WuGongShengChong(u,'A0CD',480)
 	call GroupEnumUnitsInRangeOfLoc(g,loc,700,function TianShan_Condition)
 	set uc=GroupPickRandomUnit(g)
 	if uc!=null then
@@ -293,7 +293,7 @@ function PuSaYin takes nothing returns nothing
 	if GetRandomInt(1,100)<15+fuyuan[i]/5 then
 		set shanghai=ShangHaiGongShi(u,uc,160.,80.,shxishu,'A024')
    		call WuGongShangHai(u,uc,shanghai)
-   		call WuGongShengChong(u,'A024',700)
+   		call WuGongShengChong(u,'A024',300)
    		if GetUnitAbilityLevel(u,'A09D')>=1 and GetRandomInt(1,100)<=20 then
    			set level=GetUnitAbilityLevel(u,'A024')
 	    	call UnitRemoveAbility(u,'A024')

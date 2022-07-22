@@ -78,22 +78,7 @@ function LJ takes nothing returns nothing
 	set p = null
 endfunction
 // 狼皮任务
-function isWolfSkin takes nothing returns boolean
-	return((UnitTypeNotNull(GetTriggerUnit(),UNIT_TYPE_HERO))and(GetPlayerController(GetOwningPlayer(GetTriggerUnit()))==MAP_CONTROL_USER)and(GetItemTypeId(GetManipulatedItem())=='I0DQ'))
-endfunction
-function wolfSkin takes nothing returns nothing
-	local unit u =GetTriggerUnit() // 触发单位
-	local player p=GetOwningPlayer(u) // 单位所有者
-	local integer i=1+GetPlayerId(p)
-	if wolfSkinFlag[i] == 0  then
-		set wolfSkinFlag[i] = 1
-		call DisplayTextToPlayer(p,0,0,"|cFFFFCC00店小二：|r |cFF99FFCC即将入冬，请大侠帮忙提供10张狼皮|r\n|cFFFFCC00提示：|r |cFF99FFCC可以杀多点一次性交任务|r\n")
-	else
-		call DisplayTextToPlayer(p,0,0,"|cFFFFCC00店小二：|r |cFF99FFCC你已经接受任务了|r\n")
-	endif
-	set u = null
-	set p = null
-endfunction
+
 //杀狼任务——青铜刀
 function TI takes nothing returns boolean
 	return((GetUnitTypeId(GetTriggerUnit())=='nwlt')) // 狼死触发
@@ -120,20 +105,14 @@ function UI takes nothing returns nothing
 			call DisplayTextToPlayer(p,0,0,("野狼："+(I2S(P7[i])+" / 6")))
 		endif
 	endif
-	if wolfSkinFlag[i]==1 or wolfSkinFlag[i]==2 then
-		set wolfSkinCount[i]=(wolfSkinCount[i]+1)
-		call DisplayTextToPlayer(p,0,0,("狼皮数量："+(I2S(wolfSkinCount[i])+" /10")))
-		if wolfSkinCount[i] >= 10 then
-			// 10狼皮任务可以提交
-			set wolfSkinFlag[i] = 2  
-		endif
-	endif
+	set wolfSkinCount[i]=(wolfSkinCount[i]+1)
+	call DisplayTextToPlayer(p,0,0,("狼皮数量："+(I2S(wolfSkinCount[i])+" /10")))
 	set u = null
 	set p = null
 endfunction
 // 完成狼皮任务，靠近店小二提交任务
 function isFinishWolfSkin takes nothing returns boolean
-	return((UnitTypeNotNull(GetTriggerUnit(),UNIT_TYPE_HERO))and(GetPlayerController(GetOwningPlayer(GetTriggerUnit()))==MAP_CONTROL_USER)and(wolfSkinFlag[(1+GetPlayerId(GetOwningPlayer(GetTriggerUnit())))]==2))
+	return((UnitTypeNotNull(GetTriggerUnit(),UNIT_TYPE_HERO))and(GetPlayerController(GetOwningPlayer(GetTriggerUnit()))==MAP_CONTROL_USER))
 endfunction
 function finishWolfSkin takes nothing returns nothing
 	local unit u = GetTriggerUnit()
@@ -143,17 +122,20 @@ function finishWolfSkin takes nothing returns nothing
 	local integer xp = 0 // 获得经验
 	local integer gold = 0 // 获得金钱
 	local integer sw = 0 // 获得声望
-	set count = wolfSkinCount[i]/10 // 取整
-	set xp = 1000 * count
-	set gold = 2000 * count
-	set sw = 50 * count
-	call AddHeroXP(u,xp,true) // 奖励经验
-	call AdjustPlayerStateBJ(gold, p, PLAYER_STATE_RESOURCE_GOLD) // 奖励金钱
-	set shengwang[i]=shengwang[i]+ sw // 奖励声望
-	call PlaySoundOnUnitBJ(Hh,100,u)
-	call DisplayTextToPlayer(p,0,0,("|CFF34FF00完成任务获得经验+"+I2S(xp)+"、金钱"+I2S(gold)+"、江湖声望"+I2S(sw)))
-	set wolfSkinFlag[i] = 0
-	set wolfSkinCount[i] = 0
+	if wolfSkinCount[i] >= 10 then
+		set count = wolfSkinCount[i]/10 // 取整
+		set xp = 1000 * count
+		set gold = 2000 * count
+		set sw = 50 * count
+		call AddHeroXP(u,xp,true) // 奖励经验
+		call AdjustPlayerStateBJ(gold, p, PLAYER_STATE_RESOURCE_GOLD) // 奖励金钱
+		set shengwang[i]=shengwang[i]+ sw // 奖励声望
+		call PlaySoundOnUnitBJ(Hh,100,u)
+		call DisplayTextToPlayer(p,0,0,("|CFF34FF00完成任务获得经验+"+I2S(xp)+"、金钱"+I2S(gold)+"、江湖声望"+I2S(sw)))
+		set wolfSkinCount[i] = wolfSkinCount[i] - count * 10
+	else
+		call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00店小二：|r |cFF99FFCC即将入冬，请大侠帮忙收集一些狼皮|r\n|cFFFFCC00提示：|r |cFF99FFCC可以杀多点一次性交任务|r\n")
+	endif
 	set u = null
 	set p = null
 endfunction
@@ -1275,25 +1257,25 @@ function UJ takes nothing returns nothing
 	call SaveUnitHandle(YDHT,id*cx,-$2EC5CBA0,GetTriggerUnit())
 	if((GetRandomInt(1,50)<=25))then
 		call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit(),0,0,500)
-		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务获得经验+100、江湖声望+15、生命+500\n")
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务获得经验+3000、江湖声望+60、生命+500\n")
 	else
 		if((GetRandomInt(1,50)<=25))then
 			call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit(),3,0,$C8)
-			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务获得经验+100、江湖声望+15、攻击+200")
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务获得经验+3000、江湖声望+60、攻击+200")
 		else
 			call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit(),2,0,30)
-			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务获得经验+100、江湖声望+15、防御+30\n")
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务获得经验+3000、江湖声望+60、防御+30\n")
 		endif
 	endif
 	if((GetRandomInt(1,50)<=40))then
 		call unitadditembyidswapped(YaoCao[5],GetTriggerUnit())
 		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00意外获得了一个锦灯笼")
 	endif
-	call AddHeroXP(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),100,true)
+	call AddHeroXP(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),3000,true)
 	call PlaySoundOnUnitBJ(Hh,100,LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0))
 	set jd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
 	set kd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(kd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+$F)
+	set shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+60)
 	call FlushChildHashtable(YDHT,id*cx)
 endfunction
 function WJ takes nothing returns boolean
@@ -1309,25 +1291,25 @@ function XJ takes nothing returns nothing
 	call SaveUnitHandle(YDHT,id*cx,-$2EC5CBA0,GetTriggerUnit())
 	if((GetRandomInt(1,50)<=25))then
 		call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit(),0,0,500)
-		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务获得经验+100、江湖声望+15、生命+500\n")
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务获得经验+3000、江湖声望+60、生命+500\n")
 	else
 		if((GetRandomInt(1,50)<=25))then
 			call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit(),3,0,$C8)
-			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务获得经验+100、江湖声望+15、攻击+200")
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务获得经验+3000、江湖声望+60、攻击+200")
 		else
 			call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit(),2,0,30)
-			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务获得经验+100、江湖声望+15、防御+30\n")
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务获得经验+3000、江湖声望+60、防御+30\n")
 		endif
 	endif
 	if((GetRandomInt(1,50)<=40))then
 		call unitadditembyidswapped(YaoCao[5],GetTriggerUnit())
 		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00意外获得了一个锦灯笼")
 	endif
-	call AddHeroXP(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),100,true)
+	call AddHeroXP(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),3000,true)
 	call PlaySoundOnUnitBJ(Hh,100,LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0))
 	set jd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
 	set kd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(kd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+$F)
+	set shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+60)
 	call FlushChildHashtable(YDHT,id*cx)
 endfunction
 function ZJ takes nothing returns boolean
@@ -1343,25 +1325,25 @@ function dK takes nothing returns nothing
 	call SaveUnitHandle(YDHT,id*cx,-$2EC5CBA0,GetTriggerUnit())
 	if((GetRandomInt(1,50)<=25))then
 		call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit(),0,0,500)
-		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务获得经验+100、江湖声望+15、生命+500\n")
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务获得经验+3000、江湖声望+60、生命+500\n")
 	else
 		if((GetRandomInt(1,50)<=25))then
 			call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit(),3,0,$C8)
-			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务获得经验+100、江湖声望+15、攻击+200")
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务获得经验+3000、江湖声望+60、攻击+200")
 		else
 			call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit(),2,0,30)
-			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务获得经验+100、江湖声望+15、防御+30\n")
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务获得经验+3000、江湖声望+60、防御+30\n")
 		endif
 	endif
 	if((GetRandomInt(1,50)<=40))then
 		call unitadditembyidswapped(YaoCao[5],GetTriggerUnit())
 		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00意外获得了一个锦灯笼")
 	endif
-	call AddHeroXP(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),100,true)
+	call AddHeroXP(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),3000,true)
 	call PlaySoundOnUnitBJ(Hh,100,LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0))
 	set jd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
 	set kd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(kd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+$F)
+	set shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+60)
 	call FlushChildHashtable(YDHT,id*cx)
 endfunction
 function fK takes nothing returns boolean
@@ -2574,10 +2556,6 @@ function Tasks_Trigger takes nothing returns nothing
 	call TriggerAddAction(qp,function EL)
 	
 	// 狼皮任务
-	set t=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_PICKUP_ITEM)
-	call TriggerAddCondition(t,Condition(function isWolfSkin))
-	call TriggerAddAction(t,function wolfSkin)
 	
 	// 完成狼皮任务
 	set t=CreateTrigger()

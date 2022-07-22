@@ -125,8 +125,8 @@ globals
 	string array manySuccess
 	// 单通速17门派数组，每位玩家的通关门派
 	string array singleSuccess
-	string initMpSaveStr = "000000000000000000"
-	string fullMpSaveStr = "111111111111111111"
+	string initMpSaveStr = "0000000000000000000000000"
+	string fullMpSaveStr = "1111111111111111111111111"
 	
 	// 是否第一次难度为最高
 	boolean topDegreeFlag = false
@@ -1416,7 +1416,7 @@ function Zw takes nothing returns nothing
 		set bj_forLoopAIndex = bj_forLoopAIndex + 1
 	endloop
 	call YDWEPolledWaitNull(40.)
-	call StartTimerBJ(A7[3],false,120.)
+	call StartTimerBJ(A7[3],false, 90.)
 	call CreateTimerDialogBJ(bj_lastStartedTimer,"邪教进攻倒计时：")
 	call TimerDialogDisplay(bj_lastCreatedTimerDialog,true)
 	set z7[3]=bj_lastCreatedTimerDialog
@@ -2351,7 +2351,7 @@ function main1 takes nothing returns nothing
 		set O7[i]=0
 		set P7[i]=0
 		set wolfSkinCount[i]=0
-		set wolfSkinFlag[i]=0
+		set wolfSkinFlag[i]=1
 		set udg_revivetimer[i]=CreateTimer()
 		set S7[i]=0
 		set udg_MaxDamage[i]=0

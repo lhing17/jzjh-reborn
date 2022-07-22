@@ -2195,7 +2195,37 @@ function percentDamage takes unit uc, real percent, boolean max returns nothing
 	endif
 endfunction
 
-#endif //CommonFuncIncluded
+
 function isPlayersEnemy takes nothing returns boolean
 	return IsUnitEnemy(GetFilterUnit(), Player(5)) and IsUnitAliveBJ(GetFilterUnit())
 endfunction
+
+// 动态调整难度
+function dynamicDifficultyAdjustment takes integer experience returns nothing
+    // 查看玩家1到玩家5的历练值，是否当前为唯一的最高值，如果是，则调整难度
+    local integer count = 0
+    local integer whichPlayer = 0
+	local integer i = 1
+    loop
+		exitwhen i > 5
+        if xiuxing[i] > experience then
+            return
+        endif
+        if xiuxing[i] == experience then
+            set count = count + 1
+            set whichPlayer = i - 1
+        endif
+		set i = i + 1
+    endloop
+    if count == 1 and udg_boshu <= 2 * experience then
+        // 如果当前难度为0或2，则科技+10
+        if udg_nandu == 0 or udg_nandu == 2 then
+            call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "由于玩家" + I2S(whichPlayer + 1) + "完成了历练" + I2S(experience) + "，难度动态调整，怪物科技上升")
+            call SetPlayerTechResearched(Player(12), 1378889777, GetPlayerTechCount(Player(12), 1378889777, true) + 10)
+            call SetPlayerTechResearched(Player(6), 1378889777, GetPlayerTechCount(Player(6), 1378889777, true) + 10)
+            call SetPlayerTechResearched(Player(15), 1378889777, GetPlayerTechCount(Player(15), 1378889777, true) + 10)
+        endif
+    endif
+endfunction
+
+#endif //CommonFuncIncluded

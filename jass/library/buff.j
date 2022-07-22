@@ -60,4 +60,5 @@ function WanBuff takes unit u, unit ut, integer buffnum returns nothing
 	call WanBuff_1(buffnum, 14, u, 'A074', $D022F, ut, "深度中毒")
     call WanBuff_1(buffnum, 15, u, 'A097', $D00DE, ut, "致盲")
     call WanBuff_1(buffnum, 16, u, 'A0DV', $D00DE, ut, "虚弱")
+    call WanBuff_1(buffnum, 17, u, 'A0EW', $D007F, ut, "冰冻")
 endfunction

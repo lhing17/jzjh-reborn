@@ -1580,20 +1580,32 @@ function Victory takes nothing returns nothing
 					if singleSuccess[i-1] == "" then
 						set singleSuccess[i-1] = initMpSaveStr
 					endif
+
+					// 如果字符串长度<门派总数，后面补0
+					loop
+					    exitwhen StringLength(singleSuccess[i - 1]) >= DENOMINATION_NUMBER
+						set singleSuccess[i-1] = singleSuccess[i-1] + "0"
+					endloop
+
 					if manySuccess[i-1] == "" then
 						set manySuccess[i-1] = initMpSaveStr
 					endif
+
+					loop
+						exitwhen StringLength(manySuccess[i - 1]) >= DENOMINATION_NUMBER
+						set manySuccess[i - 1] = manySuccess[i - 1] + "0"
+					endloop
 					
 					// 单通
 					if udg_wanjiashu == 1 then
-						set singleSuccess[i-1] = SubString(singleSuccess[i-1],0,udg_runamen[i]-1)+"1"+SubString(singleSuccess[i-1],udg_runamen[i],18)
+						set singleSuccess[i-1] = SubString(singleSuccess[i-1],0,udg_runamen[i]-1)+"1"+SubString(singleSuccess[i-1],udg_runamen[i],DENOMINATION_NUMBER)
 						call DisplayTextToPlayer(Player(i-1),0,0,"|CFF99CC00本局单通门派："+udg_menpainame[udg_runamen[i]])
 						call DzAPI_Map_StoreString(Player(i-1),"singleSuccess",singleSuccess[i-1])
 					endif
 					
 					// 多通（单通也算多通）
 					if udg_wanjiashu >= 1 then
-						set manySuccess[i-1] = SubString(manySuccess[i-1],0,udg_runamen[i]-1)+"1"+SubString(manySuccess[i-1],udg_runamen[i],18)
+						set manySuccess[i-1] = SubString(manySuccess[i-1],0,udg_runamen[i]-1)+"1"+SubString(manySuccess[i-1],udg_runamen[i],DENOMINATION_NUMBER)
 						call DisplayTextToPlayer(Player(i-1),0,0,"|CFF99CC00本局多通门派："+udg_menpainame[udg_runamen[i]])
 						call DzAPI_Map_StoreString(Player(i-1),"manySuccess",manySuccess[i-1])
 					endif
@@ -5481,7 +5493,7 @@ function GameLogic_Trigger takes nothing returns nothing
 	call TriggerAddAction(mj,function ka)
 	// 练功房刷怪
 	set nj=CreateTrigger()
-	call TriggerRegisterTimerEventPeriodic(nj,6.)
+	call TriggerRegisterTimerEventPeriodic(nj,8.)
 	call TriggerAddAction(nj,function qa)
 	// 进入练功房
 	set oj=CreateTrigger()

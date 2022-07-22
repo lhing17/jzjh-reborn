@@ -60,7 +60,7 @@ function WeiTuoGun takes nothing returns nothing
 	            call IssueTargetOrderById(bj_lastCreatedUnit,$D0085,u)
 	            call UnitApplyTimedLife(bj_lastCreatedUnit,'BHwe',3.)
 	        endif
-	        call WuGongShengChong(u,'A05G',1200.)
+	        call WuGongShengChong(u,'A05G',900.)
 	    endif
 	endif
 	call RemoveLocation(loc1)
@@ -155,7 +155,7 @@ function xc takes nothing returns nothing
 	    call IssuePointOrderByIdLoc(bj_lastCreatedUnit,$D0271,loc2)
 	    call UnitApplyTimedLife(bj_lastCreatedUnit,'BHwe',6.)
 	endif
-	call WuGongShengChong(u,'A000',150.)
+	call WuGongShengChong(u,'A000',120.)
 	call RemoveLocation(loc)
 	call RemoveLocation(loc2)
 	set u = null
@@ -219,7 +219,7 @@ function Bc takes nothing returns nothing
 	local real x=GetUnitX(uc)
 	local real y=GetUnitY(uc)
 	local group g=CreateGroup()
-	call WuGongShengChong(u,'A05K',160.)
+	call WuGongShengChong(u,'A05K',120.)
 	if((GetUnitAbilityLevel(u,1093678932)!=0)and(GetUnitAbilityLevel(u,'A07O')!=0))then
 	    call GroupEnumUnitsInRange(g,x,y,500,Condition(function Ac))
 	else
@@ -256,7 +256,7 @@ function cc takes nothing returns nothing
 	call AddSpecialEffectTargetUnitBJ("chest",u,"war3mapImported\\DefensiveBarrierBig.mdx")
 	call DisplayTextToPlayer(GetOwningPlayer(u),0,0,("|cff00ccff金钟罩效果总值："+I2S(R2I(D7[i]))))
 	set E7[i]=bj_lastCreatedEffect
-	call WuGongShengChong(u,'A05O',100.)
+	call WuGongShengChong(u,'A05O',90.)
 	set u=null
 	set p=null
 endfunction
@@ -392,7 +392,7 @@ function Mc takes nothing returns nothing
 	    endif
 	endif
 	if GetRandomReal(1,100) <= 15 + fuyuan[i]/5 then
-	    call WuGongShengChong(GetTriggerUnit(),'S000',6000.)
+	    call WuGongShengChong(GetTriggerUnit(),'S000',3600.)
 	endif
 	set u=null
 	set p=null
