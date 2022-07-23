@@ -85,35 +85,35 @@ function UseItem_Conditions takes nothing returns boolean
 
 	if GetItemTypeId(it) == 'I0EW' then
 		if ateDenom[i] == 1 and ateTianShu[i] == 1 then
-			call DisplayTextToPlayer(Player(i), 0, 0, "每局限使用两次哦（一次本门派专属和一次十四天书）")
+			call DisplayTextToPlayer(Player(i - 1), 0, 0, "每局限使用两次哦（一次本门派专属和一次十四天书）")
 			call UnitAddItemById(u, 'I0EW')
 			return false
 		endif
 		if not IsUnitType(u, UNIT_TYPE_HERO) then
-			call DisplayTextToPlayer(Player(i), 0, 0, "只有英雄才能使用哦")
+			call DisplayTextToPlayer(Player(i - 1), 0, 0, "只有英雄才能使用哦")
 			call UnitAddItemById(u, 'I0EW')
 			return false
 		endif
 		if ateDenom[i] == 0 then
-			if UnitHaveItem(u, getDenomExclusive(i)) then
-				set id = getDenomExclusive(i)
+			if UnitHaveItem(u, getDenomExclusive(udg_runamen[i])) then
+				set id = getDenomExclusive(udg_runamen[i])
 			elseif udg_runamen[i] == 20 and UnitHaveItem(u, 'I0EQ') then
 				set id = 'I0EQ'
 			endif
 			if id != 0 then
 				call RemoveItem(FetchUnitItem(u, id))
 				set ateDenom[i] = 1
-				call DisplayTextToPlayer(Player(i), 0, 0, "|CFFDDFF00已将专属" + GetObjectName(id) + "内化")
+				call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFDDFF00已将专属" + GetObjectName(id) + "内化")
 				return false
 			endif
 		endif
 		if ateTianShu[i] == 0 and UnitHaveItem(u, 'I0EE') then
 			call RemoveItem(FetchUnitItem(u, 'I0EE'))
 			set ateTianShu[i] = 1
-			call DisplayTextToPlayer(Player(i), 0, 0, "|CFFDDFF00已将十四天书内化")
+			call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFDDFF00已将十四天书内化")
 			return false
 		endif
-		call DisplayTextToPlayer(Player(i), 0, 0, "|CFFDDFF00身上没有专属或者已经内化过该专属了")
+		call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFDDFF00身上没有专属或者已经内化过该专属了")
 		call UnitAddItemById(u, 'I0EW')
 	endif
 	

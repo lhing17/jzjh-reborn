@@ -160,32 +160,9 @@ function Rl takes nothing returns nothing
 	// call DisplayTextToPlayer(GetOwningPlayer(GetKillingUnit()),0,0,"|cff00ff00击杀林朝英，获得江湖声望+50")
 	//call BJDebugMsg(I2S(LoadInteger(YDHT, StringHash("武学")+GetRandomInt(42, 46), 2)))
 	call BaoWuDiaoLuo(GetKillingUnit(), GetTriggerUnit() , 100, udg_jianghu[GetRandomInt(1,18)], 0, 0, 0, 0, 0)
+	call BaoWuDiaoLuo(GetKillingUnit(), GetTriggerUnit() , 100, 'I0C4', 'I0C5', 'I0C8', 'I0CJ', 0, 0)
 	if Deputy_isDeputy(1+GetPlayerId(GetOwningPlayer(GetKillingUnit())), JING_WU) then
-		if GetRandomReal(1, 100)<=10. then
-		call createitemloc('I0C4',loc)
-		endif
-		if GetRandomReal(1, 100)<=10. then
-			call createitemloc('I0C5',loc)
-		endif
-		if GetRandomReal(1, 100)<=10. then
-			call createitemloc('I0C8',loc)
-		endif
-		if GetRandomReal(1, 100)<=10. then
-			call createitemloc('I0CJ',loc)
-		endif
-	else
-		if GetRandomReal(1, 100)<=5. then
-			call createitemloc('I0C4',loc)
-		endif
-		if GetRandomReal(1, 100)<=5. then
-			call createitemloc('I0C5',loc)
-		endif
-		if GetRandomReal(1, 100)<=5. then
-			call createitemloc('I0C8',loc)
-		endif
-		if GetRandomReal(1, 100)<=5. then
-			call createitemloc('I0CJ',loc)
-		endif
+		call BaoWuDiaoLuo(GetKillingUnit(), GetTriggerUnit() , 100, 'I0C4', 'I0C5', 'I0C8', 'I0CJ', 0, 0)
 	endif
 	if Deputy_isMaster(1+GetPlayerId(GetOwningPlayer(GetKillingUnit())), LIAN_DAN) then
 		call createitemloc(YaoCao[9],loc)

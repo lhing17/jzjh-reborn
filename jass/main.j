@@ -1934,14 +1934,14 @@ function calMpCount takes integer i returns nothing
 	local integer parentId = 1 + GetPlayerId(Player(i))
 	// 截取存档，相加
 	loop
-	exitwhen j > 17
+	exitwhen j > DENOMINATION_NUMBER - 1
 		// body
 		set msCount = msCount + S2I(SubString(manySuccess[i],j,j+1))
 		set j = j + 1
 	endloop
 	set j = 0
 	loop
-	exitwhen j > 17
+	exitwhen j > DENOMINATION_NUMBER - 1
 		// body
 		set ssCount = ssCount + S2I(SubString(singleSuccess[i],j,j+1))
 		set j = j + 1
