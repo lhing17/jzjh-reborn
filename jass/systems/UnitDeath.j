@@ -21,6 +21,11 @@ function UnitDeath_Conditions takes nothing returns boolean
 		// 玄冥神掌杀100个敌人加1点特攻
 		call xuanMingAddSpecialAttack(u)
 	endif
+
+	if GetUnitTypeId(ut) == 'n016' then
+		// 杀大汗掉落胡卜处迩
+		call CreateItem('I0EW', GetUnitX(ut), GetUnitY(ut))
+	endif
 	
 	set u = null
 	set ut = null

@@ -284,7 +284,7 @@ function KeyInput takes nothing returns nothing
 		// call BJDebugMsg("原始多通数据："+manySuccess[pId])
         set j = 0
 		loop
-			exitwhen j>=18
+			exitwhen j>=DENOMINATION_NUMBER
 			// body
 			set spilt = SubString(singleSuccess[pId],j,j+1)
 			// 已通关门派
@@ -298,7 +298,7 @@ function KeyInput takes nothing returns nothing
 		call DisplayTimedTextToPlayer(Player(pId),0,0,10,"|CFF1CE6B9系统提示：|r"+"|CFFFE890D"+"单通挑战速通难7门派（白色未通关）|r："+tgs_menpai)
         set j = 0
 		loop
-			exitwhen j>=18
+			exitwhen j>=DENOMINATION_NUMBER
 			// body
 			set spilt = SubString(manySuccess[pId],j,j+1)
 			// 已通关门派
@@ -483,9 +483,6 @@ function KeyInput takes nothing returns nothing
 		set udg_MeiJuJiFen[i] = udg_MeiJuJiFen[i] - 500
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cFFFF0000"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p))+"已向"+LoadStr(YDHT,GetHandleId(Player(S2I(SubStringBJ(s,6,6))-1)),GetHandleId(Player(S2I(SubStringBJ(s,6,6))-1)))+"转移500点积分")
 	endif
-	if s=="baolv" then
-		call DisplayTextToPlayer(p,0,0,"|cFFFF0000锁喉枪的爆率为："+I2S(udg_baolv[1]))
-	endif
 	if s=="+ys" or s=="+YS" then
 		call SetCameraFieldForPlayer(GetTriggerPlayer(),CAMERA_FIELD_TARGET_DISTANCE,(GetCameraField(CAMERA_FIELD_TARGET_DISTANCE)+200.00),1.00)
 	endif
@@ -661,6 +658,10 @@ function KeyInput takes nothing returns nothing
 	if s == "next" and udg_isTest[GetPlayerId(p)] then
 		set udg_boshu=udg_boshu+1
 		call DisplayTextToPlayer(p,0,0,"|cFFFF0000已跳转至下一波")
+	endif
+	if s == "next15" and udg_isTest[GetPlayerId(p)] then
+		set udg_boshu=15
+		call DisplayTextToPlayer(p,0,0,"|cFFFF0000已跳转至15波")
 	endif
 	if s == "next28" and udg_isTest[GetPlayerId(p)] then
 		set udg_boshu=28

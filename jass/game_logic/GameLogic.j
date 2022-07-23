@@ -1575,7 +1575,7 @@ function Victory takes nothing returns nothing
 				call DzAPI_Map_StoreInteger(Player(i - 1), "jf", udg_jf[i - 1])
 				call DzAPI_Map_StoreInteger(Player(i - 1), "success", udg_success[i - 1])
 				// 保存通关门派存档，速通且难7，去除3个vip门派
-				if tiaoZhanIndex == 1 and topDegreeFlag and udg_runamen[i] < 19 then
+				if tiaoZhanIndex == 1 and topDegreeFlag then
 					// 初始化存档
 					if singleSuccess[i - 1] == "" then
 						set singleSuccess[i - 1] = initMpSaveStr
@@ -5229,28 +5229,32 @@ function LiaoGuoJinGong_1 takes nothing returns nothing
 endfunction
 function LiaoGuoJinGong takes nothing returns nothing
 	local timer t
-	if Sd[1] != 2 and Sd[2] != 2 and Sd[3] != 2 and Sd[4] != 2 and Sd[5] != 2 and udg_teshushijian then
-		set t = CreateTimer()
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF0033激活特殊事件|cFFDDA0DD※边境入侵※")
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF0033由于激活特殊事件，辽国派出骑兵前来进攻，请准备防御")
-		call TimerStart(t, 2., true, function LiaoGuoJinGong_1)
+	if ShiFouShuaGuai then
+		if Sd[1] != 2 and Sd[2] != 2 and Sd[3] != 2 and Sd[4] != 2 and Sd[5] != 2 and udg_teshushijian then
+			set t = CreateTimer()
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF0033激活特殊事件|cFFDDA0DD※边境入侵※")
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF0033由于激活特殊事件，辽国派出骑兵前来进攻，请准备防御")
+			call TimerStart(t, 2., true, function LiaoGuoJinGong_1)
+		endif
 	endif
 	set t = null
 endfunction
 //灵鹫宫进攻：触发条件，有玩家选择了灵鹫宫
 function LingJiuGongJinGong takes nothing returns nothing
-	if (udg_runamen[1] == 12 or udg_runamen[2] == 12 or udg_runamen[3] == 12 or udg_runamen[4] == 12 or udg_runamen[5] == 12) and udg_teshushijian then
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF0033激活特殊事件|cFFDDA0DD※灵鹫宫劫※")
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF0033由于激活特殊事件，灵鹫宫派出高手前来进攻，请准备防御")
-		call CreateNUnitsAtLocFacingLocBJ(1, 'ngh2', Player(6), Location(1800, - 100), v7[4])
-		call GroupAddUnit(w7, bj_lastCreatedUnit)
-		call IssueTargetOrderById(bj_lastCreatedUnit, $D000F, udg_ZhengPaiWL )
-		call CreateNUnitsAtLocFacingLocBJ(1, 'nfsp', Player(6), Location(1800, - 100), v7[4])
-		call GroupAddUnit(w7, bj_lastCreatedUnit)
-		call IssueTargetOrderById(bj_lastCreatedUnit, $D000F, udg_ZhengPaiWL )
-		call CreateNUnitsAtLocFacingLocBJ(1, 'nmgd', Player(6), Location(1800, - 100), v7[4])
-		call GroupAddUnit(w7, bj_lastCreatedUnit)
-		call IssueTargetOrderById(bj_lastCreatedUnit, $D000F, udg_ZhengPaiWL )
+	if ShiFouShuaGuai then
+		if (udg_runamen[1] == 12 or udg_runamen[2] == 12 or udg_runamen[3] == 12 or udg_runamen[4] == 12 or udg_runamen[5] == 12) and udg_teshushijian then
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF0033激活特殊事件|cFFDDA0DD※灵鹫宫劫※")
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF0033由于激活特殊事件，灵鹫宫派出高手前来进攻，请准备防御")
+			call CreateNUnitsAtLocFacingLocBJ(1, 'ngh2', Player(6), Location(1800, - 100), v7[4])
+			call GroupAddUnit(w7, bj_lastCreatedUnit)
+			call IssueTargetOrderById(bj_lastCreatedUnit, $D000F, udg_ZhengPaiWL )
+			call CreateNUnitsAtLocFacingLocBJ(1, 'nfsp', Player(6), Location(1800, - 100), v7[4])
+			call GroupAddUnit(w7, bj_lastCreatedUnit)
+			call IssueTargetOrderById(bj_lastCreatedUnit, $D000F, udg_ZhengPaiWL )
+			call CreateNUnitsAtLocFacingLocBJ(1, 'nmgd', Player(6), Location(1800, - 100), v7[4])
+			call GroupAddUnit(w7, bj_lastCreatedUnit)
+			call IssueTargetOrderById(bj_lastCreatedUnit, $D000F, udg_ZhengPaiWL )
+		endif
 	endif
 endfunction
 

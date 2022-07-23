@@ -230,15 +230,15 @@ function MiaoShouKongKong_1 takes nothing returns nothing
 	local trigger t = GetTriggeringTrigger()
 	local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
 	local unit uc = LoadUnitHandle(YDHT, GetHandleId(t), 1)
-	local real shxishu= GetPlayerState(GetOwningPlayer(u),PLAYER_STATE_RESOURCE_GOLD)
+	local real shxishu= GetPlayerState(GetOwningPlayer(u),PLAYER_STATE_RESOURCE_GOLD) * 0.5
 	local real shanghai=0.
 	if ((YDWEIsTriggerEventId(EVENT_UNIT_DAMAGED))) then
-		call AdjustPlayerStateBJ(5*GetUnitLevel(uc),GetOwningPlayer(u),PLAYER_STATE_RESOURCE_GOLD)
+		call AdjustPlayerStateBJ(3*GetUnitLevel(uc),GetOwningPlayer(u),PLAYER_STATE_RESOURCE_GOLD)
 		if (GetUnitAbilityLevel(u, 'A03N'))!=0 then
-			call AdjustPlayerStateBJ(5*GetUnitLevel(uc),GetOwningPlayer(u),PLAYER_STATE_RESOURCE_GOLD)
+			call AdjustPlayerStateBJ(3*GetUnitLevel(uc),GetOwningPlayer(u),PLAYER_STATE_RESOURCE_GOLD)
 		endif
 		if UnitHaveItem(udg_hero[1+GetPlayerId(GetOwningPlayer(u))],'I09Z') then
-			call AdjustPlayerStateBJ(5*GetUnitLevel(uc),GetOwningPlayer(u),PLAYER_STATE_RESOURCE_GOLD)
+			call AdjustPlayerStateBJ(3*GetUnitLevel(uc),GetOwningPlayer(u),PLAYER_STATE_RESOURCE_GOLD)
 			set shxishu = shxishu*2
 		endif
 		if (GetUnitAbilityLevel(u, 'A03Q'))!=0 then

@@ -20,17 +20,8 @@ function XI takes nothing returns nothing
 	set N7=1
 	loop
 		exitwhen N7>MM7
-		if((GetRandomInt(1,100)<=udg_baolv[1]))then
+		if((GetRandomInt(1,100)<=20))then
 			call createitemloc('I021',LoadLocationHandle(YDHT,id*cx,$1769D332))
-			set udg_baolv[1]=udg_baolv[1]*9/10-1
-		else
-			set udg_baolv[1]=udg_baolv[1]*11/10+1
-			if udg_baolv[1]<0 then
-				set udg_baolv[1]=0
-			endif
-			if udg_baolv[1]>100 then
-				set udg_baolv[1]=100
-			endif
 		endif
 		set N7=N7+1
 	endloop

@@ -598,67 +598,7 @@ endfunction
 function pu takes location loc,real r1,real r2 returns location
 	return Location(GetLocationX(loc)+r1*Cos(r2*bj_DEGTORAD),GetLocationY(loc)+r1*Sin(r2*bj_DEGTORAD))
 endfunction
-function tu takes nothing returns boolean
-	local real dx=GetDestructableX(GetFilterDestructable())-fu
-	local real dy=GetDestructableY(GetFilterDestructable())-gu
-	return(dx*dx+dy*dy<=bj_enumDestructableRadius)
-endfunction
-function uu takes itemtype vu,integer wu returns nothing
-	local group g = null
-	set bj_stockPickedItemType=vu
-	set bj_stockPickedItemLevel=wu
-	set g=CreateGroup()
-	call GroupEnumUnitsOfType(g,"marketplace",ju)
-	call ForGroup(g,function UpdateEachStockBuildingEnum)
-	call DestroyGroup(g)
-	set g=null
-endfunction
-function xu takes nothing returns nothing
-	local integer pickedItemId
-	local itemtype yu
-	local integer zu=0
-	local integer Au=0
-	local integer wu
-	set wu=1
-	loop
-		if(bj_stockAllowedPermanent[wu])then
-			set Au=Au+1
-			if(GetRandomInt(1,Au)==1)then
-				set yu=ITEM_TYPE_PERMANENT
-				set zu=wu
-			endif
-		endif
-		if(bj_stockAllowedCharged[wu])then
-			set Au=Au+1
-			if(GetRandomInt(1,Au)==1)then
-				set yu=ITEM_TYPE_CHARGED
-				set zu=wu
-			endif
-		endif
-		if(bj_stockAllowedArtifact[wu])then
-			set Au=Au+1
-			if(GetRandomInt(1,Au)==1)then
-				set yu=ITEM_TYPE_ARTIFACT
-				set zu=wu
-			endif
-		endif
-		set wu=wu+1
-	exitwhen wu>10
-	endloop
-	if(Au==0)then
-		set yu=null
-		return
-	endif
-	call uu(yu,zu)
-	set yu=null
-endfunction
-function au takes nothing returns nothing
-	call xu()
-	call TimerStart(bj_stockUpdateTimer,bj_STOCK_RESTOCK_INTERVAL,true,function xu)
-endfunction
-function bu takes nothing returns boolean
-	return true
-endfunction
+
 function Eu takes nothing returns integer
 	local integer Fu=Kt
 	if(Fu!=0)then
@@ -693,9 +633,7 @@ function Gu takes integer Fu returns nothing
 	set Mt[Fu]=Kt
 	set Kt=Fu
 endfunction
-function Hu takes nothing returns nothing
-	set YDHT=InitHashtable()
-endfunction
+
 function Nu takes unit Ou,integer cu returns nothing
 	local integer i=0
 	loop
@@ -709,12 +647,7 @@ function Nu takes unit Ou,integer cu returns nothing
 		set i=i+1
 	endloop
 endfunction
-function SetCamera takes nothing returns nothing
-	set I=GetCameraBoundMinX()-GetCameraMargin(CAMERA_MARGIN_LEFT)
-	set J=GetCameraBoundMinY()-GetCameraMargin(CAMERA_MARGIN_BOTTOM)
-	set H=GetCameraBoundMaxX()+GetCameraMargin(CAMERA_MARGIN_RIGHT)
-	set l=GetCameraBoundMaxY()+GetCameraMargin(CAMERA_MARGIN_TOP)
-endfunction
+
 //万能属性系统
 //以下函数仅仅是让技能ID出现在代码里，不然SLK优化器会删除这些技能
 function DisplayAllAbilityId takes nothing returns nothing
@@ -1164,8 +1097,8 @@ function Wv takes nothing returns nothing
 				set Zt[d]=Zt[d]+Wt[d]
 				set x=GetUnitX(Pt[d])+Yt[d]*Cos(Xt[d])
 				set y=GetUnitY(Pt[d])+Yt[d]*Sin(Xt[d])
-				set x=(RMinBJ(RMaxBJ(((x)*1.),I),H))
-				set y=(RMinBJ(RMaxBJ(((y)*1.),J),l))
+				set x=(RMinBJ(RMaxBJ(((x)*1.),yd_MapMinX),yd_MapMaxX))
+				set y=(RMinBJ(RMaxBJ(((y)*1.),yd_MapMinY),yd_MapMaxY))
 				call SetUnitX(Qt[d],CheckX(x))
 				call SetUnitY(Qt[d],CheckY(y))
 				call SetUnitFlyHeight(Qt[d],Zt[d],.0)
@@ -2190,6 +2123,7 @@ function percentDamage takes unit uc, real percent, boolean max returns nothing
 	if uc == udg_boss[7] and tiaoZhanIndex == 3 then
 		return
 	endif
+	set percent = percent / 2
 	if max then
 		if GetUnitState(uc,UNIT_STATE_LIFE)<= percent / 100 * GetUnitState(uc,UNIT_STATE_MAX_LIFE)then
 			call WuDi(uc)

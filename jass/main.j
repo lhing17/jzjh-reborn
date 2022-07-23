@@ -96,10 +96,7 @@ globals
 	unitpool B=null
 	item C=null
 	itempool D=null
-	real H=0
-	real I=0
-	real l=0
-	real J=0
+
 	
 	unit udg_sixiangdanwei=null
 	unit udg_xuezhandanwei=null
@@ -456,7 +453,6 @@ globals
 	integer array H9
 	integer array I9
 	integer array l9
-	integer array udg_baolv
 	unit array J9
 	unit array qiankun2hao
 	unit array qiankun3hao
@@ -715,7 +711,6 @@ globals
 	string xh="war3mapImported\\yanmenguanqian4.mp3"
 	string yh="war3mapImported\\wulindahui3.mp3"
 	string zh="Sound\\Music\\mp3Music\\War2IntroMusic.mp3"
-	sound Ah=null
 	sound ah=null
 	sound Bh=null
 	sound bh=null
@@ -1404,6 +1399,11 @@ function Zw takes nothing returns nothing
 	call AdjustPlayerStateBJ($A,Player(2),PLAYER_STATE_RESOURCE_LUMBER)
 	call AdjustPlayerStateBJ($A,Player(3),PLAYER_STATE_RESOURCE_LUMBER)
 	call AdjustPlayerStateBJ($A,Player(4),PLAYER_STATE_RESOURCE_LUMBER)
+	call AdjustPlayerStateBJ(10000,Player(0),PLAYER_STATE_RESOURCE_GOLD)
+	call AdjustPlayerStateBJ(10000,Player(1),PLAYER_STATE_RESOURCE_GOLD)
+	call AdjustPlayerStateBJ(10000,Player(2),PLAYER_STATE_RESOURCE_GOLD)
+	call AdjustPlayerStateBJ(10000,Player(3),PLAYER_STATE_RESOURCE_GOLD)
+	call AdjustPlayerStateBJ(10000,Player(4),PLAYER_STATE_RESOURCE_GOLD)
 	call ChooseMoShi()
 	call TaoHuaDaoKaiFang()
 	set bj_forLoopAIndex = 0
@@ -1913,15 +1913,15 @@ endfunction
 
 // 单多通门派存档校正位数
 function replenishSaveStr takes string oldSaveStr returns string newSaveStr
-	if StringLength(oldSaveStr) < 18 then
+	if StringLength(oldSaveStr) < DENOMINATION_NUMBER then
 		loop
-		exitwhen StringLength(oldSaveStr) == 18
+		exitwhen StringLength(oldSaveStr) == DENOMINATION_NUMBER
 			// body
 			set oldSaveStr = oldSaveStr + "0"
 		endloop
 	endif
-	if StringLength(oldSaveStr) > 18 then
-		set oldSaveStr = SubString(oldSaveStr,0,18)
+	if StringLength(oldSaveStr) > DENOMINATION_NUMBER then
+		set oldSaveStr = SubString(oldSaveStr,0,DENOMINATION_NUMBER)
 	endif
 	return oldSaveStr
 endfunction
@@ -2141,8 +2141,6 @@ endfunction
 
 //地图初始化
 function main1 takes nothing returns nothing
-	
-	
 	local trigger t
 	local real life
 	local integer itemID
@@ -2152,41 +2150,7 @@ function main1 takes nothing returns nothing
 	local version v
 	local integer wu
 	call MapStartCreateUnitsAndInitEnvironments() // 创建单位并初始化环境
-	call ConfigureNeutralVictim()
-	set ju=Filter(function bu)
-	set filterIssueHauntOrderAtLocBJ=Filter(function IssueHauntOrderAtLocBJFilter)
-	set filterEnumDestructablesInCircleBJ=Filter(function tu)
-	set filterGetUnitsInRectOfPlayer=Filter(function GetUnitsInRectOfPlayerFilter)
-	set filterGetUnitsOfTypeIdAll=Filter(function GetUnitsOfTypeIdAllFilter)
-	set filterGetUnitsOfPlayerAndTypeId=Filter(function GetUnitsOfPlayerAndTypeIdFilter)
-	set filterMeleeTrainedUnitIsHeroBJ=Filter(function MeleeTrainedUnitIsHeroBJFilter)
-	set filterLivingPlayerUnitsOfTypeId=Filter(function LivingPlayerUnitsOfTypeIdFilter)
-	
-	set udg_baolv[1]=20
-	set udg_baolv[2]=25
-	set udg_baolv[3]=25
-	set udg_baolv[4]=25
-	set udg_baolv[5]=25
-	set udg_baolv[6]=33
-	set udg_baolv[7]=33
-	set udg_baolv[8]=34
-	set udg_baolv[9]=25
-	set udg_baolv[10]=25
-	set udg_baolv[11]=25
-	set udg_baolv[12]=25
-	set udg_baolv[13]=33
-	set udg_baolv[14]=33
-	set udg_baolv[15]=34
-	set udg_baolv[16]=50
-	set udg_baolv[17]=50
-	set udg_baolv[18]=50
-	set udg_baolv[19]=50
-	set udg_baolv[20]=50
-	set udg_baolv[21]=50
-	set udg_baolv[22]=33
-	set udg_baolv[23]=33
-	set udg_baolv[24]=34
-	
+
 	set i=1
 	loop
 	exitwhen i>=6
@@ -2202,79 +2166,7 @@ function main1 takes nothing returns nothing
 		set udg_yifushu[i]=0
 		set i=i+1
 	endloop
-	set cu=0
-	// FIXME
-	loop
-	exitwhen cu==16
-		set bj_FORCE_PLAYER[cu]=CreateForce()
-		call ForceAddPlayer(bj_FORCE_PLAYER[cu],Player(cu))
-		set cu=cu+1
-	endloop
-	set bj_FORCE_ALL_PLAYERS=CreateForce()
-	call ForceEnumPlayers(bj_FORCE_ALL_PLAYERS,null)
-	set bj_cineModePriorSpeed=GetGameSpeed()
-	set bj_cineModePriorFogSetting=IsFogEnabled()
-	set bj_cineModePriorMaskSetting=IsFogMaskEnabled()
-	set cu=0
-	// FIXME
-	loop
-	exitwhen cu>=bj_MAX_QUEUED_TRIGGERS
-		set bj_queuedExecTriggers[cu]=null
-		set bj_queuedExecUseConds[cu]=false
-		set cu=cu+1
-	endloop
-	set bj_isSinglePlayer=false
-	set Du=0
-	set cu=0
-	loop
-	exitwhen cu>=12
-		if(GetPlayerController(Player(cu))==MAP_CONTROL_USER and GetPlayerSlotState(Player(cu))==PLAYER_SLOT_STATE_PLAYING)then
-			set Du=Du+1
-		endif
-		set cu=cu+1
-	endloop
-	set bj_isSinglePlayer=(Du==1)
-	set bj_rescueSound=CreateSoundFromLabel("Rescue",false,false,false,$2710,$2710)
-	set bj_questDiscoveredSound=CreateSoundFromLabel("QuestNew",false,false,false,$2710,$2710)
-	set bj_questUpdatedSound=CreateSoundFromLabel("QuestUpdate",false,false,false,$2710,$2710)
-	set bj_questCompletedSound=CreateSoundFromLabel("QuestCompleted",false,false,false,$2710,$2710)
-	set bj_questFailedSound=CreateSoundFromLabel("QuestFailed",false,false,false,$2710,$2710)
-	set bj_questHintSound=CreateSoundFromLabel("Hint",false,false,false,$2710,$2710)
-	set bj_questSecretSound=CreateSoundFromLabel("SecretFound",false,false,false,$2710,$2710)
-	set bj_questItemAcquiredSound=CreateSoundFromLabel("ItemReward",false,false,false,$2710,$2710)
-	set bj_questWarningSound=CreateSoundFromLabel("Warning",false,false,false,$2710,$2710)
-	set bj_victoryDialogSound=CreateSoundFromLabel("QuestCompleted",false,false,false,$2710,$2710)
-	set bj_defeatDialogSound=CreateSoundFromLabel("QuestFailed",false,false,false,$2710,$2710)
-	call DelayedSuspendDecayCreate()
-	set v=VersionGet()
-	if(v==VERSION_REIGN_OF_CHAOS)then
-		set bj_MELEE_MAX_TWINKED_HEROES=bj_MELEE_MAX_TWINKED_HEROES_V0
-	else
-		set bj_MELEE_MAX_TWINKED_HEROES=bj_MELEE_MAX_TWINKED_HEROES_V1
-	endif
-	call InitQueuedTriggers()
-	call YDWEInitRescuableBehaviorBJNull()
-	call InitDNCSounds()
-	call InitMapRects()
-	call InitSummonableCaps()
-	set wu=0
-	loop
-		set bj_stockAllowedPermanent[wu]=false
-		set bj_stockAllowedCharged[wu]=false
-		set bj_stockAllowedArtifact[wu]=false
-		set wu=wu+1
-	exitwhen wu>$A
-	endloop
-	call SetAllItemTypeSlots($B)
-	call SetAllUnitTypeSlots($B)
-	set bj_stockUpdateTimer=CreateTimer()
-	call TimerStart(bj_stockUpdateTimer,bj_STOCK_RESTOCK_INITIAL_DELAY,false,function au)
-	set bj_stockItemPurchased=CreateTrigger()
-	call TriggerRegisterPlayerUnitEvent(bj_stockItemPurchased,Player(15),EVENT_PLAYER_UNIT_SELL_ITEM,null)
-	call TriggerAddAction(bj_stockItemPurchased,function RemovePurchasedItem)
-	call DetectGameStarted()
-	call ExecuteFunc("Hu")
-	call ExecuteFunc("SetCamera")
+
 	call ExecuteFunc("mv")
 	call ExecuteFunc("Pw")
 	set i=0

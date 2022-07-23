@@ -71,7 +71,7 @@ function fengShaMangMang takes unit u returns nothing
     local unit dummy = null
     local real lifetime = 0
     local integer i = 1
-    local pId = GetPlayerId(p) + 1
+    local integer pId = GetPlayerId(p) + 1
     loop
         exitwhen i > 18
         set angle = i * 20
