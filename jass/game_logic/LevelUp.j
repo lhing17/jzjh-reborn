@@ -221,7 +221,7 @@ function kungfuLevelUp takes unit u, integer id, real r returns nothing
 
 		// 嫁衣神功 增加悟性和伤害倍数
 		if level + 1 == 9 and GetUnitAbilityLevel(u, JIA_YI_SHEN_GONG) > 0 then
-			set add = GetUnitAbilityLevel(u, JIA_YI_SHEN_GONG) + 3
+			set add = (GetUnitAbilityLevel(u, JIA_YI_SHEN_GONG) + 3) / 2
 			if isTitle(i, 49) then
 				// 绍敏郡主称号 增加值翻倍
 				set add = add * 2
