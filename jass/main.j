@@ -2233,8 +2233,8 @@ function main1 takes nothing returns nothing
 		set yishu[i] = 9
 		if i >= 1 and i <= 5 then
 			// set special_attack[i] = DzAPI_Map_GetMapLevel(Player(i - 1))
-			// 特攻暂时改成:20 + 地图等级/3
-			set special_attack[i] = 20 + DzAPI_Map_GetMapLevel(Player(i - 1))/3
+			// 特攻暂时改成:25
+			set special_attack[i] = 25
 		endif
 		set udg_runamen[i]=0
 		set D7[i]=0

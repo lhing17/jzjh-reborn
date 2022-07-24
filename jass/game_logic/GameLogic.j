@@ -1045,7 +1045,7 @@ function ChooseMoShi_Action takes nothing returns nothing
 		set udg_fpgz = true
 		loop
 			exitwhen i > 5
-			set special_attack[i] = 25
+			// set special_attack[i] = 25
 			set i = i + 1
 		endloop
 		call TiaoZhanMoshi()
