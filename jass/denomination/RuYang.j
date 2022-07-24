@@ -243,6 +243,7 @@ function xuanMingShenZhang takes unit u returns nothing
             endif
             call GroupRemoveUnit(g, enumUnit)
         endloop
+        call DestroyGroup(g)
     endif
     set enumUnit = null
     set g = null
