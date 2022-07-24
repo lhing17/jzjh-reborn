@@ -1470,7 +1470,7 @@ endfunction
 
 globals
 	boolean is_victory = false
-	constant string VERSION = "1.6.49"
+	constant string VERSION = "1.6.50"
 endglobals
 
 //失败动作
@@ -1967,7 +1967,7 @@ function LevelGuoGao takes nothing returns boolean
 		endif
 		set i = i + 1
 	endloop
-	return udg_teshushijian and I2R(totallevel) > udg_boshu * 4 * I2R(GetNumPlayer())
+	return udg_teshushijian and I2R(totallevel) > udg_boshu * 4 * I2R(GetNumPlayer()) and udg_nandu > 1
 endfunction
 
 
@@ -2288,7 +2288,7 @@ function TA takes nothing returns nothing
 	local integer i = 0 
 	call DestroyTimerDialog(z7[3])
 	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cFFDDA0DD西域邪教开始了进攻正派武林，玩家务必要确保正派武林不被摧毁，否则游戏失败|r")
-	if udg_teshushijian == true and tiaoZhanIndex != 3 then
+	if udg_teshushijian and tiaoZhanIndex != 3 then
 		call ChooseNanDu() // 第一次选择难度
 	endif
 	call ConditionalTriggerExecute(Xi)
@@ -3501,6 +3501,8 @@ function Forget takes player p, integer num returns nothing
 	local integer i = 1 + GetPlayerId(p)
 	local integer level = 0
 	local integer add = 0
+	local group g  = null
+	local unit enumUnit = null
 	if I7[(i - 1) * 20 + num] == 'A03N' and UnitHasBuffBJ(udg_hero[i], 'BOwk') then
 		call DisplayTimedTextToPlayer(p, 0, 0, 10., "|CFFFF9933" + GetObjectName(I7[(i - 1) * 20 + num]) + "施展期间不能遗忘！！！")
 	else
@@ -3521,8 +3523,24 @@ function Forget takes player p, integer num returns nothing
 		if I7[(i - 1) * 20 + num] == 'A03P' then
 			call UnitRemoveAbility(udg_hero[i], 'A03M')
 		endif
+		// 须弥山掌
 		if I7[(i - 1) * 20 + num] == 'A03T' then
 			call UnitRemoveAbility(udg_hero[i], 'A0DB')
+		endif
+		// 圣火令神功
+		if I7[(i - 1) * 20 + num] == 'A034' then
+			call UnitRemoveAbility(udg_hero[i], 'A035')
+			set g = CreateGroup()
+			call GroupEnumUnitsOfPlayer(g, p, null)
+			loop
+				set enumUnit = FirstOfGroup(g)
+				exitwhen enumUnit == null
+				if GetUnitTypeId(enumUnit) == 'e013' then
+					call KillUnit(enumUnit)
+				endif
+				call GroupRemoveUnit(g, enumUnit)
+			endloop
+			call DestroyGroup(g)
 		endif
 		if I7[20 * (i - 1) + num] == 'A02B' then
 			set udg_zhemei[i] = 0
@@ -3566,6 +3584,8 @@ function Forget takes player p, integer num returns nothing
 			call WuGongShengChong(udg_hero[i], JIA_YI_SHEN_GONG, 150)
 		endif
 	endif
+	set g = null
+	set enumUnit = null
 endfunction
 function jB takes nothing returns nothing
 	local player p = GetTriggerPlayer()
@@ -5230,7 +5250,7 @@ endfunction
 function LiaoGuoJinGong takes nothing returns nothing
 	local timer t
 	if ShiFouShuaGuai then
-		if Sd[1] != 2 and Sd[2] != 2 and Sd[3] != 2 and Sd[4] != 2 and Sd[5] != 2 and udg_teshushijian then
+		if Sd[1] != 2 and Sd[2] != 2 and Sd[3] != 2 and Sd[4] != 2 and Sd[5] != 2 and udg_teshushijian and udg_nandu > 1 then
 			set t = CreateTimer()
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF0033激活特殊事件|cFFDDA0DD※边境入侵※")
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF0033由于激活特殊事件，辽国派出骑兵前来进攻，请准备防御")
@@ -5242,7 +5262,7 @@ endfunction
 //灵鹫宫进攻：触发条件，有玩家选择了灵鹫宫
 function LingJiuGongJinGong takes nothing returns nothing
 	if ShiFouShuaGuai then
-		if (udg_runamen[1] == 12 or udg_runamen[2] == 12 or udg_runamen[3] == 12 or udg_runamen[4] == 12 or udg_runamen[5] == 12) and udg_teshushijian then
+		if (udg_runamen[1] == 12 or udg_runamen[2] == 12 or udg_runamen[3] == 12 or udg_runamen[4] == 12 or udg_runamen[5] == 12) and udg_teshushijian and udg_nandu > 1 then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF0033激活特殊事件|cFFDDA0DD※灵鹫宫劫※")
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF0033由于激活特殊事件，灵鹫宫派出高手前来进攻，请准备防御")
 			call CreateNUnitsAtLocFacingLocBJ(1, 'ngh2', Player(6), Location(1800, - 100), v7[4])
