@@ -238,58 +238,111 @@ function KeyInput takes nothing returns nothing
 	endif
 
 	// 查看专属
-	if s == "ckzs" then
+	if s == "ckzs" or s == "ckmp" then
+		
+		call DisplayTextToPlayer(p, 0, 0, "|cFFcc99ff〓〓〓〓〓〓〓〓〓〓〓")
+		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF当前所选门派：" + udg_menpainame[udg_runamen[i]])
 		if udg_runamen[i] == 1 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF少林：袈裟，90级去挑战场打达摩")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF少林专属：袈裟，90级去挑战场打达摩")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号扫地神僧：掌门+金钟罩+医术32点")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号达摩祖师：掌门+易筋经或洗髓经")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号大轮明王：掌门+小无相功或无相劫指+悟性31点")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号金轮法王：掌门+龙象般若功+根骨31点")
 		elseif udg_runamen[i] == 2 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF古墓：双剑，副本4君子、淑女剑合成")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF古墓专属：双剑，副本4君子、淑女剑合成")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号神雕侠：掌门+黯然销魂掌+君子剑")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号小龙女：掌门+双手互搏+淑女剑")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号神雕侠侣：掌门+黯然销魂掌+双手互搏+双剑合璧")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号赤炼仙子：掌门+冰魄银针6重")
 		elseif udg_runamen[i] == 3 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF丐帮：打狗棒，桃花岛洪七公，90级杀他才爆")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF丐帮专属：打狗棒，桃花岛洪七公，90级杀他才爆")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号北丐：掌门+降龙十八掌+打狗棒法+打狗棒（武器）")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号北乔峰：掌门+降龙十八掌3重+擒龙控鹤+打狗棒（武器）")
 		elseif udg_runamen[i] == 4 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF华山：养吾剑，90级令狐冲处接任务挑战令狐冲，剑附带破防效果")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF华山专属：养吾剑，90级令狐冲处接任务挑战令狐冲，剑附带破防效果")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号君子剑：掌门+葵花宝典+辟邪剑法")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号风清扬：掌门+独孤九剑5重")
 		elseif udg_runamen[i] == 5 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF全真：七星道袍，90级找丘处机接任务，加金雁攻速，三花聚顶弹射次数+50")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF全真专属：七星道袍，90级找丘处机接任务，加金雁攻速，三花聚顶弹射次数+50")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号老顽童：掌门+空明拳+双手互搏+九阴真经·摧坚神抓")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号中神通：掌门+一阳指+九阴真经·内功+先天功")
 		elseif udg_runamen[i] == 6 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF血刀：血刀，90级挑战场挑战血刀老祖")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF血刀专属：血刀，90级挑战场挑战血刀老祖")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号血刀老祖：掌门+血刀（武器）")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号空心菜：掌门+真·神照经+连城剑法+唐诗剑法")
 		elseif udg_runamen[i] == 7 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF恒山：拂尘，90级令狐冲接任务，教训田伯光，加2级拂尘范围")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF恒山专属：拂尘，90级令狐冲接任务，教训田伯光，加2级拂尘范围")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号仪林：掌门+门派前三个武功7重")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号笑傲江湖：掌门+独孤九剑+真·易筋经+吸星大法+冲灵剑法（华山门派武功，需要用传功丹）")
 		elseif udg_runamen[i] == 8 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF峨眉：倚天剑，灭绝师太接任务，打死副本3张无忌；或者副本6东方不败爆")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF峨眉专属：倚天剑，灭绝师太接任务，打死副本3张无忌；或者副本6东方不败爆")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号芷若：掌门+九阴真经·九阴白骨爪+倚天剑（武器）")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号小东邪：掌门+峨眉九阳功+玉箫（武器）")
 		elseif udg_runamen[i] == 9 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF武当：真武剑，90级去挑战场挑战张三丰,太极拳主动使用永久加1绝学领悟，被动使用概率加绝学领悟")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF武当专属：真武剑，90级去挑战场挑战张三丰,太极拳主动使用永久加1绝学领悟，被动使用概率加绝学领悟")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号邋遢仙人：掌门+九阳神功+真·易筋经")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号张三丰：掌门+太极拳9重+真武剑（武器）")
 		elseif udg_runamen[i] == 10 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF星宿：神木王鼎，乔峰接任务，副本1杀丁春秋杀阿紫")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF星宿专属：神木王鼎，乔峰接任务，副本1杀丁春秋杀阿紫")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号星宿老仙：掌门+化功大法+小无相功")
 		elseif udg_runamen[i] == 11 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF自由：十四天书，具体合成请看基地右边NPC随风")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF自由专属：十四天书，具体合成请看基地右边NPC随风")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号小虾米：虾米神拳（自创武功改名）+野球拳5重")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号郭大侠：降龙十八掌5重+空明拳5重+九阴真经·内功+双手互搏")
 		elseif udg_runamen[i] == 12 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF灵鹫：玉扳指，天山童姥20%爆，八荒加属性概率增加")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF灵鹫专属：玉扳指，天山童姥20%爆，八荒加属性概率增加")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号天山童姥：掌门+八荒六合唯我独尊功6重+冰魄银针+北冥神功")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号虚竹子：掌门+北冥神功+冰魄银针+罗汉伏魔功+玉扳指（饰品）")
 		elseif udg_runamen[i] == 13 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF慕容：燕国玉玺，慕容复发布任务，慕容龙城称号和等级超过100级可以获取专属，袖中指加属性概率增加")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF慕容专属：燕国玉玺，慕容复发布任务，慕容龙城称号和等级超过100级可以获取专属，袖中指加属性概率增加")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号慕容龙城：掌门+斗转星移")
 		elseif udg_runamen[i] == 14 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF明教：屠龙刀，副本6东方不败爆")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF明教专属：屠龙刀，副本6东方不败爆")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号白眉鹰王：掌门+鹰爪功9重")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号青翼蝠王：掌门+蝠翼纵9重")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号金毛狮王：掌门+狮子吼9重")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号无忌：掌门+乾坤大挪移6重+九阳神功+太极拳4重（武当门派武功）")
 		elseif udg_runamen[i] == 15 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF衡山：镇岳尚方，90级令狐冲接任务，江南水乡解决费彬，剑加青龙光环")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF衡山专属：镇岳尚方，90级令狐冲接任务，江南水乡解决费彬，剑加青龙光环")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号莫大先生：掌门+门派前三个武功7重")
 		elseif udg_runamen[i] == 16 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF神龙：毒龙鞭，副本1韦小宝（神龙教）触发任务杀死洪安通，接任务后洪安通出现在桃花岛上")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF神龙专属：毒龙鞭，副本1韦小宝（神龙教）触发任务杀死洪安通，接任务后洪安通出现在桃花岛上")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号神龙教主：掌门+九阳神功+龙象般若功")
 		elseif udg_runamen[i] == 17 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF神龙：毒龙鞭，副本1韦小宝（神龙教）触发任务杀死洪安通，接任务后洪安通出现在桃花岛上")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF神龙专属：毒龙鞭，副本1韦小宝（神龙教）触发任务杀死洪安通，接任务后洪安通出现在桃花岛上")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号教主夫人：掌门+九阴真经·内功+小无相功")
 		elseif udg_runamen[i] == 18 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF泰山：东灵铁剑，90级令狐冲接任务，雁门关解决玉玑子，永久触发泰山十八盘")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF泰山专属：东灵铁剑，90级令狐冲接任务，雁门关解决玉玑子，永久触发泰山十八盘")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号天门道长：掌门+小无相功")
 		elseif udg_runamen[i] == 19 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF铁掌：铁掌令，周伯通处任务")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF铁掌专属：铁掌令，周伯通处任务")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号铁掌水上漂：掌门+乾坤大挪移+双手互搏+铁掌令（武器）")
 		elseif udg_runamen[i] == 20 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF唐门：子午砂，副本2唐文亮几率掉落；观音泪，副本4南海神尼几率掉落")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF唐门专属：子午砂，副本2唐文亮几率掉落；观音泪，副本4南海神尼几率掉落")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号搜魂侠：掌门+小无相功+冰魄银针")
 		elseif udg_runamen[i] == 21 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF五毒：选择门派时赠送")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF五毒专属：选择门派时赠送")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号婆婆姊姊：掌门+龙象般若功+葵花宝典")
 		elseif udg_runamen[i] == 22 then
-		 call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF桃花岛：桃花岛玉箫任务")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF桃花岛专属：桃花岛玉箫任务")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号女中诸葛：掌门+九阴真经·内功+打狗棒法")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号东邪：掌门+弹指神通3重+碧海潮生曲3重+玉箫（武器）")
 		elseif udg_runamen[i] == 23 then
-		 call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF野螺：技能几率偷取")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF野螺专属：技能几率偷取")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号爵爷：掌门+神行百变+金钱60万")
 		elseif udg_runamen[i] == 24 then
-		 call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF雪山：贼哥处购买")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF雪山专属：贼哥处购买")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号石破天惊：掌门+罗汉伏魔功+真·太玄经")
 		elseif udg_runamen[i] == 25 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF汝阳王府：倚天剑，灭绝师太接任务，打死副本3张无忌；或者副本6东方不败爆")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF汝阳王府专属：倚天剑，灭绝师太接任务，打死副本3张无忌；或者副本6东方不败爆")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号绍敏郡主：掌门+使用10次偷看偷学")
 		endif
+		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号九阴真人：九阴真经·内功+逆九阴真经·内功+九阴真经·易筋锻骨篇+九阴真经·医疗篇+九阴真经·九阴白骨爪+九阴真经·摧坚神抓4重+九阴真经·摧心掌4重")
+		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号西毒：西毒杖法5重+真·蛤蟆功+蛇杖（武器）")
+		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号南帝：一阳指5重+先天功3重（全真门派武功）+非全真门派")
+		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号瑶琴：九阴真经·九阴白骨爪5重+九阴真经·摧坚神抓5重+九阴真经·摧心掌5重+黯然销魂掌3重")
+		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号神仙姐姐：九阴真经·内功+九阳神功+罗汉伏魔功+吸星大法+葵花宝典+斗转星移+乾坤大挪移+双手互搏")
+		call DisplayTextToPlayer(p, 0, 0, "|cFFcc99ff〓〓〓〓〓〓〓〓〓〓〓")
 	endif
 
 	// 手动整理物品

@@ -649,8 +649,8 @@ function determineMingJiaoTitle takes unit u returns nothing
 			call setTitleNumber(i, 27)
 		endif
 		if GetUnitAbilityLevel(u, 'A032') >= 9 and not isTitle(i, 28) then
-			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：青翼幅王")
-			call SetPlayerName(p, "〓青翼幅王〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：青翼蝠王")
+			call SetPlayerName(p, "〓青翼蝠王〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 			call ModifyHeroStat(1, u, 0, 300)
 			call setTitleNumber(i, 28)
 		endif
