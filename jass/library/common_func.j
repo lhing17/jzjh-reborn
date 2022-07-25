@@ -463,7 +463,7 @@ function dropItem takes unit u, integer itemId, integer itemId2, integer possibi
 	set loc = null
 endfunction
 //查询药性
-function YaoXing takes nothing returns nothing
+function YaoXing takes nothing returns integer
 	local player p=GetTriggerPlayer()
 	local integer i=1+GetPlayerId(p)
 	local integer yin=0
@@ -514,6 +514,7 @@ function YaoXing takes nothing returns nothing
 	call DisplayTimedTextToPlayer(GetTriggerPlayer(),0,0,10.,("|cff00ff33总药性（阴）："+I2S(yin)))
 	call DisplayTimedTextToPlayer(GetTriggerPlayer(),0,0,10.,("|cff00ff33总药性（阳）："+I2S(yang)))
 	set p = null
+	return yin * 100 + yang 
 endfunction
 //转化剑意
 function TransferJY takes nothing returns nothing
