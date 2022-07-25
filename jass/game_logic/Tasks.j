@@ -255,9 +255,9 @@ function WanChengWuPin takes nothing returns nothing
 			call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00完成任务，奖励声望" + I2S(40 * (xiuxing[i] + 1)) + "点，经验" + I2S(15 * GetHeroLevel(udg_hero[i]) * GetHeroLevel(udg_hero[i]) * (xiuxing[i] + 1)) + "点，九阳丹一颗|r\n")
 		endif
 		if Deputy_isDeputy(i, XUN_BAO) then
-			if udg_xbds[i] < 4 then
+			if udg_xbds[i] < 3 then
 				set udg_xbds[i] = udg_xbds[i] + 1
-				call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您完成了" + I2S(udg_xbds[i]) + "次寻宝任务，完成5次可获得寻宝大师哦")
+				call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您完成了" + I2S(udg_xbds[i]) + "次寻宝任务，完成4次可获得寻宝大师哦")
 			else
 				if not Deputy_isMaster(i, XUN_BAO) then
 					call Deputy_setMaster(i, XUN_BAO)
