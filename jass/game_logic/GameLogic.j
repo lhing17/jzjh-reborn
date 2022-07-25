@@ -3501,7 +3501,7 @@ function Forget takes player p, integer num returns nothing
 	local integer i = 1 + GetPlayerId(p)
 	local integer level = 0
 	local integer add = 0
-	local group g  = null
+	local group g = null
 	local unit enumUnit = null
 	if I7[(i - 1) * 20 + num] == 'A03N' and UnitHasBuffBJ(udg_hero[i], 'BOwk') then
 		call DisplayTimedTextToPlayer(p, 0, 0, 10., "|CFFFF9933" + GetObjectName(I7[(i - 1) * 20 + num]) + "施展期间不能遗忘！！！")
@@ -4535,32 +4535,41 @@ endfunction
 
 //整理物品
 function SO takes nothing returns nothing
+	local location loc = null
 	if((GetWidgetLife(GetEnumItem()) == 101.))then    //D古董
-		call SetItemPositionLoc(GetEnumItem(), GetRectCenter(nh))
-		call RemoveLocation(GetRectCenter(nh))
+		set loc = GetRectCenter(nh)
+		call SetItemPositionLoc(GetEnumItem(), loc)
+		call RemoveLocation(loc)
 	elseif((GetWidgetLife(GetEnumItem()) == 102.))then    //C古董
-		call SetItemPositionLoc(GetEnumItem(), GetRectCenter(oh))
-		call RemoveLocation(GetRectCenter(oh))
+		set loc = GetRectCenter(oh)
+		call SetItemPositionLoc(GetEnumItem(), loc)
+		call RemoveLocation(loc)
 	elseif((GetWidgetLife(GetEnumItem()) == 103.))then    //B古董
-		call SetItemPositionLoc(GetEnumItem(), GetRectCenter(ph))
-		call RemoveLocation(GetRectCenter(ph))
+		set loc = GetRectCenter(ph)
+		call SetItemPositionLoc(GetEnumItem(), loc)
+		call RemoveLocation(loc)
 	elseif((GetWidgetLife(GetEnumItem()) == 104.))then    //A古董
-		call SetItemPositionLoc(GetEnumItem(), GetRectCenter(qh))
-		call RemoveLocation(GetRectCenter(qh))
+		set loc = GetRectCenter(qh)
+		call SetItemPositionLoc(GetEnumItem(), loc)
+		call RemoveLocation(loc)
 	elseif((GetWidgetLife(GetEnumItem()) == 105.))then    //C草药
-		call SetItemPositionLoc(GetEnumItem(), GetRectCenter(rh))
-		call RemoveLocation(GetRectCenter(rh))
+		set loc = GetRectCenter(rh)
+		call SetItemPositionLoc(GetEnumItem(), loc)
+		call RemoveLocation(loc)
 	elseif((GetWidgetLife(GetEnumItem()) == 106.))then    //B草药
-		call SetItemPositionLoc(GetEnumItem(), GetRectCenter(sh))
-		call RemoveLocation(GetRectCenter(sh))
+		set loc = GetRectCenter(sh)
+		call SetItemPositionLoc(GetEnumItem(), loc)
+		call RemoveLocation(loc)
 	elseif((GetWidgetLife(GetEnumItem()) == 107.))then    //A草药
-		call SetItemPositionLoc(GetEnumItem(), GetRectCenter(th))
-		call RemoveLocation(GetRectCenter(th))
+		set loc = GetRectCenter(th)
+		call SetItemPositionLoc(GetEnumItem(), loc)
+		call RemoveLocation(loc)
 	elseif((GetWidgetLife(GetEnumItem()) == 108.))then    //18种江湖武功
 		call SetItemPosition(GetEnumItem(), - 1819., 484.)
 	elseif((GetWidgetLife(GetEnumItem()) == 109.))then
 		call SetItemPosition(GetEnumItem(), - 1300., - 300.)
 	endif
+	set loc = null
 endfunction
 function TO takes nothing returns nothing
 	call EnumItemsInRectBJ(bj_mapInitialPlayableArea, function SO)
@@ -4891,12 +4900,7 @@ function sQ takes nothing returns nothing
 		call AdjustPlayerStateBJ(10000, p, PLAYER_STATE_RESOURCE_GOLD)
 		call DisplayTimedTextToPlayer(p, 0, 0, 15, "|cFFFFCC00等级高于100无法购买等级")
 	else
-		if Deputy_isDeputy(i, LIAN_QI) then
-			call AdjustPlayerStateBJ(10000, p, PLAYER_STATE_RESOURCE_GOLD)
-			call DisplayTimedTextToPlayer(p, 0, 0, 15, "|cFFFFCC00选择该副职无法购买等级")
-		else
-			call SetHeroLevel(udg_hero[i], GetUnitLevel(udg_hero[i]) + 1, true)
-		endif
+		call SetHeroLevel(udg_hero[i], GetUnitLevel(udg_hero[i]) + 1, true)
 	endif
 	set u = null
 	set p = null

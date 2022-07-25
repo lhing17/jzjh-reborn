@@ -1536,15 +1536,15 @@ function InitEquipments takes nothing returns nothing
 	set ZhuangBei[14]='I090'
 	//饰品清单
 	//白字
-	set ShiPin[1]='I023'
-	set ShiPin[2]='I023'
-	set ShiPin[3]='I01U'
-	set ShiPin[4]='I01V'
-	set ShiPin[5]='I01W'
-	set ShiPin[6]='I01X'
-	set ShiPin[7]='I01Y'
-	set ShiPin[8]='I01Z'
-	set ShiPin[9]='I01I'
+	set ShiPin[1]='I023' // 护身符
+	set ShiPin[2]='I023' // 护身符
+	set ShiPin[3]='I01U' // 纱绒护腕
+	set ShiPin[4]='I01V' // 苍蟒护腕
+	set ShiPin[5]='I01W' // 传家符
+	set ShiPin[6]='I01X' // 琥珀项链
+	set ShiPin[7]='I01Y' // 水碧护符
+	set ShiPin[8]='I01Z' // 闪避护符
+	set ShiPin[9]='I01I' // 星云戒指
 	set ShiPin[10]='I01J'
 	set ShiPin[11]='I01K'
 	set ShiPin[12]='I015'

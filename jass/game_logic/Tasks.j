@@ -204,15 +204,11 @@ function LookForWuPin takes nothing returns nothing
 		endif
 		set xunwu[i] = 1
 		call SaveInteger(YDHT, GetHandleId(p), StringHash("item"), id)
-		call createitemloc(id, v7[$B])
-		set s = GetItemName(bj_lastCreatedItem)
-		call RemoveItem(bj_lastCreatedItem)
+		set s = GetObjectName(id)
 		call PlaySoundOnUnitBJ(bh, 100, u)
 		call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00游骐：|r |cFF99FFCC我需要" + s + "，你能帮我找来么|r\n|cFFFFCC00提示：|r |cFF99FFCC帮助游骐寻找|cFFADFF2F" + s + "|r\n")
 	else
-		call createitemloc(id, v7[$B])
-		set s = GetItemName(bj_lastCreatedItem)
-		call RemoveItem(bj_lastCreatedItem)
+		set s = GetObjectName(id)
 		call PlaySoundOnUnitBJ(bh, 100, u)
 		call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00游骐：|r |cFF99FFCC帮我找到" + s + "了吗|r\n|cFFFFCC00提示：|r |cFF99FFCC帮助游骐寻找|cFFADFF2F" + s + "|r\n")
 	endif
@@ -232,6 +228,7 @@ function FangQiWuPin takes nothing returns nothing
 		set shengwang[i] = shengwang[i] - 100
 		call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00游骐：|r |cFF99FFCC堂堂大侠，居然找不到小女子需要的东西吗|r\n")
 		call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00放弃任务，声望减少100|r\n")
+		call PlaySoundOnUnitBJ(Gh, 100, u)
 		set xunwu[i] = 0
 	endif
 	set u = null
@@ -935,15 +932,11 @@ function KillYangShou takes nothing returns nothing
 		set yangshou[i] = 1
 		call SaveInteger(YDHT, GetHandleId(p), StringHash("life"), id)
 		call SaveInteger(YDHT, GetHandleId(p), StringHash("life") * 2, (j - 1) / 3)
-		call CreateNUnitsAtLoc(1, id, Player(15), v7[$B], 270.)
-		set s = GetUnitName(bj_lastCreatedUnit)
-		call RemoveUnit(bj_lastCreatedUnit)
+		set s = GetObjectName(id)
 		call PlaySoundOnUnitBJ(bh, 100, u)
 		call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00游骏：|r |cFF99FFCC老夫夜观天象，" + s + "阳寿已尽，速去与老夫解决他|r\n|cFFFFCC00提示：|r |cFF99FFCC帮助游骏解决|cFFADFF2F" + s + "|r\n")
 	else
-		call CreateNUnitsAtLoc(1, id, Player(15), v7[$B], 270.)
-		set s = GetUnitName(bj_lastCreatedUnit)
-		call RemoveUnit(bj_lastCreatedUnit)
+		set s = GetObjectName(id)
 		call PlaySoundOnUnitBJ(bh, 100, u)
 		call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00游骏：|r |cFF99FFCC解决" + s + "了吗|r\n|cFFFFCC00提示：|r |cFF99FFCC帮助游骏解决|cFFADFF2F" + s + "|r\n")
 	endif
@@ -963,6 +956,7 @@ function FangQiYangShou takes nothing returns nothing
 		set shengwang[i] = shengwang[i] - 100
 		call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00游骏：|r |cFF99FFCC堂堂大侠，竟解决不了一个小喽啰|r\n")
 		call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00放弃任务，声望减少100|r\n")
+		call PlaySoundOnUnitBJ(Gh,100,u)
 		set yangshou[i] = 0
 	endif
 	set u = null
