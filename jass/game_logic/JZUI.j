@@ -201,6 +201,7 @@ endfunction
 
 function drawUI_Conditions takes nothing returns boolean
 	local integer index = 100
+	local integer ff0 = DzFrameGetHeroManaBar(0)
 	local integer ff1 = DzFrameGetHeroBarButton(1)
 	local integer ff2 = DzFrameGetHeroBarButton(2)
 	local integer ff3 = DzFrameGetHeroBarButton(3)
@@ -211,10 +212,11 @@ function drawUI_Conditions takes nothing returns boolean
 	local integer fm2 = DzFrameGetHeroManaBar(2)
 	local integer fm3 = DzFrameGetHeroManaBar(3)
 	
-	call DzFrameSetSize(ff1, 0.03, 0.04)
-	call DzFrameSetSize(ff2, 0.03, 0.04)
-	call DzFrameSetSize(ff3, 0.03, 0.04)
 	
+	
+	call DzFrameClearAllPoints(ff1)
+	call DzFrameClearAllPoints(ff2)
+	call DzFrameClearAllPoints(ff3)
 	call DzFrameClearAllPoints(fh1)
 	call DzFrameClearAllPoints(fh2)
 	call DzFrameClearAllPoints(fh3)
@@ -222,6 +224,9 @@ function drawUI_Conditions takes nothing returns boolean
 	call DzFrameClearAllPoints(fm2)
 	call DzFrameClearAllPoints(fm3)
 	
+	call DzFrameSetSize(ff1, 0.015, 0.02)
+	call DzFrameSetSize(ff2, 0.015, 0.02)
+	call DzFrameSetSize(ff3, 0.015, 0.02)
 	call DzFrameSetSize(fh1, 0.01, 0.01)
 	call DzFrameSetSize(fh2, 0.01, 0.01)
 	call DzFrameSetSize(fh3, 0.01, 0.01)
@@ -229,6 +234,9 @@ function drawUI_Conditions takes nothing returns boolean
 	call DzFrameSetSize(fm2, 0.01, 0.01)
 	call DzFrameSetSize(fm3, 0.01, 0.01)
 	
+	call DzFrameSetPoint(ff1, 0, ff0, 6, 0, -0.003)
+	call DzFrameSetPoint(ff2, 1, ff1, 7, 0, -0.003)
+	call DzFrameSetPoint(ff3, 1, ff2, 7, 0, -0.003)
 	call DzFrameSetPoint(fh1,6,DzGetGameUI(),8,.1,.22)
 	call DzFrameSetPoint(fh2,6,DzGetGameUI(),8,.1,.22)
 	call DzFrameSetPoint(fh3,6,DzGetGameUI(),8,.1,.22)
@@ -332,8 +340,8 @@ function drawUI_Conditions takes nothing returns boolean
 	call zbutton[9].regEvent(FRAME_MOUSE_LEAVE, function toggleWidget11)
 	
 	// 创建属性开启按钮背景
-	set zwidget[12] = Frame.newImage1(GUI, "ReplaceableTextures\\CommandButtons\\BTNesc.blp", 0.03, 0.04)
-	call zwidget[12].setPoint(1, Frame.getFrame(DzFrameGetHeroBarButton(3)), 7, 0.0, -0.064)
+	set zwidget[12] = Frame.newImage1(GUI, "ReplaceableTextures\\CommandButtons\\BTNesc.blp", 0.015, 0.02)
+	call zwidget[12].setPoint(1, Frame.getFrame(DzFrameGetHeroBarButton(3)), 7, 0.0, -0.002)
 	call zwidget[12].setAlpha(255)
 	
 	// 创建属性介绍
