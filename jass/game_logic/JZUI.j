@@ -224,9 +224,9 @@ function drawUI_Conditions takes nothing returns boolean
 	call DzFrameClearAllPoints(fm2)
 	call DzFrameClearAllPoints(fm3)
 	
-	call DzFrameSetSize(ff1, 0.015, 0.02)
-	call DzFrameSetSize(ff2, 0.015, 0.02)
-	call DzFrameSetSize(ff3, 0.015, 0.02)
+	call DzFrameSetSize(ff1, 0.018, 0.024)
+	call DzFrameSetSize(ff2, 0.018, 0.024)
+	call DzFrameSetSize(ff3, 0.018, 0.024)
 	call DzFrameSetSize(fh1, 0.01, 0.01)
 	call DzFrameSetSize(fh2, 0.01, 0.01)
 	call DzFrameSetSize(fh3, 0.01, 0.01)
