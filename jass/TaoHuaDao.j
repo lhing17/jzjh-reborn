@@ -77,7 +77,7 @@ function TaoHuaKaiFang takes nothing returns nothing
 endfunction
 function TaoHuaDaoKaiFang takes nothing returns nothing
 	local timer t=CreateTimer()
-	call TimerStart(t,1800,false,function TaoHuaKaiFang)
+	call TimerStart(t,1500,false,function TaoHuaKaiFang)
 	//call TimerStart(t,20,false,function TaoHuaKaiFang)
 	call CreateTimerDialogBJ(t,"桃花岛开放倒计时：")
 	call TimerDialogDisplay(bj_lastCreatedTimerDialog,true)
@@ -166,7 +166,7 @@ function TaoHuaDao_Trigger takes nothing returns nothing
 	call TriggerAddCondition(t,Condition(function IsTaoHua))
 	call TriggerAddAction(t,function TaoHuaDao)
 	set t=CreateTrigger()
-	call TriggerRegisterTimerEventPeriodic(t,2400.)
+	call TriggerRegisterTimerEventPeriodic(t,2100.)
 	call TriggerAddAction(t,function TaoHuaDaoKaiFang)
 	set t=CreateTrigger()
 	call TriggerRegisterPlayerUnitEventSimple(t,Player(12),EVENT_PLAYER_UNIT_DEATH)
