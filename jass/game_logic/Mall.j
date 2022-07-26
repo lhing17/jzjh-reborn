@@ -9,6 +9,7 @@ globals
     integer array taohua_flag
     integer array mall_addition // 商城积分加成
     integer array level_award // 萌新礼包（无视等级领取等级奖励）
+    integer array map_award_status // 地图奖励领取状态
     integer array wukong_flag // 悟空皮肤权限
     integer array panda_flag // 熊猫皮肤权限
     // A 永久性道具 B 计时性道具
@@ -79,6 +80,7 @@ function mallInit takes nothing returns nothing
         set talent_flag[i] = 0
         set mall_addition[i] = 0
         set level_award[i] = 0
+        set map_award_status[i] = 0
         set panda_flag[i] = 0
         set wukong_flag[i] = 0
         set i = i + 1

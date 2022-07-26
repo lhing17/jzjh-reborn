@@ -151,15 +151,20 @@ function touKanAction takes nothing returns nothing
             call UnitMakeAbilityPermanent(udg_hero[i], true, id)
             call SetUnitAbilityLevel(udg_hero[i], id, IMaxBJ(level, LoadInteger(YDHT, GetHandleId(p), id * 5)))
             
-            set j = 1
-            loop
-                exitwhen j > wugongshu[i]
-                if I7[20 * ( i - 1 ) + j] == 1095067243 then
-                    set I7[20 * ( i - 1 ) + j] = id
-                    exitwhen true
-                endif
-                set j = j + 1
-            endloop
+            if id == 'A03Q' then
+                // 百胜神拳
+				call AddPlayerTechResearched(p, 'Rhri', 1)
+            else
+                set j = 1
+                loop
+                    exitwhen j > wugongshu[i]
+                    if I7[20 * ( i - 1 ) + j] == 1095067243 then
+                        set I7[20 * ( i - 1 ) + j] = id
+                        exitwhen true
+                    endif
+                    set j = j + 1
+                endloop
+            endif
             call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF0033恭喜" + GetPlayerName(p) + "习得" + GetObjectName(id) + "|r")
 
             if id == 'A0EL' then

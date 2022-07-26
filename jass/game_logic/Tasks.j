@@ -359,7 +359,7 @@ endfunction
 */
 
 function IsLevelReward takes nothing returns boolean
-	return((GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER)and (GetItemTypeId(GetManipulatedItem()) == 'I0D4' or GetItemTypeId(GetManipulatedItem()) == 'I0D5' or GetItemTypeId(GetManipulatedItem()) == 'I0D6' or GetItemTypeId(GetManipulatedItem()) == 'I0D7' or GetItemTypeId(GetManipulatedItem()) == 'I0D8' or GetItemTypeId(GetManipulatedItem()) == 'I0D9' or GetItemTypeId(GetManipulatedItem()) == 'I0DA' or GetItemTypeId(GetManipulatedItem()) == 'I0EI'))
+	return GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER and GetItemTypeId(GetManipulatedItem()) == 'I0DG' 
 endfunction
 function LevelReward takes nothing returns nothing
 	local unit u = GetTriggerUnit() // 触发单位
@@ -367,34 +367,39 @@ function LevelReward takes nothing returns nothing
 	local integer i = GetPlayerId(p)
 	// 获取玩家对应的地图等级
 	local integer level = DzAPI_Map_GetMapLevel(Player(i))
-	if ( (level >= 3 or level_award[i + 1] == 1) and ( GetItemTypeId(GetManipulatedItem()) == 'I0D4' ) ) and not LoadBoolean(YDHT, i, StringHash("3级奖励")) then
+
+	if (level < 3 and level_award[i + 1] != 1) or map_award_status[i + 1] == 1 then
+		call DisplayTimedTextToPlayer(Player(i), 0, 0, 5, "|CFFFE890D可能你不符合条件或者已经领取过了哦！")
+		return
+	endif
+
+	set map_award_status[i + 1] = 1 
+	if (level >= 3 or level_award[i + 1] == 1)  then
 		call unitadditembyidswapped(mapLevelReward[1] , u) // 养精蓄锐令牌
-		call SaveBoolean(YDHT, i, StringHash("3级奖励"), true)
-	elseif ( (level >= 5 or level_award[i + 1] == 1) and ( GetItemTypeId(GetManipulatedItem()) == 'I0D6' ) ) and not LoadBoolean(YDHT, i, StringHash("5级奖励")) then
+	endif
+	if (level >= 5 or level_award[i + 1] == 1) then
 		call unitadditembyidswapped('I02T' , u) // 大雁
-		call SaveBoolean(YDHT, i, StringHash("5级奖励"), true)
-	elseif ( (level >= 8 or level_award[i + 1] == 1) and ( GetItemTypeId(GetManipulatedItem()) == 'I0D5' ) ) and not LoadBoolean(YDHT, i, StringHash("8级奖励")) then
+	endif
+	if (level >= 8 or level_award[i + 1] == 1) then
 		call unitadditembyidswapped(mapLevelReward[GetRandomInt(8, 10)] , u) 
-		call SaveBoolean(YDHT, i, StringHash("8级奖励"), true)
-	elseif ( (level >= 10 or level_award[i + 1] == 1) and ( GetItemTypeId(GetManipulatedItem()) == 'I0D7' ) ) and not LoadBoolean(YDHT, i, StringHash("10级奖励")) then
+	endif
+	if  (level >= 10 or level_award[i + 1] == 1)  then
 		call unitadditembyidswapped('I019' , u) // 白虎符
-		call SaveBoolean(YDHT, i, StringHash("10级奖励"), true)
-	elseif ( (level >= 11 or level_award[i + 1] == 1) and ( GetItemTypeId(GetManipulatedItem()) == 'I0D8' ) ) and not LoadBoolean(YDHT, i, StringHash("11级奖励")) then
+	endif
+	if (level >= 11 or level_award[i + 1] == 1) then
 		call unitadditembyidswapped('I06Z' , u) // 续命
-		call SaveBoolean(YDHT, i, StringHash("11级奖励"), true)
-	elseif ( (level >= 14 or level_award[i + 1] == 1) and ( GetItemTypeId(GetManipulatedItem()) == 'I0EI' ) ) and not LoadBoolean(YDHT, i, StringHash("14级奖励")) then
+	endif
+	if  (level >= 14 or level_award[i + 1] == 1) then
 		if GetRandomInt(1, 2) == 1 then
 			call AdjustPlayerStateBJ(50000, p, PLAYER_STATE_RESOURCE_GOLD) // 奖励5w金钱
 		else
 			call AdjustPlayerStateBJ(25, p, PLAYER_STATE_RESOURCE_LUMBER) // 奖励25木头
 		endif
-		call SaveBoolean(YDHT, i, StringHash("14级奖励"), true)
-	elseif ( (level >= 25 or level_award[i + 1] == 1) and ( GetItemTypeId(GetManipulatedItem()) == 'I0D9' ) ) and not LoadBoolean(YDHT, i, StringHash("25级奖励")) then
-		call unitadditembyidswapped('I070' , u) // 通犀地龙丸
-		call SaveBoolean(YDHT, i, StringHash("25级奖励"), true)
-	else
-		call DisplayTimedTextToPlayer(Player(i), 0, 0, 5, "|CFFFE890D可能你不符合条件或者已经领取过了哦！")
 	endif
+	if  (level >= 25 or level_award[i + 1] == 1) then
+		call unitadditembyidswapped('I070' , u) // 通犀地龙丸
+	endif
+
 	set u = null
 	set p = null
 endfunction
@@ -416,7 +421,7 @@ endglobals
 //============积分商店=============//
 // 随机一个AB性格加一:5积分；明教一局：20积分；精钢剑：4积分；随机一本奇武：4积分；桃花岛传送符（永久版）：4积分；重置门派称号：14积分；号令天下：10积分
 function isJfShop takes nothing returns boolean
-	return((GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER)and (GetItemTypeId(GetManipulatedItem()) == 'I0DC' or GetItemTypeId(GetManipulatedItem()) == 'I0DD' or GetItemTypeId(GetManipulatedItem()) == 'I0DE' or GetItemTypeId(GetManipulatedItem()) == 'I0DF' or GetItemTypeId(GetManipulatedItem()) == 'I0DG' or GetItemTypeId(GetManipulatedItem()) == 'I0DH' or GetItemTypeId(GetManipulatedItem()) == 'I0EL'))
+	return((GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER)and (GetItemTypeId(GetManipulatedItem()) == 'I0DC' or GetItemTypeId(GetManipulatedItem()) == 'I0DD' or GetItemTypeId(GetManipulatedItem()) == 'I0DE' or GetItemTypeId(GetManipulatedItem()) == 'I0DF' or GetItemTypeId(GetManipulatedItem()) == 'I0DH' or GetItemTypeId(GetManipulatedItem()) == 'I0EL'))
 endfunction
 function jfShop takes nothing returns nothing
 	local unit u = GetTriggerUnit() // 触发单位
@@ -502,10 +507,6 @@ function jfShop takes nothing returns nothing
 		call unitadditembyidswapped('I0DI', u) 
 		call DisplayTimedTextToPlayer(Player(i), 0, 0, 5, "|cFF66CC00获取桃花岛传送符，扣除4积分")
 		call jfChange(i, jf4)
-	elseif ((GetItemTypeId(GetManipulatedItem()) == 'I0DG')) and udg_jf[i] >= jf5 and (jf_useMax[i] + jf5) <= jf_max then
-		// 重置门派称号 FIXME
-		call DisplayTimedTextToPlayer(Player(i), 0, 0, 5, "|cFF66CC00重置门派称号成功，扣除14积分")
-		call jfChange(i, jf5)
 	elseif ((GetItemTypeId(GetManipulatedItem()) == 'I0DH')) and udg_jf[i] >= jf6 and (jf_useMax[i] + jf6) <= jf_max then
 		// 号令
 		// call unitadditembyidswapped('I06F',u) 
