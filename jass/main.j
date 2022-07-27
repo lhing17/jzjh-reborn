@@ -1986,8 +1986,8 @@ function calMpCount takes integer i returns nothing
 		call SetPlayerTechResearched(Player(i),'R00E',1)
 	endif
 	if  msCount >= 11 then
-		// 特攻加20
-		set special_attack[i+1] = special_attack[i+1] + 20
+		// 特攻加5
+		set special_attack[i+1] = special_attack[i+1] + 5
 		call SetPlayerTechResearched(Player(i),'R00F',1)
 	endif
 	if msCount >= 18 then
