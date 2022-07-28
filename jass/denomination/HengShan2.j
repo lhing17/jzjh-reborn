@@ -372,11 +372,11 @@ function QuanMing_Actions takes nothing returns nothing
         call RemoveLocation(loc2)
         set i = i + 1
     endloop
-    call TriggerSleepAction(1.50)
+    call PolledWait(1.50)
     call EnableTrigger( gg_trg_Number14_1 )
-    call TriggerSleepAction(13.50)
+    call PolledWait(13.50)
     call DisableTrigger( gg_trg_Number14_1 )
-    call TriggerSleepAction(0.50)
+    call PolledWait(0.50)
     set i = 1
     loop
         exitwhen i > 16

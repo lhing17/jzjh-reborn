@@ -4941,13 +4941,13 @@ function vQ takes nothing returns nothing
 			if((GetRandomInt(1, 6) <= 3))then
 				call UnitAddAbility(u, 1093679441)
 				call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00使用新手大礼包获得神行状态")
-				call TriggerSleepAction(300.)
+				call PolledWait(300.)
 				call UnitRemoveAbility(u, 1093679441)
 				call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000失去神行效果")
 			else
 				call YDWEGeneralBounsSystemUnitSetBonus(u, 3, 0, 20000)
 				call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00使用新手大礼包获得狂暴状态")
-				call TriggerSleepAction(120.)
+				call PolledWait(120.)
 				call YDWEGeneralBounsSystemUnitSetBonus(u, 3, 1, 20000)
 				call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000失去狂暴效果")
 			endif

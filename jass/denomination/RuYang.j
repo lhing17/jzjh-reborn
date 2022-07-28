@@ -33,12 +33,25 @@ function isKungfuFull takes integer i returns boolean
     call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFFF0033学习技能已达上限，请先遗忘部分技能")
     return true
 endfunction
+
+function closeTouKanDialog takes nothing returns nothing
+    local timer t = GetExpiredTimer()
+    local integer i = LoadInteger(YDHT, GetHandleId(t), 0)
+	call FlushChildHashtable(YDHT, ruyangButtonKey + i)
+    call DialogClear(ruyangDialog[i])
+    call FlushChildHashtable(YDHT, GetHandleId(t))
+	call PauseTimer(t)
+	call DestroyTimer(t)
+	set t = null
+endfunction
+
 function touKanTouXue takes unit u returns nothing
     local integer i = 1 + GetPlayerId(GetOwningPlayer(u))
     local integer array randList
     local integer j = 1
     local integer k = 1
     local integer temp = 0
+    local timer t = null
     set touKanCounter[i] = touKanCounter[i] + 1
     if isKungfuFull(i) then
         return
@@ -116,6 +129,11 @@ function touKanTouXue takes unit u returns nothing
         set k = k + 1
     endloop
     call DialogDisplay(GetOwningPlayer(u), ruyangDialog[i], true)
+    // 10秒后自动关闭对话框
+    set t = CreateTimer()
+    call SaveInteger(YDHT, GetHandleId(t), 0, i)
+    call TimerStart(t, 20, false, function closeTouKanDialog)
+    set t = null
 endfunction
 function touKanAction takes nothing returns nothing
     local player p = GetTriggerPlayer()
