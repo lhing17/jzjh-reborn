@@ -352,7 +352,7 @@ function KeyInput takes nothing returns nothing
 	endif
 
 	if s == "ver" then
-		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF决战江湖1.6.50版本")
+		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF决战江湖1.6.51版本")
 	endif
 
 	if s == "cx" or s == "CX" then
