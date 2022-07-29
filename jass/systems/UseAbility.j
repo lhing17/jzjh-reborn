@@ -160,6 +160,7 @@ function piLiangJianDing takes unit u, real x, real y returns nothing
 	local integer i = 1 + GetPlayerId(p)
 
 	set antiqueIndex = 0
+	set itemScore = 0
 	call EnumItemsInRect(r, null, function doExchangeBooks)
 
 	call FlushChildHashtable(YDHT, antiqueKey)
