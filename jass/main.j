@@ -1991,8 +1991,8 @@ function calMpCount takes integer i returns nothing
 		call SetPlayerTechResearched(Player(i),'R00F',1)
 	endif
 	if msCount >= 18 then
-		// 江湖声望加300
-		set shengwang[i+1] = shengwang[i+1] + 300
+		// 守家积分加300
+		set shoujiajf[i+1] = shoujiajf[i+1] + 300
 		call SetPlayerTechResearched(Player(i),'R00G',1)
 	endif
 	// 通关门派存到哈希表，parentId从1开始
