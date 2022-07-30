@@ -127,6 +127,8 @@ function KeyInput takes nothing returns nothing
 		set s = s + getChiefString(i, 21, "五毒教主 ")
 		set s = s + getChiefString(i, 22, "桃花岛主 ")
 		set s = s + getChiefString(i, 23, "野螺掌派 ")
+		set s = s + getChiefString(i, 24, "雪山掌门 ")
+		set s = s + getChiefString(i, 25, "汝阳王 ")
 		call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00当前已获得掌门：" + s)
 
 		set s = ""

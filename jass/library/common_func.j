@@ -1477,7 +1477,12 @@ function ShangHaiGongShi takes unit u, unit uc,real w1, real w2, real shxishu, i
 			set attack = attack * 1.5
 		endif
 	else
-		set attack = 750 * (w1 + w2) * (1. + GetUnitAbilityLevel(u, id)) * shxishu
+		if id == 'A0CH' then
+			// 敌方用先天功不造成伤害
+			set attack = 0
+		else
+		    set attack = 750 * (w1 + w2) * (1. + GetUnitAbilityLevel(u, id)) * shxishu
+		endif
 		// 难6以上敌方用先天功加超多伤害
 		// if udg_nandu>=5 and id == 1093682245 then
 		// 	set attack = attack * 10
