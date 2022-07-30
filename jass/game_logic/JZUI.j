@@ -8,6 +8,11 @@ globals
 	Frame bibo_image
 	Frame bibo_text
 	
+	Frame helpWidget // 帮助按钮图片
+	Frame helpButton // 帮助按钮
+	Frame tutorial // 教程页面
+
+
 	Frame qimen_widget
 	Frame qimen_button // 奇门术数按钮
 	Frame qimen_text // 奇门术数按钮上的文字
@@ -45,6 +50,18 @@ endglobals
 function toggleFuncBoard takes nothing returns nothing
 	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
 		call zwidget[3].toggle()
+	endif
+endfunction
+
+function toggleTutorial takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call tutorial.toggle()
+	endif
+endfunction
+
+function toggleHelpWidget takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call helpWidget.toggerHover("war3mapImported\\help.tga", "war3mapImported\\help_hover.tga")
 	endif
 endfunction
 
@@ -224,9 +241,9 @@ function drawUI_Conditions takes nothing returns boolean
 	call DzFrameClearAllPoints(fm2)
 	call DzFrameClearAllPoints(fm3)
 	
-	call DzFrameSetSize(ff1, 0.018, 0.024)
-	call DzFrameSetSize(ff2, 0.018, 0.024)
-	call DzFrameSetSize(ff3, 0.018, 0.024)
+	call DzFrameSetSize(ff1, 0.021, 0.028)
+	call DzFrameSetSize(ff2, 0.021, 0.028)
+	call DzFrameSetSize(ff3, 0.021, 0.028)
 	call DzFrameSetSize(fh1, 0.01, 0.01)
 	call DzFrameSetSize(fh2, 0.01, 0.01)
 	call DzFrameSetSize(fh3, 0.01, 0.01)
@@ -245,6 +262,20 @@ function drawUI_Conditions takes nothing returns boolean
 	call DzFrameSetPoint(fm3,6,DzGetGameUI(),8,.1,.22)
 	
 	call DzLoadToc("ui\\custom.toc")
+
+	// 帮助按钮
+	set helpWidget = Frame.newImage1(GUI, "war3mapImported\\help.tga", 0.032, 0.04)
+	call helpWidget.setPoint(3, Frame.getFrame(DzFrameGetHeroBarButton(0)), 5, 0.05, -0.005)
+	
+	set helpButton = Frame.newTextButton(helpWidget)
+	call helpButton.setAllPoints(helpWidget)
+	call helpButton.regEvent(FRAME_EVENT_PRESSED, function toggleTutorial)
+	call helpButton.regEvent(FRAME_MOUSE_ENTER, function toggleHelpWidget)
+	call helpButton.regEvent(FRAME_MOUSE_LEAVE, function toggleHelpWidget)
+
+	set tutorial = Frame.newImage1(GUI, "war3mapImported\\tutorial.tga", 0.45, 0.4)
+	call tutorial.setPoint(4, GUI, 4, 0.0, 0.0)
+	call tutorial.hide()
 	
 	// 创建功能开启按钮背景
 	//set zwidget[1] = Frame.newImage1(GUI, "ReplaceableTextures\\CommandButtons\\BTNtab.blp", 0.03, 0.04)
@@ -340,8 +371,8 @@ function drawUI_Conditions takes nothing returns boolean
 	call zbutton[9].regEvent(FRAME_MOUSE_LEAVE, function toggleWidget11)
 	
 	// 创建属性开启按钮背景
-	set zwidget[12] = Frame.newImage1(GUI, "ReplaceableTextures\\CommandButtons\\BTNesc.blp", 0.015, 0.02)
-	call zwidget[12].setPoint(1, Frame.getFrame(DzFrameGetHeroBarButton(3)), 7, 0.0, -0.002)
+	set zwidget[12] = Frame.newImage1(GUI, "ReplaceableTextures\\CommandButtons\\BTNesc.blp", 0.021, 0.028)
+	call zwidget[12].setPoint(1, Frame.getFrame(DzFrameGetHeroBarButton(3)), 7, 0.0, -0.003)
 	call zwidget[12].setAlpha(255)
 	
 	// 创建属性介绍

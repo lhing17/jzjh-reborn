@@ -1470,7 +1470,7 @@ endfunction
 
 globals
 	boolean is_victory = false
-	constant string VERSION = "1.6.51"
+	constant string VERSION = "1.6.52"
 endglobals
 
 //失败动作
@@ -2736,7 +2736,7 @@ function HeroLevel takes nothing returns nothing
 		call RemoveLocation(loc)
 	endif
 	if (GetUnitLevel(u) >= 80 and jiawuxue[i] == false) then
-		call DisplayTimedTextToPlayer(p, 0, 0, 30., "|cff66ff00恭喜你升到了80级，获得7个自创武学点，在通过历练6以后你可以到聚贤庄游坦之处自创武学")
+		call DisplayTimedTextToPlayer(p, 0, 0, 30., "|cff66ff00恭喜你升到了80级，获得7个自创武学点，在通过历练5以后你可以到聚贤庄游坦之处自创武学")
 		set wuxuedian[i] = wuxuedian[i] + 5
 		if udg_vip[i] >= 1 then
 			set wuxuedian[i] = wuxuedian[i] + 2
