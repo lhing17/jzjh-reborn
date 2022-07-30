@@ -4536,6 +4536,8 @@ endfunction
 //整理物品
 function SO takes nothing returns nothing
 	local location loc = null
+	local integer j = 1
+	local integer id = GetItemTypeId(GetEnumItem())
 	if((GetWidgetLife(GetEnumItem()) == 101.))then    //D古董
 		set loc = GetRectCenter(nh)
 		call SetItemPositionLoc(GetEnumItem(), loc)
@@ -4564,10 +4566,47 @@ function SO takes nothing returns nothing
 		set loc = GetRectCenter(th)
 		call SetItemPositionLoc(GetEnumItem(), loc)
 		call RemoveLocation(loc)
-	elseif((GetWidgetLife(GetEnumItem()) == 108.))then    //18种江湖武功
+	elseif((GetWidgetLife(GetEnumItem()) == 108.))then   // 遗忘之石、熔炼石、装备打孔符
 		call SetItemPosition(GetEnumItem(), - 1819., 484.)
-	elseif((GetWidgetLife(GetEnumItem()) == 109.))then
+	elseif((GetWidgetLife(GetEnumItem()) == 109.))then //18种江湖武功
 		call SetItemPosition(GetEnumItem(), - 1300., - 300.)
+	else
+		set j = 1
+		loop
+			exitwhen j > 10
+			if id == udg_juexue[j] then
+				call SetItemPosition(GetEnumItem(), - 1300., -500.)
+				return
+			endif
+			set j = j + 1
+		endloop
+		set j = 1
+		loop
+			exitwhen j > 8
+			if id == udg_juenei[j] then
+				call SetItemPosition(GetEnumItem(), - 1300., -700.)
+				return
+			endif
+			set j = j + 1
+		endloop
+		set j = 1
+		loop
+			exitwhen j > 11
+			if id == udg_canzhang[j] then
+				call SetItemPosition(GetEnumItem(), - 1300., -900.)
+				return
+			endif
+			set j = j + 1
+		endloop
+		set j = 1
+		loop
+			exitwhen j > 15
+			if id == udg_qiwu[j] then
+				call SetItemPosition(GetEnumItem(), - 1300., -1100.)
+				return
+			endif
+			set j = j + 1
+		endloop
 	endif
 	set loc = null
 endfunction

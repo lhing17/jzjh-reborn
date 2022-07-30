@@ -40,14 +40,6 @@ function isNotBook takes nothing returns boolean
     endloop
     set j = 1
     loop
-        exitwhen j > 11
-        if id == udg_canzhang[j] then
-            return false
-        endif
-        set j = j + 1
-    endloop
-    set j = 1
-    loop
         exitwhen j > 15
         if id == udg_qiwu[j] then
             return false
