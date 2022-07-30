@@ -1319,11 +1319,11 @@ function XiangQian takes unit u, item it, item it2, integer id, integer i return
 				endif
 			endif
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00镶嵌成功")
-			if Deputy_isDeputy(k, DUAN_ZAO) and udg_dzds[k] <= 5 then
+			if Deputy_isDeputy(k, DUAN_ZAO) and udg_dzds[k] < 4 then
                 set udg_dzds[k] = udg_dzds[k] + 1
-                call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您锻造成功第" + I2S(udg_dzds[k]) + "件装备，锻造成功5件装备可以获得锻造大师哦")
+                call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您锻造成功第" + I2S(udg_dzds[k]) + "件装备，锻造成功4件装备可以获得锻造大师哦")
             endif
-            if Deputy_isDeputy(k, DUAN_ZAO) and udg_dzds[k] >= 5 and not (Deputy_isMaster(k, DUAN_ZAO)) then
+            if Deputy_isDeputy(k, DUAN_ZAO) and udg_dzds[k] >= 4 and not (Deputy_isMaster(k, DUAN_ZAO)) then
                 call Deputy_setMaster(k, DUAN_ZAO)
                 call DZDSBuShuXing(udg_hero[k])
                 call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFF66FF00恭喜" + GetPlayerName(p) + "获得锻造大师")

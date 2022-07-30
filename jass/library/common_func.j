@@ -238,7 +238,7 @@ library WuQiQiHeSystem initializer init requires Deputy
 						if LoadBoolean(YDHT, GetHandleId(GetOwningPlayer(u)), GetItemTypeId(it))==false and LoadReal(YDHT, GetHandleId(GetOwningPlayer(u)), GetItemTypeId(it))>=5000. * (1+WeaponLevel(GetItemTypeId(it)))  then
 							//set udg_bqds[j] = udg_bqds[j] + 1
 							call SaveBoolean(YDHT, GetHandleId(GetOwningPlayer(u)), GetItemTypeId(it), true)
-							call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您炼成了第"+I2S(udg_bqds[j])+"把武器，您需要炼成3把武器才能获得兵器大师哦")
+							// call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您炼成了第"+I2S(udg_bqds[j])+"把武器，您需要炼成3把武器才能获得兵器大师哦")
 						endif
 					endif
 					if LoadInteger(YDHT,GetHandleId(it),0)>0 then

@@ -4321,12 +4321,12 @@ endfunction
 function WuPinHeCheng takes nothing returns nothing
 	local item it = GetLastCombinedItem()
 	local integer i = 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
-	if Deputy_isDeputy(i, DUAN_ZAO) and LoadBoolean(YDHT, GetHandleId(GetOwningPlayer(GetTriggerUnit())), GetItemTypeId(it)) == false and udg_dzds[i] <= 5 then
+	if Deputy_isDeputy(i, DUAN_ZAO) and LoadBoolean(YDHT, GetHandleId(GetOwningPlayer(GetTriggerUnit())), GetItemTypeId(it)) == false and udg_dzds[i] < 4 then
 		set udg_dzds[i] = udg_dzds[i] + 1
-		call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, "|CFF66FF00恭喜您锻造成功第" + I2S(udg_dzds[i]) + "件装备，锻造成功5件装备可以获得锻造大师哦")
+		call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, "|CFF66FF00恭喜您锻造成功第" + I2S(udg_dzds[i]) + "件装备，锻造成功4件装备可以获得锻造大师哦")
 		call SaveBoolean(YDHT, GetHandleId(GetOwningPlayer(GetTriggerUnit())), GetItemTypeId(it), true)
 	endif
-	if Deputy_isDeputy(i, DUAN_ZAO) and udg_dzds[i] >= 5 and not Deputy_isMaster(i, DUAN_ZAO) then
+	if Deputy_isDeputy(i, DUAN_ZAO) and udg_dzds[i] >= 4 and not Deputy_isMaster(i, DUAN_ZAO) then
 		call Deputy_setMaster(i, DUAN_ZAO)
 		call DZDSBuShuXing(udg_hero[i])
 		// call SaveStr(YDHT, GetHandleId(GetOwningPlayer(GetTriggerUnit())), GetHandleId(GetOwningPlayer(GetTriggerUnit())),"〓锻造大师〓"+LoadStr(YDHT, GetHandleId(GetOwningPlayer(GetTriggerUnit())), GetHandleId(GetOwningPlayer(GetTriggerUnit()))))
@@ -4340,11 +4340,11 @@ endfunction
 * 合成加锻造数量
 */
 function HeCheng2_Dzds takes integer i returns nothing 
-	if Deputy_isDeputy(i, DUAN_ZAO) and udg_dzds[i] <= 5 then
+	if Deputy_isDeputy(i, DUAN_ZAO) and udg_dzds[i] < 4 then
 		set udg_dzds[i] = udg_dzds[i] + 1
-		call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, "|CFF66FF00恭喜您锻造成功第" + I2S(udg_dzds[i]) + "件装备，锻造成功5件装备可以获得锻造大师哦")
+		call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, "|CFF66FF00恭喜您锻造成功第" + I2S(udg_dzds[i]) + "件装备，锻造成功4件装备可以获得锻造大师哦")
 	endif
-	if Deputy_isDeputy(i, DUAN_ZAO) and udg_dzds[i] >= 5 and not Deputy_isMaster(i, DUAN_ZAO) then
+	if Deputy_isDeputy(i, DUAN_ZAO) and udg_dzds[i] >= 4 and not Deputy_isMaster(i, DUAN_ZAO) then
 		call Deputy_setMaster(i, DUAN_ZAO)
 		call DZDSBuShuXing(udg_hero[i])
 		// call SaveStr(YDHT, GetHandleId(GetOwningPlayer(GetTriggerUnit())), GetHandleId(GetOwningPlayer(GetTriggerUnit())),"〓锻造大师〓"+LoadStr(YDHT, GetHandleId(GetOwningPlayer(GetTriggerUnit())), GetHandleId(GetOwningPlayer(GetTriggerUnit()))))

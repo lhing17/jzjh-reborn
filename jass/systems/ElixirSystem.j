@@ -934,10 +934,10 @@ function LianSomeDan takes unit u, item it, integer dan, integer ys, integer y1,
 				call DisplayTimedTextToPlayer(p, 0, 0, 5., "|cff00ffff恭喜炼制成功！")
 				set biYuAddition[i] = biYuAddition[i] + 0.5
 				set udg_ldds[i] = udg_ldds[i] + 1
-				if (udg_ldds[i] <= 5) and not Deputy_isMaster(i, LIAN_DAN) then
-					call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您炼成第" + I2S(udg_ldds[i]) + "颗丹药，炼成5颗可获得大师哦")
+				if (udg_ldds[i] <= 4) and not Deputy_isMaster(i, LIAN_DAN) then
+					call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您炼成第" + I2S(udg_ldds[i]) + "颗丹药，炼成4颗可获得大师哦")
 				endif
-				if (udg_ldds[i] == 5) and not Deputy_isMaster(i, LIAN_DAN) then
+				if (udg_ldds[i] >= 4) and not Deputy_isMaster(i, LIAN_DAN) then
 					call Deputy_setMaster(i, LIAN_DAN)
 					// call SaveStr(YDHT, GetHandleId(p), GetHandleId(p),"〓炼丹大师〓"+LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 					call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFF66FF00恭喜" + GetPlayerName(p) + "获得炼丹大师")
@@ -1060,10 +1060,10 @@ function FP takes nothing returns nothing
 		call DisplayTimedTextToPlayer(p, 0, 0, 5., "|cff00ffff恭喜炼制成功！")
 		set biYuAddition[i] = biYuAddition[i] + 0.5
 		set udg_ldds[i] = udg_ldds[i] + 1
-		if (udg_ldds[i] <= 5) and not Deputy_isMaster(i, LIAN_DAN) then
-			call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您炼成第" + I2S(udg_ldds[i]) + "颗丹药，炼成5颗可获得大师哦")
+		if (udg_ldds[i] <= 4) and not Deputy_isMaster(i, LIAN_DAN) then
+			call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您炼成第" + I2S(udg_ldds[i]) + "颗丹药，炼成4颗可获得大师哦")
 		endif
-		if (udg_ldds[i] == 5) and not Deputy_isMaster(i, LIAN_DAN) then
+		if (udg_ldds[i] >= 4) and not Deputy_isMaster(i, LIAN_DAN) then
 			call Deputy_setMaster(i, LIAN_DAN)
 			call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFF66FF00恭喜" + GetPlayerName(p) + "获得炼丹大师")
 			call SetPlayerName(p, "〓炼丹大师〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))

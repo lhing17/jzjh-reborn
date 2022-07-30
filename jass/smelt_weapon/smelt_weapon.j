@@ -200,9 +200,9 @@ function YeLianWuQi takes nothing returns nothing
 			call DisplayTimedTextToPlayer(p,0,0,30,"|cffff0000恭喜你，冶炼成功")
 			if not Deputy_isMaster(i, BING_QI) and Deputy_isDeputy(i, BING_QI) then
 				set udg_bqds[i] = udg_bqds[i] + 1
-				call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您冶炼成功第"+I2S(udg_bqds[i])+"次，您需要冶炼成功5次才能获得兵器大师哦")
+				call DisplayTextToPlayer(p, 0, 0, "|CFF66FF00恭喜您冶炼成功第"+I2S(udg_bqds[i])+"次，您需要冶炼成功4次才能获得兵器大师哦")
 			endif
-			if udg_bqds[i]>=5 and not Deputy_isMaster(i, BING_QI) and Deputy_isDeputy(i, BING_QI) then
+			if udg_bqds[i]>=4 and not Deputy_isMaster(i, BING_QI) and Deputy_isDeputy(i, BING_QI) then
 			    call Deputy_setMaster(i, BING_QI)
 				// call SaveStr(YDHT, GetHandleId(p), GetHandleId(p),"〓兵器大师〓"+LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 				call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFF66FF00恭喜"+GetPlayerName(p)+"获得兵器大师")
