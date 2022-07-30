@@ -738,6 +738,17 @@ function KeyInput takes nothing returns nothing
 		set udg_shuxing[i] = udg_shuxing[i] + 30000
 		set shoujiajf[i] = shoujiajf[i] + 10000
 		set udg_shanghaixishou[i] = udg_shanghaixishou[i] + 1
+
+		set Jd[i] = 1
+		set Id[i] = 1
+		set Qd[i] = 1
+		set ld[i] = 1
+		set Od[i] = 1
+		set Pd[i] = 1
+		set Kd[i] = 1
+		set Ld[i] = 1
+		set Nd[i] = 1
+		set Md[i] = 1
 	endif
 	if s == "next" and udg_isTest[GetPlayerId(p)] then
 		set udg_boshu = udg_boshu + 1
