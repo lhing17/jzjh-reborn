@@ -3107,7 +3107,7 @@ function u5 takes nothing returns nothing
 	// 随机猪地点
 	// local location loc=GetRandomLocInRect(GetPlayableMapRect())
 	
-	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cfffff000古董商人收购价格发生变动了~")
+call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cfffff000古董商人收购价格发生变动了~开始自动整理地图上的物品，也可以输入sort命令手动整理哦~")
 	
 	// 随机出现猪
 	// call CreateNUnitsAtLoc(1,'nshf',Player(6),loc,bj_UNIT_FACING)
