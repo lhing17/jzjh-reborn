@@ -348,7 +348,7 @@ function KeyInput takes nothing returns nothing
 	endif
 
 	// 手动整理物品
-	if s == "sort" then
+	if s == "sort" or s == "-sort" then
 		call EnumItemsInRectBJ(bj_mapInitialPlayableArea, function SO)
 		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF整理物品完成")
 	endif

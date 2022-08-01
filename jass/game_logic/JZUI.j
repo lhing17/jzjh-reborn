@@ -175,6 +175,12 @@ function toggleQimenStatus takes nothing returns nothing
 endfunction
 
 function hideAddButtons takes integer i returns nothing
+	call plusWidget[1].hide()
+	call plusWidget[2].hide()
+	call plusWidget[3].hide()
+	call plusWidget[4].hide()
+	call plusWidget[5].hide()
+	call plusWidget[6].hide()
 	call plusButton[1].hide()
 	call plusButton[2].hide()
 	call plusButton[3].hide()
@@ -184,6 +190,12 @@ function hideAddButtons takes integer i returns nothing
 endfunction
 
 function showAddButtons takes integer i returns nothing
+	call plusWidget[1].show()
+	call plusWidget[2].show()
+	call plusWidget[3].show()
+	call plusWidget[4].show()
+	call plusWidget[5].show()
+	call plusWidget[6].show()
 	call plusButton[1].show()
 	call plusButton[2].show()
 	call plusButton[3].show()
@@ -249,6 +261,10 @@ endfunction
 function addAttr takes nothing returns nothing
 	local integer i = 1 + GetPlayerId(DzGetTriggerUIEventPlayer())
 	local integer frameId = DzGetTriggerUIEventFrame()
+	if udg_shuxing[i] <= 0 and Player(i - 1) == GetLocalPlayer() then
+		call hideAddButtons(i)
+		return
+	endif
 	if frameId == plusButton[1].id then
 		if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
 			call zwidget[110].setText(I2S(gengu[i] + 1))
@@ -573,9 +589,9 @@ function drawUI_Conditions takes nothing returns boolean
 	set index = 1
 	loop
 		exitwhen index > 6
-		set plusWidget[index] = Frame.newImage1(zwidget[14], "war3mapImported\\plus.tga", 0.02, 0.02)
+		set plusWidget[index] = Frame.newImage1(zwidget[14], "war3mapImported\\plus.tga", 0.012, 0.016)
 		set plusButton[index] = Frame.newTextButton(plusWidget[index])
-		call plusWidget[index].setPoint(LEFT, zwidget[108 + index * 2], LEFT, 0.04, 0.0)
+		call plusWidget[index].setPoint(LEFT, zwidget[108 + index * 2], LEFT, 0.025, 0.0)
 		call plusButton[index].setAllPoints(plusWidget[index])
 		call plusButton[index].regEvent(FRAME_EVENT_PRESSED, function addAttr)
 
@@ -616,7 +632,7 @@ function drawUI_Conditions takes nothing returns boolean
 	
 	// FIXME 位置不对
 	set bibo_image = Frame.newImage1(GUI, "ReplaceableTextures\\CommandButtons\\PASBTNbibodian.blp", 0.02, 0.02)
-	call bibo_image.setPoint(1, zwidget[12], 7, 0.04, - 0.08)
+	call bibo_image.setPoint(1, zwidget[12], 7, 0.04, - 0.22)
 	call bibo_image.setAlpha(255)
 	call bibo_image.hide()
 	
@@ -626,7 +642,7 @@ function drawUI_Conditions takes nothing returns boolean
 	
 	// FIXME 位置不对
 	set qimen_widget = Frame.newImage1(GUI, "war3mapImported\\qm_sh.tga", 0.04, 0.02)
-	call qimen_widget.setPoint(TOPLEFT, zwidget[12], BOTTOM, 0.065, - 0.08)
+	call qimen_widget.setPoint(TOPLEFT, zwidget[12], BOTTOM, 0.065, - 0.22)
 	call qimen_widget.hide()
 	
 	set qimen_button = Frame.newTextButton(qimen_widget)
@@ -648,9 +664,36 @@ function drawUI_Conditions takes nothing returns boolean
 	return false
 endfunction
 
+function toggleUI takes nothing returns nothing
+	local string s = GetEventPlayerChatString()
+	local player p = GetTriggerPlayer()
+	local integer i = GetPlayerId(p) + 1
+	if s == "hideUI" and p == GetLocalPlayer() then
+		call DzFrameShow(DzFrameGetHeroBarButton(1), false)
+		call DzFrameShow(DzFrameGetHeroBarButton(2), false)
+		call DzFrameShow(DzFrameGetHeroBarButton(3), false)
+		call DzFrameShow(DzFrameGetHeroBarButton(1), true)
+		call DzFrameShow(DzFrameGetHeroBarButton(2), true)
+		call DzFrameShow(DzFrameGetHeroBarButton(3), true)
+		call zwidget[12].hide()
+		call helpWidget.hide()
+	endif
+	if s == "showUI" and p == GetLocalPlayer() then
+		call DzFrameShow(DzFrameGetHeroBarButton(1), false)
+		call DzFrameShow(DzFrameGetHeroBarButton(2), false)
+		call DzFrameShow(DzFrameGetHeroBarButton(3), false)
+		call zwidget[12].show()
+		call helpWidget.show()
+	endif
+
+	set p = null
+
+endfunction
+
 
 function initUI takes nothing returns nothing
 	local trigger t = CreateTrigger()
+	local integer i = 1
 	
 	call TriggerRegisterTimerEventSingle(t, 1.)
 	call TriggerAddCondition(t, Condition(function drawUI_Conditions))
@@ -683,5 +726,12 @@ function initUI takes nothing returns nothing
 	call DzTriggerRegisterSyncData(t, "yishu", false)
 	call TriggerAddAction(t, function addYishu)
 
+	set t = CreateTrigger()
+	loop
+		exitwhen i > 6
+		call TriggerRegisterPlayerChatEvent(t, Player(i - 1), "", true)
+		set i = i + 1
+	endloop
+	call TriggerAddAction(t, function toggleUI)
 	set t = null
 endfunction

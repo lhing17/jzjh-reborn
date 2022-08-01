@@ -39,6 +39,7 @@ function closeTouKanDialog takes nothing returns nothing
     local integer i = LoadInteger(YDHT, GetHandleId(t), 0)
 	call FlushChildHashtable(YDHT, ruyangButtonKey + i)
     call DialogClear(ruyangDialog[i])
+    call DialogDisplay(Player(i - 1), ruyangDialog[i], false)
     call FlushChildHashtable(YDHT, GetHandleId(t))
 	call PauseTimer(t)
 	call DestroyTimer(t)
@@ -129,7 +130,7 @@ function touKanTouXue takes unit u returns nothing
         set k = k + 1
     endloop
     call DialogDisplay(GetOwningPlayer(u), ruyangDialog[i], true)
-    // 10秒后自动关闭对话框
+    // 20秒后自动关闭对话框
     set t = CreateTimer()
     call SaveInteger(YDHT, GetHandleId(t), 0, i)
     call TimerStart(t, 20, false, function closeTouKanDialog)
