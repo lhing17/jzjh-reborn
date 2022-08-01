@@ -1,6 +1,10 @@
 globals
 	Frame array zwidget
 	Frame array zbutton
+
+	Frame array plusWidget
+	Frame array plusButton
+
 	Frame avatar
 	Frame avatarBack
 	Frame closeBtn
@@ -69,10 +73,10 @@ endfunction
 function toggleAttrBoard takes nothing returns nothing
 	local integer i = 1 + GetPlayerId(DzGetTriggerUIEventPlayer())
 	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
-		call zwidget[102].setText(I2S(IMinBJ(R2I((udg_baojilv[i]*100.)), 100))+"%")
-		call zwidget[104].setText(I2S(R2I((udg_baojishanghai[i]*100.)))+"%")
-		call zwidget[106].setText(I2S(R2I((udg_shanghaijiacheng[i]*100.)))+"%")
-		call zwidget[108].setText(I2S(IMinBJ(R2I((udg_shanghaixishou[i]*100.)),80))+"%")
+		call zwidget[102].setText(I2S(IMinBJ(R2I((udg_baojilv[i] * 100.)), 100)) + "%")
+		call zwidget[104].setText(I2S(R2I((udg_baojishanghai[i] * 100.))) + "%")
+		call zwidget[106].setText(I2S(R2I((udg_shanghaijiacheng[i] * 100.))) + "%")
+		call zwidget[108].setText(I2S(IMinBJ(R2I((udg_shanghaixishou[i] * 100.)), 80)) + "%")
 		
 		call zwidget[110].setText(I2S(gengu[i]))
 		call zwidget[112].setText(I2S(wuxing[i]))
@@ -83,13 +87,13 @@ function toggleAttrBoard takes nothing returns nothing
 		
 		call zwidget[122].setText(I2S(juexuelingwu[i]))
 		call zwidget[124].setText(I2S(xiuxing[i]))
-		call zwidget[126].setText("第"+I2S(wugongxiuwei[i])+"层")
+		call zwidget[126].setText("第" + I2S(wugongxiuwei[i]) + "层")
 		call zwidget[128].setText(I2S(shengwang[i]))
 		call zwidget[130].setText(I2S(shoujiajf[i]))
 		if not Deputy_isDeputy(i, LIAN_DAN) then
-			call zwidget[132].setText(I2S(yongdanshu[i])+" / 10")
+			call zwidget[132].setText(I2S(yongdanshu[i]) + " / 10")
 		else
-			call zwidget[132].setText(I2S(yongdanshu[i])+" / 15")
+			call zwidget[132].setText(I2S(yongdanshu[i]) + " / 15")
 		endif
 		
 		call zwidget[14].toggle()
@@ -170,15 +174,123 @@ function toggleQimenStatus takes nothing returns nothing
 	call DzSyncData("qimen", I2S(i))
 endfunction
 
+function hideAddButtons takes integer i returns nothing
+	call plusButton[1].hide()
+	call plusButton[2].hide()
+	call plusButton[3].hide()
+	call plusButton[4].hide()
+	call plusButton[5].hide()
+	call plusButton[6].hide()
+endfunction
+
+function showAddButtons takes integer i returns nothing
+	call plusButton[1].show()
+	call plusButton[2].show()
+	call plusButton[3].show()
+	call plusButton[4].show()
+	call plusButton[5].show()
+	call plusButton[6].show()
+endfunction
+
+function addGengu takes nothing returns nothing
+	local integer i = S2I(DzGetTriggerSyncData())
+	set gengu[i] = gengu[i] + 1
+	set udg_shuxing[i] = udg_shuxing[i] - 1
+	if udg_shuxing[i] <= 0 and Player(i - 1) == GetLocalPlayer() then
+		call hideAddButtons(i)
+	endif
+endfunction
+
+function addWuxing takes nothing returns nothing
+	local integer i = S2I(DzGetTriggerSyncData())
+	set wuxing[i] = wuxing[i] + 1
+	set udg_shuxing[i] = udg_shuxing[i] - 1
+	if udg_shuxing[i] <= 0 and Player(i - 1) == GetLocalPlayer() then
+		call hideAddButtons(i)
+	endif
+endfunction
+
+function addJingmai takes nothing returns nothing
+	local integer i = S2I(DzGetTriggerSyncData())
+	set jingmai[i] = jingmai[i] + 1
+	set udg_shuxing[i] = udg_shuxing[i] - 1
+	if udg_shuxing[i] <= 0 and Player(i - 1) == GetLocalPlayer() then
+		call hideAddButtons(i)
+	endif
+endfunction
+
+function addFuyuan takes nothing returns nothing
+	local integer i = S2I(DzGetTriggerSyncData())
+	set fuyuan[i] = fuyuan[i] + 1
+	set udg_shuxing[i] = udg_shuxing[i] - 1
+	if udg_shuxing[i] <= 0 and Player(i - 1) == GetLocalPlayer() then
+		call hideAddButtons(i)
+	endif
+endfunction
+
+function addDanpo takes nothing returns nothing
+	local integer i = S2I(DzGetTriggerSyncData())
+	set danpo[i] = danpo[i] + 1
+	set udg_shuxing[i] = udg_shuxing[i] - 1
+	if udg_shuxing[i] <= 0 and Player(i - 1) == GetLocalPlayer() then
+		call hideAddButtons(i)
+	endif
+endfunction
+
+function addYishu takes nothing returns nothing
+	local integer i = S2I(DzGetTriggerSyncData())
+	set yishu[i] = yishu[i] + 1
+	set udg_shuxing[i] = udg_shuxing[i] - 1
+	if udg_shuxing[i] <= 0 and Player(i - 1) == GetLocalPlayer() then
+		call hideAddButtons(i)
+	endif
+endfunction
+
+function addAttr takes nothing returns nothing
+	local integer i = 1 + GetPlayerId(DzGetTriggerUIEventPlayer())
+	local integer frameId = DzGetTriggerUIEventFrame()
+	if frameId == plusButton[1].id then
+		if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+			call zwidget[110].setText(I2S(gengu[i] + 1))
+		endif
+		call DzSyncData("gengu", I2S(i))
+	elseif frameId == plusButton[2].id then
+		if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+			call zwidget[112].setText(I2S(wuxing[i] + 1))
+		endif
+		call DzSyncData("wuxing", I2S(i))
+	elseif frameId == plusButton[3].id then
+		if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+			call zwidget[114].setText(I2S(jingmai[i] + 1))
+		endif
+		call DzSyncData("jingmai", I2S(i))
+	elseif frameId == plusButton[4].id then
+		if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+			call zwidget[116].setText(I2S(fuyuan[i] + 1))
+		endif
+		call DzSyncData("fuyuan", I2S(i))
+	elseif frameId == plusButton[5].id then
+		if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+			call zwidget[118].setText(I2S(danpo[i] + 1))
+		endif
+		call DzSyncData("danpo", I2S(i))
+	elseif frameId == plusButton[6].id then
+		if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+			call zwidget[120].setText(I2S(yishu[i] + 1))
+		endif
+		call DzSyncData("yishu", I2S(i))
+	endif
+endfunction
+
 
 
 function pressEsc takes nothing returns nothing
 	local integer i = 1 + GetPlayerId(DzGetTriggerKeyPlayer())
 	if DzGetTriggerKeyPlayer() == GetLocalPlayer() then
-		call zwidget[102].setText(I2S(IMinBJ(R2I((udg_baojilv[i]*100.)), 100))+"%")
-		call zwidget[104].setText(I2S(R2I((udg_baojishanghai[i]*100.)))+"%")
-		call zwidget[106].setText(I2S(R2I((udg_shanghaijiacheng[i]*100.)))+"%")
-		call zwidget[108].setText(I2S(IMinBJ(R2I((udg_shanghaixishou[i]*100.)),80))+"%")
+		call zwidget[102].setText(I2S(IMinBJ(R2I((udg_baojilv[i] * 100.)), 100)) + "%")
+		call zwidget[104].setText(I2S(R2I((udg_baojishanghai[i] * 100.))) + "%")
+		call zwidget[106].setText(I2S(R2I((udg_shanghaijiacheng[i] * 100.))) + "%")
+		call zwidget[108].setText(I2S(IMinBJ(R2I((udg_shanghaixishou[i] * 100.)), 80)) + "%")
 		
 		call zwidget[110].setText(I2S(gengu[i]))
 		call zwidget[112].setText(I2S(wuxing[i]))
@@ -189,17 +301,23 @@ function pressEsc takes nothing returns nothing
 		
 		call zwidget[122].setText(I2S(juexuelingwu[i]))
 		call zwidget[124].setText(I2S(xiuxing[i]))
-		call zwidget[126].setText("第"+I2S(wugongxiuwei[i])+"层")
+		call zwidget[126].setText("第" + I2S(wugongxiuwei[i]) + "层")
 		call zwidget[128].setText(I2S(shengwang[i]))
 		call zwidget[130].setText(I2S(shoujiajf[i]))
 		if not Deputy_isDeputy(i, LIAN_DAN) then
-			call zwidget[132].setText(I2S(yongdanshu[i])+" / 10")
+			call zwidget[132].setText(I2S(yongdanshu[i]) + " / 10")
 		else
-			call zwidget[132].setText(I2S(yongdanshu[i])+" / 15")
+			call zwidget[132].setText(I2S(yongdanshu[i]) + " / 15")
 		endif
 		call zwidget[134].setText(I2S(special_attack[i]))
 		
 		call zwidget[14].toggle()
+
+		if udg_shuxing[i] <= 0 then
+			call hideAddButtons(i) 
+		else
+			call showAddButtons(i)
+		endif
 	endif
 endfunction
 
@@ -251,21 +369,21 @@ function drawUI_Conditions takes nothing returns boolean
 	call DzFrameSetSize(fm2, 0.01, 0.01)
 	call DzFrameSetSize(fm3, 0.01, 0.01)
 	
-	call DzFrameSetPoint(ff1, 0, ff0, 6, 0, -0.003)
-	call DzFrameSetPoint(ff2, 1, ff1, 7, 0, -0.003)
-	call DzFrameSetPoint(ff3, 1, ff2, 7, 0, -0.003)
-	call DzFrameSetPoint(fh1,6,DzGetGameUI(),8,.1,.22)
-	call DzFrameSetPoint(fh2,6,DzGetGameUI(),8,.1,.22)
-	call DzFrameSetPoint(fh3,6,DzGetGameUI(),8,.1,.22)
-	call DzFrameSetPoint(fm1,6,DzGetGameUI(),8,.1,.22)
-	call DzFrameSetPoint(fm2,6,DzGetGameUI(),8,.1,.22)
-	call DzFrameSetPoint(fm3,6,DzGetGameUI(),8,.1,.22)
+	call DzFrameSetPoint(ff1, 0, ff0, 6, 0, - 0.003)
+	call DzFrameSetPoint(ff2, 1, ff1, 7, 0, - 0.003)
+	call DzFrameSetPoint(ff3, 1, ff2, 7, 0, - 0.003)
+	call DzFrameSetPoint(fh1, 6, DzGetGameUI(), 8, .1, .22)
+	call DzFrameSetPoint(fh2, 6, DzGetGameUI(), 8, .1, .22)
+	call DzFrameSetPoint(fh3, 6, DzGetGameUI(), 8, .1, .22)
+	call DzFrameSetPoint(fm1, 6, DzGetGameUI(), 8, .1, .22)
+	call DzFrameSetPoint(fm2, 6, DzGetGameUI(), 8, .1, .22)
+	call DzFrameSetPoint(fm3, 6, DzGetGameUI(), 8, .1, .22)
 	
 	call DzLoadToc("ui\\custom.toc")
 
 	// 帮助按钮
 	set helpWidget = Frame.newImage1(GUI, "war3mapImported\\help.tga", 0.032, 0.04)
-	call helpWidget.setPoint(3, Frame.getFrame(DzFrameGetHeroBarButton(0)), 5, 0.05, -0.005)
+	call helpWidget.setPoint(3, Frame.getFrame(DzFrameGetHeroBarButton(0)), 5, 0.05, - 0.005)
 	
 	set helpButton = Frame.newTextButton(helpWidget)
 	call helpButton.setAllPoints(helpWidget)
@@ -307,7 +425,7 @@ function drawUI_Conditions takes nothing returns boolean
 	
 	// 任务面板
 	set zwidget[5] = Frame.newImage1(zwidget[3], "war3mapImported\\achievement01.tga", 0.04, 0.015)
-	call zwidget[5].setPoint(TOPLEFT, zwidget[3], TOPLEFT,  0.035,  -0.021)
+	call zwidget[5].setPoint(TOPLEFT, zwidget[3], TOPLEFT, 0.035, - 0.021)
 	
 	set zbutton[3] = Frame.newTextButton(zwidget[5])
 	call zbutton[3].setAllPoints(zwidget[5])
@@ -317,7 +435,7 @@ function drawUI_Conditions takes nothing returns boolean
 	
 	// 地图成就
 	set zwidget[6] = Frame.newImage1(zwidget[3], "war3mapImported\\achievement01.tga", 0.04, 0.015)
-	call zwidget[6].setPoint(TOPLEFT, zwidget[3], TOPLEFT,  0.035,  -0.061)
+	call zwidget[6].setPoint(TOPLEFT, zwidget[3], TOPLEFT, 0.035, - 0.061)
 	
 	set zbutton[4] = Frame.newTextButton(zwidget[6])
 	call zbutton[4].setAllPoints(zwidget[6])
@@ -326,7 +444,7 @@ function drawUI_Conditions takes nothing returns boolean
 	call zbutton[4].regEvent(FRAME_MOUSE_LEAVE, function toggleWidget6)
 	
 	set zwidget[7] = Frame.newImage1(zwidget[3], "war3mapImported\\non_open01.tga", 0.04, 0.015)
-	call zwidget[7].setPoint(TOPLEFT, zwidget[3], TOPLEFT,  0.035,  -0.101)
+	call zwidget[7].setPoint(TOPLEFT, zwidget[3], TOPLEFT, 0.035, - 0.101)
 	
 	set zbutton[5] = Frame.newTextButton(zwidget[7])
 	call zbutton[5].setAllPoints(zwidget[7])
@@ -335,7 +453,7 @@ function drawUI_Conditions takes nothing returns boolean
 	call zbutton[5].regEvent(FRAME_MOUSE_LEAVE, function toggleWidget7)
 	
 	set zwidget[8] = Frame.newImage1(zwidget[3], "war3mapImported\\non_open01.tga", 0.04, 0.015)
-	call zwidget[8].setPoint(TOPLEFT, zwidget[3], TOPLEFT,  0.035,  -0.141)
+	call zwidget[8].setPoint(TOPLEFT, zwidget[3], TOPLEFT, 0.035, - 0.141)
 	
 	set zbutton[6] = Frame.newTextButton(zwidget[8])
 	call zbutton[6].setAllPoints(zwidget[8])
@@ -344,7 +462,7 @@ function drawUI_Conditions takes nothing returns boolean
 	call zbutton[6].regEvent(FRAME_MOUSE_LEAVE, function toggleWidget8)
 	
 	set zwidget[9] = Frame.newImage1(zwidget[3], "war3mapImported\\non_open01.tga", 0.04, 0.015)
-	call zwidget[9].setPoint(TOPLEFT, zwidget[3], TOPLEFT,  0.035,  -0.181)
+	call zwidget[9].setPoint(TOPLEFT, zwidget[3], TOPLEFT, 0.035, - 0.181)
 	
 	set zbutton[7] = Frame.newTextButton(zwidget[9])
 	call zbutton[7].setAllPoints(zwidget[9])
@@ -353,7 +471,7 @@ function drawUI_Conditions takes nothing returns boolean
 	call zbutton[7].regEvent(FRAME_MOUSE_LEAVE, function toggleWidget9)
 	
 	set zwidget[10] = Frame.newImage1(zwidget[3], "war3mapImported\\non_open01.tga", 0.04, 0.015)
-	call zwidget[10].setPoint(TOPLEFT, zwidget[3], TOPLEFT,  0.035,  -0.221)
+	call zwidget[10].setPoint(TOPLEFT, zwidget[3], TOPLEFT, 0.035, - 0.221)
 	
 	set zbutton[8] = Frame.newTextButton(zwidget[10])
 	call zbutton[8].setAllPoints(zwidget[10])
@@ -362,7 +480,7 @@ function drawUI_Conditions takes nothing returns boolean
 	call zbutton[8].regEvent(FRAME_MOUSE_LEAVE, function toggleWidget10)
 	
 	set zwidget[11] = Frame.newImage1(zwidget[3], "war3mapImported\\non_open01.tga", 0.04, 0.015)
-	call zwidget[11].setPoint(TOPLEFT, zwidget[3], TOPLEFT,  0.035,  -0.261)
+	call zwidget[11].setPoint(TOPLEFT, zwidget[3], TOPLEFT, 0.035, - 0.261)
 	
 	set zbutton[9] = Frame.newTextButton(zwidget[11])
 	call zbutton[9].setAllPoints(zwidget[11])
@@ -372,7 +490,7 @@ function drawUI_Conditions takes nothing returns boolean
 	
 	// 创建属性开启按钮背景
 	set zwidget[12] = Frame.newImage1(GUI, "ReplaceableTextures\\CommandButtons\\BTNesc.blp", 0.021, 0.028)
-	call zwidget[12].setPoint(1, Frame.getFrame(DzFrameGetHeroBarButton(3)), 7, 0.0, -0.003)
+	call zwidget[12].setPoint(1, Frame.getFrame(DzFrameGetHeroBarButton(3)), 7, 0.0, - 0.003)
 	call zwidget[12].setAlpha(255)
 	
 	// 创建属性介绍
@@ -423,20 +541,20 @@ function drawUI_Conditions takes nothing returns boolean
 	
 	set index = 101
 	loop
-	exitwhen index > 134
+		exitwhen index > 134
 		// set avatarBack = Frame.newImage1(zwidget[14], null, 0.1, 0.09)
 		// call avatarBack.setPoint(TOPLEFT, zwidget[14], TOPLEFT, 0.04, -0.02)
 
 		// set avatar = Frame.newSprite(avatarBack, "war3mapImported\\lan10_hei.mdl")
 		// call avatar.setAllPoints(avatarBack)
 		set closeBtn = Frame.newCloseButton(zwidget[14])
-		call closeBtn.setPoint(TOPRIGHT, zwidget[14], TOPRIGHT, -0.01, -0.01)
+		call closeBtn.setPoint(TOPRIGHT, zwidget[14], TOPRIGHT, - 0.01, - 0.01)
 
-		set zwidget[index]= Frame.newText1(zwidget[14], attrStr[index - 100], "TXA12")
+		set zwidget[index] = Frame.newText1(zwidget[14], attrStr[index - 100], "TXA12")
 		if ModuloInteger(index, 2) == 0 then
-			call zwidget[index].setPoint(TOPLEFT, zwidget[14], TOPLEFT, 0.05 + 0.06 * ModuloInteger(index - 101, 4) , -0.097 + (index - 97) / 4 * (-0.029))
+			call zwidget[index].setPoint(TOPLEFT, zwidget[14], TOPLEFT, 0.05 + 0.06 * ModuloInteger(index - 101, 4) , - 0.097 + (index - 97) / 4 * (- 0.029))
 		else
-			call zwidget[index].setPoint(TOPLEFT, zwidget[14], TOPLEFT, 0.05 + 0.065 * ModuloInteger(index - 101, 4) , -0.097 +(index - 97) / 4 * (-0.029))
+			call zwidget[index].setPoint(TOPLEFT, zwidget[14], TOPLEFT, 0.05 + 0.065 * ModuloInteger(index - 101, 4) , - 0.097 + (index - 97) / 4 * (- 0.029))
 		endif
 		if ModuloInteger(index, 2) == 0 then
 			call zwidget[index].setColor255(55, 39, 14)
@@ -451,6 +569,18 @@ function drawUI_Conditions takes nothing returns boolean
 		endif
 		set index = index + 1
 	endloop
+
+	set index = 1
+	loop
+		exitwhen index > 6
+		set plusWidget[index] = Frame.newImage1(zwidget[14], "war3mapImported\\plus.tga", 0.02, 0.02)
+		set plusButton[index] = Frame.newTextButton(plusWidget[index])
+		call plusWidget[index].setPoint(LEFT, zwidget[108 + index * 2], LEFT, 0.04, 0.0)
+		call plusButton[index].setAllPoints(plusWidget[index])
+		call plusButton[index].regEvent(FRAME_EVENT_PRESSED, function addAttr)
+
+		set index = index + 1
+	endloop
 	
 	
 	// 创建属性开启按钮
@@ -459,43 +589,44 @@ function drawUI_Conditions takes nothing returns boolean
 	call zbutton[10].regEvent(FRAME_EVENT_PRESSED, function toggleAttrBoard)
 	
 	set zwidget[1000] = Frame.newText1(zwidget[3], "杀狼任务（5/6）", "TXA15")
-	call zwidget[1000].setPoint(TOPLEFT, zwidget[3], TOPLEFT, 0.11, -0.035)
+	call zwidget[1000].setPoint(TOPLEFT, zwidget[3], TOPLEFT, 0.11, - 0.035)
 	call zwidget[1000].setColor255(0, 0, 0)
 	
 	set zwidget[1001] = Frame.newImage1(zwidget[3], "war3mapImported\\doing.tga", 0.044, 0.033)
-	call zwidget[1001].setPoint(TOPLEFT, zwidget[3], TOPLEFT,  0.235,  -0.027)
+	call zwidget[1001].setPoint(TOPLEFT, zwidget[3], TOPLEFT, 0.235, - 0.027)
 	
 	set zwidget[1002] = Frame.newText1(zwidget[3], "狼皮任务（15/10）", "TXA15")
-	call zwidget[1002].setPoint(TOPLEFT, zwidget[3], TOPLEFT, 0.11, -0.09)
+	call zwidget[1002].setPoint(TOPLEFT, zwidget[3], TOPLEFT, 0.11, - 0.09)
 	call zwidget[1002].setColor255(0, 0, 0)
 	
 	set zwidget[1003] = Frame.newImage1(zwidget[3], "war3mapImported\\done.tga", 0.044, 0.033)
-	call zwidget[1003].setPoint(TOPLEFT, zwidget[3], TOPLEFT,  0.235,  -0.082)
+	call zwidget[1003].setPoint(TOPLEFT, zwidget[3], TOPLEFT, 0.235, - 0.082)
 	
 	set zwidget[1004] = Frame.newText1(zwidget[3], "狼皮任务（15/10）", "TXA15")
-	call zwidget[1004].setPoint(TOPLEFT, zwidget[3], TOPLEFT, 0.11, -0.145)
+	call zwidget[1004].setPoint(TOPLEFT, zwidget[3], TOPLEFT, 0.11, - 0.145)
 	call zwidget[1004].setColor255(0, 0, 0)
 	
 	set zwidget[1006] = Frame.newText1(zwidget[3], "狼皮任务（15/10）", "TXA15")
-	call zwidget[1006].setPoint(TOPLEFT, zwidget[3], TOPLEFT, 0.11, -0.2)
+	call zwidget[1006].setPoint(TOPLEFT, zwidget[3], TOPLEFT, 0.11, - 0.2)
 	call zwidget[1006].setColor255(0, 0, 0)
 	
 	set zwidget[1008] = Frame.newText1(zwidget[3], "狼皮任务（15/10）", "TXA15")
-	call zwidget[1008].setPoint(TOPLEFT, zwidget[3], TOPLEFT, 0.11, -0.255)
+	call zwidget[1008].setPoint(TOPLEFT, zwidget[3], TOPLEFT, 0.11, - 0.255)
 	call zwidget[1008].setColor255(0, 0, 0)
 	
-	
+	// FIXME 位置不对
 	set bibo_image = Frame.newImage1(GUI, "ReplaceableTextures\\CommandButtons\\PASBTNbibodian.blp", 0.02, 0.02)
-	call bibo_image.setPoint(1, zwidget[12], 7, 0.04, -0.08)
+	call bibo_image.setPoint(1, zwidget[12], 7, 0.04, - 0.08)
 	call bibo_image.setAlpha(255)
 	call bibo_image.hide()
 	
 	set bibo_text = Frame.newText1(bibo_image, "200", "TXA10")
-	call bibo_text.setPoint(TOPRIGHT,bibo_image, TOPRIGHT, 0, 0)
+	call bibo_text.setPoint(TOPRIGHT, bibo_image, TOPRIGHT, 0, 0)
 	call bibo_text.setColor255(255, 255, 0)
 	
+	// FIXME 位置不对
 	set qimen_widget = Frame.newImage1(GUI, "war3mapImported\\qm_sh.tga", 0.04, 0.02)
-	call qimen_widget.setPoint(TOPLEFT, zwidget[12], BOTTOM,  0.065,  -0.08)
+	call qimen_widget.setPoint(TOPLEFT, zwidget[12], BOTTOM, 0.065, - 0.08)
 	call qimen_widget.hide()
 	
 	set qimen_button = Frame.newTextButton(qimen_widget)
@@ -522,10 +653,35 @@ function initUI takes nothing returns nothing
 	local trigger t = CreateTrigger()
 	
 	call TriggerRegisterTimerEventSingle(t, 1.)
-	call TriggerAddCondition(t,Condition(function drawUI_Conditions))
+	call TriggerAddCondition(t, Condition(function drawUI_Conditions))
 	
 	set t = CreateTrigger()
 	call DzTriggerRegisterSyncData(t, "qimen", false)
 	call TriggerAddAction(t, function doToggleQimenStatus)
+
+	set t = CreateTrigger()
+	call DzTriggerRegisterSyncData(t, "wuxing", false)
+	call TriggerAddAction(t, function addWuxing)
+
+	set t = CreateTrigger()
+	call DzTriggerRegisterSyncData(t, "gengu", false)
+	call TriggerAddAction(t, function addGengu)
+
+	set t = CreateTrigger()
+	call DzTriggerRegisterSyncData(t, "fuyuan", false)
+	call TriggerAddAction(t, function addFuyuan)
+
+	set t = CreateTrigger()
+	call DzTriggerRegisterSyncData(t, "jingmai", false)
+	call TriggerAddAction(t, function addJingmai)
+
+	set t = CreateTrigger()
+	call DzTriggerRegisterSyncData(t, "danpo", false)
+	call TriggerAddAction(t, function addDanpo)
+
+	set t = CreateTrigger()
+	call DzTriggerRegisterSyncData(t, "yishu", false)
+	call TriggerAddAction(t, function addYishu)
+
 	set t = null
 endfunction
