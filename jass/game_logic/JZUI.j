@@ -630,7 +630,6 @@ function drawUI_Conditions takes nothing returns boolean
 	call zwidget[1008].setPoint(TOPLEFT, zwidget[3], TOPLEFT, 0.11, - 0.255)
 	call zwidget[1008].setColor255(0, 0, 0)
 	
-	// FIXME 位置不对
 	set bibo_image = Frame.newImage1(GUI, "ReplaceableTextures\\CommandButtons\\PASBTNbibodian.blp", 0.02, 0.02)
 	call bibo_image.setPoint(1, zwidget[12], 7, 0.04, - 0.22)
 	call bibo_image.setAlpha(255)
@@ -640,7 +639,6 @@ function drawUI_Conditions takes nothing returns boolean
 	call bibo_text.setPoint(TOPRIGHT, bibo_image, TOPRIGHT, 0, 0)
 	call bibo_text.setColor255(255, 255, 0)
 	
-	// FIXME 位置不对
 	set qimen_widget = Frame.newImage1(GUI, "war3mapImported\\qm_sh.tga", 0.04, 0.02)
 	call qimen_widget.setPoint(TOPLEFT, zwidget[12], BOTTOM, 0.065, - 0.22)
 	call qimen_widget.hide()

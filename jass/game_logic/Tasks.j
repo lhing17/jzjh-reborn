@@ -2493,7 +2493,7 @@ function Tasks_Trigger takes nothing returns nothing
 	call TriggerAddRect(fp, lg)
 	call TriggerAddCondition(fp, Condition(function eL))
 	call TriggerAddAction(fp, function fL)
-	// TODO
+	// 重新生成断肠草
 	set gp = CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(gp, EVENT_PLAYER_UNIT_DEATH)
 	call TriggerAddCondition(gp, Condition(function hL))
