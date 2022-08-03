@@ -130,10 +130,10 @@ function touKanTouXue takes unit u returns nothing
         set k = k + 1
     endloop
     call DialogDisplay(GetOwningPlayer(u), ruyangDialog[i], true)
-    // 20秒后自动关闭对话框
+    // 30秒后自动关闭对话框
     set t = CreateTimer()
     call SaveInteger(YDHT, GetHandleId(t), 0, i)
-    call TimerStart(t, 20, false, function closeTouKanDialog)
+    call TimerStart(t, 30, false, function closeTouKanDialog)
     set t = null
 endfunction
 function touKanAction takes nothing returns nothing
