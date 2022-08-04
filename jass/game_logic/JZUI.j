@@ -268,31 +268,37 @@ function addAttr takes nothing returns nothing
 	if frameId == plusButton[1].id then
 		if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
 			call zwidget[110].setText(I2S(gengu[i] + 1))
+			call zwidget[136].setText(I2S(udg_shuxing[i] - 1))
 		endif
 		call DzSyncData("gengu", I2S(i))
 	elseif frameId == plusButton[2].id then
 		if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
 			call zwidget[112].setText(I2S(wuxing[i] + 1))
+			call zwidget[136].setText(I2S(udg_shuxing[i] - 1))
 		endif
 		call DzSyncData("wuxing", I2S(i))
 	elseif frameId == plusButton[3].id then
 		if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
 			call zwidget[114].setText(I2S(jingmai[i] + 1))
+			call zwidget[136].setText(I2S(udg_shuxing[i] - 1))
 		endif
 		call DzSyncData("jingmai", I2S(i))
 	elseif frameId == plusButton[4].id then
 		if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
 			call zwidget[116].setText(I2S(fuyuan[i] + 1))
+			call zwidget[136].setText(I2S(udg_shuxing[i] - 1))
 		endif
 		call DzSyncData("fuyuan", I2S(i))
 	elseif frameId == plusButton[5].id then
 		if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
 			call zwidget[118].setText(I2S(danpo[i] + 1))
+			call zwidget[136].setText(I2S(udg_shuxing[i] - 1))
 		endif
 		call DzSyncData("danpo", I2S(i))
 	elseif frameId == plusButton[6].id then
 		if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
 			call zwidget[120].setText(I2S(yishu[i] + 1))
+			call zwidget[136].setText(I2S(udg_shuxing[i] - 1))
 		endif
 		call DzSyncData("yishu", I2S(i))
 	endif
@@ -326,6 +332,7 @@ function pressEsc takes nothing returns nothing
 			call zwidget[132].setText(I2S(yongdanshu[i]) + " / 15")
 		endif
 		call zwidget[134].setText(I2S(special_attack[i]))
+		call zwidget[136].setText(I2S(udg_shuxing[i]))
 		
 		call zwidget[14].toggle()
 
@@ -554,10 +561,12 @@ function drawUI_Conditions takes nothing returns boolean
 	set attrStr[32] = "0"
 	set attrStr[33] = "特殊攻击"
 	set attrStr[34] = "0"
+	set attrStr[35] = "自由属性"
+	set attrStr[36] = "0"
 	
 	set index = 101
 	loop
-		exitwhen index > 134
+		exitwhen index > 136
 		// set avatarBack = Frame.newImage1(zwidget[14], null, 0.1, 0.09)
 		// call avatarBack.setPoint(TOPLEFT, zwidget[14], TOPLEFT, 0.04, -0.02)
 
