@@ -4569,13 +4569,13 @@ function SO takes nothing returns nothing
 	elseif((GetWidgetLife(GetEnumItem()) == 108.))then   // 遗忘之石、熔炼石、装备打孔符
 		call SetItemPosition(GetEnumItem(), - 1819., 484.)
 	elseif((GetWidgetLife(GetEnumItem()) == 109.))then //18种江湖武功
-		call SetItemPosition(GetEnumItem(), - 1300., - 300.)
+		call SetItemPosition(GetEnumItem(), - 300., - 300.)
 	else
 		set j = 1
 		loop
 			exitwhen j > 10
 			if id == udg_juexue[j] then
-				call SetItemPosition(GetEnumItem(), - 1300., -500.)
+				call SetItemPosition(GetEnumItem(), - 300., -500.)
 				return
 			endif
 			set j = j + 1
@@ -4584,7 +4584,7 @@ function SO takes nothing returns nothing
 		loop
 			exitwhen j > 8
 			if id == udg_juenei[j] then
-				call SetItemPosition(GetEnumItem(), - 1300., -700.)
+				call SetItemPosition(GetEnumItem(), - 300., -700.)
 				return
 			endif
 			set j = j + 1
@@ -4593,7 +4593,7 @@ function SO takes nothing returns nothing
 		loop
 			exitwhen j > 11
 			if id == udg_canzhang[j] then
-				call SetItemPosition(GetEnumItem(), - 1300., -900.)
+				call SetItemPosition(GetEnumItem(), - 300., -900.)
 				return
 			endif
 			set j = j + 1
@@ -4602,7 +4602,7 @@ function SO takes nothing returns nothing
 		loop
 			exitwhen j > 15
 			if id == udg_qiwu[j] then
-				call SetItemPosition(GetEnumItem(), - 1300., -1100.)
+				call SetItemPosition(GetEnumItem(), - 300., -1100.)
 				return
 			endif
 			set j = j + 1
