@@ -3107,7 +3107,7 @@ function u5 takes nothing returns nothing
 	// 随机猪地点
 	// local location loc=GetRandomLocInRect(GetPlayableMapRect())
 	
-call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cfffff000古董商人收购价格发生变动了~开始自动整理地图上的物品，也可以输入sort命令手动整理哦~")
+	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cfffff000古董商人收购价格发生变动了~开始自动整理地图上的物品，也可以输入sort命令手动整理哦~")
 	
 	// 随机出现猪
 	// call CreateNUnitsAtLoc(1,'nshf',Player(6),loc,bj_UNIT_FACING)
@@ -4575,7 +4575,7 @@ function SO takes nothing returns nothing
 		loop
 			exitwhen j > 10
 			if id == udg_juexue[j] then
-				call SetItemPosition(GetEnumItem(), - 300., -500.)
+				call SetItemPosition(GetEnumItem(), - 300., - 500.)
 				return
 			endif
 			set j = j + 1
@@ -4584,7 +4584,7 @@ function SO takes nothing returns nothing
 		loop
 			exitwhen j > 8
 			if id == udg_juenei[j] then
-				call SetItemPosition(GetEnumItem(), - 300., -700.)
+				call SetItemPosition(GetEnumItem(), - 300., - 700.)
 				return
 			endif
 			set j = j + 1
@@ -4593,7 +4593,7 @@ function SO takes nothing returns nothing
 		loop
 			exitwhen j > 11
 			if id == udg_canzhang[j] then
-				call SetItemPosition(GetEnumItem(), - 300., -900.)
+				call SetItemPosition(GetEnumItem(), - 300., - 900.)
 				return
 			endif
 			set j = j + 1
@@ -4602,7 +4602,7 @@ function SO takes nothing returns nothing
 		loop
 			exitwhen j > 15
 			if id == udg_qiwu[j] then
-				call SetItemPosition(GetEnumItem(), - 300., -1100.)
+				call SetItemPosition(GetEnumItem(), - 300., - 1100.)
 				return
 			endif
 			set j = j + 1
@@ -4954,16 +4954,14 @@ function vQ takes nothing returns nothing
 	// 地图等级
 	local integer level = DzAPI_Map_GetMapLevel(Player(GetPlayerId(p)))
 	// 地图等级小于等级5级的或者返璞归真模式额外送一个新手神器
-	if level <= 5 or udg_fpgz then
-		call unitadditembyidswapped('I0DJ', u) // 新手神器
-		// 大侠套 张无忌杀猪刀I0CI,郭靖环戒I0CH，乔峰草鞋I0DO，
-		call unitadditembyidswapped('I0CI', u) 
-		call unitadditembyidswapped('I0CH', u) 
-		call unitadditembyidswapped('I0DO', u) 
-		call AdjustPlayerStateBJ(30000, p, PLAYER_STATE_RESOURCE_GOLD)
-		call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00使用新手大礼包获得新手神器、大侠套和3万金币")
+	call unitadditembyidswapped('I0DJ', u) // 新手神器
+	// 大侠套 张无忌杀猪刀I0CI,郭靖环戒I0CH，乔峰草鞋I0DO，
+	call unitadditembyidswapped('I0CI', u) 
+	call unitadditembyidswapped('I0CH', u) 
+	call unitadditembyidswapped('I0DO', u) 
+	call AdjustPlayerStateBJ(30000, p, PLAYER_STATE_RESOURCE_GOLD)
+	call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00使用新手大礼包获得新手神器、大侠套和3万金币")
 		
-	endif
 	// 测试版送一个新手神器
 	if testVersion then
 		call unitadditembyidswapped('I0DJ', u) // 新手神器
