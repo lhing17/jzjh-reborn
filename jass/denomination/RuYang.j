@@ -1,9 +1,11 @@
 globals
     integer array touKanCounter
     integer array touKanIds
+    boolean array touKanInUse
     integer array xuanMingCounter
     dialog array ruyangDialog
     constant integer ruyangButtonKey = $66556
+    timer array touKanTimer
 endglobals
 
 //---------------------------------------------------
@@ -37,9 +39,12 @@ endfunction
 function closeTouKanDialog takes nothing returns nothing
     local timer t = GetExpiredTimer()
     local integer i = LoadInteger(YDHT, GetHandleId(t), 0)
-	call FlushChildHashtable(YDHT, ruyangButtonKey + i)
-    call DialogClear(ruyangDialog[i])
-    call DialogDisplay(Player(i - 1), ruyangDialog[i], false)
+    if touKanInUse[i] then
+        set touKanInUse[i] = false
+        call FlushChildHashtable(YDHT, ruyangButtonKey + i)
+        call DialogClear(ruyangDialog[i])
+        call DialogDisplay(Player(i - 1), ruyangDialog[i], false)
+    endif
     call FlushChildHashtable(YDHT, GetHandleId(t))
 	call PauseTimer(t)
 	call DestroyTimer(t)
@@ -52,7 +57,6 @@ function touKanTouXue takes unit u returns nothing
     local integer j = 1
     local integer k = 1
     local integer temp = 0
-    local timer t = null
     set touKanCounter[i] = touKanCounter[i] + 1
     if isKungfuFull(i) then
         return
@@ -130,11 +134,11 @@ function touKanTouXue takes unit u returns nothing
         set k = k + 1
     endloop
     call DialogDisplay(GetOwningPlayer(u), ruyangDialog[i], true)
+    set touKanInUse[i] = true
     // 30秒后自动关闭对话框
-    set t = CreateTimer()
-    call SaveInteger(YDHT, GetHandleId(t), 0, i)
-    call TimerStart(t, 30, false, function closeTouKanDialog)
-    set t = null
+    set touKanTimer[i] = CreateTimer()
+    call SaveInteger(YDHT, GetHandleId(touKanTimer[i]), 0, i)
+    call TimerStart(touKanTimer[i], 30, false, function closeTouKanDialog)
 endfunction
 function touKanAction takes nothing returns nothing
     local player p = GetTriggerPlayer()
@@ -152,6 +156,9 @@ function touKanAction takes nothing returns nothing
                 call DisplayTextToPlayer(p, 0, 0, "|CFFFF0033你已经拥有此武功了")
                 call FlushChildHashtable(YDHT, ruyangButtonKey + i)
                 call DialogClear(ruyangDialog[i])
+                set touKanInUse[i] = false
+                call PauseTimer(touKanTimer[i])
+                call DestroyTimer(touKanTimer[i])
                 return
             endif
             if GetUnitAbilityLevel(udg_hero[i], QIAN_KUN) > 0 then
@@ -205,6 +212,9 @@ function touKanAction takes nothing returns nothing
                 set l__kk = l__kk + 1
             endloop
             call FlushChildHashtable(YDHT, ruyangButtonKey + i)
+            set touKanInUse[i] = false
+            call PauseTimer(touKanTimer[i])
+            call DestroyTimer(touKanTimer[i])
             call DialogClear(ruyangDialog[i])
             return
         endif
@@ -325,6 +335,7 @@ function initRuYang takes nothing returns nothing
         set touKanIds[i] = 0
         set xuanMingCounter[i] = 0
         set ruyangDialog[i] = DialogCreate()
+        set touKanInUse[i] = false
         set i = i + 1
     endloop
     set i = 1

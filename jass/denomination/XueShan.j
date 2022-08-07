@@ -214,6 +214,9 @@ function xueHuaLiuChu takes unit u returns nothing
     local unit dummy = null
     local timer t = null
 
+    
+    call WuGongShengChong(u, XUE_HUA_LIU_CHU, 120)
+    
     loop
         exitwhen i > 6 
         set dummy = CreateUnit(p, 'e000', x, y, 270)
@@ -246,7 +249,6 @@ function xueHuaLiuChu takes unit u returns nothing
         endloop
     endif
 
-    call WuGongShengChong(u, XUE_HUA_LIU_CHU, 120)
 
     set t = null
     set dummy = null

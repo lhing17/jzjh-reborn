@@ -14,7 +14,21 @@ globals
 	
 	Frame helpWidget // 帮助按钮图片
 	Frame helpButton // 帮助按钮
+	Frame helpAttrWidget // 帮助属性按钮图片
+	Frame helpAttrButton // 帮助属性按钮
+	Frame helpKungfuWidget // 帮助武功按钮图片
+	Frame helpKungfuButton // 帮助武功按钮
+	Frame helpCommandWidget // 帮助指令按钮图片
+	Frame helpCommandButton // 帮助指令按钮
 	Frame tutorial // 教程页面
+	Frame attribute // 属性教程页面
+	Frame command // 指令教程页面
+	Frame closeTutorialWidget // 关闭教程按钮图片
+	Frame closeTutorialButton // 关闭教程按钮
+	Frame closeAttributeWidget // 关闭属性教程按钮图片
+	Frame closeAttributeButton // 关闭属性教程按钮
+	Frame closeCommandWidget // 关闭指令教程按钮图片
+	Frame closeCommandButton // 关闭指令教程按钮
 
 
 	Frame qimen_widget
@@ -63,9 +77,47 @@ function toggleTutorial takes nothing returns nothing
 	endif
 endfunction
 
+function toggleAttribute takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call attribute.toggle()
+	endif
+endfunction
+
+function toggleCommand takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call command.toggle()
+	endif
+endfunction
+
+function toggleAllHelpWidgets takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call helpAttrWidget.toggle()
+		call helpKungfuWidget.toggle()
+		call helpCommandWidget.toggle()
+	endif
+endfunction
+
 function toggleHelpWidget takes nothing returns nothing
 	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
 		call helpWidget.toggerHover("war3mapImported\\help.tga", "war3mapImported\\help_hover.tga")
+	endif
+endfunction
+
+function toggleHelpAttrWidget takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call helpAttrWidget.toggerHover("war3mapImported\\help_attr.tga", "war3mapImported\\help_attr_hover.tga")
+	endif
+endfunction
+
+function toggleHelpKungfuWidget takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call helpKungfuWidget.toggerHover("war3mapImported\\help_kungfu.tga", "war3mapImported\\help_kungfu_hover.tga")
+	endif
+endfunction
+
+function toggleHelpCommandWidget takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call helpCommandWidget.toggerHover("war3mapImported\\help_command.tga", "war3mapImported\\help_command_hover.tga")
 	endif
 endfunction
 
@@ -410,13 +462,72 @@ function drawUI_Conditions takes nothing returns boolean
 	
 	set helpButton = Frame.newTextButton(helpWidget)
 	call helpButton.setAllPoints(helpWidget)
-	call helpButton.regEvent(FRAME_EVENT_PRESSED, function toggleTutorial)
+	call helpButton.regEvent(FRAME_EVENT_PRESSED, function toggleAllHelpWidgets)
 	call helpButton.regEvent(FRAME_MOUSE_ENTER, function toggleHelpWidget)
 	call helpButton.regEvent(FRAME_MOUSE_LEAVE, function toggleHelpWidget)
+
+	set helpAttrWidget = Frame.newImage1(GUI, "war3mapImported\\help_attr.tga", 0.032, 0.04)
+	call helpAttrWidget.setPoint(CENTER, helpWidget, CENTER, -0.032, -0.04)
+	call helpAttrWidget.hide()
+
+	set helpAttrButton = Frame.newTextButton(helpAttrWidget)
+	call helpAttrButton.setAllPoints(helpAttrWidget)
+	call helpAttrButton.regEvent(FRAME_EVENT_PRESSED, function toggleAttribute)
+	call helpAttrButton.regEvent(FRAME_MOUSE_ENTER, function toggleHelpAttrWidget)
+	call helpAttrButton.regEvent(FRAME_MOUSE_LEAVE, function toggleHelpAttrWidget)
+
+	set helpCommandWidget = Frame.newImage1(GUI, "war3mapImported\\help_command.tga", 0.032, 0.04)
+	call helpCommandWidget.setPoint(CENTER, helpWidget, CENTER, 0.032, -0.04)
+	call helpCommandWidget.hide()
+
+	set helpCommandButton = Frame.newTextButton(helpCommandWidget)
+	call helpCommandButton.setAllPoints(helpCommandWidget)
+	call helpCommandButton.regEvent(FRAME_EVENT_PRESSED, function toggleCommand)
+	call helpCommandButton.regEvent(FRAME_MOUSE_ENTER, function toggleHelpCommandWidget)
+	call helpCommandButton.regEvent(FRAME_MOUSE_LEAVE, function toggleHelpCommandWidget)
+
+	set helpKungfuWidget = Frame.newImage1(GUI, "war3mapImported\\help_kungfu.tga", 0.032, 0.04)
+	call helpKungfuWidget.setPoint(CENTER, helpWidget, CENTER, 0, -0.04 * 1.414)
+	call helpKungfuWidget.hide()
+
+	set helpKungfuButton = Frame.newTextButton(helpKungfuWidget)
+	call helpKungfuButton.setAllPoints(helpKungfuWidget)
+	call helpKungfuButton.regEvent(FRAME_EVENT_PRESSED, function toggleTutorial)
+	call helpKungfuButton.regEvent(FRAME_MOUSE_ENTER, function toggleHelpKungfuWidget)
+	call helpKungfuButton.regEvent(FRAME_MOUSE_LEAVE, function toggleHelpKungfuWidget)
 
 	set tutorial = Frame.newImage1(GUI, "war3mapImported\\tutorial.tga", 0.45, 0.4)
 	call tutorial.setPoint(4, GUI, 4, 0.0, 0.0)
 	call tutorial.hide()
+
+	set closeTutorialWidget = Frame.newImage1(tutorial, "war3mapImported\\close0.tga", 0.018, 0.024)
+	call closeTutorialWidget.setPoint(CENTER, tutorial, TOPRIGHT, 0, 0)
+
+	set closeTutorialButton = Frame.newTextButton(closeTutorialWidget)
+	call closeTutorialButton.setAllPoints(closeTutorialWidget)
+	call closeTutorialButton.regEvent(FRAME_EVENT_PRESSED, function toggleTutorial)
+
+	set command = Frame.newImage1(GUI, "war3mapImported\\command.tga", 0.45, 0.4)
+	call command.setPoint(4, GUI, 4, 0.0, 0.0)
+	call command.hide()
+
+	set closeCommandWidget = Frame.newImage1(command, "war3mapImported\\close0.tga", 0.018, 0.024)
+	call closeCommandWidget.setPoint(CENTER, command, TOPRIGHT, 0, 0)
+
+	set closeCommandButton = Frame.newTextButton(closeCommandWidget)
+	call closeCommandButton.setAllPoints(closeCommandWidget)
+	call closeCommandButton.regEvent(FRAME_EVENT_PRESSED, function toggleCommand)
+
+	set attribute = Frame.newImage1(GUI, "war3mapImported\\attribute.tga", 0.45, 0.4)
+	call attribute.setPoint(4, GUI, 4, 0.0, 0.0)
+	call attribute.hide()
+
+	set closeAttributeWidget = Frame.newImage1(attribute, "war3mapImported\\close0.tga", 0.018, 0.024)
+	call closeAttributeWidget.setPoint(CENTER, attribute, TOPRIGHT, 0, 0)
+
+	set closeAttributeButton = Frame.newTextButton(closeAttributeWidget)
+	call closeAttributeButton.setAllPoints(closeAttributeWidget)
+	call closeAttributeButton.regEvent(FRAME_EVENT_PRESSED, function toggleAttribute)
 	
 	// 创建功能开启按钮背景
 	//set zwidget[1] = Frame.newImage1(GUI, "ReplaceableTextures\\CommandButtons\\BTNtab.blp", 0.03, 0.04)
