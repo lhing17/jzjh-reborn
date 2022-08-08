@@ -381,7 +381,7 @@ function tR takes nothing returns nothing
 				call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Ag))
 				call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
 				call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00黄蓉：|r|cFFADFF2F十恶不赦 |r|cFF99FFCC危害武林江湖多年，你须在|r|cFFADFF2F2分钟内|r|cFF99FFCC击杀超过100只，才能完成任务")
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00黄蓉：|r|cFFADFF2F十恶不赦 |r|cFF99FFCC危害武林江湖多年，你须在|r|cFFADFF2F150秒内|r|cFF99FFCC击杀超过100只，才能完成任务")
 				call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
 			else
 				call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Ag))
@@ -418,7 +418,7 @@ function tR takes nothing returns nothing
 							call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Ag))
 							call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
 							call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00黄蓉：|r|cFFADFF2F十恶不赦 |r|cFF99FFCC危害武林江湖多年，你须在|r|cFFADFF2F2分钟内|r|cFF99FFCC击杀超过100只，才能完成任务")
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00黄蓉：|r|cFFADFF2F十恶不赦 |r|cFF99FFCC危害武林江湖多年，你须在|r|cFFADFF2F150秒内|r|cFF99FFCC击杀超过100只，才能完成任务")
 							call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
 						else
 							call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Ag))

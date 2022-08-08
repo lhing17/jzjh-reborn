@@ -178,12 +178,14 @@ function fanShouQianZhu takes unit u, unit ut returns nothing
 	call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl", ut, "chest"))
 	// 判断目标是否为BOSS
 	if ModuloInteger(GetUnitPointValue(ut), 100)==1 or ModuloInteger(GetUnitPointValue(ut), 100)==2 then
-		set gold_num = R2I(1000 * GetRandomInt(2, 20) * addition)
-		set lumber_num = R2I(6 * GetRandomInt(2, 20) * addition)
+		set gold_num = R2I(2000 * GetRandomInt(2, 20) * addition)
+		set lumber_num = R2I(4 * GetRandomInt(2, 10) * addition)
+		set shengwang[i] = shengwang[i] - 100
 		call AdjustPlayerStateBJ(gold_num, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
 		call AdjustPlayerStateBJ(lumber_num, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_LUMBER)
 		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00偷取了金币+|r" + I2S(gold_num))
 		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00偷取了珍稀币+|r" + I2S(lumber_num))
+		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00声望减少100")
 		if Deputy_isDeputy(i, XUN_BAO) and GetRandomInt(1, 100) <= R2I(20 * addition) then
 			call UnitAddItemById(u, udg_qiwu[qiwu_rand])
 			call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00偷取了奇武|r" + GetObjectName(udg_qiwu[qiwu_rand]))
@@ -220,12 +222,14 @@ function fanShouQianZhu takes unit u, unit ut returns nothing
 			call UnitAddItemById(u, item_id)
 		endif
 	else
-		set gold_num = R2I(500 * GetRandomInt(2, 20) * addition)
-		set lumber_num = R2I(3 * GetRandomInt(2, 20) * addition)
+		set gold_num = R2I(1000 * GetRandomInt(2, 20) * addition)
+		set lumber_num = R2I(2 * GetRandomInt(2, 10) * addition)
+		set shengwang[i] = shengwang[i] - 100
 		call AdjustPlayerStateBJ(gold_num, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
 		call AdjustPlayerStateBJ(lumber_num, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_LUMBER)
 		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00偷取了金币+|r" + I2S(gold_num))
 		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00偷取了珍稀币+|r" + I2S(lumber_num))
+		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00声望减少100")
 		if Deputy_isDeputy(i, XUN_BAO) and GetRandomInt(1, 100) <= R2I(7 * addition) then
 			call UnitAddItemById(u, udg_qiwu[qiwu_rand])
 			call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00偷取了奇武" + GetObjectName(udg_qiwu[qiwu_rand]))
