@@ -13,6 +13,9 @@ function EverySecond_Conditions takes nothing returns boolean
 	local timer t 
 	local timerdialog tg
 	set passed_time = passed_time + 1
+	if passed_time == 1 then
+		call initOpenDenom() // 开放中原武学散篇的门派
+	endif
 	if passed_time == 40 then
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,20,"|cfffff000欢迎来到|cffff00de决战江湖|r")
 		// 获取服务器全局存档，信息提示

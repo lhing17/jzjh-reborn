@@ -2371,7 +2371,7 @@ function main1 takes nothing returns nothing
 	endloop
 	set i=0
 	loop
-	exitwhen(i>20)
+	exitwhen(i>DENOMINATION_NUMBER)
 		set udg_menpainame[i]="未加入"
 		set denomFirst[i]='AEfk'
 		set denomSecond[i]='AEfk'
@@ -2480,7 +2480,6 @@ function main2 takes nothing returns nothing
 	call ElixirSystem_Trigger() //丹药系统
 	call Tasks_Trigger() //任务系统
 	call checkActivityAddition() // 判断是否在活动期间
-	call initOpenDenom() // 开放中原武学散篇的门派
 	
 	
 	call cleanItems() // 清除物品命令

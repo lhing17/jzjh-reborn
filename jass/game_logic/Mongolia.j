@@ -28,7 +28,7 @@ function generateOpenDenoms takes nothing returns nothing
     set k = 1
     loop
         exitwhen j >= DENOMINATION_NUMBER - 1
-        set k = GetRandomInt(j + 1, DENOMINATION_NUMBER)
+        set k = GetRandomInt(j + 1, DENOMINATION_NUMBER - 1)
         set temp = openDenoms[j]
         set openDenoms[j] = openDenoms[k]
         set openDenoms[k] = temp

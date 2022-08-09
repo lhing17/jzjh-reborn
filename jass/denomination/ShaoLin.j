@@ -46,6 +46,7 @@ function WeiTuoGun takes nothing returns nothing
 		if((GetUnitAbilityLevel(u, 'A0DN') != 0))then
 			call SetWidgetLife(u, (GetUnitState(u, UNIT_STATE_LIFE) + (.02 * GetUnitState(u, UNIT_STATE_MAX_LIFE))))
 		endif
+		call WuGongShengChong(u, 'A05G', 900.)
 	else
 		if (GetRandomReal(.0, 100.) <= 22. + fuyuan[i] / 3 )then
 			call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(range, loc1, Condition(function WeiTuo_Condition)), function WeiTuo_Action)
@@ -143,11 +144,11 @@ function xc takes nothing returns nothing
 
 	call WuGongShengChong(u, 'A000', 120.)
 
-	set dummy = CreateUnit(p, 'e000', x, y, bj_UNIT_FACING)
+	set dummy = CreateUnit(p, 'e000', GetUnitX(u), GetUnitY(u), bj_UNIT_FACING)
 	call ShowUnitHide(dummy)
 	call UnitAddAbility(dummy, 'A0F9')
 	call IssuePointOrderById(dummy, $D0271, x, y)
-	call UnitApplyTimedLife(dummy, 'BHwe', 5.)
+	call UnitApplyTimedLife(dummy, 'BHwe', 6.)
 
 	if (GetUnitAbilityLevel(u, 'A05O') != 0) then
 		call CreateNUnitsAtLoc(1, 'e000', p, loc, bj_UNIT_FACING)

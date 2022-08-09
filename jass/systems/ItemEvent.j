@@ -116,6 +116,10 @@ function UseItem_Conditions takes nothing returns boolean
 		call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFDDFF00身上没有专属或者已经内化过该专属了")
 		call UnitAddItemById(u, 'I0EW')
 	endif
+
+	if GetItemTypeId(it) == 'I0F2' then
+		call learnOpenDenoms(udg_hero[i])
+	endif
 	
 	set u = null
 	set it = null
