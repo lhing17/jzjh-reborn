@@ -25,6 +25,15 @@ function UnitDeath_Conditions takes nothing returns boolean
 	if GetUnitTypeId(ut) == 'n016' then
 		// 杀大汗掉落胡卜处迩
 		call CreateItem('I0EW', GetUnitX(ut), GetUnitY(ut))
+		set shengwang[i] = shengwang[i] + 1000
+		call DisplayTextToPlayer(Player(i - 1), 0, 0, "成功刺杀大汗，奖励1000声望和胡卜处迩")
+	endif
+
+	if GetUnitTypeId(ut) == 'n015' then
+		// 杀尼摩星获取中原武学散篇
+		call CreateItem('I0F2', GetUnitX(ut), GetUnitY(ut))
+		set shengwang[i] = shengwang[i] + 200
+		call DisplayTextToPlayer(Player(i - 1), 0, 0, "成功刺杀尼摩星，奖励200声望和中原武学散篇")
 	endif
 	
 	set u = null

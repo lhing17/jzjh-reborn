@@ -2175,4 +2175,17 @@ function dynamicDifficultyAdjustment takes integer experience returns nothing
     endif
 endfunction
 
+function isKungfuFull takes integer i returns boolean
+    local integer j = 1
+    loop
+        exitwhen j > wugongshu[i]
+        // call BJDebugMsg(I2S(I7[20 * ( i - 1 ) + j]))
+        if I7[20 * ( i - 1 ) + j] == 1095067243 then
+            return false
+        endif
+        set j = j + 1
+    endloop
+    call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFFF0033学习技能已达上限，请先遗忘部分技能")
+    return true
+endfunction
 #endif //CommonFuncIncluded

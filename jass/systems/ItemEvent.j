@@ -142,6 +142,17 @@ function PickupItem_Conditions takes nothing returns boolean
 			endif
 		endloop
 	endif
+
+	// 击杀尼摩星任务
+	if GetItemTypeId(it) == 'I0F3' then
+		call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "|cFFFFCC0郭靖：|r |cFF99FFCC尼摩星偷走了中原武学书籍，侠士请速去将其击杀夺回武学|r\n|cFFFFCC00提示：|r |cFF99FFCC尼摩星在蒙古大营|r\n")
+		call checkOpenDenoms(GetOwningPlayer(u))
+	endif
+
+	// 刺杀大汗任务
+	if GetItemTypeId(it) == 'I0F4' then
+		call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "|cFFFFCC0郭靖：|r |cFF99FFCC听说大汗要率领蒙古铁骑进攻中原，但他对我有养育之恩，我不能去刺杀他，请侠士代我去吧|r\n|cFFFFCC00提示：|r |cFF99FFCC大汗在蒙古大营|r\n")
+	endif
 	
 	set u = null
 	set it = null

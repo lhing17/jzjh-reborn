@@ -16,6 +16,7 @@
 #include "game_logic/Instances.j"
 #include "game_logic/Experiences.j"
 #include "game_logic/Tasks.j"
+#include "game_logic/Mongolia.j"
 
 #include "game_logic/CleanItems.j"
 #include "game_logic/Talent.j"
@@ -2479,6 +2480,7 @@ function main2 takes nothing returns nothing
 	call ElixirSystem_Trigger() //丹药系统
 	call Tasks_Trigger() //任务系统
 	call checkActivityAddition() // 判断是否在活动期间
+	call initOpenDenom() // 开放中原武学散篇的门派
 	
 	
 	call cleanItems() // 清除物品命令
