@@ -1,6 +1,6 @@
 
 globals
-    constant integer FRAME_ID = -29734415
+    constant integer FRAME_ID = - 29734415
     Frame GUI
 endglobals
 library FrameLibrary initializer init
@@ -101,7 +101,7 @@ library FrameLibrary initializer init
             return f
         endmethod
         static method newButtonEmpty0 takes Frame parent returns Frame
-             local Frame f = Frame.allocate()
+            local Frame f = Frame.allocate()
             call f.numadd()
             set f.id = DzCreateFrameByTagName("BUTTON", "Frame_ButtonEmpty" + I2S(num), parent.id, "ButtonTemplateEmpty", 0)
             call SaveInteger(HT, FRAME_ID, f.id, f)
@@ -190,7 +190,7 @@ library FrameLibrary initializer init
         endmethod
         method disable takes nothing returns nothing
             call DzFrameSetEnable(id, false)
-            set isEnable =false
+            set isEnable = false
         endmethod
         method setAlpha takes integer a returns nothing
             call DzFrameSetAlpha(id, a)
@@ -201,6 +201,21 @@ library FrameLibrary initializer init
             endif
             set id = 0
         endmethod
+    endstruct
+
+    struct ImageButton
+        Frame image
+        Frame button
+
+        static method create takes Frame imageWidget, real w, real h returns ImageButton
+            local ImageButton ib = ImageButton.allocate()
+            set ib.image = imageWidget
+
+            set ib.button = Frame.newTextButton(ib.image)
+            call ib.button.setAllPoints(ib.image)
+            return ib
+        endmethod
+
     endstruct
     private function init takes nothing returns nothing
         local integer f = DzFrameGetTooltip()
