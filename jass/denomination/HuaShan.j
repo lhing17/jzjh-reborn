@@ -68,7 +68,7 @@ function TD takes nothing returns nothing
         call WanBuff(u, uc, 2)
     endif
     call RemoveLocation(loc)
-    call WuGongShengChong(u,'A08X',36000.)
+    call WuGongShengChong(u,'A08X',6000.)
     set u=null
     set uc=null
     set loc=null
