@@ -895,7 +895,7 @@ endfunction
 
 // 养吾剑自带破甲效果
 function UnitHaveYangWuJian takes nothing returns boolean
-	return((UnitHasDenomWeapon(GetAttacker(),'I0E0')))
+	return((UnitHasDenomWeapon(GetAttacker(),'I0E0'))) and udg_runamen[1 + GetPlayerId(GetOwningPlayer(GetAttacker()))] == 4
 endfunction
 function YangWuJianXiaoGuo takes nothing returns nothing
 	local unit u = GetAttacker()
