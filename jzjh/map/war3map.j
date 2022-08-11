@@ -4,15 +4,15 @@ constant boolean LIBRARY_FrameLibrary=true
 //endglobals from FrameLibrary
 //globals from MaxSpeed:
 constant boolean LIBRARY_MaxSpeed=true
-constant boolean MaxSpeed___USE_TABLE= true
-constant boolean MaxSpeed___NEW_TABLE= true
+constant boolean MaxSpeed__USE_TABLE= true
+constant boolean MaxSpeed__NEW_TABLE= true
          // Vexorian's Table or Bribe's (NEW)
-constant boolean MaxSpeed___TEST_MODE= false
-constant real MaxSpeed___PERIOD= 0.03125
+constant boolean MaxSpeed__TEST_MODE= false
+constant real MaxSpeed__PERIOD= 0.03125
         //  private constant real MAX_SPEED = 2088.0
-constant real MaxSpeed___MAX_SPEED= 1400.0
+constant real MaxSpeed__MAX_SPEED= 1400.0
          // 最大速度限定，超出视为传送。
-constant real MaxSpeed___MIN_SPEED= 500.0
+constant real MaxSpeed__MIN_SPEED= 500.0
          // 判定的最小距离，此项过小或速度过大会使原地打转几率增加，超出则没有加速效果。
         // 测试最大为500刚出头，与522还有些差距
 //endglobals from MaxSpeed
@@ -740,6 +740,7 @@ boolean udg_fpgz= false
 boolean udg_yunyangxianshen= false
 boolean udg_sutong= false
 boolean taohuakai=false
+boolean array showDamage
 dialog udg_index=null
 button udg_index0=null
 button udg_index1=null
@@ -1858,7 +1859,13 @@ integer array s__Frame_id
 boolean array s__Frame_isShow
 boolean array s__Frame_isEnable
 boolean array s__Frame_hover
-constant integer si__ModSpeed=2
+constant integer si__ImageButton=2
+integer si__ImageButton_F=0
+integer si__ImageButton_I=0
+integer array si__ImageButton_V
+integer array s__ImageButton_image
+integer array s__ImageButton_button
+constant integer si__ModSpeed=3
 timer s__ModSpeed_tm= CreateTimer()
 integer s__ModSpeed_instanceMaxCount= 0
 integer array s__ModSpeed_prev
@@ -1874,18 +1881,18 @@ real s__ModSpeed_dx
 real s__ModSpeed_dy
 real s__ModSpeed_dist
 real s__ModSpeed_rate
-constant integer si__YDWEStringFormula___Inventory=3
+constant integer si__YDWEStringFormula___Inventory=4
 integer si__YDWEStringFormula___Inventory_F=0
 integer si__YDWEStringFormula___Inventory_I=0
 integer array si__YDWEStringFormula___Inventory_V
-constant integer si__YDWEStringFormula___StringTable=4
-constant integer si__YDWEStringFormula___ItemIdMatrix=5
+constant integer si__YDWEStringFormula___StringTable=5
+constant integer si__YDWEStringFormula___ItemIdMatrix=6
 integer s__YDWEStringFormula___ItemIdMatrix_Data
 integer s__YDWEStringFormula___ItemIdMatrix_Total= 1
 integer array s__YDWEStringFormula___ItemIdMatrix_itemId
 string array s__YDWEStringFormula___ItemIdMatrix_keyStr
 integer array s__YDWEStringFormula___ItemIdMatrix_keyLen
-constant integer si__YDWEStringFormula___FormulaMatrix=6
+constant integer si__YDWEStringFormula___FormulaMatrix=7
 integer s__YDWEStringFormula___FormulaMatrix_Data
 integer s__YDWEStringFormula___FormulaMatrix_Total= 1
 string array s__YDWEStringFormula___FormulaMatrix_formula
@@ -1894,7 +1901,7 @@ string array s__YDWEStringFormula___FormulaMatrix_model
 string array s__YDWEStringFormula___FormulaMatrix_message
 integer array s__YDWEStringFormula___FormulaMatrix_chance
 boolean array s__YDWEStringFormula___FormulaMatrix_delete
-constant integer si__YDWEStringFormula___Sorting=7
+constant integer si__YDWEStringFormula___Sorting=8
 integer si__YDWEStringFormula___Sorting_F=0
 integer si__YDWEStringFormula___Sorting_I=0
 integer array si__YDWEStringFormula___Sorting_V
@@ -1906,14 +1913,14 @@ constant integer s___YDWEStringFormula___Sorting_count_size=8
 integer array s__YDWEStringFormula___Sorting_count
 integer array s__YDWEStringFormula___Sorting_total
 string array s__YDWEStringFormula___Sorting_char
-constant integer si__YDWETimerPattern___YDVector3=10
+constant integer si__YDWETimerPattern___YDVector3=11
 integer si__YDWETimerPattern___YDVector3_F=0
 integer si__YDWETimerPattern___YDVector3_I=0
 integer array si__YDWETimerPattern___YDVector3_V
 real array s__YDWETimerPattern___YDVector3_x
 real array s__YDWETimerPattern___YDVector3_y
 real array s__YDWETimerPattern___YDVector3_z
-constant integer si__YDWETimerPattern___Thread=11
+constant integer si__YDWETimerPattern___Thread=12
 integer si__YDWETimerPattern___Thread_F=0
 integer si__YDWETimerPattern___Thread_I=0
 integer array si__YDWETimerPattern___Thread_V
@@ -1944,10 +1951,10 @@ boolean array s__YDWETimerPattern___Thread_killdest
 boolean array s__YDWETimerPattern___Thread_volume
 group array s__YDWETimerPattern___Thread_g
 timer array s__YDWETimerPattern___Thread_t
-constant integer si__YDWETimerPattern___Parabola=12
-constant integer si__YDWETimerPattern___Linear=13
-constant integer si__YDWETimerPattern___Deceleration=14
-constant integer si__DaPei=15
+constant integer si__YDWETimerPattern___Parabola=13
+constant integer si__YDWETimerPattern___Linear=14
+constant integer si__YDWETimerPattern___Deceleration=15
+constant integer si__DaPei=16
 integer si__DaPei_F=0
 integer si__DaPei_I=0
 integer array si__DaPei_V
@@ -1955,7 +1962,7 @@ integer array s__DaPei_wugongid
 integer array s__DaPei_dapeixiaoguo
 real array s__DaPei_shxishu
 real array s__DaPei_r
-constant integer si__ZiZhiWuGong=16
+constant integer si__ZiZhiWuGong=17
 integer si__ZiZhiWuGong_F=0
 integer si__ZiZhiWuGong_I=0
 integer array si__ZiZhiWuGong_V
@@ -1965,7 +1972,7 @@ integer array s__ZiZhiWuGong_texiao
 integer array s__ZiZhiWuGong_dapeishu
 integer array s__ZiZhiWuGong_scrate
 string array s__ZiZhiWuGong_name
-constant integer si__ShopWeapon=17
+constant integer si__ShopWeapon=18
 integer si__ShopWeapon_F=0
 integer si__ShopWeapon_I=0
 integer array si__ShopWeapon_V
@@ -2371,10 +2378,38 @@ function sc__DaPei_deallocate takes integer this returns nothing
     set si__DaPei_F=this
 endfunction
 
+//Generated allocator of ImageButton
+function s__ImageButton__allocate takes nothing returns integer
+ local integer this=si__ImageButton_F
+    if (this!=0) then
+        set si__ImageButton_F=si__ImageButton_V[this]
+    else
+        set si__ImageButton_I=si__ImageButton_I+1
+        set this=si__ImageButton_I
+    endif
+    if (this>8190) then
+        return 0
+    endif
+
+    set si__ImageButton_V[this]=-1
+ return this
+endfunction
+
+//Generated destructor of ImageButton
+function s__ImageButton_deallocate takes integer this returns nothing
+    if this==null then
+        return
+    elseif (si__ImageButton_V[this]!=-1) then
+        return
+    endif
+    set si__ImageButton_V[this]=si__ImageButton_F
+    set si__ImageButton_F=this
+endfunction
+
 //Generated method caller for YDWEStringFormula___Inventory.onDestroy
 function sc__YDWEStringFormula___Inventory_onDestroy takes integer this returns nothing
     set f__arg_this=this
-    call TriggerEvaluate(st__YDWEStringFormula___Inventory_onDestroy[3])
+    call TriggerEvaluate(st__YDWEStringFormula___Inventory_onDestroy[4])
 endfunction
 
 //Generated allocator of YDWEStringFormula___Inventory
@@ -2390,7 +2425,7 @@ function s__YDWEStringFormula___Inventory__allocate takes nothing returns intege
         return 0
     endif
 
-    set si__YDWEStringFormula___Inventory_type[this]=3
+    set si__YDWEStringFormula___Inventory_type[this]=4
     set si__YDWEStringFormula___Inventory_V[this]=-1
  return this
 endfunction
@@ -2408,24 +2443,10 @@ function sc__YDWEStringFormula___Inventory_deallocate takes integer this returns
     set si__YDWEStringFormula___Inventory_F=this
 endfunction
 
-//Generated allocator of YDWEStringFormula___StringTable
-function s__YDWEStringFormula___StringTable__allocate takes nothing returns integer
- local integer this=s__YDWEStringFormula___Inventory__allocate()
- local integer kthis
-    if(this==0) then
-        return 0
-    endif
-    set si__YDWEStringFormula___Inventory_type[this]=4
-    set kthis=this
-
- return this
-endfunction
-
-
 //Generated method caller for YDWETimerPattern___Thread.onDestroy
 function sc__YDWETimerPattern___Thread_onDestroy takes integer this returns nothing
     set f__arg_this=this
-    call TriggerEvaluate(st__YDWETimerPattern___Thread_onDestroy[11])
+    call TriggerEvaluate(st__YDWETimerPattern___Thread_onDestroy[12])
 endfunction
 
 //Generated allocator of YDWETimerPattern___Thread
@@ -2441,7 +2462,7 @@ function s__YDWETimerPattern___Thread__allocate takes nothing returns integer
         return 0
     endif
 
-    set si__YDWETimerPattern___Thread_type[this]=11
+    set si__YDWETimerPattern___Thread_type[this]=12
     set si__YDWETimerPattern___Thread_V[this]=-1
  return this
 endfunction
@@ -2531,6 +2552,20 @@ function sc__YDWEStringFormula___Sorting_deallocate takes integer this returns n
     set si__YDWEStringFormula___Sorting_F=this
 endfunction
 
+//Generated allocator of YDWEStringFormula___StringTable
+function s__YDWEStringFormula___StringTable__allocate takes nothing returns integer
+ local integer this=s__YDWEStringFormula___Inventory__allocate()
+ local integer kthis
+    if(this==0) then
+        return 0
+    endif
+    set si__YDWEStringFormula___Inventory_type[this]=5
+    set kthis=this
+
+ return this
+endfunction
+
+
 //Generated allocator of YDWETimerPattern___Deceleration
 function s__YDWETimerPattern___Deceleration__allocate takes nothing returns integer
  local integer this=s__YDWETimerPattern___Thread__allocate()
@@ -2538,7 +2573,7 @@ function s__YDWETimerPattern___Deceleration__allocate takes nothing returns inte
     if(this==0) then
         return 0
     endif
-    set si__YDWETimerPattern___Thread_type[this]=14
+    set si__YDWETimerPattern___Thread_type[this]=15
     set kthis=this
 
  return this
@@ -2552,7 +2587,7 @@ function s__YDWETimerPattern___Parabola__allocate takes nothing returns integer
     if(this==0) then
         return 0
     endif
-    set si__YDWETimerPattern___Thread_type[this]=12
+    set si__YDWETimerPattern___Thread_type[this]=13
     set kthis=this
 
  return this
@@ -2566,7 +2601,7 @@ function s__YDWETimerPattern___Linear__allocate takes nothing returns integer
     if(this==0) then
         return 0
     endif
-    set si__YDWETimerPattern___Thread_type[this]=13
+    set si__YDWETimerPattern___Thread_type[this]=14
     set kthis=this
 
  return this
@@ -2682,7 +2717,7 @@ function s__Frame_newButton1 takes integer parent,real l__w,real h returns integ
             return f
         endfunction
         function s__Frame_newButtonEmpty0 takes integer parent returns integer
-             local integer f= s__Frame__allocate()
+            local integer f= s__Frame__allocate()
             call s__Frame_numadd(f)
             set s__Frame_id[f]=DzCreateFrameByTagName("BUTTON", "Frame_ButtonEmpty" + I2S(s__Frame_num), s__Frame_id[parent], "ButtonTemplateEmpty", 0)
             call SaveInteger(s__Frame_HT, FRAME_ID, s__Frame_id[f], f)
@@ -2794,6 +2829,13 @@ function s__Frame_deallocate takes integer this returns nothing
     set si__Frame_V[this]=si__Frame_F
     set si__Frame_F=this
 endfunction
+function s__ImageButton_create takes integer imageWidget,real l__w,real h returns integer
+            local integer ib= s__ImageButton__allocate()
+            set s__ImageButton_image[ib]=imageWidget
+            set s__ImageButton_button[ib]=s__Frame_newTextButton(s__ImageButton_image[ib])
+            call DzFrameSetAllPoints(s__Frame_id[(s__ImageButton_button[ib])], s__Frame_id[(s__ImageButton_image[ib])]) // INLINED!!
+            return ib
+        endfunction
     function FrameLibrary___init takes nothing returns nothing
         local integer f= DzFrameGetTooltip()
         local real size= 0.75
@@ -2855,8 +2897,8 @@ endfunction
              set s__ModSpeed_dy=s__ModSpeed_y - s__ModSpeed_lastY[this]
              set s__ModSpeed_lastX[this]=s__ModSpeed_x
              set s__ModSpeed_lastY[this]=s__ModSpeed_y
-             set s__ModSpeed_dist=SquareRoot(s__ModSpeed_dx * s__ModSpeed_dx + s__ModSpeed_dy * s__ModSpeed_dy) / MaxSpeed___PERIOD
-             if ( s__ModSpeed_dist >= MaxSpeed___MIN_SPEED and s__ModSpeed_dist <= MaxSpeed___MAX_SPEED ) then
+             set s__ModSpeed_dist=SquareRoot(s__ModSpeed_dx * s__ModSpeed_dx + s__ModSpeed_dy * s__ModSpeed_dy) / MaxSpeed__PERIOD
+             if ( s__ModSpeed_dist >= MaxSpeed__MIN_SPEED and s__ModSpeed_dist <= MaxSpeed__MAX_SPEED ) then
                  set s__ModSpeed_rate=( s__ModSpeed_speed[this] - 522. ) / s__ModSpeed_dist
                  set s__ModSpeed_lastX[this]=s__ModSpeed_x + s__ModSpeed_dx * s__ModSpeed_rate
                  set s__ModSpeed_lastY[this]=s__ModSpeed_y + s__ModSpeed_dy * s__ModSpeed_rate
@@ -2936,7 +2978,7 @@ endfunction
                      set s__ModSpeed_prev[(0)]=s__ModSpeed_prev[s__ModSpeed_prev[(0)]]
                  endif
                  if ( s__ModSpeed_next[(0)] == 0 ) then
-                     call TimerStart(s__ModSpeed_tm, MaxSpeed___PERIOD, true, function s__ModSpeed_iterate)
+                     call TimerStart(s__ModSpeed_tm, MaxSpeed__PERIOD, true, function s__ModSpeed_iterate)
 
 
 
@@ -2955,7 +2997,7 @@ endfunction
 
 
              endif
-             set amount=RMinBJ(amount, MaxSpeed___MAX_SPEED)
+             set amount=RMinBJ(amount, MaxSpeed__MAX_SPEED)
              set s__ModSpeed_lastX[this]=GetUnitX(u)
              set s__ModSpeed_lastY[this]=GetUnitY(u)
              set s__ModSpeed_speed[this]=amount
@@ -7172,7 +7214,7 @@ endfunction
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Tue Aug 09 19:21:31 2022
+//   Date: Thu Aug 11 12:30:56 2022
 //   Map Author: 云杨 zei_kale
 // 
 //===========================================================================
@@ -9118,16 +9160,51 @@ if (IsUnitType((u ), ( UNIT_TYPE_HERO)) != null) then // INLINED!!
 	call SaveReal(YDHT, 1 + GetPlayerId(GetOwningPlayer(u)), id * 3, basic_damage)
 	return shanghai
 endfunction
+function showDamageWithEffects takes unit u,real damage,boolean critical returns nothing
+ local integer i= 1 + GetPlayerId(GetOwningPlayer(u))
+ local integer criticalInt= 2
+ local location loc= GetUnitLoc(u)
+ local string damageStr= ""
+ local integer j= 1
+ local effect eff= null
+	if critical then
+		set criticalInt=1
+	endif
+	if IsUnitEnemy(u, Player(0)) then
+		// 显示伤害
+		set damageStr=I2S(R2I(damage) + 1)
+		loop
+			exitwhen j > StringLength(damageStr)
+			// call BJDebugMsg("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx")
+			set eff=AddSpecialEffect("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx", GetUnitX(u) + 32 * ( j - 1 ), GetUnitY(u))
+			call EXSetEffectSize(eff, 1.38)
+			call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
+			call DestroyEffect(eff)
+			set j=j + 1
+		endloop
+		if critical then
+			set eff=AddSpecialEffect("war3mapImported\\SHZT11-10.mdx", GetUnitX(u) - 37, GetUnitY(u))
+			call EXSetEffectSize(eff, 1.38)
+			call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
+			call DestroyEffect(eff)
+		endif
+	endif
+	call RemoveLocation(loc)
+	set loc=null
+	set eff=null
+endfunction
 function WuGongShangHai takes unit u,unit uc,real shanghai returns nothing
 	if shanghai == 0 then
 		call CreateTextTagUnitBJ("MISS", uc, 0., 11., 255., 0., 0., 30.)
 	else
 		if GetRandomReal(0., 100.) <= 100. * udg_baojilv[1 + GetPlayerId(GetOwningPlayer(u))] then
 			call UnitDamageTarget(u, uc, udg_baojishanghai[1 + GetPlayerId(GetOwningPlayer(u))] * shanghai, true, false, ATTACK_TYPE_MAGIC, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
-			call CreateTextTagUnitBJ(I2S(R2I(shanghai)), uc, .0, 14., 100., 100., .0, 30.)
+			// call CreateTextTagUnitBJ(I2S(R2I(shanghai)),uc,.0,14.,100.,100.,.0,30.)
+			call showDamageWithEffects(uc , shanghai , true)
 		else
 			call UnitDamageTarget(u, uc, shanghai, true, false, ATTACK_TYPE_MAGIC, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
-			call CreateTextTagUnitBJ(I2S(R2I(shanghai)), uc, .0, 11., 100., 100., 100., 30.)
+			// call CreateTextTagUnitBJ(I2S(R2I(shanghai)),uc,.0,11.,100.,100.,100.,30.)
+			call showDamageWithEffects(uc , shanghai , false)
 		endif
 	endif
 	call SetTextTagVelocityBJ(bj_lastCreatedTextTag, 400., ( GetRandomReal(80., 100.) ))
@@ -17465,7 +17542,7 @@ local unit u= GetAttacker()
 endfunction
 // 养吾剑自带破甲效果
 function UnitHaveYangWuJian takes nothing returns boolean
-	return ( ( UnitHasDenomWeapon(GetAttacker() , 'I0E0') ) )
+	return ( ( UnitHasDenomWeapon(GetAttacker() , 'I0E0') ) ) and udg_runamen[1 + GetPlayerId(GetOwningPlayer(GetAttacker()))] == 4
 endfunction
 function YangWuJianXiaoGuo takes nothing returns nothing
  local unit u= GetAttacker()
@@ -52867,7 +52944,7 @@ function Cuns takes nothing returns nothing
 	call Cun('I0DS' , "玉扳指" , null , 0 , "招式伤害" , 150 , "内力" , 150 , "真实伤害" , 150)
 	call Cun(ITEM_HAN_SHA , "含沙射影" , null , 0 , "招式伤害" , 30 , "内力" , 30 , "真实伤害" , 30)
 	call Cun('I0EQ' , "观音泪" , null , 0 , "招式伤害" , 120 , "内力" , 120 , "真实伤害" , 120)
-	call Cun('I0DT' , "燕国玉玺" , null , 0 , "招式伤害" , 150 , "内力" , 150 , "真实伤害" , 150)
+	call Cun('I0DS' , "燕国玉玺" , null , 0 , "招式伤害" , 150 , "内力" , 150 , "真实伤害" , 150)
 	call Cun('I01V' , "苍蟒护腕" , "攻击力" , 0 , "招式伤害" , 0 , "内力" , 0 , "真实伤害" , 10)
 	call Cun('I01U' , "纱绒护腕" , "攻击力" , 0 , "招式伤害" , 15 , "内力" , 0 , "真实伤害" , 0)
 	call Cun('I018' , "彩云腕" , null , 0 , "招式伤害" , 50 , "内力" , 20 , "真实伤害" , 0)
@@ -53979,6 +54056,7 @@ function main1 takes nothing returns nothing
 		set aidacishu[i]=0
 		set udg_wuqishu[i]=0
 		set udg_yifushu[i]=0
+		set showDamage[i]=true
 		set i=i + 1
 	endloop
 	call ExecuteFunc("mv")
@@ -55322,7 +55400,7 @@ function main takes nothing returns nothing
     call CreateAllUnits()
     call InitBlizzard()
 
-call ExecuteFunc("jasshelper__initstructs4440609")
+call ExecuteFunc("jasshelper__initstructs100882406")
 call ExecuteFunc("FrameLibrary___init")
 call ExecuteFunc("UniMissileSystem3D___Init")
 call ExecuteFunc("YDTriggerSaveLoadSystem___Init")
@@ -55367,10 +55445,15 @@ function config takes nothing returns nothing
     call InitAllyPriorities()
 endfunction
 //===========================================================================
-//��Ծϵͳ 
-//===========================================================================
-//===========================================================================
 //修改生命
+//===========================================================================
+//===========================================================================  
+//===========================================================================  
+//�Զ����¼� 
+//===========================================================================
+//===========================================================================   
+//===========================================================================
+//��Ծϵͳ 
 //===========================================================================
      
  
@@ -55378,11 +55461,6 @@ endfunction
 //===========================================================================
 //ϵͳ-TimerSystem
 //===========================================================================
-//===========================================================================  
-//===========================================================================  
-//�Զ����¼� 
-//===========================================================================
-//===========================================================================   
 
 
 
@@ -55523,7 +55601,7 @@ function sa___prototype4_SetUnitMoveSpeedEx takes nothing returns boolean
     return true
 endfunction
 
-function jasshelper__initstructs4440609 takes nothing returns nothing
+function jasshelper__initstructs100882406 takes nothing returns nothing
     set st__Frame_onDestroy=CreateTrigger()
     call TriggerAddCondition(st__Frame_onDestroy,Condition( function sa__Frame_onDestroy))
     set st__ShopWeapon_onDestroy=CreateTrigger()
@@ -55538,19 +55616,20 @@ function jasshelper__initstructs4440609 takes nothing returns nothing
     call TriggerAddCondition(st__DaPei_onDestroy,Condition( function sa__DaPei_onDestroy))
     set st__DaPei_XiaoGuoShuoMing=CreateTrigger()
     call TriggerAddCondition(st__DaPei_XiaoGuoShuoMing,Condition( function sa__DaPei_XiaoGuoShuoMing))
-    set st__YDWEStringFormula___Inventory_onDestroy[3]=CreateTrigger()
-    set st__YDWEStringFormula___Inventory_onDestroy[4]=st__YDWEStringFormula___Inventory_onDestroy[3]
-    call TriggerAddCondition(st__YDWEStringFormula___Inventory_onDestroy[3],Condition( function sa__YDWEStringFormula___Inventory_onDestroy))
-    set st__YDWETimerPattern___Thread_onDestroy[11]=CreateTrigger()
-    set st__YDWETimerPattern___Thread_onDestroy[12]=st__YDWETimerPattern___Thread_onDestroy[11]
-    set st__YDWETimerPattern___Thread_onDestroy[13]=st__YDWETimerPattern___Thread_onDestroy[11]
-    set st__YDWETimerPattern___Thread_onDestroy[14]=st__YDWETimerPattern___Thread_onDestroy[11]
-    call TriggerAddCondition(st__YDWETimerPattern___Thread_onDestroy[11],Condition( function sa__YDWETimerPattern___Thread_onDestroy))
+    set st__YDWEStringFormula___Inventory_onDestroy[4]=CreateTrigger()
+    set st__YDWEStringFormula___Inventory_onDestroy[5]=st__YDWEStringFormula___Inventory_onDestroy[4]
+    call TriggerAddCondition(st__YDWEStringFormula___Inventory_onDestroy[4],Condition( function sa__YDWEStringFormula___Inventory_onDestroy))
+    set st__YDWETimerPattern___Thread_onDestroy[12]=CreateTrigger()
+    set st__YDWETimerPattern___Thread_onDestroy[13]=st__YDWETimerPattern___Thread_onDestroy[12]
+    set st__YDWETimerPattern___Thread_onDestroy[14]=st__YDWETimerPattern___Thread_onDestroy[12]
+    set st__YDWETimerPattern___Thread_onDestroy[15]=st__YDWETimerPattern___Thread_onDestroy[12]
+    call TriggerAddCondition(st__YDWETimerPattern___Thread_onDestroy[12],Condition( function sa__YDWETimerPattern___Thread_onDestroy))
     set st__YDWEStringFormula___Sorting_onDestroy=CreateTrigger()
     call TriggerAddCondition(st__YDWEStringFormula___Sorting_onDestroy,Condition( function sa__YDWEStringFormula___Sorting_onDestroy))
     set st___prototype4[1]=CreateTrigger()
     call TriggerAddAction(st___prototype4[1],function sa___prototype4_SetUnitMoveSpeedEx)
     call TriggerAddCondition(st___prototype4[1],Condition(function sa___prototype4_SetUnitMoveSpeedEx))
+
 
 
 call ExecuteFunc("s__ModSpeed_Init___onInit")

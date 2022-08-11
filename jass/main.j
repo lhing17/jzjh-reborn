@@ -174,6 +174,7 @@ globals
 	boolean udg_yunyangxianshen = false
 	boolean udg_sutong = false
 	boolean taohuakai=false
+	boolean array showDamage
 	dialog udg_index=null
 	button udg_index0=null
 	button udg_index1=null
@@ -2165,6 +2166,7 @@ function main1 takes nothing returns nothing
 		set aidacishu[i]=0
 		set udg_wuqishu[i]=0
 		set udg_yifushu[i]=0
+		set showDamage[i] = true
 		set i=i+1
 	endloop
 

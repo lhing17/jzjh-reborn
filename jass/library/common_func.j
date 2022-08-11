@@ -1559,16 +1559,53 @@ function ShangHaiGongShi takes unit u, unit uc,real w1, real w2, real shxishu, i
 	call SaveReal(YDHT,1+GetPlayerId(GetOwningPlayer(u)),id*3,basic_damage)
 	return shanghai
 endfunction
+
+function showDamageWithEffects takes unit u, real damage, boolean critical returns nothing
+	local integer i = 1 + GetPlayerId(GetOwningPlayer(u))
+	local integer criticalInt = 2
+	local location loc = GetUnitLoc(u)
+	local string damageStr = ""
+	local integer j = 1
+	local effect eff = null
+	if critical then
+		set criticalInt = 1
+	endif
+	if IsUnitEnemy(u, Player(0)) then
+		// 显示伤害
+		set damageStr = I2S(R2I(damage) + 1)
+		loop
+			exitwhen j > StringLength(damageStr)
+			// call BJDebugMsg("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx")
+			set eff = AddSpecialEffect("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx", GetUnitX(u) + 32 * (j - 1), GetUnitY(u))
+			call EXSetEffectSize(eff, 1.38)
+			call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
+			call DestroyEffect(eff)
+			set j = j + 1
+		endloop
+		if critical then
+			set eff = AddSpecialEffect("war3mapImported\\SHZT11-10.mdx", GetUnitX(u) - 37, GetUnitY(u))
+			call EXSetEffectSize(eff, 1.38)
+			call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
+			call DestroyEffect(eff)
+		endif
+	endif
+	call RemoveLocation(loc)
+	set loc = null
+	set eff = null
+endfunction
+
 function WuGongShangHai takes unit u, unit uc, real shanghai returns nothing
 	if shanghai == 0 then
 		call CreateTextTagUnitBJ("MISS",uc,0.,11.,255.,0.,0.,30.)
 	else
 		if GetRandomReal(0.,100.)<=100.*udg_baojilv[1+GetPlayerId(GetOwningPlayer(u))] then
 			call UnitDamageTarget(u,uc,udg_baojishanghai[1+GetPlayerId(GetOwningPlayer(u))] * shanghai,true,false,ATTACK_TYPE_MAGIC,DAMAGE_TYPE_NORMAL,WEAPON_TYPE_WHOKNOWS)
-			call CreateTextTagUnitBJ(I2S(R2I(shanghai)),uc,.0,14.,100.,100.,.0,30.)
+			// call CreateTextTagUnitBJ(I2S(R2I(shanghai)),uc,.0,14.,100.,100.,.0,30.)
+			call showDamageWithEffects(uc, udg_baojishanghai[1+GetPlayerId(GetOwningPlayer(u))] * shanghai, true)
 		else
 			call UnitDamageTarget(u,uc,shanghai,true,false,ATTACK_TYPE_MAGIC,DAMAGE_TYPE_NORMAL,WEAPON_TYPE_WHOKNOWS)
-			call CreateTextTagUnitBJ(I2S(R2I(shanghai)),uc,.0,11.,100.,100.,100.,30.)
+			// call CreateTextTagUnitBJ(I2S(R2I(shanghai)),uc,.0,11.,100.,100.,100.,30.)
+			call showDamageWithEffects(uc, shanghai, false)
 		endif
 	endif
 	call SetTextTagVelocityBJ(bj_lastCreatedTextTag,400.,(GetRandomReal(80.,100.)))
