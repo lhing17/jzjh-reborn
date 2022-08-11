@@ -203,6 +203,14 @@ library FrameLibrary initializer init
         endmethod
     endstruct
 
+    
+    function onButtonPressed takes nothing returns nothing
+
+    endfunction
+    function toggleImage takes nothing returns nothing
+        
+    endfunction
+
     struct ImageButton
         Frame image
         Frame button
@@ -213,10 +221,15 @@ library FrameLibrary initializer init
 
             set ib.button = Frame.newTextButton(ib.image)
             call ib.button.setAllPoints(ib.image)
+            call ib.button.regEvent(FRAME_EVENT_PRESSED, function onButtonPressed)
+            call ib.button.regEvent(FRAME_MOUSE_ENTER, function toggleImage)
+            call ib.button.regEvent(FRAME_MOUSE_LEAVE, function toggleImage)
             return ib
         endmethod
 
     endstruct
+
+
     private function init takes nothing returns nothing
         local integer f = DzFrameGetTooltip()
         local real size = 0.75
