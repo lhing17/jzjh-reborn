@@ -7,6 +7,8 @@ globals
     integer array openDenomIds
     dialog array openDenomDialog
     constant integer openDenomButtonKey = $86556
+    integer array dahanTask
+    integer array nimoxingTask
 endglobals
 
 // 本局开放五个门派作为中原武学散篇的随机范围
@@ -145,6 +147,8 @@ function initOpenDenom takes nothing returns nothing
     loop
         exitwhen i > 5
         set openDenomDialog[i] = DialogCreate()
+        set dahanTask[i] = 0
+        set nimoxingTask[i] = 0
         call TriggerRegisterDialogEvent(t, openDenomDialog[i])
         set i = i + 1
     endloop

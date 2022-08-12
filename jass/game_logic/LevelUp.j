@@ -465,7 +465,7 @@ function determineQuanZhenTitle takes unit u returns nothing
 			call ModifyHeroStat(1, u, 0, 300)
 			call ModifyHeroStat(2, u, 0, 300)
 			call SetUnitAbilityLevel(u, 'A0CH', 9)
-			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：中神通，招式伤害增加了300点，内力增加了300点，真实伤害增加了300点，武功" + GetObjectName('A0CH') + "提升到9重")
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：中神通，招式伤害增加了300点，内力增加了300点，真实伤害增加了300点，武功" + GetObjectName('A0CH') + "提升到9重，学习双手互搏后攻击时几率刷新所有武功CD")
 			call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A0CH' * 5, GetUnitAbilityLevel(u, 'A0CH'))
 			call SetPlayerName(p, "〓中神通〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 			call setTitleNumber(i, 14)
@@ -1013,22 +1013,18 @@ function determineJiangHuTitle takes unit u returns nothing
 		call ModifyHeroStat(2, u, 0, 300)
 		call SetUnitAbilityLevel(u, 'A07E', IMinBJ(GetUnitAbilityLevel(u, 'A07E') + 3, 9))
 		call SetUnitAbilityLevel(u, 'A017', IMinBJ(GetUnitAbilityLevel(u, 'A017') + 3, 9))
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：郭大侠，招式伤害增加了300点，内力增加了500点，真实伤害增加了300点，武功" + GetObjectName('A07E') + "提升到" + I2S(IMinBJ(GetUnitAbilityLevel(u, 'A07E') + 3, 9)) + "重，" + GetObjectName('A017') + "提升到" + I2S(IMinBJ(GetUnitAbilityLevel(u, 'A017') + 3, 9)) + "重")
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：郭大侠，招式伤害增加了300点，内力增加了500点，真实伤害增加了300点，武功" + GetObjectName('A07E') + "提升到" + I2S(IMinBJ(GetUnitAbilityLevel(u, 'A07E') + 3, 9)) + "重，" + GetObjectName('A017') + "提升到" + I2S(IMinBJ(GetUnitAbilityLevel(u, 'A017') + 3, 9)) + "重，学习双手互搏后攻击时几率刷新所有武功CD")
 		call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A07E' * 5, GetUnitAbilityLevel(u, 'A07E'))
 		call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A017' * 5, GetUnitAbilityLevel(u, 'A017'))
 		call setTitleNumber(i, 43)
 	endif
 	if GetUnitAbilityLevel(u, 'A07S') >= 1 and GetUnitAbilityLevel(u, 'A0DN') >= 1 and GetUnitAbilityLevel(u, 'A07O') >= 1 and GetUnitAbilityLevel(u, 'A07R') >= 1 and GetUnitAbilityLevel(u, 'A07T') >= 1  and GetUnitAbilityLevel(u, 'A07Q') >= 1 and GetUnitAbilityLevel(u, 'A07W') >= 1 and GetUnitAbilityLevel(u, 'A07U') >= 1 and not isTitle(i, 44) then
-		// 王语嫣：九阴、九阳、罗汉、吸星、葵花、斗转、乾坤、双手
+		// 神仙姐姐：九阴、九阳、罗汉、吸星、葵花、斗转、乾坤、双手
 		call SetPlayerName(p, "〓神仙姐姐〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 		call ModifyHeroStat(0, u, 0, 300)
 		call ModifyHeroStat(1, u, 0, 500)
 		call ModifyHeroStat(2, u, 0, 300)
-		call SetUnitAbilityLevel(u, 'A07E', IMinBJ(GetUnitAbilityLevel(u, 'A07E') + 3, 9))
-		call SetUnitAbilityLevel(u, 'A017', IMinBJ(GetUnitAbilityLevel(u, 'A017') + 3, 9))
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：神仙姐姐，招式伤害增加了300点，内力增加了500点，真实伤害增加了300点，武功" + GetObjectName('A07E') + "提升到" + I2S(IMinBJ(GetUnitAbilityLevel(u, 'A07E') + 3, 9)) + "重，" + GetObjectName('A017') + "提升到" + I2S(IMinBJ(GetUnitAbilityLevel(u, 'A017') + 3, 9)) + "重")
-		call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A07E' * 5, GetUnitAbilityLevel(u, 'A07E'))
-		call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A017' * 5, GetUnitAbilityLevel(u, 'A017'))
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：神仙姐姐，招式伤害增加了300点，内力增加了500点，真实伤害增加了300点，升重速度得到了提升")
 		call setTitleNumber(i, 44)
 	endif
 	set p = null

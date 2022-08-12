@@ -166,10 +166,10 @@ function fanShouQianZhu takes unit u, unit ut returns nothing
 	local integer item_id
 	local integer dan_rand = GetRandomInt(1, 11)
 	local integer i = 1 + GetPlayerId(GetOwningPlayer(u))
-	local real addition = 1 + 0.5 * GetUnitAbilityLevel(u, FA_SHOU_QIAN_ZHU)
+	local real addition = 1 + 0.5 * GetUnitAbilityLevel(u, FAN_SHOU_QIAN_ZHU)
 	local integer gold_num
 	local integer lumber_num
-	local integer reputation_sub = 20 * GetUnitAbilityLevel(u, FA_SHOU_QIAN_ZHU)
+	local integer reputation_sub = 20 * GetUnitAbilityLevel(u, FAN_SHOU_QIAN_ZHU)
 	
 	if UnitHasDenomWeapon(u, ITEM_YE_LUO) then
 		set addition = addition + 0.1 * GetItemCharges(FetchUnitItem(u, ITEM_YE_LUO))

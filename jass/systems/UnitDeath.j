@@ -13,7 +13,7 @@ function UnitDeath_Conditions takes nothing returns boolean
 				set j = 2
 			endif
 			call SaveInteger(YDHT, GetHandleId(u), BI_BO_POINT, LoadInteger(YDHT, GetHandleId(u), BI_BO_POINT) + j)
-			call DisplayTextToPlayer(Player(i - 1), 0, 0, "碧波心经点数+"+I2S(j))
+			call DisplayTextToPlayer(Player(i - 1), 0, 0, "碧波心经点数+" + I2S(j))
 		endif
 	endif
 
@@ -23,17 +23,23 @@ function UnitDeath_Conditions takes nothing returns boolean
 	endif
 
 	if GetUnitTypeId(ut) == 'n016' then
-		// 杀大汗掉落胡卜处迩
 		call CreateItem('I0EW', GetUnitX(ut), GetUnitY(ut))
-		set shengwang[i] = shengwang[i] + 1000
-		call DisplayTextToPlayer(Player(i - 1), 0, 0, "成功刺杀大汗，奖励1000声望和胡卜处迩")
+		// 杀大汗掉落胡卜处迩
+		if dahanTask[i] == 1 then
+			set dahanTask[i] = 0
+			set shengwang[i] = shengwang[i] + 1000
+			call DisplayTextToPlayer(Player(i - 1), 0, 0, "|cff00ff00成功刺杀大汗，奖励1000声望和胡卜处迩|r")
+		endif
 	endif
 
 	if GetUnitTypeId(ut) == 'n015' then
 		// 杀尼摩星获取中原武学散篇
-		call CreateItem('I0F2', GetUnitX(ut), GetUnitY(ut))
-		set shengwang[i] = shengwang[i] + 200
-		call DisplayTextToPlayer(Player(i - 1), 0, 0, "成功刺杀尼摩星，奖励200声望和中原武学散篇")
+		if nimoxingTask[i] == 1 then
+			set nimoxingTask[i] = 0
+			call CreateItem('I0F2', GetUnitX(ut), GetUnitY(ut))
+			set shengwang[i] = shengwang[i] + 200
+			call DisplayTextToPlayer(Player(i - 1), 0, 0, "|cff00ff00成功刺杀尼摩星，奖励200声望和中原武学散篇|r")
+		endif
 	endif
 	
 	set u = null
@@ -46,7 +52,7 @@ function UnitDeath takes nothing returns nothing
 	local trigger t = CreateTrigger()
 	
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_DEATH )
-	call TriggerAddCondition(t,Condition(function UnitDeath_Conditions))
+	call TriggerAddCondition(t, Condition(function UnitDeath_Conditions))
 	set t = null
 endfunction
 
