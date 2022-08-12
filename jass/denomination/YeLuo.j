@@ -166,12 +166,13 @@ function fanShouQianZhu takes unit u, unit ut returns nothing
 	local integer item_id
 	local integer dan_rand = GetRandomInt(1, 11)
 	local integer i = 1 + GetPlayerId(GetOwningPlayer(u))
-	local real addition = 1
+	local real addition = 1 + 0.5 * GetUnitAbilityLevel(u, FA_SHOU_QIAN_ZHU)
 	local integer gold_num
 	local integer lumber_num
+	local integer reputation_sub = 50
 	
 	if UnitHasDenomWeapon(u, ITEM_YE_LUO) then
-		set addition = addition + 0.03 * GetItemCharges(FetchUnitItem(u, ITEM_YE_LUO))
+		set addition = addition + 0.1 * GetItemCharges(FetchUnitItem(u, ITEM_YE_LUO))
 	endif
 	
 	call WuGongShengChong(u, FAN_SHOU_QIAN_ZHU, 80)
@@ -180,12 +181,12 @@ function fanShouQianZhu takes unit u, unit ut returns nothing
 	if ModuloInteger(GetUnitPointValue(ut), 100)==1 or ModuloInteger(GetUnitPointValue(ut), 100)==2 then
 		set gold_num = R2I(2000 * GetRandomInt(2, 20) * addition)
 		set lumber_num = R2I(4 * GetRandomInt(2, 10) * addition)
-		set shengwang[i] = shengwang[i] - 100
+		set shengwang[i] = shengwang[i] - reputation_sub
 		call AdjustPlayerStateBJ(gold_num, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
 		call AdjustPlayerStateBJ(lumber_num, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_LUMBER)
 		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00偷取了金币+|r" + I2S(gold_num))
 		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00偷取了珍稀币+|r" + I2S(lumber_num))
-		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00声望减少100")
+		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00声望减少" + I2S(reputation_sub))
 		if Deputy_isDeputy(i, XUN_BAO) and GetRandomInt(1, 100) <= R2I(20 * addition) then
 			call UnitAddItemById(u, udg_qiwu[qiwu_rand])
 			call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00偷取了奇武|r" + GetObjectName(udg_qiwu[qiwu_rand]))
@@ -224,12 +225,12 @@ function fanShouQianZhu takes unit u, unit ut returns nothing
 	else
 		set gold_num = R2I(1000 * GetRandomInt(2, 20) * addition)
 		set lumber_num = R2I(2 * GetRandomInt(2, 10) * addition)
-		set shengwang[i] = shengwang[i] - 100
+		set shengwang[i] = shengwang[i] - reputation_sub
 		call AdjustPlayerStateBJ(gold_num, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
 		call AdjustPlayerStateBJ(lumber_num, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_LUMBER)
 		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00偷取了金币+|r" + I2S(gold_num))
 		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00偷取了珍稀币+|r" + I2S(lumber_num))
-		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00声望减少100")
+		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00声望减少" + I2S(reputation_sub))
 		if Deputy_isDeputy(i, XUN_BAO) and GetRandomInt(1, 100) <= R2I(7 * addition) then
 			call UnitAddItemById(u, udg_qiwu[qiwu_rand])
 			call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00偷取了奇武" + GetObjectName(udg_qiwu[qiwu_rand]))
