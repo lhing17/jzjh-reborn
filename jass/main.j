@@ -1293,7 +1293,8 @@ function Zw takes nothing returns nothing
 	call SetPlayerHandicapXP(Player(2),.43)
 	call SetPlayerHandicapXP(Player(3),.43)
 	call SetPlayerHandicapXP(Player(4),.43)
-	call SetCameraField(CAMERA_FIELD_TARGET_DISTANCE,1800.,.0)
+	call SetCameraField(CAMERA_FIELD_TARGET_DISTANCE,2200.,.0)
+	call SaveInteger(YDHT, GetHandleId(Player(0)), 0xA816E128, 2200)
 	call PlayMusicBJ(xh)
 	set K4[1]=Ls
 	set K4[2]=Qs
