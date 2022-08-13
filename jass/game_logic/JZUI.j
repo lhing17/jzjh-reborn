@@ -444,15 +444,15 @@ function drawUI_Conditions takes nothing returns boolean
 	call DzFrameSetSize(fm2, 0.01, 0.01)
 	call DzFrameSetSize(fm3, 0.01, 0.01)
 	
-	call DzFrameSetPoint(ff1, 0, ff0, 6, 0, - 0.003)
-	call DzFrameSetPoint(ff2, 1, ff1, 7, 0, - 0.003)
-	call DzFrameSetPoint(ff3, 1, ff2, 7, 0, - 0.003)
-	call DzFrameSetPoint(fh1, 6, DzGetGameUI(), 8, .1, .22)
-	call DzFrameSetPoint(fh2, 6, DzGetGameUI(), 8, .1, .22)
-	call DzFrameSetPoint(fh3, 6, DzGetGameUI(), 8, .1, .22)
-	call DzFrameSetPoint(fm1, 6, DzGetGameUI(), 8, .1, .22)
-	call DzFrameSetPoint(fm2, 6, DzGetGameUI(), 8, .1, .22)
-	call DzFrameSetPoint(fm3, 6, DzGetGameUI(), 8, .1, .22)
+	call DzFrameSetPoint(ff1, LEFT, DzFrameGetMinimap(), TOPRIGHT, 0.008, -0.001)
+	call DzFrameSetPoint(ff2, 1, ff1, 7, 0, - 0.004)
+	call DzFrameSetPoint(ff3, 1, ff2, 7, 0, - 0.004)
+	call DzFrameSetPoint(fh1, 6, DzGetGameUI(), 8, .8, .6)
+	call DzFrameSetPoint(fh2, 6, DzGetGameUI(), 8, .8, .6)
+	call DzFrameSetPoint(fh3, 6, DzGetGameUI(), 8, .8, .6)
+	call DzFrameSetPoint(fm1, 6, DzGetGameUI(), 8, .8, .6)
+	call DzFrameSetPoint(fm2, 6, DzGetGameUI(), 8, .8, .6)
+	call DzFrameSetPoint(fm3, 6, DzGetGameUI(), 8, .8, .6)
 	
 	call DzLoadToc("ui\\custom.toc")
 
@@ -624,7 +624,7 @@ function drawUI_Conditions takes nothing returns boolean
 	
 	// 创建属性开启按钮背景
 	set zwidget[12] = Frame.newImage1(GUI, "ReplaceableTextures\\CommandButtons\\BTNesc.blp", 0.021, 0.028)
-	call zwidget[12].setPoint(1, Frame.getFrame(DzFrameGetHeroBarButton(3)), 7, 0.0, - 0.003)
+	call zwidget[12].setPoint(1, Frame.getFrame(DzFrameGetHeroBarButton(3)), 7, 0.0, - 0.004)
 	call zwidget[12].setAlpha(255)
 	
 	// 创建属性介绍
@@ -812,6 +812,7 @@ endfunction
 function initUI takes nothing returns nothing
 	local trigger t = CreateTrigger()
 	local integer i = 1
+	local integer id = 0
 	
 	call TriggerRegisterTimerEventSingle(t, 1.)
 	call TriggerAddCondition(t, Condition(function drawUI_Conditions))
@@ -851,5 +852,18 @@ function initUI takes nothing returns nothing
 		set i = i + 1
 	endloop
 	call TriggerAddAction(t, function toggleUI)
+
+
+	// 去掉小地图旁边的按钮
+	set i = 0
+	loop
+		exitwhen i > 4
+		set id = DzFrameGetMinimapButton(i)
+		call DzFrameClearAllPoints(id)
+		call DzFrameSetPoint(id, CENTER, DzGetGameUI(), CENTER, 0.8, 0.6)
+		set i = i + 1
+	endloop
+	
+
 	set t = null
 endfunction
