@@ -1576,15 +1576,13 @@ function showDamageWithEffects takes unit u, real damage, boolean critical retur
 		loop
 			exitwhen j > StringLength(damageStr)
 			// call BJDebugMsg("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx")
-			set eff = AddSpecialEffect("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx", GetUnitX(u) + 32 * (j - 1), GetUnitY(u))
-			call EXSetEffectSize(eff, 1.38)
+			set eff = AddSpecialEffect("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx", GetUnitX(u) + 32 / 1.38 * (j - 1), GetUnitY(u))
 			call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
 			call DestroyEffect(eff)
 			set j = j + 1
 		endloop
 		if critical then
-			set eff = AddSpecialEffect("war3mapImported\\SHZT11-10.mdx", GetUnitX(u) - 37, GetUnitY(u))
-			call EXSetEffectSize(eff, 1.38)
+			set eff = AddSpecialEffect("war3mapImported\\SHZT11-10.mdx", GetUnitX(u) - 37/1.38, GetUnitY(u))
 			call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
 			call DestroyEffect(eff)
 		endif
@@ -1598,8 +1596,8 @@ function WuGongShangHai takes unit u, unit uc, real shanghai returns nothing
 	local effect eff = null
 	local location loc = GetUnitLoc(uc)
 	if shanghai == 0 then
-		set eff = AddSpecialEffect("war3mapImported\\SHZT-MISS.mdx", GetUnitX(uc) - 64, GetUnitY(uc))
-		call EXSetEffectSize(eff, 1.38)
+		set eff = AddSpecialEffect("war3mapImported\\SHZT-MISS.mdx", GetUnitX(uc) - 64/1.38, GetUnitY(uc))
+		// call EXSetEffectSize(eff, 1.38)
 		call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
 		call DestroyEffect(eff)
 		// call CreateTextTagUnitBJ("MISS",uc,0.,11.,255.,0.,0.,30.)
