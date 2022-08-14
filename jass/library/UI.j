@@ -231,8 +231,8 @@ library FrameLibrary initializer init
 
 
     private function init takes nothing returns nothing
-        local integer f = DzFrameGetTooltip()
-        local real size = 0.75
+        // local integer f = DzFrameGetTooltip()
+        // local real size = 0.75
         set GUI = Frame.getFrame(DzGetGameUI())
 
         //call openBoardButton.setText("任务")
