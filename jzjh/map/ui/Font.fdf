@@ -96,8 +96,6 @@ IncludeFile "UI\FrameDef\Glue\BattleNetTemplates.fdf",
 		FrameFont "fonts.ttf", 0.025	, "",
 		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
 	}
-				Frame "BACKDROP" "WU" {
-
-	}
+				
 
 

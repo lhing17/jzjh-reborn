@@ -4,15 +4,15 @@ constant boolean LIBRARY_FrameLibrary=true
 //endglobals from FrameLibrary
 //globals from MaxSpeed:
 constant boolean LIBRARY_MaxSpeed=true
-constant boolean MaxSpeed___USE_TABLE= true
-constant boolean MaxSpeed___NEW_TABLE= true
+constant boolean MaxSpeed__USE_TABLE= true
+constant boolean MaxSpeed__NEW_TABLE= true
          // Vexorian's Table or Bribe's (NEW)
-constant boolean MaxSpeed___TEST_MODE= false
-constant real MaxSpeed___PERIOD= 0.03125
+constant boolean MaxSpeed__TEST_MODE= false
+constant real MaxSpeed__PERIOD= 0.03125
         //  private constant real MAX_SPEED = 2088.0
-constant real MaxSpeed___MAX_SPEED= 1400.0
+constant real MaxSpeed__MAX_SPEED= 1400.0
          // ÊúÄÂ§ßÈÄüÂ∫¶ÈôêÂÆöÔºåË∂ÖÂá∫ËßÜ‰∏∫‰º†ÈÄÅ„ÄÇ
-constant real MaxSpeed___MIN_SPEED= 500.0
+constant real MaxSpeed__MIN_SPEED= 500.0
          // Âà§ÂÆöÁöÑÊúÄÂ∞èË∑ùÁ¶ªÔºåÊ≠§È°πËøáÂ∞èÊàñÈÄüÂ∫¶ËøáÂ§ß‰ºö‰ΩøÂéüÂú∞ÊâìËΩ¨Âá†ÁéáÂ¢ûÂä†ÔºåË∂ÖÂá∫ÂàôÊ≤°ÊúâÂä†ÈÄüÊïàÊûú„ÄÇ
         // ÊµãËØïÊúÄÂ§ß‰∏∫500ÂàöÂá∫Â§¥Ôºå‰∏é522ËøòÊúâ‰∫õÂ∑ÆË∑ù
 //endglobals from MaxSpeed
@@ -209,7 +209,7 @@ constant boolean LIBRARY_YDWECreateEwsp=true
 //endglobals from YDWECreateEwsp
 //globals from YDWEJumpTimer:
 constant boolean LIBRARY_YDWEJumpTimer=true
-//ÔøΩÔøΩ‘æœµÕ≥ÔøΩÔøΩÔøΩ»ºÔøΩ
+//Ã¯‘æœµÕ≥”≈œ»º∂
 integer MoveMoreLevel_JumpTimer=3
 //endglobals from YDWEJumpTimer
 //globals from YDWELocalVariable:
@@ -218,8 +218,8 @@ constant boolean LIBRARY_YDWELocalVariable=true
 //globals from YDWEPreloadSL:
 constant boolean LIBRARY_YDWEPreloadSL=true
     ///
-    /// √øÔøΩÔøΩÔøΩÔøΩÔøΩ’ºÔøΩ√µƒø’ºÔøΩ[500*id, 500*(id-1))
-    /// ÔøΩ¬±ÔøΩ‘ΩÔøΩÔøΩ√ªÔøΩ–ΩÔøΩÔøΩ–ºÔøΩÈ£¨ÔøΩ∆∫ÔøΩ√ªÔøΩÔøΩÔøΩÔøΩÔøΩ“™ÔøΩÔøΩÀ≠“™ÔøΩÔøΩÔøΩ√≥ÔøΩÔøΩÔøΩ500...ÔøΩÔøΩ»•ÔøΩÔøΩÔøΩÔøΩ- -
+    /// √ø∏ˆÕÊº“’º”√µƒø’º‰[500*id, 500*(id-1))
+    /// œ¬±Í‘ΩΩÁ√ª”–Ω¯––ºÏ≤È£¨À∆∫ı√ª’‚∏ˆ±ÿ“™£¨À≠“™ «”√≥¨π˝500...æÕ»•À¿∞…- -
     /// 
 integer array YDWEPreloadSL__Code
 integer array YDWEPreloadSL__CodeHI
@@ -2908,8 +2908,8 @@ function s__ImageButton_create takes integer imageWidget,real l__w,real h return
              set s__ModSpeed_dy=s__ModSpeed_y - s__ModSpeed_lastY[this]
              set s__ModSpeed_lastX[this]=s__ModSpeed_x
              set s__ModSpeed_lastY[this]=s__ModSpeed_y
-             set s__ModSpeed_dist=SquareRoot(s__ModSpeed_dx * s__ModSpeed_dx + s__ModSpeed_dy * s__ModSpeed_dy) / MaxSpeed___PERIOD
-             if ( s__ModSpeed_dist >= MaxSpeed___MIN_SPEED and s__ModSpeed_dist <= MaxSpeed___MAX_SPEED ) then
+             set s__ModSpeed_dist=SquareRoot(s__ModSpeed_dx * s__ModSpeed_dx + s__ModSpeed_dy * s__ModSpeed_dy) / MaxSpeed__PERIOD
+             if ( s__ModSpeed_dist >= MaxSpeed__MIN_SPEED and s__ModSpeed_dist <= MaxSpeed__MAX_SPEED ) then
                  set s__ModSpeed_rate=( s__ModSpeed_speed[this] - 522. ) / s__ModSpeed_dist
                  set s__ModSpeed_lastX[this]=s__ModSpeed_x + s__ModSpeed_dx * s__ModSpeed_rate
                  set s__ModSpeed_lastY[this]=s__ModSpeed_y + s__ModSpeed_dy * s__ModSpeed_rate
@@ -2989,7 +2989,7 @@ function s__ImageButton_create takes integer imageWidget,real l__w,real h return
                      set s__ModSpeed_prev[(0)]=s__ModSpeed_prev[s__ModSpeed_prev[(0)]]
                  endif
                  if ( s__ModSpeed_next[(0)] == 0 ) then
-                     call TimerStart(s__ModSpeed_tm, MaxSpeed___PERIOD, true, function s__ModSpeed_iterate)
+                     call TimerStart(s__ModSpeed_tm, MaxSpeed__PERIOD, true, function s__ModSpeed_iterate)
 
 
 
@@ -3008,7 +3008,7 @@ function s__ImageButton_create takes integer imageWidget,real l__w,real h return
 
 
              endif
-             set amount=RMinBJ(amount, MaxSpeed___MAX_SPEED)
+             set amount=RMinBJ(amount, MaxSpeed__MAX_SPEED)
              set s__ModSpeed_lastX[this]=GetUnitX(u)
              set s__ModSpeed_lastY[this]=GetUnitY(u)
              set s__ModSpeed_speed[this]=amount
@@ -4990,7 +4990,7 @@ endfunction
 //library YDWETriggerEvent:
 	
 //===========================================================================  
-//ÔøΩÔøΩÔøΩ‚µ•ŒªÔøΩÀ∫ÔøΩÔøΩ¬ºÔøΩ 
+//»Œ“‚µ•Œª…À∫¶ ¬º˛ 
 //===========================================================================
 function YDWEAnyUnitDamagedTriggerAction takes nothing returns nothing
     local integer i= 0
@@ -5037,7 +5037,7 @@ function YDWESyStemAnyUnitDamagedRegistTrigger takes trigger trg returns nothing
     set YDWETriggerEvent__DamageEventNumber=YDWETriggerEvent__DamageEventNumber + 1
 endfunction
 //===========================================================================  
-//ÔøΩ∆∂ÔøΩÔøΩÔøΩ∆∑ÔøΩ¬ºÔøΩ 
+//“∆∂ØŒÔ∆∑ ¬º˛ 
 //===========================================================================  
 function YDWESyStemItemUnmovableTriggerAction takes nothing returns nothing
     local integer i= 0
@@ -5122,7 +5122,7 @@ endfunction
 //library Deputy ends
 //library YDWECreateEwsp:
 //===========================================================================
-//ÔøΩÔøΩÔøΩ∆ºÔøΩÔøΩÔøΩƒ£ÔøΩÔøΩ 
+//ª∑»∆ººƒ‹ƒ£∞Â 
 //===========================================================================
 function YDWECreateEwsp__Loop takes nothing returns nothing
     local timer t= GetExpiredTimer()
@@ -5704,8 +5704,8 @@ function YDWE_PreloadSL_GetMask takes player p returns integer
     return value - 'YDWE'
 endfunction
 ///
-/// ◊¢ÔøΩÔøΩ–ßÔøΩ ∂ÔøΩÔøΩÔøΩÔøΩ«∞ÔøΩ»´ÔøΩÔøΩÔøΩ∆∂ÔøΩÔøΩÔøΩÔøΩÔøΩÀµÔøΩÔøΩ»´ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ...
-/// ÔøΩÔøΩ“ªÔøΩÔøΩÔøΩ∆∂ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ
+/// ◊¢÷ÿ–ß¬ ∂¯≤ª «∞≤»´µƒ“∆∂Ø£¨ª∞Àµ∞≤»´”–“‚“Â¬...
+/// ¡Ì“ª∏ˆ“∆∂Ø∫Ø ˝µƒƒÊ‘ÀÀ„
 ///
 function YDWE_PreloadSL_Unmove takes integer beg,integer n,integer key returns nothing
     local integer value
@@ -5849,8 +5849,8 @@ function YDWE_PreloadSL_SetCode takes integer beg,integer n,integer key,integer 
     endloop
 endfunction
 ///
-/// ◊¢ÔøΩÔøΩ–ßÔøΩ ∂ÔøΩÔøΩÔøΩÔøΩ«∞ÔøΩ»´ÔøΩÔøΩÔøΩ∆∂ÔøΩÔøΩÔøΩÔøΩÔøΩÀµÔøΩÔøΩ»´ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ...
-/// ÔøΩ∆∂ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ‘≤ÔøΩ“™...
+/// ◊¢÷ÿ–ß¬ ∂¯≤ª «∞≤»´µƒ“∆∂Ø£¨ª∞Àµ∞≤»´”–“‚“Â¬...
+/// “∆∂Ø∫Ø ˝£¨…ı÷¡ø…“‘≤ª“™...
 ///
 function YDWE_PreloadSL_Move takes integer beg,integer n,integer key returns nothing
     local integer value
@@ -5894,8 +5894,8 @@ function YDWE_PreloadSL_Encode takes player p,integer n,integer mask returns not
     call YDWE_PreloadSL_Move(beg , n , key)
 endfunction 
 /// 
-/// Õ¨ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ
-/// Õ¨“ª ±ÔøΩ‰≤ª“™Õ¨ÔøΩÔøΩ“ªÔøΩÔøΩÔøΩÔøΩÔøΩœµÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ
+/// Õ¨≤ΩÕÊº“ ˝æ›
+/// Õ¨“ª ±º‰≤ª“™Õ¨≤Ω“ª∏ˆ“‘…œµƒÕÊº“ ˝æ›
 ///
 function YDWE_PreloadSL_Sync takes player p,integer n returns nothing
     local integer index
@@ -5976,7 +5976,7 @@ function GetLastCombinedItem takes nothing returns item
     return bj_lastCombinedItem
 endfunction
 //===========================================================================
-//ÔøΩÔøΩ∆∑ÔøΩœ≥ÔøΩ
+//ŒÔ∆∑∫œ≥…
 function YDWESyStemItemCombineTriggerAction takes nothing returns nothing
  local integer i= 0
     loop
@@ -5989,7 +5989,7 @@ function YDWESyStemItemCombineTriggerAction takes nothing returns nothing
 endfunction
 //GetLastMovedItemInItemSlot 
 //===========================================================================  
-//ÔøΩÔøΩ∆∑ÔøΩœ≥ÔøΩÔøΩ¬ºÔøΩ 
+//ŒÔ∆∑∫œ≥… ¬º˛ 
 //===========================================================================  
 function YDWESyStemItemCombineRegistTrigger takes trigger trg returns nothing
 	set YDWEStringFormula__ItemCombineEventQueue[YDWEStringFormula__ItemCombineEventNumber]=trg
@@ -6120,7 +6120,7 @@ endfunction
             set s__YDWEStringFormula__FormulaMatrix_segmLen[this]=lingth
             
             set s__YDWEStringFormula__FormulaMatrix_model[this]=null //"Abilities\\Spells\\Items\\AIam\\AIamTarget.mdl"
-set s__YDWEStringFormula__FormulaMatrix_message[this]=null //"|cff00ff00ÔøΩÔøΩœ≥ÔøΩÔøΩÀ£ÔøΩ|r" 
+set s__YDWEStringFormula__FormulaMatrix_message[this]=null //"|cff00ff00ƒ„∫œ≥…¡À£∫|r" 
 set s__YDWEStringFormula__FormulaMatrix_chance[this]=100
             set s__YDWEStringFormula__FormulaMatrix_delete[this]=false
             call SaveInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula__FormulaMatrix_Data)) )), StringHash(( (formStr) )), ( ( (this)))) // INLINED!!
@@ -6464,9 +6464,9 @@ endfunction
 //library YDWEStringFormula ends
 //library YDWETimerPattern:
 //***************************************************
-//* ÔøΩÔøΩ - Matrix ÔøΩÔøΩÔøΩÔøΩƒ£ÔøΩÂ∫ØÔøΩÔøΩ
+//* °∆ - Matrix ÕÚƒ‹ƒ£∞Â∫Ø ˝
 //*--------------------
-//* ÔøΩÔøΩÔøΩﬂ£ÔøΩWarft_TigerCN  ÔøΩÔøΩÔøΩÔøΩÔøΩ≈ªÔøΩÔøΩÔøΩFetrix_sai
+//* ◊˜’ﬂ£∫Warft_TigerCN  ¥˙¬Î”≈ªØ£∫Fetrix_sai
 //***************************************************
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //                                       Timer Pattern Union                                              //
@@ -6843,7 +6843,7 @@ function YDWETimerSystem__DeleteTaskIndex takes integer index returns nothing
 	set YDWETimerSystem__TaskListIdle[index]=YDWETimerSystem__TaskListIdleHead
 	set YDWETimerSystem__TaskListIdleHead=index
 endfunction
-//ÔøΩ√∫ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ–¥ÔøΩÔøΩÔøΩ
+//∏√∫Ø ˝–Ú¡–¥¶¿Ì
 function YDWETimerSystem__NewTask takes real time,trigger proc returns integer
  local integer index= YDWETimerSystem__NewTaskIndex()
  local integer h= YDWETimerSystem__TaskListHead
@@ -6869,7 +6869,7 @@ endfunction
 function YDWETimerSystemGetCurrentTask takes nothing returns integer
 	return YDWETimerSystem__CurrentIndex
 endfunction
-//…æÔøΩÔøΩÔøΩÔøΩŒª
+//…æ≥˝µ•Œª
 function YDWETimerSystem__RemoveUnit_CallBack takes nothing returns nothing
     call RemoveUnit(LoadUnitHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex))
     call RemoveSavedHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex)
@@ -6877,7 +6877,7 @@ endfunction
 function YDWETimerRemoveUnit takes real time,unit u returns nothing
     call SaveUnitHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__NewTask(time , YDWETimerSystem__fnRemoveUnit), u)
 endfunction
-//ÔøΩ›ªŸºÔøΩ ±ÔøΩÔøΩ
+//¥›ªŸº∆ ±∆˜
 function YDWETimerSystem__DestroyTimer_CallBack takes nothing returns nothing
     call DestroyTimer(LoadTimerHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex))
     call RemoveSavedHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex)
@@ -6885,7 +6885,7 @@ endfunction
 function YDWETimerDestroyTimer takes real time,timer t returns nothing
     call SaveTimerHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__NewTask(time , YDWETimerSystem__fnDestroyTimer), t)
 endfunction
-//…æÔøΩÔøΩÔøΩÔøΩ∆∑
+//…æ≥˝ŒÔ∆∑
 function YDWETimerSystem__RemoveItem_CallBack takes nothing returns nothing
     call RemoveItem(LoadItemHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex))
     call RemoveSavedHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex)
@@ -6893,7 +6893,7 @@ endfunction
 function YDWETimerRemoveItem takes real time,item it returns nothing
     call SaveItemHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__NewTask(time , YDWETimerSystem__fnRemoveItem), it)
 endfunction
-//…æÔøΩÔøΩÔøΩÔøΩ–ß
+//…æ≥˝Ãÿ–ß
 function YDWETimerSystem__DestroyEffect_CallBack takes nothing returns nothing
     call DestroyEffect(LoadEffectHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex))
     call RemoveSavedHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex)
@@ -6901,7 +6901,7 @@ endfunction
 function YDWETimerDestroyEffect takes real time,effect e returns nothing
     call SaveEffectHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__NewTask(time , YDWETimerSystem__fnDestroyEffect), e)
 endfunction
-//…æÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ–ß
+//…æ≥˝…¡µÁÃÿ–ß
 function YDWETimerSystem__DestroyLightning_CallBack takes nothing returns nothing
     call DestroyLightning(LoadLightningHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex))
     call RemoveSavedHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex)
@@ -6910,7 +6910,7 @@ function YDWETimerDestroyLightning takes real time,lightning lt returns nothing
  local integer i= YDWETimerSystem__NewTask(time , YDWETimerSystem__fnDestroyLightning)
     call SaveLightningHandle(YDHT, YDWETimerSystem__TimerHandle, i, lt)
 endfunction
-//ÔøΩÔøΩÔøΩ–¥ÔøΩÔøΩÔøΩÔøΩÔøΩ
+//‘À––¥•∑¢∆˜
 function YDWETimerSystem__RunTrigger_CallBack takes nothing returns nothing
     call TriggerExecute(LoadTriggerHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex))
     call RemoveSavedHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex)
@@ -6918,7 +6918,7 @@ endfunction
 function YDWETimerRunTrigger takes real time,trigger trg returns nothing
     call SaveTriggerHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__NewTask(time , YDWETimerSystem__fnRunTrigger), trg)
 endfunction
-//…æÔøΩÔøΩ∆ØÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ
+//…æ≥˝∆Ø∏°Œƒ◊÷
 function YDWETimerDestroyTextTag takes real time,texttag tt returns nothing
     local integer N=0
     local integer i=0
@@ -6929,7 +6929,7 @@ function YDWETimerDestroyTextTag takes real time,texttag tt returns nothing
     call SetTextTagLifespan(tt, time)
     call SetTextTagFadepoint(tt, time)
 endfunction
-//ÔøΩÔøΩÔøΩƒºÔøΩ ±ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ
+//÷––ƒº∆ ±∆˜÷˜∫Ø ˝
 function YDWETimerSystem__Main takes nothing returns nothing
  local integer h= YDWETimerSystem__TaskListHead
  local integer p
@@ -6943,7 +6943,7 @@ function YDWETimerSystem__Main takes nothing returns nothing
 	endloop
 	set YDWETimerSystem__CurrentTime=YDWETimerSystem__CurrentTime + 1
 endfunction
-//ÔøΩÔøΩ ºÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ
+//≥ı ºªØ∫Ø ˝
 function YDWETimerSystem__Init takes nothing returns nothing
     set YDWETimerSystem__Timer=CreateTimer()
 	set YDWETimerSystem__TimerHandle=GetHandleId(YDWETimerSystem__Timer)
@@ -6969,7 +6969,7 @@ function YDWETimerSystem__Init takes nothing returns nothing
 	
     call TimerStart(YDWETimerSystem__Timer, 0.01, true, function YDWETimerSystem__Main)
 endfunction
-//—≠ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ√∂ÔøΩÔøΩÔøΩÔøΩÔøΩ ±ÔøΩÔøΩ
+//—≠ª∑¿‡»‘”√∂¿¡¢º∆ ±∆˜
 function YDWETimerSystemGetRunIndex takes nothing returns integer
     return YDWETimerSystem__TimerSystem_RunIndex
 endfunction
@@ -7225,7 +7225,7 @@ endfunction
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Fri Aug 12 12:13:33 2022
+//   Date: Sun Aug 14 10:20:24 2022
 //   Map Author: ‰∫ëÊù® zei_kale
 // 
 //===========================================================================
@@ -9187,15 +9187,13 @@ function showDamageWithEffects takes unit u,real damage,boolean critical returns
 		loop
 			exitwhen j > StringLength(damageStr)
 			// call BJDebugMsg("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx")
-			set eff=AddSpecialEffect("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx", GetUnitX(u) + 32 * ( j - 1 ), GetUnitY(u))
-			call EXSetEffectSize(eff, 1.38)
+			set eff=AddSpecialEffect("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx", GetUnitX(u) + 32 / 1.38 * ( j - 1 ), GetUnitY(u))
 			call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
 			call DestroyEffect(eff)
 			set j=j + 1
 		endloop
 		if critical then
-			set eff=AddSpecialEffect("war3mapImported\\SHZT11-10.mdx", GetUnitX(u) - 37, GetUnitY(u))
-			call EXSetEffectSize(eff, 1.38)
+			set eff=AddSpecialEffect("war3mapImported\\SHZT11-10.mdx", GetUnitX(u) - 37 / 1.38, GetUnitY(u))
 			call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
 			call DestroyEffect(eff)
 		endif
@@ -9208,8 +9206,8 @@ function WuGongShangHai takes unit u,unit uc,real shanghai returns nothing
  local effect eff= null
  local location loc= GetUnitLoc(uc)
 	if shanghai == 0 then
-		set eff=AddSpecialEffect("war3mapImported\\SHZT-MISS.mdx", GetUnitX(uc) - 64, GetUnitY(uc))
-		call EXSetEffectSize(eff, 1.38)
+		set eff=AddSpecialEffect("war3mapImported\\SHZT-MISS.mdx", GetUnitX(uc) - 64 / 1.38, GetUnitY(uc))
+		// call EXSetEffectSize(eff, 1.38)
 		call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
 		call DestroyEffect(eff)
 		// call CreateTextTagUnitBJ("MISS",uc,0.,11.,255.,0.,0.,30.)
@@ -13331,6 +13329,8 @@ function HeroLevel takes nothing returns nothing
 		loop
 			exitwhen d8[i] > DENOMINATION_NUMBER //Èó®Ê¥æÊï∞
 if ( udg_runamen[i] == d8[i] ) then
+				// ÈÄÅ‰∏ÄÊú¨‰∏≠ÂéüÊ≠¶Â≠¶Êï£ÁØá
+				call UnitAddItemById(u, 'I0F2')
 				// Ëá™Áî±3Á∫ßËá™Âä®Â≠¶ÊäÄËÉΩbegin
 				if d8[i] == 11 then
 					if GetRandomInt(1, 100) <= 50 then
@@ -16644,8 +16644,36 @@ endfunction
 function ha takes nothing returns nothing
 	call ForGroup(w7, function ga)
 endfunction
+function onUpdate takes nothing returns nothing
+	call SavePlayerHandle(YDLOC, 0x4481DC09, 0xBAB343BB, GetLocalPlayer())
+	call SetCameraFieldForPlayer(LoadPlayerHandle(YDLOC, 0x4481DC09, 0xBAB343BB), CAMERA_FIELD_TARGET_DISTANCE, I2R(LoadInteger(YDHT, GetHandleId(Player(0)), 0xA816E128)), 0.00)
+	call SetCameraFieldForPlayer(LoadPlayerHandle(YDLOC, 0x4481DC09, 0xBAB343BB), CAMERA_FIELD_ANGLE_OF_ATTACK, 304.00, 0.00)
+	// call SaveReal(YDLOC, 0x4481DC09, 0xED01DBD2, (I2R(( DzGetMouseX() - DzGetWindowX() )) / ( I2R(DzGetWindowWidth()) / 0.80 ))) // INLINED!!
+	// call SaveReal(YDLOC, 0x4481DC09, 0x8EBA3885, (I2R(( ( DzGetWindowHeight() + DzGetWindowY() ) - DzGetMouseY() )) / ( I2R(DzGetWindowHeight()) / 0.60 ))) // INLINED!!
+endfunction
+function changeCameraDistance takes nothing returns nothing
+	call SavePlayerHandle(YDLOC, 0x4F134CEC, 0xBAB343BB, DzGetTriggerKeyPlayer())
+	if ( ( DzGetWheelDelta() > 0 ) ) then
+		if ( ( LoadInteger(YDHT, GetHandleId(Player(0)), 0xA816E128) > 400 ) ) then
+			call SaveInteger(YDHT, GetHandleId(Player(0)), 0xA816E128, ( LoadInteger(YDHT, GetHandleId(Player(0)), 0xA816E128) - 100 ))
+		else
+		endif
+	else
+		if ( ( LoadInteger(YDHT, GetHandleId(Player(0)), 0xA816E128) < 3500 ) ) then
+			call SaveInteger(YDHT, GetHandleId(Player(0)), 0xA816E128, ( LoadInteger(YDHT, GetHandleId(Player(0)), 0xA816E128) + 100 ))
+		else
+		endif
+	endif
+endfunction
+function registerWheelEvent takes nothing returns nothing
+	if GetLocalPlayer() == GetLocalPlayer() then
+		call DzFrameSetUpdateCallbackByCode(function onUpdate)
+		call DzTriggerRegisterMouseWheelEventByCode(null, false, function changeCameraDistance)
+	endif
+endfunction
 function GameDetail_Trigger takes nothing returns nothing
  local trigger t= CreateTrigger()
+ local timer tm= CreateTimer()
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_ISSUED_TARGET_ORDER)
 	call TriggerAddCondition(t, Condition(function uuxx))
@@ -16663,6 +16691,9 @@ function GameDetail_Trigger takes nothing returns nothing
 	set Qh=CreateTrigger()
 	call TriggerRegisterTimerEventSingle(Qh, .0)
 	call TriggerAddAction(Qh, function Ax)
+	// ‰∏∫Êú¨Âú∞Áé©ÂÆ∂Ê≥®ÂÜåÊªöËΩÆ‰∫ã‰ª∂ÔºàÊªöËΩÆÁº©ÊîæËßÜËßíÔºâ
+	call TimerStart(tm, 0.05, false, function registerWheelEvent)
+	set tm=null
 	set t=null
 endfunction
 //---------------------------------
@@ -26368,7 +26399,7 @@ function sonOfMonkey takes nothing returns nothing
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 20, "|cfffff000Áé©ÂÆ∂" + GetPlayerName(p) + "ÁöÑÊÇüÁ©∫ÂèëÂä®‰∫Ü|CFF00EE00Áå¥Â≠êÁå¥Â≠ô|rÊäÄËÉΩÔºå|CFF00EE00ÂÆàÂÆ∂ÁßØÂàÜ|rÂ¢ûÂä†100ÁÇπ|r")
 	endif
 	loop
-	exitwhen i > imax
+		exitwhen i > imax
 		set l__ut=CreateUnit(p, 'n00X', - 768. + GetRandomReal(- 100, 100), - 768. + GetRandomReal(- 100, 100), 270.)
 		call IssueTargetOrderById(l__ut, $D0038, udg_ZhengPaiWL)
 		set i=i + 1
@@ -26386,26 +26417,32 @@ function doPickup takes nothing returns nothing
 	call UnitAddItem(pickingUnit, GetEnumItem())
 endfunction
 function fastPickup takes nothing returns nothing
-    local rect r= null
-    set pickingUnit=GetTriggerUnit()
-    set r=Rect(GetUnitX(pickingUnit) - 300, GetUnitY(pickingUnit) - 300, GetUnitX(pickingUnit) + 300, GetUnitY(pickingUnit) + 300)
-    call EnumItemsInRect(r, null, function doPickup)
-    call RemoveRect(r)
-    set r=null
+ local rect r= null
+	set pickingUnit=GetTriggerUnit()
+	set r=Rect(GetUnitX(pickingUnit) - 300, GetUnitY(pickingUnit) - 300, GetUnitX(pickingUnit) + 300, GetUnitY(pickingUnit) + 300)
+	call EnumItemsInRect(r, null, function doPickup)
+	call RemoveRect(r)
+	set r=null
 endfunction
 // ‰∏ÄÈîÆ‰∏¢ÂºÉ
 function isFastDrop takes nothing returns boolean
-    return GetSpellAbilityId() == 'A0EC'
+	return GetSpellAbilityId() == 'A0EC'
 endfunction
 function fastDrop takes nothing returns nothing
-    local unit u= GetTriggerUnit()
-    local integer i=0
-    loop
-        exitwhen i >= 6
-            call UnitRemoveItemFromSlot(u, i)
-        set i=i + 1
-    endloop
-    set u=null
+ local unit u= GetTriggerUnit()
+ local integer i= 0
+	loop
+		exitwhen i >= 6
+		call UnitRemoveItemFromSlot(u, i)
+		set i=i + 1
+	endloop
+	set u=null
+endfunction
+function isPetMove takes nothing returns boolean
+	return ( GetIssuedOrderId() == $D0012 or GetIssuedOrderId() == $D0003 ) and ( GetUnitTypeId(GetTriggerUnit()) == 'n00W' or GetUnitTypeId(GetTriggerUnit()) == 'n00V' or GetUnitTypeId(GetTriggerUnit()) == 'nvul' )
+endfunction
+function petMove takes nothing returns nothing
+	call IssuePointOrderById(GetTriggerUnit(), $D022D, GetOrderPointX(), GetOrderPointY())
 endfunction
 function initPetSkill takes nothing returns nothing
  local trigger t= CreateTrigger()
@@ -26422,6 +26459,10 @@ function initPetSkill takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(t, Condition(function isFastDrop))
 	call TriggerAddAction(t, function fastDrop)
+	set t=CreateTrigger()
+	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_ISSUED_POINT_ORDER)
+	call TriggerAddCondition(t, Condition(function isPetMove))
+	call TriggerAddAction(t, function petMove)
 	
 	set t=null
 endfunction
@@ -26772,15 +26813,15 @@ function drawUI_Conditions takes nothing returns boolean
 	call DzFrameSetSize(fm2, 0.01, 0.01)
 	call DzFrameSetSize(fm3, 0.01, 0.01)
 	
-	call DzFrameSetPoint(ff1, 0, ff0, 6, 0, - 0.003)
-	call DzFrameSetPoint(ff2, 1, ff1, 7, 0, - 0.003)
-	call DzFrameSetPoint(ff3, 1, ff2, 7, 0, - 0.003)
-	call DzFrameSetPoint(fh1, 6, DzGetGameUI(), 8, .1, .22)
-	call DzFrameSetPoint(fh2, 6, DzGetGameUI(), 8, .1, .22)
-	call DzFrameSetPoint(fh3, 6, DzGetGameUI(), 8, .1, .22)
-	call DzFrameSetPoint(fm1, 6, DzGetGameUI(), 8, .1, .22)
-	call DzFrameSetPoint(fm2, 6, DzGetGameUI(), 8, .1, .22)
-	call DzFrameSetPoint(fm3, 6, DzGetGameUI(), 8, .1, .22)
+	call DzFrameSetPoint(ff1, LEFT, DzFrameGetMinimap(), TOPRIGHT, 0.008, - 0.001)
+	call DzFrameSetPoint(ff2, 1, ff1, 7, 0, - 0.004)
+	call DzFrameSetPoint(ff3, 1, ff2, 7, 0, - 0.004)
+	call DzFrameSetPoint(fh1, 6, DzGetGameUI(), 8, .8, .6)
+	call DzFrameSetPoint(fh2, 6, DzGetGameUI(), 8, .8, .6)
+	call DzFrameSetPoint(fh3, 6, DzGetGameUI(), 8, .8, .6)
+	call DzFrameSetPoint(fm1, 6, DzGetGameUI(), 8, .8, .6)
+	call DzFrameSetPoint(fm2, 6, DzGetGameUI(), 8, .8, .6)
+	call DzFrameSetPoint(fm3, 6, DzGetGameUI(), 8, .8, .6)
 	
 	call DzLoadToc("ui\\custom.toc")
 	// Â∏ÆÂä©ÊåâÈíÆ
@@ -26936,7 +26977,7 @@ function drawUI_Conditions takes nothing returns boolean
 	
 	// ÂàõÂª∫Â±ûÊÄßÂºÄÂêØÊåâÈíÆËÉåÊôØ
 	set zwidget[12]=s__Frame_newImage1(GUI , "ReplaceableTextures\\CommandButtons\\BTNesc.blp" , 0.021 , 0.028)
-	call DzFrameSetPoint(s__Frame_id[(zwidget[12])], (1 ), s__Frame_id[( s__Frame_getFrame(DzFrameGetHeroBarButton(3)) )], ( 7 ), (( 0.0 )*1.0), (( - 0.003)*1.0)) // INLINED!!
+	call DzFrameSetPoint(s__Frame_id[(zwidget[12])], (1 ), s__Frame_id[( s__Frame_getFrame(DzFrameGetHeroBarButton(3)) )], ( 7 ), (( 0.0 )*1.0), (( - 0.004)*1.0)) // INLINED!!
 	call DzFrameSetAlpha(s__Frame_id[(zwidget[12])], (255)) // INLINED!!
 	
 	// ÂàõÂª∫Â±ûÊÄß‰ªãÁªç
@@ -27059,7 +27100,7 @@ function drawUI_Conditions takes nothing returns boolean
 	call DzFrameSetTextColor(s__Frame_id[(zwidget[1008])], DzGetColor(255, (0 ), ( 0 ), ( 0))) // INLINED!!
 	
 	set bibo_image=s__Frame_newImage1(GUI , "ReplaceableTextures\\CommandButtons\\PASBTNbibodian.blp" , 0.02 , 0.02)
-	call DzFrameSetPoint(s__Frame_id[(bibo_image)], (1 ), s__Frame_id[( zwidget[12] )], ( 7 ), (( 0.04 )*1.0), (( - 0.22)*1.0)) // INLINED!!
+	call DzFrameSetPoint(s__Frame_id[(bibo_image)], (BOTTOMLEFT ), s__Frame_id[( s__Frame_getFrame(DzFrameGetMinimap()) )], ( TOPLEFT ), (( 0.055 )*1.0), (( 0.005)*1.0)) // INLINED!!
 	call DzFrameSetAlpha(s__Frame_id[(bibo_image)], (255)) // INLINED!!
 	call s__Frame_hide(bibo_image)
 	
@@ -27068,7 +27109,7 @@ function drawUI_Conditions takes nothing returns boolean
 	call DzFrameSetTextColor(s__Frame_id[(bibo_text)], DzGetColor(255, (255 ), ( 255 ), ( 0))) // INLINED!!
 	
 	set qimen_widget=s__Frame_newImage1(GUI , "war3mapImported\\qm_sh.tga" , 0.04 , 0.02)
-	call DzFrameSetPoint(s__Frame_id[(qimen_widget)], (TOPLEFT ), s__Frame_id[( zwidget[12] )], ( BOTTOM ), (( 0.065 )*1.0), (( - 0.22)*1.0)) // INLINED!!
+	call DzFrameSetPoint(s__Frame_id[(qimen_widget)], (TOPLEFT ), s__Frame_id[( s__Frame_getFrame(DzFrameGetMinimap()) )], ( BOTTOM ), (( 0.08 )*1.0), (( 0.005)*1.0)) // INLINED!!
 	call s__Frame_hide(qimen_widget)
 	
 	set qimen_button=s__Frame_newTextButton(qimen_widget)
@@ -27115,6 +27156,7 @@ endfunction
 function initUI takes nothing returns nothing
  local trigger t= CreateTrigger()
  local integer i= 1
+ local integer id= 0
 	
 	call TriggerRegisterTimerEventSingle(t, 1.)
 	call TriggerAddCondition(t, Condition(function drawUI_Conditions))
@@ -27147,6 +27189,16 @@ function initUI takes nothing returns nothing
 		set i=i + 1
 	endloop
 	call TriggerAddAction(t, function toggleUI)
+	// ÂéªÊéâÂ∞èÂú∞ÂõæÊóÅËæπÁöÑÊåâÈíÆ
+	set i=0
+	loop
+		exitwhen i > 4
+		set id=DzFrameGetMinimapButton(i)
+		call DzFrameClearAllPoints(id)
+		call DzFrameSetPoint(id, CENTER, DzGetGameUI(), CENTER, 0.8, 0.6)
+		set i=i + 1
+	endloop
+	
 	set t=null
 endfunction
 //-------ÂêÑÁßç‰∏πËçØÂºÄÂßã-------//
@@ -53229,7 +53281,8 @@ function Zw takes nothing returns nothing
 	call SetPlayerHandicapXP(Player(2), .43)
 	call SetPlayerHandicapXP(Player(3), .43)
 	call SetPlayerHandicapXP(Player(4), .43)
-	call SetCameraField(CAMERA_FIELD_TARGET_DISTANCE, 1800., .0)
+	call SetCameraField(CAMERA_FIELD_TARGET_DISTANCE, 2200., .0)
+	call SaveInteger(YDHT, GetHandleId(Player(0)), 0xA816E128, 2200)
 	call PlayMusicBJ(xh)
 	set K4[1]=Ls
 	set K4[2]=Qs
@@ -55425,7 +55478,7 @@ function main takes nothing returns nothing
     call CreateAllUnits()
     call InitBlizzard()
 
-call ExecuteFunc("jasshelper__initstructs186243171")
+call ExecuteFunc("jasshelper__initstructs134428890")
 call ExecuteFunc("FrameLibrary__init")
 call ExecuteFunc("UniMissileSystem3D__Init")
 call ExecuteFunc("YDTriggerSaveLoadSystem__Init")
@@ -55470,22 +55523,22 @@ function config takes nothing returns nothing
     call InitAllyPriorities()
 endfunction
 //===========================================================================
-//ÔøΩÔøΩ‘æœµÕ≥ 
-//===========================================================================
-     
- 
-                 
-//===========================================================================
 //‰øÆÊîπÁîüÂëΩ
 //===========================================================================
 //===========================================================================  
 //===========================================================================  
-//ÔøΩ‘∂ÔøΩÔøΩÔøΩÔøΩ¬ºÔøΩ 
+//◊‘∂®“Â ¬º˛ 
 //===========================================================================
 //===========================================================================   
 //===========================================================================
+//Ã¯‘æœµÕ≥ 
+//===========================================================================
+//===========================================================================
 //œµÕ≥-TimerSystem
 //===========================================================================
+     
+ 
+                 
 
 
 
@@ -55626,7 +55679,7 @@ function sa___prototype4_SetUnitMoveSpeedEx takes nothing returns boolean
     return true
 endfunction
 
-function jasshelper__initstructs186243171 takes nothing returns nothing
+function jasshelper__initstructs134428890 takes nothing returns nothing
     set st__Frame_onDestroy=CreateTrigger()
     call TriggerAddCondition(st__Frame_onDestroy,Condition( function sa__Frame_onDestroy))
     set st__ShopWeapon_onDestroy=CreateTrigger()
@@ -55657,7 +55710,7 @@ function jasshelper__initstructs186243171 takes nothing returns nothing
 
 
 
-call ExecuteFunc("s__ModSpeed_Init__onInit")
+call ExecuteFunc("s__ModSpeed_Init___onInit")
 
 
 
