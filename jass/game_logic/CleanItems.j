@@ -39,13 +39,13 @@ function isNotBook takes nothing returns boolean
         set j = j + 1
     endloop
     set j = 1
-    loop
-        exitwhen j > 15
-        if id == udg_qiwu[j] then
-            return false
-        endif
-        set j = j + 1
-    endloop
+    // loop
+    //     exitwhen j > 15
+    //     if id == udg_qiwu[j] then
+    //         return false
+    //     endif
+    //     set j = j + 1
+    // endloop
     return true
 endfunction
 
@@ -59,7 +59,7 @@ function cleanItemActions takes nothing returns nothing
     local integer i = 1 + GetPlayerId(p)
     if s == "-clean" or s == "-clear" then
         if not readyToClear[i] then
-            call DisplayTextToPlayer(p, 0, 0, "|cffff0000请确保地图上没有有用的物品(武功书不会被清理)，然后再次输入-clean或-clear")
+            call DisplayTextToPlayer(p, 0, 0, "|cffff0000请确保地图上没有有用的物品(除奇武外的武功书不会被清理)，然后再次输入-clean或-clear")
             set readyToClear[i] = true
         else
             call EnumItemsInRect(bj_mapInitialPlayableArea, Condition(function isNotBook), function doCleanItems)
