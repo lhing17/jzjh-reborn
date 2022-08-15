@@ -3,6 +3,7 @@
 #include "library/YDWEBitwise.j"
 #include "library/DzAPI.j"
 #include "library/UI.j"
+// #include "library/ShowEffect.j"
 #include "library/common_func.j"
 #include "game_logic/LevelUp.j"
 #include "library/buff.j"
@@ -175,6 +176,7 @@ globals
 	boolean udg_sutong = false
 	boolean taohuakai=false
 	boolean array showDamage
+	boolean array showEffect
 	dialog udg_index=null
 	button udg_index0=null
 	button udg_index1=null
@@ -2170,6 +2172,7 @@ function main1 takes nothing returns nothing
 		set udg_wuqishu[i]=0
 		set udg_yifushu[i]=0
 		set showDamage[i] = true
+		set showEffect[i] = true
 		set i=i+1
 	endloop
 

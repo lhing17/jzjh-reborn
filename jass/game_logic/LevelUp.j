@@ -455,7 +455,7 @@ function determineQuanZhenTitle takes unit u returns nothing
 		if GetUnitAbilityLevel(u, 'A017') >= 1 and GetUnitAbilityLevel(u, 'A07U') >= 1 and GetUnitAbilityLevel(u, 'A0D1') >= 1 and not isTitle(i, 13) then
 			call ModifyHeroStat(1, u, 0, 360)
 			call SetUnitAbilityLevel(u, 'A017', 9)
-			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：老顽童，内力增加了360点，武功" + GetObjectName('A017') + "提升到9重")
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：老顽童，内力增加了360点，武功" + GetObjectName('A017') + "提升到9重，学习双手互搏后攻击时几率刷新所有武功CD")
 			call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A017' * 5, GetUnitAbilityLevel(u, 'A017'))
 			call SetPlayerName(p, "〓老顽童〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 			call setTitleNumber(i, 13)
@@ -465,7 +465,7 @@ function determineQuanZhenTitle takes unit u returns nothing
 			call ModifyHeroStat(1, u, 0, 300)
 			call ModifyHeroStat(2, u, 0, 300)
 			call SetUnitAbilityLevel(u, 'A0CH', 9)
-			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：中神通，招式伤害增加了300点，内力增加了300点，真实伤害增加了300点，武功" + GetObjectName('A0CH') + "提升到9重，学习双手互搏后攻击时几率刷新所有武功CD")
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：中神通，招式伤害增加了300点，内力增加了300点，真实伤害增加了300点，武功" + GetObjectName('A0CH') + "提升到9重")
 			call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A0CH' * 5, GetUnitAbilityLevel(u, 'A0CH'))
 			call SetPlayerName(p, "〓中神通〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 			call setTitleNumber(i, 14)
