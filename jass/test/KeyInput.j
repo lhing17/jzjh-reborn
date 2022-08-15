@@ -357,6 +357,14 @@ function KeyInput takes nothing returns nothing
 		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF决战江湖1.6.55版本")
 	endif
 
+	if s == "hd" then
+		set showDamage[i] = false
+	endif
+
+	if s == "sd" then
+		set showDamage[i] = true
+	endif
+
 	if s == "cx" or s == "CX" then
 		call DisplayTimedTextToPlayer(Player(pId), 0, 0, 10, "|cFFFF00CC" + "查询玩家:" + "|r" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 		call DisplayTimedTextToPlayer(Player(pId), 0, 0, 10, "|CFF1CE6B9系统提示：|r" + "|CFFFE890D" + "战斗力：" + I2S(udg_zdl[pId]))
@@ -365,6 +373,7 @@ function KeyInput takes nothing returns nothing
 		call DisplayTimedTextToPlayer(Player(pId), 0, 0, 10, "|CFF1CE6B9系统提示：|r" + "|CFFFE890D" + "通关次数：" + I2S(udg_success[pId]))
 		call DisplayTimedTextToPlayer(Player(pId), 0, 0, 10, "|CFF1CE6B9系统提示：|r" + "|CFFFE890D" + "伤害兑换：" + R2S(bonus_wugong[pId] * 100) + "%")
 		call DisplayTimedTextToPlayer(Player(pId), 0, 0, 10, "|CFF1CE6B9系统提示：|r" + "|CFFFE890D" + "最高伤害：" + R2S(max_damage[pId]))
+		call DisplayTimedTextToPlayer(Player(pId), 0, 0, 10, "|CFF1CE6B9系统提示：|r" + "|CFFFE890D" + "累计评分：" + I2S(DzAPI_Map_GetStoredInteger(Player(pId), "totalPoint")))
 		// 全门派通关查询
 		// call BJDebugMsg("原始单通数据："+singleSuccess[pId])
 		// call BJDebugMsg("原始多通数据："+manySuccess[pId])

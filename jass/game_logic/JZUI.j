@@ -4,6 +4,9 @@ globals
 
 	Frame array plusWidget
 	Frame array plusButton
+	
+	Frame array checkboxWidget
+	Frame array checkboxButton
 
 	Frame avatar
 	Frame avatarBack
@@ -408,6 +411,24 @@ function pressTab takes nothing returns nothing
 	endif
 endfunction
 
+function toggleShowDamage takes nothing returns nothing
+	local integer i = 1 + GetPlayerId(DzGetTriggerUIEventPlayer())
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call checkboxWidget[2].toggle()
+		call DzSyncData("showDmg", I2S(i))
+	endif
+endfunction
+
+function doToggleShowDamage takes nothing returns nothing
+	local integer i = S2I(DzGetTriggerSyncData())
+	set showDamage[i] = not showDamage[i]
+endfunction
+
+function toggleShowAbilityEffect takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call checkboxWidget[4].toggle()
+	endif
+endfunction
 
 function drawUI_Conditions takes nothing returns boolean
 	local integer index = 100
@@ -444,7 +465,7 @@ function drawUI_Conditions takes nothing returns boolean
 	call DzFrameSetSize(fm2, 0.01, 0.01)
 	call DzFrameSetSize(fm3, 0.01, 0.01)
 	
-	call DzFrameSetPoint(ff1, LEFT, DzFrameGetMinimap(), TOPRIGHT, 0.008, -0.001)
+	call DzFrameSetPoint(ff1, LEFT, DzFrameGetMinimap(), TOPRIGHT, 0.008, - 0.001)
 	call DzFrameSetPoint(ff2, 1, ff1, 7, 0, - 0.004)
 	call DzFrameSetPoint(ff3, 1, ff2, 7, 0, - 0.004)
 	call DzFrameSetPoint(fh1, 6, DzGetGameUI(), 8, .8, .6)
@@ -467,7 +488,7 @@ function drawUI_Conditions takes nothing returns boolean
 	call helpButton.regEvent(FRAME_MOUSE_LEAVE, function toggleHelpWidget)
 
 	set helpAttrWidget = Frame.newImage1(GUI, "war3mapImported\\help_attr.tga", 0.032, 0.04)
-	call helpAttrWidget.setPoint(CENTER, helpWidget, CENTER, -0.032, -0.04)
+	call helpAttrWidget.setPoint(CENTER, helpWidget, CENTER, - 0.032, - 0.04)
 	call helpAttrWidget.hide()
 
 	set helpAttrButton = Frame.newTextButton(helpAttrWidget)
@@ -477,7 +498,7 @@ function drawUI_Conditions takes nothing returns boolean
 	call helpAttrButton.regEvent(FRAME_MOUSE_LEAVE, function toggleHelpAttrWidget)
 
 	set helpCommandWidget = Frame.newImage1(GUI, "war3mapImported\\help_command.tga", 0.032, 0.04)
-	call helpCommandWidget.setPoint(CENTER, helpWidget, CENTER, 0.032, -0.04)
+	call helpCommandWidget.setPoint(CENTER, helpWidget, CENTER, 0.032, - 0.04)
 	call helpCommandWidget.hide()
 
 	set helpCommandButton = Frame.newTextButton(helpCommandWidget)
@@ -487,7 +508,7 @@ function drawUI_Conditions takes nothing returns boolean
 	call helpCommandButton.regEvent(FRAME_MOUSE_LEAVE, function toggleHelpCommandWidget)
 
 	set helpKungfuWidget = Frame.newImage1(GUI, "war3mapImported\\help_kungfu.tga", 0.032, 0.04)
-	call helpKungfuWidget.setPoint(CENTER, helpWidget, CENTER, 0, -0.04 * 1.414)
+	call helpKungfuWidget.setPoint(CENTER, helpWidget, CENTER, 0, - 0.04 * 1.414)
 	call helpKungfuWidget.hide()
 
 	set helpKungfuButton = Frame.newTextButton(helpKungfuWidget)
@@ -778,6 +799,28 @@ function drawUI_Conditions takes nothing returns boolean
 	
 	// 按TAB查看任务
 	//call DzTriggerRegisterKeyEventByCode(null, 9, 1, false, function pressTab)
+
+	// 右侧显示伤害和特效的复选框
+	set checkboxWidget[1] = Frame.newImage1(GUI, "war3mapImported\\damage_number.tga", 0.08, 0.02)
+	call checkboxWidget[1].setPoint(RIGHT, GUI, RIGHT, 0, - 0.06)
+
+	set checkboxWidget[2] = Frame.newImage1(GUI, "war3mapImported\\right.tga", 0.03, 0.02) // 对号
+	call checkboxWidget[2].setPoint(RIGHT, checkboxWidget[1], RIGHT, 0, 0)
+
+	set checkboxButton[1] = Frame.newTextButton(checkboxWidget[1])
+	call checkboxButton[1].setAllPoints(checkboxWidget[1])
+	call checkboxButton[1].regEvent(FRAME_EVENT_PRESSED, function toggleShowDamage)
+
+	set checkboxWidget[3] = Frame.newImage1(GUI, "war3mapImported\\ability_effect.tga", 0.08, 0.02)
+	call checkboxWidget[3].setPoint(RIGHT, GUI, RIGHT, 0, - 0.085)
+
+	set checkboxWidget[4] = Frame.newImage1(GUI, "war3mapImported\\right.tga", 0.03, 0.02) // 对号
+	call checkboxWidget[4].setPoint(RIGHT, checkboxWidget[3], RIGHT, 0, 0)
+
+	set checkboxButton[2] = Frame.newTextButton(checkboxWidget[3])
+	call checkboxButton[2].setAllPoints(checkboxWidget[3])
+	call checkboxButton[2].regEvent(FRAME_EVENT_PRESSED, function toggleShowAbilityEffect)
+
 	
 	return false
 endfunction
@@ -844,6 +887,10 @@ function initUI takes nothing returns nothing
 	set t = CreateTrigger()
 	call DzTriggerRegisterSyncData(t, "yishu", false)
 	call TriggerAddAction(t, function addYishu)
+
+	set t = CreateTrigger()
+	call DzTriggerRegisterSyncData(t, "showDamage", false)
+	call TriggerAddAction(t, function doToggleShowDamage)
 
 	set t = CreateTrigger()
 	loop

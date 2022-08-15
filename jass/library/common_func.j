@@ -1560,8 +1560,7 @@ function ShangHaiGongShi takes unit u, unit uc, real w1, real w2, real shxishu, 
 	return shanghai
 endfunction
 
-function showDamageWithEffects takes unit u, real damage, boolean critical returns nothing
-	local integer i = 1 + GetPlayerId(GetOwningPlayer(u))
+function showDamageWithEffects takes integer i, unit u, real damage, boolean critical returns nothing
 	local integer criticalInt = 2
 	local location loc = GetUnitLoc(u)
 	local string damageStr = ""
@@ -1571,20 +1570,22 @@ function showDamageWithEffects takes unit u, real damage, boolean critical retur
 		set criticalInt = 1
 	endif
 	if IsUnitEnemy(u, Player(0)) then
-		// 显示伤害
-		set damageStr = I2S(R2I(damage) + 1)
-		loop
-			exitwhen j > StringLength(damageStr)
-			// call BJDebugMsg("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx")
-			set eff = AddSpecialEffect("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx", GetUnitX(u) + 32 / 1.38 * (j - 1), GetUnitY(u))
-			call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
-			call DestroyEffect(eff)
-			set j = j + 1
-		endloop
-		if critical then
-			set eff = AddSpecialEffect("war3mapImported\\SHZT11-10.mdx", GetUnitX(u) - 37/1.38, GetUnitY(u))
-			call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
-			call DestroyEffect(eff)
+		if Player(i - 1) == GetLocalPlayer() and showDamage[i] then
+			// 显示伤害
+			set damageStr = I2S(R2I(damage) + 1)
+			loop
+				exitwhen j > StringLength(damageStr)
+				// call BJDebugMsg("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx")
+				set eff = AddSpecialEffect("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx", GetUnitX(u) + 32 / 1.38 * (j - 1), GetUnitY(u))
+				call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
+				call DestroyEffect(eff)
+				set j = j + 1
+			endloop
+			if critical then
+				set eff = AddSpecialEffect("war3mapImported\\SHZT11-10.mdx", GetUnitX(u) - 37 / 1.38, GetUnitY(u))
+				call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
+				call DestroyEffect(eff)
+			endif
 		endif
 	endif
 	call RemoveLocation(loc)
@@ -1596,7 +1597,7 @@ function WuGongShangHai takes unit u, unit uc, real shanghai returns nothing
 	local effect eff = null
 	local location loc = GetUnitLoc(uc)
 	if shanghai == 0 then
-		set eff = AddSpecialEffect("war3mapImported\\SHZT-MISS.mdx", GetUnitX(uc) - 64/1.38, GetUnitY(uc))
+		set eff = AddSpecialEffect("war3mapImported\\SHZT-MISS.mdx", GetUnitX(uc) - 64 / 1.38, GetUnitY(uc))
 		// call EXSetEffectSize(eff, 1.38)
 		call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
 		call DestroyEffect(eff)
@@ -1604,10 +1605,10 @@ function WuGongShangHai takes unit u, unit uc, real shanghai returns nothing
 	else
 		if GetRandomReal(0., 100.) <= 100. * udg_baojilv[1 + GetPlayerId(GetOwningPlayer(u))] then
 			call UnitDamageTarget(u, uc, udg_baojishanghai[1 + GetPlayerId(GetOwningPlayer(u))] * shanghai, true, false, ATTACK_TYPE_MAGIC, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
-			call showDamageWithEffects(uc, udg_baojishanghai[1 + GetPlayerId(GetOwningPlayer(u))] * shanghai, true)
+			call showDamageWithEffects(1 + GetPlayerId(GetOwningPlayer(u)), uc, udg_baojishanghai[1 + GetPlayerId(GetOwningPlayer(u))] * shanghai, true)
 		else
 			call UnitDamageTarget(u, uc, shanghai, true, false, ATTACK_TYPE_MAGIC, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
-			call showDamageWithEffects(uc, shanghai, false)
+			call showDamageWithEffects(1 + GetPlayerId(GetOwningPlayer(u)), uc, shanghai, false)
 		endif
 	endif
 	call SetTextTagVelocityBJ(bj_lastCreatedTextTag, 400., (GetRandomReal(80., 100.)))
