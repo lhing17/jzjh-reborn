@@ -46,7 +46,7 @@ function yinZhenAction takes nothing returns nothing
         call UnitAddAbility(bj_lastCreatedUnit, 'A099')
         call IssuePointOrderByIdLoc(bj_lastCreatedUnit, $D00FA, target)
         call UnitApplyTimedLife(bj_lastCreatedUnit, 'BHwe', 3)
-        call PolledWait(0.2)
+        // call PolledWait(0.2)
         if GetUnitAbilityLevel(u, 'A07A') >= 1 then
             call CreateNUnitsAtLoc(1, 'e000', GetOwningPlayer(u), target, bj_UNIT_FACING)
             call ShowUnitHide(bj_lastCreatedUnit)
