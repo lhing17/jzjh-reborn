@@ -801,21 +801,23 @@ function drawUI_Conditions takes nothing returns boolean
 	//call DzTriggerRegisterKeyEventByCode(null, 9, 1, false, function pressTab)
 
 	// 右侧显示伤害和特效的复选框
-	set checkboxWidget[1] = Frame.newImage1(GUI, "war3mapImported\\damage_number.tga", 0.08, 0.02)
-	call checkboxWidget[1].setPoint(RIGHT, GUI, RIGHT, 0, - 0.06)
+	set checkboxWidget[1] = Frame.newImage1(GUI, "war3mapImported\\damage_number.tga", 0.09, 0.03)
+	call checkboxWidget[1].setPoint(RIGHT, GUI, RIGHT, 0, - 0.07)
+	call checkboxWidget[1].setAlpha(200)
 
-	set checkboxWidget[2] = Frame.newImage1(GUI, "war3mapImported\\right.tga", 0.03, 0.02) // 对号
-	call checkboxWidget[2].setPoint(RIGHT, checkboxWidget[1], RIGHT, 0, 0)
+	set checkboxWidget[2] = Frame.newImage1(GUI, "war3mapImported\\right.tga", 0.018, 0.024) // 对号
+	call checkboxWidget[2].setPoint(RIGHT, checkboxWidget[1], RIGHT, -0.006, 0.004)
 
 	set checkboxButton[1] = Frame.newTextButton(checkboxWidget[1])
 	call checkboxButton[1].setAllPoints(checkboxWidget[1])
 	call checkboxButton[1].regEvent(FRAME_EVENT_PRESSED, function toggleShowDamage)
 
-	set checkboxWidget[3] = Frame.newImage1(GUI, "war3mapImported\\ability_effect.tga", 0.08, 0.02)
-	call checkboxWidget[3].setPoint(RIGHT, GUI, RIGHT, 0, - 0.085)
+	set checkboxWidget[3] = Frame.newImage1(GUI, "war3mapImported\\ability_effect.tga", 0.09, 0.03)
+	call checkboxWidget[3].setPoint(RIGHT, GUI, RIGHT, 0, - 0.105)
+	call checkboxWidget[1].setAlpha(200)
 
-	set checkboxWidget[4] = Frame.newImage1(GUI, "war3mapImported\\right.tga", 0.03, 0.02) // 对号
-	call checkboxWidget[4].setPoint(RIGHT, checkboxWidget[3], RIGHT, 0, 0)
+	set checkboxWidget[4] = Frame.newImage1(GUI, "war3mapImported\\right.tga", 0.018, 0.024) // 对号
+	call checkboxWidget[4].setPoint(RIGHT, checkboxWidget[3], RIGHT, -0.006, 0.004)
 
 	set checkboxButton[2] = Frame.newTextButton(checkboxWidget[3])
 	call checkboxButton[2].setAllPoints(checkboxWidget[3])
@@ -889,7 +891,7 @@ function initUI takes nothing returns nothing
 	call TriggerAddAction(t, function addYishu)
 
 	set t = CreateTrigger()
-	call DzTriggerRegisterSyncData(t, "showDamage", false)
+	call DzTriggerRegisterSyncData(t, "showDmg", false)
 	call TriggerAddAction(t, function doToggleShowDamage)
 
 	set t = CreateTrigger()
