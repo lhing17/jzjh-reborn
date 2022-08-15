@@ -159,6 +159,331 @@ function playAttackAnimation takes unit u returns nothing
 	call ResetUnitAnimation(u)
 endfunction
 
+// - 差值 等级 累计游戏评分 称号 奖励
+// - 10000	    1级	    5000	不堪一击	三围+10
+// - 15000	    2级	    15000	毫不足虑	特攻+2
+// - 20000	    3级	    30000	不足挂齿	六围+1
+// - 25000	    4级	    50000	初学乍练	暴击率+2%
+// - 30000	    5级	    75000	勉勉强强	伤害加成+2%
+// - 35000	    6级	    105000	初窥门径	三围+15
+// - 40000	    7级	    140000	初出茅庐	特攻+3
+// - 45000	    8级	    180000	略知一二	六围+1
+// - 50000	    9级	    225000	普普通通	暴击率+3%
+// - 55000	    10级	275000	平平常常	伤害加成+3%
+// - 60000	    11级	330000	平淡无奇	三围+10
+// - 65000	    12级	390000	粗懂皮毛	特攻+2
+// - 70000	    13级	455000	半生不熟	六围+1
+// - 75000	    14级	525000	登堂入室	暴击率+2%
+// - 80000	    15级	600000	略有小成	伤害加成+2%
+// - 85000	    16级	680000	已有小成	三围+15
+// - 90000	    17级	765000	鹤立鸡群	特攻+3
+// - 95000	    18级	855000	驾轻就熟	六围+1
+// - 100000		19级	950000	青出於蓝	暴击率+3%
+// - 105000		20级	1050000	融会贯通	伤害加成+3%
+// - 110000		21级	1155000	心领神会	三围+10
+// - 115000		22级	1265000	炉火纯青	特攻+2
+// - 120000		23级	1380000	了然於胸	六围+1
+// - 125000		24级	1500000	略有大成	暴击率+2%
+// - 130000		25级	1625000	已有大成	伤害加成+2%
+// - 135000		26级	1755000	豁然贯通	三围+15
+// - 140000		27级	1890000	非比寻常	特攻+3
+// - 145000		28级	2030000	出类拔萃	六围+1
+// - 150000		29级	2175000	罕有敌手	暴击率+3%
+// - 155000		30级	2325000	技冠群雄	伤害加成+3%
+// - 160000		31级	2480000	神乎其技	三围+10
+// - 165000		32级	2640000	出神入化	特攻+2
+// - 170000		33级	2805000	傲视群雄	六围+1
+// - 175000		34级	2975000	登峰造极	暴击率+2%
+// - 180000		35级	3150000	无与伦比	伤害加成+2%
+// - 185000		36级	3330000	所向披靡	三围+15
+// - 190000		37级	3515000	一代宗师	特攻+3
+// - 195000		38级	3705000	精深奥妙	六围+1
+// - 200000		39级	3900000	神功盖世	暴击率+3%
+// - 205000		40级	4100000	举世无双	伤害加成+3%
+// - 210000		41级	4305000	惊世骇俗	三围+10
+// - 215000		42级	4515000	撼天动地	特攻+2
+// - 220000		43级	4730000	震古铄今	六围+1
+// - 225000		44级	4950000	超凡入圣	暴击率+2%
+// - 230000		45级	5175000	威镇寰宇	伤害加成+2%
+// - 235000		46级	5405000	空前绝后	三围+15
+// - 240000		47级	5640000	天人合一	特攻+3
+// - 245000		48级	5880000	深藏不露	六围+1
+// - 250000		49级	6125000	深不可测	暴击率+3%
+// - 255000		50级	6375000	返璞归真	伤害加成+3%
+function jianghuLevelAward takes integer i returns nothing
+	local integer level = DzAPI_Map_GetStoredInteger(Player(i - 1), "totalPoint")
+	if level >= 5000 then
+		set jianghuLevel[i] = 1
+		call ModifyHeroStat(bj_HEROSTAT_STR, udg_hero[i], bj_MODIFYMETHOD_ADD, 10)
+		call ModifyHeroStat(bj_HEROSTAT_AGI, udg_hero[i], bj_MODIFYMETHOD_ADD, 10)
+		call ModifyHeroStat(bj_HEROSTAT_INT, udg_hero[i], bj_MODIFYMETHOD_ADD, 10)
+	endif
+	if level >= 15000 then 
+		set jianghuLevel[i] = 2
+		set special_attack[i] = special_attack[i] + 2
+	endif
+	if level >= 30000 then 
+		set jianghuLevel[i] = 3
+		set wuxing[i] = wuxing[i] + 1
+		set gengu[i] = gengu[i] + 1
+		set fuyuan[i] = fuyuan[i] + 1
+		set danpo[i] = danpo[i] + 1
+		set jingmai[i] = jingmai[i] + 1
+		set yishu[i] = yishu[i] + 1
+	endif
+	if level >= 50000 then 
+		set jianghuLevel[i] = 4
+		set udg_baojilv[i] = udg_baojilv[i] + 0.02
+	endif
+	if level >= 75000 then 
+		set jianghuLevel[i] = 5
+		set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + 0.02
+	endif
+	if level >= 105000 then 
+		set jianghuLevel[i] = 6
+		call ModifyHeroStat(bj_HEROSTAT_STR, udg_hero[i], bj_MODIFYMETHOD_ADD, 15)
+		call ModifyHeroStat(bj_HEROSTAT_AGI, udg_hero[i], bj_MODIFYMETHOD_ADD, 15)
+		call ModifyHeroStat(bj_HEROSTAT_INT, udg_hero[i], bj_MODIFYMETHOD_ADD, 15)
+	endif
+	if level >= 140000 then 
+		set jianghuLevel[i] = 7
+		set special_attack[i] = special_attack[i] + 3
+	endif
+	if level >= 180000 then 
+		set jianghuLevel[i] = 8
+		set wuxing[i] = wuxing[i] + 1
+		set gengu[i] = gengu[i] + 1
+		set fuyuan[i] = fuyuan[i] + 1
+		set danpo[i] = danpo[i] + 1
+		set jingmai[i] = jingmai[i] + 1
+		set yishu[i] = yishu[i] + 1
+	endif
+	if level >= 225000 then 
+		set jianghuLevel[i] = 9
+		set udg_baojilv[i] = udg_baojilv[i] + 0.03
+	endif
+	if level >= 275000 then 
+		set jianghuLevel[i] = 10
+		set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + 0.03
+	endif
+	if level >= 330000 then 
+		set jianghuLevel[i] = 11
+		call ModifyHeroStat(bj_HEROSTAT_STR, udg_hero[i], bj_MODIFYMETHOD_ADD, 10)
+		call ModifyHeroStat(bj_HEROSTAT_AGI, udg_hero[i], bj_MODIFYMETHOD_ADD, 10)
+		call ModifyHeroStat(bj_HEROSTAT_INT, udg_hero[i], bj_MODIFYMETHOD_ADD, 10)
+	endif
+	if level >= 390000 then 
+		set jianghuLevel[i] = 12
+		set special_attack[i] = special_attack[i] + 2
+	endif
+	if level >= 455000 then 
+		set jianghuLevel[i] = 13
+		set wuxing[i] = wuxing[i] + 1
+		set gengu[i] = gengu[i] + 1
+		set fuyuan[i] = fuyuan[i] + 1
+		set danpo[i] = danpo[i] + 1
+		set jingmai[i] = jingmai[i] + 1
+		set yishu[i] = yishu[i] + 1
+	endif
+	if level >= 525000 then 
+		set jianghuLevel[i] = 14
+		set udg_baojilv[i] = udg_baojilv[i] + 0.02
+	endif
+	if level >= 600000 then 
+		set jianghuLevel[i] = 15
+		set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + 0.02
+	endif
+	if level >= 680000 then 
+		set jianghuLevel[i] = 16
+		call ModifyHeroStat(bj_HEROSTAT_STR, udg_hero[i], bj_MODIFYMETHOD_ADD, 15)
+		call ModifyHeroStat(bj_HEROSTAT_AGI, udg_hero[i], bj_MODIFYMETHOD_ADD, 15)
+		call ModifyHeroStat(bj_HEROSTAT_INT, udg_hero[i], bj_MODIFYMETHOD_ADD, 15)
+	endif
+	if level >= 765000 then 
+		set jianghuLevel[i] = 17
+		set special_attack[i] = special_attack[i] + 3
+	endif
+	if level >= 855000 then 
+		set jianghuLevel[i] = 18
+		set wuxing[i] = wuxing[i] + 1
+		set gengu[i] = gengu[i] + 1
+		set fuyuan[i] = fuyuan[i] + 1
+		set danpo[i] = danpo[i] + 1
+		set jingmai[i] = jingmai[i] + 1
+		set yishu[i] = yishu[i] + 1
+	endif
+	if level >= 950000 then 
+		set jianghuLevel[i] = 19
+		set udg_baojilv[i] = udg_baojilv[i] + 0.03
+	endif
+	if level >= 1050000 then
+		set jianghuLevel[i] = 20
+		set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + 0.03
+	endif
+	if level >= 1155000 then
+		set jianghuLevel[i] = 21
+		call ModifyHeroStat(bj_HEROSTAT_STR, udg_hero[i], bj_MODIFYMETHOD_ADD, 10)
+		call ModifyHeroStat(bj_HEROSTAT_AGI, udg_hero[i], bj_MODIFYMETHOD_ADD, 10)
+		call ModifyHeroStat(bj_HEROSTAT_INT, udg_hero[i], bj_MODIFYMETHOD_ADD, 10)
+	endif
+	if level >= 1265000 then
+		set jianghuLevel[i] = 22
+		set special_attack[i] = special_attack[i] + 2
+	endif
+	if level >= 1380000 then
+		set jianghuLevel[i] = 23
+		set wuxing[i] = wuxing[i] + 1
+		set gengu[i] = gengu[i] + 1
+		set fuyuan[i] = fuyuan[i] + 1
+		set danpo[i] = danpo[i] + 1
+		set jingmai[i] = jingmai[i] + 1
+		set yishu[i] = yishu[i] + 1
+	endif
+	if level >= 1500000 then
+		set jianghuLevel[i] = 24
+		set udg_baojilv[i] = udg_baojilv[i] + 0.02
+	endif
+	if level >= 1625000 then
+		set jianghuLevel[i] = 25
+		set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + 0.02
+	endif
+	if level >= 1755000 then
+		set jianghuLevel[i] = 26
+		call ModifyHeroStat(bj_HEROSTAT_STR, udg_hero[i], bj_MODIFYMETHOD_ADD, 15)
+		call ModifyHeroStat(bj_HEROSTAT_AGI, udg_hero[i], bj_MODIFYMETHOD_ADD, 15)
+		call ModifyHeroStat(bj_HEROSTAT_INT, udg_hero[i], bj_MODIFYMETHOD_ADD, 15)
+	endif
+	if level >= 1890000 then
+		set jianghuLevel[i] = 27
+		set special_attack[i] = special_attack[i] + 3
+	endif
+	if level >= 2030000 then
+		set jianghuLevel[i] = 28
+		set wuxing[i] = wuxing[i] + 1
+		set gengu[i] = gengu[i] + 1
+		set fuyuan[i] = fuyuan[i] + 1
+		set danpo[i] = danpo[i] + 1
+		set jingmai[i] = jingmai[i] + 1
+		set yishu[i] = yishu[i] + 1
+	endif
+	if level >= 2175000 then
+		set jianghuLevel[i] = 29
+		set udg_baojilv[i] = udg_baojilv[i] + 0.03
+	endif
+	if level >= 2325000 then
+		set jianghuLevel[i] = 30
+		set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + 0.03
+	endif
+	if level >= 2480000 then
+		set jianghuLevel[i] = 31
+		call ModifyHeroStat(bj_HEROSTAT_STR, udg_hero[i], bj_MODIFYMETHOD_ADD, 10)
+		call ModifyHeroStat(bj_HEROSTAT_AGI, udg_hero[i], bj_MODIFYMETHOD_ADD, 10)
+		call ModifyHeroStat(bj_HEROSTAT_INT, udg_hero[i], bj_MODIFYMETHOD_ADD, 10)
+	endif
+	if level >= 2640000 then
+		set jianghuLevel[i] = 32
+		set special_attack[i] = special_attack[i] + 2
+	endif
+	if level >= 2805000 then
+		set jianghuLevel[i] = 33
+		set wuxing[i] = wuxing[i] + 1
+		set gengu[i] = gengu[i] + 1
+		set fuyuan[i] = fuyuan[i] + 1
+		set danpo[i] = danpo[i] + 1
+		set jingmai[i] = jingmai[i] + 1
+		set yishu[i] = yishu[i] + 1
+	endif
+	if level >= 2975000 then
+		set jianghuLevel[i] = 34
+		set udg_baojilv[i] = udg_baojilv[i] + 0.02
+	endif
+	if level >= 3150000 then
+		set jianghuLevel[i] = 35
+		set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + 0.02
+	endif
+	if level >= 3330000 then
+		set jianghuLevel[i] = 36
+		call ModifyHeroStat(bj_HEROSTAT_STR, udg_hero[i], bj_MODIFYMETHOD_ADD, 15)
+		call ModifyHeroStat(bj_HEROSTAT_AGI, udg_hero[i], bj_MODIFYMETHOD_ADD, 15)
+		call ModifyHeroStat(bj_HEROSTAT_INT, udg_hero[i], bj_MODIFYMETHOD_ADD, 15)
+	endif
+	if level >= 3515000 then
+		set jianghuLevel[i] = 37
+		set special_attack[i] = special_attack[i] + 3
+	endif
+	if level >= 3705000 then
+		set jianghuLevel[i] = 38
+		set wuxing[i] = wuxing[i] + 1
+		set gengu[i] = gengu[i] + 1
+		set fuyuan[i] = fuyuan[i] + 1
+		set danpo[i] = danpo[i] + 1
+		set jingmai[i] = jingmai[i] + 1
+		set yishu[i] = yishu[i] + 1
+	endif
+	if level >= 3900000 then
+		set jianghuLevel[i] = 39
+		set udg_baojilv[i] = udg_baojilv[i] + 0.03
+	endif
+	if level >= 4100000 then
+		set jianghuLevel[i] = 40
+		set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + 0.03
+	endif
+	if level >= 4305000 then
+		set jianghuLevel[i] = 41
+		call ModifyHeroStat(bj_HEROSTAT_STR, udg_hero[i], bj_MODIFYMETHOD_ADD, 10)
+		call ModifyHeroStat(bj_HEROSTAT_AGI, udg_hero[i], bj_MODIFYMETHOD_ADD, 10)
+		call ModifyHeroStat(bj_HEROSTAT_INT, udg_hero[i], bj_MODIFYMETHOD_ADD, 10)
+	endif
+	if level >= 4515000 then
+		set jianghuLevel[i] = 42
+		set special_attack[i] = special_attack[i] + 2
+	endif
+	if level >= 4730000 then
+		set jianghuLevel[i] = 43
+		set wuxing[i] = wuxing[i] + 1
+		set gengu[i] = gengu[i] + 1
+		set fuyuan[i] = fuyuan[i] + 1
+		set danpo[i] = danpo[i] + 1
+		set jingmai[i] = jingmai[i] + 1
+		set yishu[i] = yishu[i] + 1
+	endif
+	if level >= 4950000 then
+		set jianghuLevel[i] = 44
+		set udg_baojilv[i] = udg_baojilv[i] + 0.02
+	endif
+	if level >= 5175000 then
+		set jianghuLevel[i] = 45
+		set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + 0.02
+	endif
+	if level >= 5405000 then
+		set jianghuLevel[i] = 46
+		call ModifyHeroStat(bj_HEROSTAT_STR, udg_hero[i], bj_MODIFYMETHOD_ADD, 15)
+		call ModifyHeroStat(bj_HEROSTAT_AGI, udg_hero[i], bj_MODIFYMETHOD_ADD, 15)
+		call ModifyHeroStat(bj_HEROSTAT_INT, udg_hero[i], bj_MODIFYMETHOD_ADD, 15)
+	endif
+	if level >= 5640000 then
+		set jianghuLevel[i] = 47
+		set special_attack[i] = special_attack[i] + 3
+	endif
+	if level >= 5880000 then
+		set jianghuLevel[i] = 48
+		set wuxing[i] = wuxing[i] + 1
+		set gengu[i] = gengu[i] + 1
+		set fuyuan[i] = fuyuan[i] + 1
+		set danpo[i] = danpo[i] + 1
+		set jingmai[i] = jingmai[i] + 1
+		set yishu[i] = yishu[i] + 1
+	endif
+	if level >= 6125000 then
+		set jianghuLevel[i] = 49
+		set udg_baojilv[i] = udg_baojilv[i] + 0.03
+	endif
+	if level >= 6375000 then
+		set jianghuLevel[i] = 50
+		set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + 0.03
+	endif
+endfunction
+
 function SelectHero takes nothing returns nothing
 	local player p = GetTriggerPlayer()
 	local integer i = 1 + GetPlayerId(p)
@@ -236,6 +561,9 @@ function SelectHero takes nothing returns nothing
 					call AddSpecialEffectTarget("yujianjiahu4.mdx", bj_lastCreatedUnit, "overhead")
 				endif
 			endif
+
+			// 江湖等级奖励
+			call jianghuLevelAward(i)
 			
 			
 			set O4 = O4 + 1
@@ -4751,6 +5079,21 @@ function ChouXie_Action takes nothing returns nothing
 	
 endfunction
 
+function addTotalPoint takes integer point returns nothing
+	local integer addition = point * (1 + GetPlayerTechCountSimple('R001', Player(6)) / 10)
+	local integer j = 1
+	set ae = ae + addition
+	loop
+		exitwhen j > 5
+		if GetPlayerController(Player(j - 1)) == MAP_CONTROL_USER and GetPlayerSlotState(Player(j - 1)) == PLAYER_SLOT_STATE_PLAYING then
+			// 将评分存入服务器
+			call DzAPI_Map_StoreInteger(Player(j - 1), "totalPoint", DzAPI_Map_GetStoredInteger(Player(j - 1), "totalPoint") + addition)
+		endif
+			
+		set j = j + 1
+	endloop
+endfunction
+
 
 //杀怪(进攻怪及练功房)
 function ey takes nothing returns boolean
@@ -4799,7 +5142,7 @@ function KillGuai takes nothing returns nothing
 				set shoujiajf[i] = shoujiajf[i] + 15 * (10 - GetNumPlayer()) / 10
 				set i = i + 1
 			endloop
-			set ae = (ae + ($A + GetPlayerTechCountSimple('R001', Player(6))))
+			call addTotalPoint(10)
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "击杀名门高手，每位玩家获得守家积分+" + I2S(shoujiajf[i] + 15 * (10 - GetNumPlayer()) / 10))
 			call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
 			if((GetRandomInt(1, 50) <= 5))then
@@ -4833,9 +5176,8 @@ function KillGuai takes nothing returns nothing
 					set shoujiajf[i] = shoujiajf[i] + 30 * (10 - GetNumPlayer()) / 10
 					set i = i + 1
 				endloop
-				set ae = (ae + ($A + GetPlayerTechCountSimple('R001', Player(6))))
+				call addTotalPoint(25)
 				call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "击杀BOSS，每位玩家获得守家积分+" + I2S(shoujiajf[i] + 30 * (10 - GetNumPlayer()) / 10))
-				set ae = (ae + (30 + GetPlayerTechCountSimple('R001', Player(6))))
 				if GetRandomInt(1, 100) <= 50 then
 					set udg_shuxing[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())))] = (udg_shuxing[(1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())))] + 1)
 					call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cFF33CC00" + GetPlayerName(GetOwningPlayer(GetKillingUnit())) + "|cFF33CC00击杀了BOSS" + GetUnitName(GetTriggerUnit()) + "|cFF33CC00获得了一个自由属性点")

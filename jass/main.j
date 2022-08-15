@@ -288,6 +288,8 @@ globals
 	boolean array udg_baoji
 	boolean array udg_yiwang
 	unit array udg_hero
+	// 江湖等级
+	integer array jianghuLevel
 	integer O4=0
 	unit array P4
 	location Q4=null
@@ -2235,6 +2237,7 @@ function main1 takes nothing returns nothing
 		set fuyuan[i] = 9
 		set danpo[i] = 9
 		set yishu[i] = 9
+		set jianghuLevel[i] = 0
 		if i >= 1 and i <= 5 then
 			// set special_attack[i] = DzAPI_Map_GetMapLevel(Player(i - 1))
 			// 特攻暂时改成:25
