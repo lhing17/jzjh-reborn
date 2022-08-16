@@ -425,8 +425,19 @@ function doToggleShowDamage takes nothing returns nothing
 endfunction
 
 function toggleShowAbilityEffect takes nothing returns nothing
+	local integer i = 1 + GetPlayerId(DzGetTriggerUIEventPlayer())
 	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
 		call checkboxWidget[4].toggle()
+		call DzSyncData("showEffect", I2S(i))
+	endif
+endfunction
+
+function doToggleShowEffect takes nothing returns nothing
+	local integer i = S2I(DzGetTriggerSyncData())
+	if IsPlayerInForce(Player(i - 1), showEffectForce) then
+		call ForceRemovePlayer(showEffectForce, Player(i - 1))
+	else
+		call ForceAddPlayer(showEffectForce, Player(i - 1))
 	endif
 endfunction
 
@@ -814,7 +825,7 @@ function drawUI_Conditions takes nothing returns boolean
 
 	set checkboxWidget[3] = Frame.newImage1(GUI, "war3mapImported\\ability_effect.tga", 0.09, 0.03)
 	call checkboxWidget[3].setPoint(RIGHT, GUI, RIGHT, 0, - 0.105)
-	call checkboxWidget[1].setAlpha(200)
+	call checkboxWidget[3].setAlpha(200)
 
 	set checkboxWidget[4] = Frame.newImage1(GUI, "war3mapImported\\right.tga", 0.018, 0.024) // 对号
 	call checkboxWidget[4].setPoint(RIGHT, checkboxWidget[3], RIGHT, -0.006, 0.004)
@@ -893,6 +904,11 @@ function initUI takes nothing returns nothing
 	set t = CreateTrigger()
 	call DzTriggerRegisterSyncData(t, "showDmg", false)
 	call TriggerAddAction(t, function doToggleShowDamage)
+
+	
+	set t = CreateTrigger()
+	call DzTriggerRegisterSyncData(t, "showEffect", false)
+	call TriggerAddAction(t, function doToggleShowEffect)
 
 	set t = CreateTrigger()
 	loop

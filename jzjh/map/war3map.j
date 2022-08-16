@@ -4,75 +4,76 @@ constant boolean LIBRARY_FrameLibrary=true
 //endglobals from FrameLibrary
 //globals from MaxSpeed:
 constant boolean LIBRARY_MaxSpeed=true
-constant boolean MaxSpeed___USE_TABLE= true
-constant boolean MaxSpeed___NEW_TABLE= true
+constant boolean MaxSpeed__USE_TABLE= true
+constant boolean MaxSpeed__NEW_TABLE= true
          // Vexorian's Table or Bribe's (NEW)
-constant boolean MaxSpeed___TEST_MODE= false
-constant real MaxSpeed___PERIOD= 0.03125
+constant boolean MaxSpeed__TEST_MODE= false
+constant real MaxSpeed__PERIOD= 0.03125
         //  private constant real MAX_SPEED = 2088.0
-constant real MaxSpeed___MAX_SPEED= 1400.0
+constant real MaxSpeed__MAX_SPEED= 1400.0
          // 最大速度限定，超出视为传送。
-constant real MaxSpeed___MIN_SPEED= 500.0
+constant real MaxSpeed__MIN_SPEED= 500.0
          // 判定的最小距离，此项过小或速度过大会使原地打转几率增加，超出则没有加速效果。
         // 测试最大为500刚出头，与522还有些差距
 //endglobals from MaxSpeed
 //globals from ShowEffect:
 constant boolean LIBRARY_ShowEffect=true
+force showEffectForce= CreateForce()
 //endglobals from ShowEffect
 //globals from UniMissileSystem3D:
 constant boolean LIBRARY_UniMissileSystem3D=true
-real array UniMissileSystem3D__SP
-real array UniMissileSystem3D__RA
-real array UniMissileSystem3D__DM
-real array UniMissileSystem3D__DI
-real array UniMissileSystem3D__AN
-real array UniMissileSystem3D__ANZ
-real array UniMissileSystem3D__HE
-real array UniMissileSystem3D__HEMax
-real array UniMissileSystem3D__SH
-real array UniMissileSystem3D__US
-real array UniMissileSystem3D__MX
-real array UniMissileSystem3D__MY
-real array UniMissileSystem3D__MZ
-real array UniMissileSystem3D__ARC
-real array UniMissileSystem3D__HP
-real array UniMissileSystem3D__OF
-real array UniMissileSystem3D__OS
-real array UniMissileSystem3D__TIM
-real array UniMissileSystem3D__LT
-real array UniMissileSystem3D__SZ
-real array UniMissileSystem3D__RI
-real array UniMissileSystem3D__R01
-real array UniMissileSystem3D__R02
-real array UniMissileSystem3D__MGra
-real array UniMissileSystem3D__LOC
-real array UniMissileSystem3D__OH
-real UniMissileSystem3D__Gravity=0.40
-unit array UniMissileSystem3D__MU
-unit array UniMissileSystem3D__MT
-unit UniMissileSystem3D__DamageUnit
-string array UniMissileSystem3D__EF
-effect array UniMissileSystem3D__EFL
-real array UniMissileSystem3D__ACC
-real array UniMissileSystem3D__MaxS
-real array UniMissileSystem3D__SPX
-real array UniMissileSystem3D__SPY
-real array UniMissileSystem3D__LastX
-real array UniMissileSystem3D__LastY
-real array UniMissileSystem3D__MKs
-integer array UniMissileSystem3D__IN
-integer UniMissileSystem3D__Top=- 1
-real UniMissileSystem3D__TIMOut=0.03
-group UniMissileSystem3D__DamageGroup
-timer UniMissileSystem3D__TIMr
-location UniMissileSystem3D__HeroLoc
-location array UniMissileSystem3D__MLoc
-player array UniMissileSystem3D__LastOwner
+real array UniMissileSystem3D___SP
+real array UniMissileSystem3D___RA
+real array UniMissileSystem3D___DM
+real array UniMissileSystem3D___DI
+real array UniMissileSystem3D___AN
+real array UniMissileSystem3D___ANZ
+real array UniMissileSystem3D___HE
+real array UniMissileSystem3D___HEMax
+real array UniMissileSystem3D___SH
+real array UniMissileSystem3D___US
+real array UniMissileSystem3D___MX
+real array UniMissileSystem3D___MY
+real array UniMissileSystem3D___MZ
+real array UniMissileSystem3D___ARC
+real array UniMissileSystem3D___HP
+real array UniMissileSystem3D___OF
+real array UniMissileSystem3D___OS
+real array UniMissileSystem3D___TIM
+real array UniMissileSystem3D___LT
+real array UniMissileSystem3D___SZ
+real array UniMissileSystem3D___RI
+real array UniMissileSystem3D___R01
+real array UniMissileSystem3D___R02
+real array UniMissileSystem3D___MGra
+real array UniMissileSystem3D___LOC
+real array UniMissileSystem3D___OH
+real UniMissileSystem3D___Gravity=0.40
+unit array UniMissileSystem3D___MU
+unit array UniMissileSystem3D___MT
+unit UniMissileSystem3D___DamageUnit
+string array UniMissileSystem3D___EF
+effect array UniMissileSystem3D___EFL
+real array UniMissileSystem3D___ACC
+real array UniMissileSystem3D___MaxS
+real array UniMissileSystem3D___SPX
+real array UniMissileSystem3D___SPY
+real array UniMissileSystem3D___LastX
+real array UniMissileSystem3D___LastY
+real array UniMissileSystem3D___MKs
+integer array UniMissileSystem3D___IN
+integer UniMissileSystem3D___Top=- 1
+real UniMissileSystem3D___TIMOut=0.03
+group UniMissileSystem3D___DamageGroup
+timer UniMissileSystem3D___TIMr
+location UniMissileSystem3D___HeroLoc
+location array UniMissileSystem3D___MLoc
+player array UniMissileSystem3D___LastOwner
 boolean MissileTimerPause=false
-real UniMissileSystem3D__map_max_X
-real UniMissileSystem3D__map_max_Y
-real UniMissileSystem3D__map_min_X
-real UniMissileSystem3D__map_min_Y
+real UniMissileSystem3D___map_max_X
+real UniMissileSystem3D___map_max_Y
+real UniMissileSystem3D___map_min_X
+real UniMissileSystem3D___map_min_Y
 //endglobals from UniMissileSystem3D
 //globals from YDTriggerSaveLoadSystem:
 constant boolean LIBRARY_YDTriggerSaveLoadSystem=true
@@ -2856,7 +2857,7 @@ function s__ImageButton_create takes integer imageWidget,real l__w,real h return
             call DzFrameSetScriptByCode(s__Frame_id[(s__ImageButton_button[ib])], (FRAME_MOUSE_LEAVE ), ( function toggleImage), false) // INLINED!!
             return ib
         endfunction
-    function FrameLibrary__init takes nothing returns nothing
+    function FrameLibrary___init takes nothing returns nothing
         // local integer f = DzFrameGetTooltip()
         // local real size = 0.75
         set GUI=s__Frame_getFrame(DzGetGameUI())
@@ -2917,8 +2918,8 @@ function s__ImageButton_create takes integer imageWidget,real l__w,real h return
              set s__ModSpeed_dy=s__ModSpeed_y - s__ModSpeed_lastY[this]
              set s__ModSpeed_lastX[this]=s__ModSpeed_x
              set s__ModSpeed_lastY[this]=s__ModSpeed_y
-             set s__ModSpeed_dist=SquareRoot(s__ModSpeed_dx * s__ModSpeed_dx + s__ModSpeed_dy * s__ModSpeed_dy) / MaxSpeed___PERIOD
-             if ( s__ModSpeed_dist >= MaxSpeed___MIN_SPEED and s__ModSpeed_dist <= MaxSpeed___MAX_SPEED ) then
+             set s__ModSpeed_dist=SquareRoot(s__ModSpeed_dx * s__ModSpeed_dx + s__ModSpeed_dy * s__ModSpeed_dy) / MaxSpeed__PERIOD
+             if ( s__ModSpeed_dist >= MaxSpeed__MIN_SPEED and s__ModSpeed_dist <= MaxSpeed__MAX_SPEED ) then
                  set s__ModSpeed_rate=( s__ModSpeed_speed[this] - 522. ) / s__ModSpeed_dist
                  set s__ModSpeed_lastX[this]=s__ModSpeed_x + s__ModSpeed_dx * s__ModSpeed_rate
                  set s__ModSpeed_lastY[this]=s__ModSpeed_y + s__ModSpeed_dy * s__ModSpeed_rate
@@ -2998,7 +2999,7 @@ function s__ImageButton_create takes integer imageWidget,real l__w,real h return
                      set s__ModSpeed_prev[(0)]=s__ModSpeed_prev[s__ModSpeed_prev[(0)]]
                  endif
                  if ( s__ModSpeed_next[(0)] == 0 ) then
-                     call TimerStart(s__ModSpeed_tm, MaxSpeed___PERIOD, true, function s__ModSpeed_iterate)
+                     call TimerStart(s__ModSpeed_tm, MaxSpeed__PERIOD, true, function s__ModSpeed_iterate)
 
 
 
@@ -3017,7 +3018,7 @@ function s__ImageButton_create takes integer imageWidget,real l__w,real h return
 
 
              endif
-             set amount=RMinBJ(amount, MaxSpeed___MAX_SPEED)
+             set amount=RMinBJ(amount, MaxSpeed__MAX_SPEED)
              set s__ModSpeed_lastX[this]=GetUnitX(u)
              set s__ModSpeed_lastY[this]=GetUnitY(u)
              set s__ModSpeed_speed[this]=amount
@@ -3038,65 +3039,71 @@ function s__ImageButton_create takes integer imageWidget,real l__w,real h return
 //library ShowEffect:
     // 新建特效(创建到坐标) [R]
     function AddSpecialEffectEx takes string modelName,real x,real y returns effect
-        local integer i= 1 + GetPlayerId(GetLocalPlayer())
-        if showEffect[i] then
-            return AddSpecialEffect(modelName, x, y)
+        local string l__z= ""
+        if IsPlayerInForce(GetLocalPlayer(), showEffectForce) then
+            set l__z=modelName
         endif
-        return null
+        return AddSpecialEffect(l__z, x, y)
     endfunction
     // 新建特效(创建到点) [R]
     function AddSpecialEffectLocEx takes string modelName,location where returns effect
-        local integer i= 1 + GetPlayerId(GetLocalPlayer())
-        if showEffect[i] then
-            return AddSpecialEffectLoc(modelName, where)
+        local string l__z= ""
+        if IsPlayerInForce(GetLocalPlayer(), showEffectForce) then
+            set l__z=modelName
         endif
-        return null
+        return AddSpecialEffectLoc(l__z, where)
     endfunction
     // 新建特效(创建到单位) [R]
     function AddSpecialEffectTargetEx takes string modelName,widget targetWidget,string attachPointName returns effect
-        local integer i= 1 + GetPlayerId(GetLocalPlayer())
-        if showEffect[i] then
-            return AddSpecialEffectTarget(modelName, targetWidget, attachPointName)
+        local string l__z= ""
+        if IsPlayerInForce(GetLocalPlayer(), showEffectForce) then
+            set l__z=modelName
         endif
-        return null
+        return AddSpecialEffectTarget(l__z, targetWidget, attachPointName)
     endfunction
     function AddSpecialEffectLocBJEx takes location where,string modelName returns effect
-        local integer i= 1 + GetPlayerId(GetLocalPlayer())
-        if showEffect[i] then
-            return AddSpecialEffectLocBJ(where, modelName)
+        local string l__z= ""
+        if IsPlayerInForce(GetLocalPlayer(), showEffectForce) then
+            set l__z=modelName
         endif
-        return null
+        return AddSpecialEffectLoc(l__z, where)
     endfunction
     function AddSpecialEffectTargetUnitBJEx takes string attachPointName,widget targetWidget,string modelName returns effect
-        local integer i= 1 + GetPlayerId(GetLocalPlayer())
-        if showEffect[i] then
-            return AddSpecialEffectTargetUnitBJ(attachPointName, targetWidget, modelName)
+        local string l__z= ""
+        if IsPlayerInForce(GetLocalPlayer(), showEffectForce) then
+            set l__z=modelName
         endif
-        return null
+        return AddSpecialEffectTarget(l__z, targetWidget, attachPointName)
     endfunction
     // 销毁特效
     function DestroyEffectEx takes effect whichEffect returns nothing
-        if whichEffect != null then
-            call DestroyEffect(whichEffect)
-        endif
+        call DestroyEffect(whichEffect)
     endfunction
+    function initShowEffect takes nothing returns nothing
+        local integer LoopA= 0
+        loop
+            exitwhen LoopA > 11
+            call ForceAddPlayer(showEffectForce, Player(LoopA))
+            set LoopA=LoopA + 1
+        endloop
+	endfunction
 
 //library ShowEffect ends
 //library UniMissileSystem3D:
 // 计算两点间的距离
-function UniMissileSystem3D__DistanceBetweenXY takes real x1,real x2,real y1,real y2 returns real
+function UniMissileSystem3D___DistanceBetweenXY takes real x1,real x2,real y1,real y2 returns real
     return SquareRoot(( x1 - x2 ) * ( x1 - x2 ) + ( y1 - y2 ) * ( y1 - y2 ))
 endfunction
 // 计算两点间的角度（角度制）
-function UniMissileSystem3D__AngleBetweenXY takes real x1,real x2,real y1,real y2 returns real
+function UniMissileSystem3D___AngleBetweenXY takes real x1,real x2,real y1,real y2 returns real
     return bj_RADTODEG * Atan2(y2 - y1, x2 - x1)
 endfunction
 // 计算两个单位间的角度
-function UniMissileSystem3D__GetAngleBetweenUnits takes unit l__A,unit l__B returns real
+function UniMissileSystem3D___GetAngleBetweenUnits takes unit l__A,unit l__B returns real
     return Atan2(GetUnitY(l__B) - GetUnitY(l__A), GetUnitX(l__B) - GetUnitX(l__A))
 endfunction
 // 计算两个单位间的距离
-function UniMissileSystem3D__DistanceBetweenUnits takes unit l__A,unit l__B returns real
+function UniMissileSystem3D___DistanceBetweenUnits takes unit l__A,unit l__B returns real
     local real x1=GetUnitX(l__A)
     local real x2=GetUnitX(l__B)
     local real y1=GetUnitY(l__A)
@@ -3107,7 +3114,7 @@ endfunction
 // s = v0 * t + 1/2 * a * t * t
 // a * t * t  + 2 * v0 * t - 2 * s = 0
 // time1 = (- 2 * v0 + SquareRoot ( 4 * v0 *v0 + 8 * a * s)) / (2 * a)
-function UniMissileSystem3D__GetAcceleratedTime takes real dis,real originspeed,real accel returns real
+function UniMissileSystem3D___GetAcceleratedTime takes real dis,real originspeed,real accel returns real
     local real time1=0.0
     local real time2=0.0
     set time1=( - 1 * originspeed + SquareRoot(Pow(originspeed, 2.0) + 2 * accel * dis) ) / accel
@@ -3124,68 +3131,68 @@ function UniMissileSystem3D__GetAcceleratedTime takes real dis,real originspeed,
     return time2
 endfunction
 // 登记弹幕
-function UniMissileSystem3D__MRegister takes unit missile returns nothing
+function UniMissileSystem3D___MRegister takes unit missile returns nothing
     call UnitAddAbility(missile, 'Arav') // 风暴之鸦
 call UnitRemoveAbility(missile, 'Arav')
     call SetUnitPosition(missile, GetUnitX(missile), GetUnitY(missile))
     call SetUnitAnimationByIndex(missile, 90)
 endfunction
 // 将i从栈中移除，使用栈顶元素补充i
-function UniMissileSystem3D__MPop takes integer i returns nothing
-     if GetUnitState(UniMissileSystem3D__MU[i], UNIT_STATE_LIFE) > 0.4 then
-        call KillUnit(UniMissileSystem3D__MU[i])
+function UniMissileSystem3D___MPop takes integer i returns nothing
+     if GetUnitState(UniMissileSystem3D___MU[i], UNIT_STATE_LIFE) > 0.4 then
+        call KillUnit(UniMissileSystem3D___MU[i])
      endif
-     call DestroyEffectEx(UniMissileSystem3D__EFL[i])
-     set UniMissileSystem3D__MU[i]=UniMissileSystem3D__MU[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__SP[i]=UniMissileSystem3D__SP[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__RA[i]=UniMissileSystem3D__RA[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__DM[i]=UniMissileSystem3D__DM[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__DI[i]=UniMissileSystem3D__DI[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__AN[i]=UniMissileSystem3D__AN[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__HE[i]=UniMissileSystem3D__HE[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__HEMax[i]=UniMissileSystem3D__HEMax[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__US[i]=UniMissileSystem3D__US[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__ARC[i]=UniMissileSystem3D__ARC[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__HP[i]=UniMissileSystem3D__HP[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__EF[i]=UniMissileSystem3D__EF[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__EFL[i]=UniMissileSystem3D__EFL[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__SH[i]=UniMissileSystem3D__SH[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__MGra[i]=UniMissileSystem3D__MGra[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__LOC[i]=UniMissileSystem3D__LOC[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__TIM[i]=UniMissileSystem3D__TIM[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__LT[i]=UniMissileSystem3D__LT[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__SZ[i]=UniMissileSystem3D__SZ[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__RI[i]=UniMissileSystem3D__RI[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__R01[i]=UniMissileSystem3D__R01[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__R02[i]=UniMissileSystem3D__R02[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__MT[i]=UniMissileSystem3D__MT[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__OH[i]=UniMissileSystem3D__OH[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__OS[i]=UniMissileSystem3D__OS[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__OF[i]=UniMissileSystem3D__OF[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__ACC[i]=UniMissileSystem3D__ACC[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__MaxS[i]=UniMissileSystem3D__MaxS[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__MKs[i]=UniMissileSystem3D__MKs[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__SPX[i]=UniMissileSystem3D__SPX[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__SPY[i]=UniMissileSystem3D__SPY[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__LastX[i]=UniMissileSystem3D__LastX[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__LastY[i]=UniMissileSystem3D__LastY[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__IN[i]=UniMissileSystem3D__IN[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__LastOwner[i]=UniMissileSystem3D__LastOwner[UniMissileSystem3D__Top]
-     set UniMissileSystem3D__MU[UniMissileSystem3D__Top]=null
-     set UniMissileSystem3D__MT[UniMissileSystem3D__Top]=null
-     set UniMissileSystem3D__Top=UniMissileSystem3D__Top - 1
+     call DestroyEffect((UniMissileSystem3D___EFL[i])) // INLINED!!
+     set UniMissileSystem3D___MU[i]=UniMissileSystem3D___MU[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___SP[i]=UniMissileSystem3D___SP[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___RA[i]=UniMissileSystem3D___RA[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___DM[i]=UniMissileSystem3D___DM[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___DI[i]=UniMissileSystem3D___DI[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___AN[i]=UniMissileSystem3D___AN[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___HE[i]=UniMissileSystem3D___HE[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___HEMax[i]=UniMissileSystem3D___HEMax[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___US[i]=UniMissileSystem3D___US[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___ARC[i]=UniMissileSystem3D___ARC[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___HP[i]=UniMissileSystem3D___HP[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___EF[i]=UniMissileSystem3D___EF[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___EFL[i]=UniMissileSystem3D___EFL[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___SH[i]=UniMissileSystem3D___SH[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___MGra[i]=UniMissileSystem3D___MGra[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___LOC[i]=UniMissileSystem3D___LOC[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___TIM[i]=UniMissileSystem3D___TIM[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___LT[i]=UniMissileSystem3D___LT[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___SZ[i]=UniMissileSystem3D___SZ[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___RI[i]=UniMissileSystem3D___RI[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___R01[i]=UniMissileSystem3D___R01[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___R02[i]=UniMissileSystem3D___R02[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___MT[i]=UniMissileSystem3D___MT[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___OH[i]=UniMissileSystem3D___OH[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___OS[i]=UniMissileSystem3D___OS[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___OF[i]=UniMissileSystem3D___OF[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___ACC[i]=UniMissileSystem3D___ACC[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___MaxS[i]=UniMissileSystem3D___MaxS[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___MKs[i]=UniMissileSystem3D___MKs[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___SPX[i]=UniMissileSystem3D___SPX[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___SPY[i]=UniMissileSystem3D___SPY[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___LastX[i]=UniMissileSystem3D___LastX[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___LastY[i]=UniMissileSystem3D___LastY[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___IN[i]=UniMissileSystem3D___IN[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___LastOwner[i]=UniMissileSystem3D___LastOwner[UniMissileSystem3D___Top]
+     set UniMissileSystem3D___MU[UniMissileSystem3D___Top]=null
+     set UniMissileSystem3D___MT[UniMissileSystem3D___Top]=null
+     set UniMissileSystem3D___Top=UniMissileSystem3D___Top - 1
 endfunction
 // 判断是否越界
-function UniMissileSystem3D__MLimit takes real x,real y returns boolean
-     if x > UniMissileSystem3D__map_max_X or x < UniMissileSystem3D__map_min_X or y > UniMissileSystem3D__map_max_Y or y < UniMissileSystem3D__map_min_Y then //边界判定
+function UniMissileSystem3D___MLimit takes real x,real y returns boolean
+     if x > UniMissileSystem3D___map_max_X or x < UniMissileSystem3D___map_min_X or y > UniMissileSystem3D___map_max_Y or y < UniMissileSystem3D___map_min_Y then //边界判定
         return true
      else
         return false
      endif
 endfunction
 // 弹幕循环
-function UniMissileSystem3D__MLoop takes nothing returns nothing
-     local integer i=UniMissileSystem3D__Top
+function UniMissileSystem3D___MLoop takes nothing returns nothing
+     local integer i=UniMissileSystem3D___Top
      local real array x
      local real array y
      local real array zLoc
@@ -3211,103 +3218,103 @@ function UniMissileSystem3D__MLoop takes nothing returns nothing
          exitwhen i < 0
          set addh=0.0
          set udis=0.0
-         set x[1]=GetUnitX(UniMissileSystem3D__MU[i])
-         set y[1]=GetUnitY(UniMissileSystem3D__MU[i])
-         set height=GetUnitFlyHeight(UniMissileSystem3D__MU[i])
-         if UniMissileSystem3D__DI[i] <= 0.0 or GetUnitState(UniMissileSystem3D__MU[i], UNIT_STATE_LIFE) < 0.4 or height <= 0.1 or UniMissileSystem3D__HP[i] <= 0.0 or UniMissileSystem3D__MLimit(x[1] , y[1]) == true or height >= 9999.1 then
-             call UniMissileSystem3D__MPop(i)
+         set x[1]=GetUnitX(UniMissileSystem3D___MU[i])
+         set y[1]=GetUnitY(UniMissileSystem3D___MU[i])
+         set height=GetUnitFlyHeight(UniMissileSystem3D___MU[i])
+         if UniMissileSystem3D___DI[i] <= 0.0 or GetUnitState(UniMissileSystem3D___MU[i], UNIT_STATE_LIFE) < 0.4 or height <= 0.1 or UniMissileSystem3D___HP[i] <= 0.0 or UniMissileSystem3D___MLimit(x[1] , y[1]) == true or height >= 9999.1 then
+             call UniMissileSystem3D___MPop(i)
          else
-             if UniMissileSystem3D__MT[i] != null then
-                set UniMissileSystem3D__AN[i]=UniMissileSystem3D__AngleBetweenXY(x[1] , GetUnitX(UniMissileSystem3D__MT[i]) , y[1] , GetUnitY(UniMissileSystem3D__MT[i]))
-                set ang=UniMissileSystem3D__AN[i] * bj_DEGTORAD
-                if UniMissileSystem3D__IN[i] == 0 then
-                   set UniMissileSystem3D__SPX[i]=UniMissileSystem3D__SP[i] * Cos(ang)
-                   set UniMissileSystem3D__SPY[i]=UniMissileSystem3D__SP[i] * Sin(ang)
+             if UniMissileSystem3D___MT[i] != null then
+                set UniMissileSystem3D___AN[i]=UniMissileSystem3D___AngleBetweenXY(x[1] , GetUnitX(UniMissileSystem3D___MT[i]) , y[1] , GetUnitY(UniMissileSystem3D___MT[i]))
+                set ang=UniMissileSystem3D___AN[i] * bj_DEGTORAD
+                if UniMissileSystem3D___IN[i] == 0 then
+                   set UniMissileSystem3D___SPX[i]=UniMissileSystem3D___SP[i] * Cos(ang)
+                   set UniMissileSystem3D___SPY[i]=UniMissileSystem3D___SP[i] * Sin(ang)
                 else
-                   set ang=ang + UniMissileSystem3D__OF[i]
-                   set UniMissileSystem3D__SPX[i]=UniMissileSystem3D__SPX[i] * UniMissileSystem3D__MKs[i] + UniMissileSystem3D__ACC[i] * Cos(ang)
-                   set UniMissileSystem3D__SPY[i]=UniMissileSystem3D__SPY[i] * UniMissileSystem3D__MKs[i] + UniMissileSystem3D__ACC[i] * Sin(ang)
+                   set ang=ang + UniMissileSystem3D___OF[i]
+                   set UniMissileSystem3D___SPX[i]=UniMissileSystem3D___SPX[i] * UniMissileSystem3D___MKs[i] + UniMissileSystem3D___ACC[i] * Cos(ang)
+                   set UniMissileSystem3D___SPY[i]=UniMissileSystem3D___SPY[i] * UniMissileSystem3D___MKs[i] + UniMissileSystem3D___ACC[i] * Sin(ang)
                 endif
-                if IsUnitType(UniMissileSystem3D__MT[i], UNIT_TYPE_DEAD) == true then
-                   set UniMissileSystem3D__MT[i]=null
+                if IsUnitType(UniMissileSystem3D___MT[i], UNIT_TYPE_DEAD) == true then
+                   set UniMissileSystem3D___MT[i]=null
                 endif
-                set udis=UniMissileSystem3D__DistanceBetweenUnits(UniMissileSystem3D__MT[i] , UniMissileSystem3D__MU[i]) / 100.
+                set udis=UniMissileSystem3D___DistanceBetweenUnits(UniMissileSystem3D___MT[i] , UniMissileSystem3D___MU[i]) / 100.
                 if udis == 0. then
                    set udis=0.01
                 endif
-                set targetheight=GetUnitFlyHeight(UniMissileSystem3D__MT[i])
-                if RAbsBJ(height - targetheight) > UniMissileSystem3D__RA[i] then
+                set targetheight=GetUnitFlyHeight(UniMissileSystem3D___MT[i])
+                if RAbsBJ(height - targetheight) > UniMissileSystem3D___RA[i] then
                    if targetheight > height then
-                      set addh=RAbsBJ(UniMissileSystem3D__SP[i]) / udis
+                      set addh=RAbsBJ(UniMissileSystem3D___SP[i]) / udis
                       if addh + height > targetheight then
                          set addh=addh / 10.
-                         call SetUnitFlyHeight(UniMissileSystem3D__MU[i], targetheight, 0.0)
+                         call SetUnitFlyHeight(UniMissileSystem3D___MU[i], targetheight, 0.0)
                          set height=targetheight
                       endif
                    elseif targetheight < height then
-                          set addh=RAbsBJ(UniMissileSystem3D__SP[i]) * ( - 1. ) / udis
+                          set addh=RAbsBJ(UniMissileSystem3D___SP[i]) * ( - 1. ) / udis
                           if addh + height < targetheight then
-                             call SetUnitFlyHeight(UniMissileSystem3D__MU[i], targetheight, 0.0)
+                             call SetUnitFlyHeight(UniMissileSystem3D___MU[i], targetheight, 0.0)
                              set height=targetheight
                           endif
                    endif
                 endif
              else
-                set ang=UniMissileSystem3D__AN[i] * bj_DEGTORAD
-                set UniMissileSystem3D__SPX[i]=UniMissileSystem3D__SP[i] * Cos(ang)
-                set UniMissileSystem3D__SPY[i]=UniMissileSystem3D__SP[i] * Sin(ang)
-                if UniMissileSystem3D__LOC[i] == 0.0 then
-                   set UniMissileSystem3D__SP[i]=UniMissileSystem3D__SP[i] + UniMissileSystem3D__ACC[i]
+                set ang=UniMissileSystem3D___AN[i] * bj_DEGTORAD
+                set UniMissileSystem3D___SPX[i]=UniMissileSystem3D___SP[i] * Cos(ang)
+                set UniMissileSystem3D___SPY[i]=UniMissileSystem3D___SP[i] * Sin(ang)
+                if UniMissileSystem3D___LOC[i] == 0.0 then
+                   set UniMissileSystem3D___SP[i]=UniMissileSystem3D___SP[i] + UniMissileSystem3D___ACC[i]
                 else
-                   if UniMissileSystem3D__SP[i] <= UniMissileSystem3D__MaxS[i] then
-                     set UniMissileSystem3D__SP[i]=UniMissileSystem3D__SP[i] + UniMissileSystem3D__ACC[i]
+                   if UniMissileSystem3D___SP[i] <= UniMissileSystem3D___MaxS[i] then
+                     set UniMissileSystem3D___SP[i]=UniMissileSystem3D___SP[i] + UniMissileSystem3D___ACC[i]
                    else
-                     set UniMissileSystem3D__SP[i]=UniMissileSystem3D__MaxS[i]
+                     set UniMissileSystem3D___SP[i]=UniMissileSystem3D___MaxS[i]
                    endif
                 endif
              endif
-             set x[2]=x[1] + UniMissileSystem3D__SPX[i]
-             set y[2]=y[1] + UniMissileSystem3D__SPY[i]
-             set UniMissileSystem3D__MLoc[1]=Location(x[1], y[1])
-             set UniMissileSystem3D__MLoc[2]=Location(x[2], y[2])
-             set zLoc[1]=GetLocationZ(UniMissileSystem3D__MLoc[1])
-             set zLoc[2]=GetLocationZ(UniMissileSystem3D__MLoc[2])
-             call SetUnitX(UniMissileSystem3D__MU[i], x[2])
-             call SetUnitY(UniMissileSystem3D__MU[i], y[2])
-             set UniMissileSystem3D__LastX[i]=x[2]
-             set UniMissileSystem3D__LastY[i]=y[2]
-             set addxy=UniMissileSystem3D__DistanceBetweenXY(x[2] , x[1] , y[2] , y[1])
-             call SetUnitFacing(UniMissileSystem3D__MU[i], UniMissileSystem3D__AN[i])
-             call GroupEnumUnitsInRange(UniMissileSystem3D__DamageGroup, x[2], y[2], UniMissileSystem3D__RA[i], null)
+             set x[2]=x[1] + UniMissileSystem3D___SPX[i]
+             set y[2]=y[1] + UniMissileSystem3D___SPY[i]
+             set UniMissileSystem3D___MLoc[1]=Location(x[1], y[1])
+             set UniMissileSystem3D___MLoc[2]=Location(x[2], y[2])
+             set zLoc[1]=GetLocationZ(UniMissileSystem3D___MLoc[1])
+             set zLoc[2]=GetLocationZ(UniMissileSystem3D___MLoc[2])
+             call SetUnitX(UniMissileSystem3D___MU[i], x[2])
+             call SetUnitY(UniMissileSystem3D___MU[i], y[2])
+             set UniMissileSystem3D___LastX[i]=x[2]
+             set UniMissileSystem3D___LastY[i]=y[2]
+             set addxy=UniMissileSystem3D___DistanceBetweenXY(x[2] , x[1] , y[2] , y[1])
+             call SetUnitFacing(UniMissileSystem3D___MU[i], UniMissileSystem3D___AN[i])
+             call GroupEnumUnitsInRange(UniMissileSystem3D___DamageGroup, x[2], y[2], UniMissileSystem3D___RA[i], null)
              loop
-                 set UniMissileSystem3D__DamageUnit=FirstOfGroup(UniMissileSystem3D__DamageGroup)
-                 if GetUnitState(UniMissileSystem3D__DamageUnit, UNIT_STATE_LIFE) > 0.4 and ( UniMissileSystem3D__MT[i] == UniMissileSystem3D__DamageUnit or IsUnitEnemy(UniMissileSystem3D__DamageUnit, GetOwningPlayer(UniMissileSystem3D__MU[i])) ) then
-                     if RAbsBJ(height - GetUnitFlyHeight(UniMissileSystem3D__DamageUnit)) <= UniMissileSystem3D__RA[i] then
-                        call UnitDamageTarget(UniMissileSystem3D__MU[i], UniMissileSystem3D__DamageUnit, UniMissileSystem3D__DM[i], true, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
-                        set UniMissileSystem3D__HP[i]=UniMissileSystem3D__HP[i] - 1.
-                        set UniMissileSystem3D__DM[i]=UniMissileSystem3D__DM[i] * 0.5
+                 set UniMissileSystem3D___DamageUnit=FirstOfGroup(UniMissileSystem3D___DamageGroup)
+                 if GetUnitState(UniMissileSystem3D___DamageUnit, UNIT_STATE_LIFE) > 0.4 and ( UniMissileSystem3D___MT[i] == UniMissileSystem3D___DamageUnit or IsUnitEnemy(UniMissileSystem3D___DamageUnit, GetOwningPlayer(UniMissileSystem3D___MU[i])) ) then
+                     if RAbsBJ(height - GetUnitFlyHeight(UniMissileSystem3D___DamageUnit)) <= UniMissileSystem3D___RA[i] then
+                        call UnitDamageTarget(UniMissileSystem3D___MU[i], UniMissileSystem3D___DamageUnit, UniMissileSystem3D___DM[i], true, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+                        set UniMissileSystem3D___HP[i]=UniMissileSystem3D___HP[i] - 1.
+                        set UniMissileSystem3D___DM[i]=UniMissileSystem3D___DM[i] * 0.5
                      endif
                  endif
-                 call GroupRemoveUnit(UniMissileSystem3D__DamageGroup, UniMissileSystem3D__DamageUnit)
-                 exitwhen UniMissileSystem3D__DamageUnit == null
+                 call GroupRemoveUnit(UniMissileSystem3D___DamageGroup, UniMissileSystem3D___DamageUnit)
+                 exitwhen UniMissileSystem3D___DamageUnit == null
              endloop
-             call GroupClear(UniMissileSystem3D__DamageGroup)
-             set UniMissileSystem3D__TIM[i]=UniMissileSystem3D__TIM[i] + UniMissileSystem3D__TIMOut
-            if UniMissileSystem3D__MGra[i] == 0.0 then
-            set h=0.11 + UniMissileSystem3D__SZ[i] - zLoc[2]
+             call GroupClear(UniMissileSystem3D___DamageGroup)
+             set UniMissileSystem3D___TIM[i]=UniMissileSystem3D___TIM[i] + UniMissileSystem3D___TIMOut
+            if UniMissileSystem3D___MGra[i] == 0.0 then
+            set h=0.11 + UniMissileSystem3D___SZ[i] - zLoc[2]
             endif
-            if UniMissileSystem3D__LOC[i] == 0.0 then
-             if UniMissileSystem3D__MGra[i] == 0.0 then
+            if UniMissileSystem3D___LOC[i] == 0.0 then
+             if UniMissileSystem3D___MGra[i] == 0.0 then
              else
-             set h=UniMissileSystem3D__HEMax[i] - UniMissileSystem3D__R01[i] * ( UniMissileSystem3D__TIM[i] - UniMissileSystem3D__LT[i] / 2 ) * ( UniMissileSystem3D__TIM[i] - UniMissileSystem3D__LT[i] / 2 ) + UniMissileSystem3D__TIM[i] * UniMissileSystem3D__R02[i] + UniMissileSystem3D__SZ[i] - zLoc[2]
+             set h=UniMissileSystem3D___HEMax[i] - UniMissileSystem3D___R01[i] * ( UniMissileSystem3D___TIM[i] - UniMissileSystem3D___LT[i] / 2 ) * ( UniMissileSystem3D___TIM[i] - UniMissileSystem3D___LT[i] / 2 ) + UniMissileSystem3D___TIM[i] * UniMissileSystem3D___R02[i] + UniMissileSystem3D___SZ[i] - zLoc[2]
              endif
             else
-             set UniMissileSystem3D__US[i]=UniMissileSystem3D__US[i] - UniMissileSystem3D__MGra[i]
+             set UniMissileSystem3D___US[i]=UniMissileSystem3D___US[i] - UniMissileSystem3D___MGra[i]
             endif
              set lastheight=height
-             set UniMissileSystem3D__HE[i]=UniMissileSystem3D__HE[i] * UniMissileSystem3D__LOC[i] + UniMissileSystem3D__SH[i] + UniMissileSystem3D__US[i] * UniMissileSystem3D__LOC[i] + h * ( 1 - UniMissileSystem3D__LOC[i] ) + addh
-             set height=UniMissileSystem3D__HE[i] - zLoc[2] * UniMissileSystem3D__LOC[i]
-             call SetUnitFlyHeight(UniMissileSystem3D__MU[i], height, 0.0)
+             set UniMissileSystem3D___HE[i]=UniMissileSystem3D___HE[i] * UniMissileSystem3D___LOC[i] + UniMissileSystem3D___SH[i] + UniMissileSystem3D___US[i] * UniMissileSystem3D___LOC[i] + h * ( 1 - UniMissileSystem3D___LOC[i] ) + addh
+             set height=UniMissileSystem3D___HE[i] - zLoc[2] * UniMissileSystem3D___LOC[i]
+             call SetUnitFlyHeight(UniMissileSystem3D___MU[i], height, 0.0)
              set addz=height - lastheight
              if addxy == 0. then
                 set addxy=1.
@@ -3321,11 +3328,11 @@ function UniMissileSystem3D__MLoop takes nothing returns nothing
              elseif aniI > 181 then
                 set aniI=181
              endif
-             call SetUnitAnimationByIndex(UniMissileSystem3D__MU[i], aniI)
-             set UniMissileSystem3D__DI[i]=UniMissileSystem3D__DI[i] - UniMissileSystem3D__SP[i] * UniMissileSystem3D__LOC[i]
-             set UniMissileSystem3D__US[i]=UniMissileSystem3D__US[i] - UniMissileSystem3D__MGra[i]
-             call RemoveLocation(UniMissileSystem3D__MLoc[1])
-             call RemoveLocation(UniMissileSystem3D__MLoc[2])
+             call SetUnitAnimationByIndex(UniMissileSystem3D___MU[i], aniI)
+             set UniMissileSystem3D___DI[i]=UniMissileSystem3D___DI[i] - UniMissileSystem3D___SP[i] * UniMissileSystem3D___LOC[i]
+             set UniMissileSystem3D___US[i]=UniMissileSystem3D___US[i] - UniMissileSystem3D___MGra[i]
+             call RemoveLocation(UniMissileSystem3D___MLoc[1])
+             call RemoveLocation(UniMissileSystem3D___MLoc[2])
          endif
          set i=i - 1
      endloop
@@ -3344,9 +3351,9 @@ function MissileCast takes unit caster,unit missile,real originspeed,real maxspe
      if loc == null then
         return
      endif
-     set UniMissileSystem3D__Top=UniMissileSystem3D__Top + 1
-     set i=UniMissileSystem3D__Top
-     set UniMissileSystem3D__HeroLoc=GetUnitLoc(caster)
+     set UniMissileSystem3D___Top=UniMissileSystem3D___Top + 1
+     set i=UniMissileSystem3D___Top
+     set UniMissileSystem3D___HeroLoc=GetUnitLoc(caster)
      if speed == 0. then
         set speed=0.01
      endif
@@ -3362,101 +3369,101 @@ function MissileCast takes unit caster,unit missile,real originspeed,real maxspe
      if height == 0. then
         set height=0.1
      endif
-     if GetLocationX(loc) != GetLocationX(UniMissileSystem3D__HeroLoc) or GetLocationY(loc) != GetLocationY(UniMissileSystem3D__HeroLoc) then
+     if GetLocationX(loc) != GetLocationX(UniMissileSystem3D___HeroLoc) or GetLocationY(loc) != GetLocationY(UniMissileSystem3D___HeroLoc) then
         set x=GetLocationX(loc)
         set y=GetLocationY(loc)
-        set ang=UniMissileSystem3D__AngleBetweenXY(GetUnitX(caster) , x , GetUnitY(caster) , y)
-        set dis=UniMissileSystem3D__DistanceBetweenXY(x , GetUnitX(caster) , y , GetUnitY(caster))
-        set UniMissileSystem3D__LOC[i]=0.0
+        set ang=UniMissileSystem3D___AngleBetweenXY(GetUnitX(caster) , x , GetUnitY(caster) , y)
+        set dis=UniMissileSystem3D___DistanceBetweenXY(x , GetUnitX(caster) , y , GetUnitY(caster))
+        set UniMissileSystem3D___LOC[i]=0.0
      else
         set ang=angle
         set dis=distance
-        set UniMissileSystem3D__LOC[i]=1.0
+        set UniMissileSystem3D___LOC[i]=1.0
      endif
      if gravity == true then
-        set UniMissileSystem3D__MGra[i]=UniMissileSystem3D__Gravity
+        set UniMissileSystem3D___MGra[i]=UniMissileSystem3D___Gravity
      else
-        set UniMissileSystem3D__MGra[i]=0.0
+        set UniMissileSystem3D___MGra[i]=0.0
      endif
-     set UniMissileSystem3D__MU[i]=missile
-     call UniMissileSystem3D__MRegister(UniMissileSystem3D__MU[i])
-     set UniMissileSystem3D__OH[i]=GetUnitFlyHeight(caster) + height
-     set UniMissileSystem3D__SZ[i]=GetLocationZ(UniMissileSystem3D__HeroLoc) + UniMissileSystem3D__OH[i]
+     set UniMissileSystem3D___MU[i]=missile
+     call UniMissileSystem3D___MRegister(UniMissileSystem3D___MU[i])
+     set UniMissileSystem3D___OH[i]=GetUnitFlyHeight(caster) + height
+     set UniMissileSystem3D___SZ[i]=GetLocationZ(UniMissileSystem3D___HeroLoc) + UniMissileSystem3D___OH[i]
      if originspeed == maxspeed then
         set speed=originspeed
         set accel=0.0
         set inertia=false
-        set UniMissileSystem3D__LT[i]=dis / speed
+        set UniMissileSystem3D___LT[i]=dis / speed
      else
         set inertia=true
-        set UniMissileSystem3D__LT[i]=UniMissileSystem3D__GetAcceleratedTime(dis , originspeed , accel)
+        set UniMissileSystem3D___LT[i]=UniMissileSystem3D___GetAcceleratedTime(dis , originspeed , accel)
      endif
-     set UniMissileSystem3D__SP[i]=originspeed * UniMissileSystem3D__TIMOut
-     set UniMissileSystem3D__MaxS[i]=maxspeed
-     set UniMissileSystem3D__RI[i]=( GetLocationZ(loc) - UniMissileSystem3D__SZ[i] ) / dis
-     set UniMissileSystem3D__TIM[i]=0
-     set UniMissileSystem3D__IN[i]=0
+     set UniMissileSystem3D___SP[i]=originspeed * UniMissileSystem3D___TIMOut
+     set UniMissileSystem3D___MaxS[i]=maxspeed
+     set UniMissileSystem3D___RI[i]=( GetLocationZ(loc) - UniMissileSystem3D___SZ[i] ) / dis
+     set UniMissileSystem3D___TIM[i]=0
+     set UniMissileSystem3D___IN[i]=0
      if target != null then
         if GetUnitState(target, UNIT_STATE_LIFE) > 0.4 then
-        set UniMissileSystem3D__MT[i]=target
+        set UniMissileSystem3D___MT[i]=target
         if inertia == true then
-           set UniMissileSystem3D__OS[i]=originspeed * UniMissileSystem3D__TIMOut
-           set UniMissileSystem3D__OF[i]=Deg2Rad(50)
-           set UniMissileSystem3D__SPX[i]=UniMissileSystem3D__OS[i] * Cos(ang)
-           set UniMissileSystem3D__SPY[i]=UniMissileSystem3D__OS[i] * Sin(ang)
-           set UniMissileSystem3D__MKs[i]=1 - accel * UniMissileSystem3D__TIMOut / maxspeed
+           set UniMissileSystem3D___OS[i]=originspeed * UniMissileSystem3D___TIMOut
+           set UniMissileSystem3D___OF[i]=Deg2Rad(50)
+           set UniMissileSystem3D___SPX[i]=UniMissileSystem3D___OS[i] * Cos(ang)
+           set UniMissileSystem3D___SPY[i]=UniMissileSystem3D___OS[i] * Sin(ang)
+           set UniMissileSystem3D___MKs[i]=1 - accel * UniMissileSystem3D___TIMOut / maxspeed
         endif
         endif
      endif
-     set UniMissileSystem3D__ACC[i]=accel * UniMissileSystem3D__TIMOut * UniMissileSystem3D__TIMOut
+     set UniMissileSystem3D___ACC[i]=accel * UniMissileSystem3D___TIMOut * UniMissileSystem3D___TIMOut
      if inertia == true then
-        set UniMissileSystem3D__IN[i]=1
+        set UniMissileSystem3D___IN[i]=1
      endif
-     set UniMissileSystem3D__RA[i]=range
-     set UniMissileSystem3D__DM[i]=damage
-     set UniMissileSystem3D__AN[i]=ang
-     set UniMissileSystem3D__ARC[i]=arc
-     set UniMissileSystem3D__MaxS[i]=maxspeed * UniMissileSystem3D__TIMOut
+     set UniMissileSystem3D___RA[i]=range
+     set UniMissileSystem3D___DM[i]=damage
+     set UniMissileSystem3D___AN[i]=ang
+     set UniMissileSystem3D___ARC[i]=arc
+     set UniMissileSystem3D___MaxS[i]=maxspeed * UniMissileSystem3D___TIMOut
      if arc != 0.0 then
-        set UniMissileSystem3D__HEMax[i]=dis * UniMissileSystem3D__ARC[i]
+        set UniMissileSystem3D___HEMax[i]=dis * UniMissileSystem3D___ARC[i]
      else
-        set UniMissileSystem3D__HEMax[i]=height
+        set UniMissileSystem3D___HEMax[i]=height
      endif
-     if GetLocationX(loc) == GetLocationX(UniMissileSystem3D__HeroLoc) and GetLocationY(loc) == GetLocationY(UniMissileSystem3D__HeroLoc) then
-        set UniMissileSystem3D__ANZ[i]=AtanBJ(arc)
-        set UniMissileSystem3D__US[i]=arc * UniMissileSystem3D__SP[i]
-        set UniMissileSystem3D__DI[i]=distance
+     if GetLocationX(loc) == GetLocationX(UniMissileSystem3D___HeroLoc) and GetLocationY(loc) == GetLocationY(UniMissileSystem3D___HeroLoc) then
+        set UniMissileSystem3D___ANZ[i]=AtanBJ(arc)
+        set UniMissileSystem3D___US[i]=arc * UniMissileSystem3D___SP[i]
+        set UniMissileSystem3D___DI[i]=distance
      else
-        set UniMissileSystem3D__US[i]=0
-        set UniMissileSystem3D__DI[i]=dis
+        set UniMissileSystem3D___US[i]=0
+        set UniMissileSystem3D___DI[i]=dis
      endif
-     call SetUnitX(UniMissileSystem3D__MU[i], GetLocationX(UniMissileSystem3D__HeroLoc))
-     call SetUnitY(UniMissileSystem3D__MU[i], GetLocationY(UniMissileSystem3D__HeroLoc))
-     call SetUnitOwner(UniMissileSystem3D__MU[i], GetOwningPlayer(caster), true)
-     call SetUnitFacing(UniMissileSystem3D__MU[i], UniMissileSystem3D__AN[i])
-     set UniMissileSystem3D__HE[i]=UniMissileSystem3D__OH[i] + GetLocationZ(UniMissileSystem3D__HeroLoc) + 0.11
-     set UniMissileSystem3D__SH[i]=0 * speed
-     set UniMissileSystem3D__LastX[i]=0.0
-     set UniMissileSystem3D__LastY[i]=0.0
-     set UniMissileSystem3D__R01[i]=UniMissileSystem3D__HEMax[i] / UniMissileSystem3D__LT[i] / UniMissileSystem3D__LT[i] * 4
-     set UniMissileSystem3D__R02[i]=UniMissileSystem3D__SP[i] * UniMissileSystem3D__RI[i] / UniMissileSystem3D__TIMOut
-     set UniMissileSystem3D__HP[i]=l__hp
-     set UniMissileSystem3D__DM[i]=damage
-     set UniMissileSystem3D__EF[i]=Effect
-     call SetUnitFlyHeight(UniMissileSystem3D__MU[i], UniMissileSystem3D__HE[i] - GetLocationZ(UniMissileSystem3D__HeroLoc), 0.0)
-     set UniMissileSystem3D__EFL[i]=AddSpecialEffectTargetEx(UniMissileSystem3D__EF[i] , UniMissileSystem3D__MU[i] , "chest")
-     set UniMissileSystem3D__LastOwner[i]=GetOwningPlayer(caster)
-     call RemoveLocation(UniMissileSystem3D__HeroLoc)
-     set UniMissileSystem3D__HeroLoc=null
+     call SetUnitX(UniMissileSystem3D___MU[i], GetLocationX(UniMissileSystem3D___HeroLoc))
+     call SetUnitY(UniMissileSystem3D___MU[i], GetLocationY(UniMissileSystem3D___HeroLoc))
+     call SetUnitOwner(UniMissileSystem3D___MU[i], GetOwningPlayer(caster), true)
+     call SetUnitFacing(UniMissileSystem3D___MU[i], UniMissileSystem3D___AN[i])
+     set UniMissileSystem3D___HE[i]=UniMissileSystem3D___OH[i] + GetLocationZ(UniMissileSystem3D___HeroLoc) + 0.11
+     set UniMissileSystem3D___SH[i]=0 * speed
+     set UniMissileSystem3D___LastX[i]=0.0
+     set UniMissileSystem3D___LastY[i]=0.0
+     set UniMissileSystem3D___R01[i]=UniMissileSystem3D___HEMax[i] / UniMissileSystem3D___LT[i] / UniMissileSystem3D___LT[i] * 4
+     set UniMissileSystem3D___R02[i]=UniMissileSystem3D___SP[i] * UniMissileSystem3D___RI[i] / UniMissileSystem3D___TIMOut
+     set UniMissileSystem3D___HP[i]=l__hp
+     set UniMissileSystem3D___DM[i]=damage
+     set UniMissileSystem3D___EF[i]=Effect
+     call SetUnitFlyHeight(UniMissileSystem3D___MU[i], UniMissileSystem3D___HE[i] - GetLocationZ(UniMissileSystem3D___HeroLoc), 0.0)
+     set UniMissileSystem3D___EFL[i]=AddSpecialEffectTargetEx(UniMissileSystem3D___EF[i] , UniMissileSystem3D___MU[i] , "chest")
+     set UniMissileSystem3D___LastOwner[i]=GetOwningPlayer(caster)
+     call RemoveLocation(UniMissileSystem3D___HeroLoc)
+     set UniMissileSystem3D___HeroLoc=null
 endfunction
-function UniMissileSystem3D__Init takes nothing returns nothing
-     set UniMissileSystem3D__map_max_X=GetRectMaxX(bj_mapInitialPlayableArea)
-     set UniMissileSystem3D__map_max_Y=GetRectMaxY(bj_mapInitialPlayableArea)
-     set UniMissileSystem3D__map_min_X=GetRectMinX(bj_mapInitialPlayableArea)
-     set UniMissileSystem3D__map_min_Y=GetRectMinY(bj_mapInitialPlayableArea)
-     set UniMissileSystem3D__DamageGroup=CreateGroup()
-     set UniMissileSystem3D__TIMr=CreateTimer()
-     call TimerStart(UniMissileSystem3D__TIMr, UniMissileSystem3D__TIMOut, true, function UniMissileSystem3D__MLoop)
+function UniMissileSystem3D___Init takes nothing returns nothing
+     set UniMissileSystem3D___map_max_X=GetRectMaxX(bj_mapInitialPlayableArea)
+     set UniMissileSystem3D___map_max_Y=GetRectMaxY(bj_mapInitialPlayableArea)
+     set UniMissileSystem3D___map_min_X=GetRectMinX(bj_mapInitialPlayableArea)
+     set UniMissileSystem3D___map_min_Y=GetRectMinY(bj_mapInitialPlayableArea)
+     set UniMissileSystem3D___DamageGroup=CreateGroup()
+     set UniMissileSystem3D___TIMr=CreateTimer()
+     call TimerStart(UniMissileSystem3D___TIMr, UniMissileSystem3D___TIMOut, true, function UniMissileSystem3D___MLoop)
 endfunction
 
 //library UniMissileSystem3D ends
@@ -7281,7 +7288,7 @@ endfunction
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Tue Aug 16 08:53:54 2022
+//   Date: Tue Aug 16 12:48:46 2022
 //   Map Author: 云杨 zei_kale
 // 
 //===========================================================================
@@ -8871,7 +8878,7 @@ function xw takes nothing returns nothing
 				if d != 0 and d > v * v then
 					call SetUnitPosition(ww, GetUnitX(yw), GetUnitY(yw))
 					set e=AddSpecialEffectTargetEx("Abilities\\Spells\\Human\\MassTeleport\\MassTeleportTarget.mdl" , yw , "chest")
-					call DestroyEffectEx(e)
+					call DestroyEffect((e)) // INLINED!!
 				else
 					call IssuePointOrderById(ww, $D0012, GetUnitX(yw), GetUnitY(yw))
 				endif
@@ -8950,7 +8957,7 @@ function Iw takes nothing returns nothing
 	call RemoveSavedHandle(YDHT, c4, q4)
 endfunction
 function lw takes nothing returns nothing
-	call DestroyEffectEx(LoadEffectHandle(YDHT, c4, q4))
+	call DestroyEffect((LoadEffectHandle(YDHT, c4, q4))) // INLINED!!
 	call RemoveSavedHandle(YDHT, c4, q4)
 endfunction
 function Jw takes real pw,effect e returns nothing
@@ -9062,7 +9069,7 @@ function SetUnitDizzyDoc takes nothing returns nothing
  local integer i= GetHandleId(tm)
  local unit Unit= LoadUnitHandle(YDHT, i, StringHash("unit"))
  local effect Eff= LoadEffectHandle(YDHT, i, StringHash("effect"))
-	call DestroyEffectEx(Eff)
+	call DestroyEffect((Eff)) // INLINED!!
 	call PauseUnit(Unit, false)
 	call FlushChildHashtable(YDHT, i)
 	call PauseTimer(tm)
@@ -9243,15 +9250,15 @@ function showDamageWithEffects takes integer i,unit u,real damage,boolean critic
 			loop
 				exitwhen j > StringLength(damageStr)
 				// call BJDebugMsg("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx")
-				set eff=AddSpecialEffectEx("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx" , GetUnitX(u) + 32 / 1.38 * ( j - 1 ) , GetUnitY(u))
+				set eff=AddSpecialEffect("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx", GetUnitX(u) + 32 / 1.38 * ( j - 1 ), GetUnitY(u))
 				call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
-				call DestroyEffectEx(eff)
+				call DestroyEffect(eff)
 				set j=j + 1
 			endloop
 			if critical then
-				set eff=AddSpecialEffectEx("war3mapImported\\SHZT11-10.mdx" , GetUnitX(u) - 37 / 1.38 , GetUnitY(u))
+				set eff=AddSpecialEffect("war3mapImported\\SHZT11-10.mdx", GetUnitX(u) - 37 / 1.38, GetUnitY(u))
 				call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
-				call DestroyEffectEx(eff)
+				call DestroyEffect(eff)
 			endif
 		endif
 	endif
@@ -9266,7 +9273,7 @@ function WuGongShangHai takes unit u,unit uc,real shanghai returns nothing
 		set eff=AddSpecialEffectEx("war3mapImported\\SHZT-MISS.mdx" , GetUnitX(uc) - 64 / 1.38 , GetUnitY(uc))
 		// call EXSetEffectSize(eff, 1.38)
 		call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
-		call DestroyEffectEx(eff)
+		call DestroyEffect((eff)) // INLINED!!
 		// call CreateTextTagUnitBJ("MISS",uc,0.,11.,255.,0.,0.,30.)
 	else
 		if GetRandomReal(0., 100.) <= 100. * udg_baojilv[1 + GetPlayerId(GetOwningPlayer(u))] then
@@ -9572,7 +9579,7 @@ function knock_back_on_timer takes nothing returns nothing
 	if IsTerrainPathable(GetUnitX(u) + LoadReal(YDHT, p, 3), GetUnitY(u) + LoadReal(YDHT, p, 4), PATHING_TYPE_WALKABILITY) == false then
 		call SetUnitX(u, CheckX(GetUnitX(u) + LoadReal(YDHT, p, 3)))
 		call SetUnitY(u, CheckY(GetUnitY(u) + LoadReal(YDHT, p, 4)))
-		call DestroyEffectEx(AddSpecialEffectEx(LoadStr(YDHT, p, 5) , GetUnitX(u) , GetUnitY(u)))
+		call DestroyEffect((AddSpecialEffectEx(LoadStr(YDHT, p, 5) , GetUnitX(u) , GetUnitY(u)))) // INLINED!!
 	endif
 	call SaveUnitHandle(YDHT, StringHash("击退"), 0, u)
 	call SaveReal(YDHT, StringHash("击退"), 1, shanghai)
@@ -9702,7 +9709,7 @@ endfunction
 
 function PassiveWuGongEffectAndDamage takes unit playerControllingUnit,unit enemy,string modelName,real w1,real w2,real damageCoefficient,integer abilityId returns nothing
  local location loc= GetUnitLoc(enemy)
-	call DestroyEffectEx(AddSpecialEffectLocEx(modelName , loc))
+	call DestroyEffect((AddSpecialEffectLocEx(modelName , loc))) // INLINED!!
 	call WuGongShangHai(playerControllingUnit , enemy , ShangHaiGongShi(playerControllingUnit , enemy , w1 , w2 , damageCoefficient , abilityId))
 	call RemoveLocation(loc)
 	set loc=null
@@ -11460,7 +11467,7 @@ function SelectHero takes nothing returns nothing
 			call SelectUnitRemoveForPlayer(u, p)
 			call SelectUnitAddForPlayer(bj_lastCreatedUnit, p)
 			call AddSpecialEffectTargetUnitBJEx("overhead" , bj_lastCreatedUnit , "Abilities\\Spells\\Other\\Awaken\\Awaken.mdl")
-			call DestroyEffectEx(bj_lastCreatedEffect)
+			call DestroyEffect((bj_lastCreatedEffect)) // INLINED!!
 			set udg_hashero[i]=true
 			set udg_hero[i]=bj_lastCreatedUnit
 			// 多通奖励100移速
@@ -13576,7 +13583,7 @@ function Da takes nothing returns nothing
 	call RemoveItem(GetSpellTargetItem())
 	call PlaySoundOnUnitBJ(Ih, 100, GetTriggerUnit())
 	call AddSpecialEffectTargetUnitBJEx("overhead" , GetTriggerUnit() , "Abilities\\Spells\\Items\\ResourceItems\\ResourceEffectTarget.mdl")
-	call DestroyEffectEx(bj_lastCreatedEffect)
+	call DestroyEffect((bj_lastCreatedEffect)) // INLINED!!
 endfunction
 // 鸟切换皮肤的技能
 function isSwitchSkin takes nothing returns boolean
@@ -13712,10 +13719,11 @@ function HeroLevel takes nothing returns nothing
 		loop
 			exitwhen d8[i] > DENOMINATION_NUMBER //门派数
 if ( udg_runamen[i] == d8[i] ) then
-				// 送一本中原武学散篇
-				call UnitAddItemById(u, 'I0F2')
+		
 				// 自由3级自动学技能begin
 				if d8[i] == 11 then
+					// 送一本中原武学散篇
+					call UnitAddItemById(u, 'I0F2')
 					if GetRandomInt(1, 100) <= 50 then
 						set denomFirst[d8[i]]=LoadInteger(YDHT, StringHash("武学") + GetRandomInt(1, 18), 2)
 					else
@@ -15722,7 +15730,7 @@ endfunction
 function qinggongxiaoshi takes nothing returns nothing
  local timer tm= GetExpiredTimer()
  local unit u= LoadUnitHandle(YDHT, GetHandleId(tm), 0)
-	call DestroyEffectEx(udg_JTX[GetPlayerId(GetOwningPlayer(u)) + 1])
+	call DestroyEffect((udg_JTX[GetPlayerId(GetOwningPlayer(u)) + 1])) // INLINED!!
 	call PauseTimer(tm)
 	call DestroyTimer(tm)
 	set u=null
@@ -15751,7 +15759,7 @@ function Trig_ttActions takes nothing returns nothing
 	call SaveReal(YDHT, GetHandleId(GetTriggerUnit()), StringHash("轻功velocity"), velocity)
 	call SaveUnitHandle(YDHT, GetHandleId(tm), 0, GetTriggerUnit())
 	call SetUnitFacing(GetTriggerUnit(), l__jd)
-	call DestroyEffectEx(AddSpecialEffectTargetUnitBJEx("origin" , GetTriggerUnit() , "Abilities\\Weapons\\PhoenixMissile\\Phoenix_Missile.mdl"))
+	call DestroyEffect((AddSpecialEffectTargetUnitBJEx("origin" , GetTriggerUnit() , "Abilities\\Weapons\\PhoenixMissile\\Phoenix_Missile.mdl"))) // INLINED!!
 	set udg_JTX[GetPlayerId(GetOwningPlayer(GetTriggerUnit())) + 1]=AddSpecialEffectTargetEx("Abilities\\Weapons\\PhoenixMissile\\Phoenix_Missile.mdl" , GetTriggerUnit() , "origin")
 	call SetUnitAnimation(GetTriggerUnit(), "walk")
 	call YDWEJumpTimer(GetTriggerUnit() , l__jd , distance , lasttime , 0.03 , 100)
@@ -16312,7 +16320,7 @@ function IT takes nothing returns nothing
  local unit u= GetTriggerUnit()
  local location loc= GetUnitLoc(u)
 	call AddSpecialEffectLocBJEx(loc , "war3mapImported\\ChaosExplosion.mdl")
-	call DestroyEffectEx(bj_lastCreatedEffect)
+	call DestroyEffect((bj_lastCreatedEffect)) // INLINED!!
 	call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(300. , loc , Condition(function GT)), function HT)
 	call RemoveLocation(loc)
 	set u=null
@@ -26547,7 +26555,7 @@ function shieldReduceDamage takes nothing returns nothing
         call SaveReal(YDHT, GetHandleId(u), $FED, LoadReal(YDHT, GetHandleId(u), $FED) - loss)
     endif
     if LoadReal(YDHT, GetHandleId(u), $FED) <= 0 then
-        call DestroyEffectEx(LoadEffectHandle(YDHT, GetHandleId(u), $DEF))
+        call DestroyEffect((LoadEffectHandle(YDHT, GetHandleId(u), $DEF))) // INLINED!!
     endif
     set u=null
 endfunction
@@ -27186,8 +27194,18 @@ function doToggleShowDamage takes nothing returns nothing
 	set showDamage[i]=not showDamage[i]
 endfunction
 function toggleShowAbilityEffect takes nothing returns nothing
+ local integer i= 1 + GetPlayerId(DzGetTriggerUIEventPlayer())
 	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
 		call s__Frame_toggle(checkboxWidget[4])
+		call DzSyncData("showEffect", I2S(i))
+	endif
+endfunction
+function doToggleShowEffect takes nothing returns nothing
+ local integer i= S2I(DzGetTriggerSyncData())
+	if IsPlayerInForce(Player(i - 1), showEffectForce) then
+		call ForceRemovePlayer(showEffectForce, Player(i - 1))
+	else
+		call ForceAddPlayer(showEffectForce, Player(i - 1))
 	endif
 endfunction
 function drawUI_Conditions takes nothing returns boolean
@@ -27550,7 +27568,7 @@ call DzFrameSetPoint(s__Frame_id[(checkboxWidget[2])], (RIGHT ), s__Frame_id[( c
 	call DzFrameSetScriptByCode(s__Frame_id[(checkboxButton[1])], (FRAME_EVENT_PRESSED ), ( function toggleShowDamage), false) // INLINED!!
 	set checkboxWidget[3]=s__Frame_newImage1(GUI , "war3mapImported\\ability_effect.tga" , 0.09 , 0.03)
 	call DzFrameSetPoint(s__Frame_id[(checkboxWidget[3])], (RIGHT ), s__Frame_id[( GUI )], ( RIGHT ), (( 0 )*1.0), (( - 0.105)*1.0)) // INLINED!!
-	call DzFrameSetAlpha(s__Frame_id[(checkboxWidget[1])], (200)) // INLINED!!
+	call DzFrameSetAlpha(s__Frame_id[(checkboxWidget[3])], (200)) // INLINED!!
 	set checkboxWidget[4]=s__Frame_newImage1(GUI , "war3mapImported\\right.tga" , 0.018 , 0.024) // 对号
 call DzFrameSetPoint(s__Frame_id[(checkboxWidget[4])], (RIGHT ), s__Frame_id[( checkboxWidget[3] )], ( RIGHT ), (( - 0.006 )*1.0), (( 0.004)*1.0)) // INLINED!!
 	set checkboxButton[2]=s__Frame_newTextButton(checkboxWidget[3])
@@ -27614,6 +27632,10 @@ function initUI takes nothing returns nothing
 	set t=CreateTrigger()
 	call DzTriggerRegisterSyncData(t, "showDmg", false)
 	call TriggerAddAction(t, function doToggleShowDamage)
+	
+	set t=CreateTrigger()
+	call DzTriggerRegisterSyncData(t, "showEffect", false)
+	call TriggerAddAction(t, function doToggleShowEffect)
 	set t=CreateTrigger()
 	loop
 		exitwhen i > 6
@@ -32636,7 +32658,7 @@ function WeiTuo_Action takes nothing returns nothing
 	//if((GetUnitAbilityLevel(u,'A05G')==9))then
 	//    set shxishu=shxishu*8.
 	//endif
-	call DestroyEffectEx(AddSpecialEffectTargetUnitBJEx("overhead" , uc , "Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))
+	call DestroyEffect((AddSpecialEffectTargetUnitBJEx("overhead" , uc , "Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))) // INLINED!!
 	// call DestroyEffectEx(AddSpecialEffectEx("Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl", x, y))
 	set shanghai=ShangHaiGongShi(u , uc , 10 , 12 , shxishu , 'A05G')
 	//call BJDebugMsg("伤害="+R2S(shanghai))
@@ -32731,7 +32753,7 @@ function ucFunc takes nothing returns nothing
 	set shanghai=ShangHaiGongShi(u , uc , 10 , 30 , shxishu , 'A000')
 	call WuGongShangHai(u , uc , shanghai)
 	if ( ( GetUnitAbilityLevel(u, 1093678932) != 0 ) ) then
-		call DestroyEffectEx(AddSpecialEffectLocBJEx(loc2 , "war3mapImported\\ShadowBurn.mdx"))
+		call DestroyEffect((AddSpecialEffectLocBJEx(loc2 , "war3mapImported\\ShadowBurn.mdx"))) // INLINED!!
 		call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(100 , loc2 , Condition(function rc)), function sc)
 	endif
 	call RemoveLocation(loc2)
@@ -32861,7 +32883,7 @@ function cc takes nothing returns nothing
  local unit u= GetTriggerUnit()
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
-	call DestroyEffectEx(E7[i])
+	call DestroyEffect((E7[i])) // INLINED!!
 	call UnitRemoveAbility(u, 1110454320)
 	set D7[i]=( ( 5000. * I2R(yishu[i]) ) * I2R(GetUnitAbilityLevel(u, 'A05O')) )
 	set ce[i]=( 70 * GetUnitAbilityLevel(u, 'A05O') )
@@ -32897,7 +32919,7 @@ function Gc takes nothing returns nothing
 		set shxishu=shxishu * 8
 	endif
 	call AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Undead\\DarkRitual\\DarkRitualTarget.mdl")
-	call DestroyEffectEx(bj_lastCreatedEffect)
+	call DestroyEffect((bj_lastCreatedEffect)) // INLINED!!
 	call RemoveLocation(loc)
 	set shanghai=ShangHaiGongShi(u , uc , 400 , 400 , shxishu , 'A05O')
 	call WuGongShangHai(u , uc , shanghai)
@@ -32923,7 +32945,7 @@ function Hc takes nothing returns nothing
 		//+化功大法
 		if ( ( GetUnitAbilityLevel(u, 'A07P') != 0 ) ) then
 			call AddSpecialEffectLocBJEx(loc2 , "Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl")
-			call DestroyEffectEx(bj_lastCreatedEffect)
+			call DestroyEffect((bj_lastCreatedEffect)) // INLINED!!
 			call RemoveLocation(loc2)
 			if isTitle(i , 1) then // 扫地神僧称号
 set shxishu=shxishu * 10
@@ -32932,7 +32954,7 @@ set shxishu=shxishu * 10
 			call WuGongShangHai(u , uc , shanghai)
 		endif
 	else
-		call DestroyEffectEx(E7[i])
+		call DestroyEffect((E7[i])) // INLINED!!
 		call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 2 , 1 , ce[i])
 		//+易筋经
 		if ( ( GetUnitAbilityLevel(u, 'A09D') != 0 ) ) then
@@ -33153,13 +33175,13 @@ function TaiZu_Action takes nothing returns nothing
     endif
 	set shanghai=ShangHaiGongShi(u , uc , 30. , 42. , shxishu , 'A0C9')
     call AddSpecialEffectTargetUnitBJEx("overhead" , uc , "Abilities\\Spells\\Demon\\RainOfFire\\RainOfFireTarget.mdl")
-    call DestroyEffectEx(GetLastCreatedEffectBJ())
+    call DestroyEffect((GetLastCreatedEffectBJ())) // INLINED!!
     //call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,R2S(shanghai)+", "+I2S(1+GetPlayerId(GetOwningPlayer(u))))
 	call WuGongShangHai(u , uc , shanghai)
 	if GetUnitAbilityLevel(u, 'A07U') >= 1 then
 		call YDWEPolledWaitNull(0.50)
 		call AddSpecialEffectTargetUnitBJEx("overhead" , uc , "Abilities\\Spells\\Demon\\RainOfFire\\RainOfFireTarget.mdl")
-    	call DestroyEffectEx(GetLastCreatedEffectBJ())
+    	call DestroyEffect((GetLastCreatedEffectBJ())) // INLINED!!
 		call WuGongShangHai(u , uc , shanghai)
     endif
 	set u=null
@@ -33428,7 +33450,7 @@ function YeChaGun_SH takes nothing returns nothing
     if GetUnitAbilityLevel(udg_yechadanwei, 'A0DI') >= 1 then
 	     call SetUnitDizzy(GetEnumUnit() , 2. , "Abilities\\Spells\\Human\\Thunderclap\\ThunderclapTarget.mdl")
     endif
-    call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl" , GetEnumUnit() , "overhead"))
+    call DestroyEffect((AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl" , GetEnumUnit() , "overhead"))) // INLINED!!
 endfunction
 function YeChaGun_Action takes nothing returns nothing
     local timer t=GetExpiredTimer()
@@ -33627,7 +33649,7 @@ function XueZhan_Action takes nothing returns nothing
 	call SetUnitFacing(u, GetUnitFacing(uc) + 180)
 	call WuGongShangHai(u , uc , shanghai)
 	//call DestroyEffectEx( AddSpecialEffectTargetEx("Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl",uc, "origin") )
-	call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl" , uc , "overhead"))
+	call DestroyEffect((AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl" , uc , "overhead"))) // INLINED!!
 	call SetUnitTimeScale(u, 20)
 	call SetUnitAnimation(u, "attack")
 	call RemoveLocation(loc)
@@ -33747,7 +33769,7 @@ function XueDao_Action takes nothing returns nothing
 	set shanghai=ShangHaiGongShi(u , uc , 36 , 54 , shxishu , 'A0CI')
 	//call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,R2S(shanghai))
 	call WuGongShangHai(u , uc , shanghai)
-	call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\HeroBloodElfBlood.mdl" , uc , "overhead"))
+	call DestroyEffect((AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\HeroBloodElfBlood.mdl" , uc , "overhead"))) // INLINED!!
 	set u=null
 	set uc=null
 endfunction
@@ -33827,7 +33849,7 @@ function XueMo_Action takes nothing returns nothing
 		set shanghai=ShangHaiGongShi(u , uc , 7 , 7 , shxishu , 'A0CJ')
 		if uc != null and IsUnitAliveBJ(uc) and uc != udg_ZhengPaiWL then
 			call WuGongShangHai(u , uc , shanghai)
-			call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\HeroBloodElfBlood.mdl" , uc , "overhead"))
+			call DestroyEffect((AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\HeroBloodElfBlood.mdl" , uc , "overhead"))) // INLINED!!
 		endif
 		call SaveInteger(YDHT, p, 2, j + 1)
 		call SaveReal(YDHT, p, 3, nowX)
@@ -33897,7 +33919,7 @@ function FoMie_Action takes nothing returns nothing
 		set shanghai=ShangHaiGongShi(u , uc , 1.8 , 1.8 , shxishu , 'A0CJ')
 		if uc != null and IsUnitAliveBJ(uc) then
 			call WuGongShangHai(u , uc , shanghai)
-			call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\HeroBloodElfBlood.mdl" , uc , "overhead"))
+			call DestroyEffect((AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\HeroBloodElfBlood.mdl" , uc , "overhead"))) // INLINED!!
 		endif
 	endif
 	if GetUnitAbilityLevel(u, 'A07W') >= 1 then
@@ -34016,7 +34038,7 @@ function XueDaoJing_Action takes nothing returns nothing
 		call SaveInteger(YDHT, p, 4, i + 1)
 	else
 		call WuGongShangHai(u , uc , shanghai)
-		call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl" , uc , "overhead"))
+		call DestroyEffect((AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl" , uc , "overhead"))) // INLINED!!
 		call SetUnitTimeScale(l__ut, 1)
 		call ResetUnitAnimation(l__ut)
 		call PauseTimer(t)
@@ -34095,7 +34117,7 @@ function XueDaoJing_Action2 takes nothing returns nothing
 	endif
 	set shanghai=ShangHaiGongShi(u , uc , 200 , 1200 , shxishu , 'A0DH')
 	call WuGongShangHai(u , uc , shanghai)
-	call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl" , uc , "overhead"))
+	call DestroyEffect((AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl" , uc , "overhead"))) // INLINED!!
 	set p=null
 	set u=null
 	set uc=null
@@ -34184,10 +34206,10 @@ function SiXiangZhang takes nothing returns nothing
     set i=1
     loop
     	exitwhen i > imax
-        call DestroyEffectEx(AddSpecialEffectEx(s , x + 100 * i , y))
-        call DestroyEffectEx(AddSpecialEffectEx(s , x - 100 * i , y))
-        call DestroyEffectEx(AddSpecialEffectEx(s , x , y + 100 * i))
-        call DestroyEffectEx(AddSpecialEffectEx(s , x , y - 100 * i))
+        call DestroyEffect((AddSpecialEffectEx(s , x + 100 * i , y))) // INLINED!!
+        call DestroyEffect((AddSpecialEffectEx(s , x - 100 * i , y))) // INLINED!!
+        call DestroyEffect((AddSpecialEffectEx(s , x , y + 100 * i))) // INLINED!!
+        call DestroyEffect((AddSpecialEffectEx(s , x , y - 100 * i))) // INLINED!!
     	set i=i + 1
     endloop
     call WuGongShengChong(u , 'A0C7' , 900.)
@@ -34302,7 +34324,7 @@ function JinDingZhang takes nothing returns nothing
 	endif
     set shanghai=ShangHaiGongShi(u , l__ut , 130 , 106 , shxishu , 'A0C2')
     call AddSpecialEffectTargetUnitBJEx("overhead" , GetTriggerUnit() , "Abilities\\Spells\\Other\\Transmute\\GoldBottleMissile.mdl")
-    call DestroyEffectEx(GetLastCreatedEffectBJ())
+    call DestroyEffect((GetLastCreatedEffectBJ())) // INLINED!!
     call WuGongShangHai(u , l__ut , shanghai)
     if jingmai[i] >= 20 then
         call YDWEJumpTimer(l__ut , 0 , 0.00 , 1 , 0.01 , GetRandomReal(200, 500))
@@ -34686,23 +34708,23 @@ function jD takes nothing returns nothing
     set bj_forLoopAIndexEnd=60
     loop
         exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        call DestroyEffectEx(AddSpecialEffectLocBJEx(pu(loc , 400. , ( I2R(bj_forLoopAIndex) * 6. )) , "Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl"))
+        call DestroyEffect((AddSpecialEffectLocBJEx(pu(loc , 400. , ( I2R(bj_forLoopAIndex) * 6. )) , "Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl"))) // INLINED!!
         set bj_forLoopAIndex=bj_forLoopAIndex + 1
     endloop
     set bj_forLoopAIndex=1
     set bj_forLoopAIndexEnd=20
     loop
         exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        call DestroyEffectEx(AddSpecialEffectLocBJEx(pu(pu(loc , 200. , 0) , 40. , ( I2R(bj_forLoopAIndex) * 18. )) , "Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl"))
-        call DestroyEffectEx(AddSpecialEffectLocBJEx(pu(pu(loc , 200. , 180.) , 40. , ( I2R(bj_forLoopAIndex) * 18. )) , "Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl"))
+        call DestroyEffect((AddSpecialEffectLocBJEx(pu(pu(loc , 200. , 0) , 40. , ( I2R(bj_forLoopAIndex) * 18. )) , "Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl"))) // INLINED!!
+        call DestroyEffect((AddSpecialEffectLocBJEx(pu(pu(loc , 200. , 180.) , 40. , ( I2R(bj_forLoopAIndex) * 18. )) , "Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl"))) // INLINED!!
         set bj_forLoopAIndex=bj_forLoopAIndex + 1
     endloop
     set bj_forLoopBIndex=1
     set bj_forLoopBIndexEnd=30
     loop
         exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
-        call DestroyEffectEx(AddSpecialEffectLocBJEx(pu(pu(loc , 200. , .0) , 200. , ( I2R(bj_forLoopBIndex) * 6. )) , "Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl"))
-        call DestroyEffectEx(AddSpecialEffectLocBJEx(pu(pu(loc , 200. , 180.) , 200. , ( ( I2R(bj_forLoopBIndex) * 6. ) + 180. )) , "Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl"))
+        call DestroyEffect((AddSpecialEffectLocBJEx(pu(pu(loc , 200. , .0) , 200. , ( I2R(bj_forLoopBIndex) * 6. )) , "Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl"))) // INLINED!!
+        call DestroyEffect((AddSpecialEffectLocBJEx(pu(pu(loc , 200. , 180.) , 200. , ( ( I2R(bj_forLoopBIndex) * 6. ) + 180. )) , "Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl"))) // INLINED!!
         set bj_forLoopBIndex=bj_forLoopBIndex + 1
     endloop
     call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(500. , loc , Condition(function hD)), function iD)
@@ -34861,25 +34883,25 @@ function wD takes nothing returns nothing
 	loop
 		exitwhen i > 60
 		call AddSpecialEffectLocBJEx(pu(loc , 400. , I2R(i) * 6.) , "Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl")
-		call DestroyEffectEx(bj_lastCreatedEffect)
+		call DestroyEffect((bj_lastCreatedEffect)) // INLINED!!
 		set i=i + 1
 	endloop
 	set i=1
 	loop
 		exitwhen i > 20
 		call AddSpecialEffectLocBJEx(pu(pu(loc , 200. , 0) , 40. , I2R(i) * 18.) , "Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl")
-		call DestroyEffectEx(bj_lastCreatedEffect)
+		call DestroyEffect((bj_lastCreatedEffect)) // INLINED!!
 		call AddSpecialEffectLocBJEx(pu(pu(loc , 200. , 180.) , 40. , I2R(i) * 18.) , "Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl")
-		call DestroyEffectEx(bj_lastCreatedEffect)
+		call DestroyEffect((bj_lastCreatedEffect)) // INLINED!!
 		set i=i + 1
 	endloop
 	set i=1
 	loop
 		exitwhen i > 30
 		call AddSpecialEffectLocBJEx(pu(pu(loc , 200. , .0) , 200. , I2R(i) * 6.) , "Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl")
-		call DestroyEffectEx(bj_lastCreatedEffect)
+		call DestroyEffect((bj_lastCreatedEffect)) // INLINED!!
 		call AddSpecialEffectLocBJEx(pu(pu(loc , 200. , 180.) , 200. , I2R(i) * 6. + 180.) , "Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl")
-		call DestroyEffectEx(bj_lastCreatedEffect)
+		call DestroyEffect((bj_lastCreatedEffect)) // INLINED!!
 		set i=i + 1
 	endloop
 	call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(500. , loc , Condition(function uD)), function vD)
@@ -34940,7 +34962,7 @@ function KD takes nothing returns nothing
  local location loc= GetUnitLoc(u)
 	call UnitResetCooldown(u)
 	call AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Human\\Avatar\\AvatarCaster.mdl")
-	call DestroyEffectEx(bj_lastCreatedEffect)
+	call DestroyEffect((bj_lastCreatedEffect)) // INLINED!!
 	call RemoveLocation(loc)
 	set u=null
 	set loc=null
@@ -35046,7 +35068,7 @@ function QD takes nothing returns nothing
     if ( ( GetUnitAbilityLevel(u, 1093678932) != 0 ) ) then
         set shxishu=shxishu + .8
     endif
-    call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "war3mapImported\\Mjolnir.mdx"))
+    call DestroyEffect((AddSpecialEffectLocBJEx(loc , "war3mapImported\\Mjolnir.mdx"))) // INLINED!!
     if ( ( GetUnitAbilityLevel(u, 1093678930) != 0 ) and ( GetRandomReal(.0, 100.) <= 10. ) and ( UnitHasBuffBJ(uc, 1113813619) == false ) ) then
         call WanBuff(u , uc , 10)
     endif
@@ -35698,7 +35720,7 @@ function CE takes nothing returns nothing
     if ( ( GetUnitAbilityLevel(u, 'A07S') != 0 ) ) then
         set shxishu=shxishu + .6
     endif
-    call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Undead\\FrostNova\\FrostNovaTarget.mdl"))
+    call DestroyEffect((AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Undead\\FrostNova\\FrostNovaTarget.mdl"))) // INLINED!!
     call RemoveLocation(loc)
     // 专属加成
 	if UnitHasDenomWeapon(u , 'I0E0') then
@@ -35776,7 +35798,7 @@ function r3 takes nothing returns nothing
  local integer i=1 + GetPlayerId(GetOwningPlayer(u))
  local real shxishu=1.
  local real shanghai=0.
-    call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Undead\\AnimateDead\\AnimateDeadTarget.mdl"))
+    call DestroyEffect((AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Undead\\AnimateDead\\AnimateDeadTarget.mdl"))) // INLINED!!
     if ( ( GetUnitAbilityLevel(u, 'A0BT') != 0 ) and ( GetRandomReal(.0, 100.) <= 8. ) ) then
         call CreateNUnitsAtLoc(1, 'e000', GetOwningPlayer(u), loc, bj_UNIT_FACING)
         call ShowUnitHide(bj_lastCreatedUnit)
@@ -35938,7 +35960,7 @@ function y3 takes nothing returns nothing
         call WanBuff(u , uc , 5)
     endif
     if ( ( GetUnitAbilityLevel(u, 'A07N') != 0 ) and ( GetUnitAbilityLevel(u, 'A089') != 0 ) and ( GetRandomReal(.0, 100.) <= 20. ) ) then
-        call DestroyEffectEx(AddSpecialEffectLocBJEx(loc2 , "Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))
+        call DestroyEffect((AddSpecialEffectLocBJEx(loc2 , "Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))) // INLINED!!
         if ( ( GetUnitAbilityLevel(u, 'A0BV') != 0 ) ) then
             set shxishu=shxishu + .5
         endif
@@ -36035,7 +36057,7 @@ function a3 takes nothing returns nothing
     if UnitHasDenomWeapon(u , 'I0AM') then
 	    set shxishu=shxishu * 1.8
     endif
-    call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl"))
+    call DestroyEffect((AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl"))) // INLINED!!
     set shanghai=ShangHaiGongShi(u , uc , 100 , 100 , shxishu , 'A0BS')
     call WuGongShangHai(u , uc , shanghai)
     if ( ( GetUnitAbilityLevel(u, 'A07P') != 0 ) and ( GetRandomReal(.0, 100.) <= 10. ) and ( UnitHasBuffBJ(uc, 1111844210) == false ) ) then
@@ -36233,7 +36255,7 @@ if isTitle(1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) , 23) then
     call SaveReal(YDHT, id * cx, - $2CEF3086, ( ( .8 + ( I2R(GetUnitAbilityLevel(LoadUnitHandle(YDHT, id * cx, $59BEA0CB), LoadInteger(YDHT, id * cx, - $2A41B3A3))) / 2. ) ) + 1. ))
     call SaveReal(YDHT, id * cx, $1968F401, ( 1.5 + udg_shanghaijiacheng[( 1 + GetPlayerId(GetOwningPlayer(LoadUnitHandle(YDHT, id * cx, $59BEA0CB))) )] ))
     call AddSpecialEffectLocBJEx(LoadLocationHandle(YDHT, id * cx, - $72C3E060) , "war3mapImported\\DivineRing.mdx")
-    call DestroyEffectEx(bj_lastCreatedEffect)
+    call DestroyEffect((bj_lastCreatedEffect)) // INLINED!!
     call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(350. , LoadLocationHandle(YDHT, id * cx, - $72C3E060) , Condition(function K3)), function L3)
     if ( ( GetUnitAbilityLevel(LoadUnitHandle(YDHT, id * cx, $59BEA0CB), 'A083') != 0 ) and ( GetRandomInt(1, 100) <= gailv ) ) then
     if ( ( GetUnitTypeId(LoadUnitHandle(YDHT, id * cx, $59BEA0CB)) == 'O004' ) ) then
@@ -36331,7 +36353,7 @@ function FE takes nothing returns nothing
                 if UnitHasDenomWeapon(u , 'I09C') then
 					set shxishu=shxishu * 4
 				endif
-                call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl"))
+                call DestroyEffect((AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl"))) // INLINED!!
                 if ( ( GetUnitAbilityLevel(u, 'A07M') != 0 ) and ( GetRandomReal(.0, 100.) <= 10. ) and ( UnitHasBuffBJ(uc, 1110454328) == false ) ) then
                     call WanBuff(u , uc , 11)
                 endif
@@ -36350,7 +36372,7 @@ function FE takes nothing returns nothing
                 if UnitHasDenomWeapon(u , 'I09C') then
 					set shxishu=shxishu * 4
 				endif
-                call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl"))
+                call DestroyEffect((AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl"))) // INLINED!!
                 if ( ( GetUnitAbilityLevel(u, 'A07M') != 0 ) and ( GetRandomReal(.0, 100.) <= 10. ) and ( UnitHasBuffBJ(uc, 1110454328) == false ) ) then
                     call WanBuff(u , uc , 11)
                 endif
@@ -36369,7 +36391,7 @@ function FE takes nothing returns nothing
         if UnitHasDenomWeapon(u , 'I09C') then
 			set shxishu=shxishu * 4
 		endif
-        call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl"))
+        call DestroyEffect((AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl"))) // INLINED!!
         if ( ( GetUnitAbilityLevel(u, 'A07M') != 0 ) and ( GetRandomReal(.0, 100.) <= 10. ) and ( UnitHasBuffBJ(uc, 1110454328) == false ) ) then
             call WanBuff(u , uc , 11)
         endif
@@ -36533,7 +36555,7 @@ function TE takes nothing returns nothing
 					set l__ut=GroupPickRandomUnit(g)
 					set loc3=GetUnitLoc(l__ut)
 					call percentDamage(l__ut , 20 , false)
-					call DestroyEffectEx(AddSpecialEffectLocBJEx(loc3 , "war3mapImported\\blue quick.mdx"))
+					call DestroyEffect((AddSpecialEffectLocBJEx(loc3 , "war3mapImported\\blue quick.mdx"))) // INLINED!!
 					call CreateNUnitsAtLoc(1, 'o02E', GetOwningPlayer(u), loc2, bj_UNIT_FACING)
 					call UnitAddAbility(bj_lastCreatedUnit, 'A03D')
 					call ShowUnitHide(bj_lastCreatedUnit)
@@ -36934,7 +36956,7 @@ function TianShanZhang takes nothing returns nothing
 	set uc=GroupPickRandomUnit(g)
 	if uc != null then
 		call percentDamage(uc , 10 + 2 * GetUnitAbilityLevel(u, 'A0CD') * r , false)
-		call DestroyEffectEx(AddSpecialEffectTargetUnitBJEx("overhead" , uc , "Abilities\\Spells\\Other\\Monsoon\\MonsoonBoltTarget.mdl"))
+		call DestroyEffect((AddSpecialEffectTargetUnitBJEx("overhead" , uc , "Abilities\\Spells\\Other\\Monsoon\\MonsoonBoltTarget.mdl"))) // INLINED!!
 		set loc2=GetUnitLoc(uc)
 		if GetUnitAbilityLevel(u, 'A07T') >= 1 then
 			call CreateNUnitsAtLoc(1, 'e00X', GetOwningPlayer(u), loc2, bj_UNIT_FACING)
@@ -36965,7 +36987,7 @@ function TianShanZhang takes nothing returns nothing
 		set uc=GroupPickRandomUnit(g)
 		if uc != null then
 			call percentDamage(uc , 10 + 2 * GetUnitAbilityLevel(u, 'A0CD') * r , false)
-			call DestroyEffectEx(AddSpecialEffectTargetUnitBJEx("overhead" , uc , "Abilities\\Spells\\Other\\Monsoon\\MonsoonBoltTarget.mdl"))
+			call DestroyEffect((AddSpecialEffectTargetUnitBJEx("overhead" , uc , "Abilities\\Spells\\Other\\Monsoon\\MonsoonBoltTarget.mdl"))) // INLINED!!
 		endif
 	endif
 	call RemoveLocation(loc)
@@ -37002,7 +37024,7 @@ function CiBei_Action takes nothing returns nothing
     endif
     set shanghai=ShangHaiGongShi(u , uc , 500. , 250. , shxishu , 'A023')
     call WuGongShangHai(u , uc , shanghai)
-    call DestroyEffectEx(AddSpecialEffectTargetUnitBJEx("overhead" , uc , "Abilities\\Spells\\Other\\Monsoon\\MonsoonBoltTarget.mdl"))
+    call DestroyEffect((AddSpecialEffectTargetUnitBJEx("overhead" , uc , "Abilities\\Spells\\Other\\Monsoon\\MonsoonBoltTarget.mdl"))) // INLINED!!
     if GetUnitAbilityLevel(u, 'A07T') >= 1 and GetRandomInt(1, 100) <= 30 then
 		call CreateNUnitsAtLoc(1, 'e00X', GetOwningPlayer(u), loc2, bj_UNIT_FACING)
         call UnitAddAbility(bj_lastCreatedUnit, 'A0D5')
@@ -37190,10 +37212,10 @@ function TianZhuYunQi takes nothing returns nothing
 	set loc3=PolarProjectionBJ(loc, GetRandomReal(100, 300), 180 + angle)
 	if ( GetRandomReal(.0, 200.) <= 15 + fuyuan[i] / 5 ) then
 		call WuGongShengChong(u , 'A04M' , 900.)
-		call DestroyEffectEx(AddSpecialEffectLocBJEx(loc2 , "war3mapImported\\aquaspike.mdl"))
+		call DestroyEffect((AddSpecialEffectLocBJEx(loc2 , "war3mapImported\\aquaspike.mdl"))) // INLINED!!
 		call GroupEnumUnitsInRangeOfLoc(g, loc2, 500, Condition(function TianZhu_Condition))
 		if GetUnitAbilityLevel(u, 'A07U') >= 1 then
-			call DestroyEffectEx(AddSpecialEffectLocBJEx(loc3 , "war3mapImported\\aquaspike.mdl"))
+			call DestroyEffect((AddSpecialEffectLocBJEx(loc3 , "war3mapImported\\aquaspike.mdl"))) // INLINED!!
 			call GroupEnumUnitsInRangeOfLoc(g, loc3, 500, Condition(function TianZhu_Condition))
 		endif
 		call ForGroupBJ(g, function TianZhu_Action)
@@ -37473,7 +37495,7 @@ function QuanMing_Actions takes nothing returns nothing
         exitwhen i > 16
         call CreateNUnitsAtLocFacingLocBJ(1, 'e011', GetOwningPlayer(GetTriggerUnit()), PolarProjectionBJ(loc, 350.00, ( 22.50 * i )), loc)
         call UnitApplyTimedLifeBJ(13.50, 'BTLF', GetLastCreatedUnit())
-        call DestroyEffectEx(AddSpecialEffectLocBJEx(PolarProjectionBJ(loc, 350.00, 22.50 * I2R(i)) , "Objects\\Spawnmodels\\Naga\\NagaDeath\\NagaDeath.mdl"))
+        call DestroyEffect((AddSpecialEffectLocBJEx(PolarProjectionBJ(loc, 350.00, 22.50 * I2R(i)) , "Objects\\Spawnmodels\\Naga\\NagaDeath\\NagaDeath.mdl"))) // INLINED!!
         set i=i + 1
     endloop
     set i=1
@@ -37493,7 +37515,7 @@ function QuanMing_Actions takes nothing returns nothing
     set i=1
     loop
         exitwhen i > 16
-        call DestroyEffectEx(AddSpecialEffectLocBJEx(PolarProjectionBJ(loc, 350.00, 22.50 * I2R(i)) , "Objects\\Spawnmodels\\Naga\\NagaDeath\\NagaDeath.mdl"))
+        call DestroyEffect((AddSpecialEffectLocBJEx(PolarProjectionBJ(loc, 350.00, 22.50 * I2R(i)) , "Objects\\Spawnmodels\\Naga\\NagaDeath\\NagaDeath.mdl"))) // INLINED!!
         set i=i + 1
     endloop
     call RemoveUnit(l__ut)
@@ -37549,7 +37571,7 @@ function Trig_Number14_1Actions takes nothing returns nothing
     set i=1
     loop
         exitwhen i > 7
-        call DestroyEffectEx(AddSpecialEffectLocBJEx(GetRandomLocInRect(RectFromCenterSizeBJ(loc, 350.00, 350.00)) , "Objects\\Spawnmodels\\Naga\\NagaDeath\\NagaDeath.mdl"))
+        call DestroyEffect((AddSpecialEffectLocBJEx(GetRandomLocInRect(RectFromCenterSizeBJ(loc, 350.00, 350.00)) , "Objects\\Spawnmodels\\Naga\\NagaDeath\\NagaDeath.mdl"))) // INLINED!!
         set i=i + 1
     endloop
     set loc=null
@@ -37660,7 +37682,7 @@ function ZheMei_Action takes nothing returns nothing
 	    set shxishu=shxishu + 0.7
 	endif
 	//call BJDebugMsg("pos3")
-	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl"))
+	call DestroyEffect((AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl"))) // INLINED!!
 	call RemoveLocation(loc)
 	// 专属加成
 	if UnitHasDenomWeapon(u , 'I0DT') then
@@ -37682,7 +37704,7 @@ function XinZheMeiShou_Action takes nothing returns nothing
  local real j= RMaxBJ(7. - I2R(GetHeroAgi(u, true)) / 400., 0.5)
  local real range= 500. + 50. * GetUnitAbilityLevel(u, 'A02B') + I2R(GetHeroStr(u, true)) / 10.
 	call UnitRemoveAbility(u, 'A02X')
-	call DestroyEffectEx(udg_zhemeieff)
+	call DestroyEffect((udg_zhemeieff)) // INLINED!!
 	set udg_zhemeieff=null
 	call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
 	call TimerStart(t, j, false, function XinZheMeiShou_1)
@@ -37725,7 +37747,7 @@ function ZheMei_Action2 takes nothing returns nothing
 	    set shxishu=shxishu + 0.7
 	endif
 	//call BJDebugMsg("pos3")
-	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl"))
+	call DestroyEffect((AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl"))) // INLINED!!
 	call RemoveLocation(loc)
 	// 专属加成
 	if UnitHasDenomWeapon(u , 'I0DT') then
@@ -37968,7 +37990,7 @@ if GetUnitAbilityLevel(u, 'A07W') >= 1 then
 			call SaveInteger(YDHT, GetHandleId(t), 3, level)
 			call TimerStart(t, 8., false, function BaHuangGong_2)
 		endif
-		call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl"))
+		call DestroyEffect((AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl"))) // INLINED!!
 		if GetUnitAbilityLevel(u, 'A083') >= 1 then
 			set juexuelingwu[i]=juexuelingwu[i] + level
 			set t=CreateTimer()
@@ -38129,7 +38151,7 @@ function JiaChuanMaJia_1 takes nothing returns nothing
 		set shxishu=shxishu + 1.
 	endif
 	if GetRandomInt(1, 4) == 1 then
-		call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Other\\Charm\\CharmTarget.mdl"))
+		call DestroyEffect((AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Other\\Charm\\CharmTarget.mdl"))) // INLINED!!
 	endif
 	if UnitHasDenomWeapon(u , 'I0DS') then
 		set shxishu=shxishu * 1.8
@@ -38247,7 +38269,7 @@ local timer t= CreateTimer()
 		call WuGongShangHai(u , uc , shanghai)
 		call WuGongShengChong(u , 'A0CC' , 600)
 		//call SetUnitAnimation(u, "attack, slam")
-		call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Other\\Charm\\CharmTarget.mdl"))
+		call DestroyEffect((AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Other\\Charm\\CharmTarget.mdl"))) // INLINED!!
 		// 慕容龙城称号加内力
 		if isTitle(i , 26) then
 			call ModifyHeroStat(1, u, 0, 20 * GetUnitAbilityLevel(u, 'A0CC'))
@@ -38414,7 +38436,7 @@ function XingYiBeiDong takes nothing returns nothing
  local real shanghai= 0.
 	if GetUnitAbilityLevel(u, 'A07W') >= 1 or isTitle(1 + GetPlayerId(GetOwningPlayer(u)) , 26) then
 		call AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl")
-		call DestroyEffectEx(bj_lastCreatedEffect)
+		call DestroyEffect((bj_lastCreatedEffect)) // INLINED!!
 		set shanghai=ShangHaiGongShi(u , uc , 50. , 50. , shxishu , 'A02R')
 		call WuGongShangHai(u , uc , shanghai)
 	endif
@@ -38959,7 +38981,7 @@ function RengShengHuoLing_Action takes nothing returns nothing
         call SaveInteger(YDHT, p, 4, i + 1)
     else
         call WuGongShangHai(u , uc , shanghai)
-        call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl" , uc , "overhead"))
+        call DestroyEffect((AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl" , uc , "overhead"))) // INLINED!!
         call PauseTimer(t)
         call DestroyTimer(t)
         call FlushChildHashtable(YDHT, p)
@@ -39030,7 +39052,7 @@ function QianKunTan takes nothing returns nothing
 		if g != null then
 			set l__ut=GroupPickRandomUnit(g)
 			call WuGongShangHai(u , l__ut , shanghai * 50 * GetUnitAbilityLevel(u, 'A07W'))
-			call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl" , l__ut , "overhead"))
+			call DestroyEffect((AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl" , l__ut , "overhead"))) // INLINED!!
 		endif
 		call WuGongShengChong(u , 'A07W' , 8000)
 	endif
@@ -39158,7 +39180,7 @@ function XiaoLian_Action takes nothing returns nothing
     if isTitle(1 + GetPlayerId(GetOwningPlayer(u)) , 33) then
         set shxishu=shxishu * 2
     endif
-	call DestroyEffectEx(AddSpecialEffectEx("Abilities\\Spells\\Human\\Polymorph\\PolyMorphDoneGround.mdl" , x , y))
+	call DestroyEffect((AddSpecialEffectEx("Abilities\\Spells\\Human\\Polymorph\\PolyMorphDoneGround.mdl" , x , y))) // INLINED!!
 	set shanghai=ShangHaiGongShi(u , uc , 8 , 11 , shxishu , 'A056')
 	if GetUnitAbilityLevel(u, 'A059') != 0 and GetRandomReal(1, 100) <= 30 then //加神龙心法
 // 封穴加变羊
@@ -39214,7 +39236,7 @@ function XiaoLian_Action_1 takes nothing returns nothing
  local location loc= GetUnitLoc(uc)
  local real shxishu=1.
  local real shanghai=0.
-	call DestroyEffectEx(AddSpecialEffectEx("Abilities\\Spells\\Human\\Polymorph\\PolyMorphDoneGround.mdl" , x , y))
+	call DestroyEffect((AddSpecialEffectEx("Abilities\\Spells\\Human\\Polymorph\\PolyMorphDoneGround.mdl" , x , y))) // INLINED!!
     if ( ( GetUnitAbilityLevel(u, 'A07S') != 0 ) ) then //加九阴
         set shxishu=shxishu + .7
     endif
@@ -39487,7 +39509,7 @@ function birdDamage takes unit u,unit l__ut returns nothing
     endif
     set shanghai=ShangHaiGongShi(u , l__ut , 15 , 10 , shxishu , 'A054')
     call WuGongShangHai(u , l__ut , shanghai)
-    call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl" , GetEnumUnit() , "overhead"))
+    call DestroyEffect((AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl" , GetEnumUnit() , "overhead"))) // INLINED!!
 endfunction
 function leftBirdDamage takes nothing returns nothing
     call birdDamage(LoadUnitHandle(YDHT, GetHandleId(GetExpiredTimer()), 9) , GetEnumUnit())
@@ -39800,7 +39822,7 @@ function QuanZhen_Action takes nothing returns nothing
     // set shanghai=ShangHaiGongShi(u,uc,12.,21.,shxishu,'A0CF')
     set shanghai=ShangHaiGongShi(u , uc , 44. , 50. , shxishu , 'A0CF')
     call WuGongShangHai(u , uc , shanghai)
-    call DestroyEffectEx(AddSpecialEffectTargetEx("Units\\NightElf\\Wisp\\WispExplode.mdl" , uc , "overhead"))
+    call DestroyEffect((AddSpecialEffectTargetEx("Units\\NightElf\\Wisp\\WispExplode.mdl" , uc , "overhead"))) // INLINED!!
     if GetUnitAbilityLevel(u, 'A07S') >= 1 and GetRandomReal(1., 100) <= 20 then
 	    call CreateNUnitsAtLoc(1, 1697656880, GetOwningPlayer(u), loc2, bj_UNIT_FACING)
         call UnitAddAbility(bj_lastCreatedUnit, 1093678412)
@@ -40623,7 +40645,7 @@ call UnitRemoveAbility(u, 'A00S')
     // 增加本次的状态
     call SaveInteger(YDHT, key, 1, j)
     call SetUnitAbilityLevel(u, 'A0B4', j)
-    call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Undead\\FrostNova\\FrostNovaTarget.mdl" , u , "overhead"))
+    call DestroyEffect((AddSpecialEffectTargetEx("Abilities\\Spells\\Undead\\FrostNova\\FrostNovaTarget.mdl" , u , "overhead"))) // INLINED!!
     if j == 1 then
         call h__SetUnitMoveSpeed(u, RMinBJ((s__ModSpeed_getSpeed((u))) + jingmai[i] * 20, 1400)) // INLINED!!
         call SaveReal(YDHT, key, 2, (s__ModSpeed_getSpeed((u)))) // INLINED!!
@@ -41077,7 +41099,7 @@ function addRealAttrTemp takes integer i,integer j returns nothing
 		set jingmai[i]=jingmai[i] + value
 		set text="经脉"
 	endif
-	call DestroyEffectEx(AddSpecialEffectTargetEx("war3mapImported\\frozenarmor.mdx" , udg_hero[i] , "overhead"))
+	call DestroyEffect((AddSpecialEffectTargetEx("war3mapImported\\frozenarmor.mdx" , udg_hero[i] , "overhead"))) // INLINED!!
 	call CreateTextTagUnitBJ(text + "+" + I2S(value), udg_hero[i], 60, 14, 100, 0, 0, 30)
 	call Nw(3. , bj_lastCreatedTextTag)
     call SetTextTagVelocityBJ(bj_lastCreatedTextTag, 400., GetRandomReal(80, 100))
@@ -41203,7 +41225,7 @@ endfunction
 function FlyEnd takes nothing returns nothing
  local timer tm=GetExpiredTimer()
  local unit u=LoadUnitHandle(YDHT, GetHandleId(tm), 0)
-	call DestroyEffectEx(udg_JTX[GetPlayerId(GetOwningPlayer(u)) + 1])
+	call DestroyEffect((udg_JTX[GetPlayerId(GetOwningPlayer(u)) + 1])) // INLINED!!
 	call clearTimer(tm)
 	set u=null
 	set tm=null
@@ -41222,7 +41244,7 @@ set speed=speed * 2
 	set lastTime=RMinBJ(DistanceBetweenPoints(source, destination) / speed, 2.) //轻功持续时间
 call WuGongShengChong(GetTriggerUnit() , 'A07Y' , 100)
 	call SetUnitFacing(GetTriggerUnit(), angle)
-	call DestroyEffectEx(AddSpecialEffectTargetUnitBJEx("origin" , GetTriggerUnit() , "Abilities\\Weapons\\PhoenixMissile\\Phoenix_Missile.mdl"))
+	call DestroyEffect((AddSpecialEffectTargetUnitBJEx("origin" , GetTriggerUnit() , "Abilities\\Weapons\\PhoenixMissile\\Phoenix_Missile.mdl"))) // INLINED!!
 	set udg_JTX[GetPlayerId(GetOwningPlayer(GetTriggerUnit())) + 1]=AddSpecialEffectTargetEx("Abilities\\Weapons\\PhoenixMissile\\Phoenix_Missile.mdl" , GetTriggerUnit() , "origin")
     call SetUnitAnimation(GetTriggerUnit(), "walk")
 	call Fly(GetTriggerUnit() , speed , height , angle , lastTime)
@@ -41308,7 +41330,7 @@ local real shanghai= 0.
 		call GroupEnumUnitsInRangeOfLoc(g, loc, range, Condition(function QiXingLuo_Condition))
 		set l__ut=GroupPickRandomUnit(g)
 		//添加特效
-		call DestroyEffectEx(AddSpecialEffectTargetUnitBJEx("origin" , l__ut , "Abilities\\Spells\\NightElf\\Starfall\\StarfallTarget.mdl"))
+		call DestroyEffect((AddSpecialEffectTargetUnitBJEx("origin" , l__ut , "Abilities\\Spells\\NightElf\\Starfall\\StarfallTarget.mdl"))) // INLINED!!
 		//u对ut造成伤害
 		set shanghai=ShangHaiGongShi(u , l__ut , 30 * ( 0.8 + i * 0.2 ) , 30 * ( 0.8 + i * 0.2 ) , shxishu , 'A08A')
 		call WuGongShangHai(u , l__ut , shanghai)
@@ -41715,7 +41737,7 @@ function qianZhuShouAoe takes nothing returns nothing
 	set shanghai=ShangHaiGongShi(u , uc , 16. , 20. , shxishu , QIAN_ZHU_SHOU)
 	call WuGongShangHai(u , uc , shanghai)
     // AOE的特效
-    call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Undead\\UndeadDissipate\\UndeadDissipate.mdl" , uc , "origin"))
+    call DestroyEffect((AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Undead\\UndeadDissipate\\UndeadDissipate.mdl" , uc , "origin"))) // INLINED!!
     // 经脉达到20有一定概率触发中毒
     if jingmai[i] >= 20 and GetRandomInt(1, 100) < 30 then
         call WanBuff(u , uc , 13)
@@ -41819,7 +41841,7 @@ function yuSheShuExplosion takes nothing returns nothing
         set shxishu=shxishu * ( 2 + 0.03 * GetItemCharges(FetchUnitItem(u , ITEM_HAN_SHA)) )
     endif
 	set shanghai=ShangHaiGongShi(u , uc , 16. , 80. , shxishu , YU_SHE_SHU)
-    call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\NightElf\\EntBirthTarget\\EntBirthTarget.mdl" , uc , "origin"))
+    call DestroyEffect((AddSpecialEffectTargetEx("Objects\\Spawnmodels\\NightElf\\EntBirthTarget\\EntBirthTarget.mdl" , uc , "origin"))) // INLINED!!
 	call WuGongShangHai(u , uc , shanghai)
 	set u=null
     set uc=null
@@ -41846,7 +41868,7 @@ function yuSheShu takes nothing returns nothing
         endif
         
         set damage=ShangHaiGongShi(u , l__ut , 30 , 160 , shxishu , YU_SHE_SHU)
-        call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Undead\\UDeathSmall\\UDeathSmall.mdl" , l__ut , "overhead"))
+        call DestroyEffect((AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Undead\\UDeathSmall\\UDeathSmall.mdl" , l__ut , "overhead"))) // INLINED!!
         call WuGongShangHai(u , l__ut , damage)
         // 3. 技能搭配 + 化骨：破防 
         if GetUnitAbilityLevel(u, HUA_GU) >= 1 then
@@ -41912,10 +41934,10 @@ function buTianJing takes nothing returns nothing
     
     // 50%概率增加气血上限，50%概率增加真实伤害
     if GetRandomInt(1, 100) <= 50 then
-        call DestroyEffectEx(AddSpecialEffectTargetEx("war3mapImported\\zhiyu.mdx" , u , "overhead"))
+        call DestroyEffect((AddSpecialEffectTargetEx("war3mapImported\\zhiyu.mdx" , u , "overhead"))) // INLINED!!
         call LifeChange(u , 1 , - lifeBase * level , 'A0DQ')
     else
-        call DestroyEffectEx(AddSpecialEffectTargetEx("war3mapImported\\lifebreak.mdx" , u , "overhead"))
+        call DestroyEffect((AddSpecialEffectTargetEx("war3mapImported\\lifebreak.mdx" , u , "overhead"))) // INLINED!!
         call ModifyHeroStat(2, u, 0, realDamageBase * level)
     endif
     // 一定概率死亡
@@ -42259,7 +42281,7 @@ local integer count
 		exitwhen count <= 0 or CountUnitsInGroup(g) <= 0
 			set currentUnit=FirstOfGroup(g)
 			
-			call DestroyEffectEx(AddSpecialEffectTargetEx("war3mapImported\\huoqie.mdx" , currentUnit , "origin"))
+			call DestroyEffect((AddSpecialEffectTargetEx("war3mapImported\\huoqie.mdx" , currentUnit , "origin"))) // INLINED!!
 			set damage=ShangHaiGongShi(u , currentUnit , 800 , 800 , param , QI_MEN_SHU_SHU)
 			call WuGongShangHai(u , currentUnit , damage)
 			
@@ -42270,8 +42292,8 @@ local integer count
 		set cdPercent=0.2
 	elseif qimen_status[i] == 1 then
 		// 效果2 随机加六围
-		call DestroyEffectEx(AddSpecialEffectTargetEx("war3mapImported\\lifebreak.mdx" , u , "overhead"))
-		call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl" , u , "overhead"))
+		call DestroyEffect((AddSpecialEffectTargetEx("war3mapImported\\lifebreak.mdx" , u , "overhead"))) // INLINED!!
+		call DestroyEffect((AddSpecialEffectTargetEx("Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl" , u , "overhead"))) // INLINED!!
 		if count > 50 then
 			set count=50
 		endif
@@ -42368,7 +42390,7 @@ function biBoXinJing takes unit u returns nothing
 			call SetUnitAbilityLevel(u, BI_BO_XIN_JING, level)
 		else
 			call SaveInteger(YDHT, GetHandleId(u), BI_BO_POINT, LoadInteger(YDHT, GetHandleId(u), BI_BO_POINT) - 5)
-			call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl" , u , "overhead"))
+			call DestroyEffect((AddSpecialEffectTargetEx("Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl" , u , "overhead"))) // INLINED!!
 			call WuGongShengChong(u , BI_BO_XIN_JING , 70)
 			call ModifyHeroStat(0, u, 0, 30 * level)
 			call ModifyHeroStat(1, u, 0, 30 * level)
@@ -42404,7 +42426,7 @@ function biBoXinJing takes unit u returns nothing
 			call SetUnitAbilityLevel(u, BI_BO_XIN_JING, level)
 		else
 			call SaveInteger(YDHT, GetHandleId(u), BI_BO_POINT, LoadInteger(YDHT, GetHandleId(u), BI_BO_POINT) - 3)
-			call DestroyEffectEx(AddSpecialEffectTargetEx("war3mapImported\\zhiyu.mdx" , u , "overhead"))
+			call DestroyEffect((AddSpecialEffectTargetEx("war3mapImported\\zhiyu.mdx" , u , "overhead"))) // INLINED!!
 			call UnitAddAbility(u, 'A0DB')
 			call UnitAddAbility(u, 'A0DC')
 			call SetUnitAbilityLevel(u, 'A0DB', level)
@@ -42582,7 +42604,7 @@ function fanShouQianZhu takes unit u,unit l__ut returns nothing
 	endif
 	
 	call WuGongShengChong(u , FAN_SHOU_QIAN_ZHU , 80)
-	call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl" , l__ut , "chest"))
+	call DestroyEffect((AddSpecialEffectTargetEx("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl" , l__ut , "chest"))) // INLINED!!
 	// 判断目标是否为BOSS
 	if ModuloInteger(GetUnitPointValue(l__ut), 100) == 1 or ModuloInteger(GetUnitPointValue(l__ut), 100) == 2 then
 		set gold_num=R2I(2000 * GetRandomInt(2, 20) * addition)
@@ -42694,7 +42716,7 @@ function qianKunYiZhi takes unit u returns nothing
 		set addition=addition + 0.03 * GetItemCharges(FetchUnitItem(u , ITEM_YE_LUO))
 	endif
 	call WuGongShengChong(u , QIAN_KUN_YI_ZHI , 60)
-	call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl" , u , "overhead"))
+	call DestroyEffect((AddSpecialEffectTargetEx("Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl" , u , "overhead"))) // INLINED!!
 	call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "|cFFFFCC00掷出了" + I2S(rand) + "点|r")
 	if GetRandomInt(1, 2) == 1 then
 		if gold > rand * goldBase then
@@ -42808,7 +42830,7 @@ function xueShanJianFa takes unit attacker,unit target returns nothing
                 call WanBuff(attacker , enumUnit , 17)
             endif
             // 雪山剑法伤害
-            call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Human\\Blizzard\\BlizzardTarget.mdl" , enumUnit , "overhead"))
+            call DestroyEffect((AddSpecialEffectTargetEx("Abilities\\Spells\\Human\\Blizzard\\BlizzardTarget.mdl" , enumUnit , "overhead"))) // INLINED!!
             set damage=ShangHaiGongShi(attacker , enumUnit , 15 , 15 , coefficient , XUE_SHAN_JIAN_FA)
             call WuGongShangHai(attacker , enumUnit , damage)
         endif
@@ -42912,7 +42934,7 @@ function jinWuDaoFa takes unit source,unit target returns nothing
             if GetUnitAbilityLevel(source, 'A06R') > 0 then
                 call WanBuff(source , enumUnit , 6)
             endif
-            call DestroyEffectEx(AddSpecialEffectTargetEx("war3mapImported\\firecut.mdx" , enumUnit , "origin"))
+            call DestroyEffect((AddSpecialEffectTargetEx("war3mapImported\\firecut.mdx" , enumUnit , "origin"))) // INLINED!!
             set damage=ShangHaiGongShi(source , enumUnit , 60 , 60 , coefficient , JIN_WU_DAO_FA)
             call WuGongShangHai(source , enumUnit , damage)
         endif
@@ -43034,13 +43056,13 @@ function wuWangShenGongSpecial takes unit attacker,unit target returns nothing
     local integer rand= 0
     call AdjustPlayerStateBJ(100 + GetRandomInt(1, 100), p, PLAYER_STATE_RESOURCE_GOLD)
     call WanBuff(attacker , target , 17)
-    call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl" , attacker , "overhead"))
+    call DestroyEffect((AddSpecialEffectTargetEx("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl" , attacker , "overhead"))) // INLINED!!
     if GetRandomInt(1, 100) <= 15 then
         call AdjustPlayerStateBJ(1, p, PLAYER_STATE_RESOURCE_LUMBER)
         // 小无相 几率永久增加暴击伤害
         if GetUnitAbilityLevel(attacker, 'A083') > 0 then
             set udg_baojishanghai[i]=udg_baojishanghai[i] + 0.01
-            call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl" , attacker , "overhead"))
+            call DestroyEffect((AddSpecialEffectTargetEx("Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl" , attacker , "overhead"))) // INLINED!!
         endif
         // 易筋经 几率永久增加六围
         if GetUnitAbilityLevel(attacker, 'A09D') > 0 then
@@ -43058,12 +43080,12 @@ function wuWangShenGongSpecial takes unit attacker,unit target returns nothing
             elseif rand == 6 then
                 set yishu[i]=yishu[i] + 1
             endif
-            call DestroyEffectEx(AddSpecialEffectTargetEx("war3mapImported\\frozenarmor.mdx" , attacker , "overhead"))
+            call DestroyEffect((AddSpecialEffectTargetEx("war3mapImported\\frozenarmor.mdx" , attacker , "overhead"))) // INLINED!!
         endif
         // 太玄经 几率永久增加内力
         if GetUnitAbilityLevel(attacker, 'A0D8') > 0 then
             call ModifyHeroStat(1, attacker, 0, 10)
-            call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl" , attacker , "overhead"))
+            call DestroyEffect((AddSpecialEffectTargetEx("Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl" , attacker , "overhead"))) // INLINED!!
         endif
     endif
     set p=null
@@ -43293,7 +43315,7 @@ function xuanMingAction takes unit u,unit enumUnit returns nothing
     if UnitHasDenomWeapon(u , 'I00B') then
         set coefficient=coefficient * 8
     endif
-    call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl" , u , "overhead"))
+    call DestroyEffect((AddSpecialEffectTargetEx("Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl" , u , "overhead"))) // INLINED!!
     if GetRandomInt(1, 5) <= 2 then
         // 几率深度中毒
         call WanBuff(u , enumUnit , 14)
@@ -43507,7 +43529,7 @@ function TanZhiShangHai takes nothing returns nothing
 		call WanBuff(u , uc , 4)
 	endif
 	if ( ( GetUnitAbilityLevel(u, 1395666994) != 0 ) ) then
-		call DestroyEffectEx(AddSpecialEffectLocBJEx(loc2 , "war3mapImported\\PsiWave.mdx"))
+		call DestroyEffect((AddSpecialEffectLocBJEx(loc2 , "war3mapImported\\PsiWave.mdx"))) // INLINED!!
 		call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(100. , loc2 , Condition(function TanZhiShangHai_Conditiom)), function TanZhiShangHai_Action)
 	endif
 	call RemoveLocation(loc)
@@ -44119,7 +44141,7 @@ function QF takes nothing returns nothing
 		set shanghai=shanghai + .8
 	endif
 	
-	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "war3mapImported\\PhoenixAttack.mdx"))
+	call DestroyEffect((AddSpecialEffectLocBJEx(loc , "war3mapImported\\PhoenixAttack.mdx"))) // INLINED!!
 	if GetUnitAbilityLevel(u, 'A07R') != 0 and GetUnitAbilityLevel(u, 'A07S') != 0 and GetUnitAbilityLevel(u, 'A084') != 0 and GetUnitAbilityLevel(u, 'A07X') != 0 and GetUnitAbilityLevel(u, 'A07U') != 0 and GetUnitAbilityLevel(u, 1395666994) != 0 and GetUnitAbilityLevel(u, 'A06H') != 0 then
 		set shxishu=shxishu * 7 * 2
 	endif
@@ -44270,7 +44292,7 @@ set shxishu=shxishu * 5
 	endif
 	set shanghai=ShangHaiGongShi(u , uc , 10 , 8 , shxishu , 'A017')
 	call WuGongShangHai(u , uc , shanghai)
-	call DestroyEffectEx(AddSpecialEffectTargetEx("Units\\NightElf\\Wisp\\WispExplode.mdl" , uc , "overhead"))
+	call DestroyEffect((AddSpecialEffectTargetEx("Units\\NightElf\\Wisp\\WispExplode.mdl" , uc , "overhead"))) // INLINED!!
 	if ( ( GetUnitAbilityLevel(u, 'A06P') != 0 ) and ( GetRandomInt(1, $A) < 5 ) and ( UnitHasBuffBJ(uc, 'Bcri') == false ) ) then
 		call WanBuff(u , uc , 4)
 	endif
@@ -44373,7 +44395,7 @@ function BiHai_Action takes nothing returns nothing
 	elseif i == 3 then
 		set shanghai=ShangHaiGongShi(u , uc , 20 , 30 , shxishu , 'A018')
 		call WuGongShangHai(u , uc , shanghai)
-		call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Items\\AIil\\AIilTarget.mdl"))
+		call DestroyEffect((AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Items\\AIil\\AIilTarget.mdl"))) // INLINED!!
 	elseif i == 4 then
 		call WanBuff(u , uc , 4)
 	elseif i == 5 then
@@ -44395,7 +44417,7 @@ function BiHai_Action takes nothing returns nothing
 		endif
 		if bihai[1 + GetPlayerId(GetOwningPlayer(u))] >= j then
 			call UnitRemoveBuffBJ('B00Y', u)
-			call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Items\\AIil\\AIilTarget.mdl"))
+			call DestroyEffect((AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Items\\AIil\\AIilTarget.mdl"))) // INLINED!!
 			set shanghai=ShangHaiGongShi(u , uc , 800 , 1600 , shxishu , 'A018')
 			call WuGongShangHai(u , uc , shanghai)
 		endif
@@ -44410,7 +44432,7 @@ function BiHaiChaoSheng takes nothing returns nothing
  local unit u=GetTriggerUnit()
  local location loc=GetUnitLoc(u)
  local sound sd=CreateSound("Sound\\Music\\mp3Music\\UndeadVictory.mp3", false, false, false, $A, $A, "DefaultEAXON")
-	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Human\\Brilliance\\Brilliance.mdl"))
+	call DestroyEffect((AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Human\\Brilliance\\Brilliance.mdl"))) // INLINED!!
 	//call PlaySoundOnUnitBJ(sd,100,u)
 	call WuGongShengChong(u , 'A018' , 700.)
 	call GroupEnumUnitsInRangeOfLoc(g, loc, 500, Condition(function BiHai_Condition))
@@ -44551,7 +44573,7 @@ function eG takes nothing returns nothing
 	if isTitle(i , 9) or isTitle(i , 43) then
 		set shxishu=shxishu * 3
 	endif
-	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Human\\MarkOfChaos\\MarkOfChaosTarget.mdl"))
+	call DestroyEffect((AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Human\\MarkOfChaos\\MarkOfChaosTarget.mdl"))) // INLINED!!
 	set shanghai=ShangHaiGongShi(u , uc , 60. , 60. , shxishu , 'A07E')
 	
 	call WuGongShangHai(u , uc , shanghai)
@@ -44785,7 +44807,7 @@ function GG takes nothing returns nothing
 	if isTitle(i , 42) then
 		set shxishu=shxishu * 3
 	endif
-	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "war3mapImported\\CrimsonWake.mdx"))
+	call DestroyEffect((AddSpecialEffectLocBJEx(loc , "war3mapImported\\CrimsonWake.mdx"))) // INLINED!!
 	set shanghai=ShangHaiGongShi(u , uc , 30 , 30 , shxishu , 'A07I')
 	call WuGongShangHai(u , uc , shanghai)
 	call RemoveLocation(loc)
@@ -45175,11 +45197,11 @@ function R6 takes nothing returns nothing
 	loop
 		exitwhen F9 > 12
 		call AddSpecialEffectLocBJEx(pu(c9 , 100. , ( 30. * I2R(F9) )) , "Abilities\\Spells\\Human\\Thunderclap\\ThunderClapCaster.mdl")
-		call DestroyEffectEx(bj_lastCreatedEffect)
+		call DestroyEffect((bj_lastCreatedEffect)) // INLINED!!
 		call AddSpecialEffectLocBJEx(pu(c9 , 300. , ( 30. * I2R(F9) )) , "Abilities\\Spells\\Human\\Thunderclap\\ThunderClapCaster.mdl")
-		call DestroyEffectEx(bj_lastCreatedEffect)
+		call DestroyEffect((bj_lastCreatedEffect)) // INLINED!!
 		call AddSpecialEffectLocBJEx(pu(c9 , 500. , ( 30. * I2R(F9) )) , "Abilities\\Spells\\Human\\Thunderclap\\ThunderClapCaster.mdl")
-		call DestroyEffectEx(bj_lastCreatedEffect)
+		call DestroyEffect((bj_lastCreatedEffect)) // INLINED!!
 		set F9=F9 + 1
 	endloop
 	call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(600. , c9 , Condition(function P6)), function Q6)
@@ -45249,7 +45271,7 @@ function Z6 takes nothing returns nothing
  local integer i= 1 + GetPlayerId(GetOwningPlayer(u))
  local real shxishu= jueXueXiShu(i)
  local real shanghai= 0.
-	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Items\\TomeOfRetraining\\TomeOfRetrainingCaster.mdl"))
+	call DestroyEffect((AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Items\\TomeOfRetraining\\TomeOfRetrainingCaster.mdl"))) // INLINED!!
 	set shanghai=ShangHaiGongShi(u , uc , 18. , 18. , shxishu , 'A07J')
 	call WuGongShangHai(u , uc , shanghai)
 	call RemoveLocation(loc)
@@ -45278,7 +45300,7 @@ function fH takes nothing returns nothing
  local integer i= 1 + GetPlayerId(GetOwningPlayer(u))
  local real shxishu= jueXueXiShu(i)
  local real shanghai= 0.
-	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Items\\TomeOfRetraining\\TomeOfRetrainingCaster.mdl"))
+	call DestroyEffect((AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Items\\TomeOfRetraining\\TomeOfRetrainingCaster.mdl"))) // INLINED!!
 	set shanghai=ShangHaiGongShi(u , uc , 18. , 18. , shxishu , 'A07J')
 	call WuGongShangHai(u , uc , shanghai)
 	call RemoveLocation(loc)
@@ -45307,7 +45329,7 @@ function iH takes nothing returns nothing
  local integer i= 1 + GetPlayerId(GetOwningPlayer(u))
  local real shxishu= jueXueXiShu(i)
  local real shanghai= 0.
-	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Items\\TomeOfRetraining\\TomeOfRetrainingCaster.mdl"))
+	call DestroyEffect((AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Items\\TomeOfRetraining\\TomeOfRetrainingCaster.mdl"))) // INLINED!!
 	set shanghai=ShangHaiGongShi(u , uc , 18. , 18. , shxishu , 'A07J')
 	call WuGongShangHai(u , uc , shanghai)
 	call RemoveLocation(loc)
@@ -45464,7 +45486,7 @@ function wH takes nothing returns nothing
 		call SaveLocationHandle(YDHT, p, $50525CFC, GetUnitLoc(LoadUnitHandle(YDHT, p, $59BEA0CB)))
 		call SaveLocationHandle(YDHT, p, - $2103C000, pu(loc , GetRandomReal(50., 600.) , ( GetRandomReal(0, 360.) )))
 		call AddSpecialEffectLocBJEx(LoadLocationHandle(YDHT, p, - $2103C000) , "war3mapImported\\FireStomp.mdx")
-		call DestroyEffectEx(bj_lastCreatedEffect)
+		call DestroyEffect((bj_lastCreatedEffect)) // INLINED!!
 		call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(300. , LoadLocationHandle(YDHT, p, - $2103C000) , Condition(function uH)), function vH)
 		call RemoveLocation(LoadLocationHandle(YDHT, p, $50525CFC))
 		call RemoveLocation(LoadLocationHandle(YDHT, p, - $2103C000))
@@ -45507,7 +45529,7 @@ function XiangLongErShi takes nothing returns nothing
 		call DestroyTimer(t)
 	else
 		call SaveReal(YDHT, p, 1, LoadReal(YDHT, p, 1) + 10.)
-		call DestroyEffectEx(AddSpecialEffectLocBJEx(loc2 , "war3mapImported\\ChaosExplosion.mdl"))
+		call DestroyEffect((AddSpecialEffectLocBJEx(loc2 , "war3mapImported\\ChaosExplosion.mdl"))) // INLINED!!
 		call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(300. , loc2 , Condition(function XLES_Condition)), function XLES_Action)
 	endif
 	call RemoveLocation(loc)
@@ -45588,7 +45610,7 @@ function bH takes nothing returns nothing
  local real shxishu= jueXueXiShu(i)
  local real shanghai= 0.
  local location loc= GetUnitLoc(uc)
-	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Other\\Charm\\CharmTarget.mdl"))
+	call DestroyEffect((AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Other\\Charm\\CharmTarget.mdl"))) // INLINED!!
 	set shanghai=ShangHaiGongShi(u , uc , 500. , 500. , shxishu , 'A086')
 	call WuGongShangHai(u , uc , shanghai)
 	call RemoveLocation(loc)
@@ -45705,12 +45727,12 @@ function MH takes nothing returns nothing
 	call YDWEPolledWaitNull(.5)
 	call SaveInteger(YDHT, id, - $1317DA19, cx)
 	call AddSpecialEffectLocBJEx(LoadLocationHandle(YDHT, id * cx, - $6923AD87) , "war3mapImported\\LightningWrath.mdx")
-	call DestroyEffectEx(bj_lastCreatedEffect)
+	call DestroyEffect((bj_lastCreatedEffect)) // INLINED!!
 	call YDWEPolledWaitNull(.3)
 	call SaveInteger(YDHT, id, - $1317DA19, cx)
 	call RemoveUnit(LoadUnitHandle(YDHT, id * cx, $197A3E5D))
 	call AddSpecialEffectLocBJEx(LoadLocationHandle(YDHT, id * cx, - $6923AD87) , "war3mapImported\\FrostNova.mdx")
-	call DestroyEffectEx(bj_lastCreatedEffect)
+	call DestroyEffect((bj_lastCreatedEffect)) // INLINED!!
 	call SaveReal(YDHT, id * cx, - $2CEF3086, ( ( ( 2.5 + I2R(juexuelingwu[( 1 + GetPlayerId(GetOwningPlayer(LoadUnitHandle(YDHT, id * cx, $59BEA0CB))) )]) ) + ( I2R(GetUnitAbilityLevel(LoadUnitHandle(YDHT, id * cx, $59BEA0CB), LoadInteger(YDHT, id * cx, - $2A41B3A3))) / 2. ) ) + ( I2R(jingmai[( 1 + GetPlayerId(GetOwningPlayer(LoadUnitHandle(YDHT, id * cx, $59BEA0CB))) )]) * .05 ) ))
 	call SaveReal(YDHT, id * cx, $1968F401, ( 8. + udg_shanghaijiacheng[( 1 + GetPlayerId(GetOwningPlayer(LoadUnitHandle(YDHT, id * cx, $59BEA0CB))) )] ))
 	call SaveReal(YDHT, id * cx, - $2CEF3086, ( LoadReal(YDHT, id * cx, - $2CEF3086) * ( LoadReal(YDHT, id * cx, $1968F401) * 6. ) ))
@@ -45888,7 +45910,7 @@ function qI takes nothing returns nothing
 	if isTitle(i , 42) then
 		set shxishu=shxishu * 3
 	endif
-	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))
+	call DestroyEffect((AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))) // INLINED!!
 	set shanghai=ShangHaiGongShi(u , uc , 44. , 44. , shxishu , 'A07I')
 	call WuGongShangHai(u , uc , shanghai)
 	call RemoveLocation(loc)
@@ -45965,7 +45987,7 @@ function jiuYangCanJuanAction takes nothing returns nothing
 	// 九阳残章伤害乘以10
  local real shxishu= ( jueXueXiShu(i) + 5 * GetUnitAbilityLevel(u, 'A06S') ) * 10
  local real shanghai= 0.
-	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))
+	call DestroyEffect((AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))) // INLINED!!
 	set shanghai=ShangHaiGongShi(u , uc , 132. , 132. , shxishu , 'A0DN')
 	call WuGongShangHai(u , uc , shanghai)
 	call RemoveLocation(loc)
@@ -45988,12 +46010,12 @@ function jiuYangCanJuanAct takes nothing returns nothing
 	loop
 		exitwhen j >= 5
 		set loc2=PolarProjectionBJ(loc, GetRandomReal(300, 1000), GetRandomReal(0, 360))
-		call DestroyEffectEx(AddSpecialEffectLocEx("Abilities\\Spells\\Human\\MarkOfChaos\\MarkOfChaosTarget.mdl" , loc2))
+		call DestroyEffect((AddSpecialEffectLocEx("Abilities\\Spells\\Human\\MarkOfChaos\\MarkOfChaosTarget.mdl" , loc2))) // INLINED!!
 		set i=0
 		loop
 			exitwhen i >= 8
 			set loc1=PolarProjectionBJ(loc2, 400, 45 * i)
-			call DestroyEffectEx(AddSpecialEffectLocEx("Abilities\\Spells\\Human\\MarkOfChaos\\MarkOfChaosTarget.mdl" , loc1))
+			call DestroyEffect((AddSpecialEffectLocEx("Abilities\\Spells\\Human\\MarkOfChaos\\MarkOfChaosTarget.mdl" , loc1))) // INLINED!!
 			call RemoveLocation(loc1)
 			set i=i + 1
 		endloop
@@ -46262,7 +46284,7 @@ endfunction
      local location loc=GetUnitLoc(uc)
      local real shxishu=1.
      local real shanghai=0.
-        call DestroyEffectEx(AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Items\\AIil\\AIilTarget.mdl"))
+        call DestroyEffect((AddSpecialEffectLocBJEx(loc , "Abilities\\Spells\\Items\\AIil\\AIilTarget.mdl"))) // INLINED!!
         if GetUnitAbilityLevel(GetAttacker(), 'A07S') >= 1 then
 	        set shxishu=shxishu + 1.
         endif
@@ -46314,7 +46336,7 @@ set shxishu=shxishu * 20
                 endif
 		        set shanghai=ShangHaiGongShi(u , uc , 80 , 64 , shxishu , 'A0D3')
                 call AddSpecialEffectTargetUnitBJEx("overhead" , GetTriggerUnit() , "Abilities\\Spells\\Items\\OrbDarkness\\OrbDarkness.mdl")
-                call DestroyEffectEx(GetLastCreatedEffectBJ())
+                call DestroyEffect((GetLastCreatedEffectBJ())) // INLINED!!
                 call WuGongShangHai(u , uc , shanghai)
                 call WuGongShengChong(u , 'A0D3' , 1050.)
             endif
@@ -46906,7 +46928,7 @@ function ZiZhiShangHai_Action takes nothing returns nothing
 	call Nw(3 , bj_lastCreatedTextTag)
     call SetTextTagVelocityBJ(bj_lastCreatedTextTag, 50., 90)
 	call AddSpecialEffectTargetUnitBJEx("overhead" , uc , lh_texiao[s__ZiZhiWuGong_texiao[zizhiwugong[i]]])
-	call DestroyEffectEx(GetLastCreatedEffectBJ())
+	call DestroyEffect((GetLastCreatedEffectBJ())) // INLINED!!
 	call WuGongShangHai(u , uc , shanghai)
 	call RemoveLocation(loc)
 	set loc=null
@@ -47995,7 +48017,7 @@ function MiaoShouKongKong_1 takes nothing returns nothing
 			call DisableTrigger(t)
 			set shanghai=ShangHaiGongShi(u , uc , 0.001 , 0.002 , shxishu , 'A03O')
     		call WuGongShangHai(u , uc , shanghai)
-    		call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl" , uc , "overhead"))
+    		call DestroyEffect((AddSpecialEffectTargetEx("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl" , uc , "overhead"))) // INLINED!!
     		call EnableTrigger(t)
 		endif
 		if ( GetUnitAbilityLevel(u, 'S002') ) != 0 and GetRandomInt(1, 100) <= 15 then
@@ -55932,9 +55954,10 @@ function main takes nothing returns nothing
     call CreateAllUnits()
     call InitBlizzard()
 
-call ExecuteFunc("jasshelper__initstructs88451281")
-call ExecuteFunc("FrameLibrary__init")
-call ExecuteFunc("UniMissileSystem3D__Init")
+call ExecuteFunc("jasshelper__initstructs102543312")
+call ExecuteFunc("FrameLibrary___init")
+call ExecuteFunc("initShowEffect")
+call ExecuteFunc("UniMissileSystem3D___Init")
 call ExecuteFunc("YDTriggerSaveLoadSystem__Init")
 call ExecuteFunc("InitializeYD")
 call ExecuteFunc("YDWEBitwise__onInit")
@@ -56133,7 +56156,7 @@ function sa___prototype4_SetUnitMoveSpeedEx takes nothing returns boolean
     return true
 endfunction
 
-function jasshelper__initstructs88451281 takes nothing returns nothing
+function jasshelper__initstructs102543312 takes nothing returns nothing
     set st__Frame_onDestroy=CreateTrigger()
     call TriggerAddCondition(st__Frame_onDestroy,Condition( function sa__Frame_onDestroy))
     set st__ShopWeapon_onDestroy=CreateTrigger()

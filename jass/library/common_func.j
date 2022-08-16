@@ -1576,15 +1576,15 @@ function showDamageWithEffects takes integer i, unit u, real damage, boolean cri
 			loop
 				exitwhen j > StringLength(damageStr)
 				// call BJDebugMsg("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx")
-				set eff = AddSpecialEffectEx("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx", GetUnitX(u) + 32 / 1.38 * (j - 1), GetUnitY(u))
+				set eff = AddSpecialEffect("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx", GetUnitX(u) + 32 / 1.38 * (j - 1), GetUnitY(u))
 				call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
-				call DestroyEffectEx(eff)
+				call DestroyEffect(eff)
 				set j = j + 1
 			endloop
 			if critical then
-				set eff = AddSpecialEffectEx("war3mapImported\\SHZT11-10.mdx", GetUnitX(u) - 37 / 1.38, GetUnitY(u))
+				set eff = AddSpecialEffect("war3mapImported\\SHZT11-10.mdx", GetUnitX(u) - 37 / 1.38, GetUnitY(u))
 				call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
-				call DestroyEffectEx(eff)
+				call DestroyEffect(eff)
 			endif
 		endif
 	endif

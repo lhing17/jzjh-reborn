@@ -1,50 +1,61 @@
-library ShowEffect
+library ShowEffect initializer initShowEffect
+    globals 
+
+        force showEffectForce = CreateForce()
+    endglobals
     // 新建特效(创建到坐标) [R]
     function AddSpecialEffectEx takes string modelName, real x, real y returns effect
-        local integer i = 1 + GetPlayerId(GetLocalPlayer())
-        if showEffect[i] then
-            return AddSpecialEffect(modelName, x, y)
+        local string z = ""
+        if IsPlayerInForce(GetLocalPlayer(), showEffectForce) then
+            set z = modelName
         endif
-        return null
+        return AddSpecialEffect(z, x, y)
     endfunction
     // 新建特效(创建到点) [R]
     function AddSpecialEffectLocEx takes string modelName, location where returns effect
-        local integer i = 1 + GetPlayerId(GetLocalPlayer())
-        if showEffect[i] then
-            return AddSpecialEffectLoc(modelName, where)
+        local string z = ""
+        if IsPlayerInForce(GetLocalPlayer(), showEffectForce) then
+            set z = modelName
         endif
-        return null
+        return AddSpecialEffectLoc(z, where)
     endfunction
     // 新建特效(创建到单位) [R]
     function AddSpecialEffectTargetEx takes string modelName, widget targetWidget, string attachPointName returns effect
-        local integer i = 1 + GetPlayerId(GetLocalPlayer())
-        if showEffect[i] then
-            return AddSpecialEffectTarget(modelName, targetWidget, attachPointName)
+        local string z = ""
+        if IsPlayerInForce(GetLocalPlayer(), showEffectForce) then
+            set z = modelName
         endif
-        return null
+        return AddSpecialEffectTarget(z, targetWidget, attachPointName)
     endfunction
 
     function AddSpecialEffectLocBJEx takes location where, string modelName returns effect
-        local integer i = 1 + GetPlayerId(GetLocalPlayer())
-        if showEffect[i] then
-            return AddSpecialEffectLocBJ(where, modelName)
+        local string z = ""
+        if IsPlayerInForce(GetLocalPlayer(), showEffectForce) then
+            set z = modelName
         endif
-        return null
+        return AddSpecialEffectLoc(z, where)
     endfunction
 
     function AddSpecialEffectTargetUnitBJEx takes string attachPointName, widget targetWidget, string modelName returns effect
-        local integer i = 1 + GetPlayerId(GetLocalPlayer())
-        if showEffect[i] then
-            return AddSpecialEffectTargetUnitBJ(attachPointName, targetWidget, modelName)
+        local string z = ""
+        if IsPlayerInForce(GetLocalPlayer(), showEffectForce) then
+            set z = modelName
         endif
-        return null
+        return AddSpecialEffectTarget(z, targetWidget, attachPointName)
     endfunction
 
     // 销毁特效
     function DestroyEffectEx takes effect whichEffect returns nothing
-        if whichEffect != null then
-            call DestroyEffect(whichEffect)
-        endif
+        call DestroyEffect(whichEffect)
     endfunction
+
+    function initShowEffect takes nothing returns nothing
+        local integer LoopA = 0
+        loop
+            exitwhen LoopA > 11
+            call ForceAddPlayer(showEffectForce, Player(LoopA))
+            set LoopA = LoopA + 1
+        endloop
+	endfunction
 
 endlibrary
