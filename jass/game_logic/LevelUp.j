@@ -153,6 +153,7 @@ function kungfuLevelUp takes unit u, integer id, real r returns nothing
 	local real extraTimes = 1
 	local integer realExp = 0
 	local integer add = 0
+	local boolean flag = false
 
 	// 慕容家训
 	if UnitHasBuffBJ(u, 'B010') then
@@ -188,8 +189,16 @@ function kungfuLevelUp takes unit u, integer id, real r returns nothing
 		call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id, LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id) + realExp)
 		call SaveStr(YDHT, GetHandleId(GetOwningPlayer(u)), id * 2, I2S(LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id)) + "/" + I2S(needExp))
 	endif
+	if level > 0 and LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id) >= needExp then
+		if id != 'A07W' and level < 9  then
+			set flag = true
+		endif
+		if id == 'A07W' and level < 7 then
+			set flag = true
+		endif
+	endif
 
-	if level > 0 and (level < 9 or  (id == 'A07W' and level < 7)) and LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id) >= needExp then
+	if flag then
 		call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id, LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id) - needExp)
 		call IncAbilityAndItemCharge(u, id)
 		call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id * 5, GetUnitAbilityLevel(u, id))
