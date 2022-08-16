@@ -137,23 +137,23 @@ function jD takes nothing returns nothing
     set bj_forLoopAIndexEnd=60
     loop
         exitwhen bj_forLoopAIndex>bj_forLoopAIndexEnd
-        call DestroyEffect(AddSpecialEffectLocBJ(pu(loc,400.,(I2R(bj_forLoopAIndex)*6.)),"Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl"))
+        call DestroyEffectEx(AddSpecialEffectLocBJEx(pu(loc,400.,(I2R(bj_forLoopAIndex)*6.)),"Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl"))
         set bj_forLoopAIndex=bj_forLoopAIndex+1
     endloop
     set bj_forLoopAIndex=1
     set bj_forLoopAIndexEnd=20
     loop
         exitwhen bj_forLoopAIndex>bj_forLoopAIndexEnd
-        call DestroyEffect(AddSpecialEffectLocBJ(pu(pu(loc,200.,0),40.,(I2R(bj_forLoopAIndex)*18.)),"Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl"))
-        call DestroyEffect(AddSpecialEffectLocBJ(pu(pu(loc,200.,180.),40.,(I2R(bj_forLoopAIndex)*18.)),"Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl"))
+        call DestroyEffectEx(AddSpecialEffectLocBJEx(pu(pu(loc,200.,0),40.,(I2R(bj_forLoopAIndex)*18.)),"Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl"))
+        call DestroyEffectEx(AddSpecialEffectLocBJEx(pu(pu(loc,200.,180.),40.,(I2R(bj_forLoopAIndex)*18.)),"Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl"))
         set bj_forLoopAIndex=bj_forLoopAIndex+1
     endloop
     set bj_forLoopBIndex=1
     set bj_forLoopBIndexEnd=30
     loop
         exitwhen bj_forLoopBIndex>bj_forLoopBIndexEnd
-        call  DestroyEffect(AddSpecialEffectLocBJ(pu(pu(loc,200.,.0),200.,(I2R(bj_forLoopBIndex)*6.)),"Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl"))
-        call  DestroyEffect(AddSpecialEffectLocBJ(pu(pu(loc,200.,180.),200.,((I2R(bj_forLoopBIndex)*6.)+180.)),"Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl"))
+        call  DestroyEffectEx(AddSpecialEffectLocBJEx(pu(pu(loc,200.,.0),200.,(I2R(bj_forLoopBIndex)*6.)),"Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl"))
+        call  DestroyEffectEx(AddSpecialEffectLocBJEx(pu(pu(loc,200.,180.),200.,((I2R(bj_forLoopBIndex)*6.)+180.)),"Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl"))
         set bj_forLoopBIndex=bj_forLoopBIndex+1
     endloop
     call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(500.,loc,Condition(function hD)),function iD)
@@ -311,26 +311,26 @@ function wD takes nothing returns nothing
 	set i=1
 	loop
 		exitwhen i>60
-		call AddSpecialEffectLocBJ(pu(loc,400.,I2R(i)*6.),"Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl")
-		call DestroyEffect(bj_lastCreatedEffect)
+		call AddSpecialEffectLocBJEx(pu(loc,400.,I2R(i)*6.),"Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl")
+		call DestroyEffectEx(bj_lastCreatedEffect)
 		set i=i+1
 	endloop
 	set i=1
 	loop
 		exitwhen i>20
-		call AddSpecialEffectLocBJ(pu(pu(loc,200.,0),40.,I2R(i)*18.),"Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl")
-		call DestroyEffect(bj_lastCreatedEffect)
-		call AddSpecialEffectLocBJ(pu(pu(loc,200.,180.),40.,I2R(i)*18.),"Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl")
-		call DestroyEffect(bj_lastCreatedEffect)
+		call AddSpecialEffectLocBJEx(pu(pu(loc,200.,0),40.,I2R(i)*18.),"Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl")
+		call DestroyEffectEx(bj_lastCreatedEffect)
+		call AddSpecialEffectLocBJEx(pu(pu(loc,200.,180.),40.,I2R(i)*18.),"Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl")
+		call DestroyEffectEx(bj_lastCreatedEffect)
 		set i=i+1
 	endloop
 	set i=1
 	loop
 		exitwhen i>30
-		call AddSpecialEffectLocBJ(pu(pu(loc,200.,.0),200.,I2R(i)*6.),"Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl")
-		call DestroyEffect(bj_lastCreatedEffect)
-		call AddSpecialEffectLocBJ(pu(pu(loc,200.,180.),200.,I2R(i)*6.+180.),"Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl")
-		call DestroyEffect(bj_lastCreatedEffect)
+		call AddSpecialEffectLocBJEx(pu(pu(loc,200.,.0),200.,I2R(i)*6.),"Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl")
+		call DestroyEffectEx(bj_lastCreatedEffect)
+		call AddSpecialEffectLocBJEx(pu(pu(loc,200.,180.),200.,I2R(i)*6.+180.),"Abilities\\Spells\\Other\\Doom\\DoomTarget.mdl")
+		call DestroyEffectEx(bj_lastCreatedEffect)
 		set i=i+1
 	endloop
 	call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(500.,loc,Condition(function uD)),function vD)
@@ -390,8 +390,8 @@ function KD takes nothing returns nothing
 	local unit u = GetTriggerUnit()
 	local location loc = GetUnitLoc(u)
 	call UnitResetCooldown(u)
-	call AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Human\\Avatar\\AvatarCaster.mdl")
-	call DestroyEffect(bj_lastCreatedEffect)
+	call AddSpecialEffectLocBJEx(loc,"Abilities\\Spells\\Human\\Avatar\\AvatarCaster.mdl")
+	call DestroyEffectEx(bj_lastCreatedEffect)
 	call RemoveLocation(loc)
 	set u = null
 	set loc = null

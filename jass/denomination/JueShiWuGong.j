@@ -41,7 +41,7 @@ function eG takes nothing returns nothing
 	if isTitle(i, 9) or isTitle(i, 43) then
 		set shxishu = shxishu * 3
 	endif
-	call DestroyEffect(AddSpecialEffectLocBJ(loc, "Abilities\\Spells\\Human\\MarkOfChaos\\MarkOfChaosTarget.mdl"))
+	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc, "Abilities\\Spells\\Human\\MarkOfChaos\\MarkOfChaosTarget.mdl"))
 	set shanghai = ShangHaiGongShi(u, uc, 60., 60., shxishu, 'A07E')
 	
 	call WuGongShangHai(u, uc, shanghai)
@@ -275,7 +275,7 @@ function GG takes nothing returns nothing
 	if isTitle(i, 42) then
 		set shxishu = shxishu * 3
 	endif
-	call DestroyEffect(AddSpecialEffectLocBJ(loc, "war3mapImported\\CrimsonWake.mdx"))
+	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc, "war3mapImported\\CrimsonWake.mdx"))
 	set shanghai = ShangHaiGongShi(u, uc, 30, 30, shxishu, 'A07I')
 	call WuGongShangHai(u, uc, shanghai)
 	call RemoveLocation(loc)
@@ -507,7 +507,7 @@ function p6 takes nothing returns nothing
 	local location loc3 = pu(loc2, GetRandomReal(5., 15.), AngleBetweenPoints(loc, loc2))
 	call PauseUnit(uc, true)
 	call SetUnitPositionLoc(uc, loc3)
-	call Jw(1., AddSpecialEffectTarget("Abilities\\Spells\\Other\\Stampede\\StampedeMissileDeath.mdl", uc, "chest"))
+	call Jw(1., AddSpecialEffectTargetEx("Abilities\\Spells\\Other\\Stampede\\StampedeMissileDeath.mdl", uc, "chest"))
 	set shanghai = ShangHaiGongShi(u, uc, 19., 19., shxishu, 'A085')
 	call WuGongShangHai(u, uc, shanghai)
 	call PauseUnit(uc, false)
@@ -555,7 +555,7 @@ function MM6 takes nothing returns nothing
 	loop
 		exitwhen i > 6
 		set loc = GetUnitLoc(GetTriggerUnit())
-		call Jw(1., AddSpecialEffectLoc("war3mapImported\\DarkNova.mdx", loc))
+		call Jw(1., AddSpecialEffectLocEx("war3mapImported\\DarkNova.mdx", loc))
 		call CreateNUnitsAtLoc(1, 'e00K', GetOwningPlayer(GetTriggerUnit()), loc, bj_UNIT_FACING)
 		call UnitApplyTimedLife(bj_lastCreatedUnit, 'BHwe', 1.)
 		call SetUnitTimeScalePercent(bj_lastCreatedUnit, 200.)
@@ -664,12 +664,12 @@ function R6 takes nothing returns nothing
 	set F9 = 1
 	loop
 		exitwhen F9 > 12
-		call AddSpecialEffectLocBJ(pu(c9, 100., (30. * I2R(F9))), "Abilities\\Spells\\Human\\Thunderclap\\ThunderClapCaster.mdl")
-		call DestroyEffect(bj_lastCreatedEffect)
-		call AddSpecialEffectLocBJ(pu(c9, 300., (30. * I2R(F9))), "Abilities\\Spells\\Human\\Thunderclap\\ThunderClapCaster.mdl")
-		call DestroyEffect(bj_lastCreatedEffect)
-		call AddSpecialEffectLocBJ(pu(c9, 500., (30. * I2R(F9))), "Abilities\\Spells\\Human\\Thunderclap\\ThunderClapCaster.mdl")
-		call DestroyEffect(bj_lastCreatedEffect)
+		call AddSpecialEffectLocBJEx(pu(c9, 100., (30. * I2R(F9))), "Abilities\\Spells\\Human\\Thunderclap\\ThunderClapCaster.mdl")
+		call DestroyEffectEx(bj_lastCreatedEffect)
+		call AddSpecialEffectLocBJEx(pu(c9, 300., (30. * I2R(F9))), "Abilities\\Spells\\Human\\Thunderclap\\ThunderClapCaster.mdl")
+		call DestroyEffectEx(bj_lastCreatedEffect)
+		call AddSpecialEffectLocBJEx(pu(c9, 500., (30. * I2R(F9))), "Abilities\\Spells\\Human\\Thunderclap\\ThunderClapCaster.mdl")
+		call DestroyEffectEx(bj_lastCreatedEffect)
 		set F9 = F9 + 1
 	endloop
 	call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(600., c9, Condition(function P6)), function Q6)
@@ -739,7 +739,7 @@ function Z6 takes nothing returns nothing
 	local integer i = 1 + GetPlayerId(GetOwningPlayer(u))
 	local real shxishu = jueXueXiShu(i)
 	local real shanghai = 0.
-	call DestroyEffect(AddSpecialEffectLocBJ(loc, "Abilities\\Spells\\Items\\TomeOfRetraining\\TomeOfRetrainingCaster.mdl"))
+	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc, "Abilities\\Spells\\Items\\TomeOfRetraining\\TomeOfRetrainingCaster.mdl"))
 	set shanghai = ShangHaiGongShi(u, uc, 18., 18., shxishu, 'A07J')
 	call WuGongShangHai(u, uc, shanghai)
 	call RemoveLocation(loc)
@@ -768,7 +768,7 @@ function fH takes nothing returns nothing
 	local integer i = 1 + GetPlayerId(GetOwningPlayer(u))
 	local real shxishu = jueXueXiShu(i)
 	local real shanghai = 0.
-	call DestroyEffect(AddSpecialEffectLocBJ(loc, "Abilities\\Spells\\Items\\TomeOfRetraining\\TomeOfRetrainingCaster.mdl"))
+	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc, "Abilities\\Spells\\Items\\TomeOfRetraining\\TomeOfRetrainingCaster.mdl"))
 	set shanghai = ShangHaiGongShi(u, uc, 18., 18., shxishu, 'A07J')
 	call WuGongShangHai(u, uc, shanghai)
 	call RemoveLocation(loc)
@@ -797,7 +797,7 @@ function iH takes nothing returns nothing
 	local integer i = 1 + GetPlayerId(GetOwningPlayer(u))
 	local real shxishu = jueXueXiShu(i)
 	local real shanghai = 0.
-	call DestroyEffect(AddSpecialEffectLocBJ(loc, "Abilities\\Spells\\Items\\TomeOfRetraining\\TomeOfRetrainingCaster.mdl"))
+	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc, "Abilities\\Spells\\Items\\TomeOfRetraining\\TomeOfRetrainingCaster.mdl"))
 	set shanghai = ShangHaiGongShi(u, uc, 18., 18., shxishu, 'A07J')
 	call WuGongShangHai(u, uc, shanghai)
 	call RemoveLocation(loc)
@@ -953,8 +953,8 @@ function wH takes nothing returns nothing
 		call SaveReal(YDHT, p, - $4DA64D97, (LoadReal(YDHT, p, - $4DA64D97) + 10.))
 		call SaveLocationHandle(YDHT, p, $50525CFC, GetUnitLoc(LoadUnitHandle(YDHT, p, $59BEA0CB)))
 		call SaveLocationHandle(YDHT, p, - $2103C000, pu(loc, GetRandomReal(50., 600.), (GetRandomReal(0, 360.))))
-		call AddSpecialEffectLocBJ(LoadLocationHandle(YDHT, p, - $2103C000), "war3mapImported\\FireStomp.mdx")
-		call DestroyEffect(bj_lastCreatedEffect)
+		call AddSpecialEffectLocBJEx(LoadLocationHandle(YDHT, p, - $2103C000), "war3mapImported\\FireStomp.mdx")
+		call DestroyEffectEx(bj_lastCreatedEffect)
 		call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(300., LoadLocationHandle(YDHT, p, - $2103C000), Condition(function uH)), function vH)
 		call RemoveLocation(LoadLocationHandle(YDHT, p, $50525CFC))
 		call RemoveLocation(LoadLocationHandle(YDHT, p, - $2103C000))
@@ -997,7 +997,7 @@ function XiangLongErShi takes nothing returns nothing
 		call DestroyTimer(t)
 	else
 		call SaveReal(YDHT, p, 1, LoadReal(YDHT, p, 1) + 10.)
-		call DestroyEffect(AddSpecialEffectLocBJ(loc2, "war3mapImported\\ChaosExplosion.mdl"))
+		call DestroyEffectEx(AddSpecialEffectLocBJEx(loc2, "war3mapImported\\ChaosExplosion.mdl"))
 		call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(300., loc2, Condition(function XLES_Condition)), function XLES_Action)
 	endif
 	call RemoveLocation(loc)
@@ -1079,7 +1079,7 @@ function bH takes nothing returns nothing
 	local real shxishu = jueXueXiShu(i)
 	local real shanghai = 0.
 	local location loc = GetUnitLoc(uc)
-	call DestroyEffect(AddSpecialEffectLocBJ(loc, "Abilities\\Spells\\Other\\Charm\\CharmTarget.mdl"))
+	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc, "Abilities\\Spells\\Other\\Charm\\CharmTarget.mdl"))
 	set shanghai = ShangHaiGongShi(u, uc, 500., 500., shxishu, 'A086')
 	call WuGongShangHai(u, uc, shanghai)
 	call RemoveLocation(loc)
@@ -1195,13 +1195,13 @@ function MH takes nothing returns nothing
 	call DestroyGroup(LoadGroupHandle(YDHT, id * cx, $312C4181))
 	call PolledWait(.5)
 	call SaveInteger(YDHT, id, - $1317DA19, cx)
-	call AddSpecialEffectLocBJ(LoadLocationHandle(YDHT, id * cx, - $6923AD87), "war3mapImported\\LightningWrath.mdx")
-	call DestroyEffect(bj_lastCreatedEffect)
+	call AddSpecialEffectLocBJEx(LoadLocationHandle(YDHT, id * cx, - $6923AD87), "war3mapImported\\LightningWrath.mdx")
+	call DestroyEffectEx(bj_lastCreatedEffect)
 	call PolledWait(.3)
 	call SaveInteger(YDHT, id, - $1317DA19, cx)
 	call RemoveUnit(LoadUnitHandle(YDHT, id * cx, $197A3E5D))
-	call AddSpecialEffectLocBJ(LoadLocationHandle(YDHT, id * cx, - $6923AD87), "war3mapImported\\FrostNova.mdx")
-	call DestroyEffect(bj_lastCreatedEffect)
+	call AddSpecialEffectLocBJEx(LoadLocationHandle(YDHT, id * cx, - $6923AD87), "war3mapImported\\FrostNova.mdx")
+	call DestroyEffectEx(bj_lastCreatedEffect)
 	call SaveReal(YDHT, id * cx, - $2CEF3086, (((2.5 + I2R(juexuelingwu[(1 + GetPlayerId(GetOwningPlayer(LoadUnitHandle(YDHT, id * cx, $59BEA0CB))))])) + (I2R(GetUnitAbilityLevel(LoadUnitHandle(YDHT, id * cx, $59BEA0CB), LoadInteger(YDHT, id * cx, - $2A41B3A3))) / 2.)) + (I2R(jingmai[(1 + GetPlayerId(GetOwningPlayer(LoadUnitHandle(YDHT, id * cx, $59BEA0CB))))]) * .05)))
 	call SaveReal(YDHT, id * cx, $1968F401, (8. + udg_shanghaijiacheng[(1 + GetPlayerId(GetOwningPlayer(LoadUnitHandle(YDHT, id * cx, $59BEA0CB))))]))
 	call SaveReal(YDHT, id * cx, - $2CEF3086, (LoadReal(YDHT, id * cx, - $2CEF3086) * (LoadReal(YDHT, id * cx, $1968F401) * 6.)))
@@ -1379,7 +1379,7 @@ function qI takes nothing returns nothing
 	if isTitle(i, 42) then
 		set shxishu = shxishu * 3
 	endif
-	call DestroyEffect(AddSpecialEffectLocBJ(loc, "Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))
+	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc, "Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))
 	set shanghai = ShangHaiGongShi(u, uc, 44., 44., shxishu, 'A07I')
 	call WuGongShangHai(u, uc, shanghai)
 	call RemoveLocation(loc)
@@ -1457,7 +1457,7 @@ function jiuYangCanJuanAction takes nothing returns nothing
 	// 九阳残章伤害乘以10
 	local real shxishu = (jueXueXiShu(i) + 5 * GetUnitAbilityLevel(u, 'A06S')) * 10
 	local real shanghai = 0.
-	call DestroyEffect(AddSpecialEffectLocBJ(loc, "Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))
+	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc, "Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))
 	set shanghai = ShangHaiGongShi(u, uc, 132., 132., shxishu, 'A0DN')
 	call WuGongShangHai(u, uc, shanghai)
 	call RemoveLocation(loc)
@@ -1480,12 +1480,12 @@ function jiuYangCanJuanAct takes nothing returns nothing
 	loop
 		exitwhen j >= 5
 		set loc2 = PolarProjectionBJ(loc, GetRandomReal(300, 1000), GetRandomReal(0, 360))
-		call DestroyEffect(AddSpecialEffectLoc("Abilities\\Spells\\Human\\MarkOfChaos\\MarkOfChaosTarget.mdl", loc2))
+		call DestroyEffectEx(AddSpecialEffectLocEx("Abilities\\Spells\\Human\\MarkOfChaos\\MarkOfChaosTarget.mdl", loc2))
 		set i = 0
 		loop
 			exitwhen i >= 8
 			set loc1 = PolarProjectionBJ(loc2, 400, 45 * i)
-			call DestroyEffect(AddSpecialEffectLoc("Abilities\\Spells\\Human\\MarkOfChaos\\MarkOfChaosTarget.mdl", loc1))
+			call DestroyEffectEx(AddSpecialEffectLocEx("Abilities\\Spells\\Human\\MarkOfChaos\\MarkOfChaosTarget.mdl", loc1))
 			call RemoveLocation(loc1)
 			set i = i + 1
 		endloop

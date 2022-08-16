@@ -32,7 +32,7 @@ function doEnhanceDefense takes nothing returns nothing
 		call YDWEGeneralBounsSystemUnitSetBonus(u,2,0, udg_boshu * udg_boshu * 5)
     endif
     if udg_nandu == 6 and isUnitAttackerBoss(id) then
-        call SaveEffectHandle(YDHT, GetHandleId(u), $DEF, AddSpecialEffectTarget("war3mapImported\\DefensiveBarrierBig.mdx", u, "chest"))
+        call SaveEffectHandle(YDHT, GetHandleId(u), $DEF, AddSpecialEffectTargetEx("war3mapImported\\DefensiveBarrierBig.mdx", u, "chest"))
         call SaveReal(YDHT, GetHandleId(u), $FED, 100)
     endif
     set u = null
@@ -52,7 +52,7 @@ function shieldReduceDamage takes nothing returns nothing
         call SaveReal(YDHT, GetHandleId(u), $FED, LoadReal(YDHT, GetHandleId(u), $FED) - loss)
     endif
     if LoadReal(YDHT, GetHandleId(u), $FED) <= 0 then
-        call DestroyEffect(LoadEffectHandle(YDHT, GetHandleId(u), $DEF))
+        call DestroyEffectEx(LoadEffectHandle(YDHT, GetHandleId(u), $DEF))
     endif
     set u = null
 endfunction

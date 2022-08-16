@@ -23,7 +23,7 @@ function QuanZhen_Action takes nothing returns nothing
     // set shanghai=ShangHaiGongShi(u,uc,12.,21.,shxishu,'A0CF')
     set shanghai=ShangHaiGongShi(u,uc,44.,50.,shxishu,'A0CF')
     call WuGongShangHai(u,uc,shanghai)
-    call DestroyEffect(AddSpecialEffectTarget("Units\\NightElf\\Wisp\\WispExplode.mdl",uc,"overhead"))
+    call DestroyEffectEx(AddSpecialEffectTargetEx("Units\\NightElf\\Wisp\\WispExplode.mdl",uc,"overhead"))
     if GetUnitAbilityLevel(u,'A07S')>=1 and GetRandomReal(1.,100)<=20 then
 	    call CreateNUnitsAtLoc(1,1697656880,GetOwningPlayer(u),loc2,bj_UNIT_FACING)
         call UnitAddAbility(bj_lastCreatedUnit,1093678412)

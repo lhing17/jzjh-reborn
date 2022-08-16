@@ -26,8 +26,8 @@ function WeiTuo_Action takes nothing returns nothing
 	//if((GetUnitAbilityLevel(u,'A05G')==9))then
 	//    set shxishu=shxishu*8.
 	//endif
-	call DestroyEffect(AddSpecialEffectTargetUnitBJ( "overhead", uc, "Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl" ))
-	// call DestroyEffect(AddSpecialEffect("Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl", x, y))
+	call DestroyEffectEx(AddSpecialEffectTargetUnitBJEx( "overhead", uc, "Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl" ))
+	// call DestroyEffectEx(AddSpecialEffectEx("Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl", x, y))
 	set shanghai = ShangHaiGongShi(u, uc, 10, 12, shxishu, 'A05G')
 	//call BJDebugMsg("伤害="+R2S(shanghai))
 	call WuGongShangHai(u, uc, shanghai)
@@ -121,7 +121,7 @@ function ucFunc takes nothing returns nothing
 	set shanghai = ShangHaiGongShi(u, uc, 10, 30, shxishu, 'A000')
 	call WuGongShangHai(u, uc, shanghai)
 	if((GetUnitAbilityLevel(u, 1093678932) != 0))then
-		call DestroyEffect(AddSpecialEffectLocBJ(loc2, "war3mapImported\\ShadowBurn.mdx"))
+		call DestroyEffectEx(AddSpecialEffectLocBJEx(loc2, "war3mapImported\\ShadowBurn.mdx"))
 		call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(100, loc2, Condition(function rc)), function sc)
 	endif
 	call RemoveLocation(loc2)
@@ -254,7 +254,7 @@ function cc takes nothing returns nothing
 	local unit u = GetTriggerUnit()
 	local player p = GetOwningPlayer(u)
 	local integer i = 1 + GetPlayerId(p)
-	call DestroyEffect(E7[i])
+	call DestroyEffectEx(E7[i])
 	call UnitRemoveAbility(u, 1110454320)
 	set D7[i] = ((5000. * I2R(yishu[i])) * I2R(GetUnitAbilityLevel(u, 'A05O')))
 	set ce[i] = (70 * GetUnitAbilityLevel(u, 'A05O'))
@@ -267,7 +267,7 @@ function cc takes nothing returns nothing
 			set D7[i] = (D7[i] * 2.)
 		endif
 	endif
-	call AddSpecialEffectTargetUnitBJ("chest", u, "war3mapImported\\DefensiveBarrierBig.mdx")
+	call AddSpecialEffectTargetUnitBJEx("chest", u, "war3mapImported\\DefensiveBarrierBig.mdx")
 	call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, ("|cff00ccff金钟罩效果总值：" + I2S(R2I(D7[i]))))
 	set E7[i] = bj_lastCreatedEffect
 	call WuGongShengChong(u, 'A05O', 90.)
@@ -289,8 +289,8 @@ function Gc takes nothing returns nothing
 	if UnitHasDenomWeapon(u, 'I0AL') then
 		set shxishu = shxishu * 8
 	endif
-	call AddSpecialEffectLocBJ(loc, "Abilities\\Spells\\Undead\\DarkRitual\\DarkRitualTarget.mdl")
-	call DestroyEffect(bj_lastCreatedEffect)
+	call AddSpecialEffectLocBJEx(loc, "Abilities\\Spells\\Undead\\DarkRitual\\DarkRitualTarget.mdl")
+	call DestroyEffectEx(bj_lastCreatedEffect)
 	call RemoveLocation(loc)
 	set shanghai = ShangHaiGongShi(u, uc, 400, 400, shxishu, 'A05O')
 	call WuGongShangHai(u, uc, shanghai)
@@ -315,8 +315,8 @@ function Hc takes nothing returns nothing
 		call SetWidgetLife(u, (GetUnitStateSwap(UNIT_STATE_LIFE, GetTriggerUnit()) + GetEventDamage()))
 		//+化功大法
 		if((GetUnitAbilityLevel(u, 'A07P') != 0))then
-			call AddSpecialEffectLocBJ(loc2, "Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl")
-			call DestroyEffect(bj_lastCreatedEffect)
+			call AddSpecialEffectLocBJEx(loc2, "Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl")
+			call DestroyEffectEx(bj_lastCreatedEffect)
 			call RemoveLocation(loc2)
 			if isTitle(i, 1) then // 扫地神僧称号
 				set shxishu = shxishu * 10
@@ -325,7 +325,7 @@ function Hc takes nothing returns nothing
 			call WuGongShangHai(u, uc, shanghai)
 		endif
 	else
-		call DestroyEffect(E7[i])
+		call DestroyEffectEx(E7[i])
 		call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit(), 2, 1, ce[i])
 		//+易筋经
 		if((GetUnitAbilityLevel(u, 'A09D') != 0))then
@@ -344,7 +344,7 @@ function Hc takes nothing returns nothing
 					set D7[i] = (D7[i] * 2.)
 				endif
 			endif
-			call AddSpecialEffectTargetUnitBJ("chest", GetTriggerUnit(), "war3mapImported\\DefensiveBarrierBig.mdx")
+			call AddSpecialEffectTargetUnitBJEx("chest", GetTriggerUnit(), "war3mapImported\\DefensiveBarrierBig.mdx")
 			call DisplayTextToPlayer(p, 0, 0, ("|cff00ccff小无相重启金钟罩，效果总值：" + I2S(R2I(D7[i]))))
 			set E7[i] = bj_lastCreatedEffect
 		else

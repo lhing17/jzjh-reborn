@@ -49,10 +49,10 @@ function SiXiangZhang takes nothing returns nothing
     set i = 1
     loop
     	exitwhen i > imax
-        call DestroyEffect(AddSpecialEffect(s, x + 100 * i, y))
-        call DestroyEffect(AddSpecialEffect(s, x - 100 * i, y))
-        call DestroyEffect(AddSpecialEffect(s, x, y + 100 * i))
-        call DestroyEffect(AddSpecialEffect(s, x, y - 100 * i))
+        call DestroyEffectEx(AddSpecialEffectEx(s, x + 100 * i, y))
+        call DestroyEffectEx(AddSpecialEffectEx(s, x - 100 * i, y))
+        call DestroyEffectEx(AddSpecialEffectEx(s, x, y + 100 * i))
+        call DestroyEffectEx(AddSpecialEffectEx(s, x, y - 100 * i))
     	set i=i+1
     endloop
     call WuGongShengChong(u,'A0C7',900.)
@@ -166,8 +166,8 @@ function JinDingZhang takes nothing returns nothing
 		set shxishu=shxishu * 4
 	endif
     set shanghai=ShangHaiGongShi(u,ut,130,106,shxishu,'A0C2')
-    call AddSpecialEffectTargetUnitBJ( "overhead", GetTriggerUnit(), "Abilities\\Spells\\Other\\Transmute\\GoldBottleMissile.mdl" )
-    call DestroyEffect( GetLastCreatedEffectBJ() )
+    call AddSpecialEffectTargetUnitBJEx( "overhead", GetTriggerUnit(), "Abilities\\Spells\\Other\\Transmute\\GoldBottleMissile.mdl" )
+    call DestroyEffectEx( GetLastCreatedEffectBJ() )
     call WuGongShangHai(u,ut,shanghai)
     if jingmai[i]>=20 then
         call YDWEJumpTimer( ut, 0, 0.00, 1, 0.01, GetRandomReal(200,500) )

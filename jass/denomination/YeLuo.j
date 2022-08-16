@@ -176,7 +176,7 @@ function fanShouQianZhu takes unit u, unit ut returns nothing
 	endif
 	
 	call WuGongShengChong(u, FAN_SHOU_QIAN_ZHU, 80)
-	call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl", ut, "chest"))
+	call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl", ut, "chest"))
 	// 判断目标是否为BOSS
 	if ModuloInteger(GetUnitPointValue(ut), 100)==1 or ModuloInteger(GetUnitPointValue(ut), 100)==2 then
 		set gold_num = R2I(2000 * GetRandomInt(2, 20) * addition)
@@ -289,7 +289,7 @@ function qianKunYiZhi takes unit u returns nothing
 		set addition = addition + 0.03 * GetItemCharges(FetchUnitItem(u, ITEM_YE_LUO))
 	endif
 	call WuGongShengChong(u, QIAN_KUN_YI_ZHI, 60)
-	call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl", u, "overhead"))
+	call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl", u, "overhead"))
 	call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00掷出了" + I2S(rand) + "点|r")
 	if GetRandomInt(1, 2) == 1 then
 		if gold > rand * goldBase then

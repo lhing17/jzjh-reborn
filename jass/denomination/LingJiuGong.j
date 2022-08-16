@@ -22,7 +22,7 @@ function XinZheMeiShou_1 takes nothing returns nothing
 	if GetUnitAbilityLevel(u, 'A02B') >= 1 then
 		call UnitAddAbilityBJ( 'A02X', u )
     	call SetPlayerAbilityAvailableBJ( false, 'A02X', GetOwningPlayer(u) )
-    	set udg_zhemeieff = AddSpecialEffectTargetUnitBJ("overhead",u, "Abilities\\Weapons\\Bolt\\BoltImpact.mdl")
+    	set udg_zhemeieff = AddSpecialEffectTargetUnitBJEx("overhead",u, "Abilities\\Weapons\\Bolt\\BoltImpact.mdl")
 	else
 		call FlushChildHashtable(YDHT, GetHandleId(t))
 		call PauseTimer(t)
@@ -63,7 +63,7 @@ function ZheMei_Action takes nothing returns nothing
 	    set shxishu=shxishu+0.7
 	endif
 	//call BJDebugMsg("pos3")
-	call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl"))
+	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc,"Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl"))
 	call RemoveLocation(loc)
 	// 专属加成
 	if UnitHasDenomWeapon(u, 'I0DT') then
@@ -85,7 +85,7 @@ function XinZheMeiShou_Action takes nothing returns nothing
 	local real j = RMaxBJ(7. - I2R(GetHeroAgi(u, true))/400., 0.5)
 	local real range = 500. + 50. * GetUnitAbilityLevel(u, 'A02B') + I2R(GetHeroStr(u, true)) / 10.
 	call UnitRemoveAbility(u, 'A02X')
-	call DestroyEffect(udg_zhemeieff)
+	call DestroyEffectEx(udg_zhemeieff)
 	set udg_zhemeieff = null
 	call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
 	call TimerStart(t, j, false, function XinZheMeiShou_1)
@@ -130,7 +130,7 @@ function ZheMei_Action2 takes nothing returns nothing
 	    set shxishu=shxishu+0.7
 	endif
 	//call BJDebugMsg("pos3")
-	call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl"))
+	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc,"Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl"))
 	call RemoveLocation(loc)
 	// 专属加成
 	if UnitHasDenomWeapon(u, 'I0DT') then
@@ -374,7 +374,7 @@ function BaHuangGong takes nothing returns nothing
 			call SaveInteger(YDHT, GetHandleId(t), 3, level)
 			call TimerStart(t, 8., false, function BaHuangGong_2)
 		endif
-		call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl"))
+		call DestroyEffectEx(AddSpecialEffectLocBJEx(loc,"Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl"))
 		if GetUnitAbilityLevel(u, 'A083')>=1 then
 			set juexuelingwu[i] = juexuelingwu[i] + level
 			set t = CreateTimer()

@@ -74,10 +74,10 @@ function TianZhuYunQi takes nothing returns nothing
 	set loc3 = PolarProjectionBJ(loc, GetRandomReal(100,300), 180+angle)
 	if (GetRandomReal(.0,200.)<=15+fuyuan[i]/5)then
 		call WuGongShengChong(u,'A04M',900.)
-		call DestroyEffect(AddSpecialEffectLocBJ(loc2, "war3mapImported\\aquaspike.mdl" ))
+		call DestroyEffectEx(AddSpecialEffectLocBJEx(loc2, "war3mapImported\\aquaspike.mdl" ))
 		call GroupEnumUnitsInRangeOfLoc(g,loc2,500,Condition(function TianZhu_Condition))
 		if GetUnitAbilityLevel(u,'A07U')>=1 then
-			call DestroyEffect(AddSpecialEffectLocBJ(loc3, "war3mapImported\\aquaspike.mdl" ))
+			call DestroyEffectEx(AddSpecialEffectLocBJEx(loc3, "war3mapImported\\aquaspike.mdl" ))
 			call GroupEnumUnitsInRangeOfLoc(g,loc3,500,Condition(function TianZhu_Condition))
 		endif
 
@@ -88,7 +88,7 @@ function TianZhuYunQi takes nothing returns nothing
 		//loop
 		//	exitwhen j > 4
 		//	set loc3[j] = PolarProjectionBJ(loc2, 300, angle - 90 + 90 * j)
-		//	call DestroyEffect(AddSpecialEffectLocBJ(loc3[j], "war3mapImported\\aquaspike.mdl" ))
+		//	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc3[j], "war3mapImported\\aquaspike.mdl" ))
 		//	call RemoveLocation(loc3[j])
 		//	set loc3[j] = null
 		//	call PolledWait(0.15)
@@ -146,7 +146,7 @@ function HeXiangJianFa takes nothing returns nothing
 	endif
     call WuGongShengChong(u,'A04N',100)
     call SetUnitTimeScale(uttt, 0.3)
-    call YDWETimerDestroyEffect( 2, AddSpecialEffectTarget("Abilities\\Spells\\Items\\StaffOfSanctuary\\Staff_Sanctuary_Target.mdl",uttt,"chest"))
+    call YDWETimerDestroyEffect( 2, AddSpecialEffectTargetEx("Abilities\\Spells\\Items\\StaffOfSanctuary\\Staff_Sanctuary_Target.mdl",uttt,"chest"))
     call YDWEJumpTimer( uttt, AngleBetweenPoints(loc2, loc), 2*DistanceBetweenPoints(loc2, loc), 2, 0.01, 400.)
     call PolledWait(1.0)
 	call CreateNUnitsAtLoc(1,'e01A',GetOwningPlayer(u),loc,bj_UNIT_FACING)
@@ -360,7 +360,7 @@ function QuanMing_Actions takes nothing returns nothing
         exitwhen i > 16
         call CreateNUnitsAtLocFacingLocBJ( 1, 'e011', GetOwningPlayer(GetTriggerUnit()), PolarProjectionBJ(loc, 350.00, ( 22.50 * i )), loc )
         call UnitApplyTimedLifeBJ( 13.50, 'BTLF', GetLastCreatedUnit() )
-        call DestroyEffect(AddSpecialEffectLocBJ( PolarProjectionBJ(loc, 350.00,  22.50 * I2R(i)), "Objects\\Spawnmodels\\Naga\\NagaDeath\\NagaDeath.mdl" ))
+        call DestroyEffectEx(AddSpecialEffectLocBJEx( PolarProjectionBJ(loc, 350.00,  22.50 * I2R(i)), "Objects\\Spawnmodels\\Naga\\NagaDeath\\NagaDeath.mdl" ))
         set i = i + 1
     endloop
     set i = 1
@@ -380,7 +380,7 @@ function QuanMing_Actions takes nothing returns nothing
     set i = 1
     loop
         exitwhen i > 16
-        call DestroyEffect(AddSpecialEffectLocBJ( PolarProjectionBJ(loc, 350.00,  22.50 * I2R(i)), "Objects\\Spawnmodels\\Naga\\NagaDeath\\NagaDeath.mdl" ))
+        call DestroyEffectEx(AddSpecialEffectLocBJEx( PolarProjectionBJ(loc, 350.00,  22.50 * I2R(i)), "Objects\\Spawnmodels\\Naga\\NagaDeath\\NagaDeath.mdl" ))
         set i = i + 1
     endloop
     call RemoveUnit(ut)
@@ -440,7 +440,7 @@ function Trig_Number14_1Actions takes nothing returns nothing
     set i = 1
     loop
         exitwhen i > 7
-        call DestroyEffect(AddSpecialEffectLocBJ( GetRandomLocInRect(RectFromCenterSizeBJ(loc, 350.00, 350.00)), "Objects\\Spawnmodels\\Naga\\NagaDeath\\NagaDeath.mdl" ))
+        call DestroyEffectEx(AddSpecialEffectLocBJEx( GetRandomLocInRect(RectFromCenterSizeBJ(loc, 350.00, 350.00)), "Objects\\Spawnmodels\\Naga\\NagaDeath\\NagaDeath.mdl" ))
         set i = i + 1
     endloop
     set loc=null

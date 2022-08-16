@@ -3,7 +3,7 @@
 #include "library/YDWEBitwise.j"
 #include "library/DzAPI.j"
 #include "library/UI.j"
-// #include "library/ShowEffect.j"
+#include "library/ShowEffect.j"
 #include "library/common_func.j"
 #include "game_logic/LevelUp.j"
 #include "library/buff.j"
@@ -1357,23 +1357,23 @@ function Zw takes nothing returns nothing
 	call SetUnitLifePercentBJ(gg_unit_N012_0095,5)
 	//call UnitAddAbility(gg_unit_N00F_0112,'A02Z')
 	//call IssueTargetOrderById(gg_unit_N00F_0112, 852063, gg_unit_N007_0055)
-	call AddSpecialEffectTargetUnitBJ("overhead",Ts,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
-	call AddSpecialEffectTargetUnitBJ("overhead",Ft,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
-	call AddSpecialEffectTargetUnitBJ("overhead",Ss,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
-	call AddSpecialEffectTargetUnitBJ("overhead",vt,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
-	call AddSpecialEffectTargetUnitBJ("overhead",ot,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
-	call AddSpecialEffectTargetUnitBJ("overhead",nt,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
-	call AddSpecialEffectTargetUnitBJ("overhead",Et,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
-	call AddSpecialEffectTargetUnitBJ("overhead",ct,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
-	call AddSpecialEffectTargetUnitBJ("overhead",zt,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
-	call AddSpecialEffectTargetUnitBJ("overhead",Ct,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
-	call AddSpecialEffectTargetUnitBJ("overhead",ut,"Objects\\RandomObject\\RandomObject.mdl")
-	call AddSpecialEffectTargetUnitBJ("overhead",xt,"Objects\\RandomObject\\RandomObject.mdl")
-	call AddSpecialEffectTargetUnitBJ("overhead",yt,"Objects\\RandomObject\\RandomObject.mdl")
-	call AddSpecialEffectTargetUnitBJ("overhead",Dt,"Objects\\RandomObject\\RandomObject.mdl")
-	call AddSpecialEffectTargetUnitBJ("overhead",At,"Objects\\RandomObject\\RandomObject.mdl")
-	call AddSpecialEffectTargetUnitBJ("overhead",Bt,"Objects\\RandomObject\\RandomObject.mdl")
-	call AddSpecialEffectTargetUnitBJ("overhead",gg_unit_N007_0055,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
+	call AddSpecialEffectTargetUnitBJEx("overhead",Ts,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
+	call AddSpecialEffectTargetUnitBJEx("overhead",Ft,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
+	call AddSpecialEffectTargetUnitBJEx("overhead",Ss,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
+	call AddSpecialEffectTargetUnitBJEx("overhead",vt,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
+	call AddSpecialEffectTargetUnitBJEx("overhead",ot,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
+	call AddSpecialEffectTargetUnitBJEx("overhead",nt,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
+	call AddSpecialEffectTargetUnitBJEx("overhead",Et,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
+	call AddSpecialEffectTargetUnitBJEx("overhead",ct,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
+	call AddSpecialEffectTargetUnitBJEx("overhead",zt,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
+	call AddSpecialEffectTargetUnitBJEx("overhead",Ct,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
+	call AddSpecialEffectTargetUnitBJEx("overhead",ut,"Objects\\RandomObject\\RandomObject.mdl")
+	call AddSpecialEffectTargetUnitBJEx("overhead",xt,"Objects\\RandomObject\\RandomObject.mdl")
+	call AddSpecialEffectTargetUnitBJEx("overhead",yt,"Objects\\RandomObject\\RandomObject.mdl")
+	call AddSpecialEffectTargetUnitBJEx("overhead",Dt,"Objects\\RandomObject\\RandomObject.mdl")
+	call AddSpecialEffectTargetUnitBJEx("overhead",At,"Objects\\RandomObject\\RandomObject.mdl")
+	call AddSpecialEffectTargetUnitBJEx("overhead",Bt,"Objects\\RandomObject\\RandomObject.mdl")
+	call AddSpecialEffectTargetUnitBJEx("overhead",gg_unit_N007_0055,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
 	call CreateTextTagUnitBJ("双击选人再选门派",Rs,.0,15.,100.,100.,.0,50.)
 	// call CreateTextTagUnitBJ("新手教官",SuiFeng,.0,15.,100.,100.,.0,50.)
 	// call CreateTextTagLocBJ("新手教官",Location(420,-597),100.0,15.,100.,100.,.0,50.)

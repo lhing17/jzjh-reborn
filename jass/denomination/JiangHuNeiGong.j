@@ -94,7 +94,7 @@ endfunction
 	    local location loc=GetUnitLoc(uc)
 	    local real shxishu=1.
 	    local real shanghai=0.
-        call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Items\\AIil\\AIilTarget.mdl"))
+        call DestroyEffectEx(AddSpecialEffectLocBJEx(loc,"Abilities\\Spells\\Items\\AIil\\AIilTarget.mdl"))
         if GetUnitAbilityLevel(GetAttacker(),'A07S')>=1 then
 	        set shxishu=shxishu+1.
         endif
@@ -146,8 +146,8 @@ endfunction
                     call WanBuff(u, uc, 7)
                 endif
 		        set shanghai=ShangHaiGongShi(u,uc,80,64,shxishu,'A0D3')
-                call AddSpecialEffectTargetUnitBJ( "overhead", GetTriggerUnit(),"Abilities\\Spells\\Items\\OrbDarkness\\OrbDarkness.mdl")
-                call DestroyEffect( GetLastCreatedEffectBJ() )
+                call AddSpecialEffectTargetUnitBJEx( "overhead", GetTriggerUnit(),"Abilities\\Spells\\Items\\OrbDarkness\\OrbDarkness.mdl")
+                call DestroyEffectEx( GetLastCreatedEffectBJ() )
                 call WuGongShangHai(u,uc,shanghai)
                 call WuGongShengChong(u,'A0D3',1050.)
             endif

@@ -85,7 +85,7 @@ function qianZhuShouAoe takes nothing returns nothing
 	call WuGongShangHai(u,uc,shanghai)
 
     // AOE的特效
-    call DestroyEffect(AddSpecialEffectTarget("Objects\\Spawnmodels\\Undead\\UndeadDissipate\\UndeadDissipate.mdl", uc, "origin"))
+    call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Undead\\UndeadDissipate\\UndeadDissipate.mdl", uc, "origin"))
 
     // 经脉达到20有一定概率触发中毒
     if jingmai[i] >= 20 and GetRandomInt(1, 100) < 30 then
@@ -233,7 +233,7 @@ function yuSheShuExplosion takes nothing returns nothing
 
 
 	set shanghai=ShangHaiGongShi(u, uc, 16., 80.,shxishu, YU_SHE_SHU)
-    call DestroyEffect(AddSpecialEffectTarget("Objects\\Spawnmodels\\NightElf\\EntBirthTarget\\EntBirthTarget.mdl", uc, "origin"))
+    call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\NightElf\\EntBirthTarget\\EntBirthTarget.mdl", uc, "origin"))
 	call WuGongShangHai(u,uc,shanghai)
 
 	set u=null
@@ -266,7 +266,7 @@ function yuSheShu takes nothing returns nothing
         endif
         
         set damage = ShangHaiGongShi(u, ut, 30, 160, shxishu, YU_SHE_SHU)
-        call DestroyEffect(AddSpecialEffectTarget("Objects\\Spawnmodels\\Undead\\UDeathSmall\\UDeathSmall.mdl", ut, "overhead"))
+        call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Undead\\UDeathSmall\\UDeathSmall.mdl", ut, "overhead"))
         call WuGongShangHai(u, ut, damage)
 
         // 3. 技能搭配 + 化骨：破防 
@@ -357,10 +357,10 @@ function buTianJing takes nothing returns nothing
     
     // 50%概率增加气血上限，50%概率增加真实伤害
     if GetRandomInt(1, 100) <= 50 then
-        call DestroyEffect(AddSpecialEffectTarget("war3mapImported\\zhiyu.mdx", u, "overhead"))
+        call DestroyEffectEx(AddSpecialEffectTargetEx("war3mapImported\\zhiyu.mdx", u, "overhead"))
         call LifeChange(u, 1, - lifeBase * level, 'A0DQ')
     else
-        call DestroyEffect(AddSpecialEffectTarget("war3mapImported\\lifebreak.mdx", u, "overhead"))
+        call DestroyEffectEx(AddSpecialEffectTargetEx("war3mapImported\\lifebreak.mdx", u, "overhead"))
         call ModifyHeroStat(2, u, 0, realDamageBase * level)
     endif
 

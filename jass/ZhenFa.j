@@ -18,7 +18,7 @@ function JinGang_DuJie takes nothing returns nothing
 	if i-i/3*3==0 then
 		call ShowUnitShow(u)
 		call IssueTargetOrderById(u, $D0200, ut)
-		call AddSpecialEffectLocBJ(GetUnitLoc(ut),"war3mapImported\\ChaosExplosion.mdl")
+		call AddSpecialEffectLocBJEx(GetUnitLoc(ut),"war3mapImported\\ChaosExplosion.mdl")
 	else
 		call ShowUnitHide(u)
 	endif
@@ -49,7 +49,7 @@ function JinGang_DuE takes nothing returns nothing
 	if i-i/3*3==1 then
 		call ShowUnitShow(u)
 		call IssueTargetOrderById(u, $D0200, ut)
-		call AddSpecialEffectLocBJ(GetUnitLoc(ut),"war3mapImported\\FireStomp.mdx")
+		call AddSpecialEffectLocBJEx(GetUnitLoc(ut),"war3mapImported\\FireStomp.mdx")
 	else
 		call ShowUnitHide(u)
 	endif
@@ -80,7 +80,7 @@ function JinGang_DuNan takes nothing returns nothing
 	if i-i/3*3==2 then
 		call ShowUnitShow(u)
 		call IssueTargetOrderById(u, $D0200, ut)
-		call AddSpecialEffectLocBJ(GetUnitLoc(ut),"war3mapImported\\FireStomp.mdx")
+		call AddSpecialEffectLocBJEx(GetUnitLoc(ut),"war3mapImported\\FireStomp.mdx")
 	else
 		call ShowUnitHide(u)
 	endif
@@ -143,7 +143,7 @@ endfunction
 function FuMoTeXiao takes nothing returns nothing
 	local timer t = GetExpiredTimer()
 	local location loc = LoadLocationHandle(YDHT, GetHandleId(t), 0)
-	call YDWETimerDestroyEffect( 15., AddSpecialEffectLoc("war3mapImported\\kineticfield_fx_stand.mdx", loc))
+	call YDWETimerDestroyEffect( 15., AddSpecialEffectLocEx("war3mapImported\\kineticfield_fx_stand.mdx", loc))
 	set t = null
 	set loc = null
 endfunction
@@ -162,7 +162,7 @@ function JinGangFuMo takes nothing returns nothing
 	//伏魔圈
 	call GroupEnumUnitsInRangeOfLoc(g, loc, 325, Condition(function IsFuMoEnemy))
 	call SaveLocationHandle(YDHT, GetHandleId(u), StringHash("伏魔"), loc)
-	call YDWETimerDestroyEffect( 1.2, AddSpecialEffectLoc("war3mapImported\\kineticfield_fx_start.mdx", loc))
+	call YDWETimerDestroyEffect( 1.2, AddSpecialEffectLocEx("war3mapImported\\kineticfield_fx_start.mdx", loc))
 	call SaveLocationHandle(YDHT, GetHandleId(tt4), 0, loc)
 	call TimerStart(tt4, 1.2, false, function FuMoTeXiao)
 	call ForGroupBJ(g, function FuMoQuan)
@@ -366,13 +366,13 @@ function ZhenWuQiJieZhen takes nothing returns nothing
 	call YDWETimerDestroyLightning(10., AddLightningLoc("SPLK", tianquan, tianji))
 	call YDWETimerDestroyLightning(10., AddLightningLoc("SPLK", tianxuan, tianji))
 	call YDWETimerDestroyLightning(10., AddLightningLoc("SPLK", tianji, tianshu))
-	call YDWETimerDestroyEffect( 7., AddSpecialEffectLoc("war3mapImported\\divinering.mdx", tianji))
-	call YDWETimerDestroyEffect( 7., AddSpecialEffectLoc("war3mapImported\\divinering.mdx", tianxuan))
-	call YDWETimerDestroyEffect( 7., AddSpecialEffectLoc("war3mapImported\\divinering.mdx", tianquan))
-	call YDWETimerDestroyEffect( 7., AddSpecialEffectLoc("war3mapImported\\divinering.mdx", tianshu))
-	call YDWETimerDestroyEffect( 7., AddSpecialEffectLoc("war3mapImported\\divinering.mdx", yuheng))
-	call YDWETimerDestroyEffect( 7., AddSpecialEffectLoc("war3mapImported\\divinering.mdx", kaiyang))
-	call YDWETimerDestroyEffect( 7., AddSpecialEffectLoc("war3mapImported\\divinering.mdx", yaoguang))
+	call YDWETimerDestroyEffect( 7., AddSpecialEffectLocEx("war3mapImported\\divinering.mdx", tianji))
+	call YDWETimerDestroyEffect( 7., AddSpecialEffectLocEx("war3mapImported\\divinering.mdx", tianxuan))
+	call YDWETimerDestroyEffect( 7., AddSpecialEffectLocEx("war3mapImported\\divinering.mdx", tianquan))
+	call YDWETimerDestroyEffect( 7., AddSpecialEffectLocEx("war3mapImported\\divinering.mdx", tianshu))
+	call YDWETimerDestroyEffect( 7., AddSpecialEffectLocEx("war3mapImported\\divinering.mdx", yuheng))
+	call YDWETimerDestroyEffect( 7., AddSpecialEffectLocEx("war3mapImported\\divinering.mdx", kaiyang))
+	call YDWETimerDestroyEffect( 7., AddSpecialEffectLocEx("war3mapImported\\divinering.mdx", yaoguang))
 	call RemoveLocation(tianji)
 	call RemoveLocation(tianxuan)
 	call RemoveLocation(tianquan)

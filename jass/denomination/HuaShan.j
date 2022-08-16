@@ -15,7 +15,7 @@ function QD takes nothing returns nothing
     if((GetUnitAbilityLevel(u,1093678932)!=0))then
         set shxishu=shxishu+.8
     endif
-    call DestroyEffect(AddSpecialEffectLocBJ(loc,"war3mapImported\\Mjolnir.mdx"))
+    call DestroyEffectEx(AddSpecialEffectLocBJEx(loc,"war3mapImported\\Mjolnir.mdx"))
     if((GetUnitAbilityLevel(u,1093678930)!=0)and(GetRandomReal(.0,100.)<=10.)and(UnitHasBuffBJ(uc,1113813619)==false))then
         call WanBuff(u, uc, 10)
     endif
@@ -427,7 +427,7 @@ endfunction
 //    if((GetUnitAbilityLevel(u,'A07S')!=0))then
 //        set shxishu=shxishu+.8
 //    endif
-//    call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))
+//    call DestroyEffectEx(AddSpecialEffectLocBJEx(loc,"Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))
 //    set shanghai=ShangHaiGongShi(u,uc,250+10*Gd[(1+GetPlayerId(GetTriggerPlayer()))],100.,shxishu,'A091')
 //    call WuGongShangHai(u,uc,shanghai)
 //    if((Ed[(1+GetPlayerId(GetTriggerPlayer()))]==1))then
@@ -487,7 +487,7 @@ endfunction
 //    if((GetUnitAbilityLevel(u,'A07S')!=0))then
 //        set shxishu=shxishu+.8
 //    endif
-//    call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))
+//    call DestroyEffectEx(AddSpecialEffectLocBJEx(loc,"Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))
 //    set shanghai=ShangHaiGongShi(u,uc,250+10*Gd[(1+GetPlayerId(GetTriggerPlayer()))],100.,shxishu,'A091')
 //    call WuGongShangHai(u,uc,shanghai)
 //    if((Ed[(1+GetPlayerId(GetTriggerPlayer()))]==1))then
@@ -547,7 +547,7 @@ endfunction
 //    if((GetUnitAbilityLevel(u,'A07S')!=0))then
 //        set shxishu=shxishu+.8
 //    endif
-//    call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))
+//    call DestroyEffectEx(AddSpecialEffectLocBJEx(loc,"Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))
 //    set shanghai=ShangHaiGongShi(u,uc,250+10*Gd[(1+GetPlayerId(GetTriggerPlayer()))],100.,shxishu,'A091')
 //    call WuGongShangHai(u,uc,shanghai)
 //    if((Ed[(1+GetPlayerId(GetTriggerPlayer()))]==1))then
@@ -607,7 +607,7 @@ endfunction
 //    if((GetUnitAbilityLevel(u,'A07S')!=0))then
 //        set shxishu=shxishu+.8
 //    endif
-//    call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))
+//    call DestroyEffectEx(AddSpecialEffectLocBJEx(loc,"Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))
 //    set shanghai=ShangHaiGongShi(u,uc,250+10*Gd[(1+GetPlayerId(GetTriggerPlayer()))],100.,shxishu,'A091')
 //    call WuGongShangHai(u,uc,shanghai)
 //    if((Ed[(1+GetPlayerId(GetTriggerPlayer()))]==1))then
@@ -674,7 +674,7 @@ function CE takes nothing returns nothing
     if((GetUnitAbilityLevel(u,'A07S')!=0))then
         set shxishu=shxishu+.6
     endif
-    call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Undead\\FrostNova\\FrostNovaTarget.mdl"))
+    call DestroyEffectEx(AddSpecialEffectLocBJEx(loc,"Abilities\\Spells\\Undead\\FrostNova\\FrostNovaTarget.mdl"))
     call RemoveLocation(loc)
     // 专属加成
 	if UnitHasDenomWeapon(u, 'I0E0') then

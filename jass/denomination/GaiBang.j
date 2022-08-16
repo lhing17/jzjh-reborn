@@ -21,14 +21,14 @@ function TaiZu_Action takes nothing returns nothing
 	    set shxishu=shxishu*4
     endif
 	set shanghai=ShangHaiGongShi(u, uc, 30., 42.,shxishu,'A0C9')
-    call AddSpecialEffectTargetUnitBJ( "overhead",uc, "Abilities\\Spells\\Demon\\RainOfFire\\RainOfFireTarget.mdl" )
-    call DestroyEffect( GetLastCreatedEffectBJ() )
+    call AddSpecialEffectTargetUnitBJEx( "overhead",uc, "Abilities\\Spells\\Demon\\RainOfFire\\RainOfFireTarget.mdl" )
+    call DestroyEffectEx( GetLastCreatedEffectBJ() )
     //call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,R2S(shanghai)+", "+I2S(1+GetPlayerId(GetOwningPlayer(u))))
 	call WuGongShangHai(u,uc,shanghai)
 	if GetUnitAbilityLevel(u,'A07U')>=1 then
 		call YDWEPolledWaitNull(0.50)
-		call AddSpecialEffectTargetUnitBJ( "overhead",uc, "Abilities\\Spells\\Demon\\RainOfFire\\RainOfFireTarget.mdl" )
-    	call DestroyEffect( GetLastCreatedEffectBJ() )
+		call AddSpecialEffectTargetUnitBJEx( "overhead",uc, "Abilities\\Spells\\Demon\\RainOfFire\\RainOfFireTarget.mdl" )
+    	call DestroyEffectEx( GetLastCreatedEffectBJ() )
 		call WuGongShangHai(u,uc,shanghai)
     endif
 	set u=null
@@ -302,7 +302,7 @@ function YeChaGun_SH takes nothing returns nothing
     if GetUnitAbilityLevel(udg_yechadanwei,'A0DI')>=1 then
 	     call SetUnitDizzy(GetEnumUnit(),2.,"Abilities\\Spells\\Human\\Thunderclap\\ThunderclapTarget.mdl")
     endif
-    call DestroyEffect(AddSpecialEffectTarget("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl",GetEnumUnit(),"overhead"))
+    call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl",GetEnumUnit(),"overhead"))
 endfunction
 function YeChaGun_Action takes nothing returns nothing
     local timer t=GetExpiredTimer()

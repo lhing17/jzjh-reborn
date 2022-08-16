@@ -749,7 +749,7 @@ function RengShengHuoLing_Action takes nothing returns nothing
         call SaveInteger(YDHT,p,4,i+1)
     else
         call WuGongShangHai(u,uc,shanghai)
-        call DestroyEffect(AddSpecialEffectTarget("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl",uc,"overhead"))
+        call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl",uc,"overhead"))
         call PauseTimer(t)
         call DestroyTimer(t)
         call FlushChildHashtable(YDHT,p)
@@ -821,7 +821,7 @@ function QianKunTan takes nothing returns nothing
 		if g!=null then
 			set ut = GroupPickRandomUnit(g)
 			call WuGongShangHai(u, ut, shanghai*50*GetUnitAbilityLevel(u, 'A07W'))
-			call DestroyEffect(AddSpecialEffectTarget("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl",ut,"overhead"))
+			call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl",ut,"overhead"))
 		endif
 		call WuGongShengChong(u, 'A07W', 8000)
 	endif

@@ -24,8 +24,8 @@ function XueZhan_Action takes nothing returns nothing
 	call SetUnitY(u,CheckY(GetLocationY(loc)))
 	call SetUnitFacing( u, GetUnitFacing(uc)+180 )
 	call WuGongShangHai(u,uc,shanghai)
-	//call DestroyEffect( AddSpecialEffectTarget("Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl",uc, "origin") )
-	call DestroyEffect(AddSpecialEffectTarget("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl",uc,"overhead"))
+	//call DestroyEffectEx( AddSpecialEffectTargetEx("Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl",uc, "origin") )
+	call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl",uc,"overhead"))
 	call SetUnitTimeScale(u,20)
 	call SetUnitAnimation( u, "attack" )
 	call RemoveLocation(loc)
@@ -146,7 +146,7 @@ function XueDao_Action takes nothing returns nothing
 	set shanghai=ShangHaiGongShi(u,uc,36,54,shxishu,'A0CI')
 	//call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,R2S(shanghai))
 	call WuGongShangHai(u,uc,shanghai)
-	call DestroyEffect(AddSpecialEffectTarget("Objects\\Spawnmodels\\Human\\HumanBlood\\HeroBloodElfBlood.mdl",uc,"overhead"))
+	call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\HeroBloodElfBlood.mdl",uc,"overhead"))
 	set u=null
 	set uc=null
 endfunction
@@ -226,7 +226,7 @@ function XueMo_Action takes nothing returns nothing
 		set shanghai=ShangHaiGongShi(u,uc,7, 7, shxishu,'A0CJ')
 		if uc!=null and IsUnitAliveBJ(uc) and uc != udg_ZhengPaiWL then
 			call WuGongShangHai(u,uc,shanghai)
-			call DestroyEffect(AddSpecialEffectTarget("Objects\\Spawnmodels\\Human\\HumanBlood\\HeroBloodElfBlood.mdl",uc,"overhead"))
+			call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\HeroBloodElfBlood.mdl",uc,"overhead"))
 		endif
 		call SaveInteger(YDHT,p,2,j+1)
 		call SaveReal(YDHT,p,3,nowX)
@@ -296,7 +296,7 @@ function FoMie_Action takes nothing returns nothing
 		set shanghai=ShangHaiGongShi(u,uc,1.8,1.8,shxishu,'A0CJ')
 		if uc!=null and IsUnitAliveBJ(uc) then
 			call WuGongShangHai(u,uc,shanghai)
-			call DestroyEffect(AddSpecialEffectTarget("Objects\\Spawnmodels\\Human\\HumanBlood\\HeroBloodElfBlood.mdl",uc,"overhead"))
+			call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\HeroBloodElfBlood.mdl",uc,"overhead"))
 		endif
 	endif
 	if GetUnitAbilityLevel(u,'A07W')>=1 then
@@ -417,7 +417,7 @@ function XueDaoJing_Action takes nothing returns nothing
 		call SaveInteger(YDHT,p,4,i+1)
 	else
 		call WuGongShangHai(u,uc,shanghai)
-		call DestroyEffect(AddSpecialEffectTarget("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl",uc,"overhead"))
+		call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl",uc,"overhead"))
 		call SetUnitTimeScale(ut,1)
 		call ResetUnitAnimation(ut)
 		call PauseTimer(t)
@@ -496,7 +496,7 @@ function XueDaoJing_Action2 takes nothing returns nothing
 	endif
 	set shanghai=ShangHaiGongShi(u,uc,200,1200,shxishu,'A0DH')
 	call WuGongShangHai(u,uc,shanghai)
-	call DestroyEffect(AddSpecialEffectTarget("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl",uc,"overhead"))
+	call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl",uc,"overhead"))
 	set p=null
 	set u=null
 	set uc=null

@@ -545,20 +545,20 @@ function SelectHero takes nothing returns nothing
 		if u == K4[1] or u == K4[2] or u == K4[3] or u == K4[4] or u == K4[5] or (u == K4[6] and udg_vip[i] > 0)  or (u == K4[7] and (udg_changevip[i] > 0 or udg_vip[i] == 2))  then
 			call SelectUnitRemoveForPlayer(u, p)
 			call SelectUnitAddForPlayer(bj_lastCreatedUnit, p)
-			call AddSpecialEffectTargetUnitBJ("overhead", bj_lastCreatedUnit, "Abilities\\Spells\\Other\\Awaken\\Awaken.mdl")
-			call DestroyEffect(bj_lastCreatedEffect)
+			call AddSpecialEffectTargetUnitBJEx("overhead", bj_lastCreatedUnit, "Abilities\\Spells\\Other\\Awaken\\Awaken.mdl")
+			call DestroyEffectEx(bj_lastCreatedEffect)
 			set udg_hashero[i] = true
 			set udg_hero[i] = bj_lastCreatedUnit
 			// 多通奖励100移速
 			call SetUnitMoveSpeed(udg_hero[i], GetUnitMoveSpeed(udg_hero[i]) + extraSpeed[i - 1])
 			// 单通奖励称号
 			if GetPlayerName(Player(i - 1)) == "非我莫属xq" then
-				call AddSpecialEffectTarget("[ch]7.mdl", bj_lastCreatedUnit, "overhead")
+				call AddSpecialEffectTargetEx("[ch]7.mdl", bj_lastCreatedUnit, "overhead")
 			elseif GetPlayerName(Player(i - 1)) == "zeikale" or GetPlayerName(Player(i - 1)) == "zeikala" then
-				call AddSpecialEffectTarget("[ch]9.mdl", bj_lastCreatedUnit, "overhead")
+				call AddSpecialEffectTargetEx("[ch]9.mdl", bj_lastCreatedUnit, "overhead")
 			else
 				if LoadInteger(YDHT, i, StringHash("单通门派数量")) >= 18 then
-					call AddSpecialEffectTarget("yujianjiahu4.mdx", bj_lastCreatedUnit, "overhead")
+					call AddSpecialEffectTargetEx("yujianjiahu4.mdx", bj_lastCreatedUnit, "overhead")
 				endif
 			endif
 
@@ -2738,8 +2738,8 @@ function Da takes nothing returns nothing
 	call UnitApplyTimedLife(bj_lastCreatedUnit, 'BHwe', 5.)
 	call RemoveItem(GetSpellTargetItem())
 	call PlaySoundOnUnitBJ(Ih, 100, GetTriggerUnit())
-	call AddSpecialEffectTargetUnitBJ("overhead", GetTriggerUnit(), "Abilities\\Spells\\Items\\ResourceItems\\ResourceEffectTarget.mdl")
-	call DestroyEffect(bj_lastCreatedEffect)
+	call AddSpecialEffectTargetUnitBJEx("overhead", GetTriggerUnit(), "Abilities\\Spells\\Items\\ResourceItems\\ResourceEffectTarget.mdl")
+	call DestroyEffectEx(bj_lastCreatedEffect)
 endfunction
 
 // 鸟切换皮肤的技能
@@ -4959,7 +4959,7 @@ endfunction
 function qinggongxiaoshi takes nothing returns nothing
 	local timer tm = GetExpiredTimer()
 	local unit u = LoadUnitHandle(YDHT, GetHandleId(tm), 0)
-	call DestroyEffect(udg_JTX[GetPlayerId(GetOwningPlayer(u)) + 1])
+	call DestroyEffectEx(udg_JTX[GetPlayerId(GetOwningPlayer(u)) + 1])
 	call PauseTimer(tm)
 	call DestroyTimer(tm)
 	set u = null
@@ -4989,8 +4989,8 @@ function Trig_ttActions takes nothing returns nothing
 	call SaveReal(YDHT, GetHandleId(GetTriggerUnit()), StringHash("轻功velocity"), velocity)
 	call SaveUnitHandle(YDHT, GetHandleId(tm), 0, GetTriggerUnit())
 	call SetUnitFacing( GetTriggerUnit(), jd)
-	call DestroyEffect(AddSpecialEffectTargetUnitBJ("origin", GetTriggerUnit(), "Abilities\\Weapons\\PhoenixMissile\\Phoenix_Missile.mdl"))
-	set udg_JTX[GetPlayerId(GetOwningPlayer(GetTriggerUnit())) + 1] = AddSpecialEffectTarget("Abilities\\Weapons\\PhoenixMissile\\Phoenix_Missile.mdl", GetTriggerUnit(), "origin")
+	call DestroyEffectEx(AddSpecialEffectTargetUnitBJEx("origin", GetTriggerUnit(), "Abilities\\Weapons\\PhoenixMissile\\Phoenix_Missile.mdl"))
+	set udg_JTX[GetPlayerId(GetOwningPlayer(GetTriggerUnit())) + 1] = AddSpecialEffectTargetEx("Abilities\\Weapons\\PhoenixMissile\\Phoenix_Missile.mdl", GetTriggerUnit(), "origin")
 	call SetUnitAnimation( GetTriggerUnit(), "walk")
 	call YDWEJumpTimer(GetTriggerUnit(), jd, distance, lasttime, 0.03, 100)
 	
@@ -5578,8 +5578,8 @@ endfunction
 function IT takes nothing returns nothing
 	local unit u = GetTriggerUnit()
 	local location loc = GetUnitLoc(u)
-	call AddSpecialEffectLocBJ(loc, "war3mapImported\\ChaosExplosion.mdl")
-	call DestroyEffect(bj_lastCreatedEffect)
+	call AddSpecialEffectLocBJEx(loc, "war3mapImported\\ChaosExplosion.mdl")
+	call DestroyEffectEx(bj_lastCreatedEffect)
 	call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(300., loc, Condition(function GT)), function HT)
 	call RemoveLocation(loc)
 	set u = null

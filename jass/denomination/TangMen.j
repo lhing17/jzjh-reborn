@@ -375,7 +375,7 @@ function liuHeAction takes nothing returns nothing
     // 增加本次的状态
     call SaveInteger(YDHT, key, 1, j)
     call SetUnitAbilityLevel(u, 'A0B4', j)
-    call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Undead\\FrostNova\\FrostNovaTarget.mdl", u, "overhead"))
+    call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Undead\\FrostNova\\FrostNovaTarget.mdl", u, "overhead"))
     if j == 1 then
         call SetUnitMoveSpeed(u, RMinBJ(GetUnitMoveSpeedEx(u) + jingmai[i] * 20, 1400))
         call SaveReal(YDHT, key, 2, GetUnitMoveSpeedEx(u))

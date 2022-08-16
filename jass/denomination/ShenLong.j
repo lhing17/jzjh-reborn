@@ -84,7 +84,7 @@ function XiaoLian_Action takes nothing returns nothing
     if isTitle(1 + GetPlayerId(GetOwningPlayer(u)), 33) then
         set shxishu = shxishu * 2
     endif
-	call DestroyEffect(AddSpecialEffect("Abilities\\Spells\\Human\\Polymorph\\PolyMorphDoneGround.mdl", x, y))
+	call DestroyEffectEx(AddSpecialEffectEx("Abilities\\Spells\\Human\\Polymorph\\PolyMorphDoneGround.mdl", x, y))
 	set shanghai=ShangHaiGongShi(u,uc,8,11,shxishu,'A056')
 	if GetUnitAbilityLevel(u, 'A059')!=0 and GetRandomReal(1, 100)<=30 then //加神龙心法
         // 封穴加变羊
@@ -141,7 +141,7 @@ function XiaoLian_Action_1 takes nothing returns nothing
 	local location loc = GetUnitLoc(uc)
 	local real shxishu=1.
 	local real shanghai=0.
-	call DestroyEffect(AddSpecialEffect("Abilities\\Spells\\Human\\Polymorph\\PolyMorphDoneGround.mdl", x, y))
+	call DestroyEffectEx(AddSpecialEffectEx("Abilities\\Spells\\Human\\Polymorph\\PolyMorphDoneGround.mdl", x, y))
     if((GetUnitAbilityLevel(u,'A07S')!=0))then//加九阴
         set shxishu=shxishu+.7
     endif
@@ -421,7 +421,7 @@ function birdDamage takes unit u, unit ut returns nothing
     endif
     set shanghai=ShangHaiGongShi(u,ut,15,10,shxishu,'A054')
     call WuGongShangHai(u,ut,shanghai)
-    call DestroyEffect( AddSpecialEffectTarget("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl", GetEnumUnit(), "overhead") )
+    call DestroyEffectEx( AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Human\\HumanBlood\\BloodElfSpellThiefBlood.mdl", GetEnumUnit(), "overhead") )
 endfunction
 
 

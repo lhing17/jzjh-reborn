@@ -232,7 +232,7 @@ function xuanMingAction takes unit u, unit enumUnit returns nothing
     if UnitHasDenomWeapon(u , 'I00B') then
         set coefficient = coefficient * 8
     endif
-    call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl", u, "overhead"))
+    call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl", u, "overhead"))
     if GetRandomInt(1, 5) <= 2 then
         // 几率深度中毒
         call WanBuff(u , enumUnit , 14)

@@ -49,7 +49,7 @@ function xueShanJianFa takes unit attacker, unit target returns nothing
                 call WanBuff(attacker, enumUnit, 17)
             endif
             // 雪山剑法伤害
-            call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\Blizzard\\BlizzardTarget.mdl", enumUnit, "overhead"))
+            call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Human\\Blizzard\\BlizzardTarget.mdl", enumUnit, "overhead"))
             set damage = ShangHaiGongShi(attacker, enumUnit, 15, 15, coefficient, XUE_SHAN_JIAN_FA)
             call WuGongShangHai(attacker, enumUnit, damage)
         endif
@@ -172,7 +172,7 @@ function jinWuDaoFa takes unit source, unit target returns nothing
                 call WanBuff(source, enumUnit, 6)
             endif
 
-            call DestroyEffect(AddSpecialEffectTarget("war3mapImported\\firecut.mdx", enumUnit, "origin"))
+            call DestroyEffectEx(AddSpecialEffectTargetEx("war3mapImported\\firecut.mdx", enumUnit, "origin"))
             set damage = ShangHaiGongShi(source, enumUnit, 60, 60, coefficient, JIN_WU_DAO_FA)
             call WuGongShangHai(source, enumUnit, damage)
         endif
@@ -316,14 +316,14 @@ function wuWangShenGongSpecial takes unit attacker, unit target returns nothing
     call AdjustPlayerStateBJ(100 + GetRandomInt(1, 100), p, PLAYER_STATE_RESOURCE_GOLD)
     call WanBuff(attacker, target, 17)
 
-    call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl", attacker, "overhead"))
+    call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl", attacker, "overhead"))
 
     if GetRandomInt(1, 100) <= 15 then
         call AdjustPlayerStateBJ(1, p, PLAYER_STATE_RESOURCE_LUMBER)
         // 小无相 几率永久增加暴击伤害
         if GetUnitAbilityLevel(attacker, 'A083') > 0 then
             set udg_baojishanghai[i] = udg_baojishanghai[i] + 0.01
-            call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl", attacker, "overhead"))
+            call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl", attacker, "overhead"))
         endif
 
         // 易筋经 几率永久增加六围
@@ -342,13 +342,13 @@ function wuWangShenGongSpecial takes unit attacker, unit target returns nothing
             elseif rand == 6 then
                 set yishu[i] = yishu[i] + 1
             endif
-            call DestroyEffect(AddSpecialEffectTarget("war3mapImported\\frozenarmor.mdx", attacker, "overhead"))
+            call DestroyEffectEx(AddSpecialEffectTargetEx("war3mapImported\\frozenarmor.mdx", attacker, "overhead"))
         endif
 
         // 太玄经 几率永久增加内力
         if GetUnitAbilityLevel(attacker, 'A0D8') > 0 then
             call ModifyHeroStat(1, attacker, 0, 10)
-            call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl", attacker, "overhead"))
+            call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl", attacker, "overhead"))
         endif
     endif
 

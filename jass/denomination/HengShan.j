@@ -152,7 +152,7 @@ function TianShanZhang takes nothing returns nothing
 	set uc=GroupPickRandomUnit(g)
 	if uc!=null then
 		call percentDamage(uc, 10 + 2 * GetUnitAbilityLevel(u,'A0CD') * r, false)
-		call DestroyEffect(AddSpecialEffectTargetUnitBJ( "overhead", uc,"Abilities\\Spells\\Other\\Monsoon\\MonsoonBoltTarget.mdl"))
+		call DestroyEffectEx(AddSpecialEffectTargetUnitBJEx( "overhead", uc,"Abilities\\Spells\\Other\\Monsoon\\MonsoonBoltTarget.mdl"))
 		set loc2=GetUnitLoc(uc)
 		if GetUnitAbilityLevel(u,'A07T')>=1 then
 			call CreateNUnitsAtLoc(1,'e00X',GetOwningPlayer(u),loc2,bj_UNIT_FACING)
@@ -183,7 +183,7 @@ function TianShanZhang takes nothing returns nothing
 		set uc=GroupPickRandomUnit(g)
 		if uc!=null then
 			call percentDamage(uc, 10 + 2 * GetUnitAbilityLevel(u,'A0CD') * r, false)
-			call DestroyEffect(AddSpecialEffectTargetUnitBJ( "overhead", uc,"Abilities\\Spells\\Other\\Monsoon\\MonsoonBoltTarget.mdl"))
+			call DestroyEffectEx(AddSpecialEffectTargetUnitBJEx( "overhead", uc,"Abilities\\Spells\\Other\\Monsoon\\MonsoonBoltTarget.mdl"))
 		endif
 	endif
 	call RemoveLocation(loc)
@@ -220,7 +220,7 @@ function CiBei_Action takes nothing returns nothing
     endif
     set shanghai=ShangHaiGongShi(u,uc,500.,250.,shxishu,'A023')
     call WuGongShangHai(u,uc,shanghai)
-    call DestroyEffect(AddSpecialEffectTargetUnitBJ( "overhead", uc,"Abilities\\Spells\\Other\\Monsoon\\MonsoonBoltTarget.mdl"))
+    call DestroyEffectEx(AddSpecialEffectTargetUnitBJEx( "overhead", uc,"Abilities\\Spells\\Other\\Monsoon\\MonsoonBoltTarget.mdl"))
     if GetUnitAbilityLevel(u,'A07T')>=1 and GetRandomInt(1,100)<=30 then
 		call CreateNUnitsAtLoc(1,'e00X',GetOwningPlayer(u),loc2,bj_UNIT_FACING)
         call UnitAddAbility(bj_lastCreatedUnit,'A0D5')

@@ -335,7 +335,7 @@ function addRealAttrTemp takes integer i, integer j returns nothing
 		set jingmai[i] = jingmai[i] + value
 		set text = "经脉"
 	endif
-	call DestroyEffect(AddSpecialEffectTarget("war3mapImported\\frozenarmor.mdx", udg_hero[i], "overhead"))
+	call DestroyEffectEx(AddSpecialEffectTargetEx("war3mapImported\\frozenarmor.mdx", udg_hero[i], "overhead"))
 	call CreateTextTagUnitBJ(text + "+" + I2S(value), udg_hero[i], 60, 14, 100, 0, 0, 30)
 	call Nw(3.,bj_lastCreatedTextTag)
     call SetTextTagVelocityBJ(bj_lastCreatedTextTag, 400.,GetRandomReal(80, 100))
@@ -477,7 +477,7 @@ endfunction
 function FlyEnd takes nothing returns nothing
 	local timer tm=GetExpiredTimer()
 	local unit u=LoadUnitHandle(YDHT, GetHandleId(tm), 0)
-	call DestroyEffect(udg_JTX[GetPlayerId(GetOwningPlayer(u))+1])
+	call DestroyEffectEx(udg_JTX[GetPlayerId(GetOwningPlayer(u))+1])
 	call clearTimer(tm)
 	set u=null
 	set tm=null
@@ -497,8 +497,8 @@ function ShuiShangPiao takes nothing returns nothing
 	set lastTime = RMinBJ(DistanceBetweenPoints(source, destination)/speed, 2.) //轻功持续时间
 	call WuGongShengChong(GetTriggerUnit(), 'A07Y', 100)
 	call SetUnitFacing( GetTriggerUnit(), angle)
-	call DestroyEffect(AddSpecialEffectTargetUnitBJ("origin",GetTriggerUnit(),"Abilities\\Weapons\\PhoenixMissile\\Phoenix_Missile.mdl"))
-	set udg_JTX[GetPlayerId(GetOwningPlayer(GetTriggerUnit()))+1]=AddSpecialEffectTarget("Abilities\\Weapons\\PhoenixMissile\\Phoenix_Missile.mdl", GetTriggerUnit(), "origin")
+	call DestroyEffectEx(AddSpecialEffectTargetUnitBJEx("origin",GetTriggerUnit(),"Abilities\\Weapons\\PhoenixMissile\\Phoenix_Missile.mdl"))
+	set udg_JTX[GetPlayerId(GetOwningPlayer(GetTriggerUnit()))+1]=AddSpecialEffectTargetEx("Abilities\\Weapons\\PhoenixMissile\\Phoenix_Missile.mdl", GetTriggerUnit(), "origin")
     call SetUnitAnimation( GetTriggerUnit(), "walk" )
 	call Fly(GetTriggerUnit(),speed,height,angle,lastTime)
 	//call YDWEJumpTimer(GetTriggerUnit(),angle,speed*lastTime,lastTime,0.03,height)

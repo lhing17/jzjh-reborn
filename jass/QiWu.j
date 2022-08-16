@@ -245,7 +245,7 @@ function MiaoShouKongKong_1 takes nothing returns nothing
 			call DisableTrigger(t)
 			set  shanghai=ShangHaiGongShi(u,uc,0.001, 0.002,shxishu,'A03O')
     		call WuGongShangHai(u,uc,shanghai)
-    		call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl",uc,"overhead"))
+    		call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl",uc,"overhead"))
     		call EnableTrigger(t)
 		endif
 		if (GetUnitAbilityLevel(u, 'S002'))!=0 and GetRandomInt(1,100)<=15 then
@@ -558,7 +558,7 @@ endfunction
 //function ZhenLong_Action takes nothing returns nothing
 //	local trigger t = CreateTrigger()
 //	//call BJDebugMsg("到这了吗2")
-//	call YDWETimerDestroyEffect(0.5, AddSpecialEffectTarget("Abilities\\Spells\\Orc\\Voodoo\\VoodooAuraTarget.mdl",GetEnumUnit(),"origin"))
+//	call YDWETimerDestroyEffect(0.5, AddSpecialEffectTargetEx("Abilities\\Spells\\Orc\\Voodoo\\VoodooAuraTarget.mdl",GetEnumUnit(),"origin"))
 //	call TriggerRegisterUnitEvent(t, GetEnumUnit(), EVENT_UNIT_DAMAGED)
 //	call TriggerAddAction(t, function ZhenLongQiJu_2)
 //	set t = null
@@ -620,7 +620,7 @@ endfunction
 //		else
 //			call SetWidgetLife(GetEventDamageSource(), GetWidgetLife(GetEventDamageSource())-r*damage)
 //		endif
-//		call AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl")
+//		call AddSpecialEffectLocBJEx(loc,"Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl")
 //	endif
 //	call RemoveLocation(loc)
 //	set loc = null

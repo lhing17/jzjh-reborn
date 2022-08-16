@@ -273,7 +273,7 @@ function qiMenShuShu takes unit u returns nothing
 		exitwhen count <= 0 or CountUnitsInGroup(g) <= 0
 			set currentUnit = FirstOfGroup(g)
 			
-			call DestroyEffect(AddSpecialEffectTarget("war3mapImported\\huoqie.mdx" , currentUnit, "origin"))
+			call DestroyEffectEx(AddSpecialEffectTargetEx("war3mapImported\\huoqie.mdx" , currentUnit, "origin"))
 			set damage = ShangHaiGongShi(u, currentUnit, 800, 800, param, QI_MEN_SHU_SHU)
 			call WuGongShangHai(u, currentUnit, damage)
 			
@@ -284,8 +284,8 @@ function qiMenShuShu takes unit u returns nothing
 		set cdPercent = 0.2
 	elseif qimen_status[i] == 1 then
 		// 效果2 随机加六围
-		call DestroyEffect(AddSpecialEffectTarget("war3mapImported\\lifebreak.mdx", u, "overhead"))
-		call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl", u, "overhead"))
+		call DestroyEffectEx(AddSpecialEffectTargetEx("war3mapImported\\lifebreak.mdx", u, "overhead"))
+		call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl", u, "overhead"))
 		if count > 50 then
 			set count = 50
 		endif
@@ -387,7 +387,7 @@ function biBoXinJing takes unit u returns nothing
 			call SetUnitAbilityLevel(u, BI_BO_XIN_JING, level)
 		else
 			call SaveInteger(YDHT, GetHandleId(u), BI_BO_POINT, LoadInteger(YDHT, GetHandleId(u), BI_BO_POINT) - 5)
-			call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl", u, "overhead"))
+			call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl", u, "overhead"))
 			call WuGongShengChong(u, BI_BO_XIN_JING, 70)
 			call ModifyHeroStat(0, u, 0, 30 * level)
 			call ModifyHeroStat(1, u, 0, 30 * level)
@@ -423,7 +423,7 @@ function biBoXinJing takes unit u returns nothing
 			call SetUnitAbilityLevel(u, BI_BO_XIN_JING, level)
 		else
 			call SaveInteger(YDHT, GetHandleId(u), BI_BO_POINT, LoadInteger(YDHT, GetHandleId(u), BI_BO_POINT) - 3)
-			call DestroyEffect(AddSpecialEffectTarget("war3mapImported\\zhiyu.mdx", u, "overhead"))
+			call DestroyEffectEx(AddSpecialEffectTargetEx("war3mapImported\\zhiyu.mdx", u, "overhead"))
 			call UnitAddAbility(u, 'A0DB')
 			call UnitAddAbility(u, 'A0DC')
 			call SetUnitAbilityLevel(u, 'A0DB', level)

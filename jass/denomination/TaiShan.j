@@ -48,7 +48,7 @@
 		call GroupEnumUnitsInRangeOfLoc(g, loc, range, function QiXingLuo_Condition)
 		set ut = GroupPickRandomUnit(g)
 		//添加特效
-		call DestroyEffect(AddSpecialEffectTargetUnitBJ("origin",ut,"Abilities\\Spells\\NightElf\\Starfall\\StarfallTarget.mdl"))
+		call DestroyEffectEx(AddSpecialEffectTargetUnitBJEx("origin",ut,"Abilities\\Spells\\NightElf\\Starfall\\StarfallTarget.mdl"))
 		//u对ut造成伤害
 		set shanghai=ShangHaiGongShi(u,ut,30*(0.8+i*0.2),30*(0.8+i*0.2),shxishu,'A08A')
 		call WuGongShangHai(u,ut,shanghai)

@@ -14,7 +14,7 @@ function r3 takes nothing returns nothing
 	local integer i=1+GetPlayerId(GetOwningPlayer(u))
 	local real shxishu=1.
 	local real shanghai=0.
-    call  DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Undead\\AnimateDead\\AnimateDeadTarget.mdl"))
+    call  DestroyEffectEx(AddSpecialEffectLocBJEx(loc,"Abilities\\Spells\\Undead\\AnimateDead\\AnimateDeadTarget.mdl"))
     if((GetUnitAbilityLevel(u,'A0BT')!=0)and(GetRandomReal(.0,100.)<=8.))then
         call CreateNUnitsAtLoc(1,'e000',GetOwningPlayer(u),loc,bj_UNIT_FACING)
         call ShowUnitHide(bj_lastCreatedUnit)
@@ -177,7 +177,7 @@ function y3 takes nothing returns nothing
         call WanBuff(u, uc, 5)
     endif
     if((GetUnitAbilityLevel(u,'A07N')!=0)and(GetUnitAbilityLevel(u,'A089')!=0)and(GetRandomReal(.0,100.)<=20.))then
-        call DestroyEffect(AddSpecialEffectLocBJ(loc2,"Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))
+        call DestroyEffectEx(AddSpecialEffectLocBJEx(loc2,"Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))
         if((GetUnitAbilityLevel(u,'A0BV')!=0))then
             set shxishu=shxishu+.5
         endif
@@ -278,7 +278,7 @@ function a3 takes nothing returns nothing
     if UnitHasDenomWeapon(u, 'I0AM') then
 	    set shxishu = shxishu * 1.8
     endif
-    call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl"))
+    call DestroyEffectEx(AddSpecialEffectLocBJEx(loc,"Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl"))
     set shanghai=ShangHaiGongShi(u,uc,100,100,shxishu,'A0BS')
     call WuGongShangHai(u,uc,shanghai)
     if((GetUnitAbilityLevel(u,'A07P')!=0)and(GetRandomReal(.0,100.)<=10.)and(UnitHasBuffBJ(uc,1111844210)==false))then
@@ -476,8 +476,8 @@ function MM3 takes nothing returns nothing
     call SaveInteger(YDHT,id*cx,-$2A41B3A3,'A0BV')
     call SaveReal(YDHT,id*cx,-$2CEF3086,((.8+(I2R(GetUnitAbilityLevel(LoadUnitHandle(YDHT,id*cx,$59BEA0CB),LoadInteger(YDHT,id*cx,-$2A41B3A3)))/2.))+1.))
     call SaveReal(YDHT,id*cx,$1968F401,(1.5+udg_shanghaijiacheng[(1+GetPlayerId(GetOwningPlayer(LoadUnitHandle(YDHT,id*cx,$59BEA0CB))))]))
-    call AddSpecialEffectLocBJ(LoadLocationHandle(YDHT,id*cx,-$72C3E060),"war3mapImported\\DivineRing.mdx")
-    call DestroyEffect(bj_lastCreatedEffect)
+    call AddSpecialEffectLocBJEx(LoadLocationHandle(YDHT,id*cx,-$72C3E060),"war3mapImported\\DivineRing.mdx")
+    call DestroyEffectEx(bj_lastCreatedEffect)
     call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(350.,LoadLocationHandle(YDHT,id*cx,-$72C3E060),Condition(function K3)),function L3)
     if((GetUnitAbilityLevel(LoadUnitHandle(YDHT,id*cx,$59BEA0CB),'A083')!=0)and(GetRandomInt(1,100)<=gailv))then
     if((GetUnitTypeId(LoadUnitHandle(YDHT,id*cx,$59BEA0CB))=='O004'))then

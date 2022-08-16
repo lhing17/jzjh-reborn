@@ -14,7 +14,7 @@ function JiaChuanMaJia_1 takes nothing returns nothing
 		set shxishu = shxishu + 1.
 	endif
 	if GetRandomInt(1, 4) == 1 then
-		call DestroyEffect(AddSpecialEffectLocBJ(loc, "Abilities\\Spells\\Other\\Charm\\CharmTarget.mdl"))
+		call DestroyEffectEx(AddSpecialEffectLocBJEx(loc, "Abilities\\Spells\\Other\\Charm\\CharmTarget.mdl"))
 	endif
 	if UnitHasDenomWeapon(u, 'I0DS') then
 		set shxishu = shxishu * 1.8
@@ -136,7 +136,7 @@ function XiuZhongZhi takes nothing returns nothing
 		call WuGongShangHai(u, uc, shanghai)
 		call WuGongShengChong(u, 'A0CC', 600)
 		//call SetUnitAnimation(u, "attack, slam")
-		call DestroyEffect(AddSpecialEffectLocBJ(loc, "Abilities\\Spells\\Other\\Charm\\CharmTarget.mdl"))
+		call DestroyEffectEx(AddSpecialEffectLocBJEx(loc, "Abilities\\Spells\\Other\\Charm\\CharmTarget.mdl"))
 		// 慕容龙城称号加内力
 		if isTitle(i, 26) then
 			call ModifyHeroStat(1, u, 0, 20 * GetUnitAbilityLevel(u, 'A0CC'))
@@ -302,8 +302,8 @@ function XingYiBeiDong takes nothing returns nothing
 	local real shxishu = 1.
 	local real shanghai = 0.
 	if GetUnitAbilityLevel(u, 'A07W') >= 1 or isTitle(1 + GetPlayerId(GetOwningPlayer(u)), 26) then
-		call AddSpecialEffectLocBJ(loc, "Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl")
-		call DestroyEffect(bj_lastCreatedEffect)
+		call AddSpecialEffectLocBJEx(loc, "Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl")
+		call DestroyEffectEx(bj_lastCreatedEffect)
 		set shanghai = ShangHaiGongShi(u, uc, 50., 50., shxishu, 'A02R')
 		call WuGongShangHai(u, uc, shanghai)
 	endif

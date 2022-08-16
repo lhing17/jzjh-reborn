@@ -134,8 +134,8 @@ function ZiZhiShangHai_Action takes nothing returns nothing
 	call CreateTextTagLocBJ(zizhiwugong[i].name,loc,0,14.,GetRandomReal(0., 100),GetRandomReal(0., 100),GetRandomReal(0., 100),.0)
 	call Nw(3,bj_lastCreatedTextTag)
     call SetTextTagVelocityBJ(bj_lastCreatedTextTag,50.,90)
-	call AddSpecialEffectTargetUnitBJ( "overhead",uc, lh_texiao[zizhiwugong[i].texiao] )
-	call DestroyEffect( GetLastCreatedEffectBJ() )
+	call AddSpecialEffectTargetUnitBJEx( "overhead",uc, lh_texiao[zizhiwugong[i].texiao] )
+	call DestroyEffectEx( GetLastCreatedEffectBJ() )
 	call WuGongShangHai(u,uc,shanghai)
 	call RemoveLocation(loc)
 	set loc = null

@@ -1189,8 +1189,8 @@ function xw takes nothing returns nothing
 				set v = (LoadReal(YDHT, StringHash((I2S((GetHandleId((tm)))))), StringHash(("OutRanger"))))
 				if d != 0 and d > v * v then
 					call SetUnitPosition(ww, GetUnitX(yw), GetUnitY(yw))
-					set e = AddSpecialEffectTarget("Abilities\\Spells\\Human\\MassTeleport\\MassTeleportTarget.mdl", yw, "chest")
-					call DestroyEffect(e)
+					set e = AddSpecialEffectTargetEx("Abilities\\Spells\\Human\\MassTeleport\\MassTeleportTarget.mdl", yw, "chest")
+					call DestroyEffectEx(e)
 				else
 					call IssuePointOrderById(ww, $D0012, GetUnitX(yw), GetUnitY(yw))
 				endif
@@ -1270,7 +1270,7 @@ function Iw takes nothing returns nothing
 	call RemoveSavedHandle(YDHT, c4, q4)
 endfunction
 function lw takes nothing returns nothing
-	call DestroyEffect(LoadEffectHandle(YDHT, c4, q4))
+	call DestroyEffectEx(LoadEffectHandle(YDHT, c4, q4))
 	call RemoveSavedHandle(YDHT, c4, q4)
 endfunction
 function Jw takes real pw, effect e returns nothing
@@ -1382,7 +1382,7 @@ function SetUnitDizzyDoc takes nothing returns nothing
 	local integer i = GetHandleId(tm)
 	local unit Unit = LoadUnitHandle(YDHT, i, StringHash("unit"))
 	local effect Eff = LoadEffectHandle(YDHT, i, StringHash("effect"))
-	call DestroyEffect( Eff )
+	call DestroyEffectEx( Eff )
 	call PauseUnit( Unit, false )
 	call FlushChildHashtable(YDHT, i)
 	call PauseTimer(tm)
@@ -1398,7 +1398,7 @@ function SetUnitDizzy takes unit Unit, real Size , string ExFile returns nothing
 	//不无敌也不魔免
 	if UnitHasBuffBJ(Unit, 'BHds') == false and IsUnitType(Unit, UNIT_TYPE_MAGIC_IMMUNE) == false then
 		call SaveUnitHandle(YDHT, i, StringHash("unit"), Unit)
-		call SaveEffectHandle(YDHT, i, StringHash("effect"), AddSpecialEffectTargetUnitBJ( "overhead", Unit, ExFile ))
+		call SaveEffectHandle(YDHT, i, StringHash("effect"), AddSpecialEffectTargetUnitBJEx( "overhead", Unit, ExFile ))
 		call PauseUnit( Unit, true )
 		call CreateTextTagLocBJ("封穴", loc, 0, 12., 65., 55., 42., 0)
 		call Nw(Size, bj_lastCreatedTextTag)
@@ -1576,15 +1576,15 @@ function showDamageWithEffects takes integer i, unit u, real damage, boolean cri
 			loop
 				exitwhen j > StringLength(damageStr)
 				// call BJDebugMsg("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx")
-				set eff = AddSpecialEffect("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx", GetUnitX(u) + 32 / 1.38 * (j - 1), GetUnitY(u))
+				set eff = AddSpecialEffectEx("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx", GetUnitX(u) + 32 / 1.38 * (j - 1), GetUnitY(u))
 				call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
-				call DestroyEffect(eff)
+				call DestroyEffectEx(eff)
 				set j = j + 1
 			endloop
 			if critical then
-				set eff = AddSpecialEffect("war3mapImported\\SHZT11-10.mdx", GetUnitX(u) - 37 / 1.38, GetUnitY(u))
+				set eff = AddSpecialEffectEx("war3mapImported\\SHZT11-10.mdx", GetUnitX(u) - 37 / 1.38, GetUnitY(u))
 				call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
-				call DestroyEffect(eff)
+				call DestroyEffectEx(eff)
 			endif
 		endif
 	endif
@@ -1597,10 +1597,10 @@ function WuGongShangHai takes unit u, unit uc, real shanghai returns nothing
 	local effect eff = null
 	local location loc = GetUnitLoc(uc)
 	if shanghai == 0 then
-		set eff = AddSpecialEffect("war3mapImported\\SHZT-MISS.mdx", GetUnitX(uc) - 64 / 1.38, GetUnitY(uc))
+		set eff = AddSpecialEffectEx("war3mapImported\\SHZT-MISS.mdx", GetUnitX(uc) - 64 / 1.38, GetUnitY(uc))
 		// call EXSetEffectSize(eff, 1.38)
 		call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
-		call DestroyEffect(eff)
+		call DestroyEffectEx(eff)
 		// call CreateTextTagUnitBJ("MISS",uc,0.,11.,255.,0.,0.,30.)
 	else
 		if GetRandomReal(0., 100.) <= 100. * udg_baojilv[1 + GetPlayerId(GetOwningPlayer(u))] then
@@ -1925,7 +1925,7 @@ function knock_back_on_timer takes nothing returns nothing
 	if IsTerrainPathable( GetUnitX(u) + LoadReal(YDHT, p, 3), GetUnitY(u) + LoadReal(YDHT, p, 4), PATHING_TYPE_WALKABILITY) == false then
 		call SetUnitX(u, CheckX(GetUnitX(u) + LoadReal(YDHT, p, 3)))
 		call SetUnitY(u, CheckY(GetUnitY(u) + LoadReal(YDHT, p, 4)))
-		call DestroyEffect(AddSpecialEffect(LoadStr(YDHT, p, 5), GetUnitX(u), GetUnitY(u)))
+		call DestroyEffectEx(AddSpecialEffectEx(LoadStr(YDHT, p, 5), GetUnitX(u), GetUnitY(u)))
 	endif
 	call SaveUnitHandle(YDHT, StringHash("击退"), 0, u)
 	call SaveReal(YDHT, StringHash("击退"), 1, shanghai)
@@ -2093,7 +2093,7 @@ endfunction
 */
 function PassiveWuGongEffectAndDamage takes unit playerControllingUnit, unit enemy, string modelName, real w1, real w2, real damageCoefficient, integer abilityId returns nothing
 	local location loc = GetUnitLoc(enemy)
-	call DestroyEffect(AddSpecialEffectLoc(modelName, loc))
+	call DestroyEffectEx(AddSpecialEffectLocEx(modelName, loc))
 	call WuGongShangHai(playerControllingUnit, enemy, ShangHaiGongShi(playerControllingUnit, enemy, w1, w2, damageCoefficient, abilityId))
 	call RemoveLocation(loc)
 	set loc = null

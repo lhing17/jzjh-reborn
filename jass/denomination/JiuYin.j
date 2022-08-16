@@ -13,7 +13,7 @@ library JiuYin initializer JiuYin_Init
 	    local location loc=GetUnitLoc(loc)
 	    local real shxishu=1.
 	    local real shanghai=0.
-        call DestroyEffect(AddSpecialEffectLocBJ(loc,"war3mapImported\\PhoenixAttack.mdx"))
+        call DestroyEffectEx(AddSpecialEffectLocBJEx(loc,"war3mapImported\\PhoenixAttack.mdx"))
         if GetUnitAbilityLevel(GetAttacker(),'A07S')>=1 then
 	        set shxishu=shxishu+1.
         endif
@@ -60,8 +60,8 @@ library JiuYin initializer JiuYin_Init
 	                set shxishu=shxishu*20
                 endif
 		        set shanghai=ShangHaiGongShi(u,ut,20,16,shxishu,'A0D3')
-                call AddSpecialEffectTargetUnitBJ( "overhead", GetTriggerUnit(), "Abilities\\Spells\\Other\\Transmute\\GoldBottleMissile.mdl" )
-                call DestroyEffect( GetLastCreatedEffectBJ() )
+                call AddSpecialEffectTargetUnitBJEx( "overhead", GetTriggerUnit(), "Abilities\\Spells\\Other\\Transmute\\GoldBottleMissile.mdl" )
+                call DestroyEffectEx( GetLastCreatedEffectBJ() )
                 call WuGongShangHai(u,ut,shanghai)
                 call WuGongShengChong(u,'A0D3',1500.)
             endif

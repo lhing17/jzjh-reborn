@@ -23,7 +23,7 @@ function FE takes nothing returns nothing
                 if UnitHasDenomWeapon(u,'I09C') then
 					set shxishu=shxishu*4
 				endif
-                call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl"))
+                call DestroyEffectEx(AddSpecialEffectLocBJEx(loc,"Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl"))
                 if((GetUnitAbilityLevel(u,'A07M')!=0)and(GetRandomReal(.0,100.)<=10.)and(UnitHasBuffBJ(uc,1110454328)==false))then
                     call WanBuff(u, uc, 11)
                 endif
@@ -43,7 +43,7 @@ function FE takes nothing returns nothing
                 if UnitHasDenomWeapon(u,'I09C') then
 					set shxishu=shxishu*4
 				endif
-                call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl"))
+                call DestroyEffectEx(AddSpecialEffectLocBJEx(loc,"Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl"))
                 if((GetUnitAbilityLevel(u,'A07M')!=0)and(GetRandomReal(.0,100.)<=10.)and(UnitHasBuffBJ(uc,1110454328)==false))then
                     call WanBuff(u, uc, 11)
                 endif
@@ -62,7 +62,7 @@ function FE takes nothing returns nothing
         if UnitHasDenomWeapon(u,'I09C') then
 			set shxishu=shxishu*4
 		endif
-        call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl"))
+        call DestroyEffectEx(AddSpecialEffectLocBJEx(loc,"Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl"))
         if((GetUnitAbilityLevel(u,'A07M')!=0)and(GetRandomReal(.0,100.)<=10.)and(UnitHasBuffBJ(uc,1110454328)==false))then
             call WanBuff(u, uc, 11)
         endif
@@ -226,7 +226,7 @@ function TE takes nothing returns nothing
 					set ut = GroupPickRandomUnit(g)
 					set loc3 = GetUnitLoc(ut)
 					call percentDamage(ut, 20, false)
-					call DestroyEffect(AddSpecialEffectLocBJ(loc3, "war3mapImported\\blue quick.mdx"))
+					call DestroyEffectEx(AddSpecialEffectLocBJEx(loc3, "war3mapImported\\blue quick.mdx"))
 					call CreateNUnitsAtLoc(1,'o02E',GetOwningPlayer(u),loc2,bj_UNIT_FACING)
 					call UnitAddAbility(bj_lastCreatedUnit, 'A03D')
 					call ShowUnitHide(bj_lastCreatedUnit)

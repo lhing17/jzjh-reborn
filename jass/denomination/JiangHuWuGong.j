@@ -110,7 +110,7 @@ function TanZhiShangHai takes nothing returns nothing
 		call WanBuff(u, uc, 4)
 	endif
 	if((GetUnitAbilityLevel(u,1395666994)!=0))then
-		call DestroyEffect(AddSpecialEffectLocBJ(loc2,"war3mapImported\\PsiWave.mdx"))
+		call DestroyEffectEx(AddSpecialEffectLocBJEx(loc2,"war3mapImported\\PsiWave.mdx"))
 		call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(100.,loc2,Condition(function TanZhiShangHai_Conditiom)),function TanZhiShangHai_Action)
 	endif
 	call RemoveLocation(loc)
@@ -722,7 +722,7 @@ function QF takes nothing returns nothing
 		set shanghai = shanghai + .8
 	endif
 	
-	call DestroyEffect(AddSpecialEffectLocBJ(loc,"war3mapImported\\PhoenixAttack.mdx"))
+	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc,"war3mapImported\\PhoenixAttack.mdx"))
 	if GetUnitAbilityLevel(u,'A07R')!=0 and GetUnitAbilityLevel(u,'A07S')!=0 and GetUnitAbilityLevel(u,'A084')!=0 and GetUnitAbilityLevel(u,'A07X')!=0 and GetUnitAbilityLevel(u,'A07U')!=0 and GetUnitAbilityLevel(u,1395666994)!=0 and GetUnitAbilityLevel(u,'A06H')!=0 then
 		set shxishu=shxishu*7*2
 	endif
@@ -873,7 +873,7 @@ function KongMing_Action takes nothing returns nothing
 	endif
 	set shanghai=ShangHaiGongShi(u,uc,10,8,shxishu,'A017')
 	call WuGongShangHai(u,uc,shanghai)
-	call DestroyEffect(AddSpecialEffectTarget("Units\\NightElf\\Wisp\\WispExplode.mdl",uc,"overhead"))
+	call DestroyEffectEx(AddSpecialEffectTargetEx("Units\\NightElf\\Wisp\\WispExplode.mdl",uc,"overhead"))
 	if((GetUnitAbilityLevel(u,'A06P')!=0)and(GetRandomInt(1,$A)<5)and(UnitHasBuffBJ(uc,'Bcri')==false))then
 		call WanBuff(u, uc, 4)
 	endif
@@ -976,7 +976,7 @@ function BiHai_Action takes nothing returns nothing
 	elseif i==3 then
 		set shanghai=ShangHaiGongShi(u,uc,20,30,shxishu,'A018')
 		call WuGongShangHai(u,uc,shanghai)
-		call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Items\\AIil\\AIilTarget.mdl"))
+		call DestroyEffectEx(AddSpecialEffectLocBJEx(loc,"Abilities\\Spells\\Items\\AIil\\AIilTarget.mdl"))
 	elseif i==4 then
 		call WanBuff(u, uc, 4)
 	elseif i==5 then
@@ -998,7 +998,7 @@ function BiHai_Action takes nothing returns nothing
 		endif
 		if bihai[1+GetPlayerId(GetOwningPlayer(u))]>=j then
 			call UnitRemoveBuffBJ('B00Y',u)
-			call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Items\\AIil\\AIilTarget.mdl"))
+			call DestroyEffectEx(AddSpecialEffectLocBJEx(loc,"Abilities\\Spells\\Items\\AIil\\AIilTarget.mdl"))
 			set shanghai=ShangHaiGongShi(u,uc,800,1600,shxishu,'A018')
 			call WuGongShangHai(u,uc,shanghai)
 		endif
@@ -1013,7 +1013,7 @@ function BiHaiChaoSheng takes nothing returns nothing
 	local unit u=GetTriggerUnit()
 	local location loc=GetUnitLoc(u)
 	local sound sd=CreateSound("Sound\\Music\\mp3Music\\UndeadVictory.mp3",false,false,false,$A,$A,"DefaultEAXON")
-	call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Human\\Brilliance\\Brilliance.mdl"))
+	call DestroyEffectEx(AddSpecialEffectLocBJEx(loc,"Abilities\\Spells\\Human\\Brilliance\\Brilliance.mdl"))
 	//call PlaySoundOnUnitBJ(sd,100,u)
 	call WuGongShengChong(u,'A018',700.)
 	call GroupEnumUnitsInRangeOfLoc(g,loc,500,Condition(function BiHai_Condition))
