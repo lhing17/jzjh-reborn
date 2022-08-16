@@ -2884,10 +2884,11 @@ function HeroLevel takes nothing returns nothing
 		loop
 			exitwhen d8[i] > DENOMINATION_NUMBER //门派数
 			if (udg_runamen[i] == d8[i]) then
-				// 送一本中原武学散篇
-				call UnitAddItemById(u, 'I0F2')
+		
 				// 自由3级自动学技能begin
 				if d8[i] == 11 then
+					// 送一本中原武学散篇
+					call UnitAddItemById(u, 'I0F2')
 					if GetRandomInt(1, 100) <= 50 then
 						set denomFirst[d8[i]] = LoadInteger(YDHT, StringHash("武学") + GetRandomInt(1, 18), 2)
 					else
