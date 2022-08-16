@@ -113,7 +113,7 @@ private function MPop takes integer i returns nothing
      if GetUnitState(MU[i],UNIT_STATE_LIFE)>0.4 then
         call KillUnit(MU[i])
      endif
-     call DestroyEffectEx(EFL[i])
+     call DestroyEffect(EFL[i])
      set MU[i]=MU[Top]
      set SP[i]=SP[Top]
      set RA[i]=RA[Top]
@@ -425,7 +425,7 @@ function MissileCast takes unit caster,unit missile,real originspeed,real maxspe
      set DM[i]=damage
      set EF[i]=Effect
      call SetUnitFlyHeight(MU[i],HE[i]-GetLocationZ(HeroLoc),0.0)
-     set EFL[i]=AddSpecialEffectTargetEx( EF[i], MU[i], "chest" )
+     set EFL[i]=AddSpecialEffectTarget( EF[i], MU[i], "chest" )
      set LastOwner[i]=GetOwningPlayer(caster)
      call RemoveLocation(HeroLoc)
      set HeroLoc=null

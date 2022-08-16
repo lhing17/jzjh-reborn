@@ -1566,28 +1566,34 @@ function showDamageWithEffects takes integer i, unit u, real damage, boolean cri
 	local string damageStr = ""
 	local integer j = 1
 	local effect eff = null
+	local string effectStr = ""
 	if critical then
 		set criticalInt = 1
 	endif
 	if IsUnitEnemy(u, Player(0)) then
-		if Player(i - 1) == GetLocalPlayer() and showDamage[i] then
-			// 显示伤害
-			set damageStr = I2S(R2I(damage) + 1)
-			loop
-				exitwhen j > StringLength(damageStr)
-				// call BJDebugMsg("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx")
-				set eff = AddSpecialEffect("war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx", GetUnitX(u) + 32 / 1.38 * (j - 1), GetUnitY(u))
-				call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
-				call DestroyEffect(eff)
-				set j = j + 1
-			endloop
-			if critical then
-				set eff = AddSpecialEffect("war3mapImported\\SHZT11-10.mdx", GetUnitX(u) - 37 / 1.38, GetUnitY(u))
-				call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
-				call DestroyEffect(eff)
+		// 显示伤害
+		set damageStr = I2S(R2I(damage) + 1)
+		loop
+			exitwhen j > StringLength(damageStr)
+			set effectStr = ""
+			if Player(i - 1) == GetLocalPlayer() and showDamage[i] then
+				set effectStr = "war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx"
 			endif
+			set eff = AddSpecialEffect(effectStr, GetUnitX(u) + 32 / 1.38 * (j - 1), GetUnitY(u))
+			call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
+			call DestroyEffect(eff)
+			set j = j + 1
+		endloop
+		if critical then
+			set effectStr = ""
+			if Player(i - 1) == GetLocalPlayer() and showDamage[i] then
+				set effectStr = "war3mapImported\\SHZT11-10.mdx"
+			endif
+			set eff = AddSpecialEffect(effectStr, GetUnitX(u) - 37 / 1.38, GetUnitY(u))
+			call EXSetEffectZ(eff, GetLocationZ(loc) + 80)
+			call DestroyEffect(eff)
 		endif
-	endif
+	endif	
 	call RemoveLocation(loc)
 	set loc = null
 	set eff = null
