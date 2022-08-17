@@ -47,7 +47,7 @@ function AddSpecialEffectLocBJEx takes location where, string modelName returns 
     if IsPlayerInForce(GetLocalPlayer(), showEffectForce) then
         set z = modelName
     endif
-    return AddSpecialEffectLoc(z, where)
+    return AddSpecialEffectLocBJ( where, z)
 endfunction
 
 function AddSpecialEffectTargetUnitBJEx takes string attachPointName, widget targetWidget, string modelName returns effect
@@ -55,7 +55,7 @@ function AddSpecialEffectTargetUnitBJEx takes string attachPointName, widget tar
     if IsPlayerInForce(GetLocalPlayer(), showEffectForce) then
         set z = modelName
     endif
-    return AddSpecialEffectTarget(z, targetWidget, attachPointName)
+    return AddSpecialEffectTargetUnitBJ(attachPointName, targetWidget,z )
 endfunction
 
 // 销毁特效
