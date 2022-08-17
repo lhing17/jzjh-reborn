@@ -2470,9 +2470,9 @@ function SetShiWan takes nothing returns nothing
 	set ShiFouShuaGuai = false
 	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFF00FF00玩家一选择了试玩模式，1小时内怪物不会进攻主城，大家可以尽情的去体验玩法了")
 	// 30分钟后刷怪，避免挂机
-	set shiWanTimer = CreateTimer()
-	call TimerStart(shiWanTimer, 3600, false, function HA)
-	set shiWanTimerDialog = createTimerDialog(shiWanTimer, "试玩倒计时")
+	// set shiWanTimer = CreateTimer()
+	// call TimerStart(shiWanTimer, 3600, false, function HA)
+	// set shiWanTimerDialog = createTimerDialog(shiWanTimer, "试玩倒计时")
 endfunction
 function JiaJiNeng takes unit u returns nothing
 	if udg_boshu >= 8 then
