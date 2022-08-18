@@ -140,6 +140,9 @@ library FrameLibrary initializer init
         method setPoint takes integer a, Frame tar, integer b, real x, real y returns nothing
             call DzFrameSetPoint(id, a, tar.id, b, x, y)
         endmethod
+        method setPriority takes integer prior returns nothing
+            call DzFrameSetPriority(id, prior)
+        endmethod
         method setColor255 takes integer r, integer g, integer b returns nothing
             call DzFrameSetTextColor(id, DzGetColor(255, r, g, b))
         endmethod

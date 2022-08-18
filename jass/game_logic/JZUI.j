@@ -813,7 +813,7 @@ function drawUI_Conditions takes nothing returns boolean
 
 	// 右侧显示伤害和特效的复选框
 	set checkboxWidget[1] = Frame.newImage1(GUI, "war3mapImported\\damage_number.tga", 0.09, 0.03)
-	call checkboxWidget[1].setPoint(RIGHT, GUI, RIGHT, 0, - 0.07)
+	call checkboxWidget[1].setPoint(RIGHT, GUI, RIGHT, 0, 0.055)
 	call checkboxWidget[1].setAlpha(200)
 
 	set checkboxWidget[2] = Frame.newImage1(GUI, "war3mapImported\\right.tga", 0.018, 0.024) // 对号
@@ -824,7 +824,7 @@ function drawUI_Conditions takes nothing returns boolean
 	call checkboxButton[1].regEvent(FRAME_EVENT_PRESSED, function toggleShowDamage)
 
 	set checkboxWidget[3] = Frame.newImage1(GUI, "war3mapImported\\ability_effect.tga", 0.09, 0.03)
-	call checkboxWidget[3].setPoint(RIGHT, GUI, RIGHT, 0, - 0.105)
+	call checkboxWidget[3].setPoint(RIGHT, GUI, RIGHT, 0, 0.02)
 	call checkboxWidget[3].setAlpha(200)
 
 	set checkboxWidget[4] = Frame.newImage1(GUI, "war3mapImported\\right.tga", 0.018, 0.024) // 对号
