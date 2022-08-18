@@ -36,7 +36,7 @@ enum class CFrameEvents
     FRAME_MOUSE_DOUBLECLICK = 12,
     FRAME_SPRITE_ANIM_UPDATE = 13,
 };
- */
+*/
 
 
 //获取鼠标在游戏内的坐标X
@@ -141,6 +141,9 @@ native DzSetUnitModel takes unit whichUnit, string path returns nothing
 
 //设置小地图背景图片
 native DzSetWar3MapMap takes string map returns nothing
+
+native DzGetLocale takes nothing returns string
+native DzGetUnitNeededXP takes unit whichUnit, integer level returns integer
 
 //sync
 
@@ -348,4 +351,75 @@ native DzCreateFrameByTagName takes string frameType, string name, integer paren
 //设置颜色（支持SimpleStatusBar）
 native DzFrameSetVertexColor takes integer frame, integer color returns nothing
 
+native DzOriginalUIAutoResetPoint takes boolean enable returns nothing
+native DzFrameSetPriority takes integer frame, integer priority returns nothing
+native DzFrameSetParent takes integer frame, integer parent returns nothing
+native DzFrameGetHeight takes integer frame returns real
+native DzFrameSetFont takes integer frame, string fileName, real height, integer flag returns nothing
+native DzFrameGetParent takes integer frame returns integer
+native DzFrameSetTextAlignment takes integer frame, integer align returns nothing
+native DzFrameGetName takes integer frame returns string
+
+function DzTriggerRegisterMouseEventTrg takes trigger trg, integer status, integer btn returns nothing
+    if trg == null then
+        return
+    endif
+    call DzTriggerRegisterMouseEvent(trg, btn, status, true, null)
+endfunction
+
+function DzTriggerRegisterKeyEventTrg takes trigger trg, integer status, integer btn returns nothing
+    if trg == null then
+        return
+    endif
+    call DzTriggerRegisterKeyEvent(trg, btn, status, true, null)
+endfunction
+
+function DzTriggerRegisterMouseMoveEventTrg takes trigger trg returns nothing
+    if trg == null then
+        return
+    endif
+    call DzTriggerRegisterMouseMoveEvent(trg, true, null)
+endfunction
+
+function DzTriggerRegisterMouseWheelEventTrg takes trigger trg returns nothing
+    if trg == null then
+        return
+    endif
+    call DzTriggerRegisterMouseWheelEvent(trg, true, null)
+endfunction
+
+function DzTriggerRegisterWindowResizeEventTrg takes trigger trg returns nothing
+    if trg == null then
+        return
+    endif
+    call DzTriggerRegisterWindowResizeEvent(trg, true, null)
+endfunction
+
+function DzF2I takes integer i returns integer
+    return i
+endfunction
+
+function DzI2F takes integer i returns integer
+    return i
+endfunction
+
+function DzK2I takes integer i returns integer
+    return i
+endfunction
+
+function DzI2K takes integer i returns integer
+    return i
+endfunction
+
+function DzTriggerRegisterMallItemSyncData takes trigger trig returns nothing
+    call DzTriggerRegisterSyncData(trig, "DZMIA", true)
+endfunction
+
+function DzGetTriggerMallItemPlayer takes nothing returns player
+    return DzGetTriggerSyncPlayer()
+endfunction
+
+function DzGetTriggerMallItem takes nothing returns string
+    return DzGetTriggerSyncData()
+endfunction
 
