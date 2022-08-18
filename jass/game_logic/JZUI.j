@@ -33,6 +33,12 @@ globals
 	Frame closeCommandWidget // 关闭指令教程按钮图片
 	Frame closeCommandButton // 关闭指令教程按钮
 
+	Frame levelWidget // 等级按钮图片
+	Frame levelButton // 等级按钮
+	Frame closeLevelWidget // 关闭等级按钮图片
+	Frame closeLevelButton // 关闭等级按钮
+	Frame levelPopup // 等级弹出框
+
 
 	Frame qimen_widget
 	Frame qimen_button // 奇门术数按钮
@@ -121,6 +127,18 @@ endfunction
 function toggleHelpCommandWidget takes nothing returns nothing
 	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
 		call helpCommandWidget.toggerHover("war3mapImported\\help_command.tga", "war3mapImported\\help_command_hover.tga")
+	endif
+endfunction
+
+function toggleLevelWidget takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call levelWidget.toggerHover("war3mapImported\\level.tga", "war3mapImported\\level_hover.tga")
+	endif
+endfunction
+
+function toggleLevelPopup takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call levelPopup.toggle()
 	endif
 endfunction
 
@@ -833,6 +851,28 @@ function drawUI_Conditions takes nothing returns boolean
 	set checkboxButton[2] = Frame.newTextButton(checkboxWidget[3])
 	call checkboxButton[2].setAllPoints(checkboxWidget[3])
 	call checkboxButton[2].regEvent(FRAME_EVENT_PRESSED, function toggleShowAbilityEffect)
+
+	// 显示等级
+	set levelWidget = Frame.newImage1(GUI, "war3mapImported\\level.tga", 0.032, 0.04)
+	call levelWidget.setPoint(LEFT, helpWidget, RIGHT, 0.005, 0)
+
+	set levelButton = Frame.newTextButton(levelWidget)
+	call levelButton.setAllPoints(levelWidget)
+	call levelButton.regEvent(FRAME_EVENT_PRESSED, function toggleLevelPopup)
+	call levelButton.regEvent(FRAME_MOUSE_ENTER, function toggleLevelWidget)
+	call levelButton.regEvent(FRAME_MOUSE_LEAVE, function toggleLevelWidget)
+
+	// 江湖等级的弹出框
+	set levelPopup = Frame.newImage1(GUI, "war3mapImported\\level_popup.tga", 0.45, 0.4)
+	call levelPopup.setPoint(CENTER, GUI, CENTER, 0, 0)
+	call levelPopup.hide()
+
+	set closeLevelWidget = Frame.newImage1(levelPopup, "war3mapImported\\close.tga", 0.018, 0.024)
+	call closeLevelWidget.setPoint(CENTER, levelPopup, TOPRIGHT, 0, 0)
+
+	set closeLevelButton = Frame.newTextButton(closeLevelWidget)
+	call closeLevelButton.setAllPoints(closeLevelWidget)
+	call closeLevelButton.regEvent(FRAME_EVENT_PRESSED, function toggleLevelPopup)
 
 	
 	return false
