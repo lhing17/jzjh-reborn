@@ -211,7 +211,7 @@ endfunction
 // - 250000		49级	6125000	深不可测	暴击率+3%
 // - 255000		50级	6375000	返璞归真	伤害加成+3%
 function jianghuLevelAward takes integer i returns nothing
-	local integer level = DzAPI_Map_GetStoredInteger(Player(i - 1), "totalPoint")
+	local integer level = decryptInt(DzAPI_Map_GetStoredString(Player(i - 1), "totalPoint"), Player(i - 1))
 	if level >= 5000 then
 		set jianghuLevel[i] = 1
 		call ModifyHeroStat(bj_HEROSTAT_STR, udg_hero[i], bj_MODIFYMETHOD_ADD, 10)
@@ -482,6 +482,7 @@ function jianghuLevelAward takes integer i returns nothing
 		set jianghuLevel[i] = 50
 		set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + 0.03
 	endif
+	call DzAPI_Map_StoreString(Player(i - 1), "jhLevel", encryptInt(jianghuLevel[i], Player(i-1)))
 endfunction
 
 function SelectHero takes nothing returns nothing
@@ -5088,7 +5089,7 @@ function addTotalPoint takes integer point returns nothing
 		exitwhen j > 5
 		if GetPlayerController(Player(j - 1)) == MAP_CONTROL_USER and GetPlayerSlotState(Player(j - 1)) == PLAYER_SLOT_STATE_PLAYING then
 			// 将评分存入服务器
-			call DzAPI_Map_StoreInteger(Player(j - 1), "totalPoint", DzAPI_Map_GetStoredInteger(Player(j - 1), "totalPoint") + addition)
+			call DzAPI_Map_StoreString(Player(j - 1), "totalPoint", encryptInt(decryptInt(DzAPI_Map_GetStoredString(Player(j - 1), "totalPoint"), Player(j - 1)) + addition, Player(j - 1)))
 		endif
 			
 		set j = j + 1
