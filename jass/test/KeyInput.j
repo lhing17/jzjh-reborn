@@ -373,7 +373,7 @@ function KeyInput takes nothing returns nothing
 		call DisplayTimedTextToPlayer(Player(pId), 0, 0, 10, "|CFF1CE6B9系统提示：|r" + "|CFFFE890D" + "通关次数：" + I2S(udg_success[pId]))
 		call DisplayTimedTextToPlayer(Player(pId), 0, 0, 10, "|CFF1CE6B9系统提示：|r" + "|CFFFE890D" + "伤害兑换：" + R2S(bonus_wugong[pId] * 100) + "%")
 		call DisplayTimedTextToPlayer(Player(pId), 0, 0, 10, "|CFF1CE6B9系统提示：|r" + "|CFFFE890D" + "最高伤害：" + R2S(max_damage[pId]))
-		call DisplayTimedTextToPlayer(Player(pId), 0, 0, 10, "|CFF1CE6B9系统提示：|r" + "|CFFFE890D" + "累计评分：" + I2S(DzAPI_Map_GetStoredInteger(Player(pId), "totalPoint")))
+		call DisplayTimedTextToPlayer(Player(pId), 0, 0, 10, "|CFF1CE6B9系统提示：|r" + "|CFFFE890D" + "累计评分：" + I2S(decryptInt(DzAPI_Map_GetStoredString(Player(pId), "totalPoint"), Player(pId))))
 		// 全门派通关查询
 		// call BJDebugMsg("原始单通数据："+singleSuccess[pId])
 		// call BJDebugMsg("原始多通数据："+manySuccess[pId])
