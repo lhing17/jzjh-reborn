@@ -855,6 +855,7 @@ function drawUI_Conditions takes nothing returns boolean
 	// 显示等级
 	set levelWidget = Frame.newImage1(GUI, "war3mapImported\\level.tga", 0.032, 0.04)
 	call levelWidget.setPoint(LEFT, helpWidget, RIGHT, 0.005, 0)
+	call levelWidget.hide()
 
 	set levelButton = Frame.newTextButton(levelWidget)
 	call levelButton.setAllPoints(levelWidget)
