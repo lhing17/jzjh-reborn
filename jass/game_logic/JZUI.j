@@ -43,6 +43,12 @@ globals
 	Frame qimen_widget
 	Frame qimen_button // 奇门术数按钮
 	Frame qimen_text // 奇门术数按钮上的文字
+
+	Frame interAbilityPanel // 内化技能面板
+	Frame array interAbilityWidget // 内化的技能按钮图片
+	Frame array interAbilityLock // 内化的技能按钮锁图片
+
+
 	string array attrStr
 	// UI设置对齐锚点的常量 DzFrameSetPoint achor定义，从0开始
 	constant integer TOPLEFT = 0
@@ -72,6 +78,9 @@ globals
 	constant integer FRAME_POPUPMENU_ITEM_CHANGED = 11
 	constant integer FRAME_MOUSE_DOUBLECLICK = 12
 	constant integer FRAME_SPRITE_ANIM_UPDATE = 13
+
+	// 最多允许的内化技能数量
+	constant integer MAX_INTER_ABILITY_COUNT = 6
 endglobals
 
 function toggleFuncBoard takes nothing returns nothing
@@ -833,7 +842,7 @@ function drawUI_Conditions takes nothing returns boolean
 	set checkboxWidget[1] = Frame.newImage1(GUI, "war3mapImported\\damage_number.tga", 0.09, 0.03)
 	call checkboxWidget[1].setPoint(RIGHT, GUI, RIGHT, 0, 0.055)
 	call checkboxWidget[1].setAlpha(200)
-
+	
 	set checkboxWidget[2] = Frame.newImage1(GUI, "war3mapImported\\right.tga", 0.018, 0.024) // 对号
 	call checkboxWidget[2].setPoint(RIGHT, checkboxWidget[1], RIGHT, -0.006, 0.004)
 
@@ -851,6 +860,11 @@ function drawUI_Conditions takes nothing returns boolean
 	set checkboxButton[2] = Frame.newTextButton(checkboxWidget[3])
 	call checkboxButton[2].setAllPoints(checkboxWidget[3])
 	call checkboxButton[2].regEvent(FRAME_EVENT_PRESSED, function toggleShowAbilityEffect)
+
+	call checkboxWidget[1].hide()
+	call checkboxWidget[2].hide()
+	call checkboxWidget[3].hide()
+	call checkboxWidget[4].hide()
 
 	// 显示等级
 	set levelWidget = Frame.newImage1(GUI, "war3mapImported\\level.tga", 0.032, 0.04)
@@ -874,6 +888,30 @@ function drawUI_Conditions takes nothing returns boolean
 	set closeLevelButton = Frame.newTextButton(closeLevelWidget)
 	call closeLevelButton.setAllPoints(closeLevelWidget)
 	call closeLevelButton.regEvent(FRAME_EVENT_PRESSED, function toggleLevelPopup)
+
+
+	// 内化武功面板
+	set interAbilityPanel = Frame.newImage1(GUI, "war3mapImported\\inter_ability_panel.tga", 0.45, 0.4)
+	call interAbilityPanel.setPoint(CENTER, GUI, CENTER, 0, 0)
+	call interAbilityPanel.hide()
+
+	// 内化武功图片
+	set interAbilityWidget[1] = Frame.newImage1(interAbilityPanel, "war3mapImported\\lock.tga", 0.09, 0.09)
+	call interAbilityWidget[1].setPoint(LEFT, interAbilityPanel, LEFT, 0.005, 0)
+
+	set interAbilityLock[1] = Frame.newImage1(interAbilityWidget[1], "war3mapImported\\lock.tga", 0.09, 0.09)
+	call interAbilityLock[1].setAllPoints(interAbilityWidget[1])
+
+	set index = 2
+	loop
+		exitwhen index > MAX_INTER_ABILITY_COUNT
+		set interAbilityWidget[index] = Frame.newImage1(interAbilityPanel, "war3mapImported\\lock.tga", 0.09, 0.09)
+		call interAbilityWidget[index].setPoint(LEFT, interAbilityWidget[index - 1], RIGHT, 0.005, 0)
+
+		set interAbilityLock[index] = Frame.newImage1(interAbilityWidget[index], "war3mapImported\\lock.tga", 0.09, 0.09)
+		call interAbilityLock[index].setAllPoints(interAbilityWidget[index])
+		set index = index + 1
+	endloop
 
 	
 	return false

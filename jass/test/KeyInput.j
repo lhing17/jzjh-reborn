@@ -726,6 +726,9 @@ function KeyInput takes nothing returns nothing
 		call unitadditembyidswapped('I09J', udg_hero[i])
 		call unitadditembyidswapped('I09K', udg_hero[i])
 	endif
+	if s == "fff" and udg_isTest[GetPlayerId(p)] then
+		call SetPlayerAbilityAvailable(p, 'A07M', false)
+	endif
 	if (s == "贼哥牛逼" or s == "zgnb") and udg_isTest[GetPlayerId(p)] then
 		if UnitTypeNotNull(GetTriggerUnit(), UNIT_TYPE_HERO) then
 			call ModifyHeroStat(0, GetTriggerUnit(), 0, 100000)

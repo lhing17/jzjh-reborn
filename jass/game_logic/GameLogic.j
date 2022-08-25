@@ -25,6 +25,9 @@
 
 globals
 	constant integer DENOMINATION_NUMBER = 25
+
+	integer array interAbilityCount
+	integer array alreadyInternalizedCount
 endglobals
 
 
@@ -482,7 +485,7 @@ function jianghuLevelAward takes integer i returns nothing
 		set jianghuLevel[i] = 50
 		set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + 0.03
 	endif
-	call DzAPI_Map_StoreString(Player(i - 1), "jhLevel", encryptInt(jianghuLevel[i], Player(i-1)))
+	call DzAPI_Map_StoreString(Player(i - 1), "jhLevel", encryptInt(jianghuLevel[i], Player(i - 1)))
 endfunction
 
 function SelectHero takes nothing returns nothing
@@ -3764,6 +3767,64 @@ endfunction
 /*
 * 15. 学习和遗忘武功（含激活残章）
 */
+globals
+	constant integer interButtonKey = $AABBCC
+	dialog array interDialog
+endglobals
+// 内化被动武学条件
+function isInternalize takes nothing returns boolean
+	return GetSpellAbilityId() == 'A0F8'
+endfunction
+
+function canInternalize takes integer id returns boolean
+	return id == 'A07M' or id == 'A07M'
+endfunction
+
+// 内化被动武学动作
+function internalize takes nothing returns nothing
+	local unit u = GetTriggerUnit()
+	local player p = GetOwningPlayer(u)
+	local integer i = 1 + GetPlayerId(p)
+	local integer j = 1
+	if alreadyInternalizedCount[i] < interAbilityCount[i] then
+		call DialogSetMessage(K7[i], "请选择要内化的武功（内化后无法遗忘）！")
+		
+		loop
+			exitwhen j > 11
+			if I7[(i - 1) * 20 + 1] != 'AEfk' and canInternalize(I7[(i - 1) * 20 + j]) then
+				call SaveButtonHandle(YDHT, interButtonKey + i, j, DialogAddButtonBJ(interDialog[i], GetObjectName(I7[(i - 1) * 20 + j])))
+			endif
+			set j = j + 1
+		endloop
+
+		call SaveButtonHandle(YDHT, interButtonKey + i, 12, DialogAddButtonBJ(interDialog[i], "取消"))
+		call DialogDisplay(p, interDialog[i], true)
+	else
+		call DisplayTimedTextToPlayer(p, 0, 0, 30, "|cffff0000内化被动武功已达到上限！")
+	endif
+	set u = null
+	set p = null
+endfunction
+
+function doInternalize takes nothing returns nothing
+	local player p = GetTriggerPlayer()
+	local integer i = 1 + GetPlayerId(p)
+	local integer j = 1
+	loop
+		exitwhen j > 11
+		if GetClickedButton() == LoadButtonHandle(YDHT, interButtonKey + i, j) then
+			call SetPlayerAbilityAvailable(p, I7[(i - 1) * 20 + j], false)
+			call DisplayTimedTextToPlayer(p, 0, 0, 30, "|cff00ff00内化武功：" + GetObjectName(I7[(i - 1) * 20 + j]))
+			set I7[(i - 1) * 20 + j] = 'AEfk'
+			set alreadyInternalizedCount[i] = alreadyInternalizedCount[i] + 1
+		endif
+		set j = j + 1
+	endloop
+	call FlushChildHashtable(YDHT, interButtonKey + i)
+	call DialogClear(interDialog[i])
+	set p = null
+endfunction
+
 
 //遗忘武功
 function YiWangJiNeng takes nothing returns boolean
@@ -5719,12 +5780,23 @@ endfunction
 
 function GameLogic_Trigger takes nothing returns nothing
 	local trigger t = CreateTrigger()
+	local integer j = 1
 	
 	local timer tm = CreateTimer()
 	local timerdialog td = null
 	call TimerStart(tm, 1000, true, null)
 	set td = CreateTimerDialogBJ(tm, "监狱救人:")
 	call TimerDialogDisplay(td, true)
+
+	set j = 1
+	loop
+		exitwhen j >= 5
+		// 每个玩家默认可以内化一个武功
+		set interAbilityCount[j] = 1
+		set alreadyInternalizedCount[j] = 0
+		set interDialog[j] = DialogCreate()
+		set j = j + 1
+	endloop
 	
 	//选择英雄
 	set Jh = CreateTrigger()
@@ -6003,6 +6075,21 @@ function GameLogic_Trigger takes nothing returns nothing
 	call TriggerRegisterDialogEvent(bj, K7[4])
 	call TriggerRegisterDialogEvent(bj, K7[5])
 	call TriggerAddAction(bj, function jB)
+
+	// 内化武功
+	set t = CreateTrigger()
+	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
+	call TriggerAddCondition(t, Condition(function isInternalize))
+	call TriggerAddAction(t, function internalize)
+
+	set t = CreateTrigger()
+	call TriggerRegisterDialogEvent(t, interDialog[1])
+	call TriggerRegisterDialogEvent(t, interDialog[2])
+	call TriggerRegisterDialogEvent(t, interDialog[3])
+	call TriggerRegisterDialogEvent(t, interDialog[4])
+	call TriggerRegisterDialogEvent(t, interDialog[5])
+	call TriggerAddAction(t, function doInternalize)
+
 	// 传送至桃花岛
 	set Cj = CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(Cj, EVENT_PLAYER_UNIT_USE_ITEM)

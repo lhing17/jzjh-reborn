@@ -359,6 +359,8 @@ native DzFrameSetFont takes integer frame, string fileName, real height, integer
 native DzFrameGetParent takes integer frame returns integer
 native DzFrameSetTextAlignment takes integer frame, integer align returns nothing
 native DzFrameGetName takes integer frame returns string
+native EXSetUnitArrayString takes integer uid, integer id,integer n,string name returns boolean
+native EXSetUnitInteger takes integer uid, integer id,integer n returns boolean
 
 function DzTriggerRegisterMouseEventTrg takes trigger trg, integer status, integer btn returns nothing
     if trg == null then
