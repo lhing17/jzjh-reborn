@@ -3769,6 +3769,7 @@ endfunction
 */
 globals
 	constant integer interButtonKey = $AABBCC
+	constant integer interAbilityKey = $AABBDD
 	dialog array interDialog
 endglobals
 // 内化被动武学条件
@@ -3806,6 +3807,21 @@ function internalize takes nothing returns nothing
 	set p = null
 endfunction
 
+function refreshInterUI takes integer i returns nothing
+	local integer j = 1
+	local integer id = 0
+	
+	loop
+		exitwhen j > interAbilityCount[i]
+		set id = LoadInteger(YDHT, interAbilityKey + i, j)
+		if id != 0 and Player(i - 1) == GetLocalPlayer() then	
+			call interAbilityWidget[j].setTexture(EXExecuteScript("(require'jass.slk').ability[" + I2S(id) + "].Art"))
+		endif
+		set j = j + 1
+	endloop
+
+endfunction
+
 function doInternalize takes nothing returns nothing
 	local player p = GetTriggerPlayer()
 	local integer i = 1 + GetPlayerId(p)
@@ -3817,6 +3833,8 @@ function doInternalize takes nothing returns nothing
 			call DisplayTimedTextToPlayer(p, 0, 0, 30, "|cff00ff00内化武功：" + GetObjectName(I7[(i - 1) * 20 + j]))
 			set I7[(i - 1) * 20 + j] = 'AEfk'
 			set alreadyInternalizedCount[i] = alreadyInternalizedCount[i] + 1
+			call SaveInteger(YDHT, interAbilityKey + i, alreadyInternalizedCount[i], I7[(i - 1) * 20 + j])
+			call refreshInterUI(i)
 		endif
 		set j = j + 1
 	endloop

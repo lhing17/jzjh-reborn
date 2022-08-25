@@ -468,6 +468,8 @@ function doToggleShowEffect takes nothing returns nothing
 	endif
 endfunction
 
+
+
 function drawUI_Conditions takes nothing returns boolean
 	local integer index = 100
 	local integer ff0 = DzFrameGetHeroManaBar(0)
@@ -844,7 +846,7 @@ function drawUI_Conditions takes nothing returns boolean
 	call checkboxWidget[1].setAlpha(200)
 	
 	set checkboxWidget[2] = Frame.newImage1(GUI, "war3mapImported\\right.tga", 0.018, 0.024) // 对号
-	call checkboxWidget[2].setPoint(RIGHT, checkboxWidget[1], RIGHT, -0.006, 0.004)
+	call checkboxWidget[2].setPoint(RIGHT, checkboxWidget[1], RIGHT, - 0.006, 0.004)
 
 	set checkboxButton[1] = Frame.newTextButton(checkboxWidget[1])
 	call checkboxButton[1].setAllPoints(checkboxWidget[1])
@@ -855,7 +857,7 @@ function drawUI_Conditions takes nothing returns boolean
 	call checkboxWidget[3].setAlpha(200)
 
 	set checkboxWidget[4] = Frame.newImage1(GUI, "war3mapImported\\right.tga", 0.018, 0.024) // 对号
-	call checkboxWidget[4].setPoint(RIGHT, checkboxWidget[3], RIGHT, -0.006, 0.004)
+	call checkboxWidget[4].setPoint(RIGHT, checkboxWidget[3], RIGHT, - 0.006, 0.004)
 
 	set checkboxButton[2] = Frame.newTextButton(checkboxWidget[3])
 	call checkboxButton[2].setAllPoints(checkboxWidget[3])
