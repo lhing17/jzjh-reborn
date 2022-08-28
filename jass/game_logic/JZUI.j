@@ -48,6 +48,8 @@ globals
 	Frame array interAbilityWidget // 内化的技能按钮图片
 	Frame array interAbilityLock // 内化的技能按钮锁图片
 	Frame array interAbilityButton // 内化的技能按钮
+	Frame closeInterWidget // 关闭内化按钮图片
+	Frame closeInterButton // 关闭内化按钮
 
 
 	string array attrStr
@@ -237,20 +239,45 @@ function hideInterTip takes nothing returns nothing
 	endif
 endfunction
 
+function hideInterAbilityPanel takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call interAbilityPanel.hide()
+		call DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "|cffffcc00内化武功面板已关闭，你可以通过命令|r|cff00ff00showUI命令|r|cffffcc00再次打开内化武功面板|r")
+	endif
+endfunction
+
 function showInterTip takes nothing returns nothing
 	local integer i = 1 + GetPlayerId(DzGetTriggerUIEventPlayer())
 	local integer j = 1
 	local integer id = 0
+	local string name = ""
+	local string description = ""
 	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
 		loop
-			exitwhen j > alreadyInternalizedCount[i]
+			exitwhen j > MAX_INTER_ABILITY_COUNT
 			if DzGetTriggerUIEventFrame() == interAbilityButton[j].id then
-				set id = LoadInteger(YDHT, interAbilityKey + i, j)
-				call interAbilityWidget[101].setText(EXExecuteScript("(require'jass.slk').ability[" + I2S(id) + "].Tip"))
-				call interAbilityWidget[102].setText(EXExecuteScript("(require'jass.slk').ability[" + I2S(id) + "].Untip"))
-				call interAbilityWidget[101].setPoint(BOTTOM, interAbilityWidget[j], TOP, 0, 0.05)
-				call interAbilityWidget[102].setPoint(TOP, interAbilityWidget[101], BOTTOM, 0, -0.005)
-				call interAbilityWidget[100].show()
+				if j <= alreadyInternalizedCount[i] then
+					set id = LoadInteger(YDHT, interAbilityKey + i, j)
+					set name = YDWEGetUnitAbilityDataString(udg_hero[i], id, GetUnitAbilityLevel(udg_hero[i], id), 215)
+					set description = YDWEGetUnitAbilityDataString(udg_hero[i], id, GetUnitAbilityLevel(udg_hero[i], id), 218)
+					call interAbilityWidget[101].setText(name)
+					call interAbilityWidget[102].setText(description)
+					call interAbilityWidget[102].setPoint(BOTTOM, interAbilityWidget[j], TOP, 0, 0.03)
+					call interAbilityWidget[101].setPoint(BOTTOM, interAbilityWidget[102], TOP, 0, 0.005)
+					call interAbilityWidget[100].show()
+				elseif j > interAbilityCount[i] then
+					call interAbilityWidget[101].setText("|CFF00FFCD该功能需要解锁|r")
+					call interAbilityWidget[102].setText("请到网易对战平台商城购买解锁")
+					call interAbilityWidget[102].setPoint(BOTTOM, interAbilityWidget[j], TOP, 0, 0.03)
+					call interAbilityWidget[101].setPoint(BOTTOM, interAbilityWidget[102], TOP, 0, 0.005)
+					call interAbilityWidget[100].show()
+				else
+					call interAbilityWidget[101].setText("|CFF00FFCD可以内化被动武功|r")
+					call interAbilityWidget[102].setText("使用侠侣身上的技能选择要内化的被动武功，内化后的武功不可遗忘")
+					call interAbilityWidget[102].setPoint(BOTTOM, interAbilityWidget[j], TOP, 0, 0.03)
+					call interAbilityWidget[101].setPoint(BOTTOM, interAbilityWidget[102], TOP, 0, 0.005)
+					call interAbilityWidget[100].show()
+				endif
 			endif
 			set j = j + 1
 		endloop
@@ -723,7 +750,13 @@ function drawUI_Conditions takes nothing returns boolean
 	// 内化武功面板
 	set interAbilityPanel = Frame.newImage1(GUI, "war3mapImported\\inter.tga", 0.25, 0.09)
 	call interAbilityPanel.setPoint(CENTER, GUI, CENTER, 0, - 0.12)
-	// call interAbilityPanel.hide()
+
+	set closeInterWidget = Frame.newImage1(interAbilityPanel, "war3mapImported\\close0.tga", 0.018, 0.024)
+	call closeInterWidget.setPoint(CENTER, interAbilityPanel, TOPRIGHT, 0, -0.012)
+
+	set closeInterButton = Frame.newTextButton(closeInterWidget)
+	call closeInterButton.setAllPoints(closeInterWidget)
+	call closeInterButton.regEvent(FRAME_EVENT_PRESSED, function hideInterAbilityPanel)
 
 	// 内化武功图片
 	set interAbilityWidget[1] = Frame.newImage1(interAbilityPanel, "war3mapImported\\lock.tga", 0.035, 0.047)
@@ -774,10 +807,10 @@ function drawUI_Conditions takes nothing returns boolean
 	set interAbilityWidget[102] = Frame.newText1(interAbilityWidget[100], "", "TXA11")
 	call interAbilityWidget[102].setSize(0.16, 0)
 
-	call interAbilityWidget[100].setPoint(TOPLEFT, interAbilityWidget[101], TOPLEFT, -0.005, 0.005)
-	call interAbilityWidget[100].setPoint(BOTTOMRIGHT, interAbilityWidget[102], BOTTOMRIGHT, 0.005, -0.005)
-	call interAbilityWidget[101].setPoint(BOTTOM, interAbilityWidget[1], TOP, 0, 0.03)
-	call interAbilityWidget[102].setPoint(TOP, interAbilityWidget[101], BOTTOM, 0, -0.005)
+	call interAbilityWidget[100].setPoint(TOPLEFT, interAbilityWidget[101], TOPLEFT, - 0.005, 0.005)
+	call interAbilityWidget[100].setPoint(BOTTOMRIGHT, interAbilityWidget[102], BOTTOMRIGHT, 0.005, - 0.005)
+	call interAbilityWidget[102].setPoint(BOTTOM, interAbilityWidget[1], TOP, 0, 0.03)
+	call interAbilityWidget[101].setPoint(BOTTOM, interAbilityWidget[102], TOP, 0, 0.005)
 	
 	// 属性界面
 	set zwidget[14] = Frame.newImage1(GUI, "war3mapImported\\blackback.tga", 0.3, 0.4)
@@ -995,6 +1028,7 @@ function toggleUI takes nothing returns nothing
 		call DzFrameShow(DzFrameGetHeroBarButton(3), true)
 		call zwidget[12].hide()
 		call helpWidget.hide()
+		call interAbilityPanel.hide()
 	endif
 	if s == "showUI" and p == GetLocalPlayer() then
 		call DzFrameShow(DzFrameGetHeroBarButton(1), false)
@@ -1002,6 +1036,7 @@ function toggleUI takes nothing returns nothing
 		call DzFrameShow(DzFrameGetHeroBarButton(3), false)
 		call zwidget[12].show()
 		call helpWidget.show()
+		call interAbilityPanel.show()
 	endif
 
 	set p = null

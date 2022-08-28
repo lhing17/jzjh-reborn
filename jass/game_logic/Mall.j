@@ -38,11 +38,12 @@ function refreshInterUI takes integer i returns nothing
 			call interAbilityLock[j].hide()
 		endif
 		set id = LoadInteger(YDHT, interAbilityKey + i, j)
-		if id != 0 and Player(i - 1) == GetLocalPlayer() then	
-			
-			call interAbilityWidget[j].setTexture(EXExecuteScript("(require'jass.slk').ability[" + I2S(id) + "].Art"))
-            call interAbilityWidget[j].setAlpha(255)
-		endif
+        if Player(i - 1) == GetLocalPlayer() then	
+            if id != 0 and id != 'AEfk' then 
+                call interAbilityWidget[j].setTexture(EXExecuteScript("(require'jass.slk').ability[" + I2S(id) + "].Art"))
+                call interAbilityWidget[j].setAlpha(255)
+            endif
+        endif
 		set j = j + 1
 	endloop
 
