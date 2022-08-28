@@ -3778,7 +3778,23 @@ function isInternalize takes nothing returns boolean
 endfunction
 
 function canInternalize takes integer id returns boolean
-	return id == 'A07M' or id == 'A07M'
+	return id == 'A05G' or id == 'A07M' or id == 'S000' or id == 'A09E' \
+	or id == 'A09M' or id == 'A09U' or id == 'A0C9' or id == 'A0C8' \
+	or id == 'A0CA' or id == 'A08W' or id == 'A0CF' or id == 'A0CH' \
+	or id == 'A0CI' or id == 'A0CJ' or id == 'A0CK' or id == 'A0CD' \
+	or id == 'A0C7' or id == 'A0C2' or id == 'A04D' or id == 'A0BP' \
+	or id == 'A08T' or id == 'A02B' or id == 'A02G' or id == 'A0CC' \
+	or id == 'A07W' or id == 'A04M' or id == 'A04P' or id == 'A04R' \
+	or id == 'A059' or id == 'A056' or id == 'A08E' or id == 'A08G' \
+	or id == 'A06Y' or id == 'A070' or id == 'A0DP' or id == 'A09A' \
+	or id == 'A0B1' or id == 'A0BL' or id == 'A0DT' or id == 'A0EG' \
+	or id == 'A0EI' or id == ZAO_LEI_PI or id == BA_MIAN_LING_LONG or id == DA_GONG_GAO_CHENG \
+	or id == XUE_SHAN_JIAN_FA or id == JIN_WU_DAO_FA or id == XUAN_MING_SHEN_ZHANG \
+	or id == 'A07Q' or id == 'A07S' or id == 'A07T' or id == 'A07O' \
+	or id == 'A07R' or id == 'A082' or id == 'A084' or id == 'S002' \
+	or id == 'A07X' or id == 'A083' or id == 'A09D' or id == 'A0D2' \
+	or id == 'A0D6' or id == 'A0D1' or id == 'A0D3' or id == 'A03O' \
+	or id == 'A0CE' or id == 'A06S'
 endfunction
 
 // 内化被动武学动作
@@ -3788,7 +3804,7 @@ function internalize takes nothing returns nothing
 	local integer i = 1 + GetPlayerId(p)
 	local integer j = 1
 	if alreadyInternalizedCount[i] < interAbilityCount[i] then
-		call DialogSetMessage(K7[i], "请选择要内化的武功（内化后无法遗忘）！")
+		call DialogSetMessage(interDialog[i], "请选择要内化的武功（内化后无法遗忘）！")
 		
 		loop
 			exitwhen j > 11
@@ -3807,20 +3823,6 @@ function internalize takes nothing returns nothing
 	set p = null
 endfunction
 
-function refreshInterUI takes integer i returns nothing
-	local integer j = 1
-	local integer id = 0
-	
-	loop
-		exitwhen j > interAbilityCount[i]
-		set id = LoadInteger(YDHT, interAbilityKey + i, j)
-		if id != 0 and Player(i - 1) == GetLocalPlayer() then	
-			call interAbilityWidget[j].setTexture(EXExecuteScript("(require'jass.slk').ability[" + I2S(id) + "].Art"))
-		endif
-		set j = j + 1
-	endloop
-
-endfunction
 
 function doInternalize takes nothing returns nothing
 	local player p = GetTriggerPlayer()
@@ -3831,9 +3833,9 @@ function doInternalize takes nothing returns nothing
 		if GetClickedButton() == LoadButtonHandle(YDHT, interButtonKey + i, j) then
 			call SetPlayerAbilityAvailable(p, I7[(i - 1) * 20 + j], false)
 			call DisplayTimedTextToPlayer(p, 0, 0, 30, "|cff00ff00内化武功：" + GetObjectName(I7[(i - 1) * 20 + j]))
-			set I7[(i - 1) * 20 + j] = 'AEfk'
 			set alreadyInternalizedCount[i] = alreadyInternalizedCount[i] + 1
 			call SaveInteger(YDHT, interAbilityKey + i, alreadyInternalizedCount[i], I7[(i - 1) * 20 + j])
+			set I7[(i - 1) * 20 + j] = 'AEfk'
 			call refreshInterUI(i)
 		endif
 		set j = j + 1

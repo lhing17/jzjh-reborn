@@ -47,6 +47,7 @@ globals
 	Frame interAbilityPanel // 内化技能面板
 	Frame array interAbilityWidget // 内化的技能按钮图片
 	Frame array interAbilityLock // 内化的技能按钮锁图片
+	Frame array interAbilityButton // 内化的技能按钮
 
 
 	string array attrStr
@@ -227,6 +228,32 @@ endfunction
 function toggleWidget12 takes nothing returns nothing
 	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
 		call zwidget[12].toggerHover("ReplaceableTextures\\CommandButtons\\BTNesc.blp", "ReplaceableTextures\\CommandButtons\\BTNesc.blp")
+	endif
+endfunction
+
+function hideInterTip takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call interAbilityWidget[100].hide()
+	endif
+endfunction
+
+function showInterTip takes nothing returns nothing
+	local integer i = 1 + GetPlayerId(DzGetTriggerUIEventPlayer())
+	local integer j = 1
+	local integer id = 0
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		loop
+			exitwhen j > alreadyInternalizedCount[i]
+			if DzGetTriggerUIEventFrame() == interAbilityButton[j].id then
+				set id = LoadInteger(YDHT, interAbilityKey + i, j)
+				call interAbilityWidget[101].setText(EXExecuteScript("(require'jass.slk').ability[" + I2S(id) + "].Tip"))
+				call interAbilityWidget[102].setText(EXExecuteScript("(require'jass.slk').ability[" + I2S(id) + "].Untip"))
+				call interAbilityWidget[101].setPoint(BOTTOM, interAbilityWidget[j], TOP, 0, 0.05)
+				call interAbilityWidget[102].setPoint(TOP, interAbilityWidget[101], BOTTOM, 0, -0.005)
+				call interAbilityWidget[100].show()
+			endif
+			set j = j + 1
+		endloop
 	endif
 endfunction
 
@@ -693,6 +720,65 @@ function drawUI_Conditions takes nothing returns boolean
 	//call zwidget[13].setPoint(4, zwidget[12], 4, 0, 0)
 	
 	
+	// 内化武功面板
+	set interAbilityPanel = Frame.newImage1(GUI, "war3mapImported\\inter.tga", 0.25, 0.09)
+	call interAbilityPanel.setPoint(CENTER, GUI, CENTER, 0, - 0.12)
+	// call interAbilityPanel.hide()
+
+	// 内化武功图片
+	set interAbilityWidget[1] = Frame.newImage1(interAbilityPanel, "war3mapImported\\lock.tga", 0.035, 0.047)
+	call interAbilityWidget[1].setPoint(LEFT, interAbilityPanel, LEFT, 0.02, - 0.005)
+	call interAbilityWidget[1].setAlpha(0)
+
+	set interAbilityLock[1] = Frame.newImage1(interAbilityWidget[1], "war3mapImported\\lock.tga", 0.035, 0.047)
+	call interAbilityLock[1].setAllPoints(interAbilityWidget[1])
+	call interAbilityLock[1].setAlpha(150)
+
+	set index = 2
+	loop
+		exitwhen index > MAX_INTER_ABILITY_COUNT
+		set interAbilityWidget[index] = Frame.newImage1(interAbilityPanel, "war3mapImported\\lock.tga", 0.035, 0.047)
+		call interAbilityWidget[index].setPoint(LEFT, interAbilityWidget[index - 1], RIGHT, 0.002, 0)
+		call interAbilityWidget[index].setAlpha(0)
+
+		set interAbilityLock[index] = Frame.newImage1(interAbilityWidget[index], "war3mapImported\\lock.tga", 0.035, 0.047)
+		call interAbilityLock[index].setAllPoints(interAbilityWidget[index])
+		call interAbilityLock[index].setAlpha(150)
+		set index = index + 1
+	endloop
+
+	set index = 1
+	loop
+		exitwhen index > MAX_INTER_ABILITY_COUNT
+		set interAbilityButton[index] = Frame.newTextButton(interAbilityWidget[index])
+		call interAbilityButton[index].setAllPoints(interAbilityWidget[index])
+		call interAbilityButton[index].regEvent(FRAME_MOUSE_ENTER, function showInterTip)
+		call interAbilityButton[index].regEvent(FRAME_MOUSE_LEAVE, function hideInterTip)
+		set index = index + 1
+	endloop
+
+	set index = 1
+	loop
+		exitwhen index > 5
+		call refreshInterUI(index)
+		set index = index + 1
+	endloop
+
+	// 内化武功的说明
+	set interAbilityWidget[100] = Frame.newTips0(GUI, "tipbox")
+	call interAbilityWidget[100].hide()
+	
+	set interAbilityWidget[101] = Frame.newText1(interAbilityWidget[100], "", "TXA14")
+	call interAbilityWidget[101].setSize(0.16, 0)
+
+	set interAbilityWidget[102] = Frame.newText1(interAbilityWidget[100], "", "TXA11")
+	call interAbilityWidget[102].setSize(0.16, 0)
+
+	call interAbilityWidget[100].setPoint(TOPLEFT, interAbilityWidget[101], TOPLEFT, -0.005, 0.005)
+	call interAbilityWidget[100].setPoint(BOTTOMRIGHT, interAbilityWidget[102], BOTTOMRIGHT, 0.005, -0.005)
+	call interAbilityWidget[101].setPoint(BOTTOM, interAbilityWidget[1], TOP, 0, 0.03)
+	call interAbilityWidget[102].setPoint(TOP, interAbilityWidget[101], BOTTOM, 0, -0.005)
+	
 	// 属性界面
 	set zwidget[14] = Frame.newImage1(GUI, "war3mapImported\\blackback.tga", 0.3, 0.4)
 	call zwidget[14].setPoint(4, GUI, 4, 0.0, 0.03)
@@ -891,29 +977,6 @@ function drawUI_Conditions takes nothing returns boolean
 	call closeLevelButton.setAllPoints(closeLevelWidget)
 	call closeLevelButton.regEvent(FRAME_EVENT_PRESSED, function toggleLevelPopup)
 
-
-	// 内化武功面板
-	set interAbilityPanel = Frame.newImage1(GUI, "war3mapImported\\inter_ability_panel.tga", 0.45, 0.4)
-	call interAbilityPanel.setPoint(CENTER, GUI, CENTER, 0, 0)
-	call interAbilityPanel.hide()
-
-	// 内化武功图片
-	set interAbilityWidget[1] = Frame.newImage1(interAbilityPanel, "war3mapImported\\lock.tga", 0.09, 0.09)
-	call interAbilityWidget[1].setPoint(LEFT, interAbilityPanel, LEFT, 0.005, 0)
-
-	set interAbilityLock[1] = Frame.newImage1(interAbilityWidget[1], "war3mapImported\\lock.tga", 0.09, 0.09)
-	call interAbilityLock[1].setAllPoints(interAbilityWidget[1])
-
-	set index = 2
-	loop
-		exitwhen index > MAX_INTER_ABILITY_COUNT
-		set interAbilityWidget[index] = Frame.newImage1(interAbilityPanel, "war3mapImported\\lock.tga", 0.09, 0.09)
-		call interAbilityWidget[index].setPoint(LEFT, interAbilityWidget[index - 1], RIGHT, 0.005, 0)
-
-		set interAbilityLock[index] = Frame.newImage1(interAbilityWidget[index], "war3mapImported\\lock.tga", 0.09, 0.09)
-		call interAbilityLock[index].setAllPoints(interAbilityWidget[index])
-		set index = index + 1
-	endloop
 
 	
 	return false

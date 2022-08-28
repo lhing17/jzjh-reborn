@@ -84,6 +84,9 @@ function XinZheMeiShou_Action takes nothing returns nothing
 	local integer i = 1 + GetPlayerId(GetOwningPlayer(u))
 	local real j = RMaxBJ(7. - I2R(GetHeroAgi(u, true))/400., 0.5)
 	local real range = 500. + 50. * GetUnitAbilityLevel(u, 'A02B') + I2R(GetHeroStr(u, true)) / 10.
+	if range > 3000 then
+	    set range = 3000
+	endif
 	call UnitRemoveAbility(u, 'A02X')
 	call DestroyEffectEx(udg_zhemeieff)
 	set udg_zhemeieff = null

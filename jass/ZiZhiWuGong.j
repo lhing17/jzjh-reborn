@@ -199,8 +199,13 @@ function AllocateWuXueDian takes nothing returns nothing
 				call DisplayTextToPlayer(p,0,0,"|cFFFFCC00游坦之：|r |cFF99FFCC分配一点至伤害系数|r\n")
 			endif
 			if GetItemTypeId(GetManipulatedItem())=='I0BJ' then
-				set zizhiwugong[i].range = zizhiwugong[i].range +1
-				call DisplayTextToPlayer(p,0,0,"|cFFFFCC00游坦之：|r |cFF99FFCC分配一点至伤害范围|r\n")
+				if zizhiwugong[i].range >= 26 then
+					set wuxuedian[i] = wuxuedian[i] + 1
+					call DisplayTextToPlayer(p,0,0,"|cFFFFCC00游坦之：|r |cFF99FFCC少侠武功范围已达上限|r\n")
+				else
+					set zizhiwugong[i].range = zizhiwugong[i].range +1
+					call DisplayTextToPlayer(p,0,0,"|cFFFFCC00游坦之：|r |cFF99FFCC分配一点至武功范围|r\n")
+				endif
 			endif
 			if GetItemTypeId(GetManipulatedItem())=='I0BK' then
 				set zizhiwugong[i].dapeishu = zizhiwugong[i].dapeishu +1

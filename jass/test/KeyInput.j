@@ -446,16 +446,38 @@ function KeyInput takes nothing returns nothing
 			if I7[(i - 1) * 20 + j] == 'A034' then
 				set shanghai[j] = LoadReal(YDHT, 1 + GetPlayerId(p), 'A035' * 3)
 			endif
-			if shanghai[j] < 10000. then
-				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF" + GetAbilityName(I7[(i - 1) * 20 + j]) + "伤害：" + R2S(shanghai[j]))
-			elseif shanghai[j] < 100000000. then
-				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF" + GetAbilityName(I7[(i - 1) * 20 + j]) + "伤害：" + R2S(shanghai[j] / 10000.) + "万")
-			elseif shanghai[j] / 10000. < 100000000. then
-				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF" + GetAbilityName(I7[(i - 1) * 20 + j]) + "伤害：" + R2S(shanghai[j] / 100000000.) + "亿")
-			elseif shanghai[j] / 100000000. < 100000000. then
-				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF" + GetAbilityName(I7[(i - 1) * 20 + j]) + "伤害：" + R2S(shanghai[j] / 100000000. / 10000.) + "万亿")
-			else
-				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF" + GetAbilityName(I7[(i - 1) * 20 + j]) + "伤害：" + R2S(shanghai[j] / 100000000. / 100000000.) + "亿亿")
+			if I7[(i - 1) * 20 + j] != 'AEfk' and shanghai[j] > 0 then
+				if shanghai[j] < 10000. then
+					call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF" + GetAbilityName(I7[(i - 1) * 20 + j]) + "伤害：" + R2S(shanghai[j]))
+				elseif shanghai[j] < 100000000. then
+					call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF" + GetAbilityName(I7[(i - 1) * 20 + j]) + "伤害：" + R2S(shanghai[j] / 10000.) + "万")
+				elseif shanghai[j] / 10000. < 100000000. then
+					call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF" + GetAbilityName(I7[(i - 1) * 20 + j]) + "伤害：" + R2S(shanghai[j] / 100000000.) + "亿")
+				elseif shanghai[j] / 100000000. < 100000000. then
+					call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF" + GetAbilityName(I7[(i - 1) * 20 + j]) + "伤害：" + R2S(shanghai[j] / 100000000. / 10000.) + "万亿")
+				else
+					call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF" + GetAbilityName(I7[(i - 1) * 20 + j]) + "伤害：" + R2S(shanghai[j] / 100000000. / 100000000.) + "亿亿")
+				endif
+			endif
+			set j = j + 1
+		endloop
+		set j = 1
+		loop
+			exitwhen j > alreadyInternalizedCount[i]
+			// 内化武功的伤害
+			set shanghai[j] = LoadReal(YDHT, 1 + GetPlayerId(p), LoadInteger(YDHT, interAbilityKey + i, j))
+			if LoadInteger(YDHT, interAbilityKey + i, j) != 'AEfk' and shanghai[j] > 0 then
+				if shanghai[j] < 10000. then
+					call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF" + GetAbilityName(LoadInteger(YDHT, interAbilityKey + i, j)) + "伤害：" + R2S(shanghai[j]))
+				elseif shanghai[j] < 100000000. then
+					call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF" + GetAbilityName(LoadInteger(YDHT, interAbilityKey + i, j)) + "伤害：" + R2S(shanghai[j] / 10000.) + "万")
+				elseif shanghai[j] / 10000. < 100000000. then
+					call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF" + GetAbilityName(LoadInteger(YDHT, interAbilityKey + i, j)) + "伤害：" + R2S(shanghai[j] / 100000000.) + "亿")
+				elseif shanghai[j] / 100000000. < 100000000. then
+					call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF" + GetAbilityName(LoadInteger(YDHT, interAbilityKey + i, j)) + "伤害：" + R2S(shanghai[j] / 100000000. / 10000.) + "万亿")
+				else
+					call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF" + GetAbilityName(LoadInteger(YDHT, interAbilityKey + i, j)) + "伤害：" + R2S(shanghai[j] / 100000000. / 100000000.) + "亿亿")
+				endif
 			endif
 			set j = j + 1
 		endloop

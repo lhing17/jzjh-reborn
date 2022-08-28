@@ -55,6 +55,13 @@ library FrameLibrary initializer init
             call SaveInteger(HT, FRAME_ID, f.id, f)
             return f
         endmethod
+        static method newTips0 takes Frame parent, string path returns Frame
+            local Frame f = Frame.allocate()
+            call f.numadd()
+            set f.id = DzCreateFrameByTagName("BACKDROP", "Frame_Image" + I2S(num), parent.id, path, 0)
+            call SaveInteger(HT, FRAME_ID, f.id, f)
+            return f
+        endmethod
         static method newTips takes Frame parent, string path, real w, real h returns Frame
             local Frame f = Frame.allocate()
             call f.numadd()
