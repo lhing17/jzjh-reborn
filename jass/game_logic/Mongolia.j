@@ -85,6 +85,12 @@ function openDenomDialogHandler takes nothing returns nothing
     loop
         exitwhen k > 6
         if GetClickedButton() == LoadButtonHandle(YDHT, openDenomButtonKey + i, k) then
+            if k == 6 then
+                call UnitAddItemById(P4[i], 'I0F2')
+                call FlushChildHashtable(YDHT, openDenomButtonKey + i)
+                call DialogClear(openDenomDialog[i])
+                return
+            endif
             set id = LoadInteger(YDHT, openDenomButtonKey + i, k)
             if GetUnitAbilityLevel(udg_hero[i], id) > 0 then
                 call DisplayTextToPlayer(p, 0, 0, "|CFFFF0033你已经拥有此武功了")
