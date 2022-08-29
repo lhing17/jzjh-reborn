@@ -57,7 +57,7 @@ endfunction
 
 function TieShaZhang takes nothing returns nothing
     local integer i = 1 + GetPlayerId(GetOwningPlayer(GetAttacker()))
-	call PassiveWuGongAction(GetAttacker(), GetTriggerUnit(), 18 + fuyuan[i] * 0.2, RMinBJ(600 + danpo[i] * 10, 5000), Condition(function TieSha_Condition), function TieSha_Action, 'A06Y', 900.)
+	call PassiveWuGongAction(GetAttacker(), GetTriggerUnit(), 18 + fuyuan[i] * 0.2, RMinBJ(600 + danpo[i] * 10, 3000), Condition(function TieSha_Condition), function TieSha_Action, 'A06Y', 900.)
 endfunction
 
 /*
