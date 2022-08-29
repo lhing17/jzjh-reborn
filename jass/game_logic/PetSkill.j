@@ -68,11 +68,23 @@ function fastDrop takes nothing returns nothing
 endfunction
 
 function isPetMove takes nothing returns boolean
-	return (GetIssuedOrderId()==$D0012 or GetIssuedOrderId() == $D0003) and (GetUnitTypeId(GetTriggerUnit()) == 'n00W' or GetUnitTypeId(GetTriggerUnit()) == 'n00V' or GetUnitTypeId(GetTriggerUnit()) == 'nvul')
+	return (GetIssuedOrderId() == $D0012 or GetIssuedOrderId() == $D0003) and (GetUnitTypeId(GetTriggerUnit()) == 'n00W' or GetUnitTypeId(GetTriggerUnit()) == 'n00V' or GetUnitTypeId(GetTriggerUnit()) == 'nvul')
 endfunction
 
 function petMove takes nothing returns nothing
-	call IssuePointOrderById(GetTriggerUnit(), $D022D, GetOrderPointX(), GetOrderPointY())
+	local real x = GetUnitX(GetTriggerUnit())
+	local real y = GetUnitY(GetTriggerUnit())
+	local real dx = 0
+	local real dy = 0
+	if GetOrderTarget() != null then
+		set dx =  GetWidgetX(GetOrderTarget()) - x
+		set dy =  GetWidgetY(GetOrderTarget()) - y
+		if SquareRoot(dx * dx + dy * dy) > 200 then
+			call IssuePointOrderById(GetOrderedUnit(), $D022D, GetWidgetX(GetOrderTarget()), GetWidgetY(GetOrderTarget()))
+		endif
+	else
+		call IssuePointOrderById(GetTriggerUnit(), $D022D, GetOrderPointX(), GetOrderPointY())
+	endif
 endfunction
 
 function initPetSkill takes nothing returns nothing
