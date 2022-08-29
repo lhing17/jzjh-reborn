@@ -23,10 +23,5 @@
                 预设: OperatorLessEq
                 常量: 15.00
 动作
-    SetUnitLifePercentBJ
-        函数: GetTriggerUnit
-        函数: OperatorReal
-            函数: GetUnitLifePercent
-                函数: GetTriggerUnit
-            预设: OperatorMultiply
-            常量: 0.90
+    CustomScriptCode
+        常量: 'call percentDamage(GetTriggerUnit(), 10, false)'
