@@ -38,6 +38,7 @@ function KeyInput takes nothing returns nothing
 	local string spilt = ""
 	local string tgs_menpai = "" // 单通门派显示字符串
 	local string tgm_menpai = "" // 多通门派显示字符串
+	local integer count = 0
 	if s == "+" then
 		call SetCameraFieldForPlayer(p, CAMERA_FIELD_TARGET_DISTANCE, (GetCameraField(CAMERA_FIELD_TARGET_DISTANCE) + 200.00), 1.00)
 	endif
@@ -225,7 +226,19 @@ function KeyInput takes nothing returns nothing
 		set j = 1
 		loop
 			exitwhen j > wugongshu[i]
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF" + GetAbilityName(I7[(i - 1) * 20 + j]) + "第" + I2S(GetUnitAbilityLevel(udg_hero[i], I7[(i - 1) * 20 + j])) + "重，升级进度：" + LoadStr(YDHT, GetHandleId(p), I7[(i - 1) * 20 + j] * 2))
+			if I7[(i - 1) * 20 + j] != 'AEfk' then
+				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF" + GetAbilityName(I7[(i - 1) * 20 + j]) + "第" + I2S(GetUnitAbilityLevel(udg_hero[i], I7[(i - 1) * 20 + j])) + "重，升级进度：" + LoadStr(YDHT, GetHandleId(p), I7[(i - 1) * 20 + j] * 2))
+			endif
+			set j = j + 1
+		endloop
+
+		set j = 1
+		loop
+			exitwhen j > alreadyInternalizedCount[i]
+			// 内化武功的升重进度
+			if LoadInteger(YDHT, interAbilityKey + i, j) != 'AEfk' then
+				call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF" + GetAbilityName(LoadInteger(YDHT, interAbilityKey + i, j)) + "第" + I2S(GetUnitAbilityLevel(udg_hero[i], LoadInteger(YDHT, interAbilityKey + i, j))) + "重，升级进度：" + LoadStr(YDHT, GetHandleId(p), LoadInteger(YDHT, interAbilityKey + i, j) * 2))
+			endif
 			set j = j + 1
 		endloop
 		call DisplayTextToPlayer(p, 0, 0, "|cFFcc99ff〓〓〓〓〓〓〓〓〓〓〓")
@@ -440,6 +453,7 @@ function KeyInput takes nothing returns nothing
 	//endif
 	if s == "ck" or s == "cksh" then
 		set j = 1
+		set count = 0
 		loop
 			exitwhen j > wugongshu[i]
 			set shanghai[j] = LoadReal(YDHT, 1 + GetPlayerId(p), I7[(i - 1) * 20 + j] * 3)
@@ -447,6 +461,7 @@ function KeyInput takes nothing returns nothing
 				set shanghai[j] = LoadReal(YDHT, 1 + GetPlayerId(p), 'A035' * 3)
 			endif
 			if I7[(i - 1) * 20 + j] != 'AEfk' and shanghai[j] > 0 then
+				set count = count + 1
 				if shanghai[j] < 10000. then
 					call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF" + GetAbilityName(I7[(i - 1) * 20 + j]) + "伤害：" + R2S(shanghai[j]))
 				elseif shanghai[j] < 100000000. then
@@ -465,8 +480,9 @@ function KeyInput takes nothing returns nothing
 		loop
 			exitwhen j > alreadyInternalizedCount[i]
 			// 内化武功的伤害
-			set shanghai[j] = LoadReal(YDHT, 1 + GetPlayerId(p), LoadInteger(YDHT, interAbilityKey + i, j))
+			set shanghai[j] = LoadReal(YDHT, 1 + GetPlayerId(p), LoadInteger(YDHT, interAbilityKey + i, j) * 3)
 			if LoadInteger(YDHT, interAbilityKey + i, j) != 'AEfk' and shanghai[j] > 0 then
+				set count = count + 1
 				if shanghai[j] < 10000. then
 					call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF" + GetAbilityName(LoadInteger(YDHT, interAbilityKey + i, j)) + "伤害：" + R2S(shanghai[j]))
 				elseif shanghai[j] < 100000000. then
@@ -481,6 +497,9 @@ function KeyInput takes nothing returns nothing
 			endif
 			set j = j + 1
 		endloop
+		if count == 0 then
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF暂时没有有伤害的武功")
+		endif
 	endif
 	if s == "1" and GetUnitAbilityLevel(udg_hero[i], 'A07W') > 0 and IsUnitAliveBJ(udg_hero[i]) then
 		if qiankunCd[i] then

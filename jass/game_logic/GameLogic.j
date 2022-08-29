@@ -3794,7 +3794,7 @@ function canInternalize takes integer id returns boolean
 	or id == 'A07R' or id == 'A082' or id == 'A084' or id == 'S002' \
 	or id == 'A07X' or id == 'A083' or id == 'A09D' or id == 'A0D2' \
 	or id == 'A0D6' or id == 'A0D1' or id == 'A0D3' or id == 'A03O' \
-	or id == 'A0CE' or id == 'A06S'
+	or id == 'A0CE' or id == 'A06S' or id == 'A036'
 endfunction
 
 // 内化被动武学动作
