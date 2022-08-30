@@ -221,11 +221,11 @@ function jianghuLevelAward takes integer i returns nothing
 		call ModifyHeroStat(bj_HEROSTAT_AGI, udg_hero[i], bj_MODIFYMETHOD_ADD, 10)
 		call ModifyHeroStat(bj_HEROSTAT_INT, udg_hero[i], bj_MODIFYMETHOD_ADD, 10)
 	endif
-	if level >= 15000 then 
+	if level >= 15000 then
 		set jianghuLevel[i] = 2
 		set special_attack[i] = special_attack[i] + 2
 	endif
-	if level >= 30000 then 
+	if level >= 30000 then
 		set jianghuLevel[i] = 3
 		set wuxing[i] = wuxing[i] + 1
 		set gengu[i] = gengu[i] + 1
@@ -234,25 +234,25 @@ function jianghuLevelAward takes integer i returns nothing
 		set jingmai[i] = jingmai[i] + 1
 		set yishu[i] = yishu[i] + 1
 	endif
-	if level >= 50000 then 
+	if level >= 50000 then
 		set jianghuLevel[i] = 4
 		set udg_baojilv[i] = udg_baojilv[i] + 0.02
 	endif
-	if level >= 75000 then 
+	if level >= 75000 then
 		set jianghuLevel[i] = 5
 		set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + 0.02
 	endif
-	if level >= 105000 then 
+	if level >= 105000 then
 		set jianghuLevel[i] = 6
 		call ModifyHeroStat(bj_HEROSTAT_STR, udg_hero[i], bj_MODIFYMETHOD_ADD, 15)
 		call ModifyHeroStat(bj_HEROSTAT_AGI, udg_hero[i], bj_MODIFYMETHOD_ADD, 15)
 		call ModifyHeroStat(bj_HEROSTAT_INT, udg_hero[i], bj_MODIFYMETHOD_ADD, 15)
 	endif
-	if level >= 140000 then 
+	if level >= 140000 then
 		set jianghuLevel[i] = 7
 		set special_attack[i] = special_attack[i] + 3
 	endif
-	if level >= 180000 then 
+	if level >= 180000 then
 		set jianghuLevel[i] = 8
 		set wuxing[i] = wuxing[i] + 1
 		set gengu[i] = gengu[i] + 1
@@ -261,25 +261,25 @@ function jianghuLevelAward takes integer i returns nothing
 		set jingmai[i] = jingmai[i] + 1
 		set yishu[i] = yishu[i] + 1
 	endif
-	if level >= 225000 then 
+	if level >= 225000 then
 		set jianghuLevel[i] = 9
 		set udg_baojilv[i] = udg_baojilv[i] + 0.03
 	endif
-	if level >= 275000 then 
+	if level >= 275000 then
 		set jianghuLevel[i] = 10
 		set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + 0.03
 	endif
-	if level >= 330000 then 
+	if level >= 330000 then
 		set jianghuLevel[i] = 11
 		call ModifyHeroStat(bj_HEROSTAT_STR, udg_hero[i], bj_MODIFYMETHOD_ADD, 10)
 		call ModifyHeroStat(bj_HEROSTAT_AGI, udg_hero[i], bj_MODIFYMETHOD_ADD, 10)
 		call ModifyHeroStat(bj_HEROSTAT_INT, udg_hero[i], bj_MODIFYMETHOD_ADD, 10)
 	endif
-	if level >= 390000 then 
+	if level >= 390000 then
 		set jianghuLevel[i] = 12
 		set special_attack[i] = special_attack[i] + 2
 	endif
-	if level >= 455000 then 
+	if level >= 455000 then
 		set jianghuLevel[i] = 13
 		set wuxing[i] = wuxing[i] + 1
 		set gengu[i] = gengu[i] + 1
@@ -288,25 +288,25 @@ function jianghuLevelAward takes integer i returns nothing
 		set jingmai[i] = jingmai[i] + 1
 		set yishu[i] = yishu[i] + 1
 	endif
-	if level >= 525000 then 
+	if level >= 525000 then
 		set jianghuLevel[i] = 14
 		set udg_baojilv[i] = udg_baojilv[i] + 0.02
 	endif
-	if level >= 600000 then 
+	if level >= 600000 then
 		set jianghuLevel[i] = 15
 		set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + 0.02
 	endif
-	if level >= 680000 then 
+	if level >= 680000 then
 		set jianghuLevel[i] = 16
 		call ModifyHeroStat(bj_HEROSTAT_STR, udg_hero[i], bj_MODIFYMETHOD_ADD, 15)
 		call ModifyHeroStat(bj_HEROSTAT_AGI, udg_hero[i], bj_MODIFYMETHOD_ADD, 15)
 		call ModifyHeroStat(bj_HEROSTAT_INT, udg_hero[i], bj_MODIFYMETHOD_ADD, 15)
 	endif
-	if level >= 765000 then 
+	if level >= 765000 then
 		set jianghuLevel[i] = 17
 		set special_attack[i] = special_attack[i] + 3
 	endif
-	if level >= 855000 then 
+	if level >= 855000 then
 		set jianghuLevel[i] = 18
 		set wuxing[i] = wuxing[i] + 1
 		set gengu[i] = gengu[i] + 1
@@ -315,7 +315,7 @@ function jianghuLevelAward takes integer i returns nothing
 		set jingmai[i] = jingmai[i] + 1
 		set yishu[i] = yishu[i] + 1
 	endif
-	if level >= 950000 then 
+	if level >= 950000 then
 		set jianghuLevel[i] = 19
 		set udg_baojilv[i] = udg_baojilv[i] + 0.03
 	endif
@@ -568,8 +568,8 @@ function SelectHero takes nothing returns nothing
 
 			// 江湖等级奖励
 			call jianghuLevelAward(i)
-			
-			
+
+
 			set O4 = O4 + 1
 			call RemoveLocation(Q4)
 			call DisplayTimedTextToPlayer(p, 0, 0, 10., "|CFF00FFFF提示：|r输入|CFF00EE00-random|r可随机选择门派|r")
@@ -654,7 +654,7 @@ endfunction
 function JiaRuMenPai takes nothing returns nothing
 	local unit u = GetTriggerUnit()
 	local player p = GetOwningPlayer(u)
-	local integer i = 1 + GetPlayerId(p)   
+	local integer i = 1 + GetPlayerId(p)
 	if((udg_runamen[i] != 0))then
 		if udg_runamen[i] == 11 and GetUnitLevel(u) <= 2 and GetPlayerState(p, PLAYER_STATE_RESOURCE_LUMBER) >= 60 then
 			// 自由改投慕容
@@ -664,8 +664,8 @@ function JiaRuMenPai takes nothing returns nothing
 				call SetPlayerName(p, "〓姑苏慕容〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 				call AdjustPlayerStateBJ(- 60, p, PLAYER_STATE_RESOURCE_LUMBER)
 			endif
-			
-			
+
+
 			// 自由改投铁掌帮
 			if GetItemTypeId(GetManipulatedItem()) == 'I0E1' then
 				if tiezhang_flag[i] == 1 then
@@ -674,7 +674,7 @@ function JiaRuMenPai takes nothing returns nothing
 					set udg_runamen[i] = 19
 					call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15., "|CFFff9933玩家" + GetPlayerName(p) + "改拜入了〓铁掌帮〓，大家一起膜拜他|r")
 					call SetPlayerName(p, "〓铁掌帮〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-					
+
 					set udg_shuxing[i] = udg_shuxing[i] - 5
 					call AdjustPlayerStateBJ(- 60, p, PLAYER_STATE_RESOURCE_LUMBER)
 					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00选择铁掌帮")
@@ -682,7 +682,7 @@ function JiaRuMenPai takes nothing returns nothing
 					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00尚未解锁，不能选择铁掌帮")
 				endif
 			endif
-			
+
 			// 自由改投唐门
 			if GetItemTypeId(GetManipulatedItem()) == 'I0EO' then
 				if tangmen_flag[i] == 1 then
@@ -691,7 +691,7 @@ function JiaRuMenPai takes nothing returns nothing
 					set udg_runamen[i] = 20
 					call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15., "|CFFff9933玩家" + GetPlayerName(p) + "改拜入了〓唐门〓，大家一起膜拜他|r")
 					call SetPlayerName(p, "〓唐门〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-					
+
 					set udg_shuxing[i] = udg_shuxing[i] - 5
 					call AdjustPlayerStateBJ(- 60, p, PLAYER_STATE_RESOURCE_LUMBER)
 					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00选择唐门")
@@ -707,7 +707,7 @@ function JiaRuMenPai takes nothing returns nothing
 					call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15., "|CFFff9933玩家" + GetPlayerName(p) + "改拜入了〓五毒教〓，大家一起膜拜他|r")
 					call SetPlayerName(p, "〓五毒教〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 					call UnitAddItemById(udg_hero[i], ITEM_HAN_SHA)
-					
+
 					set udg_shuxing[i] = udg_shuxing[i] - 5
 					call AdjustPlayerStateBJ(- 60, p, PLAYER_STATE_RESOURCE_LUMBER)
 					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00选择五毒教")
@@ -722,10 +722,10 @@ function JiaRuMenPai takes nothing returns nothing
 					set udg_runamen[i] = 22
 					call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15., "|CFFff9933玩家" + GetPlayerName(p) + "改拜入了〓桃花岛〓，大家一起膜拜他|r")
 					call SetPlayerName(p, "〓桃花岛〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-					
+
 					call SaveInteger(YDHT, GetHandleId(udg_hero[i]), BI_BO_POINT, 50)
 					if Player(i - 1) == GetLocalPlayer() then
-						call bibo_image.show()					
+						call bibo_image.show()
 					endif
 					set udg_shuxing[i] = udg_shuxing[i] - 5
 					call AdjustPlayerStateBJ(- 60, p, PLAYER_STATE_RESOURCE_LUMBER)
@@ -741,7 +741,7 @@ function JiaRuMenPai takes nothing returns nothing
 					set udg_runamen[i] = 25
 					call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15., "|CFFff9933玩家" + GetPlayerName(p) + "改拜入了〓汝阳王府〓，大家一起膜拜他|r")
 					call SetPlayerName(p, "〓汝阳王府〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-					
+
 					set udg_shuxing[i] = udg_shuxing[i] - 5
 					call AdjustPlayerStateBJ(- 60, p, PLAYER_STATE_RESOURCE_LUMBER)
 					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00选择汝阳王府")
@@ -973,7 +973,7 @@ function JiaRuMenPai takes nothing returns nothing
 			call UnitAddAbility(u, 'A05R')
 			call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
 			call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
-		
+
 			if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
 				call UnitAddAbility(u, 'A040')
 				call UnitAddAbility(u, 'A041')
@@ -1346,7 +1346,7 @@ function TiaoZhanMoshi_Action takes nothing returns nothing
 		set udg_teshushijian = true
 		set udg_sutong = false
 		set tiaoZhanIndex = 3
-		
+
 		set ShiFouShuaGuai = false // 无尽BOSS战模式不刷怪
 	endif
 	// 已选挑战模式
@@ -1448,12 +1448,12 @@ function ChooseNanDu_Action takes nothing returns nothing
 		set get_zdl = 15
 		set topDegreeFlag = true
 	endif
-	if udg_boshu < 5 then 
+	if udg_boshu < 5 then
 		set nanduFlag = 1
 	else
-		set nanduFlag = 2 
+		set nanduFlag = 2
 	endif
-	
+
 endfunction
 
 /*
@@ -1467,7 +1467,7 @@ function SystemWindow takes nothing returns nothing
 	call MultiboardSetItemsStyle(bj_lastCreatedMultiboard, true, false)
 	call MultiboardSetItemsWidth(bj_lastCreatedMultiboard, .07)
 	set i = 1
-	
+
 	loop
 		exitwhen i >= 6
 		if udg_MaxDamage[i] < 10000. then
@@ -1554,7 +1554,7 @@ function uuyy takes nothing returns nothing
 	local string s = null
 	local string title = ""
 	set i = 1
-	
+
 	loop
 		exitwhen i >= 6
 		if udg_MaxDamage[i] < 10000. then
@@ -1847,9 +1847,9 @@ function Victory takes nothing returns nothing
 	local integer id = GetHandleId(GetTriggeringTrigger())
 	local integer cx = LoadInteger(YDHT, id, - $3021938A)
 	local integer i = 0
-	
-	
-	
+
+
+
 	set cx = cx + 3
 	call SaveInteger(YDHT, id, - $3021938A, cx)
 	call SaveInteger(YDHT, id, - $1317DA19, cx)
@@ -1861,8 +1861,8 @@ function Victory takes nothing returns nothing
 			set i = i + 1
 		endloop
 	else
-		
-		
+
+
 		// 速通模式3倍积分
 		if tiaoZhanIndex == 1 then
 			set get_zdl = get_zdl * 3
@@ -1886,7 +1886,7 @@ function Victory takes nothing returns nothing
 		endif
 		set get_zdl = get_zdl * ( 1 + activityPointAddition)
 		set damage_jf = damage_jf * ( 1 + activityPointAddition)
-		
+
 		set i = 1
 		loop
 			exitwhen i >= 6
@@ -1927,21 +1927,21 @@ function Victory takes nothing returns nothing
 						exitwhen StringLength(manySuccess[i - 1]) >= DENOMINATION_NUMBER
 						set manySuccess[i - 1] = manySuccess[i - 1] + "0"
 					endloop
-					
+
 					// 单通
 					if udg_wanjiashu == 1 then
 						set singleSuccess[i - 1] = SubString(singleSuccess[i - 1], 0, udg_runamen[i] - 1) + "1" + SubString(singleSuccess[i - 1], udg_runamen[i], DENOMINATION_NUMBER)
 						call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFF99CC00本局单通门派：" + udg_menpainame[udg_runamen[i]])
 						call DzAPI_Map_StoreString(Player(i - 1), "singleSuccess", singleSuccess[i - 1])
 					endif
-					
+
 					// 多通（单通也算多通）
 					if udg_wanjiashu >= 1 then
 						set manySuccess[i - 1] = SubString(manySuccess[i - 1], 0, udg_runamen[i] - 1) + "1" + SubString(manySuccess[i - 1], udg_runamen[i], DENOMINATION_NUMBER)
 						call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFF99CC00本局多通门派：" + udg_menpainame[udg_runamen[i]])
 						call DzAPI_Map_StoreString(Player(i - 1), "manySuccess", manySuccess[i - 1])
 					endif
-					
+
 				endif
 				if tiaoZhanIndex == 3 then
 					call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFF99CC00当前击败无尽BOSS数：" + I2S(endless_count))
@@ -1968,7 +1968,7 @@ function Victory takes nothing returns nothing
 	if tiaoZhanIndex != 3 then
 		// 获胜标识
 		set is_victory = true
-		
+
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, ("|CFFFF00B2决战江湖" + VERSION + "的游戏总评分：" + (I2S(ae) + "分（通关）")))
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF00B2恭喜你们通关，游戏将在2分钟后结束\n游戏专区论坛：jzjhbbs.uuu9.com\n游戏交流QQ群：159030768  369925013  341305274\n关注武侠，让决战江湖走得更远，期待你的参与，详情请在专区论坛查询")
 		set de = true
@@ -2040,8 +2040,8 @@ endfunction
 function PlayerReviveA takes nothing returns nothing
 	local real x = GetUnitX(udg_hero[1])
 	local real y = GetUnitY(udg_hero[1])
-	
-	
+
+
 	call DestroyTimerDialog(R7[1])
 	set Q4 = GetRectCenter(He)
 	if GetUnitAbilityLevel(udg_hero[1], GUI_XI_GONG) >= 1 and GetUnitAbilityLevel(udg_hero[1], DA_GONG_GAO_CHENG) >= 1 then
@@ -2050,7 +2050,7 @@ function PlayerReviveA takes nothing returns nothing
 		call ReviveHeroLoc(udg_hero[1], Q4, true)
 		call PanCameraToTimedLocForPlayer(GetOwningPlayer(udg_hero[1]), Q4, 0)
 	endif
-	
+
 	call RemoveLocation(Q4)
 	set he[1] = false
 	if(((UnitHaveItem(udg_hero[1], 'I02S'))or(UnitHaveItem(udg_hero[1], 1227895373))or(UnitHaveItem(udg_hero[1], 1227895377))or(UnitHaveItem(udg_hero[1], 1227895378))or(UnitHaveItem(udg_hero[1], 1227895376))))then
@@ -2217,7 +2217,7 @@ function EA takes nothing returns nothing
 		//call BJDebugMsg(GetUnitName(GetTriggerUnit()))
 		//call BJDebugMsg(I2S(GetUnitTypeId(GetTriggerUnit())))
 		loop
-			
+
 			exitwhen s7 > (nn7 + o7)
 			if((GetTriggerUnit() == r7[s7]))then
 				if((s7 <= nn7))then
@@ -2370,7 +2370,7 @@ function HA takes nothing returns nothing
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF0033邪教趁我方不备，偷偷地派出BOSS从背后杀过来了，请准备防御")
 		endif
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF0033邪教趁我方不备，偷偷地从背后杀过来了")
-		
+
 	endif
 	if((ModuloInteger(udg_boshu, 4) == 0)and(udg_boshu < 30))then
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF0033邪教派出BOSS前来进攻，请准备防御")
@@ -2516,21 +2516,21 @@ function lA takes nothing returns nothing
 		call mutatedAttacker(bj_lastCreatedUnit)
 	endif
 	call IssuePointOrderByIdLoc(bj_lastCreatedUnit, $D000F, v7[4])
-	
+
 	call CreateNUnitsAtLocFacingLocBJ(1, y7[udg_boshu], Player(6), v7[7], v7[4])
 	call GroupAddUnit(w7, bj_lastCreatedUnit)
 	if GetRandomInt(70, 100) == 87 then
 		call mutatedAttacker(bj_lastCreatedUnit)
 	endif
 	call IssuePointOrderByIdLoc(bj_lastCreatedUnit, $D000F, v7[4])
-	
+
 	call CreateNUnitsAtLocFacingLocBJ(1, y7[udg_boshu], Player(6), v7[5], v7[4])
 	call GroupAddUnit(w7, bj_lastCreatedUnit)
 	if GetRandomInt(70, 100) == 87 then
 		call mutatedAttacker(bj_lastCreatedUnit)
 	endif
 	call IssuePointOrderByIdLoc(bj_lastCreatedUnit, $D000F, v7[4])
-	
+
 	if LevelGuoGao() then
 		call CreateNUnitsAtLocFacingLocBJ(1, y7[udg_boshu], Player(6), v7[6], v7[4])
 		call GroupAddUnit(w7, bj_lastCreatedUnit)
@@ -2550,7 +2550,7 @@ function KA takes nothing returns nothing
 		call mutatedAttacker(bj_lastCreatedUnit)
 	endif
 	call IssuePointOrderByIdLoc(bj_lastCreatedUnit, $D000F, v7[3])
-	
+
 	if LevelGuoGao() then
 		call CreateNUnitsAtLocFacingLocBJ(1, y7[(udg_boshu + 1)], Player(6), v7[8], v7[3])
 		call GroupAddUnit(w7, bj_lastCreatedUnit)
@@ -2617,7 +2617,7 @@ function RA takes nothing returns nothing
 	//set x7=0
 endfunction
 function TA takes nothing returns nothing
-	local integer i = 0 
+	local integer i = 0
 	call DestroyTimerDialog(z7[3])
 	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cFFDDA0DD西域邪教开始了进攻正派武林，玩家务必要确保正派武林不被摧毁，否则游戏失败|r")
 	if udg_teshushijian and tiaoZhanIndex != 3 then
@@ -2801,7 +2801,7 @@ endfunction
 
 // 鸟使用地图指令
 function isCmd takes nothing returns boolean
-	return GetSpellAbilityId() == 'A0DZ' 
+	return GetSpellAbilityId() == 'A0DZ'
 endfunction
 
 function cmd takes nothing returns nothing
@@ -2820,9 +2820,9 @@ function cmd takes nothing returns nothing
 			set j = j + 1
 		endloop
 		call DisplayTextToPlayer(p, 0, 0, "|cFFcc99ff〓〓〓〓〓〓〓〓〓〓〓")
-		
+
 	endif
-	
+
 	set u = null
 	set p = null
 endfunction
@@ -2866,7 +2866,7 @@ function HeroLevel takes nothing returns nothing
 			call SetPlayerName(p, "〓练气大师〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 		endif
 	endif
-	
+
 	if((GetUnitTypeId(u) == 'O004'))then
 		call YDWEGeneralBounsSystemUnitSetBonus(u, 0, 0, 400)
 	else
@@ -2888,7 +2888,7 @@ function HeroLevel takes nothing returns nothing
 		loop
 			exitwhen d8[i] > DENOMINATION_NUMBER //门派数
 			if (udg_runamen[i] == d8[i]) then
-		
+
 				// 自由3级自动学技能begin
 				if d8[i] == 11 then
 					// 送一本中原武学散篇
@@ -2902,7 +2902,7 @@ function HeroLevel takes nothing returns nothing
 					call DisplayTextToPlayer(p, 0, 0, "|cff00FF66恭喜领悟技能：" + GetObjectName(denomFirst[d8[i]]))
 				endif
 				// 自由3级自动学技能end
-				
+
 				if d8[i] != 11 then
 					call UnitAddAbility(u, denomFirst[d8[i]])
 					call UnitMakeAbilityPermanent(u, true, denomFirst[d8[i]])
@@ -2915,7 +2915,7 @@ function HeroLevel takes nothing returns nothing
 					call DisplayTextToPlayer(p, 0, 0, "|cff00FF66自由门派3级奖励5点自由属性点、必定获得奇武秘籍一本")
 					call unitadditembyidswapped(LoadInteger(YDHT, StringHash("武学") + GetRandomInt(42, 46), 1), u)
 					// call unitadditembyidswapped('I071',u) // 创建传功给玩家
-					
+
 					// =====送技能书begin
 					// if GetRandomInt(1,100)<=90 then
 					// 	call unitadditembyidswapped(LoadInteger(YDHT, StringHash("武学")+GetRandomInt(19, 36), 1), u)
@@ -2923,7 +2923,7 @@ function HeroLevel takes nothing returns nothing
 					// 	call unitadditembyidswapped(LoadInteger(YDHT, StringHash("武学")+GetRandomInt(1, 18), 1), u)
 					// endif
 					//======送技能书end
-					
+
 					// 自由自动学的技能补属性begin
 					set S9 = 1
 					loop
@@ -2939,7 +2939,7 @@ function HeroLevel takes nothing returns nothing
 					endloop
 					// 自由自动学的技能补属性end
 				endif
-				
+
 				// 填充技能格子
 				set L7[i] = 1
 				loop
@@ -3040,7 +3040,7 @@ function HeroLevel takes nothing returns nothing
 				set L7[i] = L7[i] + 1
 			endloop
 		endif
-		
+
 		call DisplayTimedTextToPlayer(p, 0, 0, 30., "|cff66ff00恭喜你升到了10级，你可以前往全真教（小地图指示点）完成历练1任务（大战江南七怪）了，完成历练任务可以提升修行，对人物的武功伤害占有重要影响，切记切记！！")
 		set loc = GetRectCenter(Te)
 		call PingMinimapLocForForce(ov(p), loc, 5.)
@@ -3441,15 +3441,15 @@ endfunction
 function u5 takes nothing returns nothing
 	// 随机猪地点
 	// local location loc=GetRandomLocInRect(GetPlayableMapRect())
-	
+
 	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cfffff000古董商人收购价格发生变动了~开始自动整理地图上的物品，也可以输入sort命令手动整理哦~")
-	
+
 	// 随机出现猪
 	// call CreateNUnitsAtLoc(1,'nshf',Player(6),loc,bj_UNIT_FACING)
 	// call PingMinimapLocForForce(bj_FORCE_ALL_PLAYERS,loc,5.)
 	// call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cfffff000地图上随机位置出现了一只小猪，打掉有珍稀币送哦~")
 	// call RemoveLocation(loc)
-	
+
 	set pd[1] = GetRandomInt(nd[1], od[1])
 	set pd[2] = GetRandomInt(nd[2], od[2])
 	set pd[3] = GetRandomInt(nd[3], od[3])
@@ -3805,7 +3805,7 @@ function internalize takes nothing returns nothing
 	local integer j = 1
 	if alreadyInternalizedCount[i] < interAbilityCount[i] then
 		call DialogSetMessage(interDialog[i], "请选择要内化的武功（内化后无法遗忘）！")
-		
+
 		loop
 			exitwhen j > 11
 			if I7[(i - 1) * 20 + 1] != 'AEfk' and canInternalize(I7[(i - 1) * 20 + j]) then
@@ -3979,7 +3979,7 @@ function Forget takes player p, integer num returns nothing
 		set I7[20 * (i - 1) + num] = 'AEfk'
 		call RemoveItem(FetchUnitItem(P4[i], 'I06K'))
 
-		// 嫁衣神功 增加三围 
+		// 嫁衣神功 增加三围
 		if GetUnitAbilityLevel(udg_hero[i], JIA_YI_SHEN_GONG) > 0 then
 			set add = GetUnitAbilityLevel(udg_hero[i], JIA_YI_SHEN_GONG) + GetRandomInt(1, 5)
 			if isTitle(i, 49) then
@@ -4201,11 +4201,11 @@ function aC takes nothing returns nothing
 	if((UnitHasBuffBJ(GetEnumUnit(), 'BEsh')))then
 		call percentDamage(GetEnumUnit(), 0.1, true)
 	endif
-	
+
 	if((UnitHasBuffBJ(GetEnumUnit(), 'B01J')))then
 		call percentDamage(GetEnumUnit(), 0.3, true)
 	endif
-	
+
 	if((UnitHasBuffBJ(GetEnumUnit(), 'B003')))then
 		call percentDamage(GetEnumUnit(), 0.5, true)
 	endif
@@ -4522,8 +4522,8 @@ function LearnNeiGong takes nothing returns nothing
 		call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, ("|cff00FF66恭喜领悟技能：" + GetObjectName(denomFifth[id])))
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FF66玩家" + I2S(1 + GetPlayerId(p)) + "成为" + udg_menpainame[udg_runamen[i]] + "长老")
 		call SetPlayerName(p, "〓" + udg_menpainame[udg_runamen[i]] + "长老〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-		
-		
+
+
 	endif
 	call DialogClear(udg_menpaineigong)
 	call FlushChildHashtable(YDHT, StringHash("门派内功"))
@@ -4650,8 +4650,8 @@ function HeCheng_Actions takes nothing returns nothing
 	if GetItemTypeId(GetManipulatedItem()) == 'I02T' then
 		call YDWENewItemsFormula( 'I02T', 1, 'I02T', 1, 'I02T', 1, 'I02T', 1, 'ches', 0, 'ches', 0, 'I04A' )
 	endif
-	
-	
+
+
 	//三合一
 	if GetItemTypeId(GetManipulatedItem()) == 'I053' or GetItemTypeId(GetManipulatedItem()) == 'I058' or GetItemTypeId(GetManipulatedItem()) == 'I05A' then
 		call YDWENewItemsFormula( 'I053', 1, 'I058', 1, 'I05A', 1, 'ches', 0, 'ches', 0, 'ches', 0, 'I05C' )
@@ -4662,7 +4662,7 @@ function HeCheng_Actions takes nothing returns nothing
 	if GetItemTypeId(GetManipulatedItem()) == 'I02P' or GetItemTypeId(GetManipulatedItem()) == 'I09P' then
 		call YDWENewItemsFormula( 'I02P', 1, 'I09P', 1, 'I09P', 1, 'I09P', 1, 'I09P', 1, 'I09P', 1, 'I08V' )
 	endif
-	
+
 endfunction
 
 globals
@@ -4679,7 +4679,7 @@ function DZDSBuShuXing takes unit u returns nothing
 	local item it = null
 	local integer j = 1
 	local integer i = 1 + GetPlayerId(GetOwningPlayer(u))
-	
+
 	loop
 		exitwhen j >= 7
 		set it = UnitItemInSlotBJ(u, j)
@@ -4752,7 +4752,7 @@ endfunction
 /**
 * 合成加锻造数量
 */
-function HeCheng2_Dzds takes integer i returns nothing 
+function HeCheng2_Dzds takes integer i returns nothing
 	if Deputy_isDeputy(i, DUAN_ZAO) and udg_dzds[i] < 4 then
 		set udg_dzds[i] = udg_dzds[i] + 1
 		call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, "|CFF66FF00恭喜您锻造成功第" + I2S(udg_dzds[i]) + "件装备，锻造成功4件装备可以获得锻造大师哦")
@@ -4773,7 +4773,7 @@ endfunction
 function HeCheng2_Actions takes nothing returns nothing
 	local unit u = GetTriggerUnit()
 	local integer i = 1 + GetPlayerId(GetOwningPlayer(u))
-	
+
 	/**
 	*  合成自由专属
 	*/
@@ -5076,7 +5076,7 @@ function Trig_ttActions takes nothing returns nothing
 	set udg_JTX[GetPlayerId(GetOwningPlayer(GetTriggerUnit())) + 1] = AddSpecialEffectTargetEx("Abilities\\Weapons\\PhoenixMissile\\Phoenix_Missile.mdl", GetTriggerUnit(), "origin")
 	call SetUnitAnimation( GetTriggerUnit(), "walk")
 	call YDWEJumpTimer(GetTriggerUnit(), jd, distance, lasttime, 0.03, 100)
-	
+
 	call TimerStart(tm, lasttime, false, function qinggongxiaoshi)
 	call RemoveLocation(d1)
 	call RemoveLocation(d2)
@@ -5159,7 +5159,7 @@ function ChouXie_Action takes nothing returns nothing
 			call SetUnitLifePercentBJ(GetTriggerUnit(), GetUnitLifePercent(GetTriggerUnit()) - 6.)
 		endif
 	endif
-	
+
 endfunction
 
 function addTotalPoint takes integer point returns nothing
@@ -5172,7 +5172,7 @@ function addTotalPoint takes integer point returns nothing
 			// 将评分存入服务器
 			call DzAPI_Map_StoreString(Player(j - 1), "totalPoint", encryptInt(decryptInt(DzAPI_Map_GetStoredString(Player(j - 1), "totalPoint"), Player(j - 1)) + addition, Player(j - 1)))
 		endif
-			
+
 		set j = j + 1
 	endloop
 endfunction
@@ -5383,12 +5383,12 @@ function vQ takes nothing returns nothing
 	// 地图等级小于等级5级的或者返璞归真模式额外送一个新手神器
 	call unitadditembyidswapped('I0DJ', u) // 新手神器
 	// 大侠套 张无忌杀猪刀I0CI,郭靖环戒I0CH，乔峰草鞋I0DO，
-	call unitadditembyidswapped('I0CI', u) 
-	call unitadditembyidswapped('I0CH', u) 
-	call unitadditembyidswapped('I0DO', u) 
+	call unitadditembyidswapped('I0CI', u)
+	call unitadditembyidswapped('I0CH', u)
+	call unitadditembyidswapped('I0DO', u)
 	call AdjustPlayerStateBJ(30000, p, PLAYER_STATE_RESOURCE_GOLD)
 	call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00使用新手大礼包获得新手神器、大侠套和3万金币")
-		
+
 	// 测试版送一个新手神器
 	if testVersion then
 		call unitadditembyidswapped('I0DJ', u) // 新手神器
@@ -5623,7 +5623,7 @@ function rT takes nothing returns nothing
 			set next_endless_time = passed_time + 1
 		endif
 	endif
-	
+
 	if GetItemTypeId(GetManipulatedItem()) == 'I07S' then
 		set ue = 5
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 30., "|cff00ffff有玩家开始预约名门挑战，本波进攻怪物将会增加名门高手，大家要小心应付了！")
@@ -5632,9 +5632,9 @@ function rT takes nothing returns nothing
 		set ue = 0
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 30., "|cff00ffff有玩家取消了预约名门挑战，下波进攻怪物将不会增加名门高手，大家要小心应付了！")
 	endif
-	
+
 	set p = null
-	
+
 endfunction
 // 攻破城门
 function cT takes nothing returns boolean
@@ -5776,7 +5776,7 @@ endfunction
 function removeDeadItem_1 takes nothing returns nothing
 	local timer t = GetExpiredTimer()
 	local item it = LoadItemHandle(YDHT, GetHandleId(t), 0)
-	
+
 	call SetWidgetLife(it, 1)
 	call RemoveItem(it)
 
@@ -5801,7 +5801,7 @@ endfunction
 function GameLogic_Trigger takes nothing returns nothing
 	local trigger t = CreateTrigger()
 	local integer j = 1
-	
+
 	local timer tm = CreateTimer()
 	local timerdialog td = null
 	call TimerStart(tm, 1000, true, null)
@@ -5810,14 +5810,14 @@ function GameLogic_Trigger takes nothing returns nothing
 
 	set j = 1
 	loop
-		exitwhen j >= 5
+		exitwhen j > 5
 		// 每个玩家默认可以内化一个武功
 		set interAbilityCount[j] = 1
 		set alreadyInternalizedCount[j] = 0
 		set interDialog[j] = DialogCreate()
 		set j = j + 1
 	endloop
-	
+
 	//选择英雄
 	set Jh = CreateTrigger()
 	call TriggerRegisterPlayerSelectionEventBJ(Jh, Player(0), true)
@@ -5846,7 +5846,7 @@ function GameLogic_Trigger takes nothing returns nothing
 	call TriggerRegisterLeaveRectSimple(Mh, udg_xuanmenpai)
 	call TriggerAddCondition(Mh, Condition(function WuMenPai_Condition))
 	call TriggerAddAction(Mh, function WuMenPai_Action)
-	
+
 	// 玩家英雄阵亡
 	set Th = CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(Th, EVENT_PLAYER_UNIT_DEATH)
@@ -5942,7 +5942,7 @@ function GameLogic_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(si, EVENT_PLAYER_UNIT_USE_ITEM)
 	call TriggerAddCondition(si, Condition(function IsWuXueJingYao))
 	call TriggerAddAction(si, function WuXueJingYao)
-	
+
 	//将地图上初始所有单位加入单位组
 	set Vi = CreateTrigger()
 	call TriggerRegisterTimerEventSingle(Vi, 2.)
@@ -6043,7 +6043,7 @@ function GameLogic_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(tj, EVENT_PLAYER_UNIT_SPELL_CAST)
 	call TriggerAddCondition(tj, Condition(function IsQieHuanItem))
 	call TriggerAddAction(tj, function QieHuanItem)
-	
+
 	// 英雄达到某等级
 	set vj = CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(vj, EVENT_PLAYER_HERO_LEVEL)
@@ -6221,7 +6221,7 @@ function GameLogic_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t, Condition(function ChouXie_Condition))
 	call TriggerAddAction(t, function ChouXie_Action)
-	
+
 	// 初始化伴侣属性
 	set uq = CreateTrigger()
 	call TriggerRegisterTimerEventSingle(uq, .2)
@@ -6235,7 +6235,7 @@ function GameLogic_Trigger takes nothing returns nothing
 	set xq = CreateTrigger()
 	call TriggerRegisterTimerEventPeriodic(xq, 400.)
 	call TriggerAddAction(xq, function TO)
-	
+
 	// 吃经验符
 	set kr = CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(kr, EVENT_PLAYER_UNIT_PICKUP_ITEM)
@@ -6296,7 +6296,7 @@ function GameLogic_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(br, EVENT_PLAYER_UNIT_PICKUP_ITEM)
 	call TriggerAddCondition(br, Condition(function pR))
 	call TriggerAddAction(br, function qR)
-	
+
 	// 初始化古董价格区间
 	set rs = CreateTrigger()
 	call TriggerRegisterTimerEventSingle(rs, .5)
@@ -6331,9 +6331,9 @@ function GameLogic_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ( t, EVENT_PLAYER_UNIT_PICKUP_ITEM )
 	call TriggerAddCondition(t, Condition(function HeCheng2_Conditions))
 	call TriggerAddAction(t, function HeCheng2_Actions)
-	
-	
-	
+
+
+
 	// 买黄纸
 	set cs = CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(cs, EVENT_PLAYER_UNIT_PICKUP_ITEM)
@@ -6375,7 +6375,7 @@ function GameLogic_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ( t, EVENT_PLAYER_UNIT_ATTACKED )
 	call TriggerAddCondition(t, Condition(function Trig_YunDaXianShenConditions))
 	call TriggerAddAction(t, function Trig_YunDaXianShenActions)
-	
+
 	set t = CreateTrigger()
 	call TriggerRegisterUnitEvent(t, udg_ZhengPaiWL, EVENT_UNIT_ATTACKED)
 	call TriggerAddCondition(t, Condition(function JiDiAiDa_Conditions))
@@ -6383,7 +6383,7 @@ function GameLogic_Trigger takes nothing returns nothing
 	set t = CreateTrigger()
 	call TriggerRegisterTimerEventPeriodic(t, 1000.00)
 	call TriggerAddAction(t, function MoJiaoJiuRen)
-	
+
 	// F2回城 F3城前 F4城后
 	set t = CreateTrigger()
 	call TriggerRegisterPlayerSelectionEventBJ(t, Player(0), true)
