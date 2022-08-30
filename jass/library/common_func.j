@@ -1576,7 +1576,7 @@ function showDamageWithEffects takes integer i, unit u, real damage, boolean cri
 		loop
 			exitwhen j > StringLength(damageStr)
 			set effectStr = ""
-			if Player(i - 1) == GetLocalPlayer() and showDamage[i] then
+			if showDamage[i] then
 				set effectStr = "war3mapImported\\SHZT1" + I2S(criticalInt) + "-" + SubStringBJ(damageStr, j, j) + ".mdx"
 			endif
 			set eff = AddSpecialEffect(effectStr, GetUnitX(u) + 32 / 1.38 * (j - 1), GetUnitY(u))
@@ -1586,7 +1586,7 @@ function showDamageWithEffects takes integer i, unit u, real damage, boolean cri
 		endloop
 		if critical then
 			set effectStr = ""
-			if Player(i - 1) == GetLocalPlayer() and showDamage[i] then
+			if showDamage[i] then
 				set effectStr = "war3mapImported\\SHZT11-10.mdx"
 			endif
 			set eff = AddSpecialEffect(effectStr, GetUnitX(u) - 37 / 1.38, GetUnitY(u))

@@ -259,7 +259,7 @@ function showInterTip takes nothing returns nothing
 				if j <= alreadyInternalizedCount[i] then
 					set id = LoadInteger(YDHT, interAbilityKey + i, j)
 					set name = YDWEGetUnitAbilityDataString(udg_hero[i], id, GetUnitAbilityLevel(udg_hero[i], id), 215)
-					set description = YDWEGetUnitAbilityDataString(udg_hero[i], id, GetUnitAbilityLevel(udg_hero[i], id), 218)
+					set description = YDWEGetUnitAbilityDataString(udg_hero[i], id, 1, 218)
 					call interAbilityWidget[101].setText(name)
 					call interAbilityWidget[102].setText(description)
 					call interAbilityWidget[102].setPoint(BOTTOM, interAbilityWidget[j], TOP, 0, 0.03)
@@ -752,7 +752,7 @@ function drawUI_Conditions takes nothing returns boolean
 	call interAbilityPanel.setPoint(CENTER, GUI, CENTER, 0, - 0.12)
 
 	set closeInterWidget = Frame.newImage1(interAbilityPanel, "war3mapImported\\close0.tga", 0.018, 0.024)
-	call closeInterWidget.setPoint(CENTER, interAbilityPanel, TOPRIGHT, 0, -0.012)
+	call closeInterWidget.setPoint(CENTER, interAbilityPanel, TOPRIGHT, 0, - 0.012)
 
 	set closeInterButton = Frame.newTextButton(closeInterWidget)
 	call closeInterButton.setAllPoints(closeInterWidget)
@@ -982,10 +982,12 @@ function drawUI_Conditions takes nothing returns boolean
 	call checkboxButton[2].setAllPoints(checkboxWidget[3])
 	call checkboxButton[2].regEvent(FRAME_EVENT_PRESSED, function toggleShowAbilityEffect)
 
-	call checkboxWidget[1].hide()
-	call checkboxWidget[2].hide()
-	call checkboxWidget[3].hide()
-	call checkboxWidget[4].hide()
+	if GetNumPlayer() >= 2 then
+		call checkboxWidget[1].hide()
+		call checkboxWidget[2].hide()
+		call checkboxWidget[3].hide()
+		call checkboxWidget[4].hide()
+	endif
 
 	// 显示等级
 	set levelWidget = Frame.newImage1(GUI, "war3mapImported\\level.tga", 0.032, 0.04)
@@ -1029,6 +1031,10 @@ function toggleUI takes nothing returns nothing
 		call zwidget[12].hide()
 		call helpWidget.hide()
 		call interAbilityPanel.hide()
+		call checkboxWidget[1].hide()
+		call checkboxWidget[2].hide()
+		call checkboxWidget[3].hide()
+		call checkboxWidget[4].hide()
 	endif
 	if s == "showUI" and p == GetLocalPlayer() then
 		call DzFrameShow(DzFrameGetHeroBarButton(1), false)
@@ -1037,6 +1043,10 @@ function toggleUI takes nothing returns nothing
 		call zwidget[12].show()
 		call helpWidget.show()
 		call interAbilityPanel.show()
+		call checkboxWidget[1].show()
+		call checkboxWidget[2].show()
+		call checkboxWidget[3].show()
+		call checkboxWidget[4].show()
 	endif
 
 	set p = null
