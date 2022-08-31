@@ -748,10 +748,10 @@ function drawUI_Conditions takes nothing returns boolean
 	
 	
 	// 内化武功面板
-	set interAbilityPanel = Frame.newImage1(GUI, "war3mapImported\\inter.tga", 0.25, 0.09)
-	call interAbilityPanel.setPoint(CENTER, GUI, CENTER, 0, - 0.12)
+	set interAbilityPanel = Frame.newImage1(GUI, "war3mapImported\\inter.tga", 0.166, 0.06)
+	call interAbilityPanel.setPoint(CENTER, GUI, CENTER, 0, - 0.15)
 
-	set closeInterWidget = Frame.newImage1(interAbilityPanel, "war3mapImported\\close0.tga", 0.018, 0.024)
+	set closeInterWidget = Frame.newImage1(interAbilityPanel, "war3mapImported\\close0.tga", 0.012, 0.016)
 	call closeInterWidget.setPoint(CENTER, interAbilityPanel, TOPRIGHT, 0, - 0.012)
 
 	set closeInterButton = Frame.newTextButton(closeInterWidget)
@@ -759,22 +759,22 @@ function drawUI_Conditions takes nothing returns boolean
 	call closeInterButton.regEvent(FRAME_EVENT_PRESSED, function hideInterAbilityPanel)
 
 	// 内化武功图片
-	set interAbilityWidget[1] = Frame.newImage1(interAbilityPanel, "war3mapImported\\lock.tga", 0.035, 0.047)
-	call interAbilityWidget[1].setPoint(LEFT, interAbilityPanel, LEFT, 0.02, - 0.005)
+	set interAbilityWidget[1] = Frame.newImage1(interAbilityPanel, "war3mapImported\\lock.tga", 0.023, 0.031)
+	call interAbilityWidget[1].setPoint(LEFT, interAbilityPanel, LEFT, 0.014, - 0.004)
 	call interAbilityWidget[1].setAlpha(0)
 
-	set interAbilityLock[1] = Frame.newImage1(interAbilityWidget[1], "war3mapImported\\lock.tga", 0.035, 0.047)
+	set interAbilityLock[1] = Frame.newImage1(interAbilityWidget[1], "war3mapImported\\lock.tga", 0.023, 0.031)
 	call interAbilityLock[1].setAllPoints(interAbilityWidget[1])
 	call interAbilityLock[1].setAlpha(150)
 
 	set index = 2
 	loop
 		exitwhen index > MAX_INTER_ABILITY_COUNT
-		set interAbilityWidget[index] = Frame.newImage1(interAbilityPanel, "war3mapImported\\lock.tga", 0.035, 0.047)
+		set interAbilityWidget[index] = Frame.newImage1(interAbilityPanel, "war3mapImported\\lock.tga", 0.023, 0.031)
 		call interAbilityWidget[index].setPoint(LEFT, interAbilityWidget[index - 1], RIGHT, 0.002, 0)
 		call interAbilityWidget[index].setAlpha(0)
 
-		set interAbilityLock[index] = Frame.newImage1(interAbilityWidget[index], "war3mapImported\\lock.tga", 0.035, 0.047)
+		set interAbilityLock[index] = Frame.newImage1(interAbilityWidget[index], "war3mapImported\\lock.tga", 0.023, 0.031)
 		call interAbilityLock[index].setAllPoints(interAbilityWidget[index])
 		call interAbilityLock[index].setAlpha(150)
 		set index = index + 1
