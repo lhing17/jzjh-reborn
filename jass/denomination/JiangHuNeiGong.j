@@ -259,7 +259,7 @@ function shuangShouBeiDong takes nothing returns nothing
 	local player p = GetOwningPlayer(u)
 	local integer i=1+GetPlayerId(p)
 	// 被动双手刷新概率
-	if GetRandomReal(1.,800)<=fuyuan[i] then
+	if GetRandomReal(1.,2000)<=RMaxBJ(fuyuan[i], 100) then
 		call DisplayTextToPlayer(p,0,0,"|cff00FF66双手被动刷新")
 		call UnitResetCooldown(u)
 	endif
