@@ -7,6 +7,21 @@ endfunction
 function TanZhi_Condition takes nothing returns boolean
 	return IsUnitAliveBJ(GetFilterUnit())and IsUnitEnemy(GetFilterUnit(),GetOwningPlayer(GetTriggerUnit()))
 endfunction
+
+function tanZhiCdFive takes nothing returns nothing
+    local timer t = GetExpiredTimer()
+    local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
+
+    // CD变为5秒
+    call EXSetAbilityState(EXGetUnitAbility(u, 'A06H'), 1, 5)
+
+    call FlushChildHashtable(YDHT, GetHandleId(t))
+    call DestroyTimer(t)
+    set t = null
+    set u = null
+endfunction
+
+
 function TanZhiShenTong takes nothing returns nothing
 	local unit u = GetTriggerUnit()
 	local player p = GetOwningPlayer(u)
@@ -14,6 +29,7 @@ function TanZhiShenTong takes nothing returns nothing
 	local location loc2 = GetUnitLoc(GetSpellTargetUnit())
 	local integer i = 1 + GetPlayerId(p)
 	local integer level = 0
+	local timer t = null
 	if (GetUnitAbilityLevel(u, 'A07U')>=1) then
 		call CreateNUnitsAtLoc(1, 'e000', p, loc, bj_UNIT_FACING)
 		call UnitAddAbility(bj_lastCreatedUnit, 'A06H')
@@ -24,15 +40,16 @@ function TanZhiShenTong takes nothing returns nothing
 	endif
 	call WuGongShengChong(GetTriggerUnit(),'A06H',350.)
 	set level = GetUnitAbilityLevel(u, 'A06H')
-	call YDWEPolledWaitNull(5.0)
-	// 5s后判断如果是东邪，立刻重置cd
+
+	// 判断如果是东邪，CD变为5秒
 	if isTitle(1 + GetPlayerId(GetOwningPlayer(u)), 39) then
-		call UnitRemoveAbility(u, 'A06H')
-		call UnitAddAbility(u, 'A06H')
-		call SetUnitAbilityLevel(u, 'A06H', level)
+		set t = CreateTimer()
+		call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
+		call TimerStart(t, 0.2, false, function tanZhiCdFive)
 	endif
 	call RemoveLocation(loc)
 	call RemoveLocation(loc2)
+	set t = null
 	set u = null
 	set p = null
 	set loc = null
@@ -124,11 +141,27 @@ endfunction
 function dF takes nothing returns boolean
 	return GetSpellAbilityId()=='A07A' or (GetSpellAbilityId() == XUE_HUA_LIU_CHU and GetUnitAbilityLevel(GetTriggerUnit(),'A07A') > 0)
 endfunction
+
+
+function bingPoCdFive takes nothing returns nothing
+    local timer t = GetExpiredTimer()
+    local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
+
+    // CD变为5秒
+    call EXSetAbilityState(EXGetUnitAbility(u, 'A07A'), 1, 5)
+
+    call FlushChildHashtable(YDHT, GetHandleId(t))
+    call DestroyTimer(t)
+    set t = null
+    set u = null
+endfunction
+
 function eF takes nothing returns nothing
 	local unit uc=GetTriggerUnit()
 	local location loc=GetUnitLoc(uc)
 	local location array loc_bp
 	local integer level = 0
+	local timer t = null
 	if UnitTypeNotNull(uc, UNIT_TYPE_HERO) then
 		call WuGongShengChong(GetTriggerUnit(),'A07A',260.)
 	endif
@@ -146,14 +179,16 @@ function eF takes nothing returns nothing
 		set H7=H7+1
 	endloop
 	set level = GetUnitAbilityLevel(uc, 'A07A')
-	call YDWEPolledWaitNull(5.0)
-	// 5s后判断如果是赤练仙子，立刻重置cd
+
+
+	// 判断如果是赤练仙子，CD变为5秒
 	if isTitle(1 + GetPlayerId(GetOwningPlayer(uc)), 8) then
-		call UnitRemoveAbility(uc, 'A07A')
-		call UnitAddAbility(uc, 'A07A')
-		call SetUnitAbilityLevel(uc, 'A07A', level)
+		set t = CreateTimer()
+		call SaveUnitHandle(YDHT, GetHandleId(t), 0, uc)
+		call TimerStart(t, 0.2, false, function bingPoCdFive)
 	endif
 	call RemoveLocation(loc)
+	set t = null
 	set uc=null
 	set loc=null
 endfunction
@@ -793,6 +828,21 @@ endfunction
 function TF takes nothing returns boolean
 	return((GetEventDamage()==.35))
 endfunction
+
+
+function jiuZhaoCdThree takes nothing returns nothing
+    local timer t = GetExpiredTimer()
+    local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
+
+    // CD变为3秒
+    call EXSetAbilityState(EXGetUnitAbility(u, 'A07N'), 1, 3)
+
+    call FlushChildHashtable(YDHT, GetHandleId(t))
+    call DestroyTimer(t)
+    set t = null
+    set u = null
+endfunction
+
 function UF takes nothing returns nothing
 	local integer i=1+GetPlayerId(GetOwningPlayer(GetEventDamageSource()))
 	local unit u=udg_hero[i]
@@ -800,6 +850,7 @@ function UF takes nothing returns nothing
 	local real shxishu=1.
 	local real shanghai=0.
 	local integer level  = 0
+	local timer t = null
 	if((GetUnitAbilityLevel(u,1093678930)!=0))then
 		set shxishu=shxishu+.5
 	endif
@@ -826,20 +877,13 @@ function UF takes nothing returns nothing
 	call WuGongShangHai(u,uc,shanghai)
 	call WuGongShengChong(GetEventDamageSource(),'A07N',3000.)
 	set level = GetUnitAbilityLevel(u, 'A07N')
-	// 3s后判断如果是九阴真人，立刻重置cd
-	if isTitle(i, 37) then
-		call YDWEPolledWaitNull(3.0)
-		call UnitRemoveAbility(u, 'A07N')
-		call UnitAddAbility(u, 'A07N')
-		call SetUnitAbilityLevel(u, 'A07N', level)
+	// 3判断如果是九阴真人、芷若或瑶琴，CD变为3秒
+	if isTitle(i, 37) or isTitle(i, 19) or isTitle(i, 41) then
+		set t = CreateTimer()
+		call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
+		call TimerStart(t, 0.2, false, function jiuZhaoCdThree)
 	endif
-	// 5s后判断如果是芷若或瑶琴，立刻重置cd
-	if isTitle(i, 19) or isTitle(i, 41)then
-		call YDWEPolledWaitNull(5.0)
-		call UnitRemoveAbility(u, 'A07N')
-		call UnitAddAbility(u, 'A07N')
-		call SetUnitAbilityLevel(u, 'A07N', level)
-	endif
+	set t = null
 	set u=null
 	set uc=null
 endfunction
