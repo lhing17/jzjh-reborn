@@ -453,16 +453,32 @@ endfunction
 function isJinLunLongXiang takes nothing returns boolean
 	return GetUnitAbilityLevel(GetAttacker(), 'S002') >= 1 and isTitle(1 + GetPlayerId(GetOwningPlayer(GetAttacker())), 4)
 endfunction
+
+function jinLunLongXiangTimerExpired takes nothing returns nothing
+	local timer t = GetExpiredTimer()
+	local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
+	
+	call ModifyHeroStat(0, u, 1, 200)
+	call FlushChildHashtable(YDHT, GetHandleId(t))
+	call DestroyTimer(t)
+
+	set t = null
+	set u = null
+endfunction
+
 function jinLunLongXiang takes nothing returns nothing
 	local unit u = GetAttacker()
 	local player p = GetOwningPlayer(u)
 	local integer i = 1 + GetPlayerId(p)
 	local integer gailv = 30 
+	local timer t = null
 	if GetRandomInt(1, 100) <= gailv + fuyuan[i] / 6  then
 		call ModifyHeroStat(0, u, 0, 200)
-		call YDWEPolledWaitNull(35)
-		call ModifyHeroStat(0, u, 1, 200)
+		set t = CreateTimer()
+		call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
+		call TimerStart(t, 35, false, function jinLunLongXiangTimerExpired)
 	endif
+	set t = null
 	set u = null
 	set p = null
 endfunction

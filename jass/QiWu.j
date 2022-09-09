@@ -1,22 +1,22 @@
 //寒冰真气
 function IsHanBingZhenQi takes nothing returns boolean
-	return GetSpellAbilityId()=='A03L'
+	return GetSpellAbilityId() == 'A03L'
 endfunction
 function HanBingZhenQi takes nothing returns nothing
 	local unit u = GetTriggerUnit()
 	local unit ut = GetSpellTargetUnit()
 	local player p = GetOwningPlayer(u)
 	local location loc = GetUnitLoc(ut)
-	call CreateNUnitsAtLoc(1,'e000',p,loc,bj_UNIT_FACING)
+	call CreateNUnitsAtLoc(1, 'e000', p, loc, bj_UNIT_FACING)
 	call ShowUnitHide(bj_lastCreatedUnit)
-	call UnitAddAbility(bj_lastCreatedUnit,'A038')
-	if GetUnitAbilityLevel(u, 'A07T')!=0 or GetUnitAbilityLevel(u, 'A07Q')!=0 then
-		call SetUnitAbilityLevel(bj_lastCreatedUnit,'A038', 3)
+	call UnitAddAbility(bj_lastCreatedUnit, 'A038')
+	if GetUnitAbilityLevel(u, 'A07T') != 0 or GetUnitAbilityLevel(u, 'A07Q') != 0 then
+		call SetUnitAbilityLevel(bj_lastCreatedUnit, 'A038', 3)
 	endif
-	if GetUnitAbilityLevel(u, 'A0DN')!=0 or GetUnitAbilityLevel(u, 'A07O')!=0 then
+	if GetUnitAbilityLevel(u, 'A0DN') != 0 or GetUnitAbilityLevel(u, 'A07O') != 0 then
 		call IncUnitAbilityLevel(bj_lastCreatedUnit, 'A038')
 	endif
-	call IssueTargetOrderById(bj_lastCreatedUnit,$D0101,ut)
+	call IssueTargetOrderById(bj_lastCreatedUnit, $D0101, ut)
 	set u = null
 	set ut = null
 	set p = null
@@ -25,7 +25,7 @@ endfunction
 //百步神拳
 //无相劫指
 function IsWuXiangJieZhi takes nothing returns boolean
-	return GetSpellAbilityId()=='A03P'
+	return GetSpellAbilityId() == 'A03P'
 endfunction
 function WuXiangTimeOut takes nothing returns nothing
 	local timer t = GetExpiredTimer()
@@ -47,20 +47,20 @@ function WuXiangJieZhi takes nothing returns nothing
 	set t = null
 endfunction
 function IsWuXiangShangHai takes nothing returns boolean
-	return GetEventDamage()==1.58
+	return GetEventDamage() == 1.58
 endfunction
 function WuXiangShangHai takes nothing returns nothing
 	local unit ut = GetEventDamageSource()
 	local unit uc = GetTriggerUnit()
 	local integer i = 1 + GetPlayerId(GetOwningPlayer(ut))
 	local unit u = udg_hero[i]
-	local real shxishu= 1.
-	local real shanghai=0.
-	if GetUnitAbilityLevel(u,'A06H')>=1 then
-		set shxishu=shxishu + 0.8
+	local real shxishu = 1.
+	local real shanghai = 0.
+	if GetUnitAbilityLevel(u, 'A06H') >= 1 then
+		set shxishu = shxishu + 0.8
 	endif
-	if GetUnitAbilityLevel(u,'A07O')>=1 then
-		set shxishu=shxishu + 0.6
+	if GetUnitAbilityLevel(u, 'A07O') >= 1 then
+		set shxishu = shxishu + 0.6
 	endif
 	if UnitHasBuffBJ(uc, 'Bfro') then
 		set shxishu = shxishu * 3
@@ -68,15 +68,15 @@ function WuXiangShangHai takes nothing returns nothing
 	if isTitle(i, 3) then // 大轮明王
 		set shxishu = shxishu * 5
 	endif
-	set shxishu = shxishu * (1. + I2R(danpo[i])/20 + I2R(juexuelingwu[i]))
-	set shanghai = ShangHaiGongShi(u, uc, 60, 70,shxishu,'A03P')
-	call WuGongShangHai(u,uc,shanghai)
-	if GetUnitAbilityLevel(u,'A06P')>=1 and GetRandomInt(1, 100)<=8 then
+	set shxishu = shxishu * (1. + I2R(danpo[i]) / 20 + I2R(juexuelingwu[i]))
+	set shanghai = ShangHaiGongShi(u, uc, 60, 70, shxishu, 'A03P')
+	call WuGongShangHai(u, uc, shanghai)
+	if GetUnitAbilityLevel(u, 'A06P') >= 1 and GetRandomInt(1, 100) <= 8 then
 		call WanBuff(u, uc, 11)
 	endif
-	set u=null
-    set uc=null
-    set ut = null
+	set u = null
+	set uc = null
+	set ut = null
 endfunction
 //神行百变
 globals
@@ -85,61 +85,61 @@ globals
 	unit array udg_miaoshoufuzhu
 endglobals
 function IsShenXingBaiBian takes nothing returns boolean
-    return ((GetSpellAbilityId() == 'A03N'))
+	return ((GetSpellAbilityId() == 'A03N'))
 endfunction
 
 function ShenXingBaiBian_2 takes nothing returns nothing
 	local trigger t = GetTriggeringTrigger()
 	local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
 	local real r = LoadReal(YDHT, GetHandleId(t), 1)
-    if ((YDWEIsTriggerEventId(EVENT_UNIT_SPELL_EFFECT) == true)) then
-        set udg_shenxingpoyin[1+GetPlayerId(GetOwningPlayer(u))] = 0.
-        call DestroyTrigger(t)
-    else
-        if udg_shenxingpoyin[1+GetPlayerId(GetOwningPlayer(u))] <= 0.00 then
-            call DestroyTrigger(t)
-        else
-            set udg_shenxingpoyin[1+GetPlayerId(GetOwningPlayer(u))] = udg_shenxingpoyin[1+GetPlayerId(GetOwningPlayer(u))]-0.01
-        endif
-    endif
-    set t = null
-    set u = null
+	if ((YDWEIsTriggerEventId(EVENT_UNIT_SPELL_EFFECT) == true)) then
+		set udg_shenxingpoyin[1 + GetPlayerId(GetOwningPlayer(u))] = 0.
+		call DestroyTrigger(t)
+	else
+		if udg_shenxingpoyin[1 + GetPlayerId(GetOwningPlayer(u))] <= 0.00 then
+			call DestroyTrigger(t)
+		else
+			set udg_shenxingpoyin[1 + GetPlayerId(GetOwningPlayer(u))] = udg_shenxingpoyin[1 + GetPlayerId(GetOwningPlayer(u))] - 0.01
+		endif
+	endif
+	set t = null
+	set u = null
 endfunction
 
 function ShenXingBaiBian_1 takes nothing returns nothing
 	local timer tm = GetExpiredTimer()
 	local unit u = LoadUnitHandle(YDHT, GetHandleId(tm), 0)
 	local trigger t = CreateTrigger()
-	set udg_shenxingpoyin[1+GetPlayerId(GetOwningPlayer(u))] = 19.5
+	set udg_shenxingpoyin[1 + GetPlayerId(GetOwningPlayer(u))] = 19.5
 	call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
-    call TriggerRegisterUnitEvent( t, u, EVENT_UNIT_SPELL_EFFECT )
-    call TriggerRegisterTimerEventPeriodic( t, 0.01 )
-    call TriggerAddCondition(t, Condition(function ShenXingBaiBian_2))
-    call DestroyTimer(tm)
-    set t = null
-    set tm = null
-    set u = null
+	call TriggerRegisterUnitEvent( t, u, EVENT_UNIT_SPELL_EFFECT )
+	call TriggerRegisterTimerEventPeriodic( t, 0.01 )
+	call TriggerAddCondition(t, Condition(function ShenXingBaiBian_2))
+	call DestroyTimer(tm)
+	set t = null
+	set tm = null
+	set u = null
 endfunction
 
 function ShenXingBaiBian takes nothing returns nothing
 	local timer t = CreateTimer()
 	local unit u = GetTriggerUnit()
 	call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
-    call TimerStart(t, 0.5, false, function ShenXingBaiBian_1)
-    set t = null
-    set u = null
+	call TimerStart(t, 0.5, false, function ShenXingBaiBian_1)
+	set t = null
+	set u = null
 endfunction
 
 
 
 function IsShenXingShangHai takes nothing returns boolean
-    return (IsUnitAlly(GetAttackedUnitBJ(), GetOwningPlayer(GetAttacker())) == false) and (IsUnitType(GetAttackedUnitBJ(), UNIT_TYPE_STRUCTURE) == false) and udg_shenxingpoyin[1+GetPlayerId(GetOwningPlayer(GetAttacker()))]>0.00
+	return (IsUnitAlly(GetAttackedUnitBJ(), GetOwningPlayer(GetAttacker())) == false) and (IsUnitType(GetAttackedUnitBJ(), UNIT_TYPE_STRUCTURE) == false) and udg_shenxingpoyin[1 + GetPlayerId(GetOwningPlayer(GetAttacker()))] > 0.00
 endfunction
 function ShenXingShaRen takes nothing returns nothing
 	local unit u = GetKillingUnit()
 	local integer level = 0
 	//call BJDebugMsg("到这了吗2？")
-	if GetUnitAbilityLevel(u, 'A06L')!=0 then
+	if GetUnitAbilityLevel(u, 'A06L') != 0 then
 		set level = GetUnitAbilityLevel(u, 'A03N')
 		call UnitRemoveAbility(u, 'A03N')
 		call UnitAddAbility(u, 'A03N')
@@ -153,67 +153,67 @@ function ShenXingShangHai_1 takes nothing returns nothing
 	local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
 	local unit uc = LoadUnitHandle(YDHT, GetHandleId(t), 1)
 	local integer i = 1 + GetPlayerId(GetOwningPlayer(u))
-	local real shxishu=1+udg_lilianxishu[i]
-	local real shanghai=0.
-	if GetUnitAbilityLevel(u,'A07T')>=1 then
-		set shxishu=shxishu+1.
+	local real shxishu = 1 + udg_lilianxishu[i]
+	local real shanghai = 0.
+	if GetUnitAbilityLevel(u, 'A07T') >= 1 then
+		set shxishu = shxishu + 1.
 	endif
-	if GetUnitAbilityLevel(u,'A07X')>=1 then
-		set shxishu=shxishu+1.6
+	if GetUnitAbilityLevel(u, 'A07X') >= 1 then
+		set shxishu = shxishu + 1.6
 	endif
 	set t2 = CreateTrigger()
-    call TriggerRegisterUnitEvent(t2, uc, EVENT_UNIT_DEATH)
+	call TriggerRegisterUnitEvent(t2, uc, EVENT_UNIT_DEATH)
 	call TriggerAddAction(t2, function ShenXingShaRen)
 
-    if ((YDWEIsTriggerEventId(EVENT_UNIT_DAMAGED) == true)) then
-        if u == GetEventDamageSource() then
-            call DisableTrigger(t)
-            set shanghai=ShangHaiGongShi(u,uc,140., 190.,shxishu,'A03N')
-           	call WuGongShangHai(u,uc,shanghai)
+	if ((YDWEIsTriggerEventId(EVENT_UNIT_DAMAGED) == true)) then
+		if u == GetEventDamageSource() then
+			call DisableTrigger(t)
+			set shanghai = ShangHaiGongShi(u, uc, 140., 190., shxishu, 'A03N')
+			call WuGongShangHai(u, uc, shanghai)
 
-            call EnableTrigger(t)
+			call EnableTrigger(t)
 			set udg_shenxingfuzhu[i] = u
-            call DestroyTrigger(t)
-        endif
-    else
-        set udg_shenxingfuzhu[i] = u
-        call DestroyTrigger(t)
-    endif
-    set t = null
-    set t2= null
-    set u = null
-    set uc = null
+			call DestroyTrigger(t)
+		endif
+	else
+		set udg_shenxingfuzhu[i] = u
+		call DestroyTrigger(t)
+	endif
+	set t = null
+	set t2 = null
+	set u = null
+	set uc = null
 endfunction
 
 function ShenXingShangHai takes nothing returns nothing
-    local trigger t = CreateTrigger()
-    local unit u = GetAttacker()
-    local unit uc = GetAttackedUnitBJ()
-    set udg_shenxingpoyin[1+GetPlayerId(GetOwningPlayer(GetAttacker()))] = 0.00
-    call UnitRemoveAbility( GetAttacker(), 'BOwk' )
-    if  udg_shenxingfuzhu[1+GetPlayerId(GetOwningPlayer(u))] != GetAttackedUnitBJ() then
-    	call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
-    	call SaveUnitHandle(YDHT, GetHandleId(t), 1, uc)
-        call TriggerRegisterUnitEvent( t, uc, EVENT_UNIT_DAMAGED )
-        call TriggerRegisterTimerEventSingle( t, 1.00 )
-        call TriggerAddCondition(t, Condition(function ShenXingShangHai_1))
-    endif
-    set t = null
-    set u = null
-    set uc = null
+	local trigger t = CreateTrigger()
+	local unit u = GetAttacker()
+	local unit uc = GetAttackedUnitBJ()
+	set udg_shenxingpoyin[1 + GetPlayerId(GetOwningPlayer(GetAttacker()))] = 0.00
+	call UnitRemoveAbility( GetAttacker(), 'BOwk' )
+	if udg_shenxingfuzhu[1 + GetPlayerId(GetOwningPlayer(u))] != GetAttackedUnitBJ() then
+		call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
+		call SaveUnitHandle(YDHT, GetHandleId(t), 1, uc)
+		call TriggerRegisterUnitEvent( t, uc, EVENT_UNIT_DAMAGED )
+		call TriggerRegisterTimerEventSingle( t, 1.00 )
+		call TriggerAddCondition(t, Condition(function ShenXingShangHai_1))
+	endif
+	set t = null
+	set u = null
+	set uc = null
 endfunction
 function IsShenXingMianShang takes nothing returns boolean
-	return (IsUnitEnemy(GetTriggerUnit(),GetOwningPlayer(GetEventDamageSource()))) and GetUnitAbilityLevel(GetTriggerUnit(),'A03N')>=1
+	return (IsUnitEnemy(GetTriggerUnit(), GetOwningPlayer(GetEventDamageSource()))) and GetUnitAbilityLevel(GetTriggerUnit(), 'A03N') >= 1
 endfunction
 
 function ShenXingMianShang takes nothing returns nothing
 	local unit u = GetTriggerUnit()
 	local unit uc = GetEventDamageSource()
 	local location loc = GetUnitLoc(u)
-	if GetRandomInt(0,100)<15*GetUnitAbilityLevel(u, 'A07Q') then
+	if GetRandomInt(0, 100) < 15 * GetUnitAbilityLevel(u, 'A07Q') then
 		call WuDi(u)
-		call CreateTextTagLocBJ("MISS",loc,0,14.,GetRandomReal(0., 100),GetRandomReal(0., 100),GetRandomReal(0., 100),.0)
-		call Nw(3,bj_lastCreatedTextTag)
+		call CreateTextTagLocBJ("MISS", loc, 0, 14., GetRandomReal(0., 100), GetRandomReal(0., 100), GetRandomReal(0., 100), .0)
+		call Nw(3, bj_lastCreatedTextTag)
 	endif
 	call RemoveLocation(loc)
 	set loc = null
@@ -224,37 +224,37 @@ endfunction
 
 //妙手空空
 function IsMiaoShouKongKong takes nothing returns boolean
-	return (IsUnitAlly(GetAttackedUnitBJ(), GetOwningPlayer(GetAttacker())) == false) and (IsUnitType(GetAttackedUnitBJ(), UNIT_TYPE_STRUCTURE) == false) and GetUnitAbilityLevel(GetAttacker(), 'A03O')!=0
+	return (IsUnitAlly(GetAttackedUnitBJ(), GetOwningPlayer(GetAttacker())) == false) and (IsUnitType(GetAttackedUnitBJ(), UNIT_TYPE_STRUCTURE) == false) and GetUnitAbilityLevel(GetAttacker(), 'A03O') != 0
 endfunction
 function MiaoShouKongKong_1 takes nothing returns nothing
 	local trigger t = GetTriggeringTrigger()
 	local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
 	local unit uc = LoadUnitHandle(YDHT, GetHandleId(t), 1)
-	local real shxishu= GetPlayerState(GetOwningPlayer(u),PLAYER_STATE_RESOURCE_GOLD) * 0.5
-	local real shanghai=0.
+	local real shxishu = GetPlayerState(GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD) * 0.5
+	local real shanghai = 0.
 	if ((YDWEIsTriggerEventId(EVENT_UNIT_DAMAGED))) then
-		call AdjustPlayerStateBJ(3*GetUnitLevel(uc),GetOwningPlayer(u),PLAYER_STATE_RESOURCE_GOLD)
-		if (GetUnitAbilityLevel(u, 'A03N'))!=0 then
-			call AdjustPlayerStateBJ(3*GetUnitLevel(uc),GetOwningPlayer(u),PLAYER_STATE_RESOURCE_GOLD)
+		call AdjustPlayerStateBJ(3 * GetUnitLevel(uc), GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
+		if (GetUnitAbilityLevel(u, 'A03N')) != 0 then
+			call AdjustPlayerStateBJ(3 * GetUnitLevel(uc), GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
 		endif
-		if UnitHaveItem(udg_hero[1+GetPlayerId(GetOwningPlayer(u))],'I09Z') then
-			call AdjustPlayerStateBJ(3*GetUnitLevel(uc),GetOwningPlayer(u),PLAYER_STATE_RESOURCE_GOLD)
-			set shxishu = shxishu*2
+		if UnitHaveItem(udg_hero[1 + GetPlayerId(GetOwningPlayer(u))], 'I09Z') then
+			call AdjustPlayerStateBJ(3 * GetUnitLevel(uc), GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
+			set shxishu = shxishu * 2
 		endif
-		if (GetUnitAbilityLevel(u, 'A03Q'))!=0 then
+		if (GetUnitAbilityLevel(u, 'A03Q')) != 0 then
 			call DisableTrigger(t)
-			set  shanghai=ShangHaiGongShi(u,uc,0.001, 0.002,shxishu,'A03O')
-    		call WuGongShangHai(u,uc,shanghai)
-    		call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl",uc,"overhead"))
-    		call EnableTrigger(t)
+			set shanghai = ShangHaiGongShi(u, uc, 0.001, 0.002, shxishu, 'A03O')
+			call WuGongShangHai(u, uc, shanghai)
+			call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl", uc, "overhead"))
+			call EnableTrigger(t)
 		endif
-		if (GetUnitAbilityLevel(u, 'S002'))!=0 and GetRandomInt(1,100)<=15 then
-			call AdjustPlayerStateBJ(2,GetOwningPlayer(u),PLAYER_STATE_RESOURCE_LUMBER)
+		if (GetUnitAbilityLevel(u, 'S002')) != 0 and GetRandomInt(1, 100) <= 15 then
+			call AdjustPlayerStateBJ(2, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_LUMBER)
 		endif
-		set udg_miaoshoufuzhu[1+GetPlayerId(GetOwningPlayer(GetAttacker()))]=u
+		set udg_miaoshoufuzhu[1 + GetPlayerId(GetOwningPlayer(GetAttacker()))] = u
 		call DestroyTrigger(t)
 	else
-		set udg_miaoshoufuzhu[1+GetPlayerId(GetOwningPlayer(GetAttacker()))]=u
+		set udg_miaoshoufuzhu[1 + GetPlayerId(GetOwningPlayer(GetAttacker()))] = u
 		call DestroyTrigger(t)
 	endif
 	set t = null
@@ -262,24 +262,24 @@ function MiaoShouKongKong_1 takes nothing returns nothing
 	set uc = null
 endfunction
 function MiaoShouKongKong takes nothing returns nothing
-    local trigger t = CreateTrigger()
-    local unit u = GetAttacker()
-    if  udg_miaoshoufuzhu[1+GetPlayerId(GetOwningPlayer(GetAttacker()))] != GetAttackedUnitBJ() then
-    	call SaveUnitHandle(YDHT, GetHandleId(t), 0, udg_hero[1+GetPlayerId(GetOwningPlayer(u))])
-    	call SaveUnitHandle(YDHT, GetHandleId(t), 1, GetAttackedUnitBJ())
-    	call TriggerRegisterUnitEvent( t, GetAttackedUnitBJ(), EVENT_UNIT_DAMAGED )
-    	call TriggerRegisterTimerEventSingle( t, 1.00 )
-    	call TriggerAddCondition(t, Condition(function MiaoShouKongKong_1))
+	local trigger t = CreateTrigger()
+	local unit u = GetAttacker()
+	if udg_miaoshoufuzhu[1 + GetPlayerId(GetOwningPlayer(GetAttacker()))] != GetAttackedUnitBJ() then
+		call SaveUnitHandle(YDHT, GetHandleId(t), 0, udg_hero[1 + GetPlayerId(GetOwningPlayer(u))])
+		call SaveUnitHandle(YDHT, GetHandleId(t), 1, GetAttackedUnitBJ())
+		call TriggerRegisterUnitEvent( t, GetAttackedUnitBJ(), EVENT_UNIT_DAMAGED )
+		call TriggerRegisterTimerEventSingle( t, 1.00 )
+		call TriggerAddCondition(t, Condition(function MiaoShouKongKong_1))
 	endif
-    set t = null
-    set u = null
+	set t = null
+	set u = null
 endfunction
 //龟息功
 globals
 	real array guixihuixie
 endglobals
 function IsGuiXiGong takes nothing returns boolean
-	return GetUnitAbilityLevel(GetTriggerUnit(), 'A0CE')!=0 and GetEventDamage()>=GetWidgetLife(GetTriggerUnit())
+	return GetUnitAbilityLevel(GetTriggerUnit(), 'A0CE') != 0 and GetEventDamage() >= GetWidgetLife(GetTriggerUnit())
 endfunction
 //function GuiXiGong_1 takes nothing returns nothing
 //	local timer t = GetExpiredTimer()
@@ -289,65 +289,81 @@ endfunction
 
 //endfunction
 function GuiXiXianTian_Condition takes nothing returns boolean
-	return (IsUnitEnemy(GetFilterUnit(),GetOwningPlayer(GetTriggerUnit()))) and IsUnitAliveBJ(GetFilterUnit())
+	return (IsUnitEnemy(GetFilterUnit(), GetOwningPlayer(GetTriggerUnit()))) and IsUnitAliveBJ(GetFilterUnit())
 endfunction
 function GuiXiXianTian_Action takes nothing returns nothing
-	local unit uc=GetEnumUnit()
-	local real shxishu=1.
-	local real shanghai=0.
-	local location loc=GetUnitLoc(uc)
-	set shanghai=ShangHaiGongShi(GetTriggerUnit(),uc,800,320,shxishu,'A0CH')
-	call WuGongShangHai(GetTriggerUnit(),uc,shanghai)
-	if GetUnitAbilityLevel(GetTriggerUnit(),'A07V')>=1 then
-		set shxishu=shxishu+1.
+	local unit uc = GetEnumUnit()
+	local real shxishu = 1.
+	local real shanghai = 0.
+	local location loc = GetUnitLoc(uc)
+	set shanghai = ShangHaiGongShi(GetTriggerUnit(), uc, 800, 320, shxishu, 'A0CH')
+	call WuGongShangHai(GetTriggerUnit(), uc, shanghai)
+	if GetUnitAbilityLevel(GetTriggerUnit(), 'A07V') >= 1 then
+		set shxishu = shxishu + 1.
 	endif
-	if GetUnitAbilityLevel(GetTriggerUnit(),'A06P')>=1 then
-		call CreateNUnitsAtLoc(1,1697656880,GetOwningPlayer(GetTriggerUnit()),loc,bj_UNIT_FACING)
-        call UnitAddAbility(bj_lastCreatedUnit,1093678412)
-        call IssueTargetOrderById(bj_lastCreatedUnit,$D007F,uc)
-        call UnitApplyTimedLife(bj_lastCreatedUnit,1112045413,2.)
-        call ShowUnitHide(bj_lastCreatedUnit)
-        call CreateTextTagLocBJ("封穴",loc,0,12.,65.,55.,42.,0)
-        call Nw(3.,bj_lastCreatedTextTag)
-        call SetTextTagVelocityBJ(bj_lastCreatedTextTag,100.,90)
-    endif
-    if GetUnitAbilityLevel(GetTriggerUnit(),'A07O')>=1 then
-        call CreateNUnitsAtLoc(1,1697656880,GetOwningPlayer(GetTriggerUnit()),loc,bj_UNIT_FACING)
-        call ShowUnitHide(bj_lastCreatedUnit)
-        call UnitAddAbility(bj_lastCreatedUnit,'A0DF')
-        call IssueTargetOrderById(bj_lastCreatedUnit,$D0062,GetTriggerUnit())
-        call UnitApplyTimedLife(bj_lastCreatedUnit,1112045413,3.)
-    endif
-    call RemoveLocation(loc)
-    set loc=null
-	set uc=null
+	if GetUnitAbilityLevel(GetTriggerUnit(), 'A06P') >= 1 then
+		call CreateNUnitsAtLoc(1, 1697656880, GetOwningPlayer(GetTriggerUnit()), loc, bj_UNIT_FACING)
+		call UnitAddAbility(bj_lastCreatedUnit, 1093678412)
+		call IssueTargetOrderById(bj_lastCreatedUnit, $D007F, uc)
+		call UnitApplyTimedLife(bj_lastCreatedUnit, 1112045413, 2.)
+		call ShowUnitHide(bj_lastCreatedUnit)
+		call CreateTextTagLocBJ("封穴", loc, 0, 12., 65., 55., 42., 0)
+		call Nw(3., bj_lastCreatedTextTag)
+		call SetTextTagVelocityBJ(bj_lastCreatedTextTag, 100., 90)
+	endif
+	if GetUnitAbilityLevel(GetTriggerUnit(), 'A07O') >= 1 then
+		call CreateNUnitsAtLoc(1, 1697656880, GetOwningPlayer(GetTriggerUnit()), loc, bj_UNIT_FACING)
+		call ShowUnitHide(bj_lastCreatedUnit)
+		call UnitAddAbility(bj_lastCreatedUnit, 'A0DF')
+		call IssueTargetOrderById(bj_lastCreatedUnit, $D0062, GetTriggerUnit())
+		call UnitApplyTimedLife(bj_lastCreatedUnit, 1112045413, 3.)
+	endif
+	call RemoveLocation(loc)
+	set loc = null
+	set uc = null
 
 endfunction
+
+function GuiXiGongTimerExpired takes nothing returns nothing
+	local timer t = GetExpiredTimer()
+	local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
+	
+	set guixihuixie[1 + GetPlayerId(GetOwningPlayer(u))] = 0.
+	call FlushChildHashtable(YDHT, GetHandleId(t))
+	call DestroyTimer(t)
+
+	set t = null
+	set u = null
+endfunction
+
 function GuiXiGong takes nothing returns nothing
 	local unit u = GetTriggerUnit()
 	local group g = CreateGroup()
 	local location loc = GetUnitLoc(u)
 	local real range = 800.
+	local timer t = null
 	//local timer t = null
-	if (GetUnitState(u,UNIT_STATE_LIFE)>=0.99*GetUnitState(u,UNIT_STATE_MAX_LIFE)) or (GetRandomReal(1, 100)<=40) or (GetRandomReal(1, 100)<=40 and GetUnitAbilityLevel(u, 'A0DN')!=0) then
+	if (GetUnitState(u, UNIT_STATE_LIFE) >= 0.99 * GetUnitState(u, UNIT_STATE_MAX_LIFE)) or (GetRandomReal(1, 100) <= 40) or (GetRandomReal(1, 100) <= 40 and GetUnitAbilityLevel(u, 'A0DN') != 0) then
 		call WuDi(u)
 		call SetWidgetLife(u, 1.)
-		if GetUnitAbilityLevel(u, 'A0CH')!=0 then
-			if GetUnitAbilityLevel(u,'A07W')>=0 then
-				set range=range+700
+		if GetUnitAbilityLevel(u, 'A0CH') != 0 then
+			if GetUnitAbilityLevel(u, 'A07W') >= 0 then
+				set range = range + 700
 			endif
-			call GroupEnumUnitsInRangeOfLoc(g,loc,range,Condition(function GuiXiXianTian_Condition))
-			call ForGroupBJ(g,function GuiXiXianTian_Action)
+			call GroupEnumUnitsInRangeOfLoc(g, loc, range, Condition(function GuiXiXianTian_Condition))
+			call ForGroupBJ(g, function GuiXiXianTian_Action)
 		endif
 
-		if GetUnitAbilityLevel(u, 'A080')!=0 then
-			set guixihuixie[1+GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] = 20.
-			call YDWEPolledWaitNull(2.)
-			set guixihuixie[1+GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] = 0.
+		if GetUnitAbilityLevel(u, 'A080') != 0 then
+			set guixihuixie[1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] = 20.
+			set t = CreateTimer()
+			call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
+			call TimerStart(t, 2., false, function GuiXiGongTimerExpired)
 		endif
 	endif
 	call GroupClear(g)
 	call RemoveLocation(loc)
+	set t = null
 	set loc = null
 	set g = null
 	set u = null
@@ -358,11 +374,11 @@ function GuiXiJiaFang takes nothing returns boolean
 	set i = 1
 	loop
 		exitwhen i >= 6
-		if GetUnitAbilityLevel(udg_hero[i], 'A0CE')!=0 then
-			if GetUnitMoveSpeed(udg_hero[i])<=200 then
+		if GetUnitAbilityLevel(udg_hero[i], 'A0CE') != 0 then
+			if GetUnitMoveSpeed(udg_hero[i]) <= 200 then
 				call UnitAddAbility(udg_hero[i], 'A03S')
 				call UnitAddAbility(udg_hero[i], 'A03R')
-			elseif GetUnitMoveSpeed(udg_hero[i])<=300 then
+			elseif GetUnitMoveSpeed(udg_hero[i]) <= 300 then
 				call UnitRemoveAbility(udg_hero[i], 'A03S')
 				call UnitAddAbility(udg_hero[i], 'A03R')
 			else
@@ -376,28 +392,28 @@ function GuiXiJiaFang takes nothing returns boolean
 endfunction
 //须弥山掌
 function IsXuMiKai takes nothing returns boolean
-    return GetIssuedOrderId()==$D0057 and GetUnitAbilityLevel(GetTriggerUnit(),'A03T')>=1
+	return GetIssuedOrderId() == $D0057 and GetUnitAbilityLevel(GetTriggerUnit(), 'A03T') >= 1
 endfunction
 //开启须弥山掌
 function XuMiKai takes nothing returns nothing
-    local unit u=GetTriggerUnit()
-    local integer level=GetUnitAbilityLevel(u,'A03T')
-    call UnitAddAbility(u,'A0DB')
-    if GetUnitAbilityLevel(u,'A09D')>=1 then
-        call SetUnitAbilityLevel(u,'A0DB',level+1)
-    else
-        call SetUnitAbilityLevel(u,'A0DB',level)
-    endif
-    set u=null
+	local unit u = GetTriggerUnit()
+	local integer level = GetUnitAbilityLevel(u, 'A03T')
+	call UnitAddAbility(u, 'A0DB')
+	if GetUnitAbilityLevel(u, 'A09D') >= 1 then
+		call SetUnitAbilityLevel(u, 'A0DB', level + 1)
+	else
+		call SetUnitAbilityLevel(u, 'A0DB', level)
+	endif
+	set u = null
 endfunction
 //关闭须弥山掌
 function IsXuMiGuan takes nothing returns boolean
-    return GetIssuedOrderId()==$D0058 and GetUnitAbilityLevel(GetTriggerUnit(),'A03T')>=1
+	return GetIssuedOrderId() == $D0058 and GetUnitAbilityLevel(GetTriggerUnit(), 'A03T') >= 1
 endfunction
 function XuMiGuan takes nothing returns nothing
-    local unit u=GetTriggerUnit()
-    call UnitRemoveAbility(u,'A0DB')
-    set u=null
+	local unit u = GetTriggerUnit()
+	call UnitRemoveAbility(u, 'A0DB')
+	set u = null
 endfunction
 //夫妻刀法
 function IsYuanYangDaoFa takes nothing returns boolean
@@ -421,10 +437,10 @@ function YuanYangDaoFa takes nothing returns nothing
 		call SetPlayerAbilityAvailableBJ( false, 'A04S', GetOwningPlayer(ut) )
 	endif
 	loop
-		exitwhen j>6
-		if (udg_hero[i]==bd[j]) then
-			if (ModuloInteger(j,2)==0) then
-				if (bd[j-1]!=null) and bd[j-1]==ut then
+		exitwhen j > 6
+		if (udg_hero[i] == bd[j]) then
+			if (ModuloInteger(j, 2) == 0) then
+				if (bd[j - 1] != null) and bd[j - 1] == ut then
 					call SetUnitAbilityLevel(u, 'A04T', 3)
 					call SetUnitAbilityLevel(u, 'A04U', 3)
 					if IsUnitAlly(ut, GetOwningPlayer(u)) then
@@ -433,7 +449,7 @@ function YuanYangDaoFa takes nothing returns nothing
 					endif
 				endif
 			else
-				if (bd[j+1]!=null) and bd[j+1]==ut then
+				if (bd[j + 1] != null) and bd[j + 1] == ut then
 					call SetUnitAbilityLevel(u, 'A04T', 3)
 					call SetUnitAbilityLevel(u, 'A04U', 3)
 					if IsUnitAlly(ut, GetOwningPlayer(u)) then
@@ -443,9 +459,9 @@ function YuanYangDaoFa takes nothing returns nothing
 				endif
 			endif
 		endif
-		set j=j+1
+		set j = j + 1
 	endloop
-	if GetUnitAbilityLevel(u,'A09D')>=1 then
+	if GetUnitAbilityLevel(u, 'A09D') >= 1 then
 		set lasttime = 10.
 	endif
 	call YDWEPolledWaitNull(lasttime)
@@ -469,16 +485,16 @@ function shouMu takes nothing returns nothing
 	local player p = GetOwningPlayer(u)
 	local location loc = GetUnitLoc(u)
 	//马甲施放防御最大化
-	call CreateNUnitsAtLoc(1,'e000',p,loc,bj_UNIT_FACING)
+	call CreateNUnitsAtLoc(1, 'e000', p, loc, bj_UNIT_FACING)
 	call ShowUnitHide(bj_lastCreatedUnit)
-	call UnitAddAbility(bj_lastCreatedUnit,'A06V')
-	call IssueTargetOrderById(bj_lastCreatedUnit,$D0062,u)
+	call UnitAddAbility(bj_lastCreatedUnit, 'A06V')
+	call IssueTargetOrderById(bj_lastCreatedUnit, $D0062, u)
 	//马甲施放残废，学习九阳不减速
-	if GetUnitAbilityLevel(u,'A0DN') == 0 then
-		call CreateNUnitsAtLoc(1,'e000',p,loc,bj_UNIT_FACING)
+	if GetUnitAbilityLevel(u, 'A0DN') == 0 then
+		call CreateNUnitsAtLoc(1, 'e000', p, loc, bj_UNIT_FACING)
 		call ShowUnitHide(bj_lastCreatedUnit)
-		call UnitAddAbility(bj_lastCreatedUnit,'A06U')
-		call IssueTargetOrderById(bj_lastCreatedUnit,$D00DD,u)
+		call UnitAddAbility(bj_lastCreatedUnit, 'A06U')
+		call IssueTargetOrderById(bj_lastCreatedUnit, $D00DD, u)
 	endif
 	
 
@@ -495,26 +511,26 @@ function huangSha takes nothing returns nothing
 	local location loc = GetUnitLoc(u)
 	local integer i = 0
 	local location loc1 = null
-	call CreateNUnitsAtLoc(1,'e01D',GetOwningPlayer(u),loc,bj_UNIT_FACING)
-	call IssueImmediateOrderById(bj_lastCreatedUnit,$D00D1)
-	call UnitApplyTimedLife(bj_lastCreatedUnit,'BHwe',10.)
+	call CreateNUnitsAtLoc(1, 'e01D', GetOwningPlayer(u), loc, bj_UNIT_FACING)
+	call IssueImmediateOrderById(bj_lastCreatedUnit, $D00D1)
+	call UnitApplyTimedLife(bj_lastCreatedUnit, 'BHwe', 10.)
 	set i = 0
 	loop
 		exitwhen i >= 8
-		set loc1 = PolarProjectionBJ(loc, 200, 45*i)
-		call CreateNUnitsAtLoc(1,'e01D',GetOwningPlayer(u),loc1,bj_UNIT_FACING)
-		call IssueImmediateOrderById(bj_lastCreatedUnit,$D00D1)
-		call UnitApplyTimedLife(bj_lastCreatedUnit,'BHwe',10.)
+		set loc1 = PolarProjectionBJ(loc, 200, 45 * i)
+		call CreateNUnitsAtLoc(1, 'e01D', GetOwningPlayer(u), loc1, bj_UNIT_FACING)
+		call IssueImmediateOrderById(bj_lastCreatedUnit, $D00D1)
+		call UnitApplyTimedLife(bj_lastCreatedUnit, 'BHwe', 10.)
 		call RemoveLocation(loc1)
 		set i = i + 1
 	endloop
 	set i = 0
 	loop
 		exitwhen i >= 18
-		set loc1 = PolarProjectionBJ(loc, 350, 20*i)
-		call CreateNUnitsAtLoc(1,'e01D',GetOwningPlayer(u),loc1,bj_UNIT_FACING)
-		call IssueImmediateOrderById(bj_lastCreatedUnit,$D00D1)
-		call UnitApplyTimedLife(bj_lastCreatedUnit,'BHwe',10.)
+		set loc1 = PolarProjectionBJ(loc, 350, 20 * i)
+		call CreateNUnitsAtLoc(1, 'e01D', GetOwningPlayer(u), loc1, bj_UNIT_FACING)
+		call IssueImmediateOrderById(bj_lastCreatedUnit, $D00D1)
+		call UnitApplyTimedLife(bj_lastCreatedUnit, 'BHwe', 10.)
 		call RemoveLocation(loc1)
 		set i = i + 1
 	endloop
@@ -524,23 +540,23 @@ function huangSha takes nothing returns nothing
 	set loc1 = null
 endfunction
 function isHuangShaSH takes nothing returns boolean
-	return (GetEventDamage()==6.09) and (GetUnitAbilityLevel(udg_hero[(1+GetPlayerId(GetOwningPlayer(GetEventDamageSource())))], 'A06B')>=1 )
+	return (GetEventDamage() == 6.09) and (GetUnitAbilityLevel(udg_hero[(1 + GetPlayerId(GetOwningPlayer(GetEventDamageSource())))], 'A06B') >= 1 )
 endfunction
 function huangShaSH takes nothing returns nothing
-	local unit u=udg_hero[(1+GetPlayerId(GetOwningPlayer(GetEventDamageSource())))]
-    local unit uc=GetTriggerUnit()
-    local real shxishu=1.
-    local real shanghai=0.
-    if GetUnitAbilityLevel(u,'A06A')>=1 then
-		set shxishu=shxishu+0.8
+	local unit u = udg_hero[(1 + GetPlayerId(GetOwningPlayer(GetEventDamageSource())))]
+	local unit uc = GetTriggerUnit()
+	local real shxishu = 1.
+	local real shanghai = 0.
+	if GetUnitAbilityLevel(u, 'A06A') >= 1 then
+		set shxishu = shxishu + 0.8
 	endif
-	if GetUnitAbilityLevel(u,'A0DN')>=1 then
-		set shxishu=shxishu+0.6
+	if GetUnitAbilityLevel(u, 'A0DN') >= 1 then
+		set shxishu = shxishu + 0.6
 	endif
-    set shanghai=ShangHaiGongShi(u,uc,130,150,shxishu,'A06B')
-    call WuGongShangHai(u,uc,shanghai)
-    set u=null
-    set uc=null
+	set shanghai = ShangHaiGongShi(u, uc, 130, 150, shxishu, 'A06B')
+	call WuGongShangHai(u, uc, shanghai)
+	set u = null
+	set uc = null
 endfunction
 //珍珑棋局
 //function IsZhenLongQiJu takes nothing returns boolean
@@ -627,65 +643,65 @@ endfunction
 //endfunction
 //事件
 function QiWu_Trigger takes nothing returns nothing
-	local trigger t=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
-	call TriggerAddCondition(t,Condition(function IsHanBingZhenQi))
-    call TriggerAddAction(t,function HanBingZhenQi)
-    set t = CreateTrigger()
-    call YDWESyStemAnyUnitDamagedRegistTrigger( t )
-    call TriggerAddCondition(t, Condition(function IsWuXiangShangHai))
-    call TriggerAddAction(t, function WuXiangShangHai)
-    set t = CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
-	call TriggerAddCondition(t,Condition(function IsWuXiangJieZhi))
-    call TriggerAddAction(t,function WuXiangJieZhi)
-    set t = CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
-	call TriggerAddCondition(t,Condition(function IsShenXingBaiBian))
-    call TriggerAddAction(t,function ShenXingBaiBian)
-    set t = CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
-	call TriggerAddCondition(t,Condition(function IsShenXingShangHai))
-	call TriggerAddAction(t,function ShenXingShangHai)
-	set t=CreateTrigger()
+	local trigger t = CreateTrigger()
+	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
+	call TriggerAddCondition(t, Condition(function IsHanBingZhenQi))
+	call TriggerAddAction(t, function HanBingZhenQi)
+	set t = CreateTrigger()
 	call YDWESyStemAnyUnitDamagedRegistTrigger( t )
-	call TriggerAddCondition(t,Condition(function IsShenXingMianShang))
-    call TriggerAddAction(t,function ShenXingMianShang)
-    set t = CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
-	call TriggerAddCondition(t,Condition(function IsMiaoShouKongKong))
-	call TriggerAddAction(t,function MiaoShouKongKong)
-	set t=CreateTrigger()
+	call TriggerAddCondition(t, Condition(function IsWuXiangShangHai))
+	call TriggerAddAction(t, function WuXiangShangHai)
+	set t = CreateTrigger()
+	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
+	call TriggerAddCondition(t, Condition(function IsWuXiangJieZhi))
+	call TriggerAddAction(t, function WuXiangJieZhi)
+	set t = CreateTrigger()
+	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
+	call TriggerAddCondition(t, Condition(function IsShenXingBaiBian))
+	call TriggerAddAction(t, function ShenXingBaiBian)
+	set t = CreateTrigger()
+	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_ATTACKED)
+	call TriggerAddCondition(t, Condition(function IsShenXingShangHai))
+	call TriggerAddAction(t, function ShenXingShangHai)
+	set t = CreateTrigger()
 	call YDWESyStemAnyUnitDamagedRegistTrigger( t )
-	call TriggerAddCondition(t,Condition(function IsGuiXiGong))
-    call TriggerAddAction(t,function GuiXiGong)
-    set t = CreateTrigger()
-    call TriggerRegisterTimerEventPeriodic(t, 0.1)
-    call TriggerAddCondition(t, Condition(function GuiXiJiaFang))
-    set t=CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ISSUED_ORDER)
-    call TriggerAddCondition(t,Condition(function IsXuMiKai))
-    call TriggerAddAction(t,function XuMiKai)
-    set t=CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ISSUED_ORDER)
-    call TriggerAddCondition(t,Condition(function IsXuMiGuan))
-    call TriggerAddAction(t,function XuMiGuan)
-    set t = CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
-	call TriggerAddCondition(t,Condition(function IsYuanYangDaoFa))
-    call TriggerAddAction(t,function YuanYangDaoFa)
-    set t = CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
-	call TriggerAddCondition(t,Condition(function isShouMu))
-    call TriggerAddAction(t,function shouMu)
-    set t = CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
-	call TriggerAddCondition(t,Condition(function isHuangSha))
-    call TriggerAddAction(t,function huangSha)
-    set t = CreateTrigger()
-    call YDWESyStemAnyUnitDamagedRegistTrigger( t )
-    call TriggerAddCondition(t, Condition(function isHuangShaSH))
-    call TriggerAddAction(t, function huangShaSH)
+	call TriggerAddCondition(t, Condition(function IsShenXingMianShang))
+	call TriggerAddAction(t, function ShenXingMianShang)
+	set t = CreateTrigger()
+	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_ATTACKED)
+	call TriggerAddCondition(t, Condition(function IsMiaoShouKongKong))
+	call TriggerAddAction(t, function MiaoShouKongKong)
+	set t = CreateTrigger()
+	call YDWESyStemAnyUnitDamagedRegistTrigger( t )
+	call TriggerAddCondition(t, Condition(function IsGuiXiGong))
+	call TriggerAddAction(t, function GuiXiGong)
+	set t = CreateTrigger()
+	call TriggerRegisterTimerEventPeriodic(t, 0.1)
+	call TriggerAddCondition(t, Condition(function GuiXiJiaFang))
+	set t = CreateTrigger()
+	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_ISSUED_ORDER)
+	call TriggerAddCondition(t, Condition(function IsXuMiKai))
+	call TriggerAddAction(t, function XuMiKai)
+	set t = CreateTrigger()
+	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_ISSUED_ORDER)
+	call TriggerAddCondition(t, Condition(function IsXuMiGuan))
+	call TriggerAddAction(t, function XuMiGuan)
+	set t = CreateTrigger()
+	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
+	call TriggerAddCondition(t, Condition(function IsYuanYangDaoFa))
+	call TriggerAddAction(t, function YuanYangDaoFa)
+	set t = CreateTrigger()
+	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
+	call TriggerAddCondition(t, Condition(function isShouMu))
+	call TriggerAddAction(t, function shouMu)
+	set t = CreateTrigger()
+	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
+	call TriggerAddCondition(t, Condition(function isHuangSha))
+	call TriggerAddAction(t, function huangSha)
+	set t = CreateTrigger()
+	call YDWESyStemAnyUnitDamagedRegistTrigger( t )
+	call TriggerAddCondition(t, Condition(function isHuangShaSH))
+	call TriggerAddAction(t, function huangShaSH)
  //   set t=CreateTrigger()
 	//call YDWESyStemAnyUnitDamagedRegistTrigger( t )
 	//call TriggerAddCondition(t,Condition(function IsXuMiShanZhang))
@@ -706,6 +722,6 @@ function QiWu_Trigger takes nothing returns nothing
 	//call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_PICKUP_ITEM)
 	//call TriggerAddCondition(t,Condition(function IsXueZhenFa))
 	//call TriggerAddAction(t,function XueZhenFa)
-    set t =null
+	set t = null
 endfunction
 
