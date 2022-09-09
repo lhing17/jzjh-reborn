@@ -218,7 +218,7 @@ function TongBeiQuan takes nothing returns nothing
     endif
 	if (GetRandomInt(1, 100)<=fuyuan[i]/5+15) then
 		//+蛤蟆功 A084 召唤一个会通背拳的铁掌帮长老协助战斗 此处概率有待平衡 TODO
-		if (GetUnitAbilityLevel(u, 'A084')>=1 and GetRandomInt(1, 100)<=7) then
+		if (GetUnitAbilityLevel(GetAttacker(), 'A084')>=1 and GetRandomInt(1, 100)<=15) then
 			call CreateNUnitsAtLoc(1,'o02O',GetOwningPlayer(u),loc,bj_UNIT_FACING)
 			call UnitAddAbility(bj_lastCreatedUnit, 'A070')
 	    	call UnitApplyTimedLife(bj_lastCreatedUnit,'BHwe',15.)
