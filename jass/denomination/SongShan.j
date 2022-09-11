@@ -1,8 +1,10 @@
 // 门派——嵩山
 
-// 寒冰神掌 霜冻闪电
+// 十七路剑法
+// 寒冰神掌 霜冻闪电 dota巫妖的大
+// 子午十二剑  马可波罗突突枪
 // 大嵩阳神掌 快速击退
-// 无名内功 可以将内力隐藏起来，不让对方吸到一丝一毫。
+// 无名内功 可以将内力隐藏起来，不让对方吸到一丝一毫。可以将内力快速转换为真实伤害，或反向转换（潮起潮落的机制）。每内化一个武功，转换时被转的属性有机率额外增加1点。
 
 // 与寒冰真气联动
 
@@ -10,8 +12,9 @@
 // 寒魄剑
 
 // 称号
-// 嵩山掌门
-// 五岳盟主
+// 嵩山掌门 四个技能都达到6重
+// 五岳盟主 嵩山掌门+寒冰真气+寒魄剑
+// 五岳盟主2 如果集齐五个门派掌门，再获得五岳盟主称号，奖励非常多
 
 // 嵩山剑法 被动白板
 /*
@@ -41,7 +44,7 @@ function songSanAction takes nothing returns nothing
     endif
 
 	// 专属 FIXME
-	if UnitHaveItem(GetAttacker(), 'I0EJ') then
+	if UnitHasDenomWeapon(GetAttacker(), 'I0EJ') then
 	    set shxishu = shxishu * 4
     endif
 	call PassiveWuGongEffectAndDamage(GetAttacker(), GetEnumUnit(), "war3mapImported\\zhiyu.mdx", 24, 28, shxishu, 'A0BF')
