@@ -99,8 +99,9 @@ endfunction
 function xiuZhongZhiRemoveAgi takes nothing returns nothing
 	local timer t = GetExpiredTimer()
 	local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
+	local integer i = LoadInteger(YDHT, GetHandleId(t), 1)
 
-	call ModifyHeroStat(1, u, 1, 20 * GetUnitAbilityLevel(u, 'A0CC'))
+	call ModifyHeroStat(1, u, 1, i)
 	call FlushChildHashtable(YDHT, GetHandleId(t))
 	call PauseTimer(t)
 	call DestroyTimer(t)
@@ -141,6 +142,7 @@ function XiuZhongZhi takes nothing returns nothing
 		if isTitle(i, 26) then
 			call ModifyHeroStat(1, u, 0, 20 * GetUnitAbilityLevel(u, 'A0CC'))
 			call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
+			call SaveInteger(YDHT, GetHandleId(t), 1, 20 * GetUnitAbilityLevel(u, 'A0CC'))
 			call TimerStart(t, 15. + 2 * GetUnitAbilityLevel(u, 'A0CC'), false, function xiuZhongZhiRemoveAgi)
 			// call ModifyHeroStat(1, u, 1, 20 * GetUnitAbilityLevel(u, 'A0CC'))
 		endif
