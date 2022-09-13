@@ -1,6 +1,18 @@
 事件
 条件
 动作
+    YDWETimerPatternMoonPriestessArrow
+        函数: GetTriggerUnit
+        常量: 0
+        常量: 800
+        常量: 1
+        常量: 0.03
+        常量: 1
+        常量: A02G
+        常量: hpea
+        预设: UnitOrderAttackUnit
+        常量: overhead
+        常量: [jx3]normal_10a.mdx
     YDWESetUnitAbilityDataString
         函数: GetTriggerUnit
         常量: A04B

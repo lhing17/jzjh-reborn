@@ -56,12 +56,12 @@
 #include "denomination/TangMen.j"
 #include "denomination/TieZhang.j"
 #include "denomination/TaiShan.j"
-#include "denomination/SongShan.j"
 #include "denomination/WuDu.j"
 #include "denomination/TaoHua.j" // 桃花岛武功
 #include "denomination/YeLuo.j" // 野螺派武功
 #include "denomination/XueShan.j" // 雪山派武功
 #include "denomination/RuYang.j" // 汝阳王府武功
+#include "denomination/SongShan.j" // 嵩山武功
 
 #include "denomination/JiangHuWuGong.j"
 #include "denomination/JueShiWuGong.j"
@@ -2202,6 +2202,7 @@ function main1 takes nothing returns nothing
 		set udg_yiwang[i] = false
 		
 		set tide_rising[i] = false
+		set wumingStatus[i] = 0
 		set R4[i] = DialogCreate()
 		set Y4[i] = 1
 		set udg_xinggeA[i] = 0
