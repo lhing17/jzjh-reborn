@@ -18,10 +18,6 @@
 
 globals
 	integer array wumingStatus // 无名内功状态：收/放
-	
-
-
-
 endglobals
 
 // call YDWETimerPatternMoonPriestessArrow( GetTriggerUnit(), 0, 800, 1, 0.03, 1, 'A02G', 'hpea', "attack", "overhead", "[jx3]normal_10a.mdx" )
@@ -72,7 +68,7 @@ function songShanJianFa takes unit u, unit ut returns nothing
 	local integer i = 1 + GetPlayerId(p)
 	local location loc1 = GetUnitLoc(u)
 	local location loc2 = GetUnitLoc(ut)
-	call PassiveWuGongAction(u, ut, 45 + fuyuan[i] * 0.3, 700, Condition(function songShanCondition), function songSanAction, SONG_SHAN_JIAN_FA, 900.)
+	call PassiveWuGongAction(u, ut, 45 + fuyuan[i] * 0.3, 700, Condition(function songShanCondition), function songSanAction, SONG_SHAN_JIAN_FA, 600.)
 
 	// 经脉>=50 几率打出万岳朝宗的效果（在空中召唤一个山形的召唤物，投射物为小山，类似于石廪书声）
 	if jingmai[i] >= 50 and GetRandomInt(1, 100) <= 15 + fuyuan[i] / 5 then
@@ -124,15 +120,41 @@ function ziWuShiErJianAction takes nothing returns nothing
 	set u = null
 endfunction
 
+function ziWuCdFive takes nothing returns nothing
+	local timer t = GetExpiredTimer()
+	local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
+
+	// CD变为5秒
+	call EXSetAbilityState(EXGetUnitAbility(u, ZI_WU_SHI_ER_JIAN), 1, 5)
+
+	call FlushChildHashtable(YDHT, GetHandleId(t))
+	call DestroyTimer(t)
+	set t = null
+	set u = null
+endfunction
 
 function ziWuShiErJian takes unit u returns nothing
 	local integer count = 12
 	local timer t = CreateTimer()
+	local timer tm = null
+
+	call WuGongShengChong(u, ZI_WU_SHI_ER_JIAN, 180)
+
 	call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
 	call SaveInteger(YDHT, GetHandleId(t), 1, 0)
 	call SaveInteger(YDHT, GetHandleId(t), 2, count)
 	call TimerStart(t, 0.1, true, function ziWuShiErJianAction)
+
+	// 五岳盟主称号 CD变为5秒
+	if isTitle(1 + GetPlayerId(GetOwningPlayer(u)), 50) then
+		set tm = CreateTimer()
+		call SaveUnitHandle(YDHT, GetHandleId(tm), 0, u)
+		call TimerStart(tm, 0.2, false, function ziWuCdFive)
+	endif
+
+
 	set t = null
+	set tm = null
 endfunction
 
 
@@ -154,10 +176,93 @@ function ziWuShiErJianDamage takes unit u, unit ut returns nothing
 	if UnitHasDenomWeapon(u, ITEM_HAN_PO_JIAN) then
 		set shxishu = shxishu * 4
 	endif
+
+	// 寒冰真气 几率冰冻
+	if GetUnitAbilityLevel(u, HAN_BING_ZHEN_QI) >= 1 and GetRandomInt(1, 100) <= 20 then
+		call WanBuff(u, ut, 17)
+	endif
+
 	set shanghai = ShangHaiGongShi(u, ut, 50., 50., shxishu, ZI_WU_SHI_ER_JIAN)
 	call WuGongShangHai(u, ut, shanghai)
 endfunction
 
+// 三技能 寒冰神掌 每次受伤害最大掉血10%，主动使用时冰冻自己同时快速回复气血（每秒10%），并对周围单位造成持续伤害
+// +寒冰真气 不再冰冻自己
+// +无名内功 伤害和胆魄相关
+// +双手互搏 回血速度加倍
+// +洗髓经 每次受伤害最大掉血6%
+function hanBingShenZhangDamaged takes unit u, real damage returns nothing
+	local real coeff = 10
+	if GetUnitAbilityLevel(u, XI_SUI_JING) >= 1 then
+		set coeff = 6
+	endif
+	if damage > GetUnitState(u, UNIT_STATE_MAX_LIFE) * coeff / 100 then
+		call WuDi(u)
+		call SetUnitLifePercentBJ(u, GetUnitLifePercent(u) - coeff)
+	endif
+endfunction
+
+function hanBingShenZhangDamage takes unit u, unit ut returns nothing
+	local real shanghai = 0.
+	local real shxishu = 1.
+
+	// 专属
+	if UnitHasDenomWeapon(u, ITEM_HAN_PO_JIAN) then
+		set shxishu = shxishu * 4
+	endif
+
+	set shanghai = ShangHaiGongShi(u, ut, 50., 50., shxishu, HAN_BING_ZHEN_QI)
+	call WuGongShangHai(u, ut, shanghai)
+endfunction
+
+function hanBingShenZhangAction takes nothing returns nothing
+	local timer t = GetExpiredTimer()
+	local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
+	local integer j = LoadInteger(YDHT, GetHandleId(t), 1)
+	local group g
+	local unit ut
+	if j >= 6 then
+		call FlushChildHashtable(YDHT, GetHandleId(t))
+		call PauseTimer(t)
+		call DestroyTimer(t)
+	else
+		call SaveInteger(YDHT, GetHandleId(t), 1, j + 1)
+		if GetUnitAbilityLevel(u, SHUANG_SHOU) >= 1 then
+			call SetWidgetLife(u, GetWidgetLife(u) + 0.2 * GetUnitState(u, UNIT_STATE_MAX_LIFE))
+		else
+			call SetWidgetLife(u, GetWidgetLife(u) + 0.1 * GetUnitState(u, UNIT_STATE_MAX_LIFE))
+		endif
+		set g = CreateGroup()
+		call GroupEnumUnitsInRange(g, GetUnitX(u), GetUnitY(u), 700, null)
+		loop
+			exitwhen CountUnitsInGroup(g) <= 0
+			set ut = FirstOfGroup(g)
+			if IsUnitEnemy(ut, GetOwningPlayer(u)) and IsUnitAliveBJ(ut) then
+				call hanBingShenZhangDamage(u, ut)
+			endif
+		endloop
+	endif
+	set g = null
+	set t = null
+	set ut = null
+endfunction
+
+function hanBingShenZhang takes unit u returns nothing
+	local unit dummy = CreateUnit(Player(6), 'e000', GetUnitX(u), GetUnitY(u), 270)
+	local timer t = CreateTimer()
+
+	call WuGongShengChong(u, HAN_BING_SHEN_ZHANG, 200)
+	if GetUnitAbilityLevel(u, HAN_BING_ZHEN_QI) < 1 then
+		call WanBuff(dummy, u, 17)
+	endif
+	call UnitApplyTimedLife(dummy, 'BHwe', 3.)
+
+	call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
+	call SaveInteger(YDHT, GetHandleId(t), 1, 0)
+	call TimerStart(t, 1, true, function hanBingShenZhangAction)
+
+	set t = null
+endfunction
 
 
 

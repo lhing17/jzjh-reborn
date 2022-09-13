@@ -67,6 +67,11 @@ function UnitDamage_Conditions takes nothing returns boolean
 	if damage == 0.94 then
 		call ziWuShiErJianDamage(udg_hero[i], ut)
 	endif
+
+	// 嵩山-寒冰神掌
+	if GetUnitAbilityLevel(ut, HAN_BING_SHEN_ZHANG) >= 1 then
+		call hanBingShenZhangDamaged(ut, damage)
+	endif
 	
 	set t = null
 	set u = null

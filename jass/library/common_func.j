@@ -74,6 +74,7 @@ globals
 	
 	constant integer LONG_XIANG = 'S002' // 龙象般若功
 	constant integer XIAO_WU_XIANG = 'A083' // 小无相功
+	constant integer XI_SUI_JING = 'A080' // 洗髓经
 
 	constant integer MIAO_SHOU_KONG_KONG = 'A03O' // 妙手空空
 	constant integer GUI_XI_GONG = 'A0CE' // 龟息功
