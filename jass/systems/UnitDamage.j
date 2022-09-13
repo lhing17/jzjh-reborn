@@ -62,6 +62,11 @@ function UnitDamage_Conditions takes nothing returns boolean
 	if GetUnitTypeId(u) == 'o030' then
 		call wanYueChaoZong(udg_hero[i], ut)
 	endif
+
+	// 嵩山-子午十二剑
+	if damage == 0.94 then
+		call ziWuShiErJianDamage(udg_hero[i], ut)
+	endif
 	
 	set t = null
 	set u = null

@@ -18,11 +18,10 @@
 
 globals
 	integer array wumingStatus // 无名内功状态：收/放
-	constant integer HAN_PO_JIAN = 'I0EJ' // FIXME 寒魄剑（专属）
+	
 
 
-	constant integer SONG_SHAN_JIAN_FA = 'A0BF'
-	constant integer ZI_WU_SHI_ER_JIAN = 'A0FA'
+
 endglobals
 
 // call YDWETimerPatternMoonPriestessArrow( GetTriggerUnit(), 0, 800, 1, 0.03, 1, 'A02G', 'hpea', "attack", "overhead", "[jx3]normal_10a.mdx" )
@@ -52,20 +51,20 @@ function songSanAction takes nothing returns nothing
 	local real shxishu = 1. + DamageCoefficientByAbility(GetAttacker(), 'A07U', 0.8)
 
 	// 连城剑法=走火入魔
-	if GetUnitAbilityLevel(GetAttacker(), 'A06J') >= 1 and GetRandomInt(1, 100) <= 60 then
+	if GetUnitAbilityLevel(GetAttacker(), LIAN_CHENG_JIAN_FA) >= 1 and GetRandomInt(1, 100) <= 30 then
 		call WanBuff(GetAttacker(), GetEnumUnit(), 2)
 	endif
 
 	// 寒冰真气=冰冻
-	if GetUnitAbilityLevel(GetAttacker(), 'A03L') >= 1 and GetRandomInt(1, 100) <= 20 then
+	if GetUnitAbilityLevel(GetAttacker(), HAN_BING_ZHEN_QI) >= 1 and GetRandomInt(1, 100) <= 20 then
 		call WanBuff(GetAttacker(), GetEnumUnit(), 17)
 	endif
 
-	// 专属 FIXME
-	if UnitHasDenomWeapon(GetAttacker(), HAN_PO_JIAN) then
+	// 专属
+	if UnitHasDenomWeapon(GetAttacker(), ITEM_HAN_PO_JIAN) then
 		set shxishu = shxishu * 4
 	endif
-	call PassiveWuGongEffectAndDamage(GetAttacker(), GetEnumUnit(), "war3mapImported\\zhiyu.mdx", 24, 28, shxishu, SONG_SHAN_JIAN_FA)
+	call PassiveWuGongEffectAndDamage(GetAttacker(), GetEnumUnit(), "war3mapImported\\zhiyu.mdx", 12, 16, shxishu, SONG_SHAN_JIAN_FA)
 endfunction
 
 function songShanJianFa takes unit u, unit ut returns nothing
@@ -73,11 +72,11 @@ function songShanJianFa takes unit u, unit ut returns nothing
 	local integer i = 1 + GetPlayerId(p)
 	local location loc1 = GetUnitLoc(u)
 	local location loc2 = GetUnitLoc(ut)
-	call PassiveWuGongAction(u, ut, 15 + fuyuan[i] * 0.3, 700, Condition(function songShanCondition), function songSanAction, SONG_SHAN_JIAN_FA, 900.)
+	call PassiveWuGongAction(u, ut, 45 + fuyuan[i] * 0.3, 700, Condition(function songShanCondition), function songSanAction, SONG_SHAN_JIAN_FA, 900.)
 
 	// 经脉>=50 几率打出万岳朝宗的效果（在空中召唤一个山形的召唤物，投射物为小山，类似于石廪书声）
 	if jingmai[i] >= 50 and GetRandomInt(1, 100) <= 15 + fuyuan[i] / 5 then
-		call CreateNUnitsAtLocFacingLocBJ(1, id, p, PolarProjectionBJ(loc1, 300, 180 + angle), loc2)
+		call CreateNUnitsAtLocFacingLocBJ(1, 'o030', p, PolarProjectionBJ(loc1, 300, 180 + GetUnitFacing(u)), loc2)
 		call UnitApplyTimedLife(bj_lastCreatedUnit, 'BHwe', 10.)
 	endif
 
@@ -94,7 +93,7 @@ function wanYueChaoZong takes unit u, unit uc returns nothing
 	local real shxishu = 1.
 
 	// 专属
-	if UnitHasDenomWeapon(u, HAN_PO_JIAN) then
+	if UnitHasDenomWeapon(u, ITEM_HAN_PO_JIAN) then
 		set shxishu = shxishu * 4
 	endif
 	set shanghai = ShangHaiGongShi(u, uc, 200., 180., shxishu, SONG_SHAN_JIAN_FA)
@@ -103,10 +102,63 @@ endfunction
 
 
 // 二技能：子午十二剑 
-function ziWuShiErJian takes unit u returns nothing
+function ziWuShiErJianAction takes nothing returns nothing
+	local timer t = GetExpiredTimer()
+	local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
+	local integer j = LoadInteger(YDHT, GetHandleId(t), 1)
+	local integer jMax = LoadInteger(YDHT, GetHandleId(t), 2)
 	local real angle = GetUnitFacing(u)
 	local real distance = 1000.
-	call YDWETimerPatternMoonPriestessArrow( u, angle, distance, 1, 0.03, 1, 'A02G', 'hpea', "attack", "overhead", "[jx3]normal_10a.mdx" )
+	local real duration = 1
+
+	if j >= jMax then
+		call FlushChildHashtable(YDHT, GetHandleId(t))
+		call DestroyTimer(t)
+	else
+		call SaveInteger(YDHT, GetHandleId(t), 1, j + 1)
+		call YDWETimerPatternMoonPriestessArrow( u, angle, distance, duration, 0.03, 1, 'A0FB', 'e000', "attack", "overhead", "war3mapImported\\zhiyu.mdx" )
+	endif
+
+	
+	set t = null
+	set u = null
 endfunction
+
+
+function ziWuShiErJian takes unit u returns nothing
+	local integer count = 12
+	local timer t = CreateTimer()
+	call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
+	call SaveInteger(YDHT, GetHandleId(t), 1, 0)
+	call SaveInteger(YDHT, GetHandleId(t), 2, count)
+	call TimerStart(t, 0.1, true, function ziWuShiErJianAction)
+	set t = null
+endfunction
+
+
+function ziWuShiErJianDamage takes unit u, unit ut returns nothing
+	local real shanghai = 0.
+	local real shxishu = 1.
+
+	// 连城剑法 伤害+100%
+	if GetUnitAbilityLevel(u, LIAN_CHENG_JIAN_FA) >= 1 then
+		set shxishu = shxishu + 1
+	endif
+
+	// 辟邪剑法 伤害+150%
+	if GetUnitAbilityLevel(u, BI_XIE_JIAN_FA) >= 1 then
+		set shxishu = shxishu + 1.5
+	endif
+
+	// 专属
+	if UnitHasDenomWeapon(u, ITEM_HAN_PO_JIAN) then
+		set shxishu = shxishu * 4
+	endif
+	set shanghai = ShangHaiGongShi(u, ut, 50., 50., shxishu, ZI_WU_SHI_ER_JIAN)
+	call WuGongShangHai(u, ut, shanghai)
+endfunction
+
+
+
 
 

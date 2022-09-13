@@ -46,6 +46,13 @@ globals
 	constant integer TOU_KAN_TOU_XUE = 'A0F4' // 偷看偷学
 	constant integer XUAN_MING_SHEN_ZHANG = 'A0F6' // 玄冥神掌
 	constant integer JIA_YI_SHEN_GONG = 'A0F5' // 嫁衣神功
+
+	// 嵩山派武功
+	constant integer SONG_SHAN_JIAN_FA = 'A0BF' // 嵩山剑法
+	constant integer ZI_WU_SHI_ER_JIAN = 'A0FA' // 子午十二剑
+	constant integer HAN_BING_SHEN_ZHANG = 'AXXX' // 寒冰神掌
+	constant integer DA_SONG_YANG_SHEN_ZHANG = 'AXXX' // 大嵩阳神掌
+	constant integer WU_MING_NEI_GONG = 'AXXX' // 无名内功
 	
 	constant integer SHUANG_SHOU = 'A07U' // 双手互搏
 	constant integer KUI_HUA = 'A07T' // 葵花宝典
@@ -59,8 +66,10 @@ globals
 	constant integer QIAN_KUN = 'A07W' // 乾坤大挪移
 	constant integer QI_SHANG_QUAN = 'A07M' // 七伤拳
 	constant integer JIU_YANG = 'A0DN' // 九阳神功
+	constant integer LIAN_CHENG_JIAN_FA = 'A06J' // 连城剑法
 	
 	constant integer DA_GOU = 'A07L' // 打狗棒法
+	constant integer BI_XIE_JIAN_FA = 'A07J' // 辟邪剑法
 	constant integer ZI_CHUANG_WU_XUE = 'A036' // 自创武学
 	
 	constant integer LONG_XIANG = 'S002' // 龙象般若功
@@ -69,6 +78,7 @@ globals
 	constant integer MIAO_SHOU_KONG_KONG = 'A03O' // 妙手空空
 	constant integer GUI_XI_GONG = 'A0CE' // 龟息功
 	constant integer SHEN_XING_BAI_BIAN = 'A03N' // 神行百变
+	constant integer HAN_BING_ZHEN_QI = 'A03L' // 寒冰真气
 	
 	constant integer POISONED_BUFF = 'BEsh' // 中毒buff
 	constant integer DEEP_POISONED_BUFF = 'B01J' // 深度中毒buff
@@ -77,6 +87,7 @@ globals
 	constant integer ITEM_YU_XIAO = 'I09D' // 玉箫物品
 	constant integer ITEM_HAN_SHA = 'I0AE' // 含沙射影
 	constant integer ITEM_YE_LUO = 'I0EU' // 野螺
+	constant integer ITEM_HAN_PO_JIAN = 'I0EJ' // FIXME 寒魄剑（专属）
 	
 	
 endglobals
