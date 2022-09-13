@@ -50,10 +50,10 @@ function EverySecond_Conditions takes nothing returns boolean
 		call PingMinimapForForce(bj_FORCE_ALL_PLAYERS, -9000, -13169, 5)
 		if tiaoZhanIndex == 3 then
 			set udg_boshu = 28
-			call SetPlayerTechResearched(Player(12),'R001',50)
-			call SetPlayerTechResearched(Player(6),'R001',50)
-			call SetPlayerTechResearched(Player(15),'R001',50)
-			call setDifficultyAndExpRate(6)	
+			call SetPlayerTechResearched(Player(12),'R001',7)
+			call SetPlayerTechResearched(Player(6),'R001',7)
+			call SetPlayerTechResearched(Player(15),'R001',7)
+			call setDifficultyAndExpRate(8)	
 			call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 20, "|CFF00FFFF提示：|r已自动提升至最高难度")
 		endif
 	endif

@@ -2214,12 +2214,12 @@ function dynamicDifficultyAdjustment takes integer experience returns nothing
 		set i = i + 1
 	endloop
 	if count == 1 and udg_boshu <= 4 * experience then
-		// 如果当前难度为0或2，则科技+10
+		// 如果当前难度为0或2，则科技+1
 		if udg_nandu <= 2 then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "由于玩家" + I2S(whichPlayer) + "完成了历练" + I2S(experience) + "，难度动态调整，怪物科技上升")
-			call SetPlayerTechResearched(Player(12), 1378889777, GetPlayerTechCount(Player(12), 1378889777, true) + 10)
-			call SetPlayerTechResearched(Player(6), 1378889777, GetPlayerTechCount(Player(6), 1378889777, true) + 10)
-			call SetPlayerTechResearched(Player(15), 1378889777, GetPlayerTechCount(Player(15), 1378889777, true) + 10)
+			call SetPlayerTechResearched(Player(12), 1378889777, GetPlayerTechCount(Player(12), 1378889777, true) + 1)
+			call SetPlayerTechResearched(Player(6), 1378889777, GetPlayerTechCount(Player(6), 1378889777, true) + 1)
+			call SetPlayerTechResearched(Player(15), 1378889777, GetPlayerTechCount(Player(15), 1378889777, true) + 1)
 		endif
 	endif
 endfunction

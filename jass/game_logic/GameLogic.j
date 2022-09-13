@@ -1250,6 +1250,9 @@ endglobals
 // 设置游戏难度和经验获得率的函数
 function setDifficultyAndExpRate takes integer difficulty returns nothing
 	set udg_nandu = difficulty
+	if difficulty > 6 then
+		set difficulty = 6
+	endif
 	call SetPlayerHandicapXPBJ( Player(0), 200.00 - 20.00 * difficulty )
 	call SetPlayerHandicapXPBJ( Player(1), 200.00 - 20.00 * difficulty )
 	call SetPlayerHandicapXPBJ( Player(2), 200.00 - 20.00 * difficulty )
@@ -1415,8 +1418,9 @@ function ChooseNanDu takes nothing returns nothing
 		set udg_nan0 = DialogAddButtonBJ(udg_nan, "|cFF00CC00小试牛刀")
 		set udg_nan2 = DialogAddButtonBJ(udg_nan, "|cFFFF6600登堂入室")
 		set udg_nan7 = DialogAddButtonBJ(udg_nan, "|cFF999900决战江湖")
+		set udg_nan8 = DialogAddButtonBJ(udg_nan, "|cffa12abe问鼎天下")
 		call DialogDisplayBJ(true, udg_nan, Player(0))
-		// 开启计时器，20s不选难度默认选择最高难度
+		// 开启计时器，20s不选难度默认选择难1
 		call TimerStart(CreateTimer(), 20, false, function ChooseNanDu_Auto)
 	endif
 endfunction
@@ -1432,20 +1436,30 @@ function ChooseNanDu_Action takes nothing returns nothing
 	endif
 	if GetClickedButton() == udg_nan2 then
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FFFF主机选择了难度|cFFFF6600登堂入室")
-		call SetPlayerTechResearched(Player(12), 'R001', 20)
-		call SetPlayerTechResearched(Player(6), 'R001', 20)
-		call SetPlayerTechResearched(Player(15), 'R001', 20)
+		call SetPlayerTechResearched(Player(12), 'R001', 2)
+		call SetPlayerTechResearched(Player(6), 'R001', 2)
+		call SetPlayerTechResearched(Player(15), 'R001', 2)
 		call setDifficultyAndExpRate(2)
 		set get_zdl = 10
 	endif
 	if GetClickedButton() == udg_nan7 then
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FFFF主机选择了难度|cFF999900决战江湖")
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cFF999900该模式下进攻怪具有|cFFFF0000抽血术加强版")
-		call SetPlayerTechResearched(Player(12), 'R001', 50)
-		call SetPlayerTechResearched(Player(6), 'R001', 50)
-		call SetPlayerTechResearched(Player(15), 'R001', 50)
+		call SetPlayerTechResearched(Player(12), 'R001', 5)
+		call SetPlayerTechResearched(Player(6), 'R001', 5)
+		call SetPlayerTechResearched(Player(15), 'R001', 5)
 		call setDifficultyAndExpRate(6)
 		set get_zdl = 15
+		set topDegreeFlag = true
+	endif
+	if GetClickedButton() == udg_nan8 then
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff00FFFF主机选择了难度|cffa12abe问鼎天下")
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cffa12abe该模式下进攻怪具有|cFFFF0000抽血术加强版")
+		call SetPlayerTechResearched(Player(12), 'R001', 7)
+		call SetPlayerTechResearched(Player(6), 'R001', 7)
+		call SetPlayerTechResearched(Player(15), 'R001', 7)
+		call setDifficultyAndExpRate(8)
+		set get_zdl = 20
 		set topDegreeFlag = true
 	endif
 	if udg_boshu < 5 then
@@ -2492,7 +2506,7 @@ endfunction
 
 function mutatedAttacker takes unit u returns nothing
 	local integer i = GetRandomInt(1, 100)
-	if udg_nandu == 6 then
+	if udg_nandu >= 6 then
 		if i <= 80 then
 			call SetUnitVertexColor(u, 225, 0, 0, 255)
 			call SaveInteger(YDHT, GetHandleId(u), StringHash("color"), 1)
@@ -3669,6 +3683,8 @@ endfunction
 function JiFenHuan takes unit u, item it, integer id1, integer num, integer id2 returns nothing
 	local player p = GetOwningPlayer(u)
 	local integer i = 1 + GetPlayerId(p)
+	local integer lumber = 0
+	local integer gold = 0
 	if GetItemTypeId(it) == id1 then
 		if (shoujiajf[i] >= num) then
 			set shoujiajf[i] = shoujiajf[i] - num
@@ -3676,11 +3692,13 @@ function JiFenHuan takes unit u, item it, integer id1, integer num, integer id2 
 				call unitadditembyidswapped(id2, u)
 				call DisplayTextToPlayer(p, 0, 0, "|CFF34FF00获得" + GetItemName(bj_lastCreatedItem))
 			elseif id1 == 'I06P' then
-				call AdjustPlayerStateBJ(20 - udg_nandu * 2, p, PLAYER_STATE_RESOURCE_LUMBER)
-				call DisplayTextToPlayer(p, 0, 0, "|CFF34FF00获得珍稀币+" + I2S(20 - udg_nandu * 2))
+				set lumber = IMaxBJ(8, 20 - udg_nandu * 2)
+				call AdjustPlayerStateBJ(lumber, p, PLAYER_STATE_RESOURCE_LUMBER)
+				call DisplayTextToPlayer(p, 0, 0, "|CFF34FF00获得珍稀币+" + I2S(lumber))
 			elseif id1 == 'I06O' then
-				call AdjustPlayerStateBJ(8000 - udg_nandu * 1000, p, PLAYER_STATE_RESOURCE_GOLD)
-				call DisplayTextToPlayer(p, 0, 0, "|CFF34FF00获得金钱+" + I2S(8000 - udg_nandu * 1000))
+				set gold = IMaxBJ(2000, 8000 - udg_nandu * 1000)
+				call AdjustPlayerStateBJ(gold, p, PLAYER_STATE_RESOURCE_GOLD)
+				call DisplayTextToPlayer(p, 0, 0, "|CFF34FF00获得金钱+" + I2S(gold))
 			elseif id1 == 'I0A0' then
 				call unitadditembyidswapped(id2, udg_hero[i])
 				call DisplayTextToPlayer(p, 0, 0, "|CFF34FF00获得" + GetItemName(bj_lastCreatedItem))
@@ -5145,7 +5163,7 @@ function CalcShangHai takes nothing returns nothing
 endfunction
 //抽血术
 function ChouXie_Condition takes nothing returns boolean
-	return IsUnitInGroup(GetAttacker(), w7) and GetPlayerTechCountSimple('R001', Player(6)) == 50 and GetOwningPlayer(GetTriggerUnit()) != Player(12) and GetTriggerUnit() != udg_ZhengPaiWL and GetUnitTypeId(GetTriggerUnit()) != 'Hblm' and GetUnitTypeId(GetTriggerUnit()) != 'o02F' and GetUnitTypeId(GetTriggerUnit()) != 'o02G'
+	return IsUnitInGroup(GetAttacker(), w7) and GetPlayerTechCountSimple('R001', Player(6)) == 5 and GetOwningPlayer(GetTriggerUnit()) != Player(12) and GetTriggerUnit() != udg_ZhengPaiWL and GetUnitTypeId(GetTriggerUnit()) != 'Hblm' and GetUnitTypeId(GetTriggerUnit()) != 'o02F' and GetUnitTypeId(GetTriggerUnit()) != 'o02G'
 endfunction
 function ChouXie_Action takes nothing returns nothing
 	// 难6
@@ -5153,8 +5171,8 @@ function ChouXie_Action takes nothing returns nothing
 		if GetRandomInt(1, 100) <= 20 then
 			call SetUnitLifePercentBJ(GetTriggerUnit(), GetUnitLifePercent(GetTriggerUnit()) - 6.)
 		endif
-		// 难7
-	elseif udg_nandu == 6 then
+		// 难7和难8
+	elseif udg_nandu >= 6 then
 		if GetRandomInt(1, 100) <= 60 then
 			call SetUnitLifePercentBJ(GetTriggerUnit(), GetUnitLifePercent(GetTriggerUnit()) - 6.)
 		endif
@@ -5163,7 +5181,7 @@ function ChouXie_Action takes nothing returns nothing
 endfunction
 
 function addTotalPoint takes integer point returns nothing
-	local integer addition = point * (1 + GetPlayerTechCountSimple('R001', Player(6)) / 10)
+	local integer addition = point * (1 + GetPlayerTechCountSimple('R001', Player(6)))
 	local integer j = 1
 	set ae = ae + addition
 	loop

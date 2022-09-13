@@ -29,8 +29,8 @@ function toggleHint takes nothing returns nothing
     endif
 
     if s == "maxDiff" and udg_isTest[GetPlayerId(p)] then
-        set udg_nandu = 6
-        call DisplayTextToPlayer(p, 0, 0, "|cffffff00难度设置为7")
+        set udg_nandu = 8
+        call DisplayTextToPlayer(p, 0, 0, "|cffffff00难度设置为8")
     endif
     set p = null
 endfunction

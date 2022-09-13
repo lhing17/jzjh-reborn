@@ -28,10 +28,10 @@ endfunction
 function doEnhanceDefense takes nothing returns nothing
     local unit u = GetEnteringUnit()
     local integer id = GetUnitTypeId(u)
-    if udg_nandu == 6 and isUnitAttacker(id) then
+    if udg_nandu >= 6 and isUnitAttacker(id) then
 		call YDWEGeneralBounsSystemUnitSetBonus(u,2,0, udg_boshu * udg_boshu * 5)
     endif
-    if udg_nandu == 6 and isUnitAttackerBoss(id) then
+    if udg_nandu >= 6 and isUnitAttackerBoss(id) then
         call SaveEffectHandle(YDHT, GetHandleId(u), $DEF, AddSpecialEffectTargetEx("war3mapImported\\DefensiveBarrierBig.mdx", u, "chest"))
         call SaveReal(YDHT, GetHandleId(u), $FED, 100)
     endif

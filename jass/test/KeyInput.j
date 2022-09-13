@@ -819,9 +819,15 @@ function KeyInput takes nothing returns nothing
 	endif
 	if s == "n7" then
 		call setDifficultyAndExpRate(6)
-		call SetPlayerTechResearched(Player(12), 'R001', 50)
-		call SetPlayerTechResearched(Player(6), 'R001', 50)
-		call SetPlayerTechResearched(Player(15), 'R001', 50)
+		call SetPlayerTechResearched(Player(12), 'R001', 5)
+		call SetPlayerTechResearched(Player(6), 'R001', 5)
+		call SetPlayerTechResearched(Player(15), 'R001', 5)
+	endif
+	if s == "n8" then
+		call setDifficultyAndExpRate(8)
+		call SetPlayerTechResearched(Player(12), 'R001', 7)
+		call SetPlayerTechResearched(Player(6), 'R001', 7)
+		call SetPlayerTechResearched(Player(15), 'R001', 7)
 	endif
 	if (s == "撸下一波" or s == "lxyb") and udg_isTest[GetPlayerId(p)] then
 		set udg_boshu = udg_boshu + 1
