@@ -58,6 +58,8 @@ endfunction
 * 47 爵爷
 * 48 石破天惊
 * 49 绍敏郡主
+* 50 左盟主
+* 51 五岳盟主
 */
 function setTitleNumber takes integer i, integer title returns nothing
 	if title <= 30 then
@@ -98,6 +100,7 @@ endfunction
 * 23 野螺派
 * 24 雪山派
 * 25 汝阳王府
+* 26 嵩山
 */
 function setChiefNumber takes integer i, integer denomination returns nothing
 	set chief[i] = YDWEBitwise_OR(chief[i], YDWEBitwise_LShift(1, denomination - 1))
@@ -945,6 +948,22 @@ function determineRuYangTitle takes unit u returns nothing
 	set p = null
 endfunction
 
+function determineSongShanTitle takes unit u returns nothing
+	local player p = GetOwningPlayer(u)
+	local integer i = 1 + GetPlayerId(p)
+	if isChief(i, 26) then
+		if GetUnitAbilityLevel(u, HAN_BING_ZHEN_QI) > 0 and UnitHaveItem(u, ITEM_HAN_PO_JIAN) and not isTitle(i, 50) then
+			call ModifyHeroStat(0, u, 0, 400)
+			call ModifyHeroStat(2, u, 0, 200)
+			call SetUnitAbilityLevel(u, HAN_BING_SHEN_ZHANG, 9)
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：左盟主，招式伤害增加了400点，真实伤害增加了200点，武功" + GetObjectName(HAN_BING_SHEN_ZHANG) + "提升到9重")
+			call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), HAN_BING_SHEN_ZHANG * 5, GetUnitAbilityLevel(u, HAN_BING_SHEN_ZHANG))
+			call SetPlayerName(p, "〓左盟主〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call setTitleNumber(i, 50)
+		endif
+	endif
+endfunction
+
 function determineJiangHuTitle takes unit u returns nothing
 	local player p = GetOwningPlayer(u)
 	local integer i = 1 + GetPlayerId(p)
@@ -1036,6 +1055,22 @@ function determineJiangHuTitle takes unit u returns nothing
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：神仙姐姐，招式伤害增加了300点，内力增加了500点，真实伤害增加了300点，升重速度得到了提升")
 		call setTitleNumber(i, 44)
 	endif
+	if isChief(i, 26) and isChief(i, 4) and isChief(i, 7) and isChief(i, 15) and isChief(i, 18) and not isTitle(i, 51) then
+		// 五岳盟主 同时获得恒山、泰山、嵩山、华山、衡山掌门
+		call ModifyHeroStat(0, u, 0, 2000)
+		call ModifyHeroStat(1, u, 0, 2000)
+		call ModifyHeroStat(2, u, 0, 2000)
+		set wuxing[i] = wuxing[i] + 30
+		set gengu[i] = gengu[i] + 30
+		set danpo[i] = danpo[i] + 30
+		set fuyuan[i] = fuyuan[i] + 30
+		set jingmai[i] = jingmai[i] + 30
+		set yishu[i] = yishu[i] + 30
+		set juexuelingwu[i] = juexuelingwu[i] + 30
+		call SetPlayerName(p, "〓五岳盟主〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：五岳盟主，三围各增加2000点，全性格属性增加30点，绝学领悟点增加30点")
+		call setTitleNumber(i, 51)
+	endif
 	set p = null
 endfunction
 
@@ -1074,6 +1109,7 @@ function WuGongShengChong takes unit u, integer id, real r returns nothing
 		call becomeChief(u, 23, "野螺掌派", 225, 300, 0)
 		call becomeChief(u, 24, "雪山掌门", 225, 0, 300)
 		call becomeChief(u, 25, "汝阳王", 200, 200, 200)
+		call becomeChief(u, 26, "嵩山掌门", 0, 600, 0)
 		
 		call determineShaoLinTitle(u)
 		call determineGuMuTitle(u)
@@ -1098,6 +1134,7 @@ function WuGongShengChong takes unit u, integer id, real r returns nothing
 		call determineYeLuoTitle(u)
 		call determineXueShanTitle(u)
 		call determineRuYangTitle(u)
+		call determineSongShanTitle(u)
 		call determineJiangHuTitle(u)
 		
 	endif
