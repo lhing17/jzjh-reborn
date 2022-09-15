@@ -50,9 +50,9 @@ globals
 	// 嵩山派武功
 	constant integer SONG_SHAN_JIAN_FA = 'A0BF' // 嵩山剑法
 	constant integer ZI_WU_SHI_ER_JIAN = 'A0FA' // 子午十二剑
-	constant integer HAN_BING_SHEN_ZHANG = 'AXXX' // 寒冰神掌
-	constant integer DA_SONG_YANG_SHEN_ZHANG = 'AXXX' // 大嵩阳神掌
-	constant integer WU_MING_NEI_GONG = 'AXXX' // 无名内功
+	constant integer HAN_BING_SHEN_ZHANG = 'A0FC' // 寒冰神掌
+	constant integer DA_SONG_YANG_SHEN_ZHANG = 'A0FE' // 大嵩阳神掌
+	constant integer WU_MING_NEI_GONG = 'A0FD' // 无名内功
 	
 	constant integer SHUANG_SHOU = 'A07U' // 双手互搏
 	constant integer KUI_HUA = 'A07T' // 葵花宝典
@@ -75,6 +75,7 @@ globals
 	constant integer LONG_XIANG = 'S002' // 龙象般若功
 	constant integer XIAO_WU_XIANG = 'A083' // 小无相功
 	constant integer XI_SUI_JING = 'A080' // 洗髓经
+	constant integer BEI_MING_SHEN_GONG = 'A082' // 北冥神功
 
 	constant integer MIAO_SHOU_KONG_KONG = 'A03O' // 妙手空空
 	constant integer GUI_XI_GONG = 'A0CE' // 龟息功

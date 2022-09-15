@@ -4,15 +4,15 @@ constant boolean LIBRARY_FrameLibrary=true
 //endglobals from FrameLibrary
 //globals from MaxSpeed:
 constant boolean LIBRARY_MaxSpeed=true
-constant boolean MaxSpeed___USE_TABLE= true
-constant boolean MaxSpeed___NEW_TABLE= true
+constant boolean MaxSpeed__USE_TABLE= true
+constant boolean MaxSpeed__NEW_TABLE= true
          // Vexorian's Table or Bribe's (NEW)
-constant boolean MaxSpeed___TEST_MODE= false
-constant real MaxSpeed___PERIOD= 0.03125
+constant boolean MaxSpeed__TEST_MODE= false
+constant real MaxSpeed__PERIOD= 0.03125
         //  private constant real MAX_SPEED = 2088.0
-constant real MaxSpeed___MAX_SPEED= 1400.0
+constant real MaxSpeed__MAX_SPEED= 1400.0
          // 最大速度限定，超出视为传送。
-constant real MaxSpeed___MIN_SPEED= 500.0
+constant real MaxSpeed__MIN_SPEED= 500.0
          // 判定的最小距离，此项过小或速度过大会使原地打转几率增加，超出则没有加速效果。
         // 测试最大为500刚出头，与522还有些差距
 //endglobals from MaxSpeed
@@ -143,10 +143,10 @@ real yd_MapMaxX= 0
 real yd_MapMinX= 0
 real yd_MapMaxY= 0
 real yd_MapMinY= 0
-string array YDWEBase___yd_PlayerColor
-trigger array YDWEBase___AbilityCastingOverEventQueue
-integer array YDWEBase___AbilityCastingOverEventType
-integer YDWEBase___AbilityCastingOverEventNumber= 0
+string array YDWEBase__yd_PlayerColor
+trigger array YDWEBase__AbilityCastingOverEventQueue
+integer array YDWEBase__AbilityCastingOverEventType
+integer YDWEBase__AbilityCastingOverEventNumber= 0
 //endglobals from YDWEBase
 //globals from YDWEBitwise:
 constant boolean LIBRARY_YDWEBitwise=true
@@ -384,9 +384,9 @@ constant integer JIA_YI_SHEN_GONG= 'A0F5'
 	// 嵩山派武功
 constant integer SONG_SHAN_JIAN_FA= 'A0BF'
 constant integer ZI_WU_SHI_ER_JIAN= 'A0FA'
-constant integer HAN_BING_SHEN_ZHANG= 'AXXX'
-constant integer DA_SONG_YANG_SHEN_ZHANG= 'AXXX'
-constant integer WU_MING_NEI_GONG= 'AXXX'
+constant integer HAN_BING_SHEN_ZHANG= 'A0FC'
+constant integer DA_SONG_YANG_SHEN_ZHANG= 'A0FE'
+constant integer WU_MING_NEI_GONG= 'A0FD'
 
 constant integer SHUANG_SHOU= 'A07U'
 constant integer KUI_HUA= 'A07T'
@@ -408,6 +408,8 @@ constant integer ZI_CHUANG_WU_XUE= 'A036'
 
 constant integer LONG_XIANG= 'S002'
 constant integer XIAO_WU_XIANG= 'A083'
+constant integer XI_SUI_JING= 'A080'
+constant integer BEI_MING_SHEN_GONG= 'A082'
 
 constant integer MIAO_SHOU_KONG_KONG= 'A03O'
 constant integer GUI_XI_GONG= 'A0CE'
@@ -671,8 +673,11 @@ integer array xuanMingCounter
 dialog array ruyangDialog
 constant integer ruyangButtonKey= $66556
 timer array touKanTimer
-integer array wumingStatus
-
+integer array wumingBaseCount
+integer array wumingCount
+integer array wumingStr
+integer array wumingAgi
+integer array wumingInt
 integer array tiaozhanduixiang
 integer array menpaiwuqi
 boolean array udg_tiaoxuedao
@@ -2989,8 +2994,8 @@ function s__ImageButton_create takes integer imageWidget,real l__w,real h return
              set s__ModSpeed_dy=s__ModSpeed_y - s__ModSpeed_lastY[this]
              set s__ModSpeed_lastX[this]=s__ModSpeed_x
              set s__ModSpeed_lastY[this]=s__ModSpeed_y
-             set s__ModSpeed_dist=SquareRoot(s__ModSpeed_dx * s__ModSpeed_dx + s__ModSpeed_dy * s__ModSpeed_dy) / MaxSpeed___PERIOD
-             if ( s__ModSpeed_dist >= MaxSpeed___MIN_SPEED and s__ModSpeed_dist <= MaxSpeed___MAX_SPEED ) then
+             set s__ModSpeed_dist=SquareRoot(s__ModSpeed_dx * s__ModSpeed_dx + s__ModSpeed_dy * s__ModSpeed_dy) / MaxSpeed__PERIOD
+             if ( s__ModSpeed_dist >= MaxSpeed__MIN_SPEED and s__ModSpeed_dist <= MaxSpeed__MAX_SPEED ) then
                  set s__ModSpeed_rate=( s__ModSpeed_speed[this] - 522. ) / s__ModSpeed_dist
                  set s__ModSpeed_lastX[this]=s__ModSpeed_x + s__ModSpeed_dx * s__ModSpeed_rate
                  set s__ModSpeed_lastY[this]=s__ModSpeed_y + s__ModSpeed_dy * s__ModSpeed_rate
@@ -3070,7 +3075,7 @@ function s__ImageButton_create takes integer imageWidget,real l__w,real h return
                      set s__ModSpeed_prev[(0)]=s__ModSpeed_prev[s__ModSpeed_prev[(0)]]
                  endif
                  if ( s__ModSpeed_next[(0)] == 0 ) then
-                     call TimerStart(s__ModSpeed_tm, MaxSpeed___PERIOD, true, function s__ModSpeed_iterate)
+                     call TimerStart(s__ModSpeed_tm, MaxSpeed__PERIOD, true, function s__ModSpeed_iterate)
 
 
 
@@ -3089,7 +3094,7 @@ function s__ImageButton_create takes integer imageWidget,real l__w,real h return
 
 
              endif
-             set amount=RMinBJ(amount, MaxSpeed___MAX_SPEED)
+             set amount=RMinBJ(amount, MaxSpeed__MAX_SPEED)
              set s__ModSpeed_lastX[this]=GetUnitX(u)
              set s__ModSpeed_lastY[this]=GetUnitY(u)
              set s__ModSpeed_speed[this]=amount
@@ -4159,11 +4164,11 @@ endfunction
 function YDWESyStemAbilityCastingOverTriggerAction takes unit hero,integer index returns nothing
  local integer i= 0
     loop
-        exitwhen i >= YDWEBase___AbilityCastingOverEventNumber
-        if YDWEBase___AbilityCastingOverEventType[i] == index then
+        exitwhen i >= YDWEBase__AbilityCastingOverEventNumber
+        if YDWEBase__AbilityCastingOverEventType[i] == index then
             set bj_lastAbilityCastingUnit=hero
-			if YDWEBase___AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase___AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase___AbilityCastingOverEventQueue[i]) then
-				call TriggerExecute(YDWEBase___AbilityCastingOverEventQueue[i])
+			if YDWEBase__AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase__AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase__AbilityCastingOverEventQueue[i]) then
+				call TriggerExecute(YDWEBase__AbilityCastingOverEventQueue[i])
 			endif
 		endif
         set i=i + 1
@@ -4173,9 +4178,9 @@ endfunction
 //YDWE技能捕捉事件 
 //===========================================================================  
 function YDWESyStemAbilityCastingOverRegistTrigger takes trigger trg,integer index returns nothing
-	set YDWEBase___AbilityCastingOverEventQueue[YDWEBase___AbilityCastingOverEventNumber]=trg
-	set YDWEBase___AbilityCastingOverEventType[YDWEBase___AbilityCastingOverEventNumber]=index
-	set YDWEBase___AbilityCastingOverEventNumber=YDWEBase___AbilityCastingOverEventNumber + 1
+	set YDWEBase__AbilityCastingOverEventQueue[YDWEBase__AbilityCastingOverEventNumber]=trg
+	set YDWEBase__AbilityCastingOverEventType[YDWEBase__AbilityCastingOverEventNumber]=index
+	set YDWEBase__AbilityCastingOverEventNumber=YDWEBase__AbilityCastingOverEventNumber + 1
 endfunction 
 //===========================================================================
 //系统函数完善
@@ -4212,7 +4217,7 @@ endfunction
 //unitpool bj_lastCreatedPool=null
 //unit bj_lastPoolAbstractedUnit=null
 function YDWEGetPlayerColorString takes player p,string s returns string
-    return YDWEBase___yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
+    return YDWEBase__yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
 endfunction
 //===========================================================================
 //===========================================================================
@@ -4259,22 +4264,22 @@ function InitializeYD takes nothing returns nothing
 	set yd_MapMaxX=GetCameraBoundMaxX() + GetCameraMargin(CAMERA_MARGIN_RIGHT)
 	set yd_MapMaxY=GetCameraBoundMaxY() + GetCameraMargin(CAMERA_MARGIN_TOP)
 	
-    set YDWEBase___yd_PlayerColor[0]="|cFFFF0303"
-    set YDWEBase___yd_PlayerColor[1]="|cFF0042FF"
-    set YDWEBase___yd_PlayerColor[2]="|cFF1CE6B9"
-    set YDWEBase___yd_PlayerColor[3]="|cFF540081"
-    set YDWEBase___yd_PlayerColor[4]="|cFFFFFC01"
-    set YDWEBase___yd_PlayerColor[5]="|cFFFE8A0E"
-    set YDWEBase___yd_PlayerColor[6]="|cFF20C000"
-    set YDWEBase___yd_PlayerColor[7]="|cFFE55BB0"
-    set YDWEBase___yd_PlayerColor[8]="|cFF959697"
-    set YDWEBase___yd_PlayerColor[9]="|cFF7EBFF1"
-    set YDWEBase___yd_PlayerColor[10]="|cFF106246"
-    set YDWEBase___yd_PlayerColor[11]="|cFF4E2A04"
-    set YDWEBase___yd_PlayerColor[12]="|cFF282828"
-    set YDWEBase___yd_PlayerColor[13]="|cFF282828"
-    set YDWEBase___yd_PlayerColor[14]="|cFF282828"
-    set YDWEBase___yd_PlayerColor[15]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[0]="|cFFFF0303"
+    set YDWEBase__yd_PlayerColor[1]="|cFF0042FF"
+    set YDWEBase__yd_PlayerColor[2]="|cFF1CE6B9"
+    set YDWEBase__yd_PlayerColor[3]="|cFF540081"
+    set YDWEBase__yd_PlayerColor[4]="|cFFFFFC01"
+    set YDWEBase__yd_PlayerColor[5]="|cFFFE8A0E"
+    set YDWEBase__yd_PlayerColor[6]="|cFF20C000"
+    set YDWEBase__yd_PlayerColor[7]="|cFFE55BB0"
+    set YDWEBase__yd_PlayerColor[8]="|cFF959697"
+    set YDWEBase__yd_PlayerColor[9]="|cFF7EBFF1"
+    set YDWEBase__yd_PlayerColor[10]="|cFF106246"
+    set YDWEBase__yd_PlayerColor[11]="|cFF4E2A04"
+    set YDWEBase__yd_PlayerColor[12]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[13]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[14]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[15]="|cFF282828"
     //=================显示版本=====================
     call YDWEVersion_Init()
 endfunction
@@ -7318,7 +7323,7 @@ endfunction
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Tue Sep 13 16:59:48 2022
+//   Date: Thu Sep 15 09:58:54 2022
 //   Map Author: 云杨 zei_kale
 // 
 //===========================================================================
@@ -43970,7 +43975,7 @@ function songShanJianFa takes unit u,unit l__ut returns nothing
  local integer i= 1 + GetPlayerId(p)
  local location loc1= GetUnitLoc(u)
  local location loc2= GetUnitLoc(l__ut)
-	call PassiveWuGongAction(u , l__ut , 45 + fuyuan[i] * 0.3 , 700 , Condition(function songShanCondition) , function songSanAction , SONG_SHAN_JIAN_FA , 900.)
+	call PassiveWuGongAction(u , l__ut , 45 + fuyuan[i] * 0.3 , 700 , Condition(function songShanCondition) , function songSanAction , SONG_SHAN_JIAN_FA , 600.)
 	// 经脉>=50 几率打出万岳朝宗的效果（在空中召唤一个山形的召唤物，投射物为小山，类似于石廪书声）
 	if jingmai[i] >= 50 and GetRandomInt(1, 100) <= 15 + fuyuan[i] / 5 then
 		call CreateNUnitsAtLocFacingLocBJ(1, 'o030', p, PolarProjectionBJ(loc1, 300, 180 + GetUnitFacing(u)), loc2)
@@ -44011,14 +44016,33 @@ function ziWuShiErJianAction takes nothing returns nothing
 	set t=null
 	set u=null
 endfunction
+function ziWuCdFive takes nothing returns nothing
+ local timer t= GetExpiredTimer()
+ local unit u= LoadUnitHandle(YDHT, GetHandleId(t), 0)
+	// CD变为5秒
+	call EXSetAbilityState(EXGetUnitAbility(u, ZI_WU_SHI_ER_JIAN), 1, 5)
+	call FlushChildHashtable(YDHT, GetHandleId(t))
+	call DestroyTimer(t)
+	set t=null
+	set u=null
+endfunction
 function ziWuShiErJian takes unit u returns nothing
  local integer count= 12
  local timer t= CreateTimer()
+ local timer tm= null
+	call WuGongShengChong(u , ZI_WU_SHI_ER_JIAN , 180)
 	call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
 	call SaveInteger(YDHT, GetHandleId(t), 1, 0)
 	call SaveInteger(YDHT, GetHandleId(t), 2, count)
 	call TimerStart(t, 0.1, true, function ziWuShiErJianAction)
+	// 五岳盟主称号 CD变为5秒
+	if isTitle(1 + GetPlayerId(GetOwningPlayer(u)) , 50) then
+		set tm=CreateTimer()
+		call SaveUnitHandle(YDHT, GetHandleId(tm), 0, u)
+		call TimerStart(tm, 0.2, false, function ziWuCdFive)
+	endif
 	set t=null
+	set tm=null
 endfunction
 function ziWuShiErJianDamage takes unit u,unit l__ut returns nothing
  local real shanghai= 0.
@@ -44035,8 +44059,150 @@ function ziWuShiErJianDamage takes unit u,unit l__ut returns nothing
 	if UnitHasDenomWeapon(u , ITEM_HAN_PO_JIAN) then
 		set shxishu=shxishu * 4
 	endif
+	// 寒冰真气 几率冰冻
+	if GetUnitAbilityLevel(u, HAN_BING_ZHEN_QI) >= 1 and GetRandomInt(1, 100) <= 20 then
+		call WanBuff(u , l__ut , 17)
+	endif
 	set shanghai=ShangHaiGongShi(u , l__ut , 50. , 50. , shxishu , ZI_WU_SHI_ER_JIAN)
 	call WuGongShangHai(u , l__ut , shanghai)
+endfunction
+// 三技能 寒冰神掌 每次受伤害最大掉血10%，主动使用时冰冻自己同时快速回复气血（每秒10%），并对周围单位造成持续伤害
+// +寒冰真气 不再冰冻自己
+// +无名内功 伤害和胆魄相关
+// +双手互搏 回血速度加倍
+// +洗髓经 每次受伤害最大掉血6%
+function hanBingShenZhangDamaged takes unit u,real damage returns nothing
+ local real coeff= 10
+	if GetUnitAbilityLevel(u, XI_SUI_JING) >= 1 then
+		set coeff=6
+	endif
+	if damage > GetUnitState(u, UNIT_STATE_MAX_LIFE) * coeff / 100 then
+		call WuDi(u)
+		call SetUnitLifePercentBJ(u, GetUnitLifePercent(u) - coeff)
+	endif
+endfunction
+function hanBingShenZhangDamage takes unit u,unit l__ut returns nothing
+ local real shanghai= 0.
+ local real shxishu= 1.
+	// 专属
+	if UnitHasDenomWeapon(u , ITEM_HAN_PO_JIAN) then
+		set shxishu=shxishu * 4
+	endif
+	set shanghai=ShangHaiGongShi(u , l__ut , 50. , 50. , shxishu , HAN_BING_ZHEN_QI)
+	call WuGongShangHai(u , l__ut , shanghai)
+endfunction
+function hanBingShenZhangAction takes nothing returns nothing
+ local timer t= GetExpiredTimer()
+ local unit u= LoadUnitHandle(YDHT, GetHandleId(t), 0)
+ local integer j= LoadInteger(YDHT, GetHandleId(t), 1)
+ local group g
+ local unit l__ut
+	if j >= 6 then
+		call FlushChildHashtable(YDHT, GetHandleId(t))
+		call PauseTimer(t)
+		call DestroyTimer(t)
+	else
+		call SaveInteger(YDHT, GetHandleId(t), 1, j + 1)
+		if GetUnitAbilityLevel(u, SHUANG_SHOU) >= 1 then
+			call SetWidgetLife(u, GetWidgetLife(u) + 0.2 * GetUnitState(u, UNIT_STATE_MAX_LIFE))
+		else
+			call SetWidgetLife(u, GetWidgetLife(u) + 0.1 * GetUnitState(u, UNIT_STATE_MAX_LIFE))
+		endif
+		set g=CreateGroup()
+		call GroupEnumUnitsInRange(g, GetUnitX(u), GetUnitY(u), 700, null)
+		loop
+			exitwhen CountUnitsInGroup(g) <= 0
+			set l__ut=FirstOfGroup(g)
+			if IsUnitEnemy(l__ut, GetOwningPlayer(u)) and IsUnitAliveBJ(l__ut) then
+				call hanBingShenZhangDamage(u , l__ut)
+			endif
+		endloop
+	endif
+	set g=null
+	set t=null
+	set l__ut=null
+endfunction
+function hanBingShenZhang takes unit u returns nothing
+ local unit dummy= CreateUnit(Player(6), 'e000', GetUnitX(u), GetUnitY(u), 270)
+ local timer t= CreateTimer()
+	call WuGongShengChong(u , HAN_BING_SHEN_ZHANG , 200)
+	if GetUnitAbilityLevel(u, HAN_BING_ZHEN_QI) < 1 then
+		call WanBuff(dummy , u , 17)
+	endif
+	call UnitApplyTimedLife(dummy, 'BHwe', 3.)
+	call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
+	call SaveInteger(YDHT, GetHandleId(t), 1, 0)
+	call TimerStart(t, 1, true, function hanBingShenZhangAction)
+	set t=null
+endfunction
+// 毕业技 无名内功 增加100*等级的内力（第一次使用时加），主动使用时将增加的内力重新分配为招式伤害、内力、真实伤害。
+// 每内化一个武功，重新分配时，分配总数增加10点
+// +寒冰真气 每级后额外增加50点内力
+// +北冥神功 内化加成额外增加10点
+function wuMingNeiGong takes unit u returns nothing
+ local integer level= GetUnitAbilityLevel(u, WU_MING_NEI_GONG)
+ local integer i= 1 + GetPlayerId(GetOwningPlayer(u))
+ local integer base= 100
+	call WuGongShengChong(u , WU_MING_NEI_GONG , 120)
+	// +寒冰真气 每级后额外增加50点内力
+	if GetUnitAbilityLevel(u, HAN_BING_ZHEN_QI) >= 1 then
+		set base=base + 50
+	endif
+	// 先将之前增加的三围减掉
+	call ModifyHeroStat(bj_HEROSTAT_STR, u, bj_MODIFYMETHOD_SUB, wumingStr[i])
+	call ModifyHeroStat(bj_HEROSTAT_AGI, u, bj_MODIFYMETHOD_SUB, wumingAgi[i])
+	call ModifyHeroStat(bj_HEROSTAT_INT, u, bj_MODIFYMETHOD_SUB, wumingInt[i])
+	// 如果加的基础内力不到等级*100，就加到等级*100
+	if wumingBaseCount[i] < level * base then
+		call ModifyHeroStat(bj_HEROSTAT_AGI, u, bj_MODIFYMETHOD_ADD, wumingBaseCount[i] - level * base)
+		set wumingAgi[i]=wumingAgi[i] + wumingBaseCount[i] - level * base
+		set wumingBaseCount[i]=level * base
+	endif
+	// 重新随机分配招式伤害、内力和真实伤害
+	set wumingCount[i]=wumingStr[i] + wumingAgi[i] + wumingInt[i]
+	// 每内化一个武功，重新分配时，分配总数增加10点 +北冥神功 内化后额外增加10点内力
+	if alreadyInternalizedCount[i] > 0 then
+		set wumingCount[i]=wumingCount[i] + alreadyInternalizedCount[i] * 10 * ( 1 + GetUnitAbilityLevel(u, BEI_MING_SHEN_GONG) )
+	endif
+	set wumingStr[i]=GetRandomInt(0, wumingCount[i])
+	set wumingAgi[i]=GetRandomInt(0, wumingCount[i] - wumingStr[i])
+	set wumingInt[i]=wumingCount[i] - wumingStr[i] - wumingAgi[i]
+	call ModifyHeroStat(bj_HEROSTAT_STR, u, bj_MODIFYMETHOD_ADD, wumingStr[i])
+	call ModifyHeroStat(bj_HEROSTAT_AGI, u, bj_MODIFYMETHOD_ADD, wumingAgi[i])
+	call ModifyHeroStat(bj_HEROSTAT_INT, u, bj_MODIFYMETHOD_ADD, wumingInt[i])
+endfunction
+// 毕业技 大嵩阳神掌 主动使用，将敌方缓慢牵引至自己身边
+// +寒冰真气 牵引结束后，对牵引的敌人造成伤害
+// +北冥神功 牵引速度减慢
+function daSongYangShenZhangAction takes nothing returns nothing
+ local timer t= GetExpiredTimer()
+ local unit l__ut= LoadUnitHandle(YDHT, GetHandleId(t), 0)
+ local unit u= LoadUnitHandle(YDHT, GetHandleId(t), 1)
+	call PauseUnit(l__ut, false)
+	// +寒冰真气 牵引结束后，对牵引的敌人造成伤害
+	if GetUnitAbilityLevel(u, HAN_BING_ZHEN_QI) >= 1 and IsUnitAliveBJ(l__ut) then
+		call WuGongShangHai(u , l__ut , ShangHaiGongShi(u , l__ut , 1000 , 1000 , 1 , DA_SONG_YANG_SHEN_ZHANG))
+	endif
+	call FlushChildHashtable(YDHT, GetHandleId(t))
+	call DestroyTimer(t)
+	set u=null
+	set l__ut=null
+	set t=null
+endfunction
+function daSongYangShenZhang takes unit u,unit l__ut returns nothing
+ local real time= RMinBJ(4, ( YDWEDistanceBetweenUnits(u , l__ut) / 300.00 ))
+ local timer t= CreateTimer()
+	// +北冥神功 牵引速度减慢
+	if GetUnitAbilityLevel(u, BEI_MING_SHEN_GONG) >= 1 then
+		set time=time * 2
+	endif
+	call WuGongShengChong(u , DA_SONG_YANG_SHEN_ZHANG , 180)
+	call PauseUnit(l__ut, true)
+	call YDWETimerPatternRushSlide(l__ut , YDWEAngleBetweenUnits(l__ut , u) , RMinBJ(1200.00, YDWEDistanceBetweenUnits(u , l__ut)) , time , 0.02 , 0 , false , false , true , "origin" , "Abilities\\Spells\\Human\\FlakCannons\\FlakTarget.mdl" , "Abilities\\Spells\\Human\\FlakCannons\\FlakTarget.mdl")
+	call SaveUnitHandle(YDHT, GetHandleId(t), 0, l__ut)
+	call SaveUnitHandle(YDHT, GetHandleId(t), 1, u)
+	call TimerStart(t, time, false, function daSongYangShenZhangAction)
+	set t=null
 endfunction
 //------------江湖武功开始------------
 //弹指神通
@@ -53685,6 +53851,18 @@ function UseAbility_Conditions takes nothing returns boolean
 	if id == ZI_WU_SHI_ER_JIAN then
 		call ziWuShiErJian(u)
 	endif
+	// 嵩山：寒冰神掌
+	if id == HAN_BING_SHEN_ZHANG then
+		call hanBingShenZhang(u)
+	endif
+	// 嵩山：无名内功
+	if id == WU_MING_NEI_GONG then
+		call wuMingNeiGong(u)
+	endif
+	// 嵩山：大嵩阳神掌
+	if id == DA_SONG_YANG_SHEN_ZHANG then
+		call daSongYangShenZhang(u , l__ut)
+	endif
  
 	set u=null
 	set l__ut=null
@@ -53762,6 +53940,10 @@ function UnitDamage_Conditions takes nothing returns boolean
 	// 嵩山-子午十二剑
 	if damage == 0.94 then
 		call ziWuShiErJianDamage(udg_hero[i] , l__ut)
+	endif
+	// 嵩山-寒冰神掌
+	if GetUnitAbilityLevel(l__ut, HAN_BING_SHEN_ZHANG) >= 1 then
+		call hanBingShenZhangDamaged(l__ut , damage)
 	endif
 	
 	set t=null
@@ -55313,7 +55495,11 @@ function main1 takes nothing returns nothing
 		set udg_yiwang[i]=false
 		
 		set tide_rising[i]=false
-		set wumingStatus[i]=0
+		set wumingBaseCount[i]=0
+		set wumingCount[i]=0
+		set wumingStr[i]=0
+		set wumingAgi[i]=0
+		set wumingInt[i]=0
 		set R4[i]=DialogCreate()
 		set Y4[i]=1
 		set udg_xinggeA[i]=0
@@ -56632,7 +56818,7 @@ function main takes nothing returns nothing
     call CreateAllUnits()
     call InitBlizzard()
 
-call ExecuteFunc("jasshelper__initstructs605381453")
+call ExecuteFunc("jasshelper__initstructs752924515")
 call ExecuteFunc("FrameLibrary__init")
 call ExecuteFunc("initShowEffect")
 call ExecuteFunc("UniMissileSystem3D__Init")
@@ -56677,20 +56863,20 @@ function config takes nothing returns nothing
     call InitCustomTeams()
     call InitAllyPriorities()
 endfunction
-//===========================================================================
-//��Ծϵͳ 
-//===========================================================================
 //===========================================================================  
 //===========================================================================  
 //�Զ����¼� 
 //===========================================================================
 //===========================================================================   
-     
- 
-                 
 //===========================================================================
 //修改生命
 //===========================================================================
+//===========================================================================
+//��Ծϵͳ 
+//===========================================================================
+     
+ 
+                 
 //===========================================================================
 //ϵͳ-TimerSystem
 //===========================================================================
@@ -56834,7 +57020,7 @@ function sa___prototype4_SetUnitMoveSpeedEx takes nothing returns boolean
     return true
 endfunction
 
-function jasshelper__initstructs605381453 takes nothing returns nothing
+function jasshelper__initstructs752924515 takes nothing returns nothing
     set st__Frame_onDestroy=CreateTrigger()
     call TriggerAddCondition(st__Frame_onDestroy,Condition( function sa__Frame_onDestroy))
     set st__ShopWeapon_onDestroy=CreateTrigger()

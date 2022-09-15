@@ -273,6 +273,16 @@ function UseAbility_Conditions takes nothing returns boolean
 	if id == HAN_BING_SHEN_ZHANG then
 		call hanBingShenZhang(u)
 	endif
+
+	// 嵩山：无名内功
+	if id == WU_MING_NEI_GONG then
+		call wuMingNeiGong(u)
+	endif
+
+	// 嵩山：大嵩阳神掌
+	if id == DA_SONG_YANG_SHEN_ZHANG then
+		call daSongYangShenZhang(u, ut)
+	endif
  
 	set u = null
 	set ut = null

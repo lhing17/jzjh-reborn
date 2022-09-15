@@ -2202,7 +2202,11 @@ function main1 takes nothing returns nothing
 		set udg_yiwang[i] = false
 		
 		set tide_rising[i] = false
-		set wumingStatus[i] = 0
+		set wumingBaseCount[i] = 0
+		set wumingCount[i] = 0
+		set wumingStr[i] = 0
+		set wumingAgi[i] = 0
+		set wumingInt[i] = 0
 		set R4[i] = DialogCreate()
 		set Y4[i] = 1
 		set udg_xinggeA[i] = 0

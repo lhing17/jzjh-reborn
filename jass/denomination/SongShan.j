@@ -17,7 +17,11 @@
 // 五岳盟主2 如果集齐五个门派掌门，再获得五岳盟主称号，奖励非常多
 
 globals
-	integer array wumingStatus // 无名内功状态：收/放
+	integer array wumingBaseCount // 无名内功基础内力
+	integer array wumingCount // 无名内功总数
+	integer array wumingStr // 无名内功转换为招式伤害
+	integer array wumingAgi // 无名内功转换为内力
+	integer array wumingInt // 无名内功转换为真实伤害
 endglobals
 
 // call YDWETimerPatternMoonPriestessArrow( GetTriggerUnit(), 0, 800, 1, 0.03, 1, 'A02G', 'hpea', "attack", "overhead", "[jx3]normal_10a.mdx" )
@@ -264,6 +268,92 @@ function hanBingShenZhang takes unit u returns nothing
 	set t = null
 endfunction
 
+// 毕业技 无名内功 增加100*等级的内力（第一次使用时加），主动使用时将增加的内力重新分配为招式伤害、内力、真实伤害。
+// 每内化一个武功，重新分配时，分配总数增加10点
+// +寒冰真气 每级后额外增加50点内力
+// +北冥神功 内化加成额外增加10点
+function wuMingNeiGong takes unit u returns nothing
+	local integer level = GetUnitAbilityLevel(u, WU_MING_NEI_GONG)
+	local integer i = 1 + GetPlayerId(GetOwningPlayer(u))
+	local integer base = 100
+
+	call WuGongShengChong(u, WU_MING_NEI_GONG, 120)
+
+	// +寒冰真气 每级后额外增加50点内力
+	if GetUnitAbilityLevel(u, HAN_BING_ZHEN_QI) >= 1 then
+		set base = base + 50
+	endif
+
+	// 先将之前增加的三围减掉
+	call ModifyHeroStat(bj_HEROSTAT_STR, u, bj_MODIFYMETHOD_SUB, wumingStr[i])
+	call ModifyHeroStat(bj_HEROSTAT_AGI, u, bj_MODIFYMETHOD_SUB, wumingAgi[i])
+	call ModifyHeroStat(bj_HEROSTAT_INT, u, bj_MODIFYMETHOD_SUB, wumingInt[i])
+
+	// 如果加的基础内力不到等级*100，就加到等级*100
+	if wumingBaseCount[i] < level * base then
+		call ModifyHeroStat(bj_HEROSTAT_AGI, u, bj_MODIFYMETHOD_ADD, wumingBaseCount[i] - level * base)
+		set wumingAgi[i] = wumingAgi[i] + wumingBaseCount[i] - level * base
+		set wumingBaseCount[i] = level * base
+	endif
+
+	// 重新随机分配招式伤害、内力和真实伤害
+	set wumingCount[i] = wumingStr[i] + wumingAgi[i] + wumingInt[i]
+
+	// 每内化一个武功，重新分配时，分配总数增加10点 +北冥神功 内化后额外增加10点内力
+	if alreadyInternalizedCount[i] > 0 then
+		set wumingCount[i] = wumingCount[i] + alreadyInternalizedCount[i] * 10 * (1 + GetUnitAbilityLevel(u, BEI_MING_SHEN_GONG))
+	endif
+
+	set wumingStr[i] = GetRandomInt(0, wumingCount[i])
+	set wumingAgi[i] = GetRandomInt(0, wumingCount[i] - wumingStr[i])
+	set wumingInt[i] = wumingCount[i] - wumingStr[i] - wumingAgi[i]
+	call ModifyHeroStat(bj_HEROSTAT_STR, u, bj_MODIFYMETHOD_ADD, wumingStr[i])
+	call ModifyHeroStat(bj_HEROSTAT_AGI, u, bj_MODIFYMETHOD_ADD, wumingAgi[i])
+	call ModifyHeroStat(bj_HEROSTAT_INT, u, bj_MODIFYMETHOD_ADD, wumingInt[i])
+
+endfunction
 
 
+
+// 毕业技 大嵩阳神掌 主动使用，将敌方缓慢牵引至自己身边
+// +寒冰真气 牵引结束后，对牵引的敌人造成伤害
+// +北冥神功 牵引速度减慢
+function daSongYangShenZhangAction takes nothing returns nothing
+	local timer t = GetExpiredTimer()
+	local unit ut = LoadUnitHandle(YDHT, GetHandleId(t), 0)
+	local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 1)
+
+	call PauseUnit(ut, false)
+	// +寒冰真气 牵引结束后，对牵引的敌人造成伤害
+	if GetUnitAbilityLevel(u, HAN_BING_ZHEN_QI) >= 1 and IsUnitAliveBJ(ut) then
+		call WuGongShangHai(u, ut, ShangHaiGongShi(u, ut, 1000, 1000, 1, DA_SONG_YANG_SHEN_ZHANG))
+	endif
+
+
+	call FlushChildHashtable(YDHT, GetHandleId(t))
+	call DestroyTimer(t)
+
+	set u = null
+	set ut = null
+	set t = null
+endfunction
+
+function daSongYangShenZhang takes unit u, unit ut returns nothing
+	local real time = RMinBJ(4, ( YDWEDistanceBetweenUnits(u , ut) / 300.00 ))
+	local timer t = CreateTimer()
+
+	// +北冥神功 牵引速度减慢
+	if GetUnitAbilityLevel(u, BEI_MING_SHEN_GONG) >= 1 then
+		set time = time * 2
+	endif
+
+	call WuGongShengChong(u, DA_SONG_YANG_SHEN_ZHANG, 180)
+	call PauseUnit(ut, true)
+	call YDWETimerPatternRushSlide(ut , YDWEAngleBetweenUnits(ut , u) , RMinBJ(1200.00, YDWEDistanceBetweenUnits(u , ut)) , time , 0.02 , 0 , false , false , true , "origin" , "Abilities\\Spells\\Human\\FlakCannons\\FlakTarget.mdl" , "Abilities\\Spells\\Human\\FlakCannons\\FlakTarget.mdl")
+	call SaveUnitHandle(YDHT, GetHandleId(t), 0, ut)
+	call SaveUnitHandle(YDHT, GetHandleId(t), 1, u)
+	call TimerStart(t, time, false, function daSongYangShenZhangAction)
+	set t = null
+
+endfunction
 
