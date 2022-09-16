@@ -149,7 +149,7 @@ function ziWuShiErJian takes unit u returns nothing
 	call SaveInteger(YDHT, GetHandleId(t), 2, count)
 	call TimerStart(t, 0.1, true, function ziWuShiErJianAction)
 
-	// 五岳盟主称号 CD变为5秒
+	// 左盟主称号 CD变为5秒
 	if isTitle(1 + GetPlayerId(GetOwningPlayer(u)), 50) then
 		set tm = CreateTimer()
 		call SaveUnitHandle(YDHT, GetHandleId(tm), 0, u)
