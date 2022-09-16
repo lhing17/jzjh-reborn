@@ -24,7 +24,7 @@
 
 
 globals
-	constant integer DENOMINATION_NUMBER = 25
+	constant integer DENOMINATION_NUMBER = 26
 
 	integer array interAbilityCount
 	integer array alreadyInternalizedCount
@@ -648,7 +648,7 @@ function ox takes nothing returns boolean
 	or (GetItemTypeId(GetManipulatedItem()) == 'I09N') or (GetItemTypeId(GetManipulatedItem()) == 'I0A2')  or (GetItemTypeId(GetManipulatedItem()) == 'I0CK')				\
 	or (GetItemTypeId(GetManipulatedItem()) == 'I0CX') or (GetItemTypeId(GetManipulatedItem()) == 'I0E1') or (GetItemTypeId(GetManipulatedItem()) == 'I0EH')\
 	or (GetItemTypeId(GetManipulatedItem()) == 'I0EO') or (GetItemTypeId(GetManipulatedItem()) == 'I0AA') or (GetItemTypeId(GetManipulatedItem()) == 'I0AG') \
-	or (GetItemTypeId(GetManipulatedItem()) == 'I0F0')  \
+	or (GetItemTypeId(GetManipulatedItem()) == 'I0F0')  or (GetItemTypeId(GetManipulatedItem()) == 'I0AD')\
 	or (GetItemTypeId(GetManipulatedItem()) == 'I0ET') or (GetItemTypeId(GetManipulatedItem()) == 'I0EV')  or (GetItemTypeId(GetManipulatedItem()) == 'I0EY') ))
 endfunction
 function JiaRuMenPai takes nothing returns nothing
@@ -1228,6 +1228,29 @@ function JiaRuMenPai takes nothing returns nothing
 		call PanCameraToTimedLocForPlayer(p, Q4, 0)
 		call createPartnerAndTownPortalDummy(i, Q4)
 		call addAllAttrs(i, 1)
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394, u)
+	elseif((GetItemTypeId(GetManipulatedItem()) == 'I0AD'))then
+		set udg_runamen[i] = 26
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓嵩山派〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p, "〓嵩山派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u, 'A05R')
+		call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
+		if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+			call UnitAddAbility(u, 'A040')
+			call UnitAddAbility(u, 'A041')
+			call UnitAddAbility(u, 'A042')
+		endif
+		set I7[(((i - 1) * 20) + 8)] = 'A05R'
+		call UnitRemoveAbility(u, 'Avul')
+		set Q4 = GetRandomLocInRect(He)
+		call SetUnitPositionLoc(u, Q4)
+		call PanCameraToTimedLocForPlayer(p, Q4, 0)
+		call createPartnerAndTownPortalDummy(i, Q4)
+		set danpo[i] = danpo[i] + 3
+		set jingmai[i] = jingmai[i] + 3
 		call RemoveLocation(Q4)
 		call UnitAddItemByIdSwapped(1227896394, u)
 	elseif((GetItemTypeId(GetManipulatedItem()) == 'I0AG'))then

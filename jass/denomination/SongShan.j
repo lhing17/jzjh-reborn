@@ -110,16 +110,18 @@ function ziWuShiErJianAction takes nothing returns nothing
 	local real angle = GetUnitFacing(u)
 	local real distance = 1000.
 	local real duration = 1
+	local unit dummy
 
 	if j >= jMax then
 		call FlushChildHashtable(YDHT, GetHandleId(t))
 		call DestroyTimer(t)
 	else
 		call SaveInteger(YDHT, GetHandleId(t), 1, j + 1)
-		call YDWETimerPatternMoonPriestessArrow( u, angle, distance, duration, 0.03, 1, 'A0FB', 'e000', "attack", "overhead", "war3mapImported\\zhiyu.mdx" )
+		set dummy = CreateUnit(GetOwningPlayer(u), 'h00O', GetUnitX(u), GetUnitY(u), angle)
+		call YDWETimerPatternMoonPriestessArrow(dummy, angle, distance, duration, 0.03, 1, 'A0FB', 'e000', "thunderbolt", "overhead", "war3mapImported\\zhiyu.mdx" )
 	endif
 
-	
+	set dummy = null
 	set t = null
 	set u = null
 endfunction
@@ -147,7 +149,7 @@ function ziWuShiErJian takes unit u returns nothing
 	call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
 	call SaveInteger(YDHT, GetHandleId(t), 1, 0)
 	call SaveInteger(YDHT, GetHandleId(t), 2, count)
-	call TimerStart(t, 0.1, true, function ziWuShiErJianAction)
+	call TimerStart(t, 0.2, true, function ziWuShiErJianAction)
 
 	// 左盟主称号 CD变为5秒
 	if isTitle(1 + GetPlayerId(GetOwningPlayer(u)), 50) then
@@ -190,18 +192,19 @@ function ziWuShiErJianDamage takes unit u, unit ut returns nothing
 	call WuGongShangHai(u, ut, shanghai)
 endfunction
 
-// 三技能 寒冰神掌 每次受伤害最大掉血10%，主动使用时冰冻自己同时快速回复气血（每秒10%），并对周围单位造成持续伤害
+// 三技能 寒冰神掌 每次受伤害最大掉血15%，主动使用时冰冻自己同时快速回复气血（每秒10%），并对周围单位造成持续伤害
 // +寒冰真气 不再冰冻自己
 // +无名内功 伤害和胆魄相关
 // +双手互搏 回血速度加倍
-// +洗髓经 每次受伤害最大掉血6%
+// +洗髓经 每次受伤害最大掉血10%
 function hanBingShenZhangDamaged takes unit u, real damage returns nothing
-	local real coeff = 10
+	local real coeff = 15
 	if GetUnitAbilityLevel(u, XI_SUI_JING) >= 1 then
-		set coeff = 6
+		set coeff = 10
 	endif
 	if damage > GetUnitState(u, UNIT_STATE_MAX_LIFE) * coeff / 100 then
 		call WuDi(u)
+		call BJDebugMsg(R2S(GetUnitLifePercent(u)))
 		call SetUnitLifePercentBJ(u, GetUnitLifePercent(u) - coeff)
 	endif
 endfunction
@@ -215,7 +218,7 @@ function hanBingShenZhangDamage takes unit u, unit ut returns nothing
 		set shxishu = shxishu * 4
 	endif
 
-	set shanghai = ShangHaiGongShi(u, ut, 50., 50., shxishu, HAN_BING_ZHEN_QI)
+	set shanghai = ShangHaiGongShi(u, ut, 50., 50., shxishu, HAN_BING_SHEN_ZHANG)
 	call WuGongShangHai(u, ut, shanghai)
 endfunction
 
@@ -244,7 +247,9 @@ function hanBingShenZhangAction takes nothing returns nothing
 			if IsUnitEnemy(ut, GetOwningPlayer(u)) and IsUnitAliveBJ(ut) then
 				call hanBingShenZhangDamage(u, ut)
 			endif
+			call GroupRemoveUnit(g, ut)
 		endloop
+		call DestroyGroup(g)
 	endif
 	set g = null
 	set t = null
@@ -255,6 +260,7 @@ function hanBingShenZhang takes unit u returns nothing
 	local unit dummy = CreateUnit(Player(6), 'e000', GetUnitX(u), GetUnitY(u), 270)
 	local timer t = CreateTimer()
 
+	call ShowUnit(dummy, false)
 	call WuGongShengChong(u, HAN_BING_SHEN_ZHANG, 200)
 	if GetUnitAbilityLevel(u, HAN_BING_ZHEN_QI) < 1 then
 		call WanBuff(dummy, u, 17)
@@ -291,8 +297,8 @@ function wuMingNeiGong takes unit u returns nothing
 
 	// 如果加的基础内力不到等级*100，就加到等级*100
 	if wumingBaseCount[i] < level * base then
-		call ModifyHeroStat(bj_HEROSTAT_AGI, u, bj_MODIFYMETHOD_ADD, wumingBaseCount[i] - level * base)
-		set wumingAgi[i] = wumingAgi[i] + wumingBaseCount[i] - level * base
+		// call ModifyHeroStat(bj_HEROSTAT_AGI, u, bj_MODIFYMETHOD_ADD, - wumingBaseCount[i] + level * base)
+		set wumingAgi[i] = wumingAgi[i] - wumingBaseCount[i] + level * base
 		set wumingBaseCount[i] = level * base
 	endif
 

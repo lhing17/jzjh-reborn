@@ -1782,8 +1782,8 @@ function InitDenominationSkills takes nothing returns nothing
 	set denomFifth[25] = JIA_YI_SHEN_GONG
 	set udg_menpainame[26] = "嵩山派"
 	set denomFirst[26] = SONG_SHAN_JIAN_FA
-	set denomSecond[26] = ZI_WU_SHI_ER_JIAN
-	set denomThird[26] = HAN_BING_SHEN_ZHANG
+	set denomThird[26] = ZI_WU_SHI_ER_JIAN
+	set denomSecond[26] = HAN_BING_SHEN_ZHANG
 	set denomFourth[26] = WU_MING_NEI_GONG
 	set denomFifth[26] = DA_SONG_YANG_SHEN_ZHANG
 endfunction
