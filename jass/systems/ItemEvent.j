@@ -68,6 +68,8 @@ function getDenomExclusive takes integer i returns integer
 		return 'I0EZ'
 	elseif i == 25 then
 		return 'I00B'
+	elseif i == 26 then
+		return ITEM_HAN_PO_JIAN
 	endif
 	return 0
 endfunction

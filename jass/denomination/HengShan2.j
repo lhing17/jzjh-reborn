@@ -164,7 +164,7 @@ function HeXiangJianFa takes nothing returns nothing
     if GetUnitAbilityLevel(u,'A07J')>=1 then
 	    set shxishu=shxishu+1.5
     endif
-    if UnitHaveItem(u, 'I0DY') or UnitHaveItem(u, 'I01L') or UnitHaveItem(u, 'I00C') or UnitHaveItem(u, 'I00B') or UnitHaveItem(u, 'I099') or UnitHaveItem(u, 'I09A') or UnitHaveItem(u, 'I09C') then
+    if UnitHaveItem(u, 'I0DY') or UnitHaveItem(u, 'I01L') or UnitHaveItem(u, 'I00C') or UnitHaveItem(u, 'I00B') or UnitHaveItem(u, 'I099') or UnitHaveItem(u, 'I09A') or UnitHaveItem(u, 'I09C') or UnitHaveItem(u, 'I0EZ') or UnitHaveItem(u, 'I0F6') then
     	set shxishu = shxishu * 2
 	endif
     if GetUnitAbilityLevel(u,'A07R')>=1 then

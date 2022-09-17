@@ -89,7 +89,7 @@ globals
 	constant integer ITEM_YU_XIAO = 'I09D' // 玉箫物品
 	constant integer ITEM_HAN_SHA = 'I0AE' // 含沙射影
 	constant integer ITEM_YE_LUO = 'I0EU' // 野螺
-	constant integer ITEM_HAN_PO_JIAN = 'I0EJ' // FIXME 寒魄剑（专属）
+	constant integer ITEM_HAN_PO_JIAN = 'I0F6' // FIXME 寒魄剑（专属）
 	
 	
 endglobals

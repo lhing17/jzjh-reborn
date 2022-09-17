@@ -188,7 +188,7 @@ function ziWuShiErJianDamage takes unit u, unit ut returns nothing
 		call WanBuff(u, ut, 17)
 	endif
 
-	set shanghai = ShangHaiGongShi(u, ut, 50., 50., shxishu, ZI_WU_SHI_ER_JIAN)
+	set shanghai = ShangHaiGongShi(u, ut, 100., 100., shxishu, ZI_WU_SHI_ER_JIAN)
 	call WuGongShangHai(u, ut, shanghai)
 endfunction
 
@@ -203,9 +203,7 @@ function hanBingShenZhangDamaged takes unit u, real damage returns nothing
 		set coeff = 10
 	endif
 	if damage > GetUnitState(u, UNIT_STATE_MAX_LIFE) * coeff / 100 then
-		call WuDi(u)
-		call BJDebugMsg(R2S(GetUnitLifePercent(u)))
-		call SetUnitLifePercentBJ(u, GetUnitLifePercent(u) - coeff)
+		call EXSetEventDamage(GetUnitState(u, UNIT_STATE_MAX_LIFE) * coeff / 100)
 	endif
 endfunction
 

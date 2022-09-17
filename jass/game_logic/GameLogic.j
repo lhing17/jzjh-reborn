@@ -3172,10 +3172,24 @@ function Va takes nothing returns nothing
 	local unit u = GetTriggerUnit()
 	local player p = GetOwningPlayer(u)
 	local integer i = 1 + GetPlayerId(p)
-	local real r = (1 - RMinBJ(udg_shanghaixishou[i], .8)) * GetEventDamage()
-	call SetWidgetLife(udg_hero[i], (GetUnitState(udg_hero[i], UNIT_STATE_LIFE) + (RMinBJ(udg_shanghaixishou[i], .8) * GetEventDamage())))
+	local real damage = GetEventDamage()
+	local real r = (1 - RMinBJ(udg_shanghaixishou[i], .8)) * damage
+	local real coeff = 15
+	
+	// 嵩山-寒冰神掌
+	if GetUnitAbilityLevel(u, HAN_BING_SHEN_ZHANG) >= 1 then
+		if GetUnitAbilityLevel(u, XI_SUI_JING) >= 1 then
+			set coeff = 10
+		endif
+		if damage > GetUnitState(u, UNIT_STATE_MAX_LIFE) * coeff / 100 then
+			set damage = GetUnitState(u, UNIT_STATE_MAX_LIFE) * coeff / 100
+			call EXSetEventDamage(damage)
+		endif
+	endif
+
+	call SetWidgetLife(udg_hero[i], (GetUnitState(udg_hero[i], UNIT_STATE_LIFE) + (RMinBJ(udg_shanghaixishou[i], .8) * damage)))
 	if((UnitHasBuffBJ(GetTriggerUnit(), 1110454340))and(GetUnitAbilityLevel(GetTriggerUnit(), 1093678930) != 0))then
-		call SetWidgetLife(udg_hero[i], (GetUnitState(udg_hero[i], UNIT_STATE_LIFE) + (.3 * GetEventDamage())))
+		call SetWidgetLife(udg_hero[i], (GetUnitState(udg_hero[i], UNIT_STATE_LIFE) + (.3 * damage)))
 	endif
 	if UnitHaveItem(udg_hero[i], 'I09Z') then
 		if GetUnitAbilityLevel(udg_hero[i], 'A03O') != 0 then
