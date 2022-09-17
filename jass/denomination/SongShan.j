@@ -64,7 +64,7 @@ function songSanAction takes nothing returns nothing
 	if UnitHasDenomWeapon(GetAttacker(), ITEM_HAN_PO_JIAN) then
 		set shxishu = shxishu * 4
 	endif
-	call PassiveWuGongEffectAndDamage(GetAttacker(), GetEnumUnit(), "war3mapImported\\zhiyu.mdx", 12, 16, shxishu, SONG_SHAN_JIAN_FA)
+	call PassiveWuGongEffectAndDamage(GetAttacker(), GetEnumUnit(), "war3mapImported\\62.mdx", 12, 16, shxishu, SONG_SHAN_JIAN_FA)
 endfunction
 
 function songShanJianFa takes unit u, unit ut returns nothing
@@ -217,6 +217,7 @@ function hanBingShenZhangDamage takes unit u, unit ut returns nothing
 	endif
 
 	set shanghai = ShangHaiGongShi(u, ut, 50., 50., shxishu, HAN_BING_SHEN_ZHANG)
+	call DestroyEffect(AddSpecialEffectTarget("war3mapImported\\AbstruseEnergy.mdx", ut, "origin"))
 	call WuGongShangHai(u, ut, shanghai)
 endfunction
 
@@ -282,6 +283,7 @@ function wuMingNeiGong takes unit u returns nothing
 	local integer base = 100
 
 	call WuGongShengChong(u, WU_MING_NEI_GONG, 120)
+	call DestroyEffect(AddSpecialEffectTarget("war3mapImported\\zhiyu.mdx", u, "overhead"))
 
 	// +寒冰真气 每级后额外增加50点内力
 	if GetUnitAbilityLevel(u, HAN_BING_ZHEN_QI) >= 1 then
@@ -330,6 +332,7 @@ function daSongYangShenZhangAction takes nothing returns nothing
 	call PauseUnit(ut, false)
 	// +寒冰真气 牵引结束后，对牵引的敌人造成伤害
 	if GetUnitAbilityLevel(u, HAN_BING_ZHEN_QI) >= 1 and IsUnitAliveBJ(ut) then
+		call DestroyEffect(AddSpecialEffectTarget("war3mapImported\\icestomp.mdx", ut, "origin"))
 		call WuGongShangHai(u, ut, ShangHaiGongShi(u, ut, 1000, 1000, 1, DA_SONG_YANG_SHEN_ZHANG))
 	endif
 

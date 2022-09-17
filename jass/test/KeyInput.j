@@ -351,6 +351,9 @@ function KeyInput takes nothing returns nothing
 		elseif udg_runamen[i] == 25 then
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00汝阳王府专属：倚天剑，灭绝师太接任务，打死副本3张无忌；或者副本6东方不败爆")
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号绍敏郡主：掌门+使用10次偷看偷学")
+		elseif udg_runamen[i] == 26 then
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00嵩山专属：贼哥处购买")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号左盟主：掌门+寒冰真气+寒魄剑")
 		endif
 		call DisplayTextToPlayer(p, 0, 0, "|cFF389C83称号九阴真人：九阴真经·内功+逆九阴真经·内功+九阴真经·易筋锻骨篇+九阴真经·医疗篇+九阴真经·九阴白骨爪+九阴真经·摧坚神抓4重+九阴真经·摧心掌4重")
 		call DisplayTextToPlayer(p, 0, 0, "|cFF004096称号西毒：西毒杖法5重+真·蛤蟆功+蛇杖（武器）")
