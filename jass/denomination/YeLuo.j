@@ -39,10 +39,12 @@ function zaoLeiPi takes unit u, unit ut returns nothing
 	
 	
 	set loc = GetUnitLoc(u)
-	if rand < 50 then
-		set s = "20位伤害随便打"
+	if rand < 30 then
+		set s = "26位伤害随便打"
+	elseif rand < 60 then
+		set s = "单手快速问鼎天下"
 	else
-		set s = "单手快速一波七"
+		set s = "我蛋哥天下无敌"
 	endif
 	call CreateTextTagLocBJ(s, loc, 0, 15., GetRandomReal(0., 100), GetRandomReal(0., 100), GetRandomReal(0., 100), .0)
 	call Nw(3,bj_lastCreatedTextTag)
@@ -271,7 +273,7 @@ function fanShouQianZhu takes unit u, unit ut returns nothing
 endfunction
 
 // - 乾坤一掷  主动
-//     - 点数 * 3000金钱换 （1 ~ 点数 * 30点）三围
+//     - 点数 * 3000金钱换 （1 ~ 点数 * 20点）三围
 //     - 点数 * 100木换 （1 ~ 点数 * 5）绝学领悟
 function qianKunYiZhi takes unit u returns nothing
 	local integer rand = GetRandomInt(1, 6)
@@ -293,7 +295,7 @@ function qianKunYiZhi takes unit u returns nothing
 	call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00掷出了" + I2S(rand) + "点|r")
 	if GetRandomInt(1, 2) == 1 then
 		if gold > rand * goldBase then
-			set add = R2I(GetRandomInt(1, rand * 30) * addition)
+			set add = R2I(GetRandomInt(1, rand * 20) * addition)
 			call ModifyHeroStat(0, u, 0, add)
 			call ModifyHeroStat(1, u, 0, add)
 			call ModifyHeroStat(2, u, 0, add)

@@ -612,7 +612,7 @@ function EF takes nothing returns nothing
 	if GetUnitAbilityLevel(u,'A07P')!=0 and GetUnitAbilityLevel(u,'A086')!=0 and GetUnitAbilityLevel(u,'A07X')!=0 and GetUnitAbilityLevel(u,1093678935)!=0 and GetUnitAbilityLevel(u,'A07H')!=0 then
 		set shxishu=shxishu*5*2
 	endif
-	set shanghai=ShangHaiGongShi(u,uc,7.2,7.2,shxishu,'A06M')
+	set shanghai=ShangHaiGongShi(u,uc,3.6,3.6,shxishu,'A06M')
 	call WuGongShangHai(u,uc,shanghai)
 	set u=null
 	set uc=null
