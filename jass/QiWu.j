@@ -62,6 +62,7 @@ function WuXiangShangHai takes nothing returns nothing
 	if GetUnitAbilityLevel(u, 'A07O') >= 1 then
 		set shxishu = shxishu + 0.6
 	endif
+	// 寒冰真气减速效果
 	if UnitHasBuffBJ(uc, 'Bfro') then
 		set shxishu = shxishu * 3
 	endif
@@ -69,7 +70,7 @@ function WuXiangShangHai takes nothing returns nothing
 		set shxishu = shxishu * 5
 	endif
 	set shxishu = shxishu * (1. + I2R(danpo[i]) / 20 + I2R(juexuelingwu[i]))
-	set shanghai = ShangHaiGongShi(u, uc, 60, 70, shxishu, 'A03P')
+	set shanghai = ShangHaiGongShi(u, uc, 15, 18, shxishu, 'A03P')
 	call WuGongShangHai(u, uc, shanghai)
 	if GetUnitAbilityLevel(u, 'A06P') >= 1 and GetRandomInt(1, 100) <= 8 then
 		call WanBuff(u, uc, 11)
@@ -168,7 +169,7 @@ function ShenXingShangHai_1 takes nothing returns nothing
 	if ((YDWEIsTriggerEventId(EVENT_UNIT_DAMAGED) == true)) then
 		if u == GetEventDamageSource() then
 			call DisableTrigger(t)
-			set shanghai = ShangHaiGongShi(u, uc, 140., 190., shxishu, 'A03N')
+			set shanghai = ShangHaiGongShi(u, uc, 300., 400., shxishu, 'A03N')
 			call WuGongShangHai(u, uc, shanghai)
 
 			call EnableTrigger(t)
@@ -375,14 +376,10 @@ function GuiXiJiaFang takes nothing returns boolean
 	loop
 		exitwhen i >= 6
 		if GetUnitAbilityLevel(udg_hero[i], 'A0CE') != 0 then
-			if GetUnitMoveSpeed(udg_hero[i]) <= 200 then
+			call UnitAddAbility(udg_hero[i], 'A03R')
+			if GetUnitMoveSpeed(udg_hero[i]) <= 400 then
 				call UnitAddAbility(udg_hero[i], 'A03S')
-				call UnitAddAbility(udg_hero[i], 'A03R')
-			elseif GetUnitMoveSpeed(udg_hero[i]) <= 300 then
-				call UnitRemoveAbility(udg_hero[i], 'A03S')
-				call UnitAddAbility(udg_hero[i], 'A03R')
 			else
-				call UnitRemoveAbility(udg_hero[i], 'A03R')
 				call UnitRemoveAbility(udg_hero[i], 'A03S')
 			endif
 		endif
@@ -676,7 +673,7 @@ function QiWu_Trigger takes nothing returns nothing
 	call TriggerAddCondition(t, Condition(function IsGuiXiGong))
 	call TriggerAddAction(t, function GuiXiGong)
 	set t = CreateTrigger()
-	call TriggerRegisterTimerEventPeriodic(t, 0.1)
+	call TriggerRegisterTimerEventPeriodic(t, 1)
 	call TriggerAddCondition(t, Condition(function GuiXiJiaFang))
 	set t = CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_ISSUED_ORDER)
