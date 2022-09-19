@@ -1889,6 +1889,11 @@ function randomMenpai takes player p, integer status returns nothing
 		call addAllAttrs(i , 1)
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15., "|CFFff9933玩家" + GetPlayerName(p) + "随机选择了〓汝阳王府〓|r")
 		call SetPlayerName(p, "〓汝阳王府〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+	elseif udg_runamen[i] == 26 then
+		set danpo[i] = danpo[i] + 3
+		set jingmai[i] = jingmai[i] + 3
+		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15., "|CFFff9933玩家" + GetPlayerName(p) + "随机选择了〓嵩山派〓|r")
+		call SetPlayerName(p, "〓嵩山派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 	endif
 	if status == 1 then
 		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFF00FFFF提示：|r请在NPC|CFF00EE00郭靖|r处选择副职")

@@ -355,11 +355,13 @@ function KeyInput takes nothing returns nothing
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00嵩山专属：贼哥处购买")
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号左盟主：掌门+寒冰真气+寒魄剑")
 		endif
+		call DisplayTextToPlayer(p, 0, 0, "|cFF389C83称号五岳盟主：同时获得五岳门派的掌门")
 		call DisplayTextToPlayer(p, 0, 0, "|cFF389C83称号九阴真人：九阴真经·内功+逆九阴真经·内功+九阴真经·易筋锻骨篇+九阴真经·医疗篇+九阴真经·九阴白骨爪+九阴真经·摧坚神抓4重+九阴真经·摧心掌4重")
 		call DisplayTextToPlayer(p, 0, 0, "|cFF004096称号西毒：西毒杖法5重+真·蛤蟆功+蛇杖（武器）")
 		call DisplayTextToPlayer(p, 0, 0, "|cFF006083称号南帝：一阳指5重+先天功3重（全真门派武功）+非全真门派")
 		call DisplayTextToPlayer(p, 0, 0, "|cFF326859称号瑶琴：九阴真经·九阴白骨爪5重+九阴真经·摧坚神抓5重+九阴真经·摧心掌5重+黯然销魂掌3重")
 		call DisplayTextToPlayer(p, 0, 0, "|cFF754298称号神仙姐姐：九阴真经·内功+九阳神功+罗汉伏魔功+吸星大法+葵花宝典+斗转星移+乾坤大挪移+双手互搏")
+		call DisplayTextToPlayer(p, 0, 0, "|cFF754298理论上也可以获得其他门派的称号，不在此处描述，请自行尝试")
 		call DisplayTextToPlayer(p, 0, 0, "|cFFcc99ff〓〓〓〓〓〓〓〓〓〓〓")
 	endif
 
