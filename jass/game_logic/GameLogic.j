@@ -3178,12 +3178,12 @@ function Va takes nothing returns nothing
 	local integer i = 1 + GetPlayerId(p)
 	local real damage = GetEventDamage()
 	local real r = (1 - RMinBJ(udg_shanghaixishou[i], .8)) * damage
-	local real coeff = 15
+	local real coeff = 30
 	
 	// 嵩山-寒冰神掌
 	if GetUnitAbilityLevel(u, HAN_BING_SHEN_ZHANG) >= 1 then
 		if GetUnitAbilityLevel(u, XI_SUI_JING) >= 1 then
-			set coeff = 10
+			set coeff = 20
 		endif
 		if damage > GetUnitState(u, UNIT_STATE_MAX_LIFE) * coeff / 100 then
 			set damage = GetUnitState(u, UNIT_STATE_MAX_LIFE) * coeff / 100
