@@ -1107,6 +1107,7 @@ function DH takes nothing returns nothing
 		exitwhen H7 > 12
 		call SaveLocationHandle(YDHT, id * cx, - $3348E012, pu(LoadLocationHandle(YDHT, id * cx, - $6923AD87), 350., ((30.) * (I2R(H7)))))
 		call CreateNUnitsAtLoc(1, 1869836340, GetOwningPlayer(GetAttacker()), LoadLocationHandle(YDHT, id * cx, - $3348E012), bj_UNIT_FACING)
+		call UnitApplyTimedLife(bj_lastCreatedUnit, 'BHwe', 5.)
 		call RemoveLocation(LoadLocationHandle(YDHT, id * cx, - $3348E012))
 		set H7 = H7 + 1
 	endloop

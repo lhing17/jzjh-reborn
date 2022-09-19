@@ -832,6 +832,9 @@ function KeyInput takes nothing returns nothing
 		call SetPlayerTechResearched(Player(6), 'R001', 7)
 		call SetPlayerTechResearched(Player(15), 'R001', 7)
 	endif
+	if s == "title" and udg_isTest[GetPlayerId(p)] then
+		call AddSpecialEffectTargetEx("jinmengxiaoyao.mdx", udg_hero[1], "chest")
+	endif
 	if (s == "撸下一波" or s == "lxyb") and udg_isTest[GetPlayerId(p)] then
 		set udg_boshu = udg_boshu + 1
 		call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000已跳转至下一波")

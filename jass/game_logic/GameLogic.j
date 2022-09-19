@@ -560,6 +560,10 @@ function SelectHero takes nothing returns nothing
 				call AddSpecialEffectTargetEx("[ch]7.mdl", bj_lastCreatedUnit, "overhead")
 			elseif GetPlayerName(Player(i - 1)) == "zeikale" or GetPlayerName(Player(i - 1)) == "zeikala" then
 				call AddSpecialEffectTargetEx("[ch]9.mdl", bj_lastCreatedUnit, "overhead")
+			elseif GetPlayerName(Player(i - 1)) == "粘合小捣蛋" then
+				call AddSpecialEffectTargetEx("shuizhudandan.mdx", bj_lastCreatedUnit, "chest")
+			elseif GetPlayerName(Player(i - 1)) == "jymeng" then
+				call AddSpecialEffectTargetEx("jinmengxiaoyao.mdx", bj_lastCreatedUnit, "chest")
 			else
 				if LoadInteger(YDHT, i, StringHash("单通门派数量")) >= 18 then
 					call AddSpecialEffectTargetEx("yujianjiahu4.mdx", bj_lastCreatedUnit, "overhead")
