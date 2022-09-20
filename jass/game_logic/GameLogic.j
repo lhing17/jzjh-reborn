@@ -5207,15 +5207,20 @@ function ChouXie_Condition takes nothing returns boolean
 	return IsUnitInGroup(GetAttacker(), w7) and GetPlayerTechCountSimple('R001', Player(6)) == 5 and GetOwningPlayer(GetTriggerUnit()) != Player(12) and GetTriggerUnit() != udg_ZhengPaiWL and GetUnitTypeId(GetTriggerUnit()) != 'Hblm' and GetUnitTypeId(GetTriggerUnit()) != 'o02F' and GetUnitTypeId(GetTriggerUnit()) != 'o02G'
 endfunction
 function ChouXie_Action takes nothing returns nothing
-	// 难6
 	if udg_nandu == 5 then
+		// 难6
 		if GetRandomInt(1, 100) <= 20 then
 			call SetUnitLifePercentBJ(GetTriggerUnit(), GetUnitLifePercent(GetTriggerUnit()) - 6.)
 		endif
-		// 难7和难8
-	elseif udg_nandu >= 6 then
+	elseif udg_nandu >= 6 and udg_nandu < 8 then
+		// 难7
 		if GetRandomInt(1, 100) <= 60 then
 			call SetUnitLifePercentBJ(GetTriggerUnit(), GetUnitLifePercent(GetTriggerUnit()) - 6.)
+		endif
+	elseif udg_nandu >=8 then
+		// 难8
+		if GetRandomInt(1, 100) <= 80 then
+			call SetUnitLifePercentBJ(GetTriggerUnit(), GetUnitLifePercent(GetTriggerUnit()) - 7.)
 		endif
 	endif
 
