@@ -5219,7 +5219,7 @@ function ChouXie_Action takes nothing returns nothing
 		endif
 	elseif udg_nandu >=8 then
 		// 难8
-		if GetRandomInt(1, 100) <= 80 then
+		if GetRandomInt(1, 100) <= 60 then
 			call SetUnitLifePercentBJ(GetTriggerUnit(), GetUnitLifePercent(GetTriggerUnit()) - 7.)
 		endif
 	endif
