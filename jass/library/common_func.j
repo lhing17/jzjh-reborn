@@ -1428,7 +1428,7 @@ endfunction
 //@id:A06S 九阳真经散篇
 //@id:A0DN 九阳神功
 function jueXueXiShu takes integer i returns real
-	return (1. + I2R(juexuelingwu[i]) / 3) * (1 + 0.4 * GetUnitAbilityLevel(udg_hero[i], 'A06S') * (1 + GetUnitAbilityLevel(udg_hero[i], 'A0DN')))
+	return (1. + I2R(juexuelingwu[i])) * (1 + 0.4 * GetUnitAbilityLevel(udg_hero[i], 'A06S') * (1 + GetUnitAbilityLevel(udg_hero[i], 'A0DN')))
 endfunction
 
 /*

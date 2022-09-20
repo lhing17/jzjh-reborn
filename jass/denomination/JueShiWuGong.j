@@ -508,7 +508,7 @@ function p6 takes nothing returns nothing
 	call PauseUnit(uc, true)
 	call SetUnitPositionLoc(uc, loc3)
 	call Jw(1., AddSpecialEffectTargetEx("Abilities\\Spells\\Other\\Stampede\\StampedeMissileDeath.mdl", uc, "chest"))
-	set shanghai = ShangHaiGongShi(u, uc, 19., 19., shxishu, 'A085')
+	set shanghai = ShangHaiGongShi(u, uc, 40., 40., shxishu, 'A085')
 	call WuGongShangHai(u, uc, shanghai)
 	call PauseUnit(uc, false)
 	call RemoveLocation(loc)
@@ -590,7 +590,7 @@ function Q6 takes nothing returns nothing
 	if UnitHaveItem(u, 'I097') then
 		set shxishu = shxishu * 8
 	endif
-	set shanghai = ShangHaiGongShi(u, uc, 35., 35., shxishu, 'A07L')
+	set shanghai = ShangHaiGongShi(u, uc, 70., 70., shxishu, 'A07L')
 	call WuGongShangHai(u, uc, shanghai)
 	set u = null
 	set uc = null
@@ -699,7 +699,7 @@ function U6 takes nothing returns nothing
 	local integer i = 1 + GetPlayerId(GetOwningPlayer(u))
 	local real shxishu = jueXueXiShu(i)
 	local real shanghai = 0.
-	set shanghai = ShangHaiGongShi(u, uc, 18., 18., shxishu, 'A07L')
+	set shanghai = ShangHaiGongShi(u, uc, 36., 36., shxishu, 'A07L')
 	call WuGongShangHai(u, uc, shanghai)
 	set u = null
 	set uc = null
