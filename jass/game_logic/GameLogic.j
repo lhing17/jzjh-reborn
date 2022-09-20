@@ -5204,7 +5204,7 @@ function CalcShangHai takes nothing returns nothing
 endfunction
 //抽血术
 function ChouXie_Condition takes nothing returns boolean
-	return IsUnitInGroup(GetAttacker(), w7) and GetPlayerTechCountSimple('R001', Player(6)) == 5 and GetOwningPlayer(GetTriggerUnit()) != Player(12) and GetTriggerUnit() != udg_ZhengPaiWL and GetUnitTypeId(GetTriggerUnit()) != 'Hblm' and GetUnitTypeId(GetTriggerUnit()) != 'o02F' and GetUnitTypeId(GetTriggerUnit()) != 'o02G'
+	return IsUnitInGroup(GetAttacker(), w7) and GetPlayerTechCountSimple('R001', Player(6)) >= 5 and GetOwningPlayer(GetTriggerUnit()) != Player(12) and GetTriggerUnit() != udg_ZhengPaiWL and GetUnitTypeId(GetTriggerUnit()) != 'Hblm' and GetUnitTypeId(GetTriggerUnit()) != 'o02F' and GetUnitTypeId(GetTriggerUnit()) != 'o02G'
 endfunction
 function ChouXie_Action takes nothing returns nothing
 	if udg_nandu == 5 then
