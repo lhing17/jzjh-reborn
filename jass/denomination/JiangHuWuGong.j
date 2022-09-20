@@ -866,9 +866,9 @@ function UF takes nothing returns nothing
 	if((GetUnitAbilityLevel(u,1093679154)!=0))then
 		set shxishu=shxishu+.6
 	endif
-	// 九阴真人加成20倍
+	// 九阴真人加成40倍
 	if isTitle(i, 37) then
-		set shxishu=shxishu*20
+		set shxishu=shxishu*40
 	endif
 	if GetUnitAbilityLevel(u,1093678930)!=0 and GetUnitAbilityLevel(u,'A06H')!=0 and GetUnitAbilityLevel(u,'A089')!=0 and GetUnitAbilityLevel(u,'A07S')!=0 and GetUnitAbilityLevel(u,1093679154)!=0 then
 		set shxishu=shxishu*5*2
