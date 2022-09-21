@@ -182,9 +182,13 @@ function touKanAction takes nothing returns nothing
             call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF0033恭喜" + GetPlayerName(p) + "习得" + GetObjectName(id) + "|r")
 
             if id == 'A0EL' then
-                call qimen_widget.show()
+                if Player(i - 1) == GetLocalPlayer() then
+                    call qimen_widget.show()
+                endif
             elseif id == 'A0EK' then
-                call bibo_image.show()
+                if Player(i - 1) == GetLocalPlayer() then
+                    call bibo_image.show()
+                endif
             endif
 
             set l__kk = 1
