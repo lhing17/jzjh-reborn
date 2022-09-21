@@ -5572,6 +5572,7 @@ function aQ takes nothing returns nothing
 			call Deputy_setDeputy(i, JIAN_DING)
 			call DisplayTimedTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, 5., "|cffffff00恭喜成为鉴定师，获得悟性+3")
 			call UnitAddAbility(P4[i], 'A08O')
+			call UnitMakeAbilityPermanent(P4[i], true, 'A08O')
 		elseif (GetItemTypeId(GetManipulatedItem()) == 'I0A5') and notYetJoinDeputy(i, LIAN_QI) then
 			set jingmai[i] = jingmai[i] + 3
 			call Deputy_setDeputy(i, LIAN_QI)
