@@ -492,6 +492,7 @@ function SelectHero takes nothing returns nothing
 	local player p = GetTriggerPlayer()
 	local integer i = 1 + GetPlayerId(p)
 	local unit u = GetTriggerUnit()
+	local effect eff = null
 	if(GetUnitTypeId(L4[i]) == GetUnitTypeId(u))then
 		if u == K4[1] or u == K4[2] or u == K4[3] or u == K4[4] or u == K4[5] or (u == K4[6] and udg_vip[i] > 0) or (u == K4[7] and (udg_changevip[i] > 0 or udg_vip[i] == 2)) then
 			set Q4 = GetRandomLocInRect(Ge)
@@ -561,9 +562,9 @@ function SelectHero takes nothing returns nothing
 			elseif GetPlayerName(Player(i - 1)) == "zeikale" or GetPlayerName(Player(i - 1)) == "zeikala" then
 				call AddSpecialEffectTargetEx("[ch]9.mdl", bj_lastCreatedUnit, "overhead")
 			elseif GetPlayerName(Player(i - 1)) == "粘合小捣蛋" then
-				call AddSpecialEffectTargetEx("shuizhudandan.mdx", bj_lastCreatedUnit, "chest")
+				call AddSpecialEffectTargetEx("shuizhudandan.mdx", bj_lastCreatedUnit, "overhead")
 			elseif GetPlayerName(Player(i - 1)) == "jymeng" then
-				call AddSpecialEffectTargetEx("jinmengxiaoyao.mdx", bj_lastCreatedUnit, "chest")
+				set eff = AddSpecialEffectTargetEx("jinmengxiaoyao.mdx", bj_lastCreatedUnit, "overhead")
 			else
 				if LoadInteger(YDHT, i, StringHash("单通门派数量")) >= 18 then
 					call AddSpecialEffectTargetEx("yujianjiahu4.mdx", bj_lastCreatedUnit, "overhead")
@@ -605,6 +606,7 @@ function SelectHero takes nothing returns nothing
 	endif
 	set p = null
 	set u = null
+	set eff = null
 endfunction
 
 

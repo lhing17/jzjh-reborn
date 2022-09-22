@@ -838,7 +838,7 @@ function KeyInput takes nothing returns nothing
 		call SetPlayerTechResearched(Player(15), 'R001', 7)
 	endif
 	if s == "title" and udg_isTest[GetPlayerId(p)] then
-		call AddSpecialEffectTargetEx("jinmengxiaoyao.mdx", udg_hero[1], "chest")
+		call AddSpecialEffectTargetEx("jinmengxiaoyao.mdx", udg_hero[1], "overhead")
 	endif
 	if (s == "撸下一波" or s == "lxyb") and udg_isTest[GetPlayerId(p)] then
 		set udg_boshu = udg_boshu + 1
