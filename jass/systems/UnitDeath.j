@@ -5,6 +5,12 @@ function UnitDeath_Conditions takes nothing returns boolean
 	local integer i = 1 + GetPlayerId(GetOwningPlayer(u))
 	local integer count = IMaxBJ(LoadInteger(YDHT, GetHandleId(u), BI_BO_POINT), 10)
 	local integer j = 1
+
+	// 清空死亡单位的哈希表
+	if GetPlayerController(GetOwningPlayer(ut)) != MAP_CONTROL_USER then
+		call FlushChildHashtable(YDHT, GetHandleId(ut))
+	endif
+
 	if IsUnitEnemy(ut, GetOwningPlayer(u)) and GetUnitAbilityLevel(u, BI_BO_XIN_JING) >= 1 then
 		set bibo_kill[i] = bibo_kill[i] + 1
 		if bibo_kill[i] > count then
@@ -41,6 +47,7 @@ function UnitDeath_Conditions takes nothing returns boolean
 			call DisplayTextToPlayer(Player(i - 1), 0, 0, "|cff00ff00成功刺杀尼摩星，奖励200声望和中原武学散篇|r")
 		endif
 	endif
+	
 	
 	set u = null
 	set ut = null
