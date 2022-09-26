@@ -383,8 +383,10 @@ function ID takes nothing returns nothing
 	call YDWEPolledWaitNull(.2)
 	call SetUnitManaBJ(GetTriggerUnit(),GetUnitState(GetTriggerUnit(),UNIT_STATE_MANA)+100.)
 endfunction
+
+// 混沌一气+九阳+小无相 使用主动技能的时候几率清空所有技能CD
 function JD takes nothing returns boolean
-	return((GetUnitAbilityLevel(GetTriggerUnit(),'A08V')!=0)and(GetUnitAbilityLevel(GetTriggerUnit(),'A083')!=0)and(GetUnitAbilityLevel(GetTriggerUnit(),'A0DN')!=0) and GetSpellAbilityId() != BI_BO_XIN_JING and(GetSpellAbilityId()!='A05R')and(GetSpellAbilityId()!='A08V')and(GetSpellAbilityId()!='A08X') and(GetSpellAbilityId()!='AIha') and(GetRandomInt(1,$A)<=3) )
+	return((GetUnitAbilityLevel(GetTriggerUnit(),'A08V')!=0)and(GetUnitAbilityLevel(GetTriggerUnit(),'A083')!=0)and(GetUnitAbilityLevel(GetTriggerUnit(),'A0DN')!=0) and GetSpellAbilityId() != BI_BO_XIN_JING and(GetSpellAbilityId()!='A05R')and(GetSpellAbilityId()!='A08V')and(GetSpellAbilityId()!='A08X') and(GetSpellAbilityId()!='AIha') and(GetRandomInt(1,20)<=3) )
 endfunction
 function KD takes nothing returns nothing
 	local unit u = GetTriggerUnit()
