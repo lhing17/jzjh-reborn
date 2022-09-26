@@ -336,7 +336,7 @@ function determineShaoLinTitle takes unit u returns nothing
 			call setTitleNumber(i, 2)
 		endif
 		// 小无相、无相劫指、悟性31以上
-		if GetUnitAbilityLevel(u, 'A083') >= 1 or GetUnitAbilityLevel(u, 'A03P') >= 1 and wuxing[i] >= 31 and not isTitle(i, 3) then
+		if GetUnitAbilityLevel(u, 'A083') >= 1 and GetUnitAbilityLevel(u, 'A03P') >= 1 and wuxing[i] >= 31 and not isTitle(i, 3) then
 			call SetPlayerName(p, "〓大轮明王〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 			call ModifyHeroStat(0, u, 0, 200)
 			call ModifyHeroStat(1, u, 0, 200)
