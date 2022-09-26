@@ -146,8 +146,8 @@ function baMianLingLong takes unit u, item it returns nothing
 		set gold_return = R2I(gold * rate) + 1
 		set lumber_return = R2I(lumber * rate) + 1
 		
-		call AdjustPlayerStateBJ(gold_return, GetOwningPlayer(u),PLAYER_STATE_RESOURCE_GOLD)
-		call AdjustPlayerStateBJ(lumber_return, GetOwningPlayer(u),PLAYER_STATE_RESOURCE_LUMBER)
+		call commonAddGold( GetOwningPlayer(u), gold_return)
+		call commonAddLumber( GetOwningPlayer(u), lumber_return)
 		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00购买成功，返利金币+"+I2S(gold_return)+"，珍稀币+"+I2S(lumber_return))
 		
 		call WuGongShengChong(u, BA_MIAN_LING_LONG, 50)
@@ -184,8 +184,8 @@ function fanShouQianZhu takes unit u, unit ut returns nothing
 		set gold_num = R2I(2000 * GetRandomInt(2, 20) * addition)
 		set lumber_num = R2I(4 * GetRandomInt(2, 10) * addition)
 		set shengwang[i] = shengwang[i] - reputation_sub
-		call AdjustPlayerStateBJ(gold_num, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
-		call AdjustPlayerStateBJ(lumber_num, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_LUMBER)
+		call commonAddGold( GetOwningPlayer(u), gold_num)
+		call commonAddLumber( GetOwningPlayer(u), lumber_num)
 		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00偷取了金币+|r" + I2S(gold_num))
 		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00偷取了珍稀币+|r" + I2S(lumber_num))
 		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00声望减少" + I2S(reputation_sub))
@@ -228,8 +228,8 @@ function fanShouQianZhu takes unit u, unit ut returns nothing
 		set gold_num = R2I(1000 * GetRandomInt(2, 20) * addition)
 		set lumber_num = R2I(2 * GetRandomInt(2, 10) * addition)
 		set shengwang[i] = shengwang[i] - reputation_sub
-		call AdjustPlayerStateBJ(gold_num, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
-		call AdjustPlayerStateBJ(lumber_num, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_LUMBER)
+		call commonAddGold( GetOwningPlayer(u), gold_num)
+		call commonAddLumber( GetOwningPlayer(u), lumber_num)
 		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00偷取了金币+|r" + I2S(gold_num))
 		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00偷取了珍稀币+|r" + I2S(lumber_num))
 		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00声望减少" + I2S(reputation_sub))
@@ -302,7 +302,7 @@ function qianKunYiZhi takes unit u returns nothing
 			
 			set loc = GetUnitLoc(u)
 			set s = "金币-" + I2S(rand * goldBase)
-			call AdjustPlayerStateBJ( - rand * goldBase, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
+			call commonAddGold( GetOwningPlayer(u),  - rand * goldBase)
 			call CreateTextTagLocBJ(s, loc, 0, 12., GetRandomReal(0., 100), GetRandomReal(0., 100), GetRandomReal(0., 100), .0)
 			call Nw(3,bj_lastCreatedTextTag)
 			call SetTextTagVelocityBJ(bj_lastCreatedTextTag, GetRandomReal(50, 70),GetRandomReal(50, 130))
@@ -329,7 +329,7 @@ function qianKunYiZhi takes unit u returns nothing
 			
 			set loc = GetUnitLoc(u)
 			set s = "珍稀币-" + I2S(rand * 100)
-			call AdjustPlayerStateBJ( - rand * 100, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_LUMBER)
+			call commonAddLumber( GetOwningPlayer(u),  - rand * 100)
 			call CreateTextTagLocBJ(s, loc, 0, 12., GetRandomReal(0., 100), GetRandomReal(0., 100), GetRandomReal(0., 100), .0)
 			call Nw(3,bj_lastCreatedTextTag)
 			call SetTextTagVelocityBJ(bj_lastCreatedTextTag, GetRandomReal(50, 70),GetRandomReal(50, 130))

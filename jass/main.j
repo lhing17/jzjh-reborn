@@ -465,6 +465,7 @@ globals
 	unit array qiankun3hao
 	real array udg_shanghaijiacheng
 	real array udg_shanghaixishou
+	real array max_damage_absorb
 	integer array MM9
 	real array udg_jueneishxs
 	real array udg_jueneishjc
@@ -1402,16 +1403,16 @@ function Zw takes nothing returns nothing
 	set b7[3] = Ys
 	set b7[4] = Xs
 	set b7[5] = Ws
-	call AdjustPlayerStateBJ($A, Player(0), PLAYER_STATE_RESOURCE_LUMBER)
-	call AdjustPlayerStateBJ($A, Player(1), PLAYER_STATE_RESOURCE_LUMBER)
-	call AdjustPlayerStateBJ($A, Player(2), PLAYER_STATE_RESOURCE_LUMBER)
-	call AdjustPlayerStateBJ($A, Player(3), PLAYER_STATE_RESOURCE_LUMBER)
-	call AdjustPlayerStateBJ($A, Player(4), PLAYER_STATE_RESOURCE_LUMBER)
-	call AdjustPlayerStateBJ(10000, Player(0), PLAYER_STATE_RESOURCE_GOLD)
-	call AdjustPlayerStateBJ(10000, Player(1), PLAYER_STATE_RESOURCE_GOLD)
-	call AdjustPlayerStateBJ(10000, Player(2), PLAYER_STATE_RESOURCE_GOLD)
-	call AdjustPlayerStateBJ(10000, Player(3), PLAYER_STATE_RESOURCE_GOLD)
-	call AdjustPlayerStateBJ(10000, Player(4), PLAYER_STATE_RESOURCE_GOLD)
+	call commonAddGold(Player(0), 10000)
+	call commonAddGold(Player(1), 10000)
+	call commonAddGold(Player(2), 10000)
+	call commonAddGold(Player(3), 10000)
+	call commonAddGold(Player(4), 10000)
+	call commonAddLumber(Player(0), 10)
+	call commonAddLumber(Player(1), 10)
+	call commonAddLumber(Player(2), 10)
+	call commonAddLumber(Player(3), 10)
+	call commonAddLumber(Player(4), 10)
 	call ChooseMoShi()
 	call TaoHuaDaoKaiFang()
 	set bj_forLoopAIndex = 0
@@ -1986,12 +1987,12 @@ function calMpCount takes integer i returns nothing
 	// 多通奖励
 	if msCount >= 2 then
 		// 1w金币
-		call AdjustPlayerStateBJ(10000, Player(i), PLAYER_STATE_RESOURCE_GOLD)
+		call commonAddGold(Player(i), 10000)
 		call SetPlayerTechResearched(Player(i), 'R00C', 1)
 	endif
 	if msCount >= 5 then
 		// 25木头
-		call AdjustPlayerStateBJ(25, Player(i), PLAYER_STATE_RESOURCE_LUMBER)
+		call commonAddLumber(Player(i), 25)
 		call SetPlayerTechResearched(Player(i), 'R00D', 1)
 	endif	
 	if msCount >= 8 then
@@ -2255,7 +2256,7 @@ function main1 takes nothing returns nothing
 		set jianghuLevel[i] = 0
 		if i >= 1 and i <= 5 then
 			// set special_attack[i] = DzAPI_Map_GetMapLevel(Player(i - 1))
-			// 特攻暂时改成:25
+			// 特攻暂时改成:25 + 天赋树等级 * 2
 			set special_attack[i] = 25
 		endif
 		set udg_runamen[i] = 0
@@ -2314,6 +2315,7 @@ function main1 takes nothing returns nothing
 		set l9[i] = 0
 		set udg_shanghaijiacheng[i] = .0
 		set udg_shanghaixishou[i] = 0
+		set max_damage_absorb[i] = 0.8
 		set T9[i] = false
 		set LLguaiA[i] = 0
 		set LLguaiE[i] = 0

@@ -161,7 +161,7 @@ function toggleAttrBoard takes nothing returns nothing
 		call zwidget[102].setText(I2S(IMinBJ(R2I((udg_baojilv[i] * 100.)), 100)) + "%")
 		call zwidget[104].setText(I2S(R2I((udg_baojishanghai[i] * 100.))) + "%")
 		call zwidget[106].setText(I2S(R2I((udg_shanghaijiacheng[i] * 100.))) + "%")
-		call zwidget[108].setText(I2S(IMinBJ(R2I((udg_shanghaixishou[i] * 100.)), 80)) + "%")
+		call zwidget[108].setText(I2S(IMinBJ(R2I((udg_shanghaixishou[i] * 100.)), R2I(max_damage_absorb[i] * 100))) + "%")
 		
 		call zwidget[110].setText(I2S(gengu[i]))
 		call zwidget[112].setText(I2S(wuxing[i]))
@@ -448,7 +448,7 @@ function pressEsc takes nothing returns nothing
 		call zwidget[102].setText(I2S(IMinBJ(R2I((udg_baojilv[i] * 100.)), 100)) + "%")
 		call zwidget[104].setText(I2S(R2I((udg_baojishanghai[i] * 100.))) + "%")
 		call zwidget[106].setText(I2S(R2I((udg_shanghaijiacheng[i] * 100.))) + "%")
-		call zwidget[108].setText(I2S(IMinBJ(R2I((udg_shanghaixishou[i] * 100.)), 80)) + "%")
+		call zwidget[108].setText(I2S(IMinBJ(R2I((udg_shanghaixishou[i] * 100.)), R2I(max_damage_absorb[i] * 100))) + "%")
 		
 		call zwidget[110].setText(I2S(gengu[i]))
 		call zwidget[112].setText(I2S(wuxing[i]))

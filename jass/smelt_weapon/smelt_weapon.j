@@ -76,7 +76,7 @@ struct ShopWeapon
 
 		if xiuxing[1+GetPlayerId(GetOwningPlayer(u))]<min_xiuxing and this.zhuanshu == false and not Deputy_isDeputy(1+GetPlayerId(GetOwningPlayer(u)), BING_QI) then
 			call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "需历练"+I2S(min_xiuxing)+"以上方可冶炼该武器")
-			call AdjustPlayerStateBJ(30000, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
+			call commonAddGold( GetOwningPlayer(u), 30000)
 			return false
 		endif
 		return true
@@ -144,7 +144,7 @@ function IsYeLianWuQi takes nothing returns boolean
 	if GetItemTypeId(GetManipulatedItem())=='I0BG' then
 		if (GetItemType(UnitItemInSlotBJ(GetTriggerUnit(), 1))!=ITEM_TYPE_ARTIFACT) then
 			call DisplayTimedTextToPlayer(GetOwningPlayer(GetTriggerUnit()),0,0,10,"|cffff0000装备栏第一格不是武器")
-			call AdjustPlayerStateBJ(30000, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
+			call commonAddGold( GetOwningPlayer(GetTriggerUnit()), 30000)
 			return false
 		else
 			loop
@@ -191,10 +191,10 @@ function YeLianWuQi takes nothing returns nothing
 	// local real gjsd=LoadReal(YDHT,id,StringHash("攻击速度"))
 	if shengwang[i]<=2000 then
 		call DisplayTimedTextToPlayer(p,0,0,30,"|cffff0000声望不足2000不可以冶炼武器")
-		call AdjustPlayerStateBJ(30000, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
+		call commonAddGold( GetOwningPlayer(GetTriggerUnit()), 30000)
 	elseif sjgl <= 0. then
 		call DisplayTimedTextToPlayer(p,0,0,30,"|cffff0000该武器已不可继续冶炼")
-		call AdjustPlayerStateBJ(30000, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
+		call commonAddGold( GetOwningPlayer(GetTriggerUnit()), 30000)
 	else
 		if GetRandomReal(0., 100.)<sjgl then
 			call DisplayTimedTextToPlayer(p,0,0,30,"|cffff0000恭喜你，冶炼成功")

@@ -313,13 +313,13 @@ function wuWangShenGongSpecial takes unit attacker, unit target returns nothing
     local integer i = 1 + GetPlayerId(p)
     local integer rand = 0
 
-    call AdjustPlayerStateBJ(100 + GetRandomInt(1, 100), p, PLAYER_STATE_RESOURCE_GOLD)
+    call commonAddGold(p,  100 + GetRandomInt(1, 100))
     call WanBuff(attacker, target, 17)
 
     call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl", attacker, "overhead"))
 
     if GetRandomInt(1, 100) <= 15 then
-        call AdjustPlayerStateBJ(1, p, PLAYER_STATE_RESOURCE_LUMBER)
+        call commonAddLumber( p, 1)
         // 小无相 几率永久增加暴击伤害
         if GetUnitAbilityLevel(attacker, 'A083') > 0 then
             set udg_baojishanghai[i] = udg_baojishanghai[i] + 0.01

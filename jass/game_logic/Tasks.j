@@ -70,7 +70,7 @@ function LJ takes nothing returns nothing
 		call unitadditembyidswapped('I0CH', GetTriggerUnit())
 	endif
 	call AddHeroXP(u, 100, true)
-	set shengwang[i] = shengwang[i] + $A
+	call commonAddReputation(p, 10)
 	call PlaySoundOnUnitBJ(Hh, 100, u)
 	call DisplayTextToPlayer(p, 0, 0, ("|CFF34FF00完成任务获得经验+100、江湖声望+10和" + GetItemName(bj_lastCreatedItem)))
 	set O7[i] = 4
@@ -98,7 +98,7 @@ function UI takes nothing returns nothing
 				call unitadditembyidswapped('I0CI', GetTriggerUnit())
 			endif
 			call AddHeroXP(GetKillingUnit(), 100, true)
-			set shengwang[i] = shengwang[i] + 50
+			call commonAddReputation(p, 50)
 			call PlaySoundOnUnitBJ(Hh, 100, GetKillingUnit())
 			call DisplayTextToPlayer(p, 0, 0, ("|CFF34FF00完成任务获得经验+100、江湖声望+50和" + GetItemName(bj_lastCreatedItem)))
 		else
@@ -128,8 +128,8 @@ function finishWolfSkin takes nothing returns nothing
 		set gold = 2000 * count
 		set sw = 50 * count
 		call AddHeroXP(u, xp, true) // 奖励经验
-		call AdjustPlayerStateBJ(gold, p, PLAYER_STATE_RESOURCE_GOLD) // 奖励金钱
-		set shengwang[i] = shengwang[i] + sw // 奖励声望
+		call commonAddGold( p, gold) // 奖励金钱
+		call commonAddReputation(p, sw) // 奖励声望
 		call PlaySoundOnUnitBJ(Hh, 100, u)
 		call DisplayTextToPlayer(p, 0, 0, ("|CFF34FF00完成任务获得经验+" + I2S(xp) + "、金钱" + I2S(gold) + "、江湖声望" + I2S(sw)))
 		set wolfSkinCount[i] = wolfSkinCount[i] - count * 10
@@ -153,7 +153,7 @@ function OJ takes nothing returns nothing
 		call unitadditembyidswapped('I0DO', GetTriggerUnit())
 	endif
 	call AddHeroXP(u, 100, true)
-	set shengwang[i] = shengwang[i] + $A
+	call commonAddReputation(p, $A)
 	call PlaySoundOnUnitBJ(Hh, 100, u)
 	call DisplayTextToPlayer(p, 0, 0, ("|CFF34FF00完成任务获得经验+100、江湖声望+10和" + GetItemName(bj_lastCreatedItem)))
 	set O7[i] = 4
@@ -244,7 +244,7 @@ function WanChengWuPin takes nothing returns nothing
 	local integer id = LoadInteger(YDHT, GetHandleId(p), StringHash("item"))
 	if xunwu[i] == 1 and UnitHaveItem(u, id) and id != 0 then
 		call RemoveItem(FetchUnitItem(u, id))
-		set shengwang[i] = shengwang[i] + 40 * (xiuxing[i] + 1)
+		call commonAddReputation(p, 40 * (xiuxing[i] + 1))
 		call AddHeroXP(udg_hero[i], 15 * GetHeroLevel(udg_hero[i]) * GetHeroLevel(udg_hero[i]) * (xiuxing[i] + 1), true)
 		set xunwu[i] = 0
 		call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00游骐：|r |cFF99FFCC谢谢你的帮助|r\n")
@@ -341,7 +341,7 @@ endfunction
 // 		call unitadditembyidswapped('I0A9',udg_hero[1+GetPlayerId(GetOwningPlayer(u))])
 // 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cfffff000有玩家打掉了小猪，获得了珍稀物品【快乐】")
 // 	else
-// 		call AdjustPlayerStateBJ(88,GetOwningPlayer(u),PLAYER_STATE_RESOURCE_LUMBER)
+// 		call commonAddLumber(GetOwningPlayer(u), 88)
 // 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cfffff000有玩家打掉了小猪，获得了88个珍稀币")
 // 	endif
 // 	set u=null
@@ -391,9 +391,9 @@ function LevelReward takes nothing returns nothing
 	endif
 	if  (level >= 14 or level_award[i + 1] == 1) then
 		if GetRandomInt(1, 2) == 1 then
-			call AdjustPlayerStateBJ(50000, p, PLAYER_STATE_RESOURCE_GOLD) // 奖励5w金钱
+			call commonAddGold( p, 50000) // 奖励5w金钱
 		else
-			call AdjustPlayerStateBJ(25, p, PLAYER_STATE_RESOURCE_LUMBER) // 奖励25木头
+			call commonAddLumber( p, 25) // 奖励25木头
 		endif
 	endif
 	if  (level >= 25 or level_award[i + 1] == 1) then
@@ -973,9 +973,9 @@ function WanChengYangShou takes nothing returns nothing
 	local integer id = LoadInteger(YDHT, GetHandleId(p), StringHash("life"))
 	local integer j = GetRandomInt(40, 60)
 	local integer l = LoadInteger(YDHT, GetHandleId(p), StringHash("life") * 2)
-	set shengwang[i] = shengwang[i] + j * (l + 1)
-	call AdjustPlayerStateBJ(5000 * (l + 1), p, PLAYER_STATE_RESOURCE_GOLD)
-	call AdjustPlayerStateBJ(10 * (l + 1), p, PLAYER_STATE_RESOURCE_LUMBER)
+	call commonAddReputation(p, j * (l + 1))
+	call commonAddGold( p, 5000 * (l + 1))
+	call commonAddLumber( p, 10 * (l + 1))
 	//call AddHeroXP(udg_hero[i],200*GetHeroLevel(udg_hero[i])*GetHeroLevel(udg_hero[i])*(xiuxing[i]+1),true)
 	
 	set yangshou[i] = 0
@@ -1259,7 +1259,7 @@ function UJ takes nothing returns nothing
 	call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
 	set jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = 0
 	set kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1)
-	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 60)
+	call commonAddReputation(GetOwningPlayer(GetTriggerUnit()), 60)
 	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 function WJ takes nothing returns boolean
@@ -1293,7 +1293,7 @@ function XJ takes nothing returns nothing
 	call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
 	set jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = 0
 	set kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1)
-	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 60)
+	call commonAddReputation(GetOwningPlayer(GetTriggerUnit()), 60)
 	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 function ZJ takes nothing returns boolean
@@ -1327,7 +1327,7 @@ function dK takes nothing returns nothing
 	call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
 	set jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = 0
 	set kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1)
-	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 60)
+	call commonAddReputation(GetOwningPlayer(GetTriggerUnit()), 60)
 	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 function fK takes nothing returns boolean
@@ -1506,7 +1506,7 @@ function nK takes nothing returns nothing
 	call DisplayTextToPlayer(Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), 0, 0, "|CFF34FF00完成任务获得江湖声望+50，经验值+3000")
 	set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = 0
 	set qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1)
-	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 50)
+	call commonAddReputation(GetOwningPlayer(GetTriggerUnit()), 50)
 	call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 3000, true)
 	if((GetRandomInt(1, 35) <= (fuyuan[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] - 5)))then
 		call unitadditembyidswapped(gudong[GetRandomInt(1, 3)], LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
@@ -1531,7 +1531,7 @@ function qK takes nothing returns nothing
 		call PlaySoundOnUnitBJ(Hh, 100, GetKillingUnit())
 		call DisplayTextToPlayer(Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), 0, 0, "|CFF34FF00完成任务获得江湖声望+50，经验值+3000")
 		set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = 0
-		set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 50)
+		call commonAddReputation(GetOwningPlayer(GetTriggerUnit()), 50)
 		call AddHeroXP(GetKillingUnit(), 3000, true)
 		set qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1)
 		if((GetRandomInt(1, 35) <= (fuyuan[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] - 5)))then
@@ -1557,7 +1557,7 @@ function tK takes nothing returns nothing
 	call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
 	call DisplayTextToPlayer(Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), 0, 0, "|CFF34FF00完成任务获得江湖声望+50，经验值+3000")
 	set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = 0
-	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 50)
+	call commonAddReputation(GetOwningPlayer(GetTriggerUnit()), 50)
 	call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 3000, true)
 	set qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1)
 	if((GetRandomInt(1, 35) <= (fuyuan[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] - 5)))then
@@ -1584,7 +1584,7 @@ function wK takes nothing returns nothing
 		call DisplayTextToPlayer(Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), 0, 0, "|CFF34FF00完成任务获得江湖声望+50，经验值+3000")
 		set qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1)
 		set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = 0
-		set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 50)
+		call commonAddReputation(GetOwningPlayer(GetTriggerUnit()), 50)
 		call AddHeroXP(GetKillingUnit(), 3000, true)
 		if((GetRandomInt(1, 35) <= (fuyuan[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] - 5)))then
 			call unitadditembyidswapped(gudong[GetRandomInt(1, 3)], LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
@@ -1609,7 +1609,7 @@ function zK takes nothing returns nothing
 	call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
 	call DisplayTextToPlayer(Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), 0, 0, "|CFF34FF00完成任务获得江湖声望+50，经验值+3000")
 	set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = 0
-	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 50)
+	call commonAddReputation(GetOwningPlayer(GetTriggerUnit()), 50)
 	call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 3000, true)
 	set qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1)
 	if((GetRandomInt(1, 35) <= (fuyuan[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] - 5)))then
@@ -1632,7 +1632,7 @@ function BK takes nothing returns nothing
 	call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
 	call DisplayTextToPlayer(Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), 0, 0, "|CFF34FF00完成任务获得江湖声望+50，经验值+3000")
 	set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = 0
-	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 50)
+	call commonAddReputation(GetOwningPlayer(GetTriggerUnit()), 50)
 	call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 3000, true)
 	set qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1)
 	if((GetRandomInt(1, 35) <= (fuyuan[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] - 5)))then
@@ -1658,7 +1658,7 @@ function cK takes nothing returns nothing
 		call PlaySoundOnUnitBJ(Hh, 100, GetKillingUnit())
 		call DisplayTextToPlayer(Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), 0, 0, "|CFF34FF00完成任务获得江湖声望+50，经验值+3000")
 		set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = 0
-		set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 50)
+		call commonAddReputation(GetOwningPlayer(GetTriggerUnit()), 50)
 		call AddHeroXP(GetKillingUnit(), 3000, true)
 		set qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1)
 		if((GetRandomInt(1, 35) <= (fuyuan[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] - 5)))then
@@ -1989,7 +1989,7 @@ function fL takes nothing returns nothing
 	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, (1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit()))))
 	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
 	set z9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = 0
-	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 100)
+	call commonAddReputation(GetOwningPlayer(GetTriggerUnit()), 100)
 	if((GetRandomInt(1, 40) <= 20))then
 		call unitadditembyidswapped('I00X', GetTriggerUnit())
 	else
@@ -2075,11 +2075,11 @@ function sL takes nothing returns nothing
 	call PlaySoundOnUnitBJ(Hh, 100, udg_hero[(1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())))])
 	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, (1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit()))))
 	set Sd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = 2
-	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + $96)
+	call commonAddReputation(GetOwningPlayer(GetTriggerUnit()), 150)
 	set juexuelingwu[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (juexuelingwu[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1)
 	call RemoveUnit(GetTriggerUnit())
-	call AdjustPlayerStateBJ($7530, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
-	call AdjustPlayerStateBJ(20, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_LUMBER)
+	call commonAddGold( GetOwningPlayer(GetTriggerUnit()), $7530)
+	call commonAddLumber( GetOwningPlayer(GetTriggerUnit()), 20)
 	call DisplayTextToPlayer(Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), 0, 0, "|CFF34FF00完成任务江湖声望+150，并获得金钱+30000、稀有币+20、绝学领悟力+1")
 	call ShowUnitShow(gg_unit_nvl2_0005)
 	call FlushChildHashtable(YDHT, id * cx)
@@ -2190,7 +2190,7 @@ function yL takes nothing returns nothing
 		call DisplayTextToPlayer(Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), 0, 0, "|CFF34FF00完成任务获得江湖声望+200和古董一个")
 		set Td[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = 0
 	endif
-	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + $C8)
+	call commonAddReputation(GetOwningPlayer(GetTriggerUnit()), 200)
 	set Vd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = 0
 	set Ud[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = 0
 	call FlushChildHashtable(YDHT, id * cx)
@@ -2301,7 +2301,7 @@ function EL takes nothing returns nothing
 			endif
 		endif
 	endif
-	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 250)
+	call commonAddReputation(GetOwningPlayer(GetTriggerUnit()), 250)
 	set Wd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = 0
 	call DisplayTextToPlayer(Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), 0, 0, ("|CFF34FF00完成任务获得江湖声望+250，金银花一个和" + GetItemName(bj_lastCreatedItem)))
 	call FlushChildHashtable(YDHT, id * cx)

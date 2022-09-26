@@ -839,7 +839,7 @@ function EP takes nothing returns boolean
 	if (GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER)and isLianDanItem(GetManipulatedItem()) then
 		if not Deputy_isDeputy(1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())), LIAN_DAN) and UnitHaveItem(udg_hero[1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit()))], 'I0AM') == false then
 			call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, "|cFFFFCC00你不是炼丹师，并且未携带神木王鼎，不可以炼制丹药")
-			call AdjustPlayerStateBJ(2000, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
+			call commonAddGold( GetOwningPlayer(GetTriggerUnit()), 2000)
 			return false
 		else
 			return true
@@ -856,10 +856,10 @@ function LianSomeDan takes unit u, item it, integer dan, integer ys, integer y1,
 	local integer que = 0
 	if (GetItemTypeId(it) == dan) then
 		if (yishu[i] < ys)then
-			call AdjustPlayerStateBJ(2000, p, PLAYER_STATE_RESOURCE_GOLD)
+			call commonAddGold( p, 2000)
 			call DisplayTimedTextToPlayer(p, 0, 0, 5., "|cffff0000医术不足！")
 		elseif (UnitHaveItem(u, yy) == false)then
-			call AdjustPlayerStateBJ(2000, p, PLAYER_STATE_RESOURCE_GOLD)
+			call commonAddGold( p, 2000)
 			call DisplayTimedTextToPlayer(p, 0, 0, 5., "|cffff0000缺少炼制丹药的药引！")
 		else
 			call DisplayTimedTextToPlayer(p, 0, 0, 5., "|cff00ff00炼制丹药中.......")
@@ -994,7 +994,7 @@ function FP takes nothing returns nothing
 	if (GetItemTypeId(GetManipulatedItem())) == 'I0F1' then
 		// 炼制随机丹药，随机策略为根据药性寻找最相近的丹药，如果相近度较高，则炼制成功，否则炼制失败
 		if yishu[i] < 15 then
-			call AdjustPlayerStateBJ(2000, p, PLAYER_STATE_RESOURCE_GOLD)
+			call commonAddGold( p, 2000)
 			call DisplayTimedTextToPlayer(p, 0, 0, 5., "|cffff0000医术不足，无法炼制随机丹药！")
 			return
 		endif
@@ -1004,7 +1004,7 @@ function FP takes nothing returns nothing
 		set yang = ModuloInteger(yaoxing, 100)
 		set yin = (yaoxing - yang) / 100
 		if yin + yang < 15 then
-			call AdjustPlayerStateBJ(2000, p, PLAYER_STATE_RESOURCE_GOLD)
+			call commonAddGold( p, 2000)
 			call DisplayTimedTextToPlayer(p, 0, 0, 5., "|cffff0000药性不足15点，无法炼制随机丹药！")
 			return
 		endif

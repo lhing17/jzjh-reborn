@@ -33,7 +33,7 @@ function UnitDeath_Conditions takes nothing returns boolean
 		// 杀大汗掉落胡卜处迩
 		if dahanTask[i] == 1 then
 			set dahanTask[i] = 0
-			set shengwang[i] = shengwang[i] + 1000
+			call commonAddReputation(GetOwningPlayer(GetKillingUnit()), 1000)
 			call DisplayTextToPlayer(Player(i - 1), 0, 0, "|cff00ff00成功刺杀大汗，奖励1000声望和胡卜处迩|r")
 		endif
 	endif
@@ -43,7 +43,7 @@ function UnitDeath_Conditions takes nothing returns boolean
 		if nimoxingTask[i] == 1 then
 			set nimoxingTask[i] = 0
 			call CreateItem('I0F2', GetUnitX(ut), GetUnitY(ut))
-			set shengwang[i] = shengwang[i] + 200
+			call commonAddReputation(GetOwningPlayer(GetKillingUnit()), 200)
 			call DisplayTextToPlayer(Player(i - 1), 0, 0, "|cff00ff00成功刺杀尼摩星，奖励200声望和中原武学散篇|r")
 		endif
 	endif

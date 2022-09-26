@@ -293,6 +293,28 @@ library WuQiQiHeSystem initializer init requires Deputy
 	endfunction
 endlibrary
 //==================武器契合度系统结束==================//
+// 增加金钱
+function commonAddGold takes player p, integer gold returns nothing
+	local integer i = 1 + GetPlayerId(p)
+	set gold = R2I(gold * (1 + 0.2 * talent_gold[i]))
+	call AdjustPlayerStateBJ(gold, p, PLAYER_STATE_RESOURCE_GOLD)
+endfunction
+
+// 增加木头
+function commonAddLumber takes player p, integer lumber returns nothing
+	local integer i = 1 + GetPlayerId(p)
+	set lumber = R2I(lumber * (1 + 0.2 * talent_lumber[i]))
+	call AdjustPlayerStateBJ(lumber, p, PLAYER_STATE_RESOURCE_LUMBER)
+endfunction
+
+// 增加声望
+function commonAddReputation takes player p, integer reputation returns nothing
+	local integer i = 1 + GetPlayerId(p)
+	set reputation = R2I(reputation * (1 + 0.2 * talent_reputation[i]))
+	set shengwang[i] = shengwang[i] + reputation
+endfunction
+
+
 //A项和B项性格
 function AddCharacterABuff takes unit u, integer characterA returns nothing
 	call UnitAddAbilityBJ( 'A066', u )
@@ -1760,7 +1782,7 @@ function randomMenpai takes player p, integer status returns nothing
 	if udg_runamen[i] == 11 then
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15., "|CFFff9933玩家" + GetPlayerName(p) + "随机选择了〓自由门派〓|r")
 		call SetPlayerName(p, "〓自由门派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-		call AdjustPlayerStateBJ(60, p, PLAYER_STATE_RESOURCE_LUMBER)
+		call commonAddLumber( p, 60)
 		set udg_shuxing[i] = udg_shuxing[i] + 5
 	elseif udg_runamen[i] == 14 then
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15., "|CFFff9933玩家" + GetPlayerName(p) + "随机选择了〓明教〓|r")
@@ -1912,7 +1934,7 @@ function randomMenpai takes player p, integer status returns nothing
 		call SetUnitPositionLoc(udg_hero[i], Q4)
 		call PanCameraToTimedLocForPlayer(p, Q4, 0)
 		call createPartnerAndTownPortalDummy(i, Q4)
-		call AdjustPlayerStateBJ(50, p, PLAYER_STATE_RESOURCE_LUMBER)
+		call commonAddLumber( p, 50)
 		call RemoveLocation(Q4)
 		call UnitAddItemByIdSwapped(1227896394, udg_hero[i])
 	endif

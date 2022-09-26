@@ -16,7 +16,7 @@ function sonOfMonkey takes nothing returns nothing
 	local integer imax = GetRandomInt(5, 8)
 	local unit ut = null
 	if GetRandomInt(1, 100) <= 50 then
-		set shengwang[1 + GetPlayerId(p)] = shengwang[1 + GetPlayerId(p)] + 100
+		call commonAddReputation(p, 100)
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 20, "|cfffff000玩家" + GetPlayerName(p) + "的悟空发动了|CFF00EE00猴子猴孙|r技能，|CFF00EE00声望|r增加100点|r")
 	else
 		set shoujiajf[1 + GetPlayerId(p)] = shoujiajf[1 + GetPlayerId(p)] + 100

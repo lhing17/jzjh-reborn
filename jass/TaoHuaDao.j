@@ -12,11 +12,11 @@ function TaoHuaDao takes nothing returns nothing
 				call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()),0,0,"|cFFFFCC00有玩家进入桃花岛")
 				call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()),0,0,"|cFFFFCC00”源思英年,巴巴西洛普,雪陆文出；源思英年,巴巴西洛普,雪陆文出！“")
 			else
-				call AdjustPlayerStateBJ(500,GetOwningPlayer(GetTriggerUnit()),PLAYER_STATE_RESOURCE_GOLD)
+				call commonAddGold(GetOwningPlayer(GetTriggerUnit()), 500)
 			endif
 		else
 			call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()),0,0,"|cFFFFCC00桃花岛尚未开放")
-			call AdjustPlayerStateBJ(500,GetOwningPlayer(GetTriggerUnit()),PLAYER_STATE_RESOURCE_GOLD)
+			call commonAddGold(GetOwningPlayer(GetTriggerUnit()), 500)
 		endif
 	elseif (GetItemTypeId(GetManipulatedItem())=='I0A3') then
 		if((UnitTypeNotNull(GetTriggerUnit(),UNIT_TYPE_HERO)))then
@@ -24,7 +24,7 @@ function TaoHuaDao takes nothing returns nothing
 			call PanCameraToTimedForPlayer(GetOwningPlayer(GetTriggerUnit()),12800,-14800,0)
 			call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()),0,0,"|cFFFFCC00有玩家去救火")
 		else
-			call AdjustPlayerStateBJ(200000,GetOwningPlayer(GetTriggerUnit()),PLAYER_STATE_RESOURCE_GOLD)
+			call commonAddGold(GetOwningPlayer(GetTriggerUnit()), 200000)
 		endif
 	endif
 endfunction

@@ -784,8 +784,8 @@ function KeyInput takes nothing returns nothing
 			call ModifyHeroStat(1, GetTriggerUnit(), 0, 100000)
 			call ModifyHeroStat(2, GetTriggerUnit(), 0, 100000)
 		endif
-		call AdjustPlayerStateBJ(1000000, p, PLAYER_STATE_RESOURCE_GOLD) // 奖励金钱
-		call AdjustPlayerStateBJ(1000000, p, PLAYER_STATE_RESOURCE_LUMBER) // 木头
+		call commonAddGold( p, 1000000) // 奖励金钱
+		call commonAddLumber( p, 1000000) // 木头
 		call SetHeroLevel(udg_hero[i], GetHeroLevel(udg_hero[i]) + 5, true)
 		set wuxuedian[i] = wuxuedian[i] + 500
 		call unitadditembyidswapped(1227895642, udg_hero[i])

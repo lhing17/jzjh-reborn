@@ -90,7 +90,6 @@ function eR takes nothing returns nothing
 		set LLguaiF[i] = 1
 	endif
 	if LLguaiA[i]==1 and LLguaiB[i]==1 and LLguaiC[i]==1 and LLguaiD[i]==1 and LLguaiE[i]==1 and LLguaiF[i]==1 and LLguaiG[i]==1 then
-		//set shengwang[i]=shengwang[i]+350
 		set xiuxing[i]=1
 		if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
 			call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',2)

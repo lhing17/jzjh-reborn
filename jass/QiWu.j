@@ -234,12 +234,12 @@ function MiaoShouKongKong_1 takes nothing returns nothing
 	local real shxishu = GetPlayerState(GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD) * 0.5
 	local real shanghai = 0.
 	if ((YDWEIsTriggerEventId(EVENT_UNIT_DAMAGED))) then
-		call AdjustPlayerStateBJ(3 * GetUnitLevel(uc), GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
+		call commonAddGold(GetOwningPlayer(u), 3 * GetUnitLevel(uc))
 		if (GetUnitAbilityLevel(u, 'A03N')) != 0 then
-			call AdjustPlayerStateBJ(3 * GetUnitLevel(uc), GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
+			call commonAddGold( GetOwningPlayer(u), 3 * GetUnitLevel(uc))
 		endif
 		if UnitHaveItem(udg_hero[1 + GetPlayerId(GetOwningPlayer(u))], 'I09Z') then
-			call AdjustPlayerStateBJ(3 * GetUnitLevel(uc), GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
+			call commonAddGold( GetOwningPlayer(u), 3 * GetUnitLevel(uc))
 			set shxishu = shxishu * 2
 		endif
 		if (GetUnitAbilityLevel(u, 'A03Q')) != 0 then
@@ -250,7 +250,7 @@ function MiaoShouKongKong_1 takes nothing returns nothing
 			call EnableTrigger(t)
 		endif
 		if (GetUnitAbilityLevel(u, 'S002')) != 0 and GetRandomInt(1, 100) <= 15 then
-			call AdjustPlayerStateBJ(2, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_LUMBER)
+			call commonAddLumber( GetOwningPlayer(u), 2)
 		endif
 		set udg_miaoshoufuzhu[1 + GetPlayerId(GetOwningPlayer(GetAttacker()))] = u
 		call DestroyTrigger(t)
