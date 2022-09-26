@@ -2070,11 +2070,21 @@ function PlayerDeath takes nothing returns nothing
 	local integer i = 1 + GetPlayerId(p)
 	local real time = 15
 	if (ge[i]) then
-		set time = 7
+		set time = 8
 	endif
 	if GetUnitAbilityLevel(u, DA_GONG_GAO_CHENG) >= 1 and GetUnitAbilityLevel(u, SHEN_XING_BAI_BIAN) >= 1 then
 		set time = time / 2
 	endif
+
+	// 死亡彩蛋
+	set heroDeathCounter[i] = heroDeathCounter[i] + 1
+	if heroDeathCounter[i] == 5 then
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF00B2玩家" + GetPlayerName(p) + "解锁了|CFF00FF00彩蛋：超鬼，|CFFFF00B2复活时间减少2秒")
+	endif
+	if heroDeathCounter[i] >= 5 then
+		set time = time - 2
+	endif
+
 	call StartTimerBJ(udg_revivetimer[i], false, time)
 	call TimerDialogDisplayForPlayerBJ(true, bj_lastCreatedTimerDialog, p)
 	call CreateTimerDialogBJ(bj_lastStartedTimer, "复活倒计时:")
