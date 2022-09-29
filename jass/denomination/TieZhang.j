@@ -114,7 +114,7 @@ function DuSheMove takes nothing returns nothing
 			//设置下一个源地点
 			call SaveLocationHandle(YDHT, GetHandleId(t), 2, destination)
 			//造成伤害 伤害单位个数加1
-			call PassiveWuGongEffectAndDamage(u, ut, "Abilities\\Spells\\Human\\Invisibility\\InvisibilityTarget.mdl", 30, 30, shxishu, 'A06Z')
+			call PassiveWuGongEffectAndDamage(u, ut, "Abilities\\Spells\\Human\\Invisibility\\InvisibilityTarget.mdl", 60, 60, shxishu, 'A06Z')
 			if ((UnitHasBuffBJ(ut, 'BEsh') or UnitHasBuffBJ(ut, 'B01J')) and GetUnitAbilityLevel(u, 'A07S')>=1) then
 				call WanBuff(u, ut, 7)
 			endif
