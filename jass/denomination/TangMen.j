@@ -381,7 +381,7 @@ function liuHeAction takes nothing returns nothing
         call SaveReal(YDHT, key, 2, GetUnitMoveSpeedEx(u))
         call SaveReal(YDHT, key, 3, jingmai[i] * 20)
     elseif j == 2 then
-        set critical = 0.1 * gengu[i]
+        set critical = 0.05 * gengu[i]
         call SaveReal(YDHT, key, 4, critical)
         set udg_baojishanghai[i] = udg_baojishanghai[i] + critical
     elseif j == 3 then
@@ -393,11 +393,11 @@ function liuHeAction takes nothing returns nothing
         call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
         call TimerStart(t, 10, false, function removeLiuHeState)
     elseif j == 5 then
-        set profound = wuxing[i]
+        set profound = wuxing[i] / 2
         call SaveInteger(YDHT, key, 5, profound)
         set	juexuelingwu[i] = juexuelingwu[i] + profound
     elseif j == 6 then
-        set addition = 0.1 * danpo[i]
+        set addition = 0.05 * danpo[i]
         call SaveReal(YDHT, key, 6, addition)
         set	udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + addition
     endif

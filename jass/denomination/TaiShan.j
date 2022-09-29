@@ -190,7 +190,7 @@ endfunction
   */
 function DaiZongRuHe takes nothing returns nothing
 	local integer i = 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
-	local real extraHit = (0.5 + 0.2 * GetUnitAbilityLevel(GetTriggerUnit(), 'A07T') + 0.2 * GetUnitAbilityLevel(GetTriggerUnit(), 'A07U')) * GetUnitAbilityLevel(GetTriggerUnit(), 'A08B')
+	local real extraHit = (0.3 + 0.2 * GetUnitAbilityLevel(GetTriggerUnit(), 'A07T') + 0.2 * GetUnitAbilityLevel(GetTriggerUnit(), 'A07U')) * GetUnitAbilityLevel(GetTriggerUnit(), 'A08B')
 	// 专属加成
 	if UnitHasDenomWeapon(GetTriggerUnit(), 'I0E2') then
 	    set extraHit = extraHit * 3
