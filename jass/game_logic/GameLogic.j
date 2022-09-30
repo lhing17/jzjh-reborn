@@ -1859,7 +1859,7 @@ endfunction
 
 globals
 	boolean is_victory = false
-	constant string VERSION = "1.6.60"
+	constant string VERSION = "1.6.61"
 endglobals
 
 //失败动作
@@ -5401,9 +5401,9 @@ function Ya takes nothing returns nothing
 	if (UnitHasBuffBJ(GetKillingUnit(), 'B01U')) then
 		set coeff = coeff * (2 + bigTalent[i])
 	endif
-	call commonAddReputation(p, udg_boshu / (8 - coeff) + 1)
+	call commonAddReputation(GetOwningPlayer(GetKillingUnit()), udg_boshu / (8 - coeff) + 1)
 	if (ModuloInteger(GetUnitPointValue(u), $A) == 1) then
-		call commonAddReputation(p, 8 * coeff)
+		call commonAddReputation(GetOwningPlayer(GetKillingUnit()), 8 * coeff)
 	endif
 	if (p == Player(6)) then
 		set zd = zd + GetRandomInt(1, 2)

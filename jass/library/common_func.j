@@ -311,6 +311,10 @@ endfunction
 function commonAddReputation takes player p, integer reputation returns nothing
 	local integer i = 1 + GetPlayerId(p)
 	set reputation = R2I(reputation * (1 + 0.2 * talent_reputation[i]))
+	// call BJDebugMsg("增加声望：" + I2S(reputation))
+	if reputation < 1 then
+		set reputation = 1
+	endif
 	set shengwang[i] = shengwang[i] + reputation
 endfunction
 
