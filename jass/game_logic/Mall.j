@@ -23,9 +23,11 @@ globals
     string PROPERTY_WUKONG = "ARWUKONG59" // 悟空的道具
     string PROPERTY_PANDA = "ARPANDA072" // 熊猫的道具
     string PROPERTY_NEIHUA = "ANEIHUA123" // 内化的道具
+    string PROPERTY_PASSPORT_S1 = "APASSPORT1" // 通行证S1
 
     string PROPERTY_DOUBLE_POINT = "BC98FNY5L9" // 双倍积分卡的道具
     string PROPERTY_LEVEL_AWARD = "BYOUARES13" // 无视等级领取等级奖励
+    
 endglobals
 
 function refreshInterUI takes integer i returns nothing

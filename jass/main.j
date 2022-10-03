@@ -29,6 +29,7 @@
 #include "game_logic/PetSkill.j"
 #include "game_logic/JZUI.j"
 #include "game_logic/Egg.j"
+#include "game_logic/Passport.j"
 
 #include "systems/ElixirSystem.j"
 #include "systems/Activity.j"
@@ -2505,6 +2506,7 @@ function main2 takes nothing returns nothing
 	call Tasks_Trigger() //任务系统
 	call checkActivityAddition() // 判断是否在活动期间
 	call initEgg() // 彩蛋系统
+	call initPassport() // 通行证系统
 	
 	
 	call cleanItems() // 清除物品命令
