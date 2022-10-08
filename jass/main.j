@@ -1235,8 +1235,12 @@ globals
 	unit Ps = null
 	unit Qs = null
 	unit Rs = null
+	unit tianXiaMenPai2 = null
+	unit tianXiaMenPai3 = null
 	unit LanXin = null
 	unit XuanJin = null
+	unit kongYao = null
+	unit qiXiao = null
 	unit Ss = null
 	unit Ts = null
 	unit Us = null
@@ -1311,6 +1315,8 @@ function Zw takes nothing returns nothing
 	set K4[5] = Ps
 	set K4[6] = LanXin
 	set K4[7] = XuanJin
+	set K4[8] = kongYao
+	set K4[9] = qiXiao
 	call GroupAddUnit(i7, Ls)
 	call GroupAddUnit(i7, Ns)
 	call GroupAddUnit(i7, Qs)
@@ -1318,6 +1324,8 @@ function Zw takes nothing returns nothing
 	call GroupAddUnit(i7, Ps)
 	call GroupAddUnit(i7, LanXin)
 	call GroupAddUnit(i7, XuanJin)
+	call GroupAddUnit(i7, kongYao)
+	call GroupAddUnit(i7, qiXiao)
 	set y7[1] = 1969711215
 	set y7[2] = 1970498413
 	set y7[3] = 1852798821

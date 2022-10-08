@@ -1859,7 +1859,7 @@ endfunction
 
 globals
 	boolean is_victory = false
-	constant string VERSION = "1.6.61"
+	constant string VERSION = "1.6.62"
 endglobals
 
 //失败动作
@@ -2815,7 +2815,7 @@ endfunction
 
 // 鸟切换皮肤的技能
 function isSwitchSkin takes nothing returns boolean
-	return GetSpellAbilityId() == 'A0B7' or GetSpellAbilityId() == 'A0B8'
+	return GetSpellAbilityId() == 'A0B7' or GetSpellAbilityId() == 'A0B8' or GetSpellAbilityId() == 'A0BH' or GetSpellAbilityId() == 'A0FF'
 endfunction
 
 function switchSkin takes nothing returns nothing
@@ -2845,6 +2845,10 @@ function switchSkin takes nothing returns nothing
 		call YDWEUnitTransform(u, 'AEme', 'n00W')
 	elseif GetSpellAbilityId() == 'A0B8' then
 		call YDWEUnitTransform(u, 'AEme', 'n00V')
+	elseif GetSpellAbilityId() == 'A0BH' then
+		call YDWEUnitTransform(u, 'AEme', 'n00J')
+	elseif GetSpellAbilityId() == 'A0FF' then
+		call YDWEUnitTransform(u, 'AEme', 'n018')
 	endif
 	// 添加更换皮肤魔法书并设置魔法书和里面技能永久性
 	// call UnitAddAbility(u,'A0BB')

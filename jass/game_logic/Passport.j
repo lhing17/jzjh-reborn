@@ -168,7 +168,7 @@ function initS1Passport takes nothing returns nothing
     local integer j = 1
     loop
         exitwhen i > 5
-        set passportExpS1[i] = DzAPI_Map_GetStoredReal(Player(i - 1), PASSPORT_EXP_S1)
+        set passportExpS1[i] = DzAPI_Map_GetStoredInteger(Player(i - 1), PASSPORT_EXP_S1)
         set passportLevelS1[i] = passportExpS1[i] / 100
         set passportSwitchS1[i] = DzAPI_Map_GetStoredInteger(Player(i - 1), PASSPORT_SWITCH_S1)
         set passportCoin[i] = DzAPI_Map_GetStoredInteger(Player(i - 1), COIN)

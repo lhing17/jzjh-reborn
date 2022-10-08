@@ -22,21 +22,8 @@ function RuLaiShenZhang_Actions takes nothing returns nothing
     local player ppl = GetOwningPlayer(u)
     local integer id = 0
     local real dist = RMinBJ(GetCameraField(CAMERA_FIELD_TARGET_DISTANCE), 2500)
-    if((GetUnitTypeId(GetAttacker())=='O004'))then
-		set id = 1747988533
-	elseif((GetUnitTypeId(GetAttacker())=='O001'))then
-		set id = 1747988535
-	elseif((GetUnitTypeId(GetAttacker())=='O002'))then
-		set id = 1747988536
-	elseif((GetUnitTypeId(GetAttacker())=='O003'))then
-		set id = 1747988537
-	elseif((GetUnitTypeId(GetAttacker())=='O000'))then
-		set id = 1747988534
-	elseif((GetUnitTypeId(GetAttacker())=='O023' or GetUnitTypeId(GetAttacker())=='O02H' or GetUnitTypeId(GetAttacker())=='O02I'))then
-		set id = 'h00I'
-	elseif((GetUnitTypeId(GetAttacker())=='O02J'))then
-		set id = 'h00K'
-	endif
+
+    set id = getHeroDummyId(GetUnitTypeId(GetAttacker()))
 	set p[0] = GetUnitLoc(u)
     call CreateNUnitsAtLoc(1, id, ppl, p[0], GetUnitFacing(u))
     set ut = bj_lastCreatedUnit

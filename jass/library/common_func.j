@@ -2281,4 +2281,29 @@ function isKungfuFull takes integer i returns boolean
 	call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFFF0033学习技能已达上限，请先遗忘部分技能")
 	return true
 endfunction
+
+function getHeroDummyId takes integer id returns integer
+	local integer rid = 0
+	if id=='O004' then
+        set rid = 1747988533
+    elseif id=='O001' then
+        set rid = 1747988535
+    elseif id=='O002' then
+        set rid = 1747988536
+    elseif id=='O003' then
+        set rid = 1747988537
+    elseif id=='O000' then
+        set rid = 1747988534
+    elseif id=='O023' or id=='O02H' or id=='O02I' then
+        set rid = 'h00I'
+    elseif id=='O02J' then
+        set rid = 'h00K'
+	elseif id == 'O031' then
+		set rid = 'h00Q'
+	elseif id == 'O032' then
+		set rid = 'h00P'
+    endif
+	return rid
+endfunction
+
 #endif //CommonFuncIncluded

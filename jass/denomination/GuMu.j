@@ -265,21 +265,8 @@ function WE takes nothing returns nothing
     call SaveInteger(YDHT,id*cx,-$2A41B3A3,'A09U')
     call YDWESetLocalVariableLocation("jn1",GetUnitLoc(GetAttacker()))
     call YDWESetLocalVariableLocation("jn2",pu(YDWEGetLocalVariableLocation("jn1"),GetRandomReal(200.,400.),GetRandomReal(0,360.)))
-    if((GetUnitTypeId(GetAttacker())=='O004'))then
-        call SaveInteger(YDHT,id*cx,-$2A11C165,1747988533)
-    elseif((GetUnitTypeId(GetAttacker())=='O001'))then
-        call SaveInteger(YDHT,id*cx,-$2A11C165,1747988535)
-    elseif((GetUnitTypeId(GetAttacker())=='O002'))then
-        call SaveInteger(YDHT,id*cx,-$2A11C165,1747988536)
-    elseif((GetUnitTypeId(GetAttacker())=='O003'))then
-        call SaveInteger(YDHT,id*cx,-$2A11C165,1747988537)
-    elseif((GetUnitTypeId(GetAttacker())=='O000'))then
-        call SaveInteger(YDHT,id*cx,-$2A11C165,1747988534)
-    elseif((GetUnitTypeId(GetAttacker())=='O023' or GetUnitTypeId(GetAttacker())=='O02H' or GetUnitTypeId(GetAttacker())=='O02I'))then
-        call SaveInteger(YDHT,id*cx,-$2A11C165,'h00I')
-    elseif((GetUnitTypeId(GetAttacker())=='O02J'))then
-        call SaveInteger(YDHT,id*cx,-$2A11C165,'h00K')
-    endif
+
+	call SaveInteger(YDHT,id*cx,-$2A11C165, getHeroDummyId(GetUnitTypeId(GetAttacker())))
     call CreateNUnitsAtLoc(1,LoadInteger(YDHT,id*cx,-$2A11C165),GetOwningPlayer(GetAttacker()),YDWEGetLocalVariableLocation("jn2"),bj_UNIT_FACING)
     call SetUnitVertexColorBJ(bj_lastCreatedUnit,GetRandomReal(20.,80.),GetRandomReal(20.,80.),GetRandomReal(20.,80.),GetRandomReal(20.,60.))
     call UnitAddAbility(bj_lastCreatedUnit,'Aloc')

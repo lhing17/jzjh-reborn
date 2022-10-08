@@ -123,21 +123,7 @@ function HeXiangJianFa takes nothing returns nothing
     local real shxishu=1.
     local integer id = 0
     if GetUnitAbilityLevel(u,'A0DN')>=1 then
-		if((GetUnitTypeId(u)=='O004'))then
-			set id = 1747988533
-		elseif((GetUnitTypeId(u)=='O001'))then
-			set id = 1747988535
-		elseif((GetUnitTypeId(u)=='O002'))then
-			set id = 1747988536
-		elseif((GetUnitTypeId(u)=='O003'))then
-			set id = 1747988537
-		elseif((GetUnitTypeId(u)=='O000'))then
-			set id = 1747988534
-		elseif((GetUnitTypeId(u)=='O023' or GetUnitTypeId(u)=='O02H' or GetUnitTypeId(u)=='O02I'))then
-			set id = 'h00I'
-		elseif((GetUnitTypeId(u)=='O02J'))then
-			set id = 'h00K'
-		endif
+		set id = getHeroDummyId(GetUnitTypeId(u))
 		call CreateNUnitsAtLoc(1,id,GetOwningPlayer(u),loc2,bj_UNIT_FACING)
 		call UnitApplyTimedLife(bj_lastCreatedUnit,1112045413,2.)
 		set uttt = bj_lastCreatedUnit

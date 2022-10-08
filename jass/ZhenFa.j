@@ -284,21 +284,8 @@ function JiuGongBaGua takes nothing returns nothing
     local real range = GetRandomReal(500, 800)
     local timer t = CreateTimer()
     local timer tt = null
-    if((GetUnitTypeId(u)=='O004'))then
-        set id = 1747988533
-    elseif((GetUnitTypeId(u)=='O001'))then
-        set id = 1747988535
-    elseif((GetUnitTypeId(u)=='O002'))then
-        set id = 1747988536
-    elseif((GetUnitTypeId(u)=='O003'))then
-        set id = 1747988537
-    elseif((GetUnitTypeId(u)=='O000'))then
-        set id = 1747988534
-    elseif((GetUnitTypeId(u)=='O023' or GetUnitTypeId(u)=='O02H' or GetUnitTypeId(u)=='O02I'))then
-        set id = 'h00I'
-    elseif((GetUnitTypeId(u)=='O02J'))then
-        set id = 'h00K'
-    endif
+	set id = getHeroDummyId(GetUnitTypeId(u))
+
     loop
         exitwhen i > 8
         set dummy = CreateUnit(GetOwningPlayer(u), id, GetUnitX(u) + range * CosBJ(45 * i), GetUnitY(u) + range * SinBJ(45 * i), 45 * i)
