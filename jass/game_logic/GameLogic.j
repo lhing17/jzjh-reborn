@@ -533,17 +533,43 @@ function heroAddAttributes takes integer i returns nothing
 
 endfunction
 
+function isSelectHero takes unit u returns boolean
+	local integer i = 1
+	loop
+		exitwhen i > 9
+		if u == K4[i] then
+			return true
+		endif
+		set i = i + 1
+	endloop
+	return false
+endfunction
+
+
 function SelectHero takes nothing returns nothing
 	local player p = GetTriggerPlayer()
 	local integer i = 1 + GetPlayerId(p)
 	local unit u = GetTriggerUnit()
 	local effect eff = null
+	if not isSelectHero(u) then
+		return
+	endif
 	if(GetUnitTypeId(L4[i]) == GetUnitTypeId(u))then
-		if u == K4[1] or u == K4[2] or u == K4[3] or u == K4[4] or u == K4[5] or (u == K4[6] and udg_vip[i] > 0) or (u == K4[7] and (udg_changevip[i] > 0 or udg_vip[i] == 2)) then
-			set Q4 = GetRandomLocInRect(Ge)
-			call CreateNUnitsAtLoc(1, GetUnitTypeId(u), p, Q4, bj_UNIT_FACING)
-			call PanCameraToTimedLocForPlayer(p, Q4, 0)
+
+		if u == K4[8] and kongYaoSkinFlag[i] == 0 then
+			call DisplayTimedTextToPlayer(p, 0, 0, 10, "该英雄需要完成S1通行证（正常）后解锁")
+			return
 		endif
+
+		if u == K4[9] and qiXiaoSkinFlag[i] == 0 then
+			call DisplayTimedTextToPlayer(p, 0, 0, 10, "该英雄需要商城购买并完成S1通行证（进阶）后解锁")
+			return
+		endif
+
+		set Q4 = GetRandomLocInRect(Ge)
+		call CreateNUnitsAtLoc(1, GetUnitTypeId(u), p, Q4, bj_UNIT_FACING)
+		call PanCameraToTimedLocForPlayer(p, Q4, 0)
+
 		if(u == K4[1])then
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "恭喜获得英雄：|CFFCCFF00若蝶|r，请选择门派后开启江湖之旅")
 			call addAllAttrs(i, 2)
@@ -591,64 +617,74 @@ function SelectHero takes nothing returns nothing
 			set udg_xinggeA[i] = GetRandomInt(3, 5)
 			set udg_xinggeB[i] = GetRandomInt(3, 5)
 			call RemoveUnit(vipbanlv[i])
+		elseif (u == K4[8]) then
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "恭喜获得英雄：|CFFCCFF00空瑶|r，请选择门派后开启江湖之旅|r\n")
+			call addAllAttrs(i, 3)
+			set udg_xinggeA[i] = GetRandomInt(3, 5)
+			set udg_xinggeB[i] = GetRandomInt(3, 5)
+			call RemoveUnit(vipbanlv[i])
+		elseif (u == K4[9]) then
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "恭喜获得英雄：|CFFCCFF00启萧|r，请选择门派后开启江湖之旅|r\n")
+			call addAllAttrs(i, 3)
+			set udg_xinggeA[i] = GetRandomInt(3, 5)
+			set udg_xinggeB[i] = GetRandomInt(3, 5)
+			call RemoveUnit(vipbanlv[i])
 		endif
-		if u == K4[1] or u == K4[2] or u == K4[3] or u == K4[4] or u == K4[5] or (u == K4[6] and udg_vip[i] > 0)  or (u == K4[7] and (udg_changevip[i] > 0 or udg_vip[i] == 2))  then
-			call SelectUnitRemoveForPlayer(u, p)
-			call SelectUnitAddForPlayer(bj_lastCreatedUnit, p)
-			call AddSpecialEffectTargetUnitBJEx("overhead", bj_lastCreatedUnit, "Abilities\\Spells\\Other\\Awaken\\Awaken.mdl")
-			call DestroyEffectEx(bj_lastCreatedEffect)
-			set udg_hashero[i] = true
-			set udg_hero[i] = bj_lastCreatedUnit
-			call heroAddAttributes(i)
-			// 多通奖励100移速
-			call SetUnitMoveSpeed(udg_hero[i], GetUnitMoveSpeed(udg_hero[i]) + extraSpeed[i - 1])
-			// 单通奖励称号
-			if GetPlayerName(Player(i - 1)) == "非我莫属xq" then
-				call AddSpecialEffectTargetEx("[ch]7.mdl", bj_lastCreatedUnit, "overhead")
-			elseif GetPlayerName(Player(i - 1)) == "zeikale" or GetPlayerName(Player(i - 1)) == "zeikala" then
-				call AddSpecialEffectTargetEx("[ch]9.mdl", bj_lastCreatedUnit, "overhead")
-			elseif GetPlayerName(Player(i - 1)) == "粘合小捣蛋" then
-				call AddSpecialEffectTargetEx("shuizhudandan.mdx", bj_lastCreatedUnit, "overhead")
-			elseif GetPlayerName(Player(i - 1)) == "jymeng" then
-				set eff = AddSpecialEffectTargetEx("jinmengxiaoyao.mdx", bj_lastCreatedUnit, "overhead")
-			else
-				if LoadInteger(YDHT, i, StringHash("单通门派数量")) >= 18 then
-					call AddSpecialEffectTargetEx("yujianjiahu4.mdx", bj_lastCreatedUnit, "overhead")
-				endif
+
+		call SelectUnitRemoveForPlayer(u, p)
+		call SelectUnitAddForPlayer(bj_lastCreatedUnit, p)
+		call AddSpecialEffectTargetUnitBJEx("overhead", bj_lastCreatedUnit, "Abilities\\Spells\\Other\\Awaken\\Awaken.mdl")
+		call DestroyEffectEx(bj_lastCreatedEffect)
+		set udg_hashero[i] = true
+		set udg_hero[i] = bj_lastCreatedUnit
+		call heroAddAttributes(i)
+		// 多通奖励100移速
+		call SetUnitMoveSpeed(udg_hero[i], GetUnitMoveSpeed(udg_hero[i]) + extraSpeed[i - 1])
+		// 单通奖励称号
+		if GetPlayerName(Player(i - 1)) == "非我莫属xq" then
+			call AddSpecialEffectTargetEx("[ch]7.mdl", bj_lastCreatedUnit, "overhead")
+		elseif GetPlayerName(Player(i - 1)) == "zeikale" or GetPlayerName(Player(i - 1)) == "zeikala" then
+			call AddSpecialEffectTargetEx("[ch]9.mdl", bj_lastCreatedUnit, "overhead")
+		elseif GetPlayerName(Player(i - 1)) == "粘合小捣蛋" then
+			call AddSpecialEffectTargetEx("shuizhudandan.mdx", bj_lastCreatedUnit, "overhead")
+		elseif GetPlayerName(Player(i - 1)) == "jymeng" then
+			set eff = AddSpecialEffectTargetEx("jinmengxiaoyao.mdx", bj_lastCreatedUnit, "overhead")
+		else
+			if LoadInteger(YDHT, i, StringHash("单通门派数量")) >= 18 then
+				call AddSpecialEffectTargetEx("yujianjiahu4.mdx", bj_lastCreatedUnit, "overhead")
 			endif
-
-			// 江湖等级奖励
-			call jianghuLevelAward(i)
-
-
-			set O4 = O4 + 1
-			call RemoveLocation(Q4)
-			call DisplayTimedTextToPlayer(p, 0, 0, 10., "|CFF00FFFF提示：|r输入|CFF00EE00-random|r可随机选择门派|r")
 		endif
+
+		// 江湖等级奖励
+		call jianghuLevelAward(i)
+
+
+		set O4 = O4 + 1
+		call RemoveLocation(Q4)
+		call DisplayTimedTextToPlayer(p, 0, 0, 10., "|CFF00FFFF提示：|r输入|CFF00EE00-random|r可随机选择门派|r")
+
 	else
 		set L4[i] = u
 		if((u == K4[1]))then
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFCCFF00若蝶|r\n额外属性：|cFF00FF00悟性\n|r")
-			call playAttackAnimation(u)
 		elseif((u == K4[2]))then
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFCCFF00潇侠|r\n额外属性：|cFF00FF00福缘\n|r")
-			call playAttackAnimation(u)
 		elseif((u == K4[3]))then
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFCCFF00莫言|r\n额外属性：|cFF00FF00胆魄\n|r")
-			call playAttackAnimation(u)
 		elseif((u == K4[4]))then
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFCCFF00浪云|r\n额外属性：|cFF00FF00经脉\n|r")
-			call playAttackAnimation(u)
 		elseif((u == K4[5]))then
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFCCFF00魔君|r\n额外属性：|cFF00FF00根骨\n|r")
-			call playAttackAnimation(u)
 		elseif((u == K4[6]))then
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFCCFF00兰馨|r\n额外属性：|cFF00FF00全属性\n|r")
-			call playAttackAnimation(u)
 		elseif((u == K4[7]))then
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFCCFF00瑾轩|r\n额外属性：|cFF00FF00全属性\n|r")
-			call playAttackAnimation(u)
+		elseif (u == K4[8]) then
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFCCFF00空瑶|r\n额外属性：|cFF00FF00全属性\n|r特性：|cFF00FF00初始攻击速度+10%\n|r")
+		elseif (u == K4[9]) then
+			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFCCFF00启萧|r\n额外属性：|cFF00FF00全属性\n|r特性：|cFF00FF00初始攻击范围+250\n\r")
 		endif
+		call playAttackAnimation(u)
 	endif
 	set p = null
 	set u = null
@@ -3236,7 +3272,7 @@ function Va takes nothing returns nothing
 			call commonAddGold( p, - R2I(r) / 20)
 			call SetWidgetLife(udg_hero[i], RMinBJ((GetUnitState(udg_hero[i], UNIT_STATE_LIFE) + r), GetUnitState(udg_hero[i], UNIT_STATE_MAX_LIFE)))
 		else
-			call commonAddGold( p,  GetPlayerState(p, PLAYER_STATE_RESOURCE_GOLD) * (- 1))
+			call commonAddGold( p, GetPlayerState(p, PLAYER_STATE_RESOURCE_GOLD) * (- 1))
 			call SetWidgetLife(udg_hero[i], RMinBJ((GetUnitState(udg_hero[i], UNIT_STATE_LIFE) + 5 * I2R(GetPlayerState(p, PLAYER_STATE_RESOURCE_GOLD))), GetUnitState(udg_hero[i], UNIT_STATE_MAX_LIFE)))
 		endif
 	endif

@@ -47,6 +47,10 @@ function UnitDeath_Conditions takes nothing returns boolean
 			call DisplayTextToPlayer(Player(i - 1), 0, 0, "|cff00ff00成功刺杀尼摩星，奖励200声望和中原武学散篇|r")
 		endif
 	endif
+
+	if GetUnitTypeId(ut) == 'n019' then
+		call killGreenDragon()
+	endif
 	
 	
 	set u = null

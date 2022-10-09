@@ -43,6 +43,16 @@ function setRewardS1 takes integer level, integer i returns nothing
     call DzAPI_Map_StoreInteger(Player(i - 1), PASSPORT_SWITCH_S1, passportSwitchS1[i])
 endfunction
 
+// 增加通行证经验
+function addPassportExpS1 takes integer i, integer exp returns nothing
+    set passportExpS1[i] = passportExpS1[i] + exp
+    // 1000为满经验
+    if passportExpS1[i] > 1000 then
+        set passportExpS1[i] = 1000
+    endif
+    call DzAPI_Map_StoreInteger(Player(i - 1), PASSPORT_EXP_S1, passportExpS1[i])
+endfunction
+
 // 设置决战币
 function setCoin takes integer coin, integer i returns nothing
     set passportCoin[i] = coin
@@ -92,7 +102,7 @@ function rewardS1Permanent takes integer level, integer i returns nothing
     elseif level == 5 then
         set wing1Flag[i] = 1
     elseif level == 10 then
-        set qiXiaoSkinFlag[i] = 1
+        set kongYaoSkinFlag[i] = 1
     endif
 
     if DzAPI_Map_HasMallItem(Player(i - 1), PROPERTY_PASSPORT_S1) or udg_isTest[i - 1] then
@@ -103,7 +113,7 @@ function rewardS1Permanent takes integer level, integer i returns nothing
         elseif level == 7 then
             set wing3Flag[i] = 1
         elseif level == 10 then
-            set kongYaoSkinFlag[i] = 1
+            set qiXiaoSkinFlag[i] = 1
         endif
     endif
 endfunction
@@ -162,10 +172,40 @@ function addPointInTalentTree takes integer i, integer treeNum, integer level re
 
 endfunction
 
+function killGreenDragon takes nothing returns nothing
+    local integer i = 1
+    local integer point = 0
+    call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "有玩家击碎了|cffffcc00青龙石|r，所有玩家获得通行证积分（每天上限100分，到达上限后不再获得）")
+    if udg_nandu >= 8 then
+        set point = 50
+    elseif udg_nandu >= 6 then
+        set point = 40
+    elseif udg_nandu >= 2 then
+        set point = 30
+    else
+        set point = 20
+    endif
+    loop
+        exitwhen i > 5
+        call addPassportExpS1(i, point)
+        set i = i + 1
+    endloop
+
+endfunction
+
+// 刷青龙
+function spawnGreenDragon takes nothing returns nothing
+    call CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE), 'n019', 2200, -14000, bj_UNIT_FACING)
+    call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cFF00FF00青龙石出现在了地图上")
+    call PingMinimapForForce(bj_FORCE_ALL_PLAYERS, 2200, -14000, 5)
+    call DestroyTimer(GetExpiredTimer())
+endfunction
+
 // 初始化S1通行证
 function initS1Passport takes nothing returns nothing
     local integer i = 1
     local integer j = 1
+    local timer t = CreateTimer()
     loop
         exitwhen i > 5
         set passportExpS1[i] = DzAPI_Map_GetStoredInteger(Player(i - 1), PASSPORT_EXP_S1)
@@ -190,6 +230,8 @@ function initS1Passport takes nothing returns nothing
         endloop
         set i = i + 1
     endloop
+    call TimerStart(t, 1800, false, function spawnGreenDragon)
+    set t = null
 endfunction
 
 
