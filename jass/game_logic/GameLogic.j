@@ -656,7 +656,7 @@ function SelectHero takes nothing returns nothing
 		endif
 
 		// 江湖等级奖励
-		call jianghuLevelAward(i)
+		// call jianghuLevelAward(i)
 
 
 		set O4 = O4 + 1

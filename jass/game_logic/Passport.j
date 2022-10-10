@@ -47,8 +47,8 @@ endfunction
 function addPassportExpS1 takes integer i, integer exp returns nothing
     set passportExpS1[i] = passportExpS1[i] + exp
     // 1000为满经验
-    if passportExpS1[i] > 1000 then
-        set passportExpS1[i] = 1000
+    if passportExpS1[i] > 800 then
+        set passportExpS1[i] = 800
     endif
     call DzAPI_Map_StoreInteger(Player(i - 1), PASSPORT_EXP_S1, passportExpS1[i])
 endfunction
@@ -65,14 +65,12 @@ function rewardS1 takes integer level, integer i returns nothing
     // 一级 十个决战币
     // 二级 宠物皮肤蜜蜂 金币获得率加10%
     // 三级 十个决战币
-    // 四级 十个决战币
-    // 五级 翅膀 暴击率+2%
+    // 四级 翅膀 暴击率+2%
+    // 五级 十个决战币
     // 六级 十个决战币
     // 七级 十个决战币
-    // 八级 十个决战币
-    // 九级 十个决战币
-    // 十级 英雄皮肤 初始攻击速度+10%
-    if level == 1 or level == 3 or level == 4 or level == 6 or level == 7 or level == 8 or level == 9 then
+    // 八级 英雄皮肤 初始攻击速度+10%
+    if level == 1 or level == 3 or level == 5 or level == 6 or level == 7 then
         call setCoin(passportCoin[i] + 10, i)
     endif
 
@@ -81,15 +79,13 @@ function rewardS1 takes integer level, integer i returns nothing
     // 一级 宠物皮肤魁岚
     // 二级 十个决战币
     // 三级 十个决战币
-    // 四级 翅膀 六围+1
-    // 五级 十个决战币
+    // 四级 十个决战币
+    // 五级 翅膀 六围+1
     // 六级 十个决战币
-    // 七级 翅膀 初始攻速+20%
-    // 八级 十个决战币
-    // 九级 十个决战币
-    // 十级 英雄皮肤 初始攻击范围+300
+    // 七级 十个决战币
+    // 八级 英雄皮肤 初始攻击范围+300
     if DzAPI_Map_HasMallItem(Player(i - 1), PROPERTY_PASSPORT_S1) or udg_isTest[i - 1] then
-        if level == 2 or level == 3 or level == 5 or level == 6 or level == 8 or level == 9 then
+        if level == 2 or level == 3 or level == 4 or level == 6 or level == 7 then
             call setCoin(passportCoin[i] + 10, i)
         endif
     endif
@@ -99,20 +95,18 @@ endfunction
 function rewardS1Permanent takes integer level, integer i returns nothing
     if level == 2 then
         set beeSkinFlag[i] = 1
-    elseif level == 5 then
+    elseif level == 4 then
         set wing1Flag[i] = 1
-    elseif level == 10 then
+    elseif level == 8 then
         set kongYaoSkinFlag[i] = 1
     endif
 
     if DzAPI_Map_HasMallItem(Player(i - 1), PROPERTY_PASSPORT_S1) or udg_isTest[i - 1] then
         if level == 1 then
             set kuiLanSkinFlag[i] = 1
-        elseif level == 4 then
+        elseif level == 5 then
             set wing2Flag[i] = 1
-        elseif level == 7 then
-            set wing3Flag[i] = 1
-        elseif level == 10 then
+        elseif level == 8 then
             set qiXiaoSkinFlag[i] = 1
         endif
     endif
