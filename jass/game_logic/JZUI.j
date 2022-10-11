@@ -33,6 +33,12 @@ globals
 	Frame closeCommandWidget // 关闭指令教程按钮图片
 	Frame closeCommandButton // 关闭指令教程按钮
 
+	Frame passportWidget // 通行证按钮图片
+	Frame passportButton // 通行证按钮
+	Frame passport // 通行证页面
+	Frame closePassportWidget // 关闭通行证按钮图片
+	Frame closePassportButton // 关闭通行证按钮
+
 	Frame levelWidget // 等级按钮图片
 	Frame levelButton // 等级按钮
 	Frame closeLevelWidget // 关闭等级按钮图片
