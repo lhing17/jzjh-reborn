@@ -27,9 +27,10 @@
 #include "game_logic/BlizzardEvent.j"
 #include "game_logic/EverySecond.j"
 #include "game_logic/PetSkill.j"
+#include "game_logic/Passport.j"
 #include "game_logic/JZUI.j"
 #include "game_logic/Egg.j"
-#include "game_logic/Passport.j"
+
 
 #include "systems/ElixirSystem.j"
 #include "systems/Activity.j"

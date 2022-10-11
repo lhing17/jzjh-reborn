@@ -49,6 +49,17 @@ globals
 	Frame closeTalentButton // 关闭天赋树按钮
 	Frame array talentItemWidget // 天赋树加点按钮图片
 	Frame array talentItemButton // 天赋树加点按钮
+	string array talentName // 天赋树名称
+	string array talentThreeAttributeDesc // 三围天赋描述
+	string array talentCriticalAttackDesc // 暴击天赋描述
+	string array talentSpecialAttackDesc // 特攻天赋描述
+	string array talentArmorDesc // 护甲天赋描述
+	string array talentDamageAbsorptionDesc // 伤害吸收天赋描述
+	string array talentRecoverHpDesc // 恢复生命天赋描述
+	string array talentGoldDesc // 金钱天赋描述
+	string array talentLumberDesc // 木材天赋描述
+	string array talentReputationDesc // 声望天赋描述
+	string array talentSixAttributeDesc // 六围天赋描述
 
 
 	Frame levelWidget // 等级按钮图片
@@ -195,8 +206,6 @@ function toggleTalentTree takes nothing returns nothing
 		call talentTree.toggle()
 	endif
 endfunction
-
-
 
 
 function toggleAttrBoard takes nothing returns nothing
@@ -350,6 +359,152 @@ function showPassportAward takes nothing returns nothing
 				call passportAwardWidget[102].setPoint(BOTTOM, passportAwardWidget[j], TOP, 0, 0.03)
 				call passportAwardWidget[101].setPoint(BOTTOM, passportAwardWidget[102], TOP, 0, 0.005)
 				call passportAwardWidget[100].show()
+			endif
+			set j = j + 1
+		endloop
+	endif
+endfunction
+
+function hidePassportAward takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call passportAwardWidget[100].hide()
+	endif
+endfunction
+
+function getTalentLevel takes integer i, integer j returns integer
+	if j == 1 then
+		return talent_three_attribute[i]
+	elseif j == 2 then
+		return talent_critical_attack[i]
+	elseif j == 3 then
+		return talent_special_attack[i]
+	elseif j == 4 then
+		return talent_armor[i]
+	elseif j == 5 then
+		return talent_damage_absorption[i]
+	elseif j == 6 then
+		return talent_recover_hp[i]
+	elseif j == 7 then
+		return talent_gold[i]
+	elseif j == 8 then
+		return talent_reputation[i]
+	elseif j == 9 then
+		return talent_lumber[i]
+	elseif j == 10 then
+		return talent_six_attribute[i]
+	endif
+	return 0
+
+endfunction
+
+function getTalentDesc takes integer j, integer level returns string
+	if level <= 0 then
+		return "未激活"
+	endif
+	if level > 5 then
+		return "已满级"
+	endif
+	if j == 1 then
+		return talentThreeAttributeDesc[level]
+	elseif j == 2 then
+		return talentCriticalAttackDesc[level]
+	elseif j == 3 then
+		return talentSpecialAttackDesc[level]
+	elseif j == 4 then
+		return talentArmorDesc[level]
+	elseif j == 5 then
+		return talentDamageAbsorptionDesc[level]
+	elseif j == 6 then
+		return talentRecoverHpDesc[level]
+	elseif j == 7 then
+		return talentGoldDesc[level]
+	elseif j == 8 then
+		return talentReputationDesc[level]
+	elseif j == 9 then
+		return talentLumberDesc[level]
+	elseif j == 10 then
+		return talentSixAttributeDesc[level]
+	endif
+	return ""
+endfunction
+
+function showTalentTreeHint takes nothing returns nothing
+	local integer i = 1 + GetPlayerId(DzGetTriggerUIEventPlayer())
+	local integer j = 1
+	local integer level = 0
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		loop
+			exitwhen j > 10
+			if DzGetTriggerUIEventFrame() == talentItemButton[j].id then
+			
+				// 青色名称
+				call talentItemWidget[101].setText("|CFF00FFCD" + talentName[j] + "|r")
+				// 黄色等级
+				set level = getTalentLevel(i, j)
+				call talentItemWidget[102].setText("|CF0FFD700等级：" + I2S(level) + "/ 5|r")
+				// 紫色描述
+				call talentItemWidget[103].setText("|CFFA020F0" + getTalentDesc(j, level) + "|r")
+				// 橙色下一级描述
+				call talentItemWidget[104].setText("|CFFFFA500下一级：" + getTalentDesc(j, level + 1) + "|r")
+				call talentItemWidget[104].setPoint(BOTTOM, talentItemWidget[j], TOP, 0, 0.03)
+				call talentItemWidget[103].setPoint(BOTTOM, talentItemWidget[104], TOP, 0, 0.005)
+				call talentItemWidget[102].setPoint(BOTTOM, talentItemWidget[103], TOP, 0, 0.005)
+				call talentItemWidget[101].setPoint(BOTTOM, talentItemWidget[102], TOP, 0, 0.005)
+				call talentItemWidget[100].show()
+			endif
+			set j = j + 1
+		endloop
+	endif
+endfunction
+
+function hideTalentTreeHint takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call talentItemWidget[100].hide()
+	endif
+endfunction
+
+function canAddPoint takes integer i, integer j returns boolean
+	local integer level = getTalentLevel(i, j)
+	local integer k = 0
+	local integer preLevel = 0
+	// 前置条件
+	if j == 2 then
+		set k = 1
+	elseif j == 3 then
+		set k = 2
+	elseif j == 5 then
+		set k = 4
+	elseif j == 6 then
+		set k = 5
+	elseif j == 8 then
+		set k = 7
+	elseif j == 9 or j == 10 then
+		set k = 8
+	endif
+	if k > 0 then
+		set preLevel = getTalentLevel(i, k)
+		if preLevel <= 0 then
+			call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 10, "|CFFFF0000上一项天赋还未激活|r")
+			return false
+		endif
+	endif
+
+
+	if level >= 5 then
+		call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 10, "|CFFFF0000已经达到最大等级|r")
+		return false
+	endif
+	return true
+endfunction
+
+function talentTreeAddPoint takes nothing returns nothing
+	local integer i = 1 + GetPlayerId(DzGetTriggerUIEventPlayer())
+	local integer j = 1
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		loop
+			exitwhen j > 10
+			if DzGetTriggerUIEventFrame() == talentItemButton[j].id and canAddPoint(i, j) then
+				call DzSyncData("talentPoint" + I2S(j), I2S(i))
 			endif
 			set j = j + 1
 		endloop
@@ -594,6 +749,57 @@ function doToggleShowEffect takes nothing returns nothing
 	endif
 endfunction
 
+// 加点1-三围
+function addTalentPoint1 takes nothing returns nothing
+	call addPointInTalentTree(S2I(DzGetTriggerSyncData()), 1, 1)
+endfunction
+
+// 加点2-暴击伤害
+function addTalentPoint2 takes nothing returns nothing
+	call addPointInTalentTree(S2I(DzGetTriggerSyncData()), 1, 2)
+endfunction
+
+// 加点3-特殊攻击
+function addTalentPoint3 takes nothing returns nothing
+	call addPointInTalentTree(S2I(DzGetTriggerSyncData()), 1, 3)
+endfunction
+
+// 加点4-护甲
+function addTalentPoint4 takes nothing returns nothing
+	call addPointInTalentTree(S2I(DzGetTriggerSyncData()), 2, 1)
+endfunction
+
+// 加点5-伤害吸收
+function addTalentPoint5 takes nothing returns nothing
+	call addPointInTalentTree(S2I(DzGetTriggerSyncData()), 2, 2)
+endfunction
+
+// 加点6-气血回复
+function addTalentPoint6 takes nothing returns nothing
+	call addPointInTalentTree(S2I(DzGetTriggerSyncData()), 2, 3)
+endfunction
+
+// 加点7-金钱
+function addTalentPoint7 takes nothing returns nothing
+	call addPointInTalentTree(S2I(DzGetTriggerSyncData()), 3, 1)
+endfunction
+
+// 加点8-声望
+function addTalentPoint8 takes nothing returns nothing
+	call addPointInTalentTree(S2I(DzGetTriggerSyncData()), 3, 2)
+endfunction
+
+// 加点9-木材
+function addTalentPoint9 takes nothing returns nothing
+	call addPointInTalentTree(S2I(DzGetTriggerSyncData()), 3, 3)
+endfunction
+
+// 加点10-六围
+function addTalentPoint10 takes nothing returns nothing
+	call addPointInTalentTree(S2I(DzGetTriggerSyncData()), 3, 4)
+endfunction
+
+
 
 
 function drawUI_Conditions takes nothing returns boolean
@@ -807,9 +1013,10 @@ function drawUI_Conditions takes nothing returns boolean
 		endif
 
 		set talentItemButton[k] = Frame.newTextButton(talentItemWidget[k])
-		call talentItemButton[k].setAllPoints(talentTreeWidget[k])
+		call talentItemButton[k].setAllPoints(talentItemWidget[k])
 		call talentItemButton[k].regEvent(FRAME_MOUSE_ENTER, function showTalentTreeHint)
 		call talentItemButton[k].regEvent(FRAME_MOUSE_LEAVE, function hideTalentTreeHint)
+		call talentItemButton[k].regEvent(FRAME_EVENT_PRESSED, function talentTreeAddPoint)
 		set k = k + 1
 	endloop
 
@@ -1071,6 +1278,79 @@ function drawUI_Conditions takes nothing returns boolean
 	set passportAwardWidgetString[14] = "决战币+10"
 	set passportAwardWidgetString[15] = "决战币+10"
 	set passportAwardWidgetString[16] = "解锁英雄-启萧，特性：初始攻击范围+250"
+
+	set talentName[1] = "三围"
+	set talentName[2] = "暴击"
+	set talentName[3] = "特攻"
+	set talentName[4] = "护甲"
+	set talentName[5] = "伤害吸收"
+	set talentName[6] = "气血回复"
+	set talentName[7] = "金钱获得率"
+	set talentName[8] = "声望获得率"
+	set talentName[9] = "木材获得率"
+	set talentName[10] = "性格属性"
+
+	set talentThreeAttributeDesc[1] = "三围 + 20"
+	set talentThreeAttributeDesc[2] = "三围 + 50"
+	set talentThreeAttributeDesc[3] = "三围 + 100"
+	set talentThreeAttributeDesc[4] = "三围 + 200"
+	set talentThreeAttributeDesc[5] = "三围 + 300"
+
+	set talentCriticalAttackDesc[1] = "暴击伤害 + 10%"
+	set talentCriticalAttackDesc[2] = "暴击伤害 + 20%"
+	set talentCriticalAttackDesc[3] = "暴击伤害 + 30%"
+	set talentCriticalAttackDesc[4] = "暴击伤害 + 40%"
+	set talentCriticalAttackDesc[5] = "暴击伤害 + 50%"
+
+	set talentSpecialAttackDesc[1] = "特殊攻击 + 2"
+	set talentSpecialAttackDesc[2] = "特殊攻击 + 4"
+	set talentSpecialAttackDesc[3] = "特殊攻击 + 6"
+	set talentSpecialAttackDesc[4] = "特殊攻击 + 8"
+	set talentSpecialAttackDesc[5] = "特殊攻击 + 10"
+
+	set talentArmorDesc[1] = "护甲 + 5"
+	set talentArmorDesc[2] = "护甲 + 10"
+	set talentArmorDesc[3] = "护甲 + 15"
+	set talentArmorDesc[4] = "护甲 + 20"
+	set talentArmorDesc[5] = "护甲 + 30"
+
+	set talentDamageAbsorptionDesc[1] = "伤害吸收上限 + 2%"
+	set talentDamageAbsorptionDesc[2] = "伤害吸收上限 + 4%"
+	set talentDamageAbsorptionDesc[3] = "伤害吸收上限 + 6%"
+	set talentDamageAbsorptionDesc[4] = "伤害吸收上限 + 8%"
+	set talentDamageAbsorptionDesc[5] = "伤害吸收上限 + 10%"
+
+	set talentRecoverHpDesc[1] = "气血回复 + 0.5%"
+	set talentRecoverHpDesc[2] = "气血回复 + 1%"
+	set talentRecoverHpDesc[3] = "气血回复 + 1.5%"
+	set talentRecoverHpDesc[4] = "气血回复 + 2%"
+	set talentRecoverHpDesc[5] = "气血回复 + 2.5%"
+
+	set talentGoldDesc[1] = "金钱获得率 + 20%"
+	set talentGoldDesc[2] = "金钱获得率 + 40%"
+	set talentGoldDesc[3] = "金钱获得率 + 60%"
+	set talentGoldDesc[4] = "金钱获得率 + 80%"
+	set talentGoldDesc[5] = "金钱获得率 + 100%"
+
+	set talentReputationDesc[1] = "声望获得率 + 20%"
+	set talentReputationDesc[2] = "声望获得率 + 40%"
+	set talentReputationDesc[3] = "声望获得率 + 60%"
+	set talentReputationDesc[4] = "声望获得率 + 80%"
+	set talentReputationDesc[5] = "声望获得率 + 100%"
+
+	set talentLumberDesc[1] = "珍稀币获得率 + 20%"
+	set talentLumberDesc[2] = "珍稀币获得率 + 40%"
+	set talentLumberDesc[3] = "珍稀币获得率 + 60%"
+	set talentLumberDesc[4] = "珍稀币获得率 + 80%"
+	set talentLumberDesc[5] = "珍稀币获得率 + 100%"
+
+	set talentSixAttributeDesc[1] = "悟性 + 2"
+	set talentSixAttributeDesc[2] = "根骨 + 2"
+	set talentSixAttributeDesc[3] = "经脉 + 2"
+	set talentSixAttributeDesc[4] = "胆魄 + 2"
+	set talentSixAttributeDesc[5] = "医术 + 2"
+
+
 	
 	set index = 101
 	loop
@@ -1315,6 +1595,62 @@ function initUI takes nothing returns nothing
 	set t = CreateTrigger()
 	call DzTriggerRegisterSyncData(t, "showEffect", false)
 	call TriggerAddAction(t, function doToggleShowEffect)
+
+
+	// 同步天赋加点事件1-10
+	// 同步天赋加点1
+	set t = CreateTrigger()
+	call DzTriggerRegisterSyncData(t, "talentPoint1", false)
+	call TriggerAddAction(t, function addTalentPoint1)
+
+	// 同步天赋加点2
+	set t = CreateTrigger()
+	call DzTriggerRegisterSyncData(t, "talentPoint2", false)
+	call TriggerAddAction(t, function addTalentPoint2)
+
+	// 同步天赋加点3
+	set t = CreateTrigger()
+	call DzTriggerRegisterSyncData(t, "talentPoint3", false)
+	call TriggerAddAction(t, function addTalentPoint3)
+
+	// 同步天赋加点4
+	set t = CreateTrigger()
+	call DzTriggerRegisterSyncData(t, "talentPoint4", false)
+	call TriggerAddAction(t, function addTalentPoint4)
+
+	// 同步天赋加点5
+	set t = CreateTrigger()
+	call DzTriggerRegisterSyncData(t, "talentPoint5", false)
+	call TriggerAddAction(t, function addTalentPoint5)
+
+	// 同步天赋加点6
+	set t = CreateTrigger()
+	call DzTriggerRegisterSyncData(t, "talentPoint6", false)
+	call TriggerAddAction(t, function addTalentPoint6)
+
+	// 同步天赋加点7
+	set t = CreateTrigger()
+	call DzTriggerRegisterSyncData(t, "talentPoint7", false)
+	call TriggerAddAction(t, function addTalentPoint7)
+
+	// 同步天赋加点8
+	set t = CreateTrigger()
+	call DzTriggerRegisterSyncData(t, "talentPoint8", false)
+	call TriggerAddAction(t, function addTalentPoint8)
+
+	// 同步天赋加点9
+	set t = CreateTrigger()
+	call DzTriggerRegisterSyncData(t, "talentPoint9", false)
+	call TriggerAddAction(t, function addTalentPoint9)
+
+	// 同步天赋加点10
+	set t = CreateTrigger()
+	call DzTriggerRegisterSyncData(t, "talentPoint10", false)
+	call TriggerAddAction(t, function addTalentPoint10)
+
+
+
+
 
 	set t = CreateTrigger()
 	loop
