@@ -42,6 +42,15 @@ globals
 	Frame array passportAwardButton // 通行证奖励按钮
 	string array passportAwardWidgetString // 通行证奖励描述
 
+	Frame talentWidget // 天赋树按钮图片
+	Frame talentButton // 天赋树按钮
+	Frame talentTree // 天赋树页面
+	Frame closeTalentWidget // 关闭天赋树按钮图片
+	Frame closeTalentButton // 关闭天赋树按钮
+	Frame array talentItemWidget // 天赋树加点按钮图片
+	Frame array talentItemButton // 天赋树加点按钮
+
+
 	Frame levelWidget // 等级按钮图片
 	Frame levelButton // 等级按钮
 	Frame closeLevelWidget // 关闭等级按钮图片
@@ -174,6 +183,20 @@ function togglePassport takes nothing returns nothing
 		call passport.toggle()
 	endif
 endfunction
+
+function toggleTalentWidget takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call talentWidget.toggerHover("war3mapImported\\talent.tga", "war3mapImported\\talent_hover.tga")
+	endif
+endfunction
+
+function toggleTalentTree takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call talentTree.toggle()
+	endif
+endfunction
+
+
 
 
 function toggleAttrBoard takes nothing returns nothing
@@ -747,6 +770,75 @@ function drawUI_Conditions takes nothing returns boolean
 	call passportAwardWidget[100].setPoint(BOTTOMRIGHT, passportAwardWidget[102], BOTTOMRIGHT, 0.005, - 0.005)
 	call passportAwardWidget[102].setPoint(BOTTOM, passportAwardWidget[1], TOP, 0, 0.03)
 	call passportAwardWidget[101].setPoint(BOTTOM, passportAwardWidget[102], TOP, 0, 0.005)
+
+	// 天赋树按钮
+	set talentWidget = Frame.newImage1(GUI, "war3mapImported\\talent.tga", 0.032, 0.04)
+	call talentWidget.setPoint(LEFT, passportWidget, RIGHT, 0.05, 0)
+
+	set talentButton = Frame.newTextButton(talentWidget)
+	call talentButton.setAllPoints(talentWidget)
+	call talentButton.regEvent(FRAME_EVENT_PRESSED, function toggleTalentTree)
+	call talentButton.regEvent(FRAME_MOUSE_ENTER, function toggleTalentWidget)
+	call talentButton.regEvent(FRAME_MOUSE_LEAVE, function toggleTalentWidget)
+
+	// 天赋树弹窗
+	set talentTree = Frame.newImage1(GUI, "war3mapImported\\TalentTree.tga", 0.45, 0.4)
+	call talentTree.setPoint(CENTER, GUI, CENTER, 0.0, 0.0)
+	call talentTree.hide()
+
+	set closeTalentWidget = Frame.newImage1(talentTree, "war3mapImported\\close0.tga", 0.018, 0.024)
+	call closeTalentWidget.setPoint(CENTER, talentTree, TOPRIGHT, 0, 0)
+
+	set closeTalentButton = Frame.newTextButton(closeTalentWidget)
+	call closeTalentButton.setAllPoints(closeTalentWidget)
+	call closeTalentButton.regEvent(FRAME_EVENT_PRESSED, function toggleTalentTree)
+
+	// 天赋树弹窗中的按钮
+	set k = 1
+	loop
+		exitwhen k > 10
+
+		set talentItemWidget[k] = Frame.newImage1(talentTree, "war3mapImported\\TalentTree1.tga", 0.064, 0.08)
+		// 8个一行
+		if ModuloInteger(k, 8) == 1 then
+			call talentItemWidget[k].setPoint(LEFT, talentTree, LEFT, 0.05, 0)
+		else
+			call talentItemWidget[k].setPoint(LEFT, talentItemWidget[k - 1], RIGHT, 0.01, 0)
+		endif
+
+		set talentItemButton[k] = Frame.newTextButton(talentItemWidget[k])
+		call talentItemButton[k].setAllPoints(talentTreeWidget[k])
+		call talentItemButton[k].regEvent(FRAME_MOUSE_ENTER, function showTalentTreeHint)
+		call talentItemButton[k].regEvent(FRAME_MOUSE_LEAVE, function hideTalentTreeHint)
+		set k = k + 1
+	endloop
+
+	// 边框
+	set talentItemWidget[100] = Frame.newTips0(GUI, "tipbox")
+	call talentItemWidget[100].hide()
+
+	// 名称
+	set talentItemWidget[101] = Frame.newText1(talentItemWidget[100], "", "TXA14")
+	call talentItemWidget[101].setSize(0.16, 0)
+
+	// 等级
+	set talentItemWidget[102] = Frame.newText1(talentItemWidget[100], "", "TXA11")
+	call talentItemWidget[102].setSize(0.16, 0)
+
+	// 描述
+	set talentItemWidget[103] = Frame.newText1(talentItemWidget[100], "", "TXA11")
+	call talentItemWidget[103].setSize(0.16, 0)
+
+	// 下一级描述
+	set talentItemWidget[104] = Frame.newText1(talentItemWidget[100], "", "TXA11")
+	call talentItemWidget[104].setSize(0.16, 0)
+
+	call talentItemWidget[100].setPoint(TOPLEFT, talentItemWidget[101], TOPLEFT, - 0.005, 0.005)
+	call talentItemWidget[100].setPoint(BOTTOMRIGHT, talentItemWidget[102], BOTTOMRIGHT, 0.005, - 0.005)
+	call talentItemWidget[104].setPoint(BOTTOM, talentItemWidget[1], TOP, 0, 0.03)
+	call talentItemWidget[103].setPoint(BOTTOM, talentItemWidget[104], TOP, 0, 0.005)
+	call talentItemWidget[102].setPoint(BOTTOM, talentItemWidget[103], TOP, 0, 0.005)
+	call talentItemWidget[101].setPoint(BOTTOM, talentItemWidget[102], TOP, 0, 0.005)
 
 
 
