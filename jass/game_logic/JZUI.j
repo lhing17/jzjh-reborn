@@ -38,6 +38,9 @@ globals
 	Frame passport // 通行证页面
 	Frame closePassportWidget // 关闭通行证按钮图片
 	Frame closePassportButton // 关闭通行证按钮
+	Frame array passportAwardWidget // 通行证奖励按钮图片
+	Frame array passportAwardButton // 通行证奖励按钮
+	string array passportAwardWidgetString // 通行证奖励描述
 
 	Frame levelWidget // 等级按钮图片
 	Frame levelButton // 等级按钮
@@ -157,6 +160,18 @@ endfunction
 function toggleLevelPopup takes nothing returns nothing
 	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
 		call levelPopup.toggle()
+	endif
+endfunction
+
+function togglePassportWidget takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call passportWidget.toggerHover("war3mapImported\\passport.tga", "war3mapImported\\passport_hover.tga")
+	endif
+endfunction
+
+function togglePassport takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call passport.toggle()
 	endif
 endfunction
 
@@ -284,6 +299,34 @@ function showInterTip takes nothing returns nothing
 					call interAbilityWidget[101].setPoint(BOTTOM, interAbilityWidget[102], TOP, 0, 0.005)
 					call interAbilityWidget[100].show()
 				endif
+			endif
+			set j = j + 1
+		endloop
+	endif
+endfunction
+
+function showPassportAward takes nothing returns nothing
+	local integer i = 1 + GetPlayerId(DzGetTriggerUIEventPlayer())
+	local integer j = 1
+	local integer id = 0
+	local string name = ""
+	local string description = ""
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		loop
+			exitwhen j > 16
+			if DzGetTriggerUIEventFrame() == passportAwardButton[j].id then
+				if j <= 8 then
+					set name = "正常"
+					set id = j
+				else
+					set name = "进阶"
+					set id = j - 8
+				endif
+				call passportAwardWidget[101].setText("|CFF00FFCD" + name + I2S(id) + "级奖励|r")
+				call passportAwardWidget[102].setText(passportAwardWidgetString[j])
+				call passportAwardWidget[102].setPoint(BOTTOM, passportAwardWidget[j], TOP, 0, 0.03)
+				call passportAwardWidget[101].setPoint(BOTTOM, passportAwardWidget[102], TOP, 0, 0.005)
+				call passportAwardWidget[100].show()
 			endif
 			set j = j + 1
 		endloop
@@ -542,7 +585,7 @@ function drawUI_Conditions takes nothing returns boolean
 	local integer fm1 = DzFrameGetHeroManaBar(1)
 	local integer fm2 = DzFrameGetHeroManaBar(2)
 	local integer fm3 = DzFrameGetHeroManaBar(3)
-	
+	local integer k = 1
 	
 	
 	call DzFrameClearAllPoints(ff1)
@@ -649,6 +692,65 @@ function drawUI_Conditions takes nothing returns boolean
 	set closeAttributeButton = Frame.newTextButton(closeAttributeWidget)
 	call closeAttributeButton.setAllPoints(closeAttributeWidget)
 	call closeAttributeButton.regEvent(FRAME_EVENT_PRESSED, function toggleAttribute)
+
+	// 通行证按钮
+	set passportWidget = Frame.newImage1(GUI, "war3mapImported\\passport.tga", 0.032, 0.04)
+	call passportWidget.setPoint(LEFT, helpWidget, RIGHT, 0.05, 0)
+
+	set passportButton = Frame.newTextButton(passportWidget)
+	call passportButton.setAllPoints(passportWidget)
+	call passportButton.regEvent(FRAME_EVENT_PRESSED, function togglePassport)
+	call passportButton.regEvent(FRAME_MOUSE_ENTER, function togglePassportWidget)
+	call passportButton.regEvent(FRAME_MOUSE_LEAVE, function togglePassportWidget)
+
+	// 通行证弹窗
+	set passport = Frame.newImage1(GUI, "war3mapImported\\PassportS1.tga", 0.45, 0.4)
+	call passport.setPoint(CENTER, GUI, CENTER, 0.0, 0.0)
+	call passport.hide()
+
+	set closePassportWidget = Frame.newImage1(passport, "war3mapImported\\close0.tga", 0.018, 0.024)
+	call closePassportWidget.setPoint(CENTER, passport, TOPRIGHT, 0, 0)
+
+	set closePassportButton = Frame.newTextButton(closePassportWidget)
+	call closePassportButton.setAllPoints(closePassportWidget)
+	call closePassportButton.regEvent(FRAME_EVENT_PRESSED, function togglePassport)
+
+	// 通行证弹窗中的按钮
+	loop
+		exitwhen k > 16
+
+		set passportAwardWidget[k] = Frame.newImage1(passport, "war3mapImported\\PassportAward1.tga", 0.064, 0.08)
+		// 8个一行
+		if ModuloInteger(k, 8) == 1 then
+			call passportAwardWidget[k].setPoint(LEFT, passport, LEFT, 0.05, 0)
+		else
+			call passportAwardWidget[k].setPoint(LEFT, passportAwardWidget[k - 1], RIGHT, 0.01, 0)
+		endif
+
+		set passportAwardButton[k] = Frame.newTextButton(passportAwardWidget[k])
+		call passportAwardButton[k].setAllPoints(passportAwardWidget[k])
+		call passportAwardButton[k].regEvent(FRAME_MOUSE_ENTER, function showPassportAward)
+		call passportAwardButton[k].regEvent(FRAME_MOUSE_LEAVE, function hidePassportAward)
+		set k = k + 1
+	endloop
+
+	set passportAwardWidget[100] = Frame.newTips0(GUI, "tipbox")
+	call passportAwardWidget[100].hide()
+
+	set passportAwardWidget[101] = Frame.newText1(passportAwardWidget[100], "", "TXA14")
+	call passportAwardWidget[101].setSize(0.16, 0)
+
+	set passportAwardWidget[102] = Frame.newText1(passportAwardWidget[100], "", "TXA11")
+	call passportAwardWidget[102].setSize(0.16, 0)
+
+	call passportAwardWidget[100].setPoint(TOPLEFT, passportAwardWidget[101], TOPLEFT, - 0.005, 0.005)
+	call passportAwardWidget[100].setPoint(BOTTOMRIGHT, passportAwardWidget[102], BOTTOMRIGHT, 0.005, - 0.005)
+	call passportAwardWidget[102].setPoint(BOTTOM, passportAwardWidget[1], TOP, 0, 0.03)
+	call passportAwardWidget[101].setPoint(BOTTOM, passportAwardWidget[102], TOP, 0, 0.005)
+
+
+
+
 	
 	// 创建功能开启按钮背景
 	//set zwidget[1] = Frame.newImage1(GUI, "ReplaceableTextures\\CommandButtons\\BTNtab.blp", 0.03, 0.04)
@@ -860,6 +962,23 @@ function drawUI_Conditions takes nothing returns boolean
 	set attrStr[34] = "0"
 	set attrStr[35] = "自由属性"
 	set attrStr[36] = "0"
+
+	set passportAwardWidgetString[1] = "决战币+10"
+	set passportAwardWidgetString[2] = "解锁宠物皮肤-蜜蜂"
+	set passportAwardWidgetString[3] = "决战币+10"
+	set passportAwardWidgetString[4] = "解锁翅膀，效果：暴击率+2%"
+	set passportAwardWidgetString[5] = "决战币+10"
+	set passportAwardWidgetString[6] = "决战币+10"
+	set passportAwardWidgetString[7] = "决战币+10"
+	set passportAwardWidgetString[8] = "解锁英雄-空瑶，特性：初始攻击速度+10%"
+	set passportAwardWidgetString[9] = "解锁宠物皮肤-岚葵"
+	set passportAwardWidgetString[10] = "决战币+10"
+	set passportAwardWidgetString[11] = "决战币+10"
+	set passportAwardWidgetString[12] = "决战币+10"
+	set passportAwardWidgetString[13] = "解锁翅膀，效果：六种性格属性+1"
+	set passportAwardWidgetString[14] = "决战币+10"
+	set passportAwardWidgetString[15] = "决战币+10"
+	set passportAwardWidgetString[16] = "解锁英雄-启萧，特性：初始攻击范围+250"
 	
 	set index = 101
 	loop
