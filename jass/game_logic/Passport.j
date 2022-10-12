@@ -130,7 +130,7 @@ function addPointInTalentTree takes integer i, integer treeNum, integer level re
     // 六围 悟性2 根骨2 经脉2 胆魄2 医术2
     // 声望获得率 10 20 30 40 50
     if passportCoin[i] < 5 then
-        call DisplayTextToPlayer(Player(i - 1), 0, 0, "决战币不足")
+        call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFFF0000决战币不足|r")
         return
     endif
 

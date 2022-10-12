@@ -924,7 +924,7 @@ function drawUI_Conditions takes nothing returns boolean
 
 	// 通行证按钮
 	set passportWidget = Frame.newImage1(GUI, "war3mapImported\\passport.tga", 0.032, 0.04)
-	call passportWidget.setPoint(LEFT, helpWidget, RIGHT, 0.05, 0)
+	call passportWidget.setPoint(LEFT, helpWidget, RIGHT, 0.01, 0)
 
 	set passportButton = Frame.newTextButton(passportWidget)
 	call passportButton.setAllPoints(passportWidget)
@@ -933,12 +933,12 @@ function drawUI_Conditions takes nothing returns boolean
 	call passportButton.regEvent(FRAME_MOUSE_LEAVE, function togglePassportWidget)
 
 	// 通行证弹窗
-	set passport = Frame.newImage1(GUI, "war3mapImported\\PassportS1.tga", 0.45, 0.4)
-	call passport.setPoint(CENTER, GUI, CENTER, 0.0, 0.0)
+	set passport = Frame.newImage1(GUI, "PassportS1.tga", 0.35, 0.3)
+	call passport.setPoint(CENTER, GUI, CENTER, 0.0, 0.05)
 	call passport.hide()
 
 	set closePassportWidget = Frame.newImage1(passport, "war3mapImported\\close0.tga", 0.018, 0.024)
-	call closePassportWidget.setPoint(CENTER, passport, TOPRIGHT, 0, 0)
+	call closePassportWidget.setPoint(CENTER, passport, TOPRIGHT, - 0.01, - 0.061)
 
 	set closePassportButton = Frame.newTextButton(closePassportWidget)
 	call closePassportButton.setAllPoints(closePassportWidget)
@@ -948,13 +948,14 @@ function drawUI_Conditions takes nothing returns boolean
 	loop
 		exitwhen k > 16
 
-		set passportAwardWidget[k] = Frame.newImage1(passport, "war3mapImported\\PassportAward1.tga", 0.064, 0.08)
+		set passportAwardWidget[k] = Frame.newImage1(passport, "war3mapImported\\PassportAward1.tga", 0.028, 0.032)
 		// 8个一行
 		if ModuloInteger(k, 8) == 1 then
-			call passportAwardWidget[k].setPoint(LEFT, passport, LEFT, 0.05, 0)
+			call passportAwardWidget[k].setPoint(LEFT, passport, LEFT, 0.053, - 0.04 - 0.05 * (k - 1) / 8)
 		else
-			call passportAwardWidget[k].setPoint(LEFT, passportAwardWidget[k - 1], RIGHT, 0.01, 0)
+			call passportAwardWidget[k].setPoint(LEFT, passportAwardWidget[k - 1], RIGHT, 0.0065, 0)
 		endif
+		call passportAwardWidget[k].setAlpha(0)
 
 		set passportAwardButton[k] = Frame.newTextButton(passportAwardWidget[k])
 		call passportAwardButton[k].setAllPoints(passportAwardWidget[k])
@@ -979,7 +980,7 @@ function drawUI_Conditions takes nothing returns boolean
 
 	// 天赋树按钮
 	set talentWidget = Frame.newImage1(GUI, "war3mapImported\\talent.tga", 0.032, 0.04)
-	call talentWidget.setPoint(LEFT, passportWidget, RIGHT, 0.05, 0)
+	call talentWidget.setPoint(LEFT, passportWidget, RIGHT, 0.01, 0)
 
 	set talentButton = Frame.newTextButton(talentWidget)
 	call talentButton.setAllPoints(talentWidget)
@@ -988,8 +989,8 @@ function drawUI_Conditions takes nothing returns boolean
 	call talentButton.regEvent(FRAME_MOUSE_LEAVE, function toggleTalentWidget)
 
 	// 天赋树弹窗
-	set talentTree = Frame.newImage1(GUI, "war3mapImported\\TalentTree.tga", 0.45, 0.4)
-	call talentTree.setPoint(CENTER, GUI, CENTER, 0.0, 0.0)
+	set talentTree = Frame.newImage1(GUI, "war3mapImported\\TalentTree.tga", 0.42, 0.32)
+	call talentTree.setPoint(CENTER, GUI, CENTER, 0.0, 0.1)
 	call talentTree.hide()
 
 	set closeTalentWidget = Frame.newImage1(talentTree, "war3mapImported\\close0.tga", 0.018, 0.024)
@@ -1004,14 +1005,30 @@ function drawUI_Conditions takes nothing returns boolean
 	loop
 		exitwhen k > 10
 
-		set talentItemWidget[k] = Frame.newImage1(talentTree, "war3mapImported\\TalentTree1.tga", 0.064, 0.08)
+		set talentItemWidget[k] = Frame.newImage1(talentTree, "war3mapImported\\TalentTree1.tga", 0.028, 0.032)
 		// 8个一行
-		if ModuloInteger(k, 8) == 1 then
-			call talentItemWidget[k].setPoint(LEFT, talentTree, LEFT, 0.05, 0)
-		else
-			call talentItemWidget[k].setPoint(LEFT, talentItemWidget[k - 1], RIGHT, 0.01, 0)
+		if k == 1 then
+			call talentItemWidget[k].setPoint(LEFT, talentTree, LEFT, 0.071, - 0.088)
+		elseif k == 2 then
+			call talentItemWidget[k].setPoint(LEFT, talentTree, LEFT, 0.071, - 0.012)
+		elseif k == 3 then
+			call talentItemWidget[k].setPoint(LEFT, talentTree, LEFT, 0.071, 0.067)
+		elseif k == 4 then
+			call talentItemWidget[k].setPoint(LEFT, talentTree, LEFT, 0.201, - 0.088)
+		elseif k == 5 then
+			call talentItemWidget[k].setPoint(LEFT, talentTree, LEFT, 0.201, - 0.012)
+		elseif k == 6 then
+			call talentItemWidget[k].setPoint(LEFT, talentTree, LEFT, 0.201, 0.067)
+		elseif k == 7 then
+			call talentItemWidget[k].setPoint(LEFT, talentTree, LEFT, 0.33, - 0.088)
+		elseif k == 8 then
+			call talentItemWidget[k].setPoint(LEFT, talentTree, LEFT, 0.33, - 0.012)
+		elseif k == 9 then
+			call talentItemWidget[k].setPoint(LEFT, talentTree, LEFT, 0.311, 0.067)
+		elseif k == 10 then
+			call talentItemWidget[k].setPoint(LEFT, talentTree, LEFT, 0.348, 0.067)
 		endif
-
+		call talentItemWidget[k].setAlpha(0)
 		set talentItemButton[k] = Frame.newTextButton(talentItemWidget[k])
 		call talentItemButton[k].setAllPoints(talentItemWidget[k])
 		call talentItemButton[k].regEvent(FRAME_MOUSE_ENTER, function showTalentTreeHint)
@@ -1041,7 +1058,7 @@ function drawUI_Conditions takes nothing returns boolean
 	call talentItemWidget[104].setSize(0.16, 0)
 
 	call talentItemWidget[100].setPoint(TOPLEFT, talentItemWidget[101], TOPLEFT, - 0.005, 0.005)
-	call talentItemWidget[100].setPoint(BOTTOMRIGHT, talentItemWidget[102], BOTTOMRIGHT, 0.005, - 0.005)
+	call talentItemWidget[100].setPoint(BOTTOMRIGHT, talentItemWidget[104], BOTTOMRIGHT, 0.005, - 0.005)
 	call talentItemWidget[104].setPoint(BOTTOM, talentItemWidget[1], TOP, 0, 0.03)
 	call talentItemWidget[103].setPoint(BOTTOM, talentItemWidget[104], TOP, 0, 0.005)
 	call talentItemWidget[102].setPoint(BOTTOM, talentItemWidget[103], TOP, 0, 0.005)
