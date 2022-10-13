@@ -189,9 +189,9 @@ endfunction
 
 // 刷青龙
 function spawnGreenDragon takes nothing returns nothing
-    call CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE), 'n019', 2200, -14000, bj_UNIT_FACING)
+    call CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE), 'n019', 2200, - 14000, bj_UNIT_FACING)
     call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cFF00FF00青龙石出现在了地图上")
-    call PingMinimapForForce(bj_FORCE_ALL_PLAYERS, 2200, -14000, 5)
+    call PingMinimapForForce(bj_FORCE_ALL_PLAYERS, 2200, - 14000, 5)
     call DestroyTimer(GetExpiredTimer())
 endfunction
 
@@ -202,26 +202,29 @@ function initS1Passport takes nothing returns nothing
     local timer t = CreateTimer()
     loop
         exitwhen i > 5
-        set passportExpS1[i] = DzAPI_Map_GetStoredInteger(Player(i - 1), PASSPORT_EXP_S1)
-        set passportLevelS1[i] = passportExpS1[i] / 100
-        set passportSwitchS1[i] = DzAPI_Map_GetStoredInteger(Player(i - 1), PASSPORT_SWITCH_S1)
-        set passportCoin[i] = DzAPI_Map_GetStoredInteger(Player(i - 1), COIN)
+        if GetPlayerController(Player(i - 1)) == MAP_CONTROL_USER and GetPlayerSlotState(Player(i - 1)) == PLAYER_SLOT_STATE_PLAYING then
+            set passportExpS1[i] = DzAPI_Map_GetStoredInteger(Player(i - 1), PASSPORT_EXP_S1)
+            set passportLevelS1[i] = passportExpS1[i] / 100
+            set passportSwitchS1[i] = DzAPI_Map_GetStoredInteger(Player(i - 1), PASSPORT_SWITCH_S1)
+            set passportCoin[i] = DzAPI_Map_GetStoredInteger(Player(i - 1), COIN)
 
-        // 领取通行证奖励
-        set j = 1
-        loop
-            exitwhen j > 10
-            if not isRewardS1(passportSwitchS1[i], j) and passportLevelS1[i] >= j then
-                // 领取一次性奖励
-                call rewardS1(j, i)
-                call setRewardS1(j, i)
-            endif
-            if passportLevelS1[i] >= j then
-                // 领取永久奖励
-                call rewardS1Permanent(j, i)
-            endif
-            set j = j + 1
-        endloop
+            // 领取通行证奖励
+            set j = 1
+            loop
+                exitwhen j > 8
+                // call BJDebugMsg("i: " + I2S(i) + " j: " + I2S(j))
+                if not isRewardS1(passportSwitchS1[i], j) and passportLevelS1[i] >= j then
+                    // 领取一次性奖励
+                    call rewardS1(j, i)
+                    call setRewardS1(j, i)
+                endif
+                if passportLevelS1[i] >= j then
+                    // 领取永久奖励
+                    call rewardS1Permanent(j, i)
+                endif
+                set j = j + 1
+            endloop
+        endif
         set i = i + 1
     endloop
     call TimerStart(t, 1800, false, function spawnGreenDragon)

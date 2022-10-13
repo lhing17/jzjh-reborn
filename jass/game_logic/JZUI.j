@@ -40,6 +40,7 @@ globals
 	Frame closePassportButton // 关闭通行证按钮
 	Frame array passportAwardWidget // 通行证奖励按钮图片
 	Frame array passportAwardButton // 通行证奖励按钮
+	Frame array passportTickWidget // 通行证勾选按钮图片
 	string array passportAwardWidgetString // 通行证奖励描述
 
 	Frame talentWidget // 天赋树按钮图片
@@ -49,6 +50,7 @@ globals
 	Frame closeTalentButton // 关闭天赋树按钮
 	Frame array talentItemWidget // 天赋树加点按钮图片
 	Frame array talentItemButton // 天赋树加点按钮
+	Frame array talentLevelWidget // 天赋树等级按钮图片
 	string array talentName // 天赋树名称
 	string array talentThreeAttributeDesc // 三围天赋描述
 	string array talentCriticalAttackDesc // 暴击天赋描述
@@ -347,6 +349,7 @@ function showPassportAward takes nothing returns nothing
 		loop
 			exitwhen j > 16
 			if DzGetTriggerUIEventFrame() == passportAwardButton[j].id then
+				call passportAwardWidget[j].setAlpha(128)
 				if j <= 8 then
 					set name = "正常"
 					set id = j
@@ -356,7 +359,7 @@ function showPassportAward takes nothing returns nothing
 				endif
 				call passportAwardWidget[101].setText("|CFF00FFCD" + name + I2S(id) + "级奖励|r")
 				call passportAwardWidget[102].setText(passportAwardWidgetString[j])
-				call passportAwardWidget[102].setPoint(BOTTOM, passportAwardWidget[j], TOP, 0, 0.03)
+				call passportAwardWidget[102].setPoint(BOTTOM, passportAwardWidget[j], TOP, 0, 0.01)
 				call passportAwardWidget[101].setPoint(BOTTOM, passportAwardWidget[102], TOP, 0, 0.005)
 				call passportAwardWidget[100].show()
 			endif
@@ -366,9 +369,17 @@ function showPassportAward takes nothing returns nothing
 endfunction
 
 function hidePassportAward takes nothing returns nothing
+	local integer j = 1
 	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		loop
+			exitwhen j > 16
+			if DzGetTriggerUIEventFrame() == passportAwardButton[j].id then
+				call passportAwardWidget[j].setAlpha(0)
+			endif
+			set j = j + 1
+		endloop
 		call passportAwardWidget[100].hide()
-	endif
+	endif 
 endfunction
 
 function getTalentLevel takes integer i, integer j returns integer
@@ -436,6 +447,7 @@ function showTalentTreeHint takes nothing returns nothing
 		loop
 			exitwhen j > 10
 			if DzGetTriggerUIEventFrame() == talentItemButton[j].id then
+				call talentItemWidget[j].setAlpha(128)
 			
 				// 青色名称
 				call talentItemWidget[101].setText("|CFF00FFCD" + talentName[j] + "|r")
@@ -446,7 +458,7 @@ function showTalentTreeHint takes nothing returns nothing
 				call talentItemWidget[103].setText("|CFFA020F0" + getTalentDesc(j, level) + "|r")
 				// 橙色下一级描述
 				call talentItemWidget[104].setText("|CFFFFA500下一级：" + getTalentDesc(j, level + 1) + "|r")
-				call talentItemWidget[104].setPoint(BOTTOM, talentItemWidget[j], TOP, 0, 0.03)
+				call talentItemWidget[104].setPoint(BOTTOM, talentItemWidget[j], TOP, 0, 0.01)
 				call talentItemWidget[103].setPoint(BOTTOM, talentItemWidget[104], TOP, 0, 0.005)
 				call talentItemWidget[102].setPoint(BOTTOM, talentItemWidget[103], TOP, 0, 0.005)
 				call talentItemWidget[101].setPoint(BOTTOM, talentItemWidget[102], TOP, 0, 0.005)
@@ -458,7 +470,15 @@ function showTalentTreeHint takes nothing returns nothing
 endfunction
 
 function hideTalentTreeHint takes nothing returns nothing
+	local integer j = 1
 	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		loop
+			exitwhen j > 10
+			if DzGetTriggerUIEventFrame() == talentItemButton[j].id then
+				call talentItemWidget[j].setAlpha(0)
+			endif
+			set j = j + 1
+		endloop
 		call talentItemWidget[100].hide()
 	endif
 endfunction
@@ -948,7 +968,7 @@ function drawUI_Conditions takes nothing returns boolean
 	loop
 		exitwhen k > 16
 
-		set passportAwardWidget[k] = Frame.newImage1(passport, "war3mapImported\\PassportAward1.tga", 0.028, 0.032)
+		set passportAwardWidget[k] = Frame.newImage1(passport, "war3mapImported\\gradual.tga", 0.028, 0.032)
 		// 8个一行
 		if ModuloInteger(k, 8) == 1 then
 			call passportAwardWidget[k].setPoint(LEFT, passport, LEFT, 0.053, - 0.04 - 0.05 * (k - 1) / 8)
@@ -957,10 +977,28 @@ function drawUI_Conditions takes nothing returns boolean
 		endif
 		call passportAwardWidget[k].setAlpha(0)
 
+		set passportTickWidget[k] = Frame.newImage1(passport, "war3mapImported\\right.tga", 0.018, 0.024)
+		call passportTickWidget[k].setPoint(CENTER, passportAwardWidget[k], CENTER, 0, - 0.016)
+
 		set passportAwardButton[k] = Frame.newTextButton(passportAwardWidget[k])
 		call passportAwardButton[k].setAllPoints(passportAwardWidget[k])
 		call passportAwardButton[k].regEvent(FRAME_MOUSE_ENTER, function showPassportAward)
 		call passportAwardButton[k].regEvent(FRAME_MOUSE_LEAVE, function hidePassportAward)
+
+		if k <= 8 and passportLevelS1[1 + GetPlayerId(GetLocalPlayer())] < k then
+			call passportTickWidget[k].hide()
+		endif
+
+		if k > 8 then
+			if passportLevelS1[1 + GetPlayerId(GetLocalPlayer())] < k - 8 then
+				call passportTickWidget[k].hide()
+			endif
+			if not DzAPI_Map_HasMallItem(GetLocalPlayer(), PROPERTY_PASSPORT_S1) then
+				call passportTickWidget[k].hide()
+			endif
+		endif
+
+
 		set k = k + 1
 	endloop
 
@@ -975,7 +1013,7 @@ function drawUI_Conditions takes nothing returns boolean
 
 	call passportAwardWidget[100].setPoint(TOPLEFT, passportAwardWidget[101], TOPLEFT, - 0.005, 0.005)
 	call passportAwardWidget[100].setPoint(BOTTOMRIGHT, passportAwardWidget[102], BOTTOMRIGHT, 0.005, - 0.005)
-	call passportAwardWidget[102].setPoint(BOTTOM, passportAwardWidget[1], TOP, 0, 0.03)
+	call passportAwardWidget[102].setPoint(BOTTOM, passportAwardWidget[1], TOP, 0, 0.01)
 	call passportAwardWidget[101].setPoint(BOTTOM, passportAwardWidget[102], TOP, 0, 0.005)
 
 	// 天赋树按钮
@@ -990,7 +1028,7 @@ function drawUI_Conditions takes nothing returns boolean
 
 	// 天赋树弹窗
 	set talentTree = Frame.newImage1(GUI, "war3mapImported\\TalentTree.tga", 0.42, 0.32)
-	call talentTree.setPoint(CENTER, GUI, CENTER, 0.0, 0.1)
+	call talentTree.setPoint(CENTER, GUI, CENTER, 0.0, 0.05)
 	call talentTree.hide()
 
 	set closeTalentWidget = Frame.newImage1(talentTree, "war3mapImported\\close0.tga", 0.018, 0.024)
@@ -1005,7 +1043,7 @@ function drawUI_Conditions takes nothing returns boolean
 	loop
 		exitwhen k > 10
 
-		set talentItemWidget[k] = Frame.newImage1(talentTree, "war3mapImported\\TalentTree1.tga", 0.028, 0.032)
+		set talentItemWidget[k] = Frame.newImage1(talentTree, "war3mapImported\\gradual.tga", 0.028, 0.032)
 		// 8个一行
 		if k == 1 then
 			call talentItemWidget[k].setPoint(LEFT, talentTree, LEFT, 0.071, - 0.088)
@@ -1029,6 +1067,13 @@ function drawUI_Conditions takes nothing returns boolean
 			call talentItemWidget[k].setPoint(LEFT, talentTree, LEFT, 0.348, 0.067)
 		endif
 		call talentItemWidget[k].setAlpha(0)
+
+
+		set talentLevelWidget[k] = Frame.newText1(talentTree, "", "TXA11")
+		call talentLevelWidget[k].setText("Lv." + I2S(getTalentLevel(1 + GetPlayerId(GetLocalPlayer()), k)))
+		call talentLevelWidget[k].setPoint(CENTER, talentItemWidget[k], BOTTOMRIGHT, 0, 0)
+
+
 		set talentItemButton[k] = Frame.newTextButton(talentItemWidget[k])
 		call talentItemButton[k].setAllPoints(talentItemWidget[k])
 		call talentItemButton[k].regEvent(FRAME_MOUSE_ENTER, function showTalentTreeHint)
@@ -1043,23 +1088,23 @@ function drawUI_Conditions takes nothing returns boolean
 
 	// 名称
 	set talentItemWidget[101] = Frame.newText1(talentItemWidget[100], "", "TXA14")
-	call talentItemWidget[101].setSize(0.16, 0)
+	call talentItemWidget[101].setSize(0.13, 0)
 
 	// 等级
 	set talentItemWidget[102] = Frame.newText1(talentItemWidget[100], "", "TXA11")
-	call talentItemWidget[102].setSize(0.16, 0)
+	call talentItemWidget[102].setSize(0.13, 0)
 
 	// 描述
 	set talentItemWidget[103] = Frame.newText1(talentItemWidget[100], "", "TXA11")
-	call talentItemWidget[103].setSize(0.16, 0)
+	call talentItemWidget[103].setSize(0.13, 0)
 
 	// 下一级描述
 	set talentItemWidget[104] = Frame.newText1(talentItemWidget[100], "", "TXA11")
-	call talentItemWidget[104].setSize(0.16, 0)
+	call talentItemWidget[104].setSize(0.13, 0)
 
 	call talentItemWidget[100].setPoint(TOPLEFT, talentItemWidget[101], TOPLEFT, - 0.005, 0.005)
 	call talentItemWidget[100].setPoint(BOTTOMRIGHT, talentItemWidget[104], BOTTOMRIGHT, 0.005, - 0.005)
-	call talentItemWidget[104].setPoint(BOTTOM, talentItemWidget[1], TOP, 0, 0.03)
+	call talentItemWidget[104].setPoint(BOTTOM, talentItemWidget[1], TOP, 0, 0.01)
 	call talentItemWidget[103].setPoint(BOTTOM, talentItemWidget[104], TOP, 0, 0.005)
 	call talentItemWidget[102].setPoint(BOTTOM, talentItemWidget[103], TOP, 0, 0.005)
 	call talentItemWidget[101].setPoint(BOTTOM, talentItemWidget[102], TOP, 0, 0.005)
