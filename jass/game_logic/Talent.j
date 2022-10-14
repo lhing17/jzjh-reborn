@@ -34,6 +34,7 @@ globals
 
     // 天赋加点存档
     constant string TALENT_SAVE = "TALENT_SAVE"
+    constant integer MAX_INT = 2147483647
 
 
 endglobals
@@ -124,32 +125,6 @@ function getSixNum takes integer num, integer n returns integer
     return j
 endfunction
 
-// 设置六进制数的第n位
-function setSixNum takes integer num, integer n, integer value returns integer
-    // 先获取原来的值
-    local integer i = 1
-    local integer j = 0
-
-    loop
-        exitwhen i > n
-        set j = ModuloInteger(num, 6)
-        set num = num / 6
-        set i = i + 1
-    endloop
-
-    // 再设置新的值
-    set i = 1
-    local integer k = 0
-    loop
-        exitwhen i > n
-        set k = k + j * Pow(6, i - 1)
-        set j = ModuloInteger(num, 6)
-        set num = num / 6
-        set i = i + 1
-    endloop
-    set k = k + value * Pow(6, n - 1)
-    return k
-endfunction
 
 
 function talent takes nothing returns nothing
@@ -158,22 +133,25 @@ function talent takes nothing returns nothing
     local timer tm3 = CreateTimer()
     local trigger t = CreateTrigger()
     local integer i = 1
-    local integer talentPoint = DzAPI_Map_GetStoredInteger(Player(i - 1), TALENT_SAVE)
+    local integer talentPoint = MAX_INT / 2 - DzAPI_Map_GetStoredInteger(Player(i - 1), TALENT_SAVE)
+    if talentPoint == MAX_INT / 2 then
+        set talentPoint = 0
+    endif
     loop
         exitwhen i > 5
         set udg_talent[i] = 0
 
-        set talent_special_attack[i] = getSixNum(talentPoint, 1)
+        set talent_three_attribute[i] = getSixNum(talentPoint, 1)
         set talent_critical_attack[i] = getSixNum(talentPoint, 2)
-        set talent_three_attribute[i] = getSixNum(talentPoint, 3)
+        set talent_special_attack[i] = getSixNum(talentPoint, 3)
 
         set talent_armor[i] = getSixNum(talentPoint, 4)
-        set talent_damage_absorption[i] = getSixNum(talentPoint, 5)
-        set talent_recover_hp[i] = getSixNum(talentPoint, 6)
+        set talent_recover_hp[i] = getSixNum(talentPoint, 5)
+        set talent_damage_absorption[i] = getSixNum(talentPoint, 6)
 
         set talent_gold[i] = getSixNum(talentPoint, 7)
-        set talent_lumber[i] = getSixNum(talentPoint, 8)
-        set talent_reputation[i] = getSixNum(talentPoint, 9)
+        set talent_reputation[i] = getSixNum(talentPoint, 8)
+        set talent_lumber[i] = getSixNum(talentPoint, 9)
         set talent_six_attribute[i] = getSixNum(talentPoint, 10)
 
         set i = i + 1

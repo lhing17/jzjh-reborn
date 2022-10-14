@@ -40,7 +40,7 @@ endfunction
 // 设置领取了某一等级的奖励
 function setRewardS1 takes integer level, integer i returns nothing
     set passportSwitchS1[i] = YDWEBitwise_OR(passportSwitchS1[i], YDWEBitwise_LShift(1, level - 1))
-    call DzAPI_Map_StoreInteger(Player(i - 1), PASSPORT_SWITCH_S1, passportSwitchS1[i])
+    call DzAPI_Map_StoreString(Player(i - 1),PASSPORT_SWITCH_S1,  newEncryptInt(passportSwitchS1[i]))
 endfunction
 
 // 增加通行证经验
@@ -50,13 +50,13 @@ function addPassportExpS1 takes integer i, integer exp returns nothing
     if passportExpS1[i] > 800 then
         set passportExpS1[i] = 800
     endif
-    call DzAPI_Map_StoreInteger(Player(i - 1), PASSPORT_EXP_S1, passportExpS1[i])
+    call DzAPI_Map_StoreString(Player(i - 1), PASSPORT_EXP_S1, newEncryptInt(passportExpS1[i]))
 endfunction
 
 // 设置决战币
 function setCoin takes integer coin, integer i returns nothing
     set passportCoin[i] = coin
-    call DzAPI_Map_StoreInteger(Player(i - 1), COIN, passportCoin[i])
+    call DzAPI_Map_StoreString(Player(i - 1), COIN, newEncryptInt(passportCoin[i]))
 endfunction
 
 // 领取S1通行证奖励
@@ -112,8 +112,33 @@ function rewardS1Permanent takes integer level, integer i returns nothing
     endif
 endfunction
 
+// 设置六进制数的第n位
+function setSixNum takes integer num, integer n, integer value returns integer
+    // 先获取原来的值
+    local integer i = 1
+    local integer j = 0
+    local integer k = 1
+    local integer numCopy = num
+
+    loop
+        exitwhen i > n
+        set j = ModuloInteger(numCopy, 6)
+        set numCopy = numCopy / 6
+        set k = k * 6
+        set i = i + 1
+    endloop
+    set k = k / 6
+
+    // 再设置新的值
+    return num - j * k + value * k
+
+endfunction
+
+
 // 天赋树加点
 function addPointInTalentTree takes integer i, integer treeNum, integer level returns nothing
+    local integer talentPoint = MAX_INT / 2 - DzAPI_Map_GetStoredInteger(Player(i - 1), TALENT_SAVE)
+    local integer newSave = 0
     // 左侧 攻击天赋 三围->暴击->特攻
     // 特攻 2 4 6 8 10
     // 暴击倍数 0.1 0.2 0.3 0.4 0.5
@@ -133,36 +158,50 @@ function addPointInTalentTree takes integer i, integer treeNum, integer level re
         call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFFF0000决战币不足|r")
         return
     endif
+    if talentPoint == MAX_INT / 2 then
+        set talentPoint = 0
+    endif
 
     if treeNum == 1 then
         if level == 1 then
             set talent_three_attribute[i] = talent_three_attribute[i] + 1
+            set newSave = setSixNum(talentPoint, 1, talent_three_attribute[i])
         elseif level == 2 then
             set talent_critical_attack[i] = talent_critical_attack[i] + 1
+            set newSave = setSixNum(talentPoint, 2, talent_critical_attack[i])
         elseif level == 3 then
             set talent_special_attack[i] = talent_special_attack[i] + 1
+            set newSave = setSixNum(talentPoint, 3, talent_special_attack[i])
         endif
     elseif treeNum == 2 then
         if level == 1 then
             set talent_armor[i] = talent_armor[i] + 1
+            set newSave = setSixNum(talentPoint, 4, talent_armor[i])
         elseif level == 2 then
             set talent_recover_hp[i] = talent_recover_hp[i] + 1
+            set newSave = setSixNum(talentPoint, 5, talent_recover_hp[i])
         elseif level == 3 then
             set talent_damage_absorption[i] = talent_damage_absorption[i] + 1
+            set newSave = setSixNum(talentPoint, 6, talent_damage_absorption[i])
         endif
     elseif treeNum == 3 then
         if level == 1 then
             set talent_gold[i] = talent_gold[i] + 1
+            set newSave = setSixNum(talentPoint, 7, talent_gold[i])
         elseif level == 2 then
             set talent_reputation[i] = talent_reputation[i] + 1
+            set newSave = setSixNum(talentPoint, 8, talent_reputation[i])
         elseif level == 3 then
             set talent_lumber[i] = talent_lumber[i] + 1
+            set newSave = setSixNum(talentPoint, 9, talent_lumber[i])
         elseif level == 4 then
             set talent_six_attribute[i] = talent_six_attribute[i] + 1
+            set newSave = setSixNum(talentPoint, 10, talent_six_attribute[i])
         endif
     endif
     // 决战币减少5
     call setCoin(passportCoin[i] - 5, i)
+    call DzAPI_Map_StoreInteger(Player(i - 1), TALENT_SAVE, MAX_INT / 2 - newSave)
 
 endfunction
 
@@ -170,15 +209,16 @@ function killGreenDragon takes nothing returns nothing
     local integer i = 1
     local integer point = 0
     call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "有玩家击碎了|cffffcc00青龙石|r，所有玩家获得通行证积分（每天上限100分，到达上限后不再获得）")
-    if udg_nandu >= 8 then
-        set point = 50
-    elseif udg_nandu >= 6 then
-        set point = 40
-    elseif udg_nandu >= 2 then
-        set point = 30
-    else
-        set point = 20
-    endif
+    // if udg_nandu >= 8 then
+    //     set point = 50
+    // elseif udg_nandu >= 6 then
+    //     set point = 40
+    // elseif udg_nandu >= 2 then
+    //     set point = 30
+    // else
+    //     set point = 20
+    // endif
+    set point = 100
     loop
         exitwhen i > 5
         call addPassportExpS1(i, point)
@@ -203,10 +243,14 @@ function initS1Passport takes nothing returns nothing
     loop
         exitwhen i > 5
         if GetPlayerController(Player(i - 1)) == MAP_CONTROL_USER and GetPlayerSlotState(Player(i - 1)) == PLAYER_SLOT_STATE_PLAYING then
-            set passportExpS1[i] = DzAPI_Map_GetStoredInteger(Player(i - 1), PASSPORT_EXP_S1)
+            set passportExpS1[i] = newDecryptInt(DzAPI_Map_GetStoredString(Player(i - 1), PASSPORT_EXP_S1))
             set passportLevelS1[i] = passportExpS1[i] / 100
-            set passportSwitchS1[i] = DzAPI_Map_GetStoredInteger(Player(i - 1), PASSPORT_SWITCH_S1)
-            set passportCoin[i] = DzAPI_Map_GetStoredInteger(Player(i - 1), COIN)
+            set passportSwitchS1[i] = newDecryptInt(DzAPI_Map_GetStoredString(Player(i - 1), PASSPORT_SWITCH_S1))
+            set passportCoin[i] = newDecryptInt(DzAPI_Map_GetStoredString(Player(i - 1), COIN))
+
+            if ModuloInteger(passportCoin[i], 5) != 0 then
+                set passportCoin[i] = 0
+            endif
 
             // 领取通行证奖励
             set j = 1
