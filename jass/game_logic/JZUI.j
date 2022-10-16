@@ -520,10 +520,18 @@ endfunction
 function talentTreeAddPoint takes nothing returns nothing
 	local integer i = 1 + GetPlayerId(DzGetTriggerUIEventPlayer())
 	local integer j = 1
+	local integer level = 1
 	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
 		loop
 			exitwhen j > 10
 			if DzGetTriggerUIEventFrame() == talentItemButton[j].id and canAddPoint(i, j) then
+
+				// 更新等级相关的说明
+				set level = getTalentLevel(i, j) + 1
+				call talentLevelWidget[j].setText("Lv." + I2S(level))
+				call talentItemWidget[102].setText("|CF0FFD700等级：" + I2S(level) + "/ 5|r")
+				call talentItemWidget[103].setText("|CFFA020F0" + getTalentDesc(j, level) + "|r")
+				call talentItemWidget[104].setText("|CFFFFA500下一级：" + getTalentDesc(j, level + 1) + "|r")
 				call DzSyncData("talentPoint" + I2S(j), I2S(i))
 			endif
 			set j = j + 1
@@ -993,7 +1001,7 @@ function drawUI_Conditions takes nothing returns boolean
 			if passportLevelS1[1 + GetPlayerId(GetLocalPlayer())] < k - 8 then
 				call passportTickWidget[k].hide()
 			endif
-			if not DzAPI_Map_HasMallItem(GetLocalPlayer(), PROPERTY_PASSPORT_S1) then
+			if not DzAPI_Map_HasMallItem(GetLocalPlayer(), PROPERTY_PASSPORT_S1) and not udg_isTest[GetPlayerId(GetLocalPlayer())] then
 				call passportTickWidget[k].hide()
 			endif
 		endif

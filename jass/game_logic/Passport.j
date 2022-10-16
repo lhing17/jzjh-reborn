@@ -40,7 +40,7 @@ endfunction
 // 设置领取了某一等级的奖励
 function setRewardS1 takes integer level, integer i returns nothing
     set passportSwitchS1[i] = YDWEBitwise_OR(passportSwitchS1[i], YDWEBitwise_LShift(1, level - 1))
-    call DzAPI_Map_StoreString(Player(i - 1),PASSPORT_SWITCH_S1,  newEncryptInt(passportSwitchS1[i]))
+    call DzAPI_Map_StoreString(Player(i - 1), PASSPORT_SWITCH_S1, newEncryptInt(passportSwitchS1[i]))
 endfunction
 
 // 增加通行证经验
@@ -95,6 +95,7 @@ endfunction
 function rewardS1Permanent takes integer level, integer i returns nothing
     if level == 2 then
         set beeSkinFlag[i] = 1
+        call SetPlayerTechResearched(Player(i - 1), 'R006', 1)
     elseif level == 4 then
         set wing1Flag[i] = 1
     elseif level == 8 then
@@ -104,6 +105,7 @@ function rewardS1Permanent takes integer level, integer i returns nothing
     if DzAPI_Map_HasMallItem(Player(i - 1), PROPERTY_PASSPORT_S1) or udg_isTest[i - 1] then
         if level == 1 then
             set kuiLanSkinFlag[i] = 1
+            call SetPlayerTechResearched(Player(i - 1), 'R00H', 1)
         elseif level == 5 then
             set wing2Flag[i] = 1
         elseif level == 8 then
@@ -221,7 +223,9 @@ function killGreenDragon takes nothing returns nothing
     set point = 100
     loop
         exitwhen i > 5
-        call addPassportExpS1(i, point)
+        if GetPlayerController(Player(i - 1)) == MAP_CONTROL_USER and GetPlayerSlotState(Player(i - 1)) == PLAYER_SLOT_STATE_PLAYING then
+            call addPassportExpS1(i, point)
+        endif
         set i = i + 1
     endloop
 

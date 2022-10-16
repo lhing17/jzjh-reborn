@@ -2306,4 +2306,8 @@ function getHeroDummyId takes integer id returns integer
 	return rid
 endfunction
 
+function isPet takes integer id returns boolean
+	return id == 'n00W' or id == 'n00V' or id == 'nvul' or id == 'n00J' or id == 'n018'
+endfunction
+
 #endif //CommonFuncIncluded

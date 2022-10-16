@@ -68,7 +68,7 @@ function fastDrop takes nothing returns nothing
 endfunction
 
 function isPetMove takes nothing returns boolean
-	return (GetIssuedOrderId() == $D0012 or GetIssuedOrderId() == $D0003) and (GetUnitTypeId(GetTriggerUnit()) == 'n00W' or GetUnitTypeId(GetTriggerUnit()) == 'n00V' or GetUnitTypeId(GetTriggerUnit()) == 'nvul')
+	return (GetIssuedOrderId() == $D0012 or GetIssuedOrderId() == $D0003) and isPet(GetUnitTypeId(GetTriggerUnit()))
 endfunction
 
 function petMove takes nothing returns nothing

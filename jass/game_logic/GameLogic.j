@@ -4896,7 +4896,7 @@ endfunction
 
 //合成物品2，自由或者副职锻造可以合成
 function HeCheng2_Conditions takes nothing returns boolean
-	return ((udg_runamen[1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] == 11 or Deputy_isDeputy(1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())), DUAN_ZAO)) and (GetUnitTypeId(GetTriggerUnit()) == 'nvul' or GetUnitTypeId(GetTriggerUnit()) == 'n00W' or GetUnitTypeId(GetTriggerUnit()) == 'n00V'))
+	return (udg_runamen[1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] == 11 or Deputy_isDeputy(1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())), DUAN_ZAO)) and isPet(GetUnitTypeId(GetTriggerUnit()))
 endfunction
 function HeCheng2_Actions takes nothing returns nothing
 	local unit u = GetTriggerUnit()
