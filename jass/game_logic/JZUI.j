@@ -526,12 +526,15 @@ function talentTreeAddPoint takes nothing returns nothing
 			exitwhen j > 10
 			if DzGetTriggerUIEventFrame() == talentItemButton[j].id and canAddPoint(i, j) then
 
-				// 更新等级相关的说明
-				set level = getTalentLevel(i, j) + 1
-				call talentLevelWidget[j].setText("Lv." + I2S(level))
-				call talentItemWidget[102].setText("|CF0FFD700等级：" + I2S(level) + "/ 5|r")
-				call talentItemWidget[103].setText("|CFFA020F0" + getTalentDesc(j, level) + "|r")
-				call talentItemWidget[104].setText("|CFFFFA500下一级：" + getTalentDesc(j, level + 1) + "|r")
+				if passportCoin[i] >= 5 then
+					
+					// 更新等级相关的说明
+					set level = getTalentLevel(i, j) + 1
+					call talentLevelWidget[j].setText("Lv." + I2S(level))
+					call talentItemWidget[102].setText("|CF0FFD700等级：" + I2S(level) + "/ 5|r")
+					call talentItemWidget[103].setText("|CFFA020F0" + getTalentDesc(j, level) + "|r")
+					call talentItemWidget[104].setText("|CFFFFA500下一级：" + getTalentDesc(j, level + 1) + "|r")
+				endif
 				call DzSyncData("talentPoint" + I2S(j), I2S(i))
 			endif
 			set j = j + 1

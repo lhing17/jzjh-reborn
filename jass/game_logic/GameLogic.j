@@ -2121,6 +2121,11 @@ function PlayerDeath takes nothing returns nothing
 		set time = time - 2
 	endif
 
+	// 蜜蜂皮肤效果工蜂之怒——死亡后暴击伤害+5%
+	if GetUnitTypeId(P4[i]) == 'n00J' then
+		set udg_baojishanghai[i] = udg_baojishanghai[i] + 0.05
+	endif
+
 	call StartTimerBJ(udg_revivetimer[i], false, time)
 	call TimerDialogDisplayForPlayerBJ(true, bj_lastCreatedTimerDialog, p)
 	call CreateTimerDialogBJ(bj_lastStartedTimer, "复活倒计时:")

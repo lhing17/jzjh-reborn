@@ -177,6 +177,21 @@ function piLiangJianDing takes unit u, real x, real y returns nothing
 
 endfunction
 
+function shortenAbilityCd takes nothing returns nothing
+	local timer t = GetExpiredTimer()
+	local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
+	local integer id = LoadInteger(YDHT, GetHandleId(t), 1)
+
+	// CD变为0.67倍
+	call EXSetAbilityState(EXGetUnitAbility(u, id), 1, EXGetAbilityState(EXGetUnitAbility(u, id), 1) * 0.67)
+	call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "岚葵发动了|CFF66FF00岚葵的祝福|r，" + GetObjectName(id) + "的冷却时间缩短了")
+
+	call FlushChildHashtable(YDHT, GetHandleId(t))
+	call DestroyTimer(t)
+	set t = null
+	set u = null
+
+endfunction
 
 //使用技能系统
 function UseAbility_Conditions takes nothing returns boolean
@@ -185,7 +200,7 @@ function UseAbility_Conditions takes nothing returns boolean
 	local unit ut = GetSpellTargetUnit()
 	local unit last = null
 	local player p = GetOwningPlayer(u)
-	local integer i = GetPlayerId(p)
+	local integer i = 1 + GetPlayerId(p)
 	local timer t = null
 	local real r = 0
 	local integer j = 0
@@ -195,6 +210,14 @@ function UseAbility_Conditions takes nothing returns boolean
 	local group g = null
 	local integer life = 0
 	
+	// 岚葵皮肤效果岚葵的禅定——使用技能时，有一定几率CD减少为原来的0.67倍
+	if (GetUnitTypeId(P4[i]) == 'n018' and GetRandomInt(1, 100) <= 20) then
+		set t = CreateTimer()
+		call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
+		call SaveInteger(YDHT, GetHandleId(t), 1, id)
+		call TimerStart(t, 0.2, false, function shortenAbilityCd)
+	endif
+
 	// 五毒教：五毒笛咒
 	if id == WU_DU_ZHOU then
 		call wuDuZhou()
@@ -289,6 +312,7 @@ function UseAbility_Conditions takes nothing returns boolean
 	set p = null
 	set g = null
 	set last = null
+	set t = null
 	return false
 endfunction
 

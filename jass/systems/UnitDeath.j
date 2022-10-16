@@ -50,6 +50,7 @@ function UnitDeath_Conditions takes nothing returns boolean
 
 	if GetUnitTypeId(ut) == 'n019' then
 		call killGreenDragon()
+		call RemoveUnit(ut)
 	endif
 	
 	
