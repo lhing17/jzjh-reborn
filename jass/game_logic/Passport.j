@@ -180,11 +180,11 @@ function addPointInTalentTree takes integer i, integer treeNum, integer level re
             set talent_armor[i] = talent_armor[i] + 1
             set newSave = setSixNum(talentPoint, 4, talent_armor[i])
         elseif level == 2 then
-            set talent_recover_hp[i] = talent_recover_hp[i] + 1
-            set newSave = setSixNum(talentPoint, 5, talent_recover_hp[i])
-        elseif level == 3 then
             set talent_damage_absorption[i] = talent_damage_absorption[i] + 1
-            set newSave = setSixNum(talentPoint, 6, talent_damage_absorption[i])
+            set newSave = setSixNum(talentPoint, 5, talent_damage_absorption[i])
+        elseif level == 3 then
+            set talent_recover_hp[i] = talent_recover_hp[i] + 1
+            set newSave = setSixNum(talentPoint, 6, talent_recover_hp[i])
         endif
     elseif treeNum == 3 then
         if level == 1 then

@@ -51,6 +51,8 @@ globals
 	Frame array talentItemWidget // 天赋树加点按钮图片
 	Frame array talentItemButton // 天赋树加点按钮
 	Frame array talentLevelWidget // 天赋树等级按钮图片
+	Frame talentCoinIcon // 天赋树上显示决战币图标
+	Frame talentCoinText // 天赋树上显示决战币数量
 	string array talentName // 天赋树名称
 	string array talentThreeAttributeDesc // 三围天赋描述
 	string array talentCriticalAttackDesc // 暴击天赋描述
@@ -534,6 +536,7 @@ function talentTreeAddPoint takes nothing returns nothing
 					call talentItemWidget[102].setText("|CF0FFD700等级：" + I2S(level) + "/ 5|r")
 					call talentItemWidget[103].setText("|CFFA020F0" + getTalentDesc(j, level) + "|r")
 					call talentItemWidget[104].setText("|CFFFFA500下一级：" + getTalentDesc(j, level + 1) + "|r")
+					call talentCoinText.setText(I2S(passportCoin[i] - 5))
 				endif
 				call DzSyncData("talentPoint" + I2S(j), I2S(i))
 			endif
@@ -1048,6 +1051,12 @@ function drawUI_Conditions takes nothing returns boolean
 	set closeTalentButton = Frame.newTextButton(closeTalentWidget)
 	call closeTalentButton.setAllPoints(closeTalentWidget)
 	call closeTalentButton.regEvent(FRAME_EVENT_PRESSED, function toggleTalentTree)
+
+	set talentCoinIcon = Frame.newImage1(talentTree, "war3mapImported\\coin.blp", 0.015, 0.02)
+	call talentCoinIcon.setPoint(CENTER, talentTree, TOPRIGHT, - 0.06, - 0.02)
+
+	set talentCoinText = Frame.newText1(talentTree, I2S(passportCoin[1 + GetPlayerId(GetLocalPlayer())]), "TXA14")
+	call talentCoinText.setPoint(LEFT, talentCoinIcon, RIGHT, 0.005, 0)
 
 	// 天赋树弹窗中的按钮
 	set k = 1
