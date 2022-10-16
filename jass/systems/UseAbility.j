@@ -211,7 +211,7 @@ function UseAbility_Conditions takes nothing returns boolean
 	local integer life = 0
 	
 	// 岚葵皮肤效果岚葵的禅定——使用技能时，有一定几率CD减少为原来的0.67倍
-	if (GetUnitTypeId(P4[i]) == 'n018' and GetRandomInt(1, 100) <= 20) then
+	if (GetUnitTypeId(P4[i]) == 'n018' and GetRandomInt(1, 100) <= 30) then
 		set t = CreateTimer()
 		call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
 		call SaveInteger(YDHT, GetHandleId(t), 1, id)
