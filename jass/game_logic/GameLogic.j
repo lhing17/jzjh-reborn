@@ -655,6 +655,20 @@ function SelectHero takes nothing returns nothing
 			endif
 		endif
 
+		if wing1Flag[i] == 1 then
+			call DestroyEffect(vd[i])
+			call AddSpecialEffectTargetUnitBJ("chest", udg_hero[i], "wing_red_no6.mdx")
+			set vd[i] = bj_lastCreatedEffect
+			set udg_baojilv[i] = udg_baojilv[i] + 0.02
+		endif
+
+		if wing2Flag[i] == 1 then
+			call DestroyEffect(vd[i])
+			call AddSpecialEffectTargetUnitBJ("chest", udg_hero[i], "wing_bluewhite_no1.mdx")
+			set vd[i] = bj_lastCreatedEffect
+			call addAllAttrs(i, 1)
+		endif
+
 		// 江湖等级奖励
 		// call jianghuLevelAward(i)
 

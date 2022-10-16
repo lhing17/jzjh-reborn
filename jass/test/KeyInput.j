@@ -84,6 +84,30 @@ function KeyInput takes nothing returns nothing
 			call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000自创武功已更改为第" + SubStringBJ(s, 3, 40) + "种特效")
 		endif
 	endif
+	if SubStringBJ(s, 1, 4) == "wing" then
+		if S2I(SubStringBJ(s, 5, 5)) == 1 then
+			call DestroyEffect(vd[i])
+			set vd[i] = null
+		endif
+		if S2I(SubStringBJ(s, 5, 5)) == 1 then
+			if wing1Flag[i] == 1 then
+				call DestroyEffect(vd[i])
+				call AddSpecialEffectTargetUnitBJ("chest", udg_hero[i], "wing_red_no6.mdx")
+				set vd[i] = bj_lastCreatedEffect
+			else
+				call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000未激活该翅膀")
+			endif
+		endif
+		if S2I(SubStringBJ(s, 5, 5)) == 2 then
+			if wing2Flag[i] == 1 then
+				call DestroyEffect(vd[i])
+				call AddSpecialEffectTargetUnitBJ("chest", udg_hero[i], "wing_bluewhite_no1.mdx")
+				set vd[i] = bj_lastCreatedEffect
+			else
+				call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000未激活该翅膀")
+			endif
+		endif
+	endif
 	if SubStringBJ(s, 1, 2) == "wg" then
 		if GetUnitAbilityLevel(udg_hero[i], 'A036') == 0 then
 			call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000当前无自创武功")
