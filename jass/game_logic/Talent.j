@@ -133,12 +133,14 @@ function talent takes nothing returns nothing
     local timer tm3 = CreateTimer()
     local trigger t = CreateTrigger()
     local integer i = 1
-    local integer talentPoint = MAX_INT / 2 - DzAPI_Map_GetStoredInteger(Player(i - 1), TALENT_SAVE)
-    if talentPoint == MAX_INT / 2 then
-        set talentPoint = 0
-    endif
+    local integer talentPoint = 0
+    
     loop
         exitwhen i > 5
+        set talentPoint = MAX_INT / 2 - DzAPI_Map_GetStoredInteger(Player(i - 1), TALENT_SAVE)
+        if talentPoint == MAX_INT / 2 then
+            set talentPoint = 0
+        endif
         set udg_talent[i] = 0
 
         set talent_three_attribute[i] = getSixNum(talentPoint, 1)

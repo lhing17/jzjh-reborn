@@ -849,7 +849,7 @@ function drawUI_Conditions takes nothing returns boolean
 	local integer fm2 = DzFrameGetHeroManaBar(2)
 	local integer fm3 = DzFrameGetHeroManaBar(3)
 	local integer k = 1
-	
+	local integer j = 1
 	
 	call DzFrameClearAllPoints(ff1)
 	call DzFrameClearAllPoints(ff2)
@@ -999,20 +999,28 @@ function drawUI_Conditions takes nothing returns boolean
 		call passportAwardButton[k].regEvent(FRAME_MOUSE_ENTER, function showPassportAward)
 		call passportAwardButton[k].regEvent(FRAME_MOUSE_LEAVE, function hidePassportAward)
 
-		if k <= 8 and passportLevelS1[1 + GetPlayerId(GetLocalPlayer())] < k then
-			call passportTickWidget[k].hide()
-		endif
-
-		if k > 8 then
-			if passportLevelS1[1 + GetPlayerId(GetLocalPlayer())] < k - 8 then
-				call passportTickWidget[k].hide()
+		set j = 1
+		loop
+			exitwhen j > 5
+			if k <= 8 and passportLevelS1[j] < k then
+				if Player(j - 1) == GetLocalPlayer() then
+					call passportTickWidget[k].hide()
+				endif
 			endif
-			if not DzAPI_Map_HasMallItem(GetLocalPlayer(), PROPERTY_PASSPORT_S1) and not udg_isTest[GetPlayerId(GetLocalPlayer())] then
-				call passportTickWidget[k].hide()
+			if k > 8 then
+				if passportLevelS1[j] < k - 8 then
+					if Player(j - 1) == GetLocalPlayer() then
+						call passportTickWidget[k].hide()
+					endif
+				endif
+				if not DzAPI_Map_HasMallItem(Player(j - 1), PROPERTY_PASSPORT_S1) and not udg_isTest[j - 1] then
+					if Player(j - 1) == GetLocalPlayer() then
+						call passportTickWidget[k].hide()
+					endif
+				endif
 			endif
-		endif
-
-
+			set j = j + 1
+		endloop
 		set k = k + 1
 	endloop
 
