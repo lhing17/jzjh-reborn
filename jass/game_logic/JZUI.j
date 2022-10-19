@@ -53,6 +53,8 @@ globals
 	Frame array talentLevelWidget // 天赋树等级按钮图片
 	Frame talentCoinIcon // 天赋树上显示决战币图标
 	Frame talentCoinText // 天赋树上显示决战币数量
+	Frame talentResetWidget // 天赋树重置按钮图片
+	Frame talentResetButton // 天赋树重置按钮
 	string array talentName // 天赋树名称
 	string array talentThreeAttributeDesc // 三围天赋描述
 	string array talentCriticalAttackDesc // 暴击天赋描述
@@ -208,6 +210,23 @@ endfunction
 function toggleTalentTree takes nothing returns nothing
 	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
 		call talentTree.toggle()
+	endif
+endfunction
+
+function resetTalentPoint takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call DzSyncData("resetTalent", I2S(i))
+	endif
+endfunction
+
+function highlightTalentReset takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call talentTreeWidget.setAlpha(255)
+endfunction
+
+function unhighlightTalentReset takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call talentTreeWidget.setAlpha(200)
 	endif
 endfunction
 
@@ -833,7 +852,15 @@ function addTalentPoint10 takes nothing returns nothing
 	call addPointInTalentTree(S2I(DzGetTriggerSyncData()), 3, 4)
 endfunction
 
-
+// 重置天赋点数
+function doResetTalent takes nothing returns nothing
+	local integer i = S2I(DzGetTriggerSyncData())
+	local integer totalPoint = talent_three_attribute[i] + talent_critical_attack[i] + talent_special_attack[i] + talent_armor[i] + talent_damage_absorption[i] + talent_recover_hp[i] + talent_gold[i] + talent_reputation[i] + talent_lumber[i] + talent_six_attribute[i]
+	if totalPoint > 0 then
+		call setCoin(passportCoin[i] + 5 * totalPoint, i)
+    	call DzAPI_Map_StoreInteger(Player(i - 1), TALENT_SAVE, 0)
+	endif
+endfunction
 
 
 function drawUI_Conditions takes nothing returns boolean
@@ -1072,6 +1099,17 @@ function drawUI_Conditions takes nothing returns boolean
 		set j = j + 1
 	endloop	
 	call talentCoinText.setPoint(LEFT, talentCoinIcon, RIGHT, 0.005, 0)
+
+	set talentResetWidget = Frame.newImage1(talentTree, "war3mapImported\\reset.blp", 0.032, 0.04)
+	call talentResetWidget.setPoint(CENTER, talentTree, TOPLEFT, 0.06, - 0.06)
+	call talentResetWidget.setAlpha(200)
+
+	set talentResetButton = Frame.newTextButton(talentResetWidget)
+	call talentResetButton.setAllPoints(talentResetWidget)
+	call talentResetButton.regEvent(FRAME_EVENT_PRESSED, function resetTalentPoint)
+	call talentResetButton.regEvent(FRAME_MOUSE_ENTER, function highlightTalentReset)
+	call talentResetButton.regEvent(FRAME_MOUSE_LEAVE, function unhighlightTalentReset)
+
 
 	// 天赋树弹窗中的按钮
 	set k = 1
@@ -1750,6 +1788,11 @@ function initUI takes nothing returns nothing
 	set t = CreateTrigger()
 	call DzTriggerRegisterSyncData(t, "talentPoint10", false)
 	call TriggerAddAction(t, function addTalentPoint10)
+
+	// 重置天赋点数
+	set t = CreateTrigger()
+	call DzTriggerRegisterSyncData(t, "resetTalent", false)
+	call TriggerAddAction(t, function doResetTalent)
 
 
 
