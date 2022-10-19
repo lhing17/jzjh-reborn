@@ -1063,7 +1063,14 @@ function drawUI_Conditions takes nothing returns boolean
 	set talentCoinIcon = Frame.newImage1(talentTree, "war3mapImported\\coin.blp", 0.015, 0.02)
 	call talentCoinIcon.setPoint(CENTER, talentTree, TOPRIGHT, - 0.06, - 0.02)
 
-	set talentCoinText = Frame.newText1(talentTree, I2S(passportCoin[1 + GetPlayerId(GetLocalPlayer())]), "TXA14")
+	set j = 1
+	loop
+		exitwhen j > 5
+		if Player(j - 1) == GetLocalPlayer() then
+			set talentCoinText = Frame.newText1(talentTree, I2S(passportCoin[j]), "TXA14")
+		endif
+		set j = j + 1
+	endloop	
 	call talentCoinText.setPoint(LEFT, talentCoinIcon, RIGHT, 0.005, 0)
 
 	// 天赋树弹窗中的按钮
@@ -1096,11 +1103,17 @@ function drawUI_Conditions takes nothing returns boolean
 		endif
 		call talentItemWidget[k].setAlpha(0)
 
-
-		set talentLevelWidget[k] = Frame.newText1(talentTree, "", "TXA11")
-		call talentLevelWidget[k].setText("Lv." + I2S(getTalentLevel(1 + GetPlayerId(GetLocalPlayer()), k)))
-		call talentLevelWidget[k].setPoint(CENTER, talentItemWidget[k], BOTTOMRIGHT, 0, 0)
-
+		set j = 1
+		loop
+			exitwhen j > 5
+			if Player(j - 1) == GetLocalPlayer() then
+				set talentLevelWidget[k] = Frame.newText1(talentTree, "", "TXA11")
+				call talentLevelWidget[k].setText("Lv." + I2S(getTalentLevel(j, k)))
+				call talentLevelWidget[k].setPoint(CENTER, talentItemWidget[k], BOTTOMRIGHT, 0, 0)
+			endif
+			set j = j + 1
+		endloop
+		
 
 		set talentItemButton[k] = Frame.newTextButton(talentItemWidget[k])
 		call talentItemButton[k].setAllPoints(talentItemWidget[k])
