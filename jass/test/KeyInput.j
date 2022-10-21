@@ -871,6 +871,9 @@ function KeyInput takes nothing returns nothing
 	if s == "撸Boss8" or s == "lboss8" and udg_isTest[GetPlayerId(p)] then 
 		call CreateNUnitsAtLocFacingLocBJ(1, u7[8], Player(6), v7[6], v7[4])
 	endif
+	if s == "addCoin" and udg_isTest[GetPlayerId(p)] then 
+		call setCoin(passportCoin[i] + 100, i)
+	endif
 	// if s == "撸Boss" or s=="撸boss" and udg_isTest[GetPlayerId(p)] then 
 	// 	call CreateNUnitsAtLocFacingLocBJ(1,u7[5],Player(6),v7[6],v7[4])
 	// 	call CreateNUnitsAtLocFacingLocBJ(1,u7[1],Player(6),v7[6],v7[4])

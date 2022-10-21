@@ -876,7 +876,7 @@ function doResetTalent takes nothing returns nothing
 	set talent_six_attribute[i] = 0
 	if totalPoint > 0 then
 		call setCoin(passportCoin[i] + 5 * totalPoint, i)
-    	call DzAPI_Map_StoreInteger(Player(i - 1), TALENT_SAVE, 0)
+    	call DzAPI_Map_StoreString(Player(i - 1), TALENT_SAVE, "MAGIC")
 		if (Player(i - 1) == GetLocalPlayer()) then
 			call talentCoinText.setText(I2S(passportCoin[i]))
 		endif

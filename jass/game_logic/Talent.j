@@ -137,10 +137,7 @@ function talent takes nothing returns nothing
     
     loop
         exitwhen i > 5
-        set talentPoint = MAX_INT / 2 - DzAPI_Map_GetStoredInteger(Player(i - 1), TALENT_SAVE)
-        if talentPoint == MAX_INT / 2 then
-            set talentPoint = 0
-        endif
+        set talentPoint = decodeInt(DzAPI_Map_GetStoredString(Player(i - 1), TALENT_SAVE))
         set udg_talent[i] = 0
 
         set talent_three_attribute[i] = getSixNum(talentPoint, 1)
@@ -148,8 +145,8 @@ function talent takes nothing returns nothing
         set talent_special_attack[i] = getSixNum(talentPoint, 3)
 
         set talent_armor[i] = getSixNum(talentPoint, 4)
-        set talent_recover_hp[i] = getSixNum(talentPoint, 5)
-        set talent_damage_absorption[i] = getSixNum(talentPoint, 6)
+        set talent_damage_absorption[i] = getSixNum(talentPoint, 5)
+        set talent_recover_hp[i] = getSixNum(talentPoint, 6)
 
         set talent_gold[i] = getSixNum(talentPoint, 7)
         set talent_reputation[i] = getSixNum(talentPoint, 8)

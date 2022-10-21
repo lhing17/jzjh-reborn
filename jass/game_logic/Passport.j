@@ -138,7 +138,7 @@ endfunction
 
 // 天赋树加点
 function addPointInTalentTree takes integer i, integer treeNum, integer level returns nothing
-    local integer talentPoint = MAX_INT / 2 - DzAPI_Map_GetStoredInteger(Player(i - 1), TALENT_SAVE)
+    local integer talentPoint = decodeInt(DzAPI_Map_GetStoredString(Player(i - 1), TALENT_SAVE))
     local integer newSave = 0
     // 左侧 攻击天赋 三围->暴击->特攻
     // 特攻 2 4 6 8 10
@@ -158,9 +158,6 @@ function addPointInTalentTree takes integer i, integer treeNum, integer level re
     if passportCoin[i] < 5 then
         call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFFF0000决战币不足|r")
         return
-    endif
-    if talentPoint == MAX_INT / 2 then
-        set talentPoint = 0
     endif
 
     if treeNum == 1 then
@@ -202,7 +199,7 @@ function addPointInTalentTree takes integer i, integer treeNum, integer level re
     endif
     // 决战币减少5
     call setCoin(passportCoin[i] - 5, i)
-    call DzAPI_Map_StoreInteger(Player(i - 1), TALENT_SAVE, MAX_INT / 2 - newSave)
+    call DzAPI_Map_StoreString(Player(i - 1), TALENT_SAVE,encodeInt(newSave))
 
 endfunction
 

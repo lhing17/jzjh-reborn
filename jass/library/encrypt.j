@@ -306,6 +306,9 @@ function encodeInt takes integer i returns string
     local string result = ""
     local integer temp = i
     local integer remainder
+    if i == 0 then
+        return "MAGIC"
+    endif
     loop
         set remainder = ModuloInteger(temp, 62)
         set temp = temp / 62
@@ -324,6 +327,9 @@ function decodeInt takes string s returns integer
     local integer temp
     local integer char
     local integer k = 1
+    if s == null or s == "" or s == "MAGIC" then
+        return 0
+    endif
     loop
         exitwhen i > StringLength(s) - 1
         set char = decodeChar(SubString(s, i, i + 1))
