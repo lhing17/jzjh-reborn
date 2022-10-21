@@ -32,6 +32,9 @@ globals
     // 资源天赋-六围
     integer array talent_six_attribute
 
+    // 总天赋点数
+    integer array talentTotalPoint
+
     // 天赋加点存档
     constant string TALENT_SAVE = "TALENT_SAVE"
     constant integer MAX_INT = 2147483647
@@ -133,25 +136,24 @@ function talent takes nothing returns nothing
     local timer tm3 = CreateTimer()
     local trigger t = CreateTrigger()
     local integer i = 1
-    local integer talentPoint = 0
     
     loop
         exitwhen i > 5
-        set talentPoint = decodeInt(DzAPI_Map_GetStoredString(Player(i - 1), TALENT_SAVE))
+        set talentTotalPoint[i] = decodeInt(DzAPI_Map_GetStoredString(Player(i - 1), TALENT_SAVE))
         set udg_talent[i] = 0
 
-        set talent_three_attribute[i] = getSixNum(talentPoint, 1)
-        set talent_critical_attack[i] = getSixNum(talentPoint, 2)
-        set talent_special_attack[i] = getSixNum(talentPoint, 3)
+        set talent_three_attribute[i] = getSixNum(talentTotalPoint[i], 1)
+        set talent_critical_attack[i] = getSixNum(talentTotalPoint[i], 2)
+        set talent_special_attack[i] = getSixNum(talentTotalPoint[i], 3)
 
-        set talent_armor[i] = getSixNum(talentPoint, 4)
-        set talent_damage_absorption[i] = getSixNum(talentPoint, 5)
-        set talent_recover_hp[i] = getSixNum(talentPoint, 6)
+        set talent_armor[i] = getSixNum(talentTotalPoint[i], 4)
+        set talent_damage_absorption[i] = getSixNum(talentTotalPoint[i], 5)
+        set talent_recover_hp[i] = getSixNum(talentTotalPoint[i], 6)
 
-        set talent_gold[i] = getSixNum(talentPoint, 7)
-        set talent_reputation[i] = getSixNum(talentPoint, 8)
-        set talent_lumber[i] = getSixNum(talentPoint, 9)
-        set talent_six_attribute[i] = getSixNum(talentPoint, 10)
+        set talent_gold[i] = getSixNum(talentTotalPoint[i], 7)
+        set talent_reputation[i] = getSixNum(talentTotalPoint[i], 8)
+        set talent_lumber[i] = getSixNum(talentTotalPoint[i], 9)
+        set talent_six_attribute[i] = getSixNum(talentTotalPoint[i], 10)
 
         set i = i + 1
     endloop

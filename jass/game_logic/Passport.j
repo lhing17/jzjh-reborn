@@ -138,8 +138,7 @@ endfunction
 
 // 天赋树加点
 function addPointInTalentTree takes integer i, integer treeNum, integer level returns nothing
-    local integer talentPoint = decodeInt(DzAPI_Map_GetStoredString(Player(i - 1), TALENT_SAVE))
-    local integer newSave = 0
+    local integer talentPoint = talentTotalPoint[i]
     // 左侧 攻击天赋 三围->暴击->特攻
     // 特攻 2 4 6 8 10
     // 暴击倍数 0.1 0.2 0.3 0.4 0.5
@@ -163,43 +162,43 @@ function addPointInTalentTree takes integer i, integer treeNum, integer level re
     if treeNum == 1 then
         if level == 1 then
             set talent_three_attribute[i] = talent_three_attribute[i] + 1
-            set newSave = setSixNum(talentPoint, 1, talent_three_attribute[i])
+            set talentTotalPoint[i] = setSixNum(talentPoint, 1, talent_three_attribute[i])
         elseif level == 2 then
             set talent_critical_attack[i] = talent_critical_attack[i] + 1
-            set newSave = setSixNum(talentPoint, 2, talent_critical_attack[i])
+            set talentTotalPoint[i] = setSixNum(talentPoint, 2, talent_critical_attack[i])
         elseif level == 3 then
             set talent_special_attack[i] = talent_special_attack[i] + 1
-            set newSave = setSixNum(talentPoint, 3, talent_special_attack[i])
+            set talentTotalPoint[i] = setSixNum(talentPoint, 3, talent_special_attack[i])
         endif
     elseif treeNum == 2 then
         if level == 1 then
             set talent_armor[i] = talent_armor[i] + 1
-            set newSave = setSixNum(talentPoint, 4, talent_armor[i])
+            set talentTotalPoint[i] = setSixNum(talentPoint, 4, talent_armor[i])
         elseif level == 2 then
             set talent_damage_absorption[i] = talent_damage_absorption[i] + 1
-            set newSave = setSixNum(talentPoint, 5, talent_damage_absorption[i])
+            set talentTotalPoint[i] = setSixNum(talentPoint, 5, talent_damage_absorption[i])
         elseif level == 3 then
             set talent_recover_hp[i] = talent_recover_hp[i] + 1
-            set newSave = setSixNum(talentPoint, 6, talent_recover_hp[i])
+            set talentTotalPoint[i] = setSixNum(talentPoint, 6, talent_recover_hp[i])
         endif
     elseif treeNum == 3 then
         if level == 1 then
             set talent_gold[i] = talent_gold[i] + 1
-            set newSave = setSixNum(talentPoint, 7, talent_gold[i])
+            set talentTotalPoint[i] = setSixNum(talentPoint, 7, talent_gold[i])
         elseif level == 2 then
             set talent_reputation[i] = talent_reputation[i] + 1
-            set newSave = setSixNum(talentPoint, 8, talent_reputation[i])
+            set talentTotalPoint[i] = setSixNum(talentPoint, 8, talent_reputation[i])
         elseif level == 3 then
             set talent_lumber[i] = talent_lumber[i] + 1
-            set newSave = setSixNum(talentPoint, 9, talent_lumber[i])
+            set talentTotalPoint[i] = setSixNum(talentPoint, 9, talent_lumber[i])
         elseif level == 4 then
             set talent_six_attribute[i] = talent_six_attribute[i] + 1
-            set newSave = setSixNum(talentPoint, 10, talent_six_attribute[i])
+            set talentTotalPoint[i] = setSixNum(talentPoint, 10, talent_six_attribute[i])
         endif
     endif
     // 决战币减少5
     call setCoin(passportCoin[i] - 5, i)
-    call DzAPI_Map_StoreString(Player(i - 1), TALENT_SAVE,encodeInt(newSave))
+    call DzAPI_Map_StoreString(Player(i - 1), TALENT_SAVE,encodeInt(talentTotalPoint[i]))
 
 endfunction
 
