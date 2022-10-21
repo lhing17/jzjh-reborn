@@ -214,19 +214,27 @@ function toggleTalentTree takes nothing returns nothing
 endfunction
 
 function resetTalentPoint takes nothing returns nothing
+	local integer k = 1
+	local integer i = 1 + GetPlayerId(DzGetTriggerUIEventPlayer())
 	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		loop
+			exitwhen k > 10
+			call talentLevelWidget[k].setText("Lv.0")
+			set k = k + 1
+		endloop
 		call DzSyncData("resetTalent", I2S(i))
 	endif
 endfunction
 
 function highlightTalentReset takes nothing returns nothing
 	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
-		call talentTreeWidget.setAlpha(255)
+		call talentResetWidget.setAlpha(255)
+	endif
 endfunction
 
 function unhighlightTalentReset takes nothing returns nothing
 	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
-		call talentTreeWidget.setAlpha(200)
+		call talentResetWidget.setAlpha(200)
 	endif
 endfunction
 
@@ -856,9 +864,22 @@ endfunction
 function doResetTalent takes nothing returns nothing
 	local integer i = S2I(DzGetTriggerSyncData())
 	local integer totalPoint = talent_three_attribute[i] + talent_critical_attack[i] + talent_special_attack[i] + talent_armor[i] + talent_damage_absorption[i] + talent_recover_hp[i] + talent_gold[i] + talent_reputation[i] + talent_lumber[i] + talent_six_attribute[i]
+	set talent_three_attribute[i] = 0
+	set talent_critical_attack[i] = 0
+	set talent_special_attack[i] = 0
+	set talent_armor[i] = 0
+	set talent_damage_absorption[i] = 0
+	set talent_recover_hp[i] = 0
+	set talent_gold[i] = 0
+	set talent_reputation[i] = 0
+	set talent_lumber[i] = 0
+	set talent_six_attribute[i] = 0
 	if totalPoint > 0 then
 		call setCoin(passportCoin[i] + 5 * totalPoint, i)
     	call DzAPI_Map_StoreInteger(Player(i - 1), TALENT_SAVE, 0)
+		if (Player(i - 1) == GetLocalPlayer()) then
+			call talentCoinText.setText(I2S(passportCoin[i]))
+		endif
 	endif
 endfunction
 
@@ -1100,8 +1121,8 @@ function drawUI_Conditions takes nothing returns boolean
 	endloop	
 	call talentCoinText.setPoint(LEFT, talentCoinIcon, RIGHT, 0.005, 0)
 
-	set talentResetWidget = Frame.newImage1(talentTree, "war3mapImported\\reset.blp", 0.032, 0.04)
-	call talentResetWidget.setPoint(CENTER, talentTree, TOPLEFT, 0.06, - 0.06)
+	set talentResetWidget = Frame.newImage1(talentTree, "war3mapImported\\reset.blp", 0.04, 0.032)
+	call talentResetWidget.setPoint(CENTER, talentTree, TOPLEFT, 0.06, - 0.02)
 	call talentResetWidget.setAlpha(200)
 
 	set talentResetButton = Frame.newTextButton(talentResetWidget)

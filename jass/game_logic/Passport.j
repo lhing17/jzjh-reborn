@@ -40,7 +40,6 @@ endfunction
 // 设置领取了某一等级的奖励
 function setRewardS1 takes integer level, integer i returns nothing
     set passportSwitchS1[i] = YDWEBitwise_OR(passportSwitchS1[i], YDWEBitwise_LShift(1, level - 1))
-    call DzAPI_Map_StoreString(Player(i - 1), PASSPORT_SWITCH_S1, newEncryptInt(passportSwitchS1[i]))
 endfunction
 
 // 增加通行证经验
@@ -71,7 +70,7 @@ function rewardS1 takes integer level, integer i returns nothing
     // 七级 十个决战币
     // 八级 英雄皮肤 初始攻击速度+10%
     if level == 1 or level == 3 or level == 5 or level == 6 or level == 7 then
-        call setCoin(passportCoin[i] + 10, i)
+        set passportCoin[i] = passportCoin[i] + 10
     endif
 
 
@@ -86,7 +85,7 @@ function rewardS1 takes integer level, integer i returns nothing
     // 八级 英雄皮肤 初始攻击范围+300
     if DzAPI_Map_HasMallItem(Player(i - 1), PROPERTY_PASSPORT_S1) or udg_isTest[i - 1] then
         if level == 2 or level == 3 or level == 4 or level == 6 or level == 7 then
-            call setCoin(passportCoin[i] + 10, i)
+            set passportCoin[i] = passportCoin[i] + 10
         endif
     endif
 
@@ -210,7 +209,7 @@ endfunction
 function killGreenDragon takes nothing returns nothing
     local integer i = 1
     local integer point = 0
-    call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "有玩家击碎了|cffffcc00青龙石|r，所有玩家获得通行证积分（每天上限100分，到达上限后不再获得）")
+    call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "有玩家击碎了|cffffcc00青龙石|r，所有玩家获得通行证等级+1（上限8级，到达上限后不再获得）")
     // if udg_nandu >= 8 then
     //     set point = 50
     // elseif udg_nandu >= 6 then
@@ -272,6 +271,8 @@ function initS1Passport takes nothing returns nothing
                 endif
                 set j = j + 1
             endloop
+            call DzAPI_Map_StoreString(Player(i - 1), PASSPORT_SWITCH_S1, newEncryptInt(passportSwitchS1[i]))
+            call DzAPI_Map_StoreString(Player(i - 1), COIN, newEncryptInt(passportCoin[i]))
         endif
         set i = i + 1
     endloop
