@@ -100,13 +100,17 @@ function setTalentAttr takes nothing returns nothing
         set max_damage_absorb[i] = max_damage_absorb[i] + talent_damage_absorption[i] * 0.02
         if talent_six_attribute[i] >= 1 then
             set wuxing[i] = wuxing[i] + 2
-        elseif talent_six_attribute[i] >= 2 then
+        endif
+        if talent_six_attribute[i] >= 2 then
             set gengu[i] = gengu[i] + 2
-        elseif talent_six_attribute[i] >= 3 then
+        endif
+        if talent_six_attribute[i] >= 3 then
             set jingmai[i] = jingmai[i] + 2
-        elseif talent_six_attribute[i] >= 4 then
+        endif
+        if talent_six_attribute[i] >= 4 then
             set danpo[i] = danpo[i] + 2
-        elseif talent_six_attribute[i] >= 5 then
+        endif
+        if talent_six_attribute[i] >= 5 then
             set yishu[i] = yishu[i] + 2
         endif
         set i = i + 1
