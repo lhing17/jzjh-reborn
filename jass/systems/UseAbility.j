@@ -182,8 +182,8 @@ function shortenAbilityCd takes nothing returns nothing
 	local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
 	local integer id = LoadInteger(YDHT, GetHandleId(t), 1)
 
-	// CD变为0.67倍
-	call EXSetAbilityState(EXGetUnitAbility(u, id), 1, EXGetAbilityState(EXGetUnitAbility(u, id), 1) * 0.67)
+	// CD变为0.5倍
+	call EXSetAbilityState(EXGetUnitAbility(u, id), 1, EXGetAbilityState(EXGetUnitAbility(u, id), 1) * 0.5)
 	call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "岚葵发动了|CFF66FF00岚葵的祝福|r，" + GetObjectName(id) + "的冷却时间缩短了")
 
 	call FlushChildHashtable(YDHT, GetHandleId(t))
@@ -211,7 +211,7 @@ function UseAbility_Conditions takes nothing returns boolean
 	local integer life = 0
 	
 	// 岚葵皮肤效果岚葵的禅定——使用技能时，有一定几率CD减少为原来的0.67倍
-	if (GetUnitTypeId(P4[i]) == 'n018' and GetRandomInt(1, 100) <= 30) and id != 'A00C' then
+	if (GetUnitTypeId(P4[i]) == 'n018' and GetRandomInt(1, 100) <= 30) and id != 'A00C' and IsUnitType(u, UNIT_TYPE_HERO) then
 		set t = CreateTimer()
 		call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
 		call SaveInteger(YDHT, GetHandleId(t), 1, id)

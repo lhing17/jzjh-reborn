@@ -35,8 +35,7 @@ globals
     // 总天赋点数
     integer array talentTotalPoint
 
-    // 天赋加点存档
-    constant string TALENT_SAVE = "TALENT_SAVE"
+   
     constant integer MAX_INT = 2147483647
 
 

@@ -860,10 +860,42 @@ function addTalentPoint10 takes nothing returns nothing
 	call addPointInTalentTree(S2I(DzGetTriggerSyncData()), 3, 4)
 endfunction
 
+function calculateTotalPointFromPassport takes integer i returns integer
+	local integer j = 1
+	local integer coin = 0
+	loop
+		exitwhen j > 8
+		if  passportLevelS1[i] >= j and isRewardS1(passportSwitchS1[i], j) then
+			if j == 1 or j == 3 or j == 5 or j == 6 or j == 7 then
+				set coin = coin + 10
+			endif
+		
+		
+			// 精英
+			// 一级 宠物皮肤魁岚
+			// 二级 十个决战币
+			// 三级 十个决战币
+			// 四级 十个决战币
+			// 五级 翅膀 六围+1
+			// 六级 十个决战币
+			// 七级 十个决战币
+			// 八级 英雄皮肤 初始攻击范围+300
+			if DzAPI_Map_HasMallItem(Player(i - 1), PROPERTY_PASSPORT_S1) or udg_isTest[i - 1] then
+				if j == 2 or j == 3 or j == 4 or j == 6 or j == 7 then
+					set coin = coin + 10
+				endif
+			endif
+		endif
+		set j = j + 1
+	endloop
+	return coin
+endfunction
+
 // 重置天赋点数
 function doResetTalent takes nothing returns nothing
 	local integer i = S2I(DzGetTriggerSyncData())
-	local integer totalPoint = talent_three_attribute[i] + talent_critical_attack[i] + talent_special_attack[i] + talent_armor[i] + talent_damage_absorption[i] + talent_recover_hp[i] + talent_gold[i] + talent_reputation[i] + talent_lumber[i] + talent_six_attribute[i]
+	local integer coin = calculateTotalPointFromPassport(i)
+	set talentTotalPoint[i] = 0
 	set talent_three_attribute[i] = 0
 	set talent_critical_attack[i] = 0
 	set talent_special_attack[i] = 0
@@ -874,13 +906,13 @@ function doResetTalent takes nothing returns nothing
 	set talent_reputation[i] = 0
 	set talent_lumber[i] = 0
 	set talent_six_attribute[i] = 0
-	if totalPoint > 0 then
-		call setCoin(passportCoin[i] + 5 * totalPoint, i)
-    	call DzAPI_Map_StoreString(Player(i - 1), TALENT_SAVE, "MAGIC")
-		if (Player(i - 1) == GetLocalPlayer()) then
-			call talentCoinText.setText(I2S(passportCoin[i]))
-		endif
+
+		call setCoin(coin, i)
+	call DzAPI_Map_StoreString(Player(i - 1), TALENT_SAVE, "MAGIC")
+	if (Player(i - 1) == GetLocalPlayer()) then
+		call talentCoinText.setText(I2S(passportCoin[i]))
 	endif
+
 endfunction
 
 

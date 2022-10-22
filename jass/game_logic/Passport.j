@@ -28,8 +28,10 @@ globals
 
 
     constant string PASSPORT_EXP_S1 = "passportExpS1"
-    constant string COIN = "coin"
-    constant string PASSPORT_SWITCH_S1 = "passportSwitchS1"
+    constant string COIN = "coinR"
+    constant string PASSPORT_SWITCH_S1 = "passportSwitchS1R"
+     // 天赋加点存档
+     constant string TALENT_SAVE = "TALENT_SAVER"
 endglobals
 
 // 判断是否领取了某一等级的奖励
@@ -161,37 +163,77 @@ function addPointInTalentTree takes integer i, integer treeNum, integer level re
 
     if treeNum == 1 then
         if level == 1 then
+            if talent_three_attribute[i] >= 5 then
+                call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFFF0000已经达到最大等级|r")
+                return
+            endif
             set talent_three_attribute[i] = talent_three_attribute[i] + 1
             set talentTotalPoint[i] = setSixNum(talentPoint, 1, talent_three_attribute[i])
         elseif level == 2 then
+            if talent_critical_attack[i] >= 5 then
+                call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFFF0000已经达到最大等级|r")
+                return
+            endif
             set talent_critical_attack[i] = talent_critical_attack[i] + 1
             set talentTotalPoint[i] = setSixNum(talentPoint, 2, talent_critical_attack[i])
         elseif level == 3 then
+            if talent_special_attack[i] >= 5 then
+                call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFFF0000已经达到最大等级|r")
+                return
+            endif
             set talent_special_attack[i] = talent_special_attack[i] + 1
             set talentTotalPoint[i] = setSixNum(talentPoint, 3, talent_special_attack[i])
         endif
     elseif treeNum == 2 then
         if level == 1 then
+            if talent_armor[i] >= 5 then
+                call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFFF0000已经达到最大等级|r")
+                return
+            endif
             set talent_armor[i] = talent_armor[i] + 1
             set talentTotalPoint[i] = setSixNum(talentPoint, 4, talent_armor[i])
         elseif level == 2 then
+            if talent_damage_absorption[i] >= 5 then
+                call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFFF0000已经达到最大等级|r")
+                return
+            endif
             set talent_damage_absorption[i] = talent_damage_absorption[i] + 1
             set talentTotalPoint[i] = setSixNum(talentPoint, 5, talent_damage_absorption[i])
         elseif level == 3 then
+            if talent_recover_hp[i] >= 5 then
+                call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFFF0000已经达到最大等级|r")
+                return
+            endif
             set talent_recover_hp[i] = talent_recover_hp[i] + 1
             set talentTotalPoint[i] = setSixNum(talentPoint, 6, talent_recover_hp[i])
         endif
     elseif treeNum == 3 then
         if level == 1 then
+            if talent_gold[i] >= 5 then
+                call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFFF0000已经达到最大等级|r")
+                return
+            endif
             set talent_gold[i] = talent_gold[i] + 1
             set talentTotalPoint[i] = setSixNum(talentPoint, 7, talent_gold[i])
         elseif level == 2 then
+            if talent_reputation[i] >= 5 then
+                call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFFF0000已经达到最大等级|r")
+                return
+            endif
             set talent_reputation[i] = talent_reputation[i] + 1
             set talentTotalPoint[i] = setSixNum(talentPoint, 8, talent_reputation[i])
         elseif level == 3 then
+            if talent_lumber[i] >= 5 then
+                call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFFF0000已经达到最大等级|r")
+                return
+            endif
             set talent_lumber[i] = talent_lumber[i] + 1
             set talentTotalPoint[i] = setSixNum(talentPoint, 9, talent_lumber[i])
         elseif level == 4 then
+            if talent_six_attribute[i] >= 5 then
+                call DisplayTextToPlayer(Player(i - 1), 0, 0, "|CFFFF0000已经达到最大等级|r")
+                return
+            endif
             set talent_six_attribute[i] = talent_six_attribute[i] + 1
             set talentTotalPoint[i] = setSixNum(talentPoint, 10, talent_six_attribute[i])
         endif
@@ -205,7 +247,7 @@ endfunction
 function killGreenDragon takes nothing returns nothing
     local integer i = 1
     local integer point = 0
-    call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "有玩家击碎了|cffffcc00青龙石|r，所有玩家获得通行证等级+1（上限8级，到达上限后不再获得）")
+    call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "有玩家击碎了|cffffcc00青龙石|r，所有玩家获得通行证等级+1（下局生效，上限8级，到达上限后不再获得）")
     // if udg_nandu >= 8 then
     //     set point = 50
     // elseif udg_nandu >= 6 then
