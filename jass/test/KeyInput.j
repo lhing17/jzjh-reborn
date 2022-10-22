@@ -85,7 +85,7 @@ function KeyInput takes nothing returns nothing
 		endif
 	endif
 	if SubStringBJ(s, 1, 4) == "wing" then
-		if S2I(SubStringBJ(s, 5, 5)) == 1 then
+		if S2I(SubStringBJ(s, 5, 5)) == 0 then
 			call DestroyEffect(vd[i])
 			set vd[i] = null
 		endif
