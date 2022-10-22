@@ -719,7 +719,7 @@ globals
 	rect uh = null
 	rect vh = null
 	sound wh = null
-	string xh = "war3mapImported\\yanmenguanqian4.mp3"
+	string xh = "Sound\\Music\\mp3Music\\ArthasTheme.mp3"
 	string yh = "war3mapImported\\wulindahui3.mp3"
 	string zh = "Sound\\Music\\mp3Music\\War2IntroMusic.mp3"
 	sound ah = null
