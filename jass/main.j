@@ -2090,7 +2090,7 @@ function InitPriv takes nothing returns nothing
 	local integer i = 0
 	loop
 		exitwhen i > 4
-		if GetPlayerName(Player(i)) == "WorldEdit" or GetPlayerName(Player(i)) == "zeikale" or GetPlayerName(Player(i)) == "zeikala" or GetPlayerName(Player(i)) == "非我莫属xq" or GetPlayerName(Player(i)) == "苍穹而降" or GetPlayerName(Player(i)) == "晓窗临风" or GetPlayerName(Player(i)) == "沫Mu" or GetPlayerName(Player(i)) == "虞姬" then
+		if GetPlayerName(Player(i)) == "WorldEdit" or GetPlayerName(Player(i)) == "zeikale" or GetPlayerName(Player(i)) == "zeikala" or GetPlayerName(Player(i)) == "非我莫属xq" or GetPlayerName(Player(i)) == "苍穹而降" or GetPlayerName(Player(i)) == "晓窗临风" or GetPlayerName(Player(i)) == "沫Mu" or GetPlayerName(Player(i)) == "wenhuang" then
 			if admin == "0" or testVersion then
 				set udg_isTest[i] = true
 				set talent_flag[i + 1] = 1
