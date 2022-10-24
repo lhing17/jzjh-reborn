@@ -12,25 +12,27 @@ function EverySecond_Conditions takes nothing returns boolean
 	local string s = ""
 	local timer t 
 	local timerdialog tg
+	local integer rand = 0
+	local integer j = 1
 	set passed_time = passed_time + 1
 	if passed_time == 1 then
 		call initOpenDenom() // 开放中原武学散篇的门派
 	endif
 	if passed_time == 40 then
-		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,20,"|cfffff000欢迎来到|cffff00de决战江湖|r")
+		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 20, "|cfffff000欢迎来到|cffff00de决战江湖|r")
 		// 获取服务器全局存档，信息提示
 		set info = DzAPI_Map_GetMapConfig("info")
 		if info != "无" then
-			call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,20,"|CFF00FFFF公告：|r|cffff00de"+info+"|r")
-			call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,20,"|CFF00FFFF公告：|r|cffff00de"+info+"|r")
-			call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,20,"|CFF00FFFF公告：|r|cffff00de"+info+"|r")
+			call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 20, "|CFF00FFFF公告：|r|cffff00de" + info + "|r")
+			call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 20, "|CFF00FFFF公告：|r|cffff00de" + info + "|r")
+			call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 20, "|CFF00FFFF公告：|r|cffff00de" + info + "|r")
 		endif
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 20, "|CFF00FFFF提示：|r按|CFF00EE00F9|r进入任务面板可查看游戏各个系统|r")
 	elseif passed_time == 60 then
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 20, "|CFF00FFFF提示：|r选择人物后直接回城（hg）可以选择自由门派|r")
 	elseif passed_time == 80 then
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 20, "|CFF00FFFF提示：|r基地右侧的NPC|CFF00EE00新手教官|r处查看游戏中的特殊玩法|r")
-		call PingMinimapForForce(bj_FORCE_ALL_PLAYERS, 398, -689, 5)
+		call PingMinimapForForce(bj_FORCE_ALL_PLAYERS, 398, - 689, 5)
 	elseif passed_time == 120 then
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 20, "|CFF00FFFF提示：|r游戏开始2分钟内输入|CFF00EE00sw|r可激活试玩模式，一小时内不刷进攻怪|r")
 	elseif passed_time == 160 then
@@ -47,15 +49,30 @@ function EverySecond_Conditions takes nothing returns boolean
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 20, "|CFF00FFFF提示：|r|CFF00EE00称号|r可以大幅提升属性，部分称号还可以使特定武功变强|r")
 	elseif passed_time == 320 then
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 20, "|CFF00FFFF提示：|r历练5后可以到NPC|CFF00EE00游坦之|r处自创武功")
-		call PingMinimapForForce(bj_FORCE_ALL_PLAYERS, -9000, -13169, 5)
+		call PingMinimapForForce(bj_FORCE_ALL_PLAYERS, - 9000, - 13169, 5)
 		if tiaoZhanIndex == 3 then
 			set udg_boshu = 28
-			call SetPlayerTechResearched(Player(12),'R001',7)
-			call SetPlayerTechResearched(Player(6),'R001',7)
-			call SetPlayerTechResearched(Player(15),'R001',7)
+			call SetPlayerTechResearched(Player(12), 'R001', 7)
+			call SetPlayerTechResearched(Player(6), 'R001', 7)
+			call SetPlayerTechResearched(Player(15), 'R001', 7)
 			call setDifficultyAndExpRate(8)	
 			call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 20, "|CFF00FFFF提示：|r已自动提升至最高难度")
 		endif
+	elseif passed_time == 666 then
+		loop
+			exitwhen j > 5
+			if GetPlayerController(Player(j - 1)) == MAP_CONTROL_USER and GetPlayerSlotState(Player(j - 1)) == PLAYER_SLOT_STATE_PLAYING then
+				set rand = GetRandomInt(1, 1000)
+				if rand == 666 then
+					call ModifyHeroStat(0, udg_hero[j], 0, 666)
+					call ModifyHeroStat(1, udg_hero[j], 0, 666)
+					call ModifyHeroStat(2, udg_hero[j], 0, 666)
+					call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF00B2玩家" + GetPlayerName(Player(j - 1)) + "解锁了|CFF00FF00彩蛋：天选之人，|CFFFF00B2三围属性+666")
+				endif
+			endif
+			set j = j + 1
+		endloop
+		
 	endif
 	// 每秒为最终boss清除一次负面状态
 	if ModuloInteger(passed_time, 1) == 0 and udg_boss[7] != null then
@@ -63,11 +80,11 @@ function EverySecond_Conditions takes nothing returns boolean
 	endif
 	
 	if tiaoZhanIndex == 3 and passed_time == next_endless_time then
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|CFFFF0033无尽BOSS即将发起进攻，请作好防守准备")
-		call CreateNUnitsAtLocFacingLocBJ(1,u7[8],Player(6),v7[6],v7[4])
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF0033无尽BOSS即将发起进攻，请作好防守准备")
+		call CreateNUnitsAtLocFacingLocBJ(1, u7[8], Player(6), v7[6], v7[4])
 		set udg_boss[7] = bj_lastCreatedUnit
 		set t = CreateTimer()
-		call TimerStart(t,20,true,function BOSSChengZhang)
+		call TimerStart(t, 20, true, function BOSSChengZhang)
 		set endless_timer = CreateTimer()
 		set tg = CreateTimerDialogBJ(endless_timer, "|CFF00FFFF无尽BOSS时间：")
 		call TimerDialogDisplay(tg, true)
@@ -81,15 +98,15 @@ function EverySecond_Conditions takes nothing returns boolean
 	endif
 	
 	loop
-	exitwhen i > 5
+		exitwhen i > 5
 		// 宠物技能 账号信息
 		if P4[i] != null and IsUnitAliveBJ(P4[i]) then
 			call SetUnitAbilityLevel(P4[i], 'A0EO', i)
-			set s = "地图等级：|cff00ff00"+ I2S(DzAPI_Map_GetMapLevel(Player(i - 1))) +"|r"
-			set s = s + "｜排名：|cff00ff00"+ I2S(DzAPI_Map_GetMapLevelRank(Player(i-1))) + "|r|n"
+			set s = "地图等级：|cff00ff00" + I2S(DzAPI_Map_GetMapLevel(Player(i - 1))) + "|r"
+			set s = s + "｜排名：|cff00ff00" + I2S(DzAPI_Map_GetMapLevelRank(Player(i - 1))) + "|r|n"
 			set s = s + "单通门派：|cff00ff00" + I2S(LoadInteger(YDHT, i, StringHash("单通门派数量"))) + "|r"
 			set s = s + "｜多通门派：|cff00ff00" + I2S(LoadInteger(YDHT, i, StringHash("多通门派数量"))) + "|r|n"
-			set s = s + "最大无尽BOSS数：|cff00ff00" + I2S(decryptInt(DzAPI_Map_GetStoredString(Player(i - 1),"endless"), Player(i - 1))) + "|r"
+			set s = s + "最大无尽BOSS数：|cff00ff00" + I2S(decryptInt(DzAPI_Map_GetStoredString(Player(i - 1), "endless"), Player(i - 1))) + "|r"
 			call YDWESetUnitAbilityDataString( P4[i], 'A0EO', i, 218, s )
 		endif
 		
@@ -127,6 +144,6 @@ function EverySecond takes nothing returns nothing
 	local trigger t = CreateTrigger()
 	
 	call TriggerRegisterTimerEventPeriodic(t, 1.)
-	call TriggerAddCondition(t,Condition(function EverySecond_Conditions))
+	call TriggerAddCondition(t, Condition(function EverySecond_Conditions))
 	set t = null
 endfunction

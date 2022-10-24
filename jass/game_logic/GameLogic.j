@@ -1441,6 +1441,7 @@ function TiaoZhanMoshi takes nothing returns nothing
 		set udg_tiaoZhan0 = DialogAddButtonBJ(udg_tiaoZhan, "|cFF00CC00快速通关")
 		set udg_tiaoZhan1 = DialogAddButtonBJ(udg_tiaoZhan, "|cFFCC0066无技能书商店")
 		set udg_tiaoZhan2 = DialogAddButtonBJ(udg_tiaoZhan, "|cFF0066CC无尽BOSS战")
+		set udg_tiaoZhan4 = DialogAddButtonBJ(udg_tiaoZhan, "|cFF6600CC无书速通")
 		call DialogDisplayBJ(true, udg_tiaoZhan, Player(0))
 		// 开启计时器，20s不选模式默认选择特殊模式
 		call TimerStart(CreateTimer(), 20, false, function TiaoZhanMoshi_Auto)
@@ -1476,6 +1477,18 @@ function TiaoZhanMoshi_Action takes nothing returns nothing
 		set tiaoZhanIndex = 3
 
 		set ShiFouShuaGuai = false // 无尽BOSS战模式不刷怪
+	endif
+	if GetClickedButton() == udg_tiaoZhan4 then
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "主机选择了|cFF6600CC无书速通|r模式")
+		set udg_teshushijian = true
+		set udg_sutong = true
+		set tiaoZhanIndex = 4
+		// 移除技能书商店
+		loop
+			exitwhen i > 3
+			call RemoveUnit(udg_sellSkillBook[i])
+			set i = i + 1
+		endloop
 	endif
 	// 已选挑战模式
 	set tiaoZhanFlag = true
@@ -1909,7 +1922,7 @@ endfunction
 
 globals
 	boolean is_victory = false
-	constant string VERSION = "1.6.63"
+	constant string VERSION = "1.6.64"
 endglobals
 
 //失败动作
@@ -1983,6 +1996,10 @@ function Victory takes nothing returns nothing
 			set endless_count = endless_count + 1
 			call endlessFail()
 		endif
+		// 无书速通模式5倍积分
+		if tiaoZhanIndex == 4 then
+			set get_zdl = get_zdl * 5
+		endif
 		// 返璞归真模式额外2倍积分
 		if udg_fpgz then
 			set get_zdl = get_zdl * 2
@@ -2014,7 +2031,7 @@ function Victory takes nothing returns nothing
 				call DzAPI_Map_StoreInteger(Player(i - 1), "jf", udg_jf[i - 1])
 				call DzAPI_Map_StoreInteger(Player(i - 1), "success", udg_success[i - 1])
 				// 保存通关门派存档，速通且难7，去除3个vip门派
-				if tiaoZhanIndex == 1 and topDegreeFlag then
+				if (tiaoZhanIndex == 1 or tiaoZhanIndex == 4) and topDegreeFlag then
 					// 初始化存档
 					if singleSuccess[i - 1] == "" then
 						set singleSuccess[i - 1] = initMpSaveStr
@@ -5475,7 +5492,7 @@ function Ya takes nothing returns nothing
 	endif
 	// 熊猫杀怪加木材
 	if (GetUnitTypeId(P4[i]) == 'n00V' and GetRandomInt(1, 100) <= 10) then
-		call commonAddLumber( GetOwningPlayer(GetKillingUnit()), 1)
+		call AdjustPlayerStateBJ(1, GetOwningPlayer(GetKillingUnit()), PLAYER_STATE_RESOURCE_LUMBER)
 	endif
 	set u = null
 	set p = null

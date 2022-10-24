@@ -146,8 +146,9 @@ function baMianLingLong takes unit u, item it returns nothing
 		set gold_return = R2I(gold * rate) + 1
 		set lumber_return = R2I(lumber * rate) + 1
 		
-		call commonAddGold( GetOwningPlayer(u), gold_return)
-		call commonAddLumber( GetOwningPlayer(u), lumber_return)
+		call AdjustPlayerStateBJ(gold_return, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
+		call AdjustPlayerStateBJ(lumber_return, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_LUMBER)
+
 		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00购买成功，返利金币+"+I2S(gold_return)+"，珍稀币+"+I2S(lumber_return))
 		
 		call WuGongShengChong(u, BA_MIAN_LING_LONG, 50)

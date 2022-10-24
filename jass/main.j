@@ -201,6 +201,7 @@ globals
 	button udg_tiaoZhan1 = null // 无技能商店按钮
 	button udg_tiaoZhan2 = null // 无尽BOSS战按钮
 	button udg_tiaoZhan3 = null // 返璞归真模式按钮
+	button udg_tiaoZhan4 = null // 无书速通模式按钮
 
 	integer udg_gudongA = 0
 	integer udg_gudongB = 0
