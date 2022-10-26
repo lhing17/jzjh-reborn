@@ -148,7 +148,7 @@ function XianTianYiYang takes nothing returns nothing
     local unit uc=GetSpellTargetUnit()
     local location loc=GetUnitLoc(uc)
     local group g=CreateGroup()
-    call WuGongShengChong(u,'A0CM',250)
+    call WuGongShengChong(u,'A0CM', 150)
     if u==uc then
 	    call SetWidgetLife(u,1.)
 	    call WuGongShangHai(u,u,299999)

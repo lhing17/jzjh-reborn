@@ -157,7 +157,7 @@ function jD takes nothing returns nothing
         set bj_forLoopBIndex=bj_forLoopBIndex+1
     endloop
     call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(500.,loc,Condition(function hD)),function iD)
-    call WuGongShengChong(u,'A08R',250.)
+    call WuGongShengChong(u,'A08R', 150)
     call RemoveLocation(loc)
 	// 专属加成
 	if UnitHasDenomWeapon(u, 'I0DK') then
