@@ -177,7 +177,6 @@ globals
 	boolean udg_fpgz = false
 	boolean udg_yunyangxianshen = false
 	boolean udg_sutong = false
-	boolean taohuakai = false
 	boolean array showDamage
 	boolean array showEffect
 	dialog udg_index = null
@@ -1426,7 +1425,6 @@ function Zw takes nothing returns nothing
 	call commonAddLumber(Player(3), 10)
 	call commonAddLumber(Player(4), 10)
 	call ChooseMoShi()
-	call TaoHuaDaoKaiFang()
 	set bj_forLoopAIndex = 0
 	loop
 		exitwhen bj_forLoopAIndex >= 5
