@@ -2581,9 +2581,6 @@ globals
 	timer jiuyangTimer1 = null
 	timer jiuyangTimer2 = null
 	timer jiuyangTimer3 = null
-	timerdialog jiuyangTimerDialog1 = null
-	timerdialog jiuyangTimerDialog2 = null
-	timerdialog jiuyangTimerDialog3 = null
 
 	quest defeatStealer = null
 	quest defeatSeeker = null
@@ -2604,7 +2601,6 @@ function stealSuccess takes nothing returns nothing
 	call DestroyQuest(defeatStealer)
 	call PauseTimer(jiuyangTimer1)
 	call DestroyTimer(jiuyangTimer1)
-	call DestroyTimerDialog(jiuyangTimerDialog1)
 	set ykx = null
 	set xxz = null
 endfunction
@@ -2623,7 +2619,6 @@ function stealJiuYang takes nothing returns nothing
 	call SaveUnitHandle(YDHT, GetHandleId(jiuyangTimer1), 0, ykx)
 	call SaveUnitHandle(YDHT, GetHandleId(jiuyangTimer1), 1, xxz)
 	call TimerStart(jiuyangTimer1, GetRandomInt(600, 1500), false, function stealSuccess)
-	set jiuyangTimerDialog1 = createTimerDialog(jiuyangTimer1, "二杰盗经书")
 	set ykx = null
 	set xxz = null
 endfunction
@@ -2644,7 +2639,6 @@ function baiYuanDeath takes nothing returns nothing
 	endif
 	call PauseTimer(jiuyangTimer3)
 	call DestroyTimer(jiuyangTimer3)
-	call DestroyTimerDialog(jiuyangTimerDialog3)
 endfunction
 //不击杀尹克西和潇湘子的话二人将经书偷走，觉远大师和张君宝去追经书，若不打败觉远大师和张君宝，经书将被二人追回，经书重回少林寺藏经阁中
 function seekSuccess takes nothing returns nothing
@@ -2663,11 +2657,9 @@ function seekSuccess takes nothing returns nothing
 		call ShowUnit( gg_unit_n00M_0131, true )
 		set jiuyangTimer3 = CreateTimer()
 		call TimerStart(jiuyangTimer3, i, false, function baiYuanDeath)
-		set jiuyangTimerDialog3 = createTimerDialog(jiuyangTimer3, "曾阿牛取腹中书")
 	endif
 	call PauseTimer(jiuyangTimer2)
 	call DestroyTimer(jiuyangTimer2)
-	call DestroyTimerDialog(jiuyangTimerDialog2)
 	call RemoveUnit(jyds)
 	call RemoveUnit(zjb)
 	call DestroyQuest(defeatSeeker)
@@ -2701,7 +2693,6 @@ function seekStealers takes nothing returns nothing
 	call SaveUnitHandle(YDHT, GetHandleId(jiuyangTimer2), 0, jyds)
 	call SaveUnitHandle(YDHT, GetHandleId(jiuyangTimer2), 1, zjb)
 	call TimerStart(jiuyangTimer2, GetRandomInt(600, 1500), false, function seekSuccess)
-	set jiuyangTimerDialog2 = createTimerDialog(jiuyangTimer2, "追回经书")
 	set ykx = null
 	set xxz = null
 	set jyds = null
