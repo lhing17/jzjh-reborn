@@ -2923,10 +2923,12 @@ function switchSkin takes nothing returns nothing
 		call YDWEUnitTransform(u, 'AEme', 'n018')
 	endif
 	// 添加更换皮肤魔法书并设置魔法书和里面技能永久性
-	// call UnitAddAbility(u,'A0BB')
-	// call UnitMakeAbilityPermanent(u, true, 'A0BB')
-	// call UnitMakeAbilityPermanent(u, true, 'A0B7')
-	// call UnitMakeAbilityPermanent(u, true, 'A0B8')
+	call UnitAddAbility(u,'A0BB')
+	call UnitMakeAbilityPermanent(u, true, 'A0BB')
+	call UnitMakeAbilityPermanent(u, true, 'A0B7')
+	call UnitMakeAbilityPermanent(u, true, 'A0B8')
+	call UnitMakeAbilityPermanent(u, true, 'A0BH')
+	call UnitMakeAbilityPermanent(u, true, 'A0FF')
 	// 添加速通存档奖励魔法书
 	call UnitAddAbility(u, 'A0E0')
 	call UnitMakeAbilityPermanent(u, true, 'A0E1')
