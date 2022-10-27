@@ -116,7 +116,7 @@ function ShengChengFang takes nothing returns nothing
 		// set shoujiajf[i] = shoujiajf[i] + $F
 		// call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()),0,0,"|CFF34FF00守家积分+15")
 	else
-		call commonAddGold( GetOwningPlayer(GetTriggerUnit()), $4E20)
+		call AdjustPlayerStateBJ($4E20, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
 		call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, "|cFFFF0000城防已达最高，无法继续升级|r")
 	endif
 endfunction
@@ -140,11 +140,11 @@ function ShengGaoChengFang takes nothing returns nothing
 			// set shoujiajf[i] = shoujiajf[i] + 25
 			// call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()),0,0,"|CFF34FF00守家积分+25")
 		else
-			call commonAddGold( GetOwningPlayer(GetTriggerUnit()), $C350)
+			call AdjustPlayerStateBJ($C350, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
 			call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, "|cFFFF0000高级城防已达最高，无法继续升级|r")
 		endif
 	else
-		call commonAddGold( GetOwningPlayer(GetTriggerUnit()), $C350)
+		call AdjustPlayerStateBJ($C350, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
 		call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, "|cFFFF000018波进攻怪以后才能使用此功能哦|r")
 	endif
 endfunction
@@ -498,9 +498,9 @@ function heroAddThreeAttribute takes integer i returns nothing
 	elseif talent_three_attribute[i] == 3 then
 		set addition = 100
 	elseif talent_three_attribute[i] == 4 then
-		set addition = 200
+		set addition = 150
 	elseif talent_three_attribute[i] == 5 then
-		set addition = 300
+		set addition = 200
 	endif
 	if addition > 0 then
 		call ModifyHeroStat(bj_HEROSTAT_STR, udg_hero[i], bj_MODIFYMETHOD_ADD, addition)
@@ -734,7 +734,7 @@ function WuMenPai_Action takes nothing returns nothing
 	call SetUnitPositionLoc(u, Q4)
 	call PanCameraToTimedLocForPlayer(p, Q4, 0)
 	call createPartnerAndTownPortalDummy(i, Q4)
-	call commonAddLumber( p, 60)
+	call commonAddLumber( p, 30)
 	set udg_shuxing[i] = udg_shuxing[i] + 5
 	call RemoveLocation(Q4)
 	call UnitAddItemByIdSwapped(1227896394, u)
@@ -764,7 +764,7 @@ function JiaRuMenPai takes nothing returns nothing
 				set udg_runamen[i] = 13
 				call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15., "|CFFff9933玩家" + GetPlayerName(p) + "改拜入了〓姑苏慕容〓，大家一起膜拜他|r")
 				call SetPlayerName(p, "〓姑苏慕容〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-				call commonAddLumber( p, - 60)
+				call commonAddLumber( p, - 30)
 			endif
 
 
@@ -778,7 +778,7 @@ function JiaRuMenPai takes nothing returns nothing
 					call SetPlayerName(p, "〓铁掌帮〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 
 					set udg_shuxing[i] = udg_shuxing[i] - 5
-					call commonAddLumber( p, - 60)
+					call commonAddLumber( p, - 30)
 					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00选择铁掌帮")
 				else
 					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00尚未解锁，不能选择铁掌帮")
@@ -795,7 +795,7 @@ function JiaRuMenPai takes nothing returns nothing
 					call SetPlayerName(p, "〓唐门〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 
 					set udg_shuxing[i] = udg_shuxing[i] - 5
-					call commonAddLumber( p, - 60)
+					call commonAddLumber( p, - 30)
 					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00选择唐门")
 				else
 					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00尚未解锁，不能选择唐门")
@@ -811,7 +811,7 @@ function JiaRuMenPai takes nothing returns nothing
 					call UnitAddItemById(udg_hero[i], ITEM_HAN_SHA)
 
 					set udg_shuxing[i] = udg_shuxing[i] - 5
-					call commonAddLumber( p, - 60)
+					call commonAddLumber( p, - 30)
 					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00选择五毒教")
 				else
 					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00尚未解锁，不能选择五毒教")
@@ -830,7 +830,7 @@ function JiaRuMenPai takes nothing returns nothing
 						call bibo_image.show()
 					endif
 					set udg_shuxing[i] = udg_shuxing[i] - 5
-					call commonAddLumber( p, - 60)
+					call commonAddLumber( p, - 30)
 					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00选择桃花岛")
 				else
 					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00尚未解锁，不能选择桃花岛")
@@ -845,7 +845,7 @@ function JiaRuMenPai takes nothing returns nothing
 					call SetPlayerName(p, "〓汝阳王府〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 
 					set udg_shuxing[i] = udg_shuxing[i] - 5
-					call commonAddLumber( p, - 60)
+					call commonAddLumber( p, - 30)
 					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00选择汝阳王府")
 				else
 					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00尚未解锁，不能选择汝阳王府")
@@ -1922,7 +1922,7 @@ endfunction
 
 globals
 	boolean is_victory = false
-	constant string VERSION = "1.6.66"
+	constant string VERSION = "1.6.67"
 endglobals
 
 //失败动作
@@ -3326,6 +3326,7 @@ function Va takes nothing returns nothing
 		if GetUnitAbilityLevel(udg_hero[i], 'A03O') != 0 then
 			set r = r / 3
 		endif
+		// 通神
 		if GetPlayerState(p, PLAYER_STATE_RESOURCE_GOLD) >= R2I(r) / 20 then
 			call commonAddGold( p, - R2I(r) / 20)
 			call SetWidgetLife(udg_hero[i], RMinBJ((GetUnitState(udg_hero[i], UNIT_STATE_LIFE) + r), GetUnitState(udg_hero[i], UNIT_STATE_MAX_LIFE)))
@@ -3570,7 +3571,7 @@ function YiZhanChuanSong takes nothing returns nothing
 	if GetItemTypeId(GetManipulatedItem()) == 'I0AF' then
 		if xiuxing[i] <= 5 then
 			call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00修行达到6才可以进入,你的修行不足，请前往地图指示点修行去吧")
-			call commonAddGold( p, 100)
+			call AdjustPlayerStateBJ(100, p, PLAYER_STATE_RESOURCE_GOLD)
 		else
 			call DisplayTextToPlayer(p, 0, 0, "|CFF00ff33传送至琉球岛")
 			call SetUnitPosition(udg_hero[i], 10943, 6760)
@@ -5554,7 +5555,7 @@ function sQ takes nothing returns nothing
 	local player p = GetOwningPlayer(u)
 	local integer i = 1 + GetPlayerId(p)
 	if (GetUnitLevel(udg_hero[i]) >= 100)then
-		call commonAddGold( p, 10000)
+		call AdjustPlayerStateBJ(10000, p, PLAYER_STATE_RESOURCE_GOLD)
 		call DisplayTimedTextToPlayer(p, 0, 0, 15, "|cFFFFCC00等级高于100无法购买等级")
 	else
 		call SetHeroLevel(udg_hero[i], GetUnitLevel(udg_hero[i]) + 1, true)

@@ -1286,7 +1286,7 @@ function IsXiangQian takes item it, unit u returns boolean
 	if GetItemTypeId(it)=='I05R' or GetItemTypeId(it)=='I05Q' or GetItemTypeId(it)=='I05M' or GetItemTypeId(it)=='I05O' or GetItemTypeId(it)=='I05P' or GetItemTypeId(it)=='I05N' then
 		if not Deputy_isDeputy(1+GetPlayerId(GetOwningPlayer(u)), DUAN_ZAO) then
 			call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00你不是锻造师，不可以镶嵌宝石")
-			call commonAddGold(GetOwningPlayer(u), 20000)
+			call AdjustPlayerStateBJ(20000, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
 			return false
 	    else
 	        return true

@@ -1518,7 +1518,7 @@ function EnterFB takes unit u, integer goldnum, rect rt0, rect rt1, rect rt2, in
 	set qylocs[35] = Pg
 	set qylocs[36] = Pg
 	if (xiuxing[i] <= FBNum - 2) then
-		call commonAddGold( p, goldnum)
+		call AdjustPlayerStateBJ(goldnum, p, PLAYER_STATE_RESOURCE_GOLD)
 		call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00修行达到" + I2S(FBNum - 1) + "才可以进入,你的修行不足，请前往地图指示点修行去吧")
 		set loc = GetRectCenter(rt0)
 		call PingMinimapLocForForce(ov(p), loc, 5.)
@@ -1560,7 +1560,7 @@ function EnterFB takes unit u, integer goldnum, rect rt0, rect rt1, rect rt2, in
 			call RemoveLocation(loc)
 			call RemoveLocation(loc2)
 		else
-			call commonAddGold( p, 100)
+			call AdjustPlayerStateBJ(100, p, PLAYER_STATE_RESOURCE_GOLD)
 			call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00只能由主角亲自购买前往")
 		endif
 	endif
@@ -2192,15 +2192,15 @@ function IN takes nothing returns nothing
 	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, (1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit()))))
 	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
 	if((UnitTypeNotNull(GetTriggerUnit(), UNIT_TYPE_HERO) == false))then
-		call commonAddGold( Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), $4E20)
+		call AdjustPlayerStateBJ($4E20, Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), PLAYER_STATE_RESOURCE_GOLD)
 		call DisplayTextToPlayer(Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), 0, 0, "|cFFFFCC00只能由主角亲自前往")
 	else
 		if((CountUnitsInGroup(wv(cg, Condition(function HN))) == 0))then
-			call commonAddGold( Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), $4E20)
+			call AdjustPlayerStateBJ($4E20, Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), PLAYER_STATE_RESOURCE_GOLD)
 			call DisplayTextToPlayer(Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), 0, 0, "|cFFFFCC00扫地神僧目前不在藏经阁，你稍作等待再来吧")
 		else
 			if((xiuxing[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] < 3))then
-				call commonAddGold( Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), $4E20)
+				call AdjustPlayerStateBJ($4E20, Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), PLAYER_STATE_RESOURCE_GOLD)
 				call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Bg))
 				call PingMinimapLocForForce(ov(Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3)))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
 				call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
@@ -2251,7 +2251,7 @@ function QN takes nothing returns nothing
 	if((UnitTypeNotNull(GetTriggerUnit(), UNIT_TYPE_HERO)))then
 		call unitadditembyidswapped(1227895371, GetTriggerUnit())
 	else
-		call commonAddLumber( GetOwningPlayer(GetTriggerUnit()), 20)
+		call AdjustPlayerStateBJ(20, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_LUMBER)
 		call DisplayTimedTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, 10., "|CFFFF0000该道具只能由主角亲自购买")
 	endif
 endfunction
@@ -2262,7 +2262,7 @@ function TN takes nothing returns nothing
 	if((UnitTypeNotNull(GetTriggerUnit(), UNIT_TYPE_HERO)))then
 		call unitadditembyidswapped(1227895372, GetTriggerUnit())
 	else
-		call commonAddLumber( GetOwningPlayer(GetTriggerUnit()), 20)
+		call AdjustPlayerStateBJ(20, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_LUMBER)
 		call DisplayTimedTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, 10., "|CFFFF0000该道具只能由主角亲自购买")
 	endif
 endfunction
@@ -2273,7 +2273,7 @@ function WN takes nothing returns nothing
 	if((UnitTypeNotNull(GetTriggerUnit(), UNIT_TYPE_HERO)))then
 		call unitadditembyidswapped('I02N', GetTriggerUnit())
 	else
-		call commonAddLumber( GetOwningPlayer(GetTriggerUnit()), 20)
+		call AdjustPlayerStateBJ(20, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_LUMBER)
 		call DisplayTimedTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, 10., "|CFFFF0000该道具只能由主角亲自购买")
 	endif
 endfunction
@@ -2409,7 +2409,7 @@ function pO takes nothing returns nothing
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, (GetPlayerName(GetOwningPlayer(GetTriggerUnit())) + ("在探索琅环玉洞时，无意中竟然得到了" + GetItemName(bj_lastCreatedItem))))
 		endif
 	else
-		call commonAddGold( GetOwningPlayer(GetTriggerUnit()), $7530)
+		call AdjustPlayerStateBJ($7530, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
 		call DisplayTimedTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, 10., "|CFFFF0000只能有主角亲自探索")
 	endif
 endfunction
@@ -2426,11 +2426,11 @@ function sO takes nothing returns nothing
 	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, (1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit()))))
 	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
 	if((UnitTypeNotNull(GetTriggerUnit(), UNIT_TYPE_HERO) == false))then
-		call commonAddGold( Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), $9C40)
+		call AdjustPlayerStateBJ($9C40, Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), PLAYER_STATE_RESOURCE_GOLD)
 		call DisplayTextToPlayer(Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), 0, 0, "|cFFFFCC00只能由主角亲自前往")
 	else
 		if(((xiuxing[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] < 5)or(shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] < 5500)))then
-			call commonAddGold( Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), $9C40)
+			call AdjustPlayerStateBJ($9C40, Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), PLAYER_STATE_RESOURCE_GOLD)
 			call DisplayTextToPlayer(Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), 0, 0, "|cFFFFCC00条件不足")
 		else
 			call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Vg))
@@ -2539,14 +2539,14 @@ function JO takes nothing returns nothing
 	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, (1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit()))))
 	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
 	if((xiuxing[(1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())))] <= 5))then
-		call commonAddGold( Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), $C350)
+		call AdjustPlayerStateBJ($C350, Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), PLAYER_STATE_RESOURCE_GOLD)
 		call DisplayTextToPlayer(Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), 0, 0, "|cFFFFCC00修行达到6才可以进入,你的修行不足，请前往地图指示点修行去吧")
 		call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Zg))
 		call PingMinimapLocForForce(ov(Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3)))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
 		call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
 	else
 		if((UnitHaveItem(GetTriggerUnit(), 1227897138) == false))then
-			call commonAddGold( Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), $C350)
+			call AdjustPlayerStateBJ($C350, Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), PLAYER_STATE_RESOURCE_GOLD)
 			call DisplayTextToPlayer(Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), 0, 0, "|cFFFFCC00需要一品居请帖才可以进入")
 		else
 			if((UnitTypeNotNull(GetTriggerUnit(), UNIT_TYPE_HERO)))then
@@ -2556,7 +2556,7 @@ function JO takes nothing returns nothing
 				call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
 				call RemoveItem(YDWEGetItemOfTypeFromUnitBJNull(GetTriggerUnit(), 1227897138))
 			else
-				call commonAddGold( Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), $C350)
+				call AdjustPlayerStateBJ($C350, Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), PLAYER_STATE_RESOURCE_GOLD)
 				call DisplayTextToPlayer(Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), 0, 0, "|cFFFFCC00只能由主角亲自购买前往")
 			endif
 		endif

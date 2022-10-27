@@ -95,23 +95,23 @@ function setTalentAttr takes nothing returns nothing
     local integer i = 1
     loop
         exitwhen i > 5
-        set special_attack[i] = special_attack[i] + talent_special_attack[i] * 2
-        set udg_baojishanghai[i] = udg_baojishanghai[i] + talent_critical_attack[i] * 0.1
+        set special_attack[i] = special_attack[i] + talent_special_attack[i] * 3
+        set udg_baojishanghai[i] = udg_baojishanghai[i] + talent_critical_attack[i] * 0.2
         set max_damage_absorb[i] = max_damage_absorb[i] + talent_damage_absorption[i] * 0.02
         if talent_six_attribute[i] >= 1 then
-            set wuxing[i] = wuxing[i] + 2
+            set wuxing[i] = wuxing[i] + 3
         endif
         if talent_six_attribute[i] >= 2 then
-            set gengu[i] = gengu[i] + 2
+            set gengu[i] = gengu[i] + 3
         endif
         if talent_six_attribute[i] >= 3 then
-            set jingmai[i] = jingmai[i] + 2
+            set jingmai[i] = jingmai[i] + 3
         endif
         if talent_six_attribute[i] >= 4 then
-            set danpo[i] = danpo[i] + 2
+            set danpo[i] = danpo[i] + 3
         endif
         if talent_six_attribute[i] >= 5 then
-            set yishu[i] = yishu[i] + 2
+            set yishu[i] = yishu[i] + 3
         endif
         set i = i + 1
     endloop

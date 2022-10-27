@@ -26,7 +26,7 @@ function TiaoZhan takes nothing returns nothing
 	local integer i = 1 + GetPlayerId(p)
 	if udg_tiaozhanguai != null then
 		call DisplayTimedTextToPlayer(p, 0, 0, 15, "|cFFFFFF00挑战场正在使用中，请耐心等待")
-		call commonAddGold( p, 100000)
+		call AdjustPlayerStateBJ(100000, p, PLAYER_STATE_RESOURCE_GOLD)
 	else
 		if (GetPlayerController(p) == MAP_CONTROL_USER)and(GetPlayerSlotState(p) == PLAYER_SLOT_STATE_PLAYING) then
 			call DialogClear(tiaozhanwho)
@@ -97,7 +97,7 @@ function TiaoZhan_Action takes nothing returns nothing
 		call PanCameraToTimedForPlayer(p, 11459, - 12021, 0)
 	endif
 	if GetClickedButton() == b_cancel then
-		call commonAddGold( p, 100000)
+		call AdjustPlayerStateBJ(100000, p, PLAYER_STATE_RESOURCE_GOLD)
 	endif
 	call RemoveLocation(loc)
 	set loc = null

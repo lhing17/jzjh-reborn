@@ -303,14 +303,14 @@ endfunction
 // 增加木头
 function commonAddLumber takes player p, integer lumber returns nothing
 	local integer i = 1 + GetPlayerId(p)
-	set lumber = R2I(lumber * (1 + 0.2 * talent_lumber[i]))
+	set lumber = R2I(lumber * (1 + 0.15 * talent_lumber[i]))
 	call AdjustPlayerStateBJ(lumber, p, PLAYER_STATE_RESOURCE_LUMBER)
 endfunction
 
 // 增加声望
 function commonAddReputation takes player p, integer reputation returns nothing
 	local integer i = 1 + GetPlayerId(p)
-	set reputation = R2I(reputation * (1 + 0.2 * talent_reputation[i]))
+	set reputation = R2I(reputation * (1 + 0.1 * talent_reputation[i]))
 	// call BJDebugMsg("增加声望：" + I2S(reputation))
 	if reputation < 1 then
 		set reputation = 1
@@ -1938,7 +1938,7 @@ function randomMenpai takes player p, integer status returns nothing
 		call SetUnitPositionLoc(udg_hero[i], Q4)
 		call PanCameraToTimedLocForPlayer(p, Q4, 0)
 		call createPartnerAndTownPortalDummy(i, Q4)
-		call commonAddLumber( p, 50)
+		// call commonAddLumber( p, 50)
 		call RemoveLocation(Q4)
 		call UnitAddItemByIdSwapped(1227896394, udg_hero[i])
 	endif
