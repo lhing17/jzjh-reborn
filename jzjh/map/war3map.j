@@ -4,15 +4,15 @@ constant boolean LIBRARY_FrameLibrary=true
 //endglobals from FrameLibrary
 //globals from MaxSpeed:
 constant boolean LIBRARY_MaxSpeed=true
-constant boolean MaxSpeed___USE_TABLE= true
-constant boolean MaxSpeed___NEW_TABLE= true
+constant boolean MaxSpeed__USE_TABLE= true
+constant boolean MaxSpeed__NEW_TABLE= true
          // Vexorian's Table or Bribe's (NEW)
-constant boolean MaxSpeed___TEST_MODE= false
-constant real MaxSpeed___PERIOD= 0.03125
+constant boolean MaxSpeed__TEST_MODE= false
+constant real MaxSpeed__PERIOD= 0.03125
         //  private constant real MAX_SPEED = 2088.0
-constant real MaxSpeed___MAX_SPEED= 1400.0
+constant real MaxSpeed__MAX_SPEED= 1400.0
          // æœ€å¤§é€Ÿåº¦é™å®šï¼Œè¶…å‡ºè§†ä¸ºä¼ é€ã€‚
-constant real MaxSpeed___MIN_SPEED= 500.0
+constant real MaxSpeed__MIN_SPEED= 500.0
          // åˆ¤å®šçš„æœ€å°è·ç¦»ï¼Œæ­¤é¡¹è¿‡å°æˆ–é€Ÿåº¦è¿‡å¤§ä¼šä½¿åŸåœ°æ‰“è½¬å‡ ç‡å¢åŠ ï¼Œè¶…å‡ºåˆ™æ²¡æœ‰åŠ é€Ÿæ•ˆæœã€‚
         // æµ‹è¯•æœ€å¤§ä¸º500åˆšå‡ºå¤´ï¼Œä¸522è¿˜æœ‰äº›å·®è·
 //endglobals from MaxSpeed
@@ -214,7 +214,7 @@ constant boolean LIBRARY_YDWECreateEwsp=true
 //endglobals from YDWECreateEwsp
 //globals from YDWEJumpTimer:
 constant boolean LIBRARY_YDWEJumpTimer=true
-//ÌøÔ¾ÏµÍ³ÓÅÏÈ¼¶
+//ï¿½ï¿½Ô¾ÏµÍ³ï¿½ï¿½ï¿½È¼ï¿½
 integer MoveMoreLevel_JumpTimer=3
 //endglobals from YDWEJumpTimer
 //globals from YDWELocalVariable:
@@ -223,8 +223,8 @@ constant boolean LIBRARY_YDWELocalVariable=true
 //globals from YDWEPreloadSL:
 constant boolean LIBRARY_YDWEPreloadSL=true
     ///
-    /// Ã¿¸öÍæ¼ÒÕ¼ÓÃµÄ¿Õ¼ä[500*id, 500*(id-1))
-    /// ÏÂ±êÔ½½çÃ»ÓĞ½øĞĞ¼ì²é£¬ËÆºõÃ»Õâ¸ö±ØÒª£¬Ë­ÒªÊÇÓÃ³¬¹ı500...¾ÍÈ¥ËÀ°É- -
+    /// Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ÃµÄ¿Õ¼ï¿½[500*id, 500*(id-1))
+    /// ï¿½Â±ï¿½Ô½ï¿½ï¿½Ã»ï¿½Ğ½ï¿½ï¿½Ğ¼ï¿½é£¬ï¿½Æºï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Ë­Òªï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½500...ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½- -
     /// 
 integer array YDWEPreloadSL___Code
 integer array YDWEPreloadSL___CodeHI
@@ -462,7 +462,7 @@ integer nanduFlag= 0
 boolean tiaoZhanFlag= false
 integer tiaoZhanIndex= 0
 boolean is_victory= false
-constant string VERSION= "1.6.65"
+constant string VERSION= "1.6.66"
 timer shiWanTimer= null
 timerdialog shiWanTimerDialog= null
 constant integer interButtonKey= $AABBCC
@@ -538,6 +538,7 @@ integer next_endless_time= 3600
 integer endless_count= 0
 timer endless_timer
 unit pickingUnit= null
+integer array wukongSkillCd
     // S1é€šè¡Œè¯ç»éªŒ
 integer array passportExpS1
     // S1é€šè¡Œè¯ç­‰çº§
@@ -3089,8 +3090,8 @@ function s__ImageButton_create takes integer imageWidget,real l__w,real h return
              set s__ModSpeed_dy=s__ModSpeed_y - s__ModSpeed_lastY[this]
              set s__ModSpeed_lastX[this]=s__ModSpeed_x
              set s__ModSpeed_lastY[this]=s__ModSpeed_y
-             set s__ModSpeed_dist=SquareRoot(s__ModSpeed_dx * s__ModSpeed_dx + s__ModSpeed_dy * s__ModSpeed_dy) / MaxSpeed___PERIOD
-             if ( s__ModSpeed_dist >= MaxSpeed___MIN_SPEED and s__ModSpeed_dist <= MaxSpeed___MAX_SPEED ) then
+             set s__ModSpeed_dist=SquareRoot(s__ModSpeed_dx * s__ModSpeed_dx + s__ModSpeed_dy * s__ModSpeed_dy) / MaxSpeed__PERIOD
+             if ( s__ModSpeed_dist >= MaxSpeed__MIN_SPEED and s__ModSpeed_dist <= MaxSpeed__MAX_SPEED ) then
                  set s__ModSpeed_rate=( s__ModSpeed_speed[this] - 522. ) / s__ModSpeed_dist
                  set s__ModSpeed_lastX[this]=s__ModSpeed_x + s__ModSpeed_dx * s__ModSpeed_rate
                  set s__ModSpeed_lastY[this]=s__ModSpeed_y + s__ModSpeed_dy * s__ModSpeed_rate
@@ -3170,7 +3171,7 @@ function s__ImageButton_create takes integer imageWidget,real l__w,real h return
                      set s__ModSpeed_prev[(0)]=s__ModSpeed_prev[s__ModSpeed_prev[(0)]]
                  endif
                  if ( s__ModSpeed_next[(0)] == 0 ) then
-                     call TimerStart(s__ModSpeed_tm, MaxSpeed___PERIOD, true, function s__ModSpeed_iterate)
+                     call TimerStart(s__ModSpeed_tm, MaxSpeed__PERIOD, true, function s__ModSpeed_iterate)
 
 
 
@@ -3189,7 +3190,7 @@ function s__ImageButton_create takes integer imageWidget,real l__w,real h return
 
 
              endif
-             set amount=RMinBJ(amount, MaxSpeed___MAX_SPEED)
+             set amount=RMinBJ(amount, MaxSpeed__MAX_SPEED)
              set s__ModSpeed_lastX[this]=GetUnitX(u)
              set s__ModSpeed_lastY[this]=GetUnitY(u)
              set s__ModSpeed_speed[this]=amount
@@ -5183,7 +5184,7 @@ endfunction
 //library YDWETriggerEvent:
 	
 //===========================================================================  
-//ÈÎÒâµ¥Î»ÉËº¦ÊÂ¼ş 
+//ï¿½ï¿½ï¿½âµ¥Î»ï¿½Ëºï¿½ï¿½Â¼ï¿½ 
 //===========================================================================
 function YDWEAnyUnitDamagedTriggerAction takes nothing returns nothing
     local integer i= 0
@@ -5230,7 +5231,7 @@ function YDWESyStemAnyUnitDamagedRegistTrigger takes trigger trg returns nothing
     set YDWETriggerEvent___DamageEventNumber=YDWETriggerEvent___DamageEventNumber + 1
 endfunction
 //===========================================================================  
-//ÒÆ¶¯ÎïÆ·ÊÂ¼ş 
+//ï¿½Æ¶ï¿½ï¿½ï¿½Æ·ï¿½Â¼ï¿½ 
 //===========================================================================  
 function YDWESyStemItemUnmovableTriggerAction takes nothing returns nothing
     local integer i= 0
@@ -5315,7 +5316,7 @@ endfunction
 //library Deputy ends
 //library YDWECreateEwsp:
 //===========================================================================
-//»·ÈÆ¼¼ÄÜÄ£°å 
+//ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ 
 //===========================================================================
 function YDWECreateEwsp___Loop takes nothing returns nothing
     local timer t= GetExpiredTimer()
@@ -5897,8 +5898,8 @@ function YDWE_PreloadSL_GetMask takes player p returns integer
     return value - 'YDWE'
 endfunction
 ///
-/// ×¢ÖØĞ§ÂÊ¶ø²»ÊÇ°²È«µÄÒÆ¶¯£¬»°Ëµ°²È«ÓĞÒâÒåÂğ...
-/// ÁíÒ»¸öÒÆ¶¯º¯ÊıµÄÄæÔËËã
+/// ×¢ï¿½ï¿½Ğ§ï¿½Ê¶ï¿½ï¿½ï¿½ï¿½Ç°ï¿½È«ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...
+/// ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 ///
 function YDWE_PreloadSL_Unmove takes integer beg,integer n,integer key returns nothing
     local integer value
@@ -6042,8 +6043,8 @@ function YDWE_PreloadSL_SetCode takes integer beg,integer n,integer key,integer 
     endloop
 endfunction
 ///
-/// ×¢ÖØĞ§ÂÊ¶ø²»ÊÇ°²È«µÄÒÆ¶¯£¬»°Ëµ°²È«ÓĞÒâÒåÂğ...
-/// ÒÆ¶¯º¯Êı£¬ÉõÖÁ¿ÉÒÔ²»Òª...
+/// ×¢ï¿½ï¿½Ğ§ï¿½Ê¶ï¿½ï¿½ï¿½ï¿½Ç°ï¿½È«ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...
+/// ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½Òª...
 ///
 function YDWE_PreloadSL_Move takes integer beg,integer n,integer key returns nothing
     local integer value
@@ -6087,8 +6088,8 @@ function YDWE_PreloadSL_Encode takes player p,integer n,integer mask returns not
     call YDWE_PreloadSL_Move(beg , n , key)
 endfunction 
 /// 
-/// Í¬²½Íæ¼ÒÊı¾İ
-/// Í¬Ò»Ê±¼ä²»ÒªÍ¬²½Ò»¸öÒÔÉÏµÄÍæ¼ÒÊı¾İ
+/// Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+/// Í¬Ò»Ê±ï¿½ä²»ÒªÍ¬ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 ///
 function YDWE_PreloadSL_Sync takes player p,integer n returns nothing
     local integer index
@@ -6169,7 +6170,7 @@ function GetLastCombinedItem takes nothing returns item
     return bj_lastCombinedItem
 endfunction
 //===========================================================================
-//ÎïÆ·ºÏ³É
+//ï¿½ï¿½Æ·ï¿½Ï³ï¿½
 function YDWESyStemItemCombineTriggerAction takes nothing returns nothing
  local integer i= 0
     loop
@@ -6182,7 +6183,7 @@ function YDWESyStemItemCombineTriggerAction takes nothing returns nothing
 endfunction
 //GetLastMovedItemInItemSlot 
 //===========================================================================  
-//ÎïÆ·ºÏ³ÉÊÂ¼ş 
+//ï¿½ï¿½Æ·ï¿½Ï³ï¿½ï¿½Â¼ï¿½ 
 //===========================================================================  
 function YDWESyStemItemCombineRegistTrigger takes trigger trg returns nothing
 	set YDWEStringFormula___ItemCombineEventQueue[YDWEStringFormula___ItemCombineEventNumber]=trg
@@ -6313,7 +6314,7 @@ endfunction
             set s__YDWEStringFormula___FormulaMatrix_segmLen[this]=lingth
             
             set s__YDWEStringFormula___FormulaMatrix_model[this]=null //"Abilities\\Spells\\Items\\AIam\\AIamTarget.mdl"
-set s__YDWEStringFormula___FormulaMatrix_message[this]=null //"|cff00ff00ÄãºÏ³ÉÁË£º|r" 
+set s__YDWEStringFormula___FormulaMatrix_message[this]=null //"|cff00ff00ï¿½ï¿½Ï³ï¿½ï¿½Ë£ï¿½|r" 
 set s__YDWEStringFormula___FormulaMatrix_chance[this]=100
             set s__YDWEStringFormula___FormulaMatrix_delete[this]=false
             call SaveInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula___FormulaMatrix_Data)) )), StringHash(( (formStr) )), ( ( (this)))) // INLINED!!
@@ -6657,9 +6658,9 @@ endfunction
 //library YDWEStringFormula ends
 //library YDWETimerPattern:
 //***************************************************
-//* ¡Æ - Matrix ÍòÄÜÄ£°åº¯Êı
+//* ï¿½ï¿½ - Matrix ï¿½ï¿½ï¿½ï¿½Ä£ï¿½åº¯ï¿½ï¿½
 //*--------------------
-//* ×÷Õß£ºWarft_TigerCN  ´úÂëÓÅ»¯£ºFetrix_sai
+//* ï¿½ï¿½ï¿½ß£ï¿½Warft_TigerCN  ï¿½ï¿½ï¿½ï¿½ï¿½Å»ï¿½ï¿½ï¿½Fetrix_sai
 //***************************************************
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //                                       Timer Pattern Union                                              //
@@ -7036,7 +7037,7 @@ function YDWETimerSystem___DeleteTaskIndex takes integer index returns nothing
 	set YDWETimerSystem___TaskListIdle[index]=YDWETimerSystem___TaskListIdleHead
 	set YDWETimerSystem___TaskListIdleHead=index
 endfunction
-//¸Ãº¯ÊıĞòÁĞ´¦Àí
+//ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ´ï¿½ï¿½ï¿½
 function YDWETimerSystem___NewTask takes real time,trigger proc returns integer
  local integer index= YDWETimerSystem___NewTaskIndex()
  local integer h= YDWETimerSystem___TaskListHead
@@ -7062,7 +7063,7 @@ endfunction
 function YDWETimerSystemGetCurrentTask takes nothing returns integer
 	return YDWETimerSystem___CurrentIndex
 endfunction
-//É¾³ıµ¥Î»
+//É¾ï¿½ï¿½ï¿½ï¿½Î»
 function YDWETimerSystem___RemoveUnit_CallBack takes nothing returns nothing
     call RemoveUnit(LoadUnitHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex))
     call RemoveSavedHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex)
@@ -7070,7 +7071,7 @@ endfunction
 function YDWETimerRemoveUnit takes real time,unit u returns nothing
     call SaveUnitHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___NewTask(time , YDWETimerSystem___fnRemoveUnit), u)
 endfunction
-//´İ»Ù¼ÆÊ±Æ÷
+//ï¿½İ»Ù¼ï¿½Ê±ï¿½ï¿½
 function YDWETimerSystem___DestroyTimer_CallBack takes nothing returns nothing
     call DestroyTimer(LoadTimerHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex))
     call RemoveSavedHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex)
@@ -7078,7 +7079,7 @@ endfunction
 function YDWETimerDestroyTimer takes real time,timer t returns nothing
     call SaveTimerHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___NewTask(time , YDWETimerSystem___fnDestroyTimer), t)
 endfunction
-//É¾³ıÎïÆ·
+//É¾ï¿½ï¿½ï¿½ï¿½Æ·
 function YDWETimerSystem___RemoveItem_CallBack takes nothing returns nothing
     call RemoveItem(LoadItemHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex))
     call RemoveSavedHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex)
@@ -7086,7 +7087,7 @@ endfunction
 function YDWETimerRemoveItem takes real time,item it returns nothing
     call SaveItemHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___NewTask(time , YDWETimerSystem___fnRemoveItem), it)
 endfunction
-//É¾³ıÌØĞ§
+//É¾ï¿½ï¿½ï¿½ï¿½Ğ§
 function YDWETimerSystem___DestroyEffect_CallBack takes nothing returns nothing
     call DestroyEffect(LoadEffectHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex))
     call RemoveSavedHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex)
@@ -7094,7 +7095,7 @@ endfunction
 function YDWETimerDestroyEffect takes real time,effect e returns nothing
     call SaveEffectHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___NewTask(time , YDWETimerSystem___fnDestroyEffect), e)
 endfunction
-//É¾³ıÉÁµçÌØĞ§
+//É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ§
 function YDWETimerSystem___DestroyLightning_CallBack takes nothing returns nothing
     call DestroyLightning(LoadLightningHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex))
     call RemoveSavedHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex)
@@ -7103,7 +7104,7 @@ function YDWETimerDestroyLightning takes real time,lightning lt returns nothing
  local integer i= YDWETimerSystem___NewTask(time , YDWETimerSystem___fnDestroyLightning)
     call SaveLightningHandle(YDHT, YDWETimerSystem___TimerHandle, i, lt)
 endfunction
-//ÔËĞĞ´¥·¢Æ÷
+//ï¿½ï¿½ï¿½Ğ´ï¿½ï¿½ï¿½ï¿½ï¿½
 function YDWETimerSystem___RunTrigger_CallBack takes nothing returns nothing
     call TriggerExecute(LoadTriggerHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex))
     call RemoveSavedHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex)
@@ -7111,7 +7112,7 @@ endfunction
 function YDWETimerRunTrigger takes real time,trigger trg returns nothing
     call SaveTriggerHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___NewTask(time , YDWETimerSystem___fnRunTrigger), trg)
 endfunction
-//É¾³ıÆ¯¸¡ÎÄ×Ö
+//É¾ï¿½ï¿½Æ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 function YDWETimerDestroyTextTag takes real time,texttag tt returns nothing
     local integer N=0
     local integer i=0
@@ -7122,7 +7123,7 @@ function YDWETimerDestroyTextTag takes real time,texttag tt returns nothing
     call SetTextTagLifespan(tt, time)
     call SetTextTagFadepoint(tt, time)
 endfunction
-//ÖĞĞÄ¼ÆÊ±Æ÷Ö÷º¯Êı
+//ï¿½ï¿½ï¿½Ä¼ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 function YDWETimerSystem___Main takes nothing returns nothing
  local integer h= YDWETimerSystem___TaskListHead
  local integer p
@@ -7136,7 +7137,7 @@ function YDWETimerSystem___Main takes nothing returns nothing
 	endloop
 	set YDWETimerSystem___CurrentTime=YDWETimerSystem___CurrentTime + 1
 endfunction
-//³õÊ¼»¯º¯Êı
+//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 function YDWETimerSystem___Init takes nothing returns nothing
     set YDWETimerSystem___Timer=CreateTimer()
 	set YDWETimerSystem___TimerHandle=GetHandleId(YDWETimerSystem___Timer)
@@ -7162,7 +7163,7 @@ function YDWETimerSystem___Init takes nothing returns nothing
 	
     call TimerStart(YDWETimerSystem___Timer, 0.01, true, function YDWETimerSystem___Main)
 endfunction
-//Ñ­»·ÀàÈÔÓÃ¶ÀÁ¢¼ÆÊ±Æ÷
+//Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 function YDWETimerSystemGetRunIndex takes nothing returns integer
     return YDWETimerSystem___TimerSystem_RunIndex
 endfunction
@@ -7414,11 +7415,11 @@ endfunction
 //library WuQiQiHeSystem ends
 //===========================================================================
 // 
-// å†³æˆ˜æ±Ÿæ¹–1.6.65æ­£å¼ç‰ˆ
+// å†³æˆ˜æ±Ÿæ¹–1.6.66æ­£å¼ç‰ˆ
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Wed Oct 26 11:51:27 2022
+//   Date: Thu Oct 27 10:00:08 2022
 //   Map Author: äº‘æ¨ zei_kale
 // 
 //===========================================================================
@@ -10383,7 +10384,7 @@ set fuyuan[i]=fuyuan[i] + 2
 		endif
 		// å«è¡£ç¥åŠŸ å¢åŠ æ‚Ÿæ€§å’Œä¼¤å®³å€æ•°
 		if level + 1 == 9 and GetUnitAbilityLevel(u, JIA_YI_SHEN_GONG) > 0 then
-			set add=( GetUnitAbilityLevel(u, JIA_YI_SHEN_GONG) + 3 ) / 2
+			set add=( GetUnitAbilityLevel(u, JIA_YI_SHEN_GONG) + 3 ) / 4
 			if isTitle(i , 49) then
 				// ç»æ•éƒ¡ä¸»ç§°å· å¢åŠ å€¼ç¿»å€
 				set add=add * 2
@@ -14483,6 +14484,18 @@ endfunction
 function isSwitchSkin takes nothing returns boolean
 	return GetSpellAbilityId() == 'A0B7' or GetSpellAbilityId() == 'A0B8' or GetSpellAbilityId() == 'A0BH' or GetSpellAbilityId() == 'A0FF'
 endfunction
+function resetWuKongCd takes nothing returns nothing
+ local timer t= GetExpiredTimer()
+ local integer i= LoadInteger(YDHT, GetHandleId(t), 0)
+ local unit u= P4[i]
+ local integer id= 'A0BD'
+	// CDé‡ç½®
+	call EXSetAbilityState(EXGetUnitAbility(u, id), 1, wukongSkillCd[i])
+	call FlushChildHashtable(YDHT, GetHandleId(t))
+	call DestroyTimer(t)
+	set t=null
+	set u=null
+endfunction
 function switchSkin takes nothing returns nothing
 	// local unit u = GetTriggerUnit()
 	// local player p = GetOwningPlayer(u)
@@ -14506,8 +14519,12 @@ function switchSkin takes nothing returns nothing
 	// set u = null
 	// set p = null
  local unit u= GetTriggerUnit()
+ local timer t= null
 	if GetSpellAbilityId() == 'A0B7' then
 		call YDWEUnitTransform(u , 'AEme' , 'n00W')
+		set t=CreateTimer()
+		call SaveInteger(YDHT, GetHandleId(t), 0, 1 + GetPlayerId(GetOwningPlayer(u)))
+		call TimerStart(t, 0.01, false, function resetWuKongCd)
 	elseif GetSpellAbilityId() == 'A0B8' then
 		call YDWEUnitTransform(u , 'AEme' , 'n00V')
 	elseif GetSpellAbilityId() == 'A0BH' then
@@ -14535,6 +14552,7 @@ function switchSkin takes nothing returns nothing
 	call UnitMakeAbilityPermanent(u, true, 'A0E9')
 	call UnitMakeAbilityPermanent(u, true, 'A0EA')
 	set u=null
+	set t=null
 endfunction
 // é¸Ÿä½¿ç”¨åœ°å›¾æŒ‡ä»¤
 function isCmd takes nothing returns boolean
@@ -27785,6 +27803,10 @@ endif
 			set s=s + "æœ€å¤§æ— å°½BOSSæ•°ï¼š|cff00ff00" + I2S(decryptInt((DzAPI_Map_GetServerValue((Player(i - 1) ), "S" + ( "endless"))) , Player(i - 1))) + "|r" // INLINED!!
 			call YDWESetUnitAbilityDataString(P4[i] , 'A0EO' , i , 218 , s)
 		endif
+		// çŒ´å­çŒ´å­™CD
+		if wukongSkillCd[i] > 0 then
+			set wukongSkillCd[i]=wukongSkillCd[i] - 1
+		endif
 		
 		// ç¢§æ³¢å¿ƒç»ç‚¹æ•°
 		if Player(i - 1) == GetLocalPlayer() then
@@ -27837,6 +27859,7 @@ function sonOfMonkey takes nothing returns nothing
 		set shoujiajf[1 + GetPlayerId(p)]=shoujiajf[1 + GetPlayerId(p)] + 100
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 20, "|cfffff000ç©å®¶" + GetPlayerName(p) + "çš„æ‚Ÿç©ºå‘åŠ¨äº†|CFF00EE00çŒ´å­çŒ´å­™|ræŠ€èƒ½ï¼Œ|CFF00EE00å®ˆå®¶ç§¯åˆ†|rå¢åŠ 100ç‚¹|r")
 	endif
+	set wukongSkillCd[1 + GetPlayerId(p)]=180
 	loop
 		exitwhen i > imax
 		set l__ut=CreateUnit(p, 'n00X', - 768. + GetRandomReal(- 100, 100), - 768. + GetRandomReal(- 100, 100), 270.)
@@ -27897,6 +27920,12 @@ function petMove takes nothing returns nothing
 endfunction
 function initPetSkill takes nothing returns nothing
  local trigger t= CreateTrigger()
+ local integer i= 1
+	loop
+		exitwhen i > 5
+		set wukongSkillCd[i]=0
+		set i=i + 1
+	endloop
 	
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(t, Condition(function isSonOfMonkey))
@@ -34111,7 +34140,7 @@ local integer count= 0
 		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFFæ•´ç†ç‰©å“å®Œæˆ")
 	endif
 	if s == "ver" then
-		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFFå†³æˆ˜æ±Ÿæ¹–1.6.65ç‰ˆæœ¬")
+		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFFå†³æˆ˜æ±Ÿæ¹–1.6.66ç‰ˆæœ¬")
 	endif
 	if s == "hd" then
 		set showDamage[i]=false
@@ -58362,7 +58391,7 @@ function main takes nothing returns nothing
     call CreateAllUnits()
     call InitBlizzard()
 
-call ExecuteFunc("jasshelper__initstructs1284086125")
+call ExecuteFunc("jasshelper__initstructs1363816078")
 call ExecuteFunc("FrameLibrary___init")
 call ExecuteFunc("initShowEffect")
 call ExecuteFunc("UniMissileSystem3D___Init")
@@ -58388,7 +58417,7 @@ endfunction
 //*
 //***************************************************************************
 function config takes nothing returns nothing
-    call SetMapName("å†³æˆ˜æ±Ÿæ¹–1.6.65æ­£å¼ç‰ˆ")
+    call SetMapName("å†³æˆ˜æ±Ÿæ¹–1.6.66æ­£å¼ç‰ˆ")
     call SetMapDescription("|cFFFF00FFå½“ä½ æ‰“å¼€è¿™ä¸ªæ¸¸æˆçš„æ—¶å€™ï¼Œä½ çš„æ±Ÿæ¹–å·²ç»å¼€å§‹äº†.....|r")
     call SetPlayers(9)
     call SetTeams(9)
@@ -58409,7 +58438,7 @@ function config takes nothing returns nothing
 endfunction
 //===========================================================================  
 //===========================================================================  
-//×Ô¶¨ÒåÊÂ¼ş 
+//ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ 
 //===========================================================================
 //===========================================================================   
 //===========================================================================
@@ -58422,7 +58451,7 @@ endfunction
  
                  
 //===========================================================================
-//ÌøÔ¾ÏµÍ³ 
+//ï¿½ï¿½Ô¾ÏµÍ³ 
 //===========================================================================
 
 
@@ -58564,7 +58593,7 @@ function sa___prototype4_SetUnitMoveSpeedEx takes nothing returns boolean
     return true
 endfunction
 
-function jasshelper__initstructs1284086125 takes nothing returns nothing
+function jasshelper__initstructs1363816078 takes nothing returns nothing
     set st__Frame_onDestroy=CreateTrigger()
     call TriggerAddCondition(st__Frame_onDestroy,Condition( function sa__Frame_onDestroy))
     set st__ShopWeapon_onDestroy=CreateTrigger()
@@ -58595,7 +58624,7 @@ function jasshelper__initstructs1284086125 takes nothing returns nothing
 
 
 
-call ExecuteFunc("s__ModSpeed_Init__onInit")
+call ExecuteFunc("s__ModSpeed_Init___onInit")
 
 
 

@@ -1207,7 +1207,7 @@ function JiaRuMenPai takes nothing returns nothing
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
 		endif
 	elseif((GetItemTypeId(GetManipulatedItem()) == 'I0CK'))then
-		if(GetUnitTypeId(u) == 'O000' or GetUnitTypeId(u) == 'O001' or GetUnitTypeId(u) == 'O004' or GetUnitTypeId(u) == 'O02J') then
+		if(GetUnitTypeId(u) == 'O000' or GetUnitTypeId(u) == 'O001' or GetUnitTypeId(u) == 'O004' or GetUnitTypeId(u) == 'O02J' or GetUnitTypeId(u) == 'O031') then
 			set udg_runamen[i] = 16
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓神龙教〓，请在NPC郭靖处选择副职|r")
 			call SetPlayerName(p, "〓神龙教〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
@@ -1922,7 +1922,7 @@ endfunction
 
 globals
 	boolean is_victory = false
-	constant string VERSION = "1.6.65"
+	constant string VERSION = "1.6.66"
 endglobals
 
 //失败动作
@@ -2890,6 +2890,21 @@ function isSwitchSkin takes nothing returns boolean
 	return GetSpellAbilityId() == 'A0B7' or GetSpellAbilityId() == 'A0B8' or GetSpellAbilityId() == 'A0BH' or GetSpellAbilityId() == 'A0FF'
 endfunction
 
+function resetWuKongCd takes nothing returns nothing
+	local timer t = GetExpiredTimer()
+	local integer i = LoadInteger(YDHT, GetHandleId(t), 0)
+	local unit u = P4[i]
+	local integer id = 'A0BD'
+
+	// CD重置
+	call EXSetAbilityState(EXGetUnitAbility(u, id), 1, wukongSkillCd[i])
+
+	call FlushChildHashtable(YDHT, GetHandleId(t))
+	call DestroyTimer(t)
+	set t = null
+	set u = null
+endfunction
+
 function switchSkin takes nothing returns nothing
 	// local unit u = GetTriggerUnit()
 	// local player p = GetOwningPlayer(u)
@@ -2913,8 +2928,12 @@ function switchSkin takes nothing returns nothing
 	// set u = null
 	// set p = null
 	local unit u = GetTriggerUnit()
+	local timer t = null
 	if GetSpellAbilityId() == 'A0B7' then
 		call YDWEUnitTransform(u, 'AEme', 'n00W')
+		set t = CreateTimer()
+		call SaveInteger(YDHT, GetHandleId(t), 0, 1 + GetPlayerId(GetOwningPlayer(u)))
+		call TimerStart(t, 0.01, false, function resetWuKongCd)
 	elseif GetSpellAbilityId() == 'A0B8' then
 		call YDWEUnitTransform(u, 'AEme', 'n00V')
 	elseif GetSpellAbilityId() == 'A0BH' then
@@ -2923,7 +2942,7 @@ function switchSkin takes nothing returns nothing
 		call YDWEUnitTransform(u, 'AEme', 'n018')
 	endif
 	// 添加更换皮肤魔法书并设置魔法书和里面技能永久性
-	call UnitAddAbility(u,'A0BB')
+	call UnitAddAbility(u, 'A0BB')
 	call UnitMakeAbilityPermanent(u, true, 'A0BB')
 	call UnitMakeAbilityPermanent(u, true, 'A0B7')
 	call UnitMakeAbilityPermanent(u, true, 'A0B8')
@@ -2942,6 +2961,7 @@ function switchSkin takes nothing returns nothing
 	call UnitMakeAbilityPermanent(u, true, 'A0E9')
 	call UnitMakeAbilityPermanent(u, true, 'A0EA')
 	set u = null
+	set t = null
 endfunction
 
 // 鸟使用地图指令

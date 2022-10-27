@@ -1,6 +1,7 @@
 // 宠物技能
 globals
 	unit pickingUnit = null // 正在一键拾取的宝宝
+	integer array wukongSkillCd
 endglobals
 
 
@@ -22,6 +23,7 @@ function sonOfMonkey takes nothing returns nothing
 		set shoujiajf[1 + GetPlayerId(p)] = shoujiajf[1 + GetPlayerId(p)] + 100
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 20, "|cfffff000玩家" + GetPlayerName(p) + "的悟空发动了|CFF00EE00猴子猴孙|r技能，|CFF00EE00守家积分|r增加100点|r")
 	endif
+	set wukongSkillCd[1 + GetPlayerId(p)] = 180
 	loop
 		exitwhen i > imax
 		set ut = CreateUnit(p, 'n00X', - 768. + GetRandomReal(- 100, 100), - 768. + GetRandomReal(- 100, 100), 270.)
@@ -89,6 +91,14 @@ endfunction
 
 function initPetSkill takes nothing returns nothing
 	local trigger t = CreateTrigger()
+	local integer i = 1
+
+	loop
+		exitwhen i > 5
+		set wukongSkillCd[i] = 0
+		set i = i + 1
+	endloop
+
 	
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(t, Condition(function isSonOfMonkey))

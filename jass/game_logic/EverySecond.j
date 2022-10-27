@@ -109,6 +109,11 @@ function EverySecond_Conditions takes nothing returns boolean
 			set s = s + "最大无尽BOSS数：|cff00ff00" + I2S(decryptInt(DzAPI_Map_GetStoredString(Player(i - 1), "endless"), Player(i - 1))) + "|r"
 			call YDWESetUnitAbilityDataString( P4[i], 'A0EO', i, 218, s )
 		endif
+
+		// 猴子猴孙CD
+		if wukongSkillCd[i] > 0 then
+			set wukongSkillCd[i] = wukongSkillCd[i] - 1
+		endif
 		
 		// 碧波心经点数
 		if Player(i - 1) == GetLocalPlayer() then

@@ -1509,10 +1509,10 @@ function ShangHaiGongShi takes unit u, unit uc, real w1, real w2, real shxishu, 
 			set j = j + 1
 		endloop
 		//君子剑、淑女剑
-		if UnitHaveItem(u, 'I099') and (GetUnitTypeId(u) == 'O000' or GetUnitTypeId(u) == 'O001' or GetUnitTypeId(u) == 'O004' or GetUnitTypeId(u) == 'O02J') then
+		if UnitHaveItem(u, 'I099') and (GetUnitTypeId(u) == 'O000' or GetUnitTypeId(u) == 'O001' or GetUnitTypeId(u) == 'O004' or GetUnitTypeId(u) == 'O02J' or GetUnitTypeId(u) == 'O031') then
 			set attack = attack * 1.5
 		endif
-		if UnitHaveItem(u, 'I09A') and (GetUnitTypeId(u) == 'O002' or GetUnitTypeId(u) == 'O003' or GetUnitTypeId(u) == 'O023' or GetUnitTypeId(u) == 'O02H' or GetUnitTypeId(u) == 'O02I') then
+		if UnitHaveItem(u, 'I09A') and (GetUnitTypeId(u) == 'O002' or GetUnitTypeId(u) == 'O003' or GetUnitTypeId(u) == 'O023' or GetUnitTypeId(u) == 'O02H' or GetUnitTypeId(u) == 'O02I' or GetUnitTypeId(u) == 'O032') then
 			set attack = attack * 1.5
 		endif
 	else
