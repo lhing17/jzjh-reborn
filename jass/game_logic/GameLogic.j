@@ -758,7 +758,7 @@ function JiaRuMenPai takes nothing returns nothing
 	local player p = GetOwningPlayer(u)
 	local integer i = 1 + GetPlayerId(p)
 	if((udg_runamen[i] != 0))then
-		if udg_runamen[i] == 11 and GetUnitLevel(u) <= 2 and GetPlayerState(p, PLAYER_STATE_RESOURCE_LUMBER) >= 60 then
+		if udg_runamen[i] == 11 and GetUnitLevel(u) <= 2 and GetPlayerState(p, PLAYER_STATE_RESOURCE_LUMBER) >= 30 then
 			// 自由改投慕容
 			if GetItemTypeId(GetManipulatedItem()) == 'I09E' then
 				set udg_runamen[i] = 13
