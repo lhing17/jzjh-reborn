@@ -512,15 +512,15 @@ endfunction
 function heroAddArmor takes integer i returns nothing
 	local integer addition = 0
 	if talent_armor[i] == 1 then
-		set addition = 5
-	elseif talent_armor[i] == 2 then
-		set addition = 10
-	elseif talent_armor[i] == 3 then
-		set addition = 15
-	elseif talent_armor[i] == 4 then
 		set addition = 20
+	elseif talent_armor[i] == 2 then
+		set addition = 40
+	elseif talent_armor[i] == 3 then
+		set addition = 60
+	elseif talent_armor[i] == 4 then
+		set addition = 80
 	elseif talent_armor[i] == 5 then
-		set addition = 30
+		set addition = 100
 	endif
 	if addition > 0 then
 		call YDWEGeneralBounsSystemUnitSetBonus(udg_hero[i], 2, 0, addition)
@@ -1922,7 +1922,7 @@ endfunction
 
 globals
 	boolean is_victory = false
-	constant string VERSION = "1.6.68"
+	constant string VERSION = "1.6.69"
 endglobals
 
 //失败动作
@@ -3278,7 +3278,7 @@ function YiShuHuiXie takes nothing returns nothing
 				call SetUnitLifePercentBJ(udg_hero[c7], GetUnitLifePercent(udg_hero[c7]) + 6)
 			endif
 			if talent_recover_hp[c7] > 0 then
-				call SetUnitLifePercentBJ(udg_hero[c7], GetUnitLifePercent(udg_hero[c7]) + 0.5 * talent_recover_hp[c7])
+				call SetUnitLifePercentBJ(udg_hero[c7], GetUnitLifePercent(udg_hero[c7]) + talent_recover_hp[c7])
 			endif
 			call SetUnitLifeBJ(udg_hero[c7], GetUnitState(udg_hero[c7], UNIT_STATE_LIFE) + shengminghuifu[c7])
 			call SetUnitManaBJ(udg_hero[c7], GetUnitStateSwap(UNIT_STATE_MANA, udg_hero[c7]) + (.3 * I2R(yishu[c7])) + falihuifu[c7] + 5 * GetUnitAbilityLevel(udg_hero[c7], 'A0D4'))

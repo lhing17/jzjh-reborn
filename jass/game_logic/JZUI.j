@@ -41,6 +41,8 @@ globals
 	Frame array passportAwardWidget // 通行证奖励按钮图片
 	Frame array passportAwardButton // 通行证奖励按钮
 	Frame array passportTickWidget // 通行证勾选按钮图片
+	Frame passportHelpMeWidget // 通行证帮助我按钮图片
+	Frame passportHelpMeButton // 通行证帮助我按钮
 	string array passportAwardWidgetString // 通行证奖励描述
 
 	Frame talentWidget // 天赋树按钮图片
@@ -382,11 +384,12 @@ function showPassportAward takes nothing returns nothing
 				if j <= 8 then
 					set name = "正常"
 					set id = j
+					call passportAwardWidget[101].setText("|CFF00FFCD" + name + I2S(id) + "级奖励|r")
 				else
 					set name = "进阶"
 					set id = j - 8
+					call passportAwardWidget[101].setText("|CFF00FFCD" + name + I2S(id) + "级奖励（需商城购买）|r")
 				endif
-				call passportAwardWidget[101].setText("|CFF00FFCD" + name + I2S(id) + "级奖励|r")
 				call passportAwardWidget[102].setText(passportAwardWidgetString[j])
 				call passportAwardWidget[102].setPoint(BOTTOM, passportAwardWidget[j], TOP, 0, 0.01)
 				call passportAwardWidget[101].setPoint(BOTTOM, passportAwardWidget[102], TOP, 0, 0.005)
@@ -409,6 +412,23 @@ function hidePassportAward takes nothing returns nothing
 		endloop
 		call passportAwardWidget[100].hide()
 	endif 
+endfunction
+
+function showPassportHelpMe takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call passportAwardWidget[101].setText("|CFF00FFCD击碎青龙石任务|r")
+		call passportAwardWidget[102].setText("青龙石将在游戏开始后30分钟出现在地图右下角伤害测试桩附近，击杀青龙石后所有人通行证等级提升1级（最高8级）")
+		call passportAwardWidget[102].setPoint(BOTTOM, passportHelpMeWidget, TOP, 0, 0.01)
+		call passportAwardWidget[101].setPoint(BOTTOM, passportAwardWidget[102], TOP, 0, 0.005)
+		call passportAwardWidget[100].show()
+	endif
+
+endfunction
+
+function hidePassportHelpMe takes nothing returns nothing
+	if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+		call passportAwardWidget[100].hide()
+	endif
 endfunction
 
 function getTalentLevel takes integer i, integer j returns integer
@@ -1058,6 +1078,15 @@ function drawUI_Conditions takes nothing returns boolean
 	call closePassportButton.setAllPoints(closePassportWidget)
 	call closePassportButton.regEvent(FRAME_EVENT_PRESSED, function togglePassport)
 
+	// 通行证弹窗帮助按钮
+	set passportHelpMeWidget = Frame.newImage1(passport, "helpme.blp", 0.018, 0.024)
+	call passportHelpMeWidget.setPoint(CENTER, passport, TOPLEFT, 0.035, - 0.106)
+
+	set passportHelpMeButton = Frame.newTextButton(passportHelpMeWidget)
+	call passportHelpMeButton.setAllPoints(passportHelpMeWidget)
+	call passportHelpMeButton.regEvent(FRAME_MOUSE_ENTER, function showPassportHelpMe)
+	call passportHelpMeButton.regEvent(FRAME_MOUSE_LEAVE, function hidePassportHelpMe)
+
 	// 通行证弹窗中的按钮
 	loop
 		exitwhen k > 16
@@ -1502,11 +1531,11 @@ function drawUI_Conditions takes nothing returns boolean
 	set talentSpecialAttackDesc[4] = "特殊攻击 + 12"
 	set talentSpecialAttackDesc[5] = "特殊攻击 + 15"
 
-	set talentArmorDesc[1] = "护甲 + 5"
-	set talentArmorDesc[2] = "护甲 + 10"
-	set talentArmorDesc[3] = "护甲 + 15"
-	set talentArmorDesc[4] = "护甲 + 20"
-	set talentArmorDesc[5] = "护甲 + 30"
+	set talentArmorDesc[1] = "护甲 + 20"
+	set talentArmorDesc[2] = "护甲 + 40"
+	set talentArmorDesc[3] = "护甲 + 60"
+	set talentArmorDesc[4] = "护甲 + 80"
+	set talentArmorDesc[5] = "护甲 + 100"
 
 	set talentDamageAbsorptionDesc[1] = "伤害吸收上限 + 2%"
 	set talentDamageAbsorptionDesc[2] = "伤害吸收上限 + 4%"
@@ -1514,11 +1543,11 @@ function drawUI_Conditions takes nothing returns boolean
 	set talentDamageAbsorptionDesc[4] = "伤害吸收上限 + 8%"
 	set talentDamageAbsorptionDesc[5] = "伤害吸收上限 + 10%"
 
-	set talentRecoverHpDesc[1] = "气血回复 + 0.5%"
-	set talentRecoverHpDesc[2] = "气血回复 + 1%"
-	set talentRecoverHpDesc[3] = "气血回复 + 1.5%"
-	set talentRecoverHpDesc[4] = "气血回复 + 2%"
-	set talentRecoverHpDesc[5] = "气血回复 + 2.5%"
+	set talentRecoverHpDesc[1] = "气血回复 + 1%"
+	set talentRecoverHpDesc[2] = "气血回复 + 2%"
+	set talentRecoverHpDesc[3] = "气血回复 + 3%"
+	set talentRecoverHpDesc[4] = "气血回复 + 4%"
+	set talentRecoverHpDesc[5] = "气血回复 + 5%"
 
 	set talentGoldDesc[1] = "金钱获得率 + 20%"
 	set talentGoldDesc[2] = "金钱获得率 + 40%"
