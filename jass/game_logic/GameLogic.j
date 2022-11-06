@@ -2164,7 +2164,7 @@ function PlayerDeath takes nothing returns nothing
 	set he[i] = true
 	set N8[i] = 0
 	call GroupRemoveUnit(k9, u)
-	call GroupRemoveUnit(j9, u)
+	call GroupRemoveUnit(xianglongGroup, u)
 	call GroupRemoveUnit(s9, u)
 	call GroupRemoveUnit(r9, u)
 	if (UnitHaveItem(u, 'I02S') or UnitHaveItem(u, 1227895373) or UnitHaveItem(u, 1227895377) or UnitHaveItem(u, 1227895378) or UnitHaveItem(u, 1227895376)) then

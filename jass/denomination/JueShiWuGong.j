@@ -1,26 +1,30 @@
 
 //------------绝世武功开始------------
 //降龙十八掌
-function WF takes nothing returns boolean
+function isXiangLong takes nothing returns boolean
 	return((GetSpellAbilityId() == 'A07E')and(UnitTypeNotNull(GetTriggerUnit(), UNIT_TYPE_HERO)))
 endfunction
-function XF takes nothing returns nothing
-	local integer id = GetHandleId(GetTriggeringTrigger())
-	local integer cx = LoadInteger(YDHT, id, - $3021938A)
-	set cx = cx + 3
-	call SaveInteger(YDHT, id, - $3021938A, cx)
-	call SaveInteger(YDHT, id, - $1317DA19, cx)
-	call SaveUnitHandle(YDHT, id * cx, $59BEA0CB, GetTriggerUnit())
-	call SaveInteger(YDHT, id * cx, - $2A41B3A3, 'A07E')
-	call GroupAddUnit(j9, LoadUnitHandle(YDHT, id * cx, $59BEA0CB))
-	call WuGongShengChong(GetTriggerUnit(), 'A07E', 100.)
-	call YDWEWaitForLocalVariable(29.)
-	call GroupRemoveUnit(j9, LoadUnitHandle(YDHT, id * cx, $59BEA0CB))
-	call YDWELocalVariableEnd()
-	call FlushChildHashtable(YDHT, id * cx)
+
+function xiangLongAction takes nothing returns nothing
+	local timer t = GetExpiredTimer()
+	local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
+	call GroupRemoveUnit(xianglongGroup, u)
+	call clearTimer(t)
+	set t = null
 endfunction
+
+function xiangLong takes nothing returns nothing
+	local timer t = CreateTimer()
+	call GroupAddUnit(xianglongGroup, GetTriggerUnit())
+	call WuGongShengChong(GetTriggerUnit(), 'A07E', 100.)
+	call SaveUnitHandle(YDHT, GetHandleId(t), 0, GetTriggerUnit())
+	call TimerStart(t, 29, false, function xiangLongAction)
+	set t = null
+endfunction
+
+
 function ZF takes nothing returns boolean
-	return((CountUnitsInGroup(j9) > 0))
+	return((CountUnitsInGroup(xianglongGroup) > 0))
 endfunction
 function dG takes nothing returns boolean
 	local integer id = GetHandleId(GetTriggeringTrigger())
@@ -70,7 +74,7 @@ function fG takes nothing returns nothing
 	endif
 endfunction
 function gG takes nothing returns nothing
-	call ForGroupBJ(j9, function fG)
+	call ForGroupBJ(xianglongGroup, function fG)
 endfunction
 //独孤九剑
 function IsDuGuJiuJian takes nothing returns boolean
@@ -1509,8 +1513,9 @@ endfunction
 function JueShiWuGong_Trigger takes nothing returns nothing
 	local trigger t = CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
-	call TriggerAddCondition(t, Condition(function WF))
-	call TriggerAddAction(t, function XF)
+	call TriggerAddCondition(t, Condition(function isXiangLong))
+	call TriggerAddAction(t, function xiangLong)
+	
 	set t = CreateTrigger()
 	call TriggerRegisterTimerEventPeriodic(t, 1.)
 	call TriggerAddCondition(t, Condition(function ZF))

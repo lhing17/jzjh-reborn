@@ -434,7 +434,7 @@ globals
 	timerdialog array g9
 	boolean array h9
 	integer array i9
-	group j9 = null
+	group xianglongGroup = null
 	group k9 = null
 	real m9 = 0
 	real n9 = 0
@@ -2445,7 +2445,7 @@ function main1 takes nothing returns nothing
 		set udg_blys[i] = 0
 		set i = i + 1
 	endloop
-	set j9 = CreateGroup()
+	set xianglongGroup = CreateGroup()
 	set k9 = CreateGroup()
 	set r9 = CreateGroup()
 	set s9 = CreateGroup()
