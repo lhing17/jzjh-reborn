@@ -18,7 +18,7 @@ function JinGang_DuJie takes nothing returns nothing
 	if i-i/3*3==0 then
 		call ShowUnitShow(u)
 		call IssueTargetOrderById(u, $D0200, ut)
-		call AddSpecialEffectLocBJEx(GetUnitLoc(ut),"war3mapImported\\ChaosExplosion.mdl")
+		call AddSpecialEffectEx("war3mapImported\\ChaosExplosion.mdl", GetUnitX(ut), GetUnitY(ut))
 	else
 		call ShowUnitHide(u)
 	endif
@@ -49,7 +49,7 @@ function JinGang_DuE takes nothing returns nothing
 	if i-i/3*3==1 then
 		call ShowUnitShow(u)
 		call IssueTargetOrderById(u, $D0200, ut)
-		call AddSpecialEffectLocBJEx(GetUnitLoc(ut),"war3mapImported\\FireStomp.mdx")
+		call AddSpecialEffectEx("war3mapImported\\FireStomp.mdx", GetUnitX(ut), GetUnitY(ut))
 	else
 		call ShowUnitHide(u)
 	endif
@@ -80,7 +80,7 @@ function JinGang_DuNan takes nothing returns nothing
 	if i-i/3*3==2 then
 		call ShowUnitShow(u)
 		call IssueTargetOrderById(u, $D0200, ut)
-		call AddSpecialEffectLocBJEx(GetUnitLoc(ut),"war3mapImported\\FireStomp.mdx")
+		call AddSpecialEffectEx("war3mapImported\\FireStomp.mdx", GetUnitX(ut), GetUnitY(ut))
 	else
 		call ShowUnitHide(u)
 	endif
@@ -122,6 +122,7 @@ function FuMoBuNengChu takes nothing returns nothing
 		call DestroyTimer(t)
 		call FlushChildHashtable(YDHT, GetHandleId(t))
 	endif
+	call RemoveLocation(loc2)
 	set t = null
 	set  u = null
 	set loc = null
@@ -193,6 +194,8 @@ function JinGangFuMo takes nothing returns nothing
 	call SaveLocationHandle(YDHT, GetHandleId(tt3), 3, loc)
 	call TimerStart(tt3, 1, true, function JinGang_DuNan)
     call UnitApplyTimedLife(bj_lastCreatedUnit,'BHwe',15.)
+
+	call RemoveLocation(loc)
     call RemoveLocation(loc1)
     call RemoveLocation(loc2)
     call RemoveLocation(loc3)

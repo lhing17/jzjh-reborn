@@ -303,10 +303,8 @@ function IsQuickFight takes nothing returns boolean
 	return((GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER)and(GetItemTypeId(GetManipulatedItem()) == 'I0D1'))
 endfunction
 function QuickFight takes nothing returns nothing
-	// local location loc = GetUnitLoc(GetTriggerUnit())
 	local unit u = GetTriggerUnit()
 	call unitadditembyidswapped('I0D2', u)
-	// call createitemloc('I0D2',loc)
 	set u = null
 endfunction
 // 加速出怪物品使用
@@ -324,6 +322,7 @@ function JiaSuChuGuai takes nothing returns nothing
 		call createitemloc('I0D2', loc)
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF0033特殊模式下超过15波、不超过26波才能跳")
 	endif
+	call RemoveLocation(loc)
 	set loc = null
 endfunction
 
@@ -630,6 +629,7 @@ function WanChengYiTian takes nothing returns nothing
 		call createitemloc('I00B', loc)
 		call DisplayTextToPlayer(p, 0, 0, "|CFF34FF00教训张无忌完成，奖励|cFFFF00CC倚天剑|r")
 	endif
+	call RemoveLocation(loc)
 	set p = null
 	set loc = null
 endfunction
@@ -679,6 +679,7 @@ function lcyAndWcy takes nothing returns nothing
 		
 		call DisplayTextToPlayer(p, 0, 0, "|CFF34FF00你的实力得到王重阳认可，获得|cFFFF00CC七星道袍|r")
 	endif
+	call RemoveLocation(loc)
 	set p = null
 	set loc = null
 endfunction
@@ -879,6 +880,7 @@ function lingHuChongDeath takes nothing returns nothing
 		call unitadditembyidswapped('I0E2', u)
 		call DisplayTextToPlayer(p, 0, 0, "|CFF34FF00令狐冲：多谢少侠为帮忙抢回掌门铁剑，奖励|cFFFF00CC东灵铁剑|r一把")
 	endif
+	call RemoveLocation(loc)
 	set u = null
 	set p = null
 	set loc = null

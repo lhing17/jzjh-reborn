@@ -1922,7 +1922,7 @@ endfunction
 
 globals
 	boolean is_victory = false
-	constant string VERSION = "1.6.69"
+	constant string VERSION = "1.6.70"
 endglobals
 
 //失败动作

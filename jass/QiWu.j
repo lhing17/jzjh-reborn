@@ -17,6 +17,7 @@ function HanBingZhenQi takes nothing returns nothing
 		call IncUnitAbilityLevel(bj_lastCreatedUnit, 'A038')
 	endif
 	call IssueTargetOrderById(bj_lastCreatedUnit, $D0101, ut)
+	call RemoveLocation(loc)
 	set u = null
 	set ut = null
 	set p = null
@@ -494,7 +495,7 @@ function shouMu takes nothing returns nothing
 		call IssueTargetOrderById(bj_lastCreatedUnit, $D00DD, u)
 	endif
 	
-
+	call RemoveLocation(loc)
 	set u = null
 	set p = null
 	set loc = null

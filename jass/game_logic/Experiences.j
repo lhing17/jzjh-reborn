@@ -71,7 +71,7 @@ function eR takes nothing returns nothing
 	if GetUnitTypeId(GetTriggerUnit())=='nw2w' then
 		set LLguaiG[i] = 1
 		if Deputy_isDeputy(i, JING_WU) or GetRandomReal(1, 100) <= 50.0 then
-			call createitemloc('I0C6',GetUnitLoc(u))
+			call CreateItem('I0C6', GetUnitX(u), GetUnitY(u))
 		endif
 	endif
 	if GetUnitTypeId(GetTriggerUnit())=='ohun' then

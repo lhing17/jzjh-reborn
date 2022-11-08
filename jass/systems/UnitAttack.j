@@ -19,9 +19,6 @@ function UnitAttack_Conditions takes nothing returns boolean
 	local unit ut = GetTriggerUnit()
 	local player p = GetOwningPlayer(u)
 	local integer i = 1 + GetPlayerId(p)
-	local location loc = GetUnitLoc(u)
-	local location loc2 = GetUnitLoc(ut)
-	local location temp_loc = null
 	local group g = null
 	local integer j = 0
 	local integer k = 0
@@ -84,12 +81,10 @@ function UnitAttack_Conditions takes nothing returns boolean
 		call wuWangShenGongSpecial(u, ut)
 	endif
 
-	call RemoveLocation(loc)
-	call RemoveLocation(loc2)
+
 	set u = null
 	set ut = null
-	set loc = null
-	set loc2 = null
+
 	set p = null
 	set dummy = null
 	return false

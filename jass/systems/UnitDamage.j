@@ -5,8 +5,6 @@ function UnitDamage_Conditions takes nothing returns boolean
 	local unit ut = GetTriggerUnit()
 	local player p = GetOwningPlayer(u)
 	local integer i = 1 + GetPlayerId(p)
-	local location loc = GetUnitLoc(u)
-	local location loc2 = GetUnitLoc(ut)
 	local real damage = GetEventDamage()
 	local trigger t = null
 	
@@ -77,8 +75,6 @@ function UnitDamage_Conditions takes nothing returns boolean
 	set u = null
 	set ut = null
 	set uc = null
-	set loc = null
-	set loc2 = null
 	set p = null
 	return false
 endfunction
