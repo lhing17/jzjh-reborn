@@ -825,6 +825,7 @@ function KeyInput takes nothing returns nothing
 		set udg_shuxing[i] = udg_shuxing[i] + 30000
 		set shoujiajf[i] = shoujiajf[i] + 10000
 		set udg_shanghaixishou[i] = udg_shanghaixishou[i] + 1
+		set heroKillCounter[i] = 9990
 
 		set Jd[i] = 1
 		set Id[i] = 1

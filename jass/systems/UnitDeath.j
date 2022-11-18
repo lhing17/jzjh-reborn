@@ -52,6 +52,13 @@ function UnitDeath_Conditions takes nothing returns boolean
 		call killGreenDragon()
 		call RemoveUnit(ut)
 	endif
+
+	set heroKillCounter[i] = heroKillCounter[i] + 1
+	if heroKillCounter[i] == 10000 then
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF00B2玩家" + GetPlayerName(Player(i - 1)) + "解锁了|CFF00FF00彩蛋：万人敌，获得|CFFFF00B2特攻+50")
+		set special_attack[i] = special_attack[i] + 50
+	endif
+
 	
 	
 	set u = null
