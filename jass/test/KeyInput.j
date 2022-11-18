@@ -209,6 +209,7 @@ function KeyInput takes nothing returns nothing
 		set s = s + getTitleString(i, 49, "绍敏郡主 ")
 		set s = s + getTitleString(i, 50, "左盟主")
 		set s = s + getTitleString(i, 51, "五岳盟主")
+		set s = s + getTitleString(i, 52, "威德先生")
 
 		call DisplayTextToPlayer(p, 0, 0, "|cFFFFFF00当前已获得称号：" + s)
 	endif
@@ -350,6 +351,7 @@ function KeyInput takes nothing returns nothing
 		elseif udg_runamen[i] == 16 then
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00神龙专属：毒龙鞭，副本1韦小宝（神龙教）触发任务杀死洪安通，接任务后洪安通出现在桃花岛上")
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号神龙教主：掌门+九阳神功+龙象般若功")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号白龙使：掌门+神行百变")
 		elseif udg_runamen[i] == 17 then
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00神龙专属：毒龙鞭，副本1韦小宝（神龙教）触发任务杀死洪安通，接任务后洪安通出现在桃花岛上")
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号教主夫人：掌门+九阴真经·内功+小无相功")
@@ -375,6 +377,7 @@ function KeyInput takes nothing returns nothing
 		elseif udg_runamen[i] == 24 then
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00雪山专属：贼哥处购买")
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号石破天惊：掌门+罗汉伏魔功+真·太玄经")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号威德先生：掌门，雪山剑法8重以上，遗忘金乌刀法")
 		elseif udg_runamen[i] == 25 then
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00汝阳王府专属：倚天剑，灭绝师太接任务，打死副本3张无忌；或者副本6东方不败爆")
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号绍敏郡主：掌门+使用10次偷看偷学")

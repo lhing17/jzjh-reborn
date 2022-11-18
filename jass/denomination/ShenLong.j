@@ -376,6 +376,12 @@ function DiQingXiangLongSH takes nothing returns nothing
     if((GetUnitAbilityLevel(u, 'A03T') != 0))then //加须弥山掌
         set shxishu = shxishu + 1.2
     endif
+
+    // 白龙使称号，伤害+300%
+    if isTitle(1 + GetPlayerId(GetOwningPlayer(GetEventDamageSource())), 53) then
+        set shxishu = shxishu + 3
+    endif
+
     // 专属加成
 	if UnitHasDenomWeapon(u, 'I0DZ') then
         set shxishu = shxishu * 2

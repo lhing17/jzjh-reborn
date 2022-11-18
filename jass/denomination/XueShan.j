@@ -52,6 +52,11 @@ function xueShanJianFa takes unit attacker, unit target returns nothing
             call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Human\\Blizzard\\BlizzardTarget.mdl", enumUnit, "overhead"))
             set damage = ShangHaiGongShi(attacker, enumUnit, 15, 15, coefficient, XUE_SHAN_JIAN_FA)
             call WuGongShangHai(attacker, enumUnit, damage)
+            if isTitle(1 + GetPlayerId(GetOwningPlayer(attacker)), 52) then
+                call DestroyEffectEx(AddSpecialEffectTargetEx("Abilities\\Spells\\Human\\Blizzard\\BlizzardTarget.mdl", enumUnit, "overhead"))
+                set damage = ShangHaiGongShi(attacker, enumUnit, 15, 15, coefficient, XUE_SHAN_JIAN_FA)
+                call WuGongShangHai(attacker, enumUnit, damage)
+            endif
         endif
         call GroupRemoveUnit(g, enumUnit)
     endloop

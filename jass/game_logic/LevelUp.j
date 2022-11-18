@@ -60,6 +60,8 @@ endfunction
 * 49 绍敏郡主
 * 50 左盟主
 * 51 五岳盟主
+* 52 威德先生
+* 53 白龙使
 */
 function setTitleNumber takes integer i, integer title returns nothing
 	if title <= 30 then
@@ -756,6 +758,13 @@ function determineShenLongTitle takes unit u returns nothing
 			call SetPlayerName(p, "〓神龙教主〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 			call setTitleNumber(i, 32)
 		endif
+		// 学神行百变，白龙使
+		if GetUnitAbilityLevel(u, SHEN_XING_BAI_BIAN) >= 1 and not isTitle(i, 53) then
+			call ModifyHeroStat(0, u, 0, 700)
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：白龙使，招式伤害增加了700点")
+			call SetPlayerName(p, "〓白龙使〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call setTitleNumber(i, 53)
+		endif
 	endif
 	if isChief(i, 17) then
 		// 学九阴+小无相，教主夫人
@@ -928,6 +937,12 @@ function determineXueShanTitle takes unit u returns nothing
 			call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A0EX' * 5, GetUnitAbilityLevel(u, 'A0EX'))
 			call SetPlayerName(p, "〓石破天惊〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 			call setTitleNumber(i, 48)
+		endif
+		if GetUnitAbilityLevel(u, XUE_SHAN_JIAN_FA) >= 8 and GetUnitAbilityLevel(u, JIN_WU_DAO_FA) == 0 and not isTitle(i, 52) then
+			call ModifyHeroStat(1, u, 0, 600)
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：威德先生，内力增加了600点")
+			call SetPlayerName(p, "〓威德先生〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call setTitleNumber(i, 52)
 		endif
 	endif
 	set p = null
