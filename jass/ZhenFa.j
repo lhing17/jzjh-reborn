@@ -195,7 +195,7 @@ function JinGangFuMo takes nothing returns nothing
 	call TimerStart(tt3, 1, true, function JinGang_DuNan)
     call UnitApplyTimedLife(bj_lastCreatedUnit,'BHwe',15.)
 
-	call RemoveLocation(loc)
+	// call RemoveLocation(loc)
     call RemoveLocation(loc1)
     call RemoveLocation(loc2)
     call RemoveLocation(loc3)

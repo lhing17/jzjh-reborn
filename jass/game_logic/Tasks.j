@@ -488,12 +488,9 @@ function jfShop takes nothing returns nothing
 			if jfQiWu[i] >= jfQiWuLimit[i] then
 				call DisplayTimedTextToPlayer(Player(i), 0, 0, 5, "|CFFFE890D一局游戏只能兑换3本奇武，单通11个门派额外兑换1本！")
 			else
-				// 随机一本奇武，去掉珍珑棋局49
-				if GetRandomInt(42, 56) < 49 then
-					call unitadditembyidswapped(LoadInteger(YDHT, StringHash("武学") + GetRandomInt(42, 48), 1), u)
-				else
-					call unitadditembyidswapped(LoadInteger(YDHT, StringHash("武学") + GetRandomInt(50, 56), 1), u)
-				endif
+				// 随机一本奇武
+
+				call unitadditembyidswapped(LoadInteger(YDHT, StringHash("武学") + GetRandomInt(42, 56), 1), u)
 				call jfChange(i, jf3)
 				call DisplayTimedTextToPlayer(Player(i), 0, 0, 5, "|cFF66CC00B随机获取一本奇武，扣除4积分")
 			endif
@@ -959,7 +956,7 @@ function FangQiYangShou takes nothing returns nothing
 		set shengwang[i] = shengwang[i] - 100
 		call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00游骏：|r |cFF99FFCC堂堂大侠，竟解决不了一个小喽啰|r\n")
 		call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00放弃任务，声望减少100|r\n")
-		call PlaySoundOnUnitBJ(Gh,100,u)
+		call PlaySoundOnUnitBJ(Gh, 100, u)
 		set yangshou[i] = 0
 	endif
 	set u = null

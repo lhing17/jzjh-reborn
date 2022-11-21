@@ -210,6 +210,8 @@ function KeyInput takes nothing returns nothing
 		set s = s + getTitleString(i, 50, "左盟主")
 		set s = s + getTitleString(i, 51, "五岳盟主")
 		set s = s + getTitleString(i, 52, "威德先生")
+		set s = s + getTitleString(i, 53, "白龙使")
+		set s = s + getTitleString(i, 54, "铁丑")
 
 		call DisplayTextToPlayer(p, 0, 0, "|cFFFFFF00当前已获得称号：" + s)
 	endif
@@ -301,6 +303,7 @@ function KeyInput takes nothing returns nothing
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00丐帮专属：打狗棒，桃花岛洪七公，90级杀他才爆")
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号北丐：掌门+降龙十八掌+打狗棒法+打狗棒（武器）")
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号北乔峰：掌门+降龙十八掌3重+擒龙控鹤+打狗棒（武器）")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号铁丑：丐帮帮主或星宿掌门+冰蚕毒掌")
 		elseif udg_runamen[i] == 4 then
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00华山专属：养吾剑，90级令狐冲处接任务挑战令狐冲，剑附带破防效果")
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号君子剑：掌门+葵花宝典+辟邪剑法")
@@ -328,6 +331,7 @@ function KeyInput takes nothing returns nothing
 		elseif udg_runamen[i] == 10 then
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00星宿专属：神木王鼎，乔峰接任务，副本1杀丁春秋杀阿紫")
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号星宿老仙：掌门+化功大法+小无相功")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号铁丑：丐帮帮主或星宿掌门+冰蚕毒掌")
 		elseif udg_runamen[i] == 11 then
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00自由专属：十四天书，具体合成请看基地右边NPC随风")
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号小虾米：虾米神拳（自创武功改名）+野球拳5重")
@@ -402,7 +406,7 @@ function KeyInput takes nothing returns nothing
 	endif
 
 	if s == "ver" then
-		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF决战江湖1.6.71版本")
+		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF决战江湖1.6.72版本")
 	endif
 
 	if s == "hd" then

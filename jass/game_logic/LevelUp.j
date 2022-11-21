@@ -62,6 +62,7 @@ endfunction
 * 51 五岳盟主
 * 52 威德先生
 * 53 白龙使
+* 54 铁丑
 */
 function setTitleNumber takes integer i, integer title returns nothing
 	if title <= 30 then
@@ -428,6 +429,16 @@ function determineGaiBangTitle takes unit u returns nothing
 			call SetPlayerName(p, "〓北乔峰〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 			call setTitleNumber(i, 10)
 		endif
+		// 铁丑：丐帮帮主或星宿掌门+冰蚕毒掌
+		if GetUnitAbilityLevel(u, 'A03U') >= 1 and not isTitle(i, 54) then
+			call ModifyHeroStat(0, u, 0, 200)
+			call ModifyHeroStat(1, u, 0, 200)
+			call ModifyHeroStat(2, u, 0, 200)
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：铁丑，招式伤害增加了200点，内力增加了200点，真实伤害增加了200点")
+			call SetPlayerName(p, "〓铁丑〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call setTitleNumber(i, 54)
+		endif
+
 	endif
 	set p = null
 endfunction
@@ -610,6 +621,15 @@ function determineXingXiuTitle takes unit u returns nothing
 			endif
 			call SetPlayerName(p, "〓星宿老仙〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 			call setTitleNumber(i, 23)
+		endif
+		// 铁丑：丐帮帮主或星宿掌门+冰蚕毒掌
+		if GetUnitAbilityLevel(u, 'A03U') >= 1 and not isTitle(i, 54) then
+			call ModifyHeroStat(0, u, 0, 200)
+			call ModifyHeroStat(1, u, 0, 200)
+			call ModifyHeroStat(2, u, 0, 200)
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：铁丑，招式伤害增加了200点，内力增加了200点，真实伤害增加了200点")
+			call SetPlayerName(p, "〓铁丑〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call setTitleNumber(i, 54)
 		endif
 	endif
 	set p = null

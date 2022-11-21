@@ -557,9 +557,9 @@ function huangShaSH takes nothing returns nothing
 	set uc = null
 endfunction
 //珍珑棋局
-//function IsZhenLongQiJu takes nothing returns boolean
-//	return GetSpellAbilityId()=='A03U'
-//endfunction
+function IsZhenLongQiJu takes nothing returns boolean
+	return GetSpellAbilityId()=='A03U'
+endfunction
 //function ZhenLong_Condition takes nothing returns boolean
 //	return IsUnitAlly(GetFilterUnit(),Player(0)) and IsUnitAliveBJ(GetFilterUnit()) and GetFilterUnit()!=udg_hero[1] and GetFilterUnit()!=udg_hero[2] and GetFilterUnit()!=udg_hero[3] and GetFilterUnit()!=udg_hero[4] and GetFilterUnit()!=udg_hero[5]
 //endfunction
@@ -599,14 +599,16 @@ endfunction
 //	set g = null
 //	set loc = null
 //endfunction
-//function ZhenLongQiJu takes nothing returns nothing
-//	local unit u = GetTriggerUnit()
-//	local timer t = CreateTimer()
-//	call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
-//	call TimerStart(t, 0.5, true, function ZhenLongQiJu_1)
-//	set u = null
-//	set t = null
-//endfunction
+function ZhenLongQiJu takes nothing returns nothing
+	local player p = GetOwningPlayer(GetTriggerUnit())
+	local real x = GetSpellTargetX()
+	local real y = GetSpellTargetY()
+	local unit temp = CreateUnit(p, 'e000', x, y, 270)
+    call UnitAddAbility(temp, 'A0FJ')
+    call ShowUnitHide(temp)
+    call IssuePointOrderById(temp, $D0270, x, y)
+    call UnitApplyTimedLife(temp, 'BHwe', 3.) 
+endfunction
 //药王神篇
 //擒龙控鹤
 //枯荣禅功
@@ -708,10 +710,10 @@ function QiWu_Trigger takes nothing returns nothing
  //   call YDWESyStemAnyUnitDamagedRegistTrigger( t )
  //   call TriggerAddCondition(t, Condition(function IsTianGangShangHai))
  //   call TriggerAddAction(t, function TianGangShangHai)
- //   set t = CreateTrigger()
- //   call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
-	//call TriggerAddCondition(t,Condition(function IsZhenLongQiJu))
- //   call TriggerAddAction(t,function ZhenLongQiJu)
+   set t = CreateTrigger()
+   call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
+	call TriggerAddCondition(t,Condition(function IsZhenLongQiJu))
+   call TriggerAddAction(t,function ZhenLongQiJu)
  //   set t = CreateTrigger()
  //   call YDWESyStemAnyUnitDamagedRegistTrigger( t )
  //   call TriggerAddCondition(t, Condition(function IsZhenWuShangHai))
