@@ -1040,7 +1040,7 @@ function determineJiangHuTitle takes unit u returns nothing
 		call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A0CH' * 5, GetUnitAbilityLevel(u, 'A0CH'))
 		call setTitleNumber(i, 40)
 	endif
-	if GetUnitAbilityLevel(u, 'A07N') >= 5 and GetUnitAbilityLevel(u, 'A0D1') >= 5 and GetUnitAbilityLevel(u, 'A0D3') >= 5 and GetUnitAbilityLevel(u, 'A07G') >= 3 and ( GetUnitTypeId(u) == 'O023' or GetUnitTypeId(u) == 'O02H' or GetUnitTypeId(u) == 'O02I' or GetUnitTypeId(u) == 'O003' or GetUnitTypeId(u) == 'O002' ) and not isTitle(i, 41) then
+	if GetUnitAbilityLevel(u, 'A07N') >= 5 and GetUnitAbilityLevel(u, 'A0D1') >= 5 and GetUnitAbilityLevel(u, 'A0D3') >= 5 and GetUnitAbilityLevel(u, 'A07G') >= 3 and not isTitle(i, 41) then
 		call SetPlayerName(p, "〓瑶琴〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 		call ModifyHeroStat(0, u, 0, 700)
 		call ModifyHeroStat(1, u, 0, 200)

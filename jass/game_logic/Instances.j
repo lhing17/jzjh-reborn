@@ -888,7 +888,7 @@ function hJ takes nothing returns nothing
 			call createitemloc('I00O', LoadLocationHandle(YDHT, id * cx, $1769D332))
 		endif
 		// 掉落冰蚕毒掌
-		if GetRandomReal(1, 100) <= 6  then
+		if GetRandomReal(1, 100) <= 50  then
 			call createitemloc('I0CA', LoadLocationHandle(YDHT, id * cx, $1769D332))
 		endif
 		call SaveInteger(YDHT, id * cx, - $5E9EB4B3, 0)
