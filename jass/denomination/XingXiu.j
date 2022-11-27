@@ -315,9 +315,9 @@ function C3 takes nothing returns nothing
     if((GetUnitAbilityLevel(u, 'A07P') != 0)and(GetUnitAbilityLevel(u, 'A06L') != 0)and(UnitHasBuffBJ(uc, 1110454324) == false)and(GetRandomReal(.0, 100.) <= 3.))then
         call WanBuff(u, uc, 7)
     endif
-    call WuGongShengChong(u, 'A0BT', 3500.)
+    call WuGongShengChong(u, 'A0BT', 1800.)
     call YDWEPolledWaitNull(.1)
-    set shanghai = ShangHaiGongShi(u, uc, 10.8, 10.8, shxishu, 'A0BT')
+    set shanghai = ShangHaiGongShi(u, uc, 22, 22, shxishu, 'A0BT')
     call WuGongShangHai(u, uc, shanghai)
     call RemoveLocation(loc)
     set u = null
