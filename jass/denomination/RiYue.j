@@ -98,7 +98,7 @@ function tianMoQuanTimer takes nothing returns nothing
     local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
     local real distance = LoadReal(YDHT, GetHandleId(t), 1)
     set distance = distance + 15
-    if distance > 650 then
+    if distance > 900 then
         call KillUnit(u)
         call FlushChildHashtable(YDHT, GetHandleId(t))
         call DestroyTimer(t)
@@ -164,8 +164,193 @@ function tianMoQuanDamage takes unit u, unit ut returns nothing
 endfunction
 
 // 4技能：吸星神掌 主动使用 屠夫肉钩
-function xiXingShenZhang takes unit u returns nothing
-    
+function xiXingShenZhangDamage takes unit u, unit ut returns nothing
+    local real shanghai = 0.
+	local real shxishu = 1.
+
+
+    // + 吸星大法：伤害+100%
+    if GetUnitAbilityLevel(u, XI_XING) >= 1 then
+		set shxishu = shxishu + 1
+	endif
+
+    // 任我行称号：伤害+300%
+    if isTitle(1 + GetPlayerId(GetOwningPlayer(u)), 55) then
+        set shxishu = shxishu + 3
+    endif
+
+	// 专属
+	if UnitHasDenomWeapon(u, ITEM_RI_YUE_SHUANG_REN) then
+		set shxishu = shxishu * 4
+	endif
+
+	set shanghai = ShangHaiGongShi(u, ut, 2000., 2000., shxishu, XI_XING_SHEN_ZHANG)
+	call WuGongShangHai(u, ut, shanghai)
+endfunction
+
+function xiXingShenZhangTimer2 takes nothing returns nothing
+    local timer t = GetExpiredTimer()
+    local unit saveDummy = LoadUnitHandle(YDHT, GetHandleId(t), 0)
+    local integer j = LoadInteger(YDHT, GetHandleId(t), 1)
+    local unit ut = LoadUnitHandle(YDHT, GetHandleId(t), 2)
+    local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 3)
+    local unit dummy = LoadUnitHandle(YDHT, GetHandleId(saveDummy), j)
+    local real x = GetUnitX(dummy)
+    local real y = GetUnitY(dummy)
+    call RemoveUnit(dummy)
+    set j = j - 1
+    call SaveInteger(YDHT, GetHandleId(t), 1, j)
+    call SetUnitPosition(ut, x, y)
+    if j <= 0 then
+        call xiXingShenZhangDamage(u, ut)
+        call FlushChildHashtable(YDHT, GetHandleId(t))
+        call FlushChildHashtable(YDHT, GetHandleId(saveDummy))
+        call RemoveUnit(saveDummy)
+        call DestroyTimer(t)
+    endif
+endfunction
+
+function xiXingShenZhangTimer3 takes nothing returns nothing
+    local timer t = GetExpiredTimer()
+    local unit saveDummy = LoadUnitHandle(YDHT, GetHandleId(t), 0)
+    local integer j = LoadInteger(YDHT, GetHandleId(t), 1)
+    local unit ut = LoadUnitHandle(YDHT, GetHandleId(t), 2)
+    local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 3)
+    local integer k = LoadInteger(YDHT, GetHandleId(t), 4)
+    local unit dummy = LoadUnitHandle(YDHT, GetHandleId(saveDummy), k)
+    local real x = GetUnitX(dummy)
+    local real y = GetUnitY(dummy)
+    call RemoveUnit(dummy)
+    set k = k + 1
+    call SaveInteger(YDHT, GetHandleId(t), 4, k)
+    call SetUnitPosition(u, x, y)
+    if k > j then
+        call xiXingShenZhangDamage(u, ut)
+        if joinSunOrMoon[1 + GetPlayerId(GetOwningPlayer(u))] == JOIN_SUN then
+            call WanBuff(u, ut, 12)
+        endif
+        call FlushChildHashtable(YDHT, GetHandleId(t))
+        call FlushChildHashtable(YDHT, GetHandleId(saveDummy))
+        call RemoveUnit(saveDummy)
+        call DestroyTimer(t)
+    endif
+endfunction
+
+function xiXingShenZhangTimer4 takes nothing returns nothing
+    local timer t = GetExpiredTimer()
+    local unit saveDummy = LoadUnitHandle(YDHT, GetHandleId(t), 0)
+    local integer j = LoadInteger(YDHT, GetHandleId(t), 1)
+    local unit dummy = LoadUnitHandle(YDHT, GetHandleId(saveDummy), j)
+    local real x = GetUnitX(dummy)
+    local real y = GetUnitY(dummy)
+    call RemoveUnit(dummy)
+    set j = j - 1
+    call SaveInteger(YDHT, GetHandleId(t), 1, j)
+    if j <= 0 then
+        call FlushChildHashtable(YDHT, GetHandleId(t))
+        call FlushChildHashtable(YDHT, GetHandleId(saveDummy))
+        call RemoveUnit(saveDummy)
+        call DestroyTimer(t)
+    endif
+endfunction
+
+function xiXingShenZhangTimer takes nothing returns nothing
+    local timer t = GetExpiredTimer()
+    local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
+    local real angle = LoadReal(YDHT, GetHandleId(t), 1)
+    local real distance = LoadReal(YDHT, GetHandleId(t), 2)
+    local integer j = LoadInteger(YDHT, GetHandleId(t), 3)
+    local unit saveDummy = LoadUnitHandle(YDHT, GetHandleId(t), 4)
+    local real ux = GetUnitX(u)
+    local real uy = GetUnitY(u)
+    local real tx
+    local real ty
+    local unit dummy
+    local group g = CreateGroup()
+    local unit enumUnit
+    local timer tm
+    set j = j + 1
+    call SaveInteger(YDHT, GetHandleId(t), 3, j)
+    set tx = ux + 80 * j * CosBJ(angle)
+    set ty = uy + 80 * j * SinBJ(angle)
+    set dummy = CreateUnit(GetOwningPlayer(u), 'e01O', tx, ty, angle)
+    call SaveUnitHandle(YDHT, GetHandleId(saveDummy), j, dummy)
+    call GroupEnumUnitsInRange(g, tx, ty, 200, null)
+    if g != null then
+        loop
+            set enumUnit = FirstOfGroup(g)
+            exitwhen enumUnit == null
+            if IsUnitEnemy(enumUnit, GetOwningPlayer(u)) and IsUnitAliveBJ(enumUnit) then
+                call DestroyEffectEx(AddSpecialEffectTargetEx("Objects\\Spawnmodels\\Orc\\Orcblood\\BattrollBlood.mdl", enumUnit, "overhead"))
+                call FlushChildHashtable(YDHT, GetHandleId(t))
+                call DestroyTimer(t)
+                call DestroyGroup(g)
+
+
+
+                set tm = CreateTimer()
+                call SaveUnitHandle(YDHT, GetHandleId(tm), 0, saveDummy)
+                call SaveInteger(YDHT, GetHandleId(tm), 1, j)
+                call SaveUnitHandle(YDHT, GetHandleId(tm), 2, enumUnit)
+                call SaveUnitHandle(YDHT, GetHandleId(tm), 3, u)
+                if joinSunOrMoon[1 + GetPlayerId(GetOwningPlayer(u))] == JOIN_MOON then
+                    call TimerStart(tm, 0.04, true, function xiXingShenZhangTimer2)
+                elseif joinSunOrMoon[1 + GetPlayerId(GetOwningPlayer(u))] == JOIN_SUN then
+                    call TimerStart(tm, 0.02, true, function xiXingShenZhangTimer3)
+                else
+                    call TimerStart(tm, 0.04, true, function xiXingShenZhangTimer3)
+                endif
+
+
+                exitwhen true
+            endif
+        endloop
+    endif
+    if j >= distance / 80 then
+        call FlushChildHashtable(YDHT, GetHandleId(t))
+        call DestroyTimer(t)
+        call DestroyGroup(g)
+
+        set tm = CreateTimer()
+        call SaveUnitHandle(YDHT, GetHandleId(tm), 0, saveDummy)
+        call SaveInteger(YDHT, GetHandleId(tm), 1, j)
+        call TimerStart(tm, 0.04, true, function xiXingShenZhangTimer4)
+    endif
+
+
+
+    set dummy = null
+    set enumUnit = null
+    set saveDummy = null
+    set g = null
+    set u = null
+    set t = null
+    set tm = null
+endfunction
+
+function xiXingShenZhang takes unit u, real x, real y returns nothing
+    local real ux = GetUnitX(u)
+    local real uy = GetUnitY(u)
+    local real angle = Rad2Deg(Atan2(y - uy, x - ux))
+    local real distance = 1000 + 100 * GetUnitAbilityLevel(u, XI_XING_SHEN_ZHANG)
+    local timer t = CreateTimer()
+    local unit saveDummy = CreateUnit(GetOwningPlayer(u), 'e000', ux, uy, angle)
+
+    call ShowUnitHide(saveDummy)
+    call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
+    call SaveReal(YDHT, GetHandleId(t), 1, angle)
+    call SaveReal(YDHT, GetHandleId(t), 2, distance)
+    call SaveInteger(YDHT, GetHandleId(t), 3, 0)
+    call SaveUnitHandle(YDHT, GetHandleId(t), 4, saveDummy)
+
+    if joinSunOrMoon[1 + GetPlayerId(GetOwningPlayer(u))] == JOIN_SUN then
+        call TimerStart(t, 0.03, true, function xiXingShenZhangTimer)
+    else
+        call TimerStart(t, 0.05, true, function xiXingShenZhangTimer)
+    endif
+    call WuGongShengChong(u, XI_XING_SHEN_ZHANG, 120.)
+    set saveDummy = null
+    set t = null
 endfunction
 
 // 5技能：葵花心法 欲练神功，必先自宫 血量永远不超过上限的 50%，每次使用技能对自己造成当前血量 50% 的伤害，同时永久提升三围或六围
@@ -187,7 +372,7 @@ function kuiHuaXinFaHalfCd takes nothing returns nothing
 	local timer t = GetExpiredTimer()
 	local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
 	
-	call EXSetAbilityState(EXGetUnitAbility(u, BI_BO_XIN_JING), 1, EXGetAbilityState(EXGetUnitAbility(u, KUI_HUA_XIN_FA), 1) / 2)
+	call EXSetAbilityState(EXGetUnitAbility(u, KUI_HUA_XIN_FA), 1, EXGetAbilityState(EXGetUnitAbility(u, KUI_HUA_XIN_FA), 1) / 2)
 	
 	call FlushChildHashtable(YDHT, GetHandleId(t))
 	call PauseTimer(t)
@@ -244,8 +429,8 @@ function kuiHuaXinFa takes unit u returns nothing
         set s = "真实伤害+" + I2S(count * 5)
     endif
     call CreateTextTagLocBJ(s, loc, 0, 15., GetRandomReal(0., 100), GetRandomReal(0., 100), GetRandomReal(0., 100), .0)
-    call Nw(3,bj_lastCreatedTextTag)
-    call SetTextTagVelocityBJ(bj_lastCreatedTextTag, GetRandomReal(50, 70),GetRandomReal(70, 110))
+    call Nw(3, bj_lastCreatedTextTag)
+    call SetTextTagVelocityBJ(bj_lastCreatedTextTag, GetRandomReal(50, 70), GetRandomReal(70, 110))
     call RemoveLocation(loc)
 
     if joinSunOrMoon[i] == JOIN_MOON then
@@ -267,8 +452,8 @@ function kuiHuaXinFa takes unit u returns nothing
         set udg_baojishanghai[i] = udg_baojishanghai[i] + add
         set t = CreateTimer()
         call SaveInteger(YDHT, GetHandleId(t), 0, i)
-        call SaveReal(YDHT, GetHandleId(t), 1,  0.05 * level)
-        call SaveReal(YDHT, GetHandleId(t), 2,  add)
+        call SaveReal(YDHT, GetHandleId(t), 1, 0.05 * level)
+        call SaveReal(YDHT, GetHandleId(t), 2, add)
         call TimerStart(t, 20., false, function kuiHuaXinFaTimer)
 
     endif

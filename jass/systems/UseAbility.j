@@ -209,6 +209,8 @@ function UseAbility_Conditions takes nothing returns boolean
 	local integer randInt = 0
 	local group g = null
 	local integer life = 0
+	local real x = GetSpellTargetX()
+	local real y = GetSpellTargetY()
 	
 	// 岚葵皮肤效果岚葵的禅定——使用技能时，有一定几率CD减少为原来的0.67倍
 	if (GetUnitTypeId(P4[i]) == 'n018' and GetRandomInt(1, 100) <= 30) and id != 'A00C' and IsUnitType(u, UNIT_TYPE_HERO) then
@@ -314,7 +316,7 @@ function UseAbility_Conditions takes nothing returns boolean
 
 	// 日月神教：吸星神掌
 	if id == XI_XING_SHEN_ZHANG then
-		call xiXingShenZhang(u)
+		call xiXingShenZhang(u, x, y)
 	endif
 
 	// 日月神教：葵花心法

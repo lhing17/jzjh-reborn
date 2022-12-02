@@ -155,6 +155,7 @@ function KeyInput takes nothing returns nothing
 		set s = s + getChiefString(i, 24, "雪山掌门 ")
 		set s = s + getChiefString(i, 25, "汝阳王 ")
 		set s = s + getChiefString(i, 26, "嵩山掌门 ")
+		set s = s + getChiefString(i, 27, "日月教主 ")
 		call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00当前已获得掌门：" + s)
 
 		set s = ""
@@ -212,6 +213,8 @@ function KeyInput takes nothing returns nothing
 		set s = s + getTitleString(i, 52, "威德先生")
 		set s = s + getTitleString(i, 53, "白龙使")
 		set s = s + getTitleString(i, 54, "铁丑")
+		set s = s + getTitleString(i, 55, "任我行")
+		set s = s + getTitleString(i, 56, "东方不败")
 
 		call DisplayTextToPlayer(p, 0, 0, "|cFFFFFF00当前已获得称号：" + s)
 	endif
