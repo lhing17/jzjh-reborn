@@ -143,10 +143,10 @@ real yd_MapMaxX= 0
 real yd_MapMinX= 0
 real yd_MapMaxY= 0
 real yd_MapMinY= 0
-string array YDWEBase___yd_PlayerColor
-trigger array YDWEBase___AbilityCastingOverEventQueue
-integer array YDWEBase___AbilityCastingOverEventType
-integer YDWEBase___AbilityCastingOverEventNumber= 0
+string array YDWEBase__yd_PlayerColor
+trigger array YDWEBase__AbilityCastingOverEventQueue
+integer array YDWEBase__AbilityCastingOverEventType
+integer YDWEBase__AbilityCastingOverEventNumber= 0
 //endglobals from YDWEBase
 //globals from YDWEBitwise:
 constant boolean LIBRARY_YDWEBitwise=true
@@ -184,20 +184,20 @@ constant boolean LIBRARY_YDWEStringHash=true
 //endglobals from YDWEStringHash
 //globals from YDWESync:
 constant boolean LIBRARY_YDWESync=true
-gamecache YDWESync___m_gc
-boolean YDWESync___m_mutex_state= false
+gamecache YDWESync__m_gc
+boolean YDWESync__m_mutex_state= false
 //endglobals from YDWESync
 //globals from YDWETriggerEvent:
 constant boolean LIBRARY_YDWETriggerEvent=true
 trigger yd_DamageEventTrigger= null
-trigger array YDWETriggerEvent___DamageEventQueue
-integer YDWETriggerEvent___DamageEventNumber= 0
+trigger array YDWETriggerEvent__DamageEventQueue
+integer YDWETriggerEvent__DamageEventNumber= 0
 	
 item bj_lastMovedItemInItemSlot= null
 	
-trigger YDWETriggerEvent___MoveItemEventTrigger= null
-trigger array YDWETriggerEvent___MoveItemEventQueue
-integer YDWETriggerEvent___MoveItemEventNumber= 0
+trigger YDWETriggerEvent__MoveItemEventTrigger= null
+trigger array YDWETriggerEvent__MoveItemEventQueue
+integer YDWETriggerEvent__MoveItemEventNumber= 0
 //endglobals from YDWETriggerEvent
 //globals from YDWETriggerRegisterLeaveRectSimpleNull:
 constant boolean LIBRARY_YDWETriggerRegisterLeaveRectSimpleNull=true
@@ -226,9 +226,9 @@ constant boolean LIBRARY_YDWEPreloadSL=true
     /// ÿ�����ռ�õĿռ�[500*id, 500*(id-1))
     /// �±�Խ��û�н��м�飬�ƺ�û�����Ҫ��˭Ҫ���ó���500...��ȥ����- -
     /// 
-integer array YDWEPreloadSL___Code
-integer array YDWEPreloadSL___CodeHI
-integer array YDWEPreloadSL___CodeLO
+integer array YDWEPreloadSL__Code
+integer array YDWEPreloadSL__CodeHI
+integer array YDWEPreloadSL__CodeLO
 boolean bj_lastLoadPreloadSLResult
 string array udg_YDWE_PreloadSL_List
 string udg_YDWE_PreloadSL_CurrentDir= ""
@@ -389,11 +389,11 @@ constant integer DA_SONG_YANG_SHEN_ZHANG= 'A0FE'
 constant integer WU_MING_NEI_GONG= 'A0FD'
 
 	// 日月神教武功
-constant integer RI_YUE_TAI_JI_QUAN= 'AXXX'
-constant integer SHEN_JIAO_BAO_XUN= 'AXXX'
-constant integer TIAN_MO_QUAN= 'AXXX'
-constant integer XI_XING_SHEN_ZHANG= 'AXXX'
-constant integer KUI_HUA_XIN_FA= 'AXXX'
+constant integer RI_YUE_TAI_JI_QUAN= 'A0FL'
+constant integer SHEN_JIAO_BAO_XUN= 'A0FM'
+constant integer TIAN_MO_QUAN= 'A0FN'
+constant integer XI_XING_SHEN_ZHANG= 'A0FO'
+constant integer KUI_HUA_XIN_FA= 'A0FP'
 
 constant integer SHUANG_SHOU= 'A07U'
 constant integer KUI_HUA= 'A07T'
@@ -432,13 +432,14 @@ constant integer ITEM_YU_XIAO= 'I09D'
 constant integer ITEM_HAN_SHA= 'I0AE'
 constant integer ITEM_YE_LUO= 'I0EU'
 constant integer ITEM_HAN_PO_JIAN= 'I0F6'
-constant integer ITEM_RI_YUE_SHUANG_REN= 'IXXX'
+constant integer ITEM_RI_YUE_SHUANG_REN= 'I0F7'
 
 	
 string priKey
 integer array tiezhang_flag
 integer array tangmen_flag
 integer array ruyang_flag
+integer array riyue_flag
 integer array talent_flag
 integer array wudu_flag
 integer array taohua_flag
@@ -459,11 +460,12 @@ string PROPERTY_WUKONG= "ARWUKONG59"
 string PROPERTY_PANDA= "ARPANDA072"
 string PROPERTY_NEIHUA= "ANEIHUA123"
 string PROPERTY_PASSPORT_S1= "APASSPORT1"
+string PROPERTY_RIYUE= "ARIYUE1234"
 
 string PROPERTY_DOUBLE_POINT= "BC98FNY5L9"
 string PROPERTY_LEVEL_AWARD= "BYOUARES13"
 
-constant integer DENOMINATION_NUMBER= 26
+constant integer DENOMINATION_NUMBER= 27
 integer array interAbilityCount
 integer array alreadyInternalizedCount
 boolean moshiFlag= false
@@ -4281,11 +4283,11 @@ endfunction
 function YDWESyStemAbilityCastingOverTriggerAction takes unit hero,integer index returns nothing
  local integer i= 0
     loop
-        exitwhen i >= YDWEBase___AbilityCastingOverEventNumber
-        if YDWEBase___AbilityCastingOverEventType[i] == index then
+        exitwhen i >= YDWEBase__AbilityCastingOverEventNumber
+        if YDWEBase__AbilityCastingOverEventType[i] == index then
             set bj_lastAbilityCastingUnit=hero
-			if YDWEBase___AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase___AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase___AbilityCastingOverEventQueue[i]) then
-				call TriggerExecute(YDWEBase___AbilityCastingOverEventQueue[i])
+			if YDWEBase__AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase__AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase__AbilityCastingOverEventQueue[i]) then
+				call TriggerExecute(YDWEBase__AbilityCastingOverEventQueue[i])
 			endif
 		endif
         set i=i + 1
@@ -4295,9 +4297,9 @@ endfunction
 //YDWE技能捕捉事件 
 //===========================================================================  
 function YDWESyStemAbilityCastingOverRegistTrigger takes trigger trg,integer index returns nothing
-	set YDWEBase___AbilityCastingOverEventQueue[YDWEBase___AbilityCastingOverEventNumber]=trg
-	set YDWEBase___AbilityCastingOverEventType[YDWEBase___AbilityCastingOverEventNumber]=index
-	set YDWEBase___AbilityCastingOverEventNumber=YDWEBase___AbilityCastingOverEventNumber + 1
+	set YDWEBase__AbilityCastingOverEventQueue[YDWEBase__AbilityCastingOverEventNumber]=trg
+	set YDWEBase__AbilityCastingOverEventType[YDWEBase__AbilityCastingOverEventNumber]=index
+	set YDWEBase__AbilityCastingOverEventNumber=YDWEBase__AbilityCastingOverEventNumber + 1
 endfunction 
 //===========================================================================
 //系统函数完善
@@ -4334,7 +4336,7 @@ endfunction
 //unitpool bj_lastCreatedPool=null
 //unit bj_lastPoolAbstractedUnit=null
 function YDWEGetPlayerColorString takes player p,string s returns string
-    return YDWEBase___yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
+    return YDWEBase__yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
 endfunction
 //===========================================================================
 //===========================================================================
@@ -4381,22 +4383,22 @@ function InitializeYD takes nothing returns nothing
 	set yd_MapMaxX=GetCameraBoundMaxX() + GetCameraMargin(CAMERA_MARGIN_RIGHT)
 	set yd_MapMaxY=GetCameraBoundMaxY() + GetCameraMargin(CAMERA_MARGIN_TOP)
 	
-    set YDWEBase___yd_PlayerColor[0]="|cFFFF0303"
-    set YDWEBase___yd_PlayerColor[1]="|cFF0042FF"
-    set YDWEBase___yd_PlayerColor[2]="|cFF1CE6B9"
-    set YDWEBase___yd_PlayerColor[3]="|cFF540081"
-    set YDWEBase___yd_PlayerColor[4]="|cFFFFFC01"
-    set YDWEBase___yd_PlayerColor[5]="|cFFFE8A0E"
-    set YDWEBase___yd_PlayerColor[6]="|cFF20C000"
-    set YDWEBase___yd_PlayerColor[7]="|cFFE55BB0"
-    set YDWEBase___yd_PlayerColor[8]="|cFF959697"
-    set YDWEBase___yd_PlayerColor[9]="|cFF7EBFF1"
-    set YDWEBase___yd_PlayerColor[10]="|cFF106246"
-    set YDWEBase___yd_PlayerColor[11]="|cFF4E2A04"
-    set YDWEBase___yd_PlayerColor[12]="|cFF282828"
-    set YDWEBase___yd_PlayerColor[13]="|cFF282828"
-    set YDWEBase___yd_PlayerColor[14]="|cFF282828"
-    set YDWEBase___yd_PlayerColor[15]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[0]="|cFFFF0303"
+    set YDWEBase__yd_PlayerColor[1]="|cFF0042FF"
+    set YDWEBase__yd_PlayerColor[2]="|cFF1CE6B9"
+    set YDWEBase__yd_PlayerColor[3]="|cFF540081"
+    set YDWEBase__yd_PlayerColor[4]="|cFFFFFC01"
+    set YDWEBase__yd_PlayerColor[5]="|cFFFE8A0E"
+    set YDWEBase__yd_PlayerColor[6]="|cFF20C000"
+    set YDWEBase__yd_PlayerColor[7]="|cFFE55BB0"
+    set YDWEBase__yd_PlayerColor[8]="|cFF959697"
+    set YDWEBase__yd_PlayerColor[9]="|cFF7EBFF1"
+    set YDWEBase__yd_PlayerColor[10]="|cFF106246"
+    set YDWEBase__yd_PlayerColor[11]="|cFF4E2A04"
+    set YDWEBase__yd_PlayerColor[12]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[13]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[14]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[15]="|cFF282828"
     //=================显示版本=====================
     call YDWEVersion_Init()
 endfunction
@@ -5132,13 +5134,13 @@ endfunction
 
 //library YDWEStringHash ends
 //library YDWESync:
- function YDWESync___IsLivingPlayer takes player p returns boolean
+ function YDWESync__IsLivingPlayer takes player p returns boolean
 		return ( GetPlayerSlotState(p) == PLAYER_SLOT_STATE_PLAYING ) and ( GetPlayerController(p) == MAP_CONTROL_USER )
 	endfunction
- function YDWESync___GetLivingfPlayer takes nothing returns player
+ function YDWESync__GetLivingfPlayer takes nothing returns player
   local integer i= 0
 		loop
-			exitwhen YDWESync___IsLivingPlayer(Player(i)) or i >= 11
+			exitwhen YDWESync__IsLivingPlayer(Player(i)) or i >= 11
 			set i=i + 1
 		endloop
 		return Player(i)
@@ -5146,8 +5148,8 @@ endfunction
     
     function YDWESync_Lock takes nothing returns nothing
         loop
-            if not YDWESync___m_mutex_state then
-                set YDWESync___m_mutex_state=true
+            if not YDWESync__m_mutex_state then
+                set YDWESync__m_mutex_state=true
                 return
             endif
             call TriggerSleepAction(0.2)
@@ -5155,21 +5157,21 @@ endfunction
     endfunction
     
     function YDWESync_Unlock takes nothing returns nothing
-        set YDWESync___m_mutex_state=false
+        set YDWESync__m_mutex_state=false
     endfunction
     
     function YDWESync_Join takes player p returns nothing
         if GetLocalPlayer() == p then
-            call StoreInteger(YDWESync___m_gc, "-", "-", 'YDWE')
+            call StoreInteger(YDWESync__m_gc, "-", "-", 'YDWE')
         endif
         call TriggerSyncStart()
         if GetLocalPlayer() == p then
-            call SyncStoredInteger(YDWESync___m_gc, "-", "-")
+            call SyncStoredInteger(YDWESync__m_gc, "-", "-")
         endif
-        call StoreInteger(YDWESync___m_gc, "-", "-", 0)
+        call StoreInteger(YDWESync__m_gc, "-", "-", 0)
         call TriggerSyncReady()
         loop
-            if 'YDWE' == GetStoredInteger(YDWESync___m_gc, "-", "-") then
+            if 'YDWE' == GetStoredInteger(YDWESync__m_gc, "-", "-") then
                 return
             endif
             call TriggerSleepAction(0.2)
@@ -5177,11 +5179,11 @@ endfunction
     endfunction
     
     function YDWESync_Set takes string table,string key,integer value returns nothing
-        call StoreInteger(YDWESync___m_gc, table, key, value)
+        call StoreInteger(YDWESync__m_gc, table, key, value)
     endfunction
     
     function YDWESync_Get takes string table,string key returns integer
-        return GetStoredInteger(YDWESync___m_gc, table, key)
+        return GetStoredInteger(YDWESync__m_gc, table, key)
     endfunction
     
     function YDWESync_Start takes nothing returns nothing
@@ -5193,12 +5195,12 @@ endfunction
     endfunction
     
     function YDWESync_Send takes string table,string key returns nothing
-        call SyncStoredInteger(YDWESync___m_gc, table, key)
+        call SyncStoredInteger(YDWESync__m_gc, table, key)
     endfunction
     
- function YDWESync___onInit takes nothing returns nothing
+ function YDWESync__onInit takes nothing returns nothing
 		call FlushGameCache(InitGameCache("@"))
-		set YDWESync___m_gc=InitGameCache("@")
+		set YDWESync__m_gc=InitGameCache("@")
 	endfunction
 
 //library YDWESync ends
@@ -5211,9 +5213,9 @@ function YDWEAnyUnitDamagedTriggerAction takes nothing returns nothing
     local integer i= 0
     
     loop
-        exitwhen i >= YDWETriggerEvent___DamageEventNumber
-        if YDWETriggerEvent___DamageEventQueue[i] != null and IsTriggerEnabled(YDWETriggerEvent___DamageEventQueue[i]) and TriggerEvaluate(YDWETriggerEvent___DamageEventQueue[i]) then
-            call TriggerExecute(YDWETriggerEvent___DamageEventQueue[i])
+        exitwhen i >= YDWETriggerEvent__DamageEventNumber
+        if YDWETriggerEvent__DamageEventQueue[i] != null and IsTriggerEnabled(YDWETriggerEvent__DamageEventQueue[i]) and TriggerEvaluate(YDWETriggerEvent__DamageEventQueue[i]) then
+            call TriggerExecute(YDWETriggerEvent__DamageEventQueue[i])
         endif
         set i=i + 1
     endloop
@@ -5242,14 +5244,14 @@ function YDWESyStemAnyUnitDamagedRegistTrigger takes trigger trg returns nothing
         return
     endif
         
-    if YDWETriggerEvent___DamageEventNumber == 0 then
+    if YDWETriggerEvent__DamageEventNumber == 0 then
         set yd_DamageEventTrigger=CreateTrigger()
         call TriggerAddAction(yd_DamageEventTrigger, function YDWEAnyUnitDamagedTriggerAction)
         call YDWEAnyUnitDamagedEnumUnit()
     endif
     
-    set YDWETriggerEvent___DamageEventQueue[YDWETriggerEvent___DamageEventNumber]=trg
-    set YDWETriggerEvent___DamageEventNumber=YDWETriggerEvent___DamageEventNumber + 1
+    set YDWETriggerEvent__DamageEventQueue[YDWETriggerEvent__DamageEventNumber]=trg
+    set YDWETriggerEvent__DamageEventNumber=YDWETriggerEvent__DamageEventNumber + 1
 endfunction
 //===========================================================================  
 //�ƶ���Ʒ�¼� 
@@ -5260,9 +5262,9 @@ function YDWESyStemItemUnmovableTriggerAction takes nothing returns nothing
     if GetIssuedOrderId() >= 852002 and GetIssuedOrderId() <= 852007 then
 		set bj_lastMovedItemInItemSlot=GetOrderTargetItem()
     	loop
-        	exitwhen i >= YDWETriggerEvent___MoveItemEventNumber
-        	if YDWETriggerEvent___MoveItemEventQueue[i] != null and IsTriggerEnabled(YDWETriggerEvent___MoveItemEventQueue[i]) and TriggerEvaluate(YDWETriggerEvent___MoveItemEventQueue[i]) then
-        	    call TriggerExecute(YDWETriggerEvent___MoveItemEventQueue[i])
+        	exitwhen i >= YDWETriggerEvent__MoveItemEventNumber
+        	if YDWETriggerEvent__MoveItemEventQueue[i] != null and IsTriggerEnabled(YDWETriggerEvent__MoveItemEventQueue[i]) and TriggerEvaluate(YDWETriggerEvent__MoveItemEventQueue[i]) then
+        	    call TriggerExecute(YDWETriggerEvent__MoveItemEventQueue[i])
         	endif
         	set i=i + 1
     	endloop
@@ -5273,14 +5275,14 @@ function YDWESyStemItemUnmovableRegistTrigger takes trigger trg returns nothing
         return
     endif
         
-    if YDWETriggerEvent___MoveItemEventNumber == 0 then
-        set YDWETriggerEvent___MoveItemEventTrigger=CreateTrigger()
-        call TriggerAddAction(YDWETriggerEvent___MoveItemEventTrigger, function YDWESyStemItemUnmovableTriggerAction)
-        call TriggerRegisterAnyUnitEventBJ(YDWETriggerEvent___MoveItemEventTrigger, EVENT_PLAYER_UNIT_ISSUED_TARGET_ORDER)
+    if YDWETriggerEvent__MoveItemEventNumber == 0 then
+        set YDWETriggerEvent__MoveItemEventTrigger=CreateTrigger()
+        call TriggerAddAction(YDWETriggerEvent__MoveItemEventTrigger, function YDWESyStemItemUnmovableTriggerAction)
+        call TriggerRegisterAnyUnitEventBJ(YDWETriggerEvent__MoveItemEventTrigger, EVENT_PLAYER_UNIT_ISSUED_TARGET_ORDER)
     endif
     
-    set YDWETriggerEvent___MoveItemEventQueue[YDWETriggerEvent___MoveItemEventNumber]=trg
-    set YDWETriggerEvent___MoveItemEventNumber=YDWETriggerEvent___MoveItemEventNumber + 1
+    set YDWETriggerEvent__MoveItemEventQueue[YDWETriggerEvent__MoveItemEventNumber]=trg
+    set YDWETriggerEvent__MoveItemEventNumber=YDWETriggerEvent__MoveItemEventNumber + 1
 endfunction
 function GetLastMovedItemInItemSlot takes nothing returns item
     return bj_lastMovedItemInItemSlot
@@ -5339,7 +5341,7 @@ endfunction
 //===========================================================================
 //���Ƽ���ģ�� 
 //===========================================================================
-function YDWECreateEwsp___Loop takes nothing returns nothing
+function YDWECreateEwsp__Loop takes nothing returns nothing
     local timer t= GetExpiredTimer()
  local string h= I2S((GetHandleId((t)))) // INLINED!!
     local unit tempUnit
@@ -5408,7 +5410,7 @@ function YDWECreateEwsp takes unit Hero,integer ewsp,integer number,real radius,
         call GroupAddUnit(bj_lastCreatedGroup, tempUnit)
         set bj_lastCreatedUnit=tempUnit
     endloop
-    call TimerStart(t, interval, true, function YDWECreateEwsp___Loop)
+    call TimerStart(t, interval, true, function YDWECreateEwsp__Loop)
     set t=null
     set tempUnit=null
 endfunction
@@ -5810,8 +5812,8 @@ function YDWE_PreloadSL_LoadPreFile takes player p,integer n,string strFilePath 
   
   loop
     exitwhen index > n
-    set YDWEPreloadSL___CodeHI[beg + index]=YDWE_PreloadSL_LoadInteger(index)
-    set YDWEPreloadSL___CodeLO[beg + index]=YDWE_PreloadSL_LoadInteger($200 + index)
+    set YDWEPreloadSL__CodeHI[beg + index]=YDWE_PreloadSL_LoadInteger(index)
+    set YDWEPreloadSL__CodeLO[beg + index]=YDWE_PreloadSL_LoadInteger($200 + index)
     set index=index + 1
   endloop
 endfunction
@@ -5823,8 +5825,8 @@ function YDWE_PreloadSL_SavePreFile takes player p,integer n,string strFilePath 
   call PreloadGenStart()
   loop
     exitwhen index > n
-    call YDWE_PreloadSL_SaveInteger(index , YDWEPreloadSL___CodeHI[beg + index])
-    call YDWE_PreloadSL_SaveInteger($200 + index , YDWEPreloadSL___CodeLO[beg + index])
+    call YDWE_PreloadSL_SaveInteger(index , YDWEPreloadSL__CodeHI[beg + index])
+    call YDWE_PreloadSL_SaveInteger($200 + index , YDWEPreloadSL__CodeLO[beg + index])
     set index=index + 1
   endloop
           
@@ -5907,15 +5909,15 @@ endfunction
 function YDWE_PreloadSL_GetMask takes player p returns integer
     local integer value
     local integer beg= ( 501 * GetPlayerId(p) )
-    local integer l__hi= YDWEPreloadSL___CodeHI[beg]
-    local integer l__lo= YDWEPreloadSL___CodeLO[beg]
+    local integer l__hi= YDWEPreloadSL__CodeHI[beg]
+    local integer l__lo= YDWEPreloadSL__CodeLO[beg]
     if l__hi < $8000 then
         set value=l__lo + l__hi * $10000
     else
         set l__hi=l__hi - $8000
         set value=- ( l__lo + l__hi * $10000 )
     endif
-    set YDWEPreloadSL___Code[beg]=value
+    set YDWEPreloadSL__Code[beg]=value
     return value - 'YDWE'
 endfunction
 ///
@@ -5936,18 +5938,18 @@ function YDWE_PreloadSL_Unmove takes integer beg,integer n,integer key returns n
         if value < beg then
             set value=value + n
         endif
-        set l__hi=YDWEPreloadSL___CodeHI[value]
-        set YDWEPreloadSL___CodeHI[value]=YDWEPreloadSL___CodeHI[index]
-        set YDWEPreloadSL___CodeHI[index]=l__hi
+        set l__hi=YDWEPreloadSL__CodeHI[value]
+        set YDWEPreloadSL__CodeHI[value]=YDWEPreloadSL__CodeHI[index]
+        set YDWEPreloadSL__CodeHI[index]=l__hi
         
         set value=keys - ( index - beg )
         set value=beg + value - value / n * n
         if value < beg then
             set value=value + n
         endif
-        set l__lo=YDWEPreloadSL___CodeLO[value]
-        set YDWEPreloadSL___CodeLO[value]=YDWEPreloadSL___CodeLO[index]
-        set YDWEPreloadSL___CodeLO[index]=l__lo
+        set l__lo=YDWEPreloadSL__CodeLO[value]
+        set YDWEPreloadSL__CodeLO[value]=YDWEPreloadSL__CodeLO[index]
+        set YDWEPreloadSL__CodeLO[index]=l__lo
         
         set keys=keys - key
         
@@ -5965,8 +5967,8 @@ function YDWE_PreloadSL_GetCode takes integer beg,integer n,integer key,integer 
     
     loop
         exitwhen index > end
-        set l__hi=YDWEPreloadSL___CodeHI[index]
-        set l__lo=YDWEPreloadSL___CodeLO[index]
+        set l__hi=YDWEPreloadSL__CodeHI[index]
+        set l__lo=YDWEPreloadSL__CodeLO[index]
         
         // SubKey
         set keys=keys + key
@@ -5995,7 +5997,7 @@ function YDWE_PreloadSL_GetCode takes integer beg,integer n,integer key,integer 
             set value=- ( l__lo + l__hi * $10000 )
         endif
         
-        set YDWEPreloadSL___Code[index]=value
+        set YDWEPreloadSL__Code[index]=value
         set index=index + 1
     endloop
     
@@ -6022,8 +6024,8 @@ function YDWE_PreloadSL_SetMask takes player p,integer mask returns nothing
             set l__lo=value - l__hi * $10000
             set l__hi=l__hi + $8000
     endif
-    set YDWEPreloadSL___CodeHI[beg]=l__hi
-    set YDWEPreloadSL___CodeLO[beg]=l__lo
+    set YDWEPreloadSL__CodeHI[beg]=l__hi
+    set YDWEPreloadSL__CodeLO[beg]=l__lo
 endfunction
 function YDWE_PreloadSL_SetCode takes integer beg,integer n,integer key,integer mask returns nothing
     local integer l__hi
@@ -6036,7 +6038,7 @@ function YDWE_PreloadSL_SetCode takes integer beg,integer n,integer key,integer 
     
     loop
         exitwhen index > end
-        set value=YDWEPreloadSL___Code[index]
+        set value=YDWEPreloadSL__Code[index]
         
         // SetCode
         if value >= 0 then
@@ -6058,8 +6060,8 @@ function YDWE_PreloadSL_SetCode takes integer beg,integer n,integer key,integer 
         set value=masks / $10000
         set l__hi=l__hi + ( value - value / $100 * $100 ) * $100
         set l__lo=l__lo + ( masks - masks / $100 * $100 ) * $10000
-        set YDWEPreloadSL___CodeHI[index]=l__hi
-        set YDWEPreloadSL___CodeLO[index]=l__lo
+        set YDWEPreloadSL__CodeHI[index]=l__hi
+        set YDWEPreloadSL__CodeLO[index]=l__lo
         set index=index + 1
     endloop
 endfunction
@@ -6085,18 +6087,18 @@ function YDWE_PreloadSL_Move takes integer beg,integer n,integer key returns not
         if value < beg then
             set value=value + n
         endif
-        set l__hi=YDWEPreloadSL___CodeHI[value]
-        set YDWEPreloadSL___CodeHI[value]=YDWEPreloadSL___CodeHI[index]
-        set YDWEPreloadSL___CodeHI[index]=l__hi
+        set l__hi=YDWEPreloadSL__CodeHI[value]
+        set YDWEPreloadSL__CodeHI[value]=YDWEPreloadSL__CodeHI[index]
+        set YDWEPreloadSL__CodeHI[index]=l__hi
         
         set value=keys - ( index - beg )
         set value=beg + value - value / n * n
         if value < beg then
             set value=value + n
         endif
-        set l__lo=YDWEPreloadSL___CodeLO[value]
-        set YDWEPreloadSL___CodeLO[value]=YDWEPreloadSL___CodeLO[index]
-        set YDWEPreloadSL___CodeLO[index]=l__lo
+        set l__lo=YDWEPreloadSL__CodeLO[value]
+        set YDWEPreloadSL__CodeLO[value]=YDWEPreloadSL__CodeLO[index]
+        set YDWEPreloadSL__CodeLO[index]=l__lo
         
         set index=index + 1
     endloop
@@ -6120,8 +6122,8 @@ function YDWE_PreloadSL_Sync takes player p,integer n returns nothing
         set index=beg
         loop
             exitwhen index > end
-            call StoreInteger(YDWESync___m_gc, ("H" ), ( I2S(index) ), ( YDWEPreloadSL___CodeHI[index])) // INLINED!!
-            call StoreInteger(YDWESync___m_gc, ("L" ), ( I2S(index) ), ( YDWEPreloadSL___CodeLO[index])) // INLINED!!
+            call StoreInteger(YDWESync__m_gc, ("H" ), ( I2S(index) ), ( YDWEPreloadSL__CodeHI[index])) // INLINED!!
+            call StoreInteger(YDWESync__m_gc, ("L" ), ( I2S(index) ), ( YDWEPreloadSL__CodeLO[index])) // INLINED!!
             set index=index + 1
         endloop
     endif
@@ -6130,8 +6132,8 @@ function YDWE_PreloadSL_Sync takes player p,integer n returns nothing
         set index=beg
         loop
             exitwhen index > end
-            call SyncStoredInteger(YDWESync___m_gc, ("H" ), ( I2S(index))) // INLINED!!
-            call SyncStoredInteger(YDWESync___m_gc, ("L" ), ( I2S(index))) // INLINED!!
+            call SyncStoredInteger(YDWESync__m_gc, ("H" ), ( I2S(index))) // INLINED!!
+            call SyncStoredInteger(YDWESync__m_gc, ("L" ), ( I2S(index))) // INLINED!!
             set index=index + 1
         endloop
     endif
@@ -6141,8 +6143,8 @@ function YDWE_PreloadSL_Sync takes player p,integer n returns nothing
     set index=beg
     loop
         exitwhen index > end
-        set YDWEPreloadSL___CodeHI[index]=(GetStoredInteger(YDWESync___m_gc, ("H" ), ( I2S(index)))) // INLINED!!
-        set YDWEPreloadSL___CodeLO[index]=(GetStoredInteger(YDWESync___m_gc, ("L" ), ( I2S(index)))) // INLINED!!
+        set YDWEPreloadSL__CodeHI[index]=(GetStoredInteger(YDWESync__m_gc, ("H" ), ( I2S(index)))) // INLINED!!
+        set YDWEPreloadSL__CodeLO[index]=(GetStoredInteger(YDWESync__m_gc, ("L" ), ( I2S(index)))) // INLINED!!
         set index=index + 1
     endloop
 endfunction
@@ -6156,7 +6158,7 @@ function YDWE_PreloadSL_Load takes player p,string dir,string file,integer n ret
     
     call YDWE_PreloadSL_Sync(p , n)
     set bj_lastLoadPreloadSLResult=YDWE_PreloadSL_Decode(p , n)
-    set YDWESync___m_mutex_state=false // INLINED!!
+    set YDWESync__m_mutex_state=false // INLINED!!
     
     return bj_lastLoadPreloadSLResult
 endfunction
@@ -6170,13 +6172,13 @@ function YDWE_PreloadSL_Save takes player p,string dir,string file,integer n ret
 endfunction
  
 function YDWE_PreloadSL_Set takes player p,string s,integer n,integer value returns nothing
-    set YDWEPreloadSL___Code[n + ( 501 * GetPlayerId(p) )]=value
+    set YDWEPreloadSL__Code[n + ( 501 * GetPlayerId(p) )]=value
 endfunction
 function YDWE_PreloadSL_Get takes player p,string s,integer n returns integer
-    return YDWEPreloadSL___Code[n + ( 501 * GetPlayerId(p) )]
+    return YDWEPreloadSL__Code[n + ( 501 * GetPlayerId(p) )]
 endfunction
                                 
-function YDWEPreloadSL___Init takes nothing returns nothing
+function YDWEPreloadSL__Init takes nothing returns nothing
     local integer index= 0
     loop
         exitwhen index >= 16
@@ -7440,7 +7442,7 @@ endfunction
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Fri Dec 02 14:31:24 2022
+//   Date: Fri Dec 02 16:08:59 2022
 //   Map Author: 云杨 zei_kale
 // 
 //===========================================================================
@@ -9517,6 +9519,7 @@ local real basic_damage
 local real str= I2R(GetHeroStatBJ(0, u, true))
 local real agi= I2R(GetHeroStatBJ(1, u, true))
 local real int= I2R(GetHeroStatBJ(2, u, true))
+local integer specialAttack= special_attack[i] + 5 * GetUnitAbilityLevel(u, SHEN_JIAO_BAO_XUN)
 if (IsUnitType((u ), ( UNIT_TYPE_HERO)) != null) then // INLINED!!
 		// 神龙心法加成
 		set attack=( 1 + 0.3 * GetUnitAbilityLevel(u, 'A059') ) * 160 * udg_lilianxishu[i] * ( w1 * ( 1 + str / 300 ) * ( 1 + agi / 300 ) + w2 * 0.02 * int ) * ( 1.5 + 0.5 * GetUnitAbilityLevel(u, id) ) * ( udg_shanghaijiacheng[i] + 1. ) * shxishu
@@ -9574,13 +9577,13 @@ if (IsUnitType((u ), ( UNIT_TYPE_HERO)) != null) then // INLINED!!
 	// 特殊防御
 	// 如果特攻大于等于42或者敌方虚弱
 	if UnitHasBuffBJ(uc, 'B022') then
-		set special_def=1 + special_attack[i] * 0.06
-	elseif special_attack[i] >= 6 * ( 1 + udg_nandu ) then
+		set special_def=1 + specialAttack * 0.06
+	elseif specialAttack >= 6 * ( 1 + udg_nandu ) then
 		// 特防 = 1+(特攻-42)*0.06，和1比取大值
-		set special_def=RMaxBJ(1 + ( special_attack[i] - 6 * ( 1 + udg_nandu ) ) * 0.06, 1)
+		set special_def=RMaxBJ(1 + ( specialAttack - 6 * ( 1 + udg_nandu ) ) * 0.06, 1)
 	else
 		// 特防 = 1/(1+0.06*(42 - 特攻))
-		set special_def=1 / ( 1 + 0.06 * ( ( 1 + udg_nandu ) * 6 - special_attack[i] ) )
+		set special_def=1 / ( 1 + 0.06 * ( ( 1 + udg_nandu ) * 6 - specialAttack ) )
 	endif
 	
 	
@@ -10381,6 +10384,14 @@ local real extraTimes= 1
 		if GetPlayerController(p) == MAP_CONTROL_USER then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "领悟了武功：" + GetObjectName(id) + "第" + I2S(level + 1) + "重")
 		endif
+		// 拥有神教宝训和吸星大法的玩家，升重后加一点吸星点
+		if GetUnitAbilityLevel(u, SHEN_JIAO_BAO_XUN) >= 1 and GetUnitAbilityLevel(u, XI_XING) >= 1 and joinSunOrMoon[i] == 0 then
+			set joinSunPoint[i]=joinSunPoint[i] + 1
+			if joinSunPoint[i] >= 5 then
+				set joinSunOrMoon[i]=JOIN_SUN
+				call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00玩家" + I2S(i) + "加入了日月神教的吸星派")
+			endif
+		endif
 				
 		if id == 'A0DP' then // 归元吐纳功
 set fuyuan[i]=fuyuan[i] + 2
@@ -11136,6 +11147,24 @@ function determineSongShanTitle takes unit u returns nothing
 		endif
 	endif
 endfunction
+function determineRiYueTitle takes unit u returns nothing
+ local player p= GetOwningPlayer(u)
+ local integer i= 1 + GetPlayerId(p)
+	if (YDWEBitwise_AND(chief[(i )] , ((1 ) * YDWEBitwise___C2[( ( 27) - 1)])) != 0) then // INLINED!!
+		if GetUnitAbilityLevel(u, XI_XING) > 0 and joinSunOrMoon[i] == JOIN_SUN and not isTitle(i , 55) then
+			call ModifyHeroStat(1, u, 0, 1000)
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：任我行，内力增加了1000点")
+			call SetPlayerName(p, "〓任我行〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call setTitleNumber(i , 55)
+		endif
+		if GetUnitAbilityLevel(u, KUI_HUA) > 0 and joinSunOrMoon[i] == JOIN_MOON and not isTitle(i , 56) then
+			call ModifyHeroStat(2, u, 0, 1000)
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：东方不败，真实伤害增加了1000点")
+			call SetPlayerName(p, "〓东方不败〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call setTitleNumber(i , 56)
+		endif
+	endif
+endfunction
 function determineJiangHuTitle takes unit u returns nothing
  local player p= GetOwningPlayer(u)
  local integer i= 1 + GetPlayerId(p)
@@ -11281,6 +11310,7 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
 		call becomeChief(u , 24 , "雪山掌门" , 225 , 0 , 300)
 		call becomeChief(u , 25 , "汝阳王" , 200 , 200 , 200)
 		call becomeChief(u , 26 , "嵩山掌门" , 0 , 600 , 0)
+		call becomeChief(u , 27 , "日月教主" , 200 , 0 , 600)
 		
 		call determineShaoLinTitle(u)
 		call determineGuMuTitle(u)
@@ -11306,6 +11336,7 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
 		call determineXueShanTitle(u)
 		call determineRuYangTitle(u)
 		call determineSongShanTitle(u)
+		call determineRiYueTitle(u)
 		call determineJiangHuTitle(u)
 		
 	endif
@@ -11750,6 +11781,9 @@ function checkPurchase takes nothing returns nothing
         if DzAPI_Map_HasMallItem(Player(i - 1), PROPERTY_RUYANG) or udg_isTest[i - 1] then
             set ruyang_flag[i]=1
         endif
+        if DzAPI_Map_HasMallItem(Player(i - 1), PROPERTY_RIYUE) or udg_isTest[i - 1] then
+            set riyue_flag[i]=1
+        endif
         if DzAPI_Map_HasMallItem(Player(i - 1), PROPERTY_DOUBLE_POINT) or udg_isTest[i - 1] then
             set mall_addition[i]=1
         endif
@@ -11784,6 +11818,7 @@ function mallInit takes nothing returns nothing
         set wudu_flag[i]=0
         set taohua_flag[i]=0
         set ruyang_flag[i]=0
+        set riyue_flag[i]=0
         set talent_flag[i]=0
         set mall_addition[i]=0
         set level_award[i]=0
@@ -12498,7 +12533,7 @@ function WuMenPai_Action takes nothing returns nothing
 endfunction
 // 加入门派的itemid
 function ox takes nothing returns boolean
-	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( ( GetItemTypeId(GetManipulatedItem()) == 1227894833 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894834 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894835 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894836 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894837 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894838 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894839 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894840 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894841 ) or ( GetItemTypeId(GetManipulatedItem()) == 'I09E' ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894849 ) or ( GetItemTypeId(GetManipulatedItem()) == 'I09N' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0A2' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0CK' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0CX' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0E1' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0EH' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0EO' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0AA' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0AG' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0F0' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0AD' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0ET' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0EV' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0EY' ) ) ) // INLINED!!
+	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( ( GetItemTypeId(GetManipulatedItem()) == 1227894833 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894834 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894835 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894836 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894837 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894838 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894839 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894840 ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894841 ) or ( GetItemTypeId(GetManipulatedItem()) == 'I09E' ) or ( GetItemTypeId(GetManipulatedItem()) == 1227894849 ) or ( GetItemTypeId(GetManipulatedItem()) == 'I09N' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0A2' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0CK' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0CX' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0E1' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0EH' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0EO' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0AA' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0AG' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0F0' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0AD' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0AB' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0ET' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0EV' ) or ( GetItemTypeId(GetManipulatedItem()) == 'I0EY' ) ) ) // INLINED!!
 endfunction
 function JiaRuMenPai takes nothing returns nothing
  local unit u= GetTriggerUnit()
@@ -12588,6 +12623,20 @@ function JiaRuMenPai takes nothing returns nothing
 					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00选择汝阳王府")
 				else
 					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00尚未解锁，不能选择汝阳王府")
+				endif
+			endif
+			// 自由改投日月神教
+			if GetItemTypeId(GetManipulatedItem()) == 'I0AB' then
+				if riyue_flag[i] == 1 then
+					call addAllAttrs(i , 1)
+					set udg_runamen[i]=27
+					call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15., "|CFFff9933玩家" + GetPlayerName(p) + "改拜入了〓日月神教〓，大家一起膜拜他|r")
+					call SetPlayerName(p, "〓日月神教〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+					set udg_shuxing[i]=udg_shuxing[i] - 5
+					call commonAddLumber(p , - 30)
+					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00选择日月神教")
+				else
+					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00尚未解锁，不能选择日月神教")
 				endif
 			endif
 		else
@@ -15738,6 +15787,14 @@ set level=GetUnitAbilityLevel(udg_hero[i], I7[20 * ( i - 1 ) + num])
 		endif
 		set I7[20 * ( i - 1 ) + num]='AEfk'
 		call RemoveItem(FetchUnitItem(P4[i] , 'I06K'))
+		// 拥有神教宝训和葵花宝典时，遗忘技能时，葵花点加1
+		if GetUnitAbilityLevel(udg_hero[i], SHEN_JIAO_BAO_XUN) >= 1 and GetUnitAbilityLevel(udg_hero[i], KUI_HUA) >= 1 and joinSunOrMoon[i] == 0 then
+			set joinMoonPoint[i]=joinMoonPoint[i] + 1
+			if joinMoonPoint[i] >= 3 then
+				set joinSunOrMoon[i]=JOIN_MOON
+				call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00玩家" + I2S(i) + "加入了日月神教的葵花派")
+			endif
+		endif
 		// 嫁衣神功 增加三围
 		if GetUnitAbilityLevel(udg_hero[i], JIA_YI_SHEN_GONG) > 0 then
 			set add=GetUnitAbilityLevel(udg_hero[i], JIA_YI_SHEN_GONG) + GetRandomInt(1, 5)
@@ -20692,6 +20749,10 @@ function bJ takes nothing returns nothing
 	set N7=1
 	loop
 		exitwhen N7 > MM7
+		// 日月神教必掉落
+		if udg_runamen[1 + GetPlayerId(GetOwningPlayer(GetKillingUnit()))] == 27 or GetRandomInt(1, 10) == 1 then
+			call createitemloc(ITEM_RI_YUE_SHUANG_REN , LoadLocationHandle(YDHT, id * cx, $1769D332))
+		endif
 		if ( ( GetRandomInt(1, 125) <= 25 ) ) then
 			call createitemloc('I00D' , LoadLocationHandle(YDHT, id * cx, $1769D332))
 		else
@@ -28860,7 +28921,7 @@ function pressEsc takes nothing returns nothing
 		else
 			call DzFrameSetText(s__Frame_id[(zwidget[132])], (I2S(yongdanshu[i]) + " / 15")) // INLINED!!
 		endif
-		call DzFrameSetText(s__Frame_id[(zwidget[134])], (I2S(special_attack[i]))) // INLINED!!
+		call DzFrameSetText(s__Frame_id[(zwidget[134])], (I2S(special_attack[i] + 5 * GetUnitAbilityLevel(udg_hero[i], SHEN_JIAO_BAO_XUN)))) // INLINED!!
 		call DzFrameSetText(s__Frame_id[(zwidget[136])], (I2S(udg_shuxing[i]))) // INLINED!!
 		
 		call s__Frame_toggle(zwidget[14])
@@ -34205,6 +34266,17 @@ local integer count= 0
 		elseif udg_runamen[i] == 26 then
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00嵩山专属：贼哥处购买")
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号左盟主：掌门+寒冰真气+寒魄剑")
+		elseif udg_runamen[i] == 27 then
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00日月神教专属：击杀东方不败获得")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号任我行：掌门+吸星大法+加入'吸星派'")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号东方不败：掌门+葵花宝典+加入'葵花派'")
+			if joinSunOrMoon[i] == JOIN_SUN then
+				call DisplayTextToPlayer(p, 0, 0, "|cffd3991b当前加入日月神教'吸星派'")
+			elseif joinSunOrMoon[i] == JOIN_MOON then
+				call DisplayTextToPlayer(p, 0, 0, "|cffd3991b当前加入日月神教'葵花派'")
+			else
+				call DisplayTextToPlayer(p, 0, 0, "|cffd3991b当前未加入日月神教的任何派别")
+			endif
 		endif
 		call DisplayTextToPlayer(p, 0, 0, "|cFF389C83称号五岳盟主：同时获得五岳门派的掌门")
 		call DisplayTextToPlayer(p, 0, 0, "|cFF389C83称号九阴真人：九阴真经·内功+逆九阴真经·内功+九阴真经·易筋锻骨篇+九阴真经·医疗篇+九阴真经·九阴白骨爪+九阴真经·摧坚神抓4重+九阴真经·摧心掌4重")
@@ -45990,6 +46062,9 @@ function tianMoQuanDamage takes unit u,unit l__ut returns nothing
 	call WuGongShangHai(u , l__ut , shanghai)
 endfunction
 // 4技能：吸星神掌 主动使用 屠夫肉钩
+function xiXingShenZhang takes unit u returns nothing
+    
+endfunction
 // 5技能：葵花心法 欲练神功，必先自宫 血量永远不超过上限的 50%，每次使用技能对自己造成当前血量 50% 的伤害，同时永久提升三围或六围
 // 葵花派 改为每次使用技能减血75%，同时额外提升永久伤害加成
 // 吸星派 每次使用临时提升暴击率和暴击倍数
@@ -46013,6 +46088,10 @@ function kuiHuaXinFa takes unit u returns nothing
     local location loc= GetUnitLoc(u)
     local real add= 0
     local timer t= null
+    // 东方不败称号，数量翻倍
+    if isTitle(i , 56) then
+        set count=count * 2
+    endif
     if rand == 1 then
         set wuxing[i]=wuxing[i] + count
         set s="悟性+" + I2S(count)
@@ -46048,12 +46127,18 @@ function kuiHuaXinFa takes unit u returns nothing
     if joinSunOrMoon[i] == JOIN_MOON then
         call SetWidgetLife(u, GetWidgetLife(u) * 0.25)
         set udg_shanghaijiacheng[i]=udg_shanghaijiacheng[i] + 0.002 * level
+        if isTitle(i , 56) then
+            set udg_shanghaijiacheng[i]=udg_shanghaijiacheng[i] + 0.002 * level
+        endif
     else
         call SetWidgetLife(u, GetWidgetLife(u) * 0.5)
     endif
     if joinSunOrMoon[i] == JOIN_SUN then
         set udg_baojilv[i]=udg_baojilv[i] + 0.05 * level
         set add=GetRandomReal(0.01, 2) * level
+        if isTitle(i , 55) then
+            set add=add * 2
+        endif
         set udg_baojishanghai[i]=udg_baojishanghai[i] + add
         set t=CreateTimer()
         call SaveInteger(YDHT, GetHandleId(t), 0, i)
@@ -55454,6 +55539,10 @@ function UnitAttack_Conditions takes nothing returns boolean
 	if PassiveWuGongCondition(u , l__ut , WU_WANG_SHEN_GONG) then
 		call wuWangShenGongSpecial(u , l__ut)
 	endif
+	// 日月神教：日月太极拳
+	if PassiveWuGongCondition(u , l__ut , RI_YUE_TAI_JI_QUAN) and GetRandomReal(1, 100) <= 16 + fuyuan[i] * 0.2 then
+		call riYueTaiJi(u)
+	endif
 	set u=null
 	set l__ut=null
 	set p=null
@@ -55739,6 +55828,18 @@ function UseAbility_Conditions takes nothing returns boolean
 	if id == DA_SONG_YANG_SHEN_ZHANG then
 		call daSongYangShenZhang(u , l__ut)
 	endif
+	// 日月神教：天魔拳
+	if id == TIAN_MO_QUAN then
+		call tianMoQuan(u)
+	endif
+	// 日月神教：吸星神掌
+	if id == XI_XING_SHEN_ZHANG then
+		call xiXingShenZhang(u)
+	endif
+	// 日月神教：葵花心法
+	if id == KUI_HUA_XIN_FA then
+		call kuiHuaXinFa(u)
+	endif
  
 	set u=null
 	set l__ut=null
@@ -55972,6 +56073,8 @@ function getDenomExclusive takes integer i returns integer
 		return 'I00B'
 	elseif i == 26 then
 		return ITEM_HAN_PO_JIAN
+	elseif i == 27 then
+		return ITEM_RI_YUE_SHUANG_REN
 	endif
 	return 0
 endfunction
@@ -56203,6 +56306,7 @@ function Cuns takes nothing returns nothing
 	call Cun('I0E2' , "东灵铁剑" , "攻击力" , 5000 , "招式伤害" , 300 , "内力" , 300 , "真实伤害" , 0)
 	call Cun('I0EZ' , "碧水剑" , "攻击力" , 5000 , "招式伤害" , 300 , "内力" , 0 , "真实伤害" , 300)
 	call Cun('I0F6' , "寒魄剑" , "攻击力" , 5000 , "招式伤害" , 300 , "内力" , 0 , "真实伤害" , 300)
+	call Cun('I0F7' , "日月双刃" , "攻击力" , 5000 , "招式伤害" , 600 , "内力" , 0 , "真实伤害" , 0)
 	call Cun('I08V' , "江湖·忠" , "攻击力" , 10000 , "招式伤害" , 350 , "内力" , 350 , "真实伤害" , 350)
 	call Cun('I02S' , "镇妖+1" , "攻击力" , 1000 , "招式伤害" , 150 , "内力" , 0 , "真实伤害" , 0)
 	call Cun('I02M' , "镇妖+2" , "攻击力" , 2000 , "招式伤害" , 300 , "内力" , 0 , "真实伤害" , 0)
@@ -56317,6 +56421,7 @@ function Cuns takes nothing returns nothing
 	call Cun('I0E2' , "东灵铁剑" , "胆魄" , 5 , "经脉" , 4 , "绝学领悟" , 5 , null , 0)
 	call Cun('I0EZ' , "碧水剑" , "医术" , 5 , "福缘" , 4 , "绝学领悟" , 5 , null , 0)
 	call Cun('I0F6' , "寒魄剑" , "医术" , 5 , "福缘" , 4 , "绝学领悟" , 5 , null , 0)
+	call Cun('I0F7' , "日月双刃" , "悟性" , 9 , null , 0 , "绝学领悟" , 5 , null , 0)
 	call Cun('I08V' , "江湖·忠" , "全属性" , 2 , "绝学领悟" , 1 , null , 0 , null , 0)
 	call Cun('I013' , "饮血枪" , "胆魄" , 1 , null , 0 , null , 0 , null , 0)
 	call Cun('I01L' , "精钢剑" , "胆魄" , 1 , null , 0 , null , 0 , null , 0)
@@ -56411,6 +56516,7 @@ function Cuns takes nothing returns nothing
 	call Cun('I0E2' , "东灵铁剑" , "攻击速度" , 60 , "暴击伤害" , 1.5 , "杀怪回复" , 6000 , null , 0)
 	call Cun('I0EZ' , "碧水剑" , "攻击速度" , 60 , "暴击伤害" , 1.5 , "杀怪回复" , 6000 , null , 0)
 	call Cun('I0F6' , "寒魄剑" , "攻击速度" , 60 , "暴击伤害" , 1.5 , "杀怪回复" , 6000 , null , 0)
+	call Cun('I0F7' , "日月双刃" , "攻击速度" , 60 , "暴击伤害" , 1.5 , "杀怪回复" , 6000 , null , 0)
 	call Cun('I08V' , "江湖·忠" , "攻击速度" , 60 , "暴击伤害" , 1 , "暴击率" , 0.2 , "杀怪回复" , 3000)
 	call Cun('I02S' , "镇妖+1" , "攻击速度" , 20 , "暴击伤害" , 0.15 , "杀怪回复" , 300 , null , 0)
 	call Cun('I02M' , "镇妖+2" , "攻击速度" , 30 , "暴击伤害" , 0.3 , "杀怪回复" , 600 , null , 0)
@@ -56991,6 +57097,12 @@ function InitDenominationSkills takes nothing returns nothing
 	set denomSecond[26]=HAN_BING_SHEN_ZHANG
 	set denomFourth[26]=WU_MING_NEI_GONG
 	set denomFifth[26]=DA_SONG_YANG_SHEN_ZHANG
+	set udg_menpainame[27]="日月神教"
+	set denomFirst[27]=RI_YUE_TAI_JI_QUAN
+	set denomThird[27]=SHEN_JIAO_BAO_XUN
+	set denomSecond[27]=TIAN_MO_QUAN
+	set denomFourth[27]=XI_XING_SHEN_ZHANG
+	set denomFifth[27]=KUI_HUA_XIN_FA
 endfunction
 function InitSkillBooks takes nothing returns nothing
 	set udg_jianghu[1]='I03J'
@@ -58710,7 +58822,7 @@ function main takes nothing returns nothing
     call CreateAllUnits()
     call InitBlizzard()
 
-call ExecuteFunc("jasshelper__initstructs245598265")
+call ExecuteFunc("jasshelper__initstructs251455375")
 call ExecuteFunc("FrameLibrary___init")
 call ExecuteFunc("initShowEffect")
 call ExecuteFunc("UniMissileSystem3D___Init")
@@ -58719,8 +58831,8 @@ call ExecuteFunc("InitializeYD")
 call ExecuteFunc("YDWEBitwise___onInit")
 call ExecuteFunc("YDWEGeneralBounsSystem___Initialize")
 call ExecuteFunc("YDWELogarithm___onInit")
-call ExecuteFunc("YDWESync___onInit")
-call ExecuteFunc("YDWEPreloadSL___Init")
+call ExecuteFunc("YDWESync__onInit")
+call ExecuteFunc("YDWEPreloadSL__Init")
 call ExecuteFunc("YDWEStringFormula___Init")
 call ExecuteFunc("YDWETimerPattern___Init")
 call ExecuteFunc("YDWETimerSystem___Init")
@@ -58912,7 +59024,7 @@ function sa___prototype4_SetUnitMoveSpeedEx takes nothing returns boolean
     return true
 endfunction
 
-function jasshelper__initstructs245598265 takes nothing returns nothing
+function jasshelper__initstructs251455375 takes nothing returns nothing
     set st__Frame_onDestroy=CreateTrigger()
     call TriggerAddCondition(st__Frame_onDestroy,Condition( function sa__Frame_onDestroy))
     set st__ShopWeapon_onDestroy=CreateTrigger()

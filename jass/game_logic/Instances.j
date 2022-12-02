@@ -1165,6 +1165,10 @@ function bJ takes nothing returns nothing
 	set N7 = 1
 	loop
 		exitwhen N7 > MM7
+		// 日月神教必掉落
+		if udg_runamen[1 + GetPlayerId(GetOwningPlayer(GetKillingUnit()))] == 27 or GetRandomInt(1, 10) == 1 then
+			call createitemloc(ITEM_RI_YUE_SHUANG_REN, LoadLocationHandle(YDHT, id * cx, $1769D332))
+		endif
 		if((GetRandomInt(1, 125) <= 25))then
 			call createitemloc('I00D', LoadLocationHandle(YDHT, id * cx, $1769D332))
 		else

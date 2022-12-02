@@ -775,7 +775,7 @@ function pressEsc takes nothing returns nothing
 		else
 			call zwidget[132].setText(I2S(yongdanshu[i]) + " / 15")
 		endif
-		call zwidget[134].setText(I2S(special_attack[i]))
+		call zwidget[134].setText(I2S(special_attack[i] + 5 * GetUnitAbilityLevel(udg_hero[i], SHEN_JIAO_BAO_XUN)))
 		call zwidget[136].setText(I2S(udg_shuxing[i]))
 		
 		call zwidget[14].toggle()

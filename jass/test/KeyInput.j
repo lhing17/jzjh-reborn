@@ -388,6 +388,17 @@ function KeyInput takes nothing returns nothing
 		elseif udg_runamen[i] == 26 then
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00嵩山专属：贼哥处购买")
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号左盟主：掌门+寒冰真气+寒魄剑")
+		elseif udg_runamen[i] == 27 then
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00日月神教专属：击杀东方不败获得")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号任我行：掌门+吸星大法+加入'吸星派'")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号东方不败：掌门+葵花宝典+加入'葵花派'")
+			if joinSunOrMoon[i] == JOIN_SUN then
+				call DisplayTextToPlayer(p, 0, 0, "|cffd3991b当前加入日月神教'吸星派'")
+			elseif joinSunOrMoon[i] == JOIN_MOON then
+				call DisplayTextToPlayer(p, 0, 0, "|cffd3991b当前加入日月神教'葵花派'")
+			else
+				call DisplayTextToPlayer(p, 0, 0, "|cffd3991b当前未加入日月神教的任何派别")
+			endif
 		endif
 		call DisplayTextToPlayer(p, 0, 0, "|cFF389C83称号五岳盟主：同时获得五岳门派的掌门")
 		call DisplayTextToPlayer(p, 0, 0, "|cFF389C83称号九阴真人：九阴真经·内功+逆九阴真经·内功+九阴真经·易筋锻骨篇+九阴真经·医疗篇+九阴真经·九阴白骨爪+九阴真经·摧坚神抓4重+九阴真经·摧心掌4重")

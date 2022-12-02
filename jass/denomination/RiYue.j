@@ -163,6 +163,9 @@ function tianMoQuanDamage takes unit u, unit ut returns nothing
 endfunction
 
 // 4技能：吸星神掌 主动使用 屠夫肉钩
+function xiXingShenZhang takes unit u returns nothing
+    
+endfunction
 
 // 5技能：葵花心法 欲练神功，必先自宫 血量永远不超过上限的 50%，每次使用技能对自己造成当前血量 50% 的伤害，同时永久提升三围或六围
 // 葵花派 改为每次使用技能减血75%，同时额外提升永久伤害加成
@@ -188,6 +191,11 @@ function kuiHuaXinFa takes unit u returns nothing
     local location loc = GetUnitLoc(u)
     local real add = 0
     local timer t = null
+
+    // 东方不败称号，数量翻倍
+    if isTitle(i, 56) then
+        set count = count * 2
+    endif
 
     if rand == 1 then
         set wuxing[i] = wuxing[i] + count
@@ -225,6 +233,9 @@ function kuiHuaXinFa takes unit u returns nothing
     if joinSunOrMoon[i] == JOIN_MOON then
         call SetWidgetLife(u, GetWidgetLife(u) * 0.25)
         set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + 0.002 * level
+        if isTitle(i, 56) then
+            set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + 0.002 * level
+        endif
     else
         call SetWidgetLife(u, GetWidgetLife(u) * 0.5)
     endif
@@ -232,6 +243,9 @@ function kuiHuaXinFa takes unit u returns nothing
     if joinSunOrMoon[i] == JOIN_SUN then
         set udg_baojilv[i] = udg_baojilv[i] + 0.05 * level
         set add = GetRandomReal(0.01, 2) * level
+        if isTitle(i, 55) then
+            set add = add * 2
+        endif
         set udg_baojishanghai[i] = udg_baojishanghai[i] + add
         set t = CreateTimer()
         call SaveInteger(YDHT, GetHandleId(t), 0, i)

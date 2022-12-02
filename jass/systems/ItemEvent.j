@@ -70,6 +70,8 @@ function getDenomExclusive takes integer i returns integer
 		return 'I00B'
 	elseif i == 26 then
 		return ITEM_HAN_PO_JIAN
+	elseif i == 27 then
+		return ITEM_RI_YUE_SHUANG_REN
 	endif
 	return 0
 endfunction

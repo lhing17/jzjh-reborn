@@ -55,11 +55,11 @@ globals
 	constant integer WU_MING_NEI_GONG = 'A0FD' // 无名内功
 
 	// 日月神教武功
-	constant integer RI_YUE_TAI_JI_QUAN = 'AXXX' // 日月太极拳
-	constant integer SHEN_JIAO_BAO_XUN = 'AXXX' // 神教宝训
-	constant integer TIAN_MO_QUAN = 'AXXX' // 天魔拳
-	constant integer XI_XING_SHEN_ZHANG = 'AXXX' // 吸星神掌
-	constant integer KUI_HUA_XIN_FA = 'AXXX' // 葵花心法
+	constant integer RI_YUE_TAI_JI_QUAN = 'A0FL' // 日月太极拳
+	constant integer SHEN_JIAO_BAO_XUN = 'A0FM' // 神教宝训
+	constant integer TIAN_MO_QUAN = 'A0FN' // 天魔拳
+	constant integer XI_XING_SHEN_ZHANG = 'A0FO' // 吸星神掌
+	constant integer KUI_HUA_XIN_FA = 'A0FP' // 葵花心法
 	
 	constant integer SHUANG_SHOU = 'A07U' // 双手互搏
 	constant integer KUI_HUA = 'A07T' // 葵花宝典
@@ -98,7 +98,7 @@ globals
 	constant integer ITEM_HAN_SHA = 'I0AE' // 含沙射影
 	constant integer ITEM_YE_LUO = 'I0EU' // 野螺
 	constant integer ITEM_HAN_PO_JIAN = 'I0F6' // 寒魄剑（专属）
-	constant integer ITEM_RI_YUE_SHUANG_REN = 'IXXX' // 日月双刃（日月神教专属）
+	constant integer ITEM_RI_YUE_SHUANG_REN = 'I0F7' // 日月双刃（日月神教专属）
 	
 	
 endglobals
@@ -1485,6 +1485,7 @@ function ShangHaiGongShi takes unit u, unit uc, real w1, real w2, real shxishu, 
 	local real str = I2R(GetHeroStatBJ(0, u, true)) // 招式伤害
 	local real agi = I2R(GetHeroStatBJ(1, u, true)) // 内力
 	local real int = I2R(GetHeroStatBJ(2, u, true)) // 真实伤害
+	local integer specialAttack = special_attack[i] + 5 * GetUnitAbilityLevel(u, SHEN_JIAO_BAO_XUN) // 特殊攻击
 	if UnitTypeNotNull(u, UNIT_TYPE_HERO) then
 		// 神龙心法加成
 		set attack = (1 + 0.3 * GetUnitAbilityLevel(u, 'A059')) \
@@ -1548,13 +1549,13 @@ function ShangHaiGongShi takes unit u, unit uc, real w1, real w2, real shxishu, 
 	// 特殊防御
 	// 如果特攻大于等于42或者敌方虚弱
 	if UnitHasBuffBJ(uc, 'B022') then
-		set special_def = 1 + special_attack[i] * 0.06
-	elseif special_attack[i] >= 6 * (1 + udg_nandu)  then
+		set special_def = 1 + specialAttack * 0.06
+	elseif specialAttack >= 6 * (1 + udg_nandu)  then
 		// 特防 = 1+(特攻-42)*0.06，和1比取大值
-		set special_def = RMaxBJ(1 + (special_attack[i] - 6 * (1 + udg_nandu)) * 0.06, 1)
+		set special_def = RMaxBJ(1 + (specialAttack - 6 * (1 + udg_nandu)) * 0.06, 1)
 	else
 		// 特防 = 1/(1+0.06*(42 - 特攻))
-		set special_def = 1 / (1 + 0.06 * ( (1 + udg_nandu) * 6 - special_attack[i])) 
+		set special_def = 1 / (1 + 0.06 * ( (1 + udg_nandu) * 6 - specialAttack)) 
 	endif
 	
 	

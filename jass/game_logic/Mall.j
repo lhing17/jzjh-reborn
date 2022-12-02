@@ -4,6 +4,7 @@ globals
     integer array tiezhang_flag
     integer array tangmen_flag
     integer array ruyang_flag
+    integer array riyue_flag
     integer array talent_flag
     integer array wudu_flag
     integer array taohua_flag
@@ -24,6 +25,7 @@ globals
     string PROPERTY_PANDA = "ARPANDA072" // 熊猫的道具
     string PROPERTY_NEIHUA = "ANEIHUA123" // 内化的道具
     string PROPERTY_PASSPORT_S1 = "APASSPORT1" // 通行证S1
+    string PROPERTY_RIYUE = "ARIYUE1234" // 日月神教的道具
 
     string PROPERTY_DOUBLE_POINT = "BC98FNY5L9" // 双倍积分卡的道具
     string PROPERTY_LEVEL_AWARD = "BYOUARES13" // 无视等级领取等级奖励
@@ -73,6 +75,9 @@ function checkPurchase takes nothing returns nothing
         if DzAPI_Map_HasMallItem(Player(i - 1), PROPERTY_RUYANG) or udg_isTest[i - 1] then
             set ruyang_flag[i] = 1
         endif
+        if DzAPI_Map_HasMallItem(Player(i - 1), PROPERTY_RIYUE) or udg_isTest[i - 1] then
+            set riyue_flag[i] = 1
+        endif
         if DzAPI_Map_HasMallItem(Player(i - 1), PROPERTY_DOUBLE_POINT) or udg_isTest[i - 1] then
             set mall_addition[i] = 1
         endif
@@ -109,6 +114,7 @@ function mallInit takes nothing returns nothing
         set wudu_flag[i] = 0
         set taohua_flag[i] = 0
         set ruyang_flag[i] = 0
+        set riyue_flag[i] = 0
         set talent_flag[i] = 0
         set mall_addition[i] = 0
         set level_award[i] = 0

@@ -1798,6 +1798,12 @@ function InitDenominationSkills takes nothing returns nothing
 	set denomSecond[26] = HAN_BING_SHEN_ZHANG
 	set denomFourth[26] = WU_MING_NEI_GONG
 	set denomFifth[26] = DA_SONG_YANG_SHEN_ZHANG
+	set udg_menpainame[27] = "日月神教"
+	set denomFirst[27] = RI_YUE_TAI_JI_QUAN
+	set denomThird[27] = SHEN_JIAO_BAO_XUN
+	set denomSecond[27] = TIAN_MO_QUAN
+	set denomFourth[27] = XI_XING_SHEN_ZHANG
+	set denomFifth[27] = KUI_HUA_XIN_FA
 endfunction
 
 function InitSkillBooks takes nothing returns nothing

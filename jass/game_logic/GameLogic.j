@@ -24,7 +24,7 @@
 
 
 globals
-	constant integer DENOMINATION_NUMBER = 26
+	constant integer DENOMINATION_NUMBER = 27
 
 	integer array interAbilityCount
 	integer array alreadyInternalizedCount
@@ -750,7 +750,7 @@ function ox takes nothing returns boolean
 	or (GetItemTypeId(GetManipulatedItem()) == 'I09N') or (GetItemTypeId(GetManipulatedItem()) == 'I0A2')  or (GetItemTypeId(GetManipulatedItem()) == 'I0CK')				\
 	or (GetItemTypeId(GetManipulatedItem()) == 'I0CX') or (GetItemTypeId(GetManipulatedItem()) == 'I0E1') or (GetItemTypeId(GetManipulatedItem()) == 'I0EH')\
 	or (GetItemTypeId(GetManipulatedItem()) == 'I0EO') or (GetItemTypeId(GetManipulatedItem()) == 'I0AA') or (GetItemTypeId(GetManipulatedItem()) == 'I0AG') \
-	or (GetItemTypeId(GetManipulatedItem()) == 'I0F0')  or (GetItemTypeId(GetManipulatedItem()) == 'I0AD')\
+	or (GetItemTypeId(GetManipulatedItem()) == 'I0F0')  or (GetItemTypeId(GetManipulatedItem()) == 'I0AD') or (GetItemTypeId(GetManipulatedItem()) == 'I0AB')\
 	or (GetItemTypeId(GetManipulatedItem()) == 'I0ET') or (GetItemTypeId(GetManipulatedItem()) == 'I0EV')  or (GetItemTypeId(GetManipulatedItem()) == 'I0EY') ))
 endfunction
 function JiaRuMenPai takes nothing returns nothing
@@ -851,6 +851,23 @@ function JiaRuMenPai takes nothing returns nothing
 					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00尚未解锁，不能选择汝阳王府")
 				endif
 			endif
+
+			// 自由改投日月神教
+			if GetItemTypeId(GetManipulatedItem()) == 'I0AB' then
+				if riyue_flag[i] == 1 then
+					call addAllAttrs(i, 1)
+					set udg_runamen[i] = 27
+					call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15., "|CFFff9933玩家" + GetPlayerName(p) + "改拜入了〓日月神教〓，大家一起膜拜他|r")
+					call SetPlayerName(p, "〓日月神教〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+
+					set udg_shuxing[i] = udg_shuxing[i] - 5
+					call commonAddLumber( p, - 30)
+					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00选择日月神教")
+				else
+					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00尚未解锁，不能选择日月神教")
+				endif
+			endif
+
 		else
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你已经加过门派了|r")
 		endif
@@ -4165,6 +4182,15 @@ function Forget takes player p, integer num returns nothing
 		endif
 		set I7[20 * (i - 1) + num] = 'AEfk'
 		call RemoveItem(FetchUnitItem(P4[i], 'I06K'))
+
+		// 拥有神教宝训和葵花宝典时，遗忘技能时，葵花点加1
+		if GetUnitAbilityLevel(udg_hero[i], SHEN_JIAO_BAO_XUN) >= 1 and GetUnitAbilityLevel(udg_hero[i], KUI_HUA) >= 1 and joinSunOrMoon[i] == 0 then
+			set joinMoonPoint[i] = joinMoonPoint[i] + 1
+			if joinMoonPoint[i] >= 3 then
+				set joinSunOrMoon[i] = JOIN_MOON
+				call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00玩家" + I2S(i) + "加入了日月神教的葵花派")
+			endif
+		endif
 
 		// 嫁衣神功 增加三围
 		if GetUnitAbilityLevel(udg_hero[i], JIA_YI_SHEN_GONG) > 0 then

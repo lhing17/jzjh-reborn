@@ -63,6 +63,8 @@ endfunction
 * 52 威德先生
 * 53 白龙使
 * 54 铁丑
+* 55 任我行
+* 56 东方不败
 */
 function setTitleNumber takes integer i, integer title returns nothing
 	if title <= 30 then
@@ -104,6 +106,7 @@ endfunction
 * 24 雪山派
 * 25 汝阳王府
 * 26 嵩山
+* 27 日月神教
 */
 function setChiefNumber takes integer i, integer denomination returns nothing
 	set chief[i] = YDWEBitwise_OR(chief[i], YDWEBitwise_LShift(1, denomination - 1))
@@ -210,6 +213,15 @@ function kungfuLevelUp takes unit u, integer id, real r returns nothing
 		call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id * 5, GetUnitAbilityLevel(u, id))
 		if GetPlayerController(p) == MAP_CONTROL_USER then
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "领悟了武功：" + GetObjectName(id) + "第" + I2S(level + 1) + "重")
+		endif
+
+		// 拥有神教宝训和吸星大法的玩家，升重后加一点吸星点
+		if GetUnitAbilityLevel(u, SHEN_JIAO_BAO_XUN) >= 1 and GetUnitAbilityLevel(u, XI_XING) >= 1 and joinSunOrMoon[i] == 0 then
+			set joinSunPoint[i] = joinSunPoint[i] + 1
+			if joinSunPoint[i] >= 5 then
+				set joinSunOrMoon[i] = JOIN_SUN
+				call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00玩家" + I2S(i) + "加入了日月神教的吸星派")
+			endif
 		endif
 				
 		if id == 'A0DP' then // 归元吐纳功
@@ -999,6 +1011,26 @@ function determineSongShanTitle takes unit u returns nothing
 	endif
 endfunction
 
+function determineRiYueTitle takes unit u returns nothing
+	local player p = GetOwningPlayer(u)
+	local integer i = 1 + GetPlayerId(p)
+	if isChief(i, 27) then
+		if GetUnitAbilityLevel(u, XI_XING) > 0 and joinSunOrMoon[i] == JOIN_SUN and not isTitle(i, 55) then
+			call ModifyHeroStat(1, u, 0, 1000)
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：任我行，内力增加了1000点")
+			call SetPlayerName(p, "〓任我行〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call setTitleNumber(i, 55)
+		endif
+		if GetUnitAbilityLevel(u, KUI_HUA) > 0 and joinSunOrMoon[i] == JOIN_MOON and not isTitle(i, 56) then
+			call ModifyHeroStat(2, u, 0, 1000)
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：东方不败，真实伤害增加了1000点")
+			call SetPlayerName(p, "〓东方不败〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call setTitleNumber(i, 56)
+		endif
+	endif
+
+endfunction
+
 function determineJiangHuTitle takes unit u returns nothing
 	local player p = GetOwningPlayer(u)
 	local integer i = 1 + GetPlayerId(p)
@@ -1145,6 +1177,7 @@ function WuGongShengChong takes unit u, integer id, real r returns nothing
 		call becomeChief(u, 24, "雪山掌门", 225, 0, 300)
 		call becomeChief(u, 25, "汝阳王", 200, 200, 200)
 		call becomeChief(u, 26, "嵩山掌门", 0, 600, 0)
+		call becomeChief(u, 27, "日月教主", 200, 0, 600)
 		
 		call determineShaoLinTitle(u)
 		call determineGuMuTitle(u)
@@ -1170,6 +1203,7 @@ function WuGongShengChong takes unit u, integer id, real r returns nothing
 		call determineXueShanTitle(u)
 		call determineRuYangTitle(u)
 		call determineSongShanTitle(u)
+		call determineRiYueTitle(u)
 		call determineJiangHuTitle(u)
 		
 	endif

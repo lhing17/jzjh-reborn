@@ -306,6 +306,21 @@ function UseAbility_Conditions takes nothing returns boolean
 	if id == DA_SONG_YANG_SHEN_ZHANG then
 		call daSongYangShenZhang(u, ut)
 	endif
+
+	// 日月神教：天魔拳
+	if id == TIAN_MO_QUAN then
+		call tianMoQuan(u)
+	endif
+
+	// 日月神教：吸星神掌
+	if id == XI_XING_SHEN_ZHANG then
+		call xiXingShenZhang(u)
+	endif
+
+	// 日月神教：葵花心法
+	if id == KUI_HUA_XIN_FA then
+		call kuiHuaXinFa(u)
+	endif
  
 	set u = null
 	set ut = null

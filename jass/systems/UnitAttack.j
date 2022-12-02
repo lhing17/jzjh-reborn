@@ -81,6 +81,11 @@ function UnitAttack_Conditions takes nothing returns boolean
 		call wuWangShenGongSpecial(u, ut)
 	endif
 
+	// 日月神教：日月太极拳
+	if PassiveWuGongCondition(u, ut, RI_YUE_TAI_JI_QUAN) and GetRandomReal(1, 100) <= 16 + fuyuan[i] * 0.2 then
+		call riYueTaiJi(u)
+	endif
+
 
 	set u = null
 	set ut = null
