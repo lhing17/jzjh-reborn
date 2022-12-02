@@ -1525,6 +1525,11 @@ function ShangHaiGongShi takes unit u, unit uc, real w1, real w2, real shxishu, 
 		if UnitHaveItem(u, 'I09A') and (GetUnitTypeId(u) == 'O002' or GetUnitTypeId(u) == 'O003' or GetUnitTypeId(u) == 'O023' or GetUnitTypeId(u) == 'O02H' or GetUnitTypeId(u) == 'O02I' or GetUnitTypeId(u) == 'O032') then
 			set attack = attack * 1.5
 		endif
+
+		// 葵花宝典+日月神教加入“葵花派”，几率造成10倍伤害
+		if GetUnitAbilityLevel(u, KUI_HUA) >= 1 and joinSunOrMoon[i] == JOIN_MOON and GetRandomInt(1, 100) <= 15 then
+			set attack = attack * 10
+		endif
 	else
 		if id == 'A0CH' then
 			// 敌方用先天功不造成伤害

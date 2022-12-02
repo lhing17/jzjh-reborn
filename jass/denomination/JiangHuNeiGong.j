@@ -75,8 +75,13 @@ function bI takes nothing returns nothing
 	set H9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = (H9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1)
 	if((H9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] >= $C8))then
 		set H9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] = 0
-		call ModifyHeroStat(1, GetKillingUnit(), 0, $A)
-		call DisplayTextToPlayer(Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), 0, 0, "内力+10")
+		if joinSunOrMoon[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == JOIN_SUN then
+			call ModifyHeroStat(1, GetKillingUnit(), 0, 50)
+			call DisplayTextToPlayer(Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), 0, 0, "内力+50")
+		else
+			call ModifyHeroStat(1, GetKillingUnit(), 0, $A)
+			call DisplayTextToPlayer(Player(- 1 + (LoadInteger(YDHT, id * cx, - $5E9EB4B3))), 0, 0, "内力+10")
+		endif
 	endif
 	call FlushChildHashtable(YDHT, id * cx)
 endfunction

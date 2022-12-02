@@ -70,6 +70,18 @@ function UnitDamage_Conditions takes nothing returns boolean
 	// if GetUnitAbilityLevel(ut, HAN_BING_SHEN_ZHANG) >= 1 then
 	// 	call hanBingShenZhangDamaged(ut, damage)
 	// endif
+
+	// 日月神教-日月太极拳
+	if damage == 3.59 then
+		call riYueTaiJiDamage(udg_hero[i], ut)
+	endif
+
+	// 日月神教-天魔拳
+	if damage == 3.61 then
+		call tianMoQuanDamage(udg_hero[i], ut)
+	endif
+
+
 	
 	set t = null
 	set u = null

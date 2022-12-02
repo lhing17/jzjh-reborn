@@ -89,7 +89,7 @@ endfunction
 
 // 2技能：神教宝训 获得 5 * 技能等级点特殊攻击
 function shenJiaoBaoXun takes unit u returns nothing
-    call WuGongShengChong(u, RI_YUE_TAI_JI_QUAN, 700.)
+    call WuGongShengChong(u, SHEN_JIAO_BAO_XUN, 700.)
 endfunction
 
 // 3技能：天魔拳 主动使用
@@ -115,10 +115,11 @@ function tianMoQuan takes unit u returns nothing
     local integer j
     local unit dummy
     local timer t
+    call WuGongShengChong(u, TIAN_MO_QUAN, 180.)
     set j = 1
     loop
         exitwhen j > 18
-        set dummy = CreateUnit(GetOwningPlayer(u), 'e000', GetUnitX(u), GetUnitY(u), j * 20)
+        set dummy = CreateUnit(GetOwningPlayer(u), 'e01N', GetUnitX(u), GetUnitY(u), j * 20)
         call UnitAddAbility(dummy, 'A0FK')
         // 吸星派 持续伤害
         if joinSunOrMoon[1 + GetPlayerId(GetOwningPlayer(u))] == JOIN_SUN then
@@ -182,20 +183,37 @@ function kuiHuaXinFaTimer takes nothing returns nothing
     set t = null
 endfunction
 
+function kuiHuaXinFaHalfCd takes nothing returns nothing
+	local timer t = GetExpiredTimer()
+	local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
+	
+	call EXSetAbilityState(EXGetUnitAbility(u, BI_BO_XIN_JING), 1, EXGetAbilityState(EXGetUnitAbility(u, KUI_HUA_XIN_FA), 1) / 2)
+	
+	call FlushChildHashtable(YDHT, GetHandleId(t))
+	call PauseTimer(t)
+	call DestroyTimer(t)
+	set t = null
+	set u = null
+endfunction
+
 function kuiHuaXinFa takes unit u returns nothing
     local integer i = 1 + GetPlayerId(GetOwningPlayer(u))
     local integer level = GetUnitAbilityLevel(u, KUI_HUA_XIN_FA)
     local integer rand = GetRandomInt(1, 9)
-    local integer count = GetRandomInt(1, 20 * level)
+    local integer count = GetRandomInt(1, 10 * level)
     local string s = ""
     local location loc = GetUnitLoc(u)
     local real add = 0
     local timer t = null
 
+    call WuGongShengChong(u, KUI_HUA_XIN_FA, 120.)
+    
     // 东方不败称号，数量翻倍
     if isTitle(i, 56) then
         set count = count * 2
     endif
+
+    call DestroyEffectEx(AddSpecialEffectTargetEx("war3mapImported\\58.mdx", u, "origin"))
 
     if rand == 1 then
         set wuxing[i] = wuxing[i] + count
@@ -211,19 +229,19 @@ function kuiHuaXinFa takes unit u returns nothing
         set s = "胆魄+" + I2S(count)
     elseif rand == 5 then
         set jingmai[i] = jingmai[i] + count
-        set s = "经脉" + I2S(count)
+        set s = "经脉+" + I2S(count)
     elseif rand == 6 then
         set yishu[i] = yishu[i] + count
         set s = "医术+" + I2S(count)
     elseif rand == 7 then
-        call ModifyHeroStat(0, udg_hero[i], 0, count * 20)
-        set s = "招式伤害+" + I2S(count * 20)
+        call ModifyHeroStat(0, udg_hero[i], 0, count * 5)
+        set s = "招式伤害+" + I2S(count * 5)
     elseif rand == 8 then
-        call ModifyHeroStat(1, udg_hero[i], 0, count * 20)
-        set s = "内力+" + I2S(count * 20)
+        call ModifyHeroStat(1, udg_hero[i], 0, count * 5)
+        set s = "内力+" + I2S(count * 5)
     elseif rand == 9 then
-        call ModifyHeroStat(2, udg_hero[i], 0, count * 20)
-        set s = "真实伤害+" + I2S(count * 20)
+        call ModifyHeroStat(2, udg_hero[i], 0, count * 5)
+        set s = "真实伤害+" + I2S(count * 5)
     endif
     call CreateTextTagLocBJ(s, loc, 0, 15., GetRandomReal(0., 100), GetRandomReal(0., 100), GetRandomReal(0., 100), .0)
     call Nw(3,bj_lastCreatedTextTag)
@@ -253,6 +271,12 @@ function kuiHuaXinFa takes unit u returns nothing
         call SaveReal(YDHT, GetHandleId(t), 2,  add)
         call TimerStart(t, 20., false, function kuiHuaXinFaTimer)
 
+    endif
+
+    if GetUnitAbilityLevel(u, KUI_HUA) >= 1 then
+        set t = CreateTimer()
+        call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
+        call TimerStart(t, 0.2, false, function kuiHuaXinFaHalfCd)
     endif
 
     set loc = null

@@ -303,7 +303,7 @@ function qiMenShuShu takes unit u returns nothing
 			set s = "胆魄+" + I2S(count)
 		elseif GetRandomInt(1, 2) == 1 then
 			set jingmai[i] = jingmai[i] + count
-			set s = "经脉" + I2S(count)
+			set s = "经脉+" + I2S(count)
 		else
 			set yishu[i] = yishu[i] + count
 			set s = "医术+" + I2S(count)

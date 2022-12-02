@@ -3300,6 +3300,10 @@ function YiShuHuiXie takes nothing returns nothing
 			call SetUnitLifeBJ(udg_hero[c7], GetUnitState(udg_hero[c7], UNIT_STATE_LIFE) + shengminghuifu[c7])
 			call SetUnitManaBJ(udg_hero[c7], GetUnitStateSwap(UNIT_STATE_MANA, udg_hero[c7]) + (.3 * I2R(yishu[c7])) + falihuifu[c7] + 5 * GetUnitAbilityLevel(udg_hero[c7], 'A0D4'))
 		endif
+		if GetUnitAbilityLevel(udg_hero[c7], KUI_HUA_XIN_FA) >= 1 then
+			// 生命值不超过最大生命值的50%
+			call SetUnitLifeBJ(udg_hero[c7], RMinBJ(GetUnitState(udg_hero[c7], UNIT_STATE_LIFE), 0.5 * GetUnitState(udg_hero[c7], UNIT_STATE_MAX_LIFE)))
+		endif
 		set c7 = c7 + 1
 	endloop
 endfunction
