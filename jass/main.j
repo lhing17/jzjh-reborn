@@ -65,6 +65,7 @@
 #include "denomination/XueShan.j" // 雪山派武功
 #include "denomination/RuYang.j" // 汝阳王府武功
 #include "denomination/SongShan.j" // 嵩山武功
+#include "denomination/RiYue.j" // 日月神教武功
 
 #include "denomination/JiangHuWuGong.j"
 #include "denomination/JueShiWuGong.j"
@@ -2158,6 +2159,7 @@ function MenPai_Trigger takes nothing returns nothing
 	call XingXiu_Trigger() //星宿武功触发
 	call initXueShan() // 初始化雪山变量
 	call initRuYang() // 初始化汝阳变量
+	call initRiYue() // 初始化日月神教变量
 	
 	call JiangHuNeiGong_Trigger() //江湖内功触发（含九阴、绝内）
 	call JiangHuWuGong_Trigger() //江湖武功触发

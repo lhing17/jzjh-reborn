@@ -53,12 +53,20 @@ globals
 	constant integer HAN_BING_SHEN_ZHANG = 'A0FC' // 寒冰神掌
 	constant integer DA_SONG_YANG_SHEN_ZHANG = 'A0FE' // 大嵩阳神掌
 	constant integer WU_MING_NEI_GONG = 'A0FD' // 无名内功
+
+	// 日月神教武功
+	constant integer RI_YUE_TAI_JI_QUAN = 'AXXX' // 日月太极拳
+	constant integer SHEN_JIAO_BAO_XUN = 'AXXX' // 神教宝训
+	constant integer TIAN_MO_QUAN = 'AXXX' // 天魔拳
+	constant integer XI_XING_SHEN_ZHANG = 'AXXX' // 吸星神掌
+	constant integer KUI_HUA_XIN_FA = 'AXXX' // 葵花心法
 	
 	constant integer SHUANG_SHOU = 'A07U' // 双手互搏
 	constant integer KUI_HUA = 'A07T' // 葵花宝典
 	constant integer HUA_GU = 'A06L' // 化骨绵掌
 	constant integer XI_XING = 'A07R' // 吸星大法
-	constant integer HUA_GONG = 'A07R' // 化功大法
+	constant integer HUA_GONG = 'A07P' // 化功大法
+	constant integer DOU_ZHUAN = 'A07Q' // 斗转星移
 	constant integer TAN_ZHI = 'A06H' // 弹指神通
 	constant integer BI_HAI = 'A018' // 碧海潮生曲
 	constant integer JIU_YIN = 'A07S' // 九阴真经内功
@@ -89,7 +97,8 @@ globals
 	constant integer ITEM_YU_XIAO = 'I09D' // 玉箫物品
 	constant integer ITEM_HAN_SHA = 'I0AE' // 含沙射影
 	constant integer ITEM_YE_LUO = 'I0EU' // 野螺
-	constant integer ITEM_HAN_PO_JIAN = 'I0F6' // FIXME 寒魄剑（专属）
+	constant integer ITEM_HAN_PO_JIAN = 'I0F6' // 寒魄剑（专属）
+	constant integer ITEM_RI_YUE_SHUANG_REN = 'IXXX' // 日月双刃（日月神教专属）
 	
 	
 endglobals
