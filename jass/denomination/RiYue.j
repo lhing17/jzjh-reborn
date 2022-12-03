@@ -83,7 +83,7 @@ function riYueTaiJiDamage takes unit u, unit ut returns nothing
 		set shxishu = shxishu * 4
 	endif
 
-	set shanghai = ShangHaiGongShi(u, ut, 25., 25., shxishu, RI_YUE_TAI_JI_QUAN)
+	set shanghai = ShangHaiGongShi(u, ut, 36., 36., shxishu, RI_YUE_TAI_JI_QUAN)
 	call WuGongShangHai(u, ut, shanghai)
 endfunction
 
@@ -159,7 +159,7 @@ function tianMoQuanDamage takes unit u, unit ut returns nothing
 		set shxishu = shxishu * 4
 	endif
 
-	set shanghai = ShangHaiGongShi(u, ut, 50., 50., shxishu, TIAN_MO_QUAN)
+	set shanghai = ShangHaiGongShi(u, ut, 80., 80., shxishu, TIAN_MO_QUAN)
 	call WuGongShangHai(u, ut, shanghai)
 endfunction
 
