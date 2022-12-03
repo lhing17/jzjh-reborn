@@ -155,7 +155,7 @@ function KeyInput takes nothing returns nothing
 		set s = s + getChiefString(i, 24, "雪山掌门 ")
 		set s = s + getChiefString(i, 25, "汝阳王 ")
 		set s = s + getChiefString(i, 26, "嵩山掌门 ")
-		set s = s + getChiefString(i, 27, "日月教主 ")
+		set s = s + getChiefString(i, 27, "光明教主 ")
 		call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00当前已获得掌门：" + s)
 
 		set s = ""
@@ -392,15 +392,15 @@ function KeyInput takes nothing returns nothing
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00嵩山专属：贼哥处购买")
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号左盟主：掌门+寒冰真气+寒魄剑")
 		elseif udg_runamen[i] == 27 then
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00日月神教专属：击杀东方不败获得")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00光明教专属：击杀东方不败获得")
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号任我行：掌门+吸星大法+加入'吸星派'")
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号东方不败：掌门+葵花宝典+加入'葵花派'")
 			if joinSunOrMoon[i] == JOIN_SUN then
-				call DisplayTextToPlayer(p, 0, 0, "|cffd3991b当前加入日月神教'吸星派'")
+				call DisplayTextToPlayer(p, 0, 0, "|cffd3991b当前加入光明教'吸星派'")
 			elseif joinSunOrMoon[i] == JOIN_MOON then
-				call DisplayTextToPlayer(p, 0, 0, "|cffd3991b当前加入日月神教'葵花派'")
+				call DisplayTextToPlayer(p, 0, 0, "|cffd3991b当前加入光明教'葵花派'")
 			else
-				call DisplayTextToPlayer(p, 0, 0, "|cffd3991b当前未加入日月神教的任何派别")
+				call DisplayTextToPlayer(p, 0, 0, "|cffd3991b当前未加入光明教的任何派别")
 			endif
 		endif
 		call DisplayTextToPlayer(p, 0, 0, "|cFF389C83称号五岳盟主：同时获得五岳门派的掌门")
@@ -420,7 +420,7 @@ function KeyInput takes nothing returns nothing
 	endif
 
 	if s == "ver" then
-		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF决战江湖1.6.75版本")
+		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF决战江湖1.6.76版本")
 	endif
 
 	if s == "hd" then

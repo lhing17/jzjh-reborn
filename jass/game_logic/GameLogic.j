@@ -852,19 +852,19 @@ function JiaRuMenPai takes nothing returns nothing
 				endif
 			endif
 
-			// 自由改投日月神教
+			// 自由改投光明教
 			if GetItemTypeId(GetManipulatedItem()) == 'I0AB' then
 				if riyue_flag[i] == 1 then
 					call addAllAttrs(i, 1)
 					set udg_runamen[i] = 27
-					call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15., "|CFFff9933玩家" + GetPlayerName(p) + "改拜入了〓日月神教〓，大家一起膜拜他|r")
-					call SetPlayerName(p, "〓日月神教〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+					call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15., "|CFFff9933玩家" + GetPlayerName(p) + "改拜入了〓光明教〓，大家一起膜拜他|r")
+					call SetPlayerName(p, "〓光明教〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 
 					set udg_shuxing[i] = udg_shuxing[i] - 5
 					call commonAddLumber( p, - 30)
-					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00选择日月神教")
+					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00选择光明教")
 				else
-					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00尚未解锁，不能选择日月神教")
+					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00尚未解锁，不能选择光明教")
 				endif
 			endif
 
@@ -1939,7 +1939,7 @@ endfunction
 
 globals
 	boolean is_victory = false
-	constant string VERSION = "1.6.75"
+	constant string VERSION = "1.6.76"
 endglobals
 
 //失败动作
@@ -4192,7 +4192,7 @@ function Forget takes player p, integer num returns nothing
 			set joinMoonPoint[i] = joinMoonPoint[i] + 1
 			if joinMoonPoint[i] >= 3 then
 				set joinSunOrMoon[i] = JOIN_MOON
-				call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00玩家" + I2S(i) + "加入了日月神教的葵花派")
+				call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00玩家" + I2S(i) + "加入了光明教的葵花派")
 			endif
 		endif
 

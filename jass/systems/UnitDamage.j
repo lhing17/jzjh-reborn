@@ -71,12 +71,12 @@ function UnitDamage_Conditions takes nothing returns boolean
 	// 	call hanBingShenZhangDamaged(ut, damage)
 	// endif
 
-	// 日月神教-日月太极拳
+	// 光明教-光明太极拳
 	if damage == 3.59 then
 		call riYueTaiJiDamage(udg_hero[i], ut)
 	endif
 
-	// 日月神教-天魔拳
+	// 光明教-天魔拳
 	if damage == 3.61 then
 		call tianMoQuanDamage(udg_hero[i], ut)
 	endif

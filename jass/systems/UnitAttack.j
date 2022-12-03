@@ -81,18 +81,18 @@ function UnitAttack_Conditions takes nothing returns boolean
 		call wuWangShenGongSpecial(u, ut)
 	endif
 
-	// 日月神教：日月太极拳
+	// 光明教：光明太极拳
 	if PassiveWuGongCondition(u, ut, RI_YUE_TAI_JI_QUAN) and GetRandomReal(1, 100) <= 16 + fuyuan[i] * 0.2 then
 		call riYueTaiJi(u)
 	endif
 
-	// 加入葵花派后被打触发日月太极拳
+	// 加入葵花派后被打触发光明太极拳
 	if GetUnitAbilityLevel(ut, RI_YUE_TAI_JI_QUAN) >= 1 and IsUnitEnemy(u, GetOwningPlayer(ut)) and joinSunOrMoon[i] == JOIN_MOON and GetRandomReal(1, 1000) <= 16 + fuyuan[i] * 0.2 then
 		call riYueTaiJi(ut)
 	endif
 
 
-	// 日月神教：神教宝训
+	// 光明教：神教宝训
 	if PassiveWuGongCondition(u, ut, SHEN_JIAO_BAO_XUN) and GetRandomReal(1, 100) <= 16 + fuyuan[i] * 0.2 then
 		call shenJiaoBaoXun(u)
 	endif

@@ -54,8 +54,8 @@ globals
 	constant integer DA_SONG_YANG_SHEN_ZHANG = 'A0FE' // 大嵩阳神掌
 	constant integer WU_MING_NEI_GONG = 'A0FD' // 无名内功
 
-	// 日月神教武功
-	constant integer RI_YUE_TAI_JI_QUAN = 'A0FL' // 日月太极拳
+	// 光明教武功
+	constant integer RI_YUE_TAI_JI_QUAN = 'A0FL' // 光明太极拳
 	constant integer SHEN_JIAO_BAO_XUN = 'A0FM' // 神教宝训
 	constant integer TIAN_MO_QUAN = 'A0FN' // 天魔拳
 	constant integer XI_XING_SHEN_ZHANG = 'A0FO' // 吸星神掌
@@ -98,7 +98,7 @@ globals
 	constant integer ITEM_HAN_SHA = 'I0AE' // 含沙射影
 	constant integer ITEM_YE_LUO = 'I0EU' // 野螺
 	constant integer ITEM_HAN_PO_JIAN = 'I0F6' // 寒魄剑（专属）
-	constant integer ITEM_RI_YUE_SHUANG_REN = 'I0F7' // 日月双刃（日月神教专属）
+	constant integer ITEM_RI_YUE_SHUANG_REN = 'I0F7' // 光明双刃（光明教专属）
 	
 	
 endglobals
@@ -1526,7 +1526,7 @@ function ShangHaiGongShi takes unit u, unit uc, real w1, real w2, real shxishu, 
 			set attack = attack * 1.5
 		endif
 
-		// 葵花宝典+日月神教加入“葵花派”，几率造成10倍伤害
+		// 葵花宝典+光明教加入“葵花派”，几率造成10倍伤害
 		if GetUnitAbilityLevel(u, KUI_HUA) >= 1 and joinSunOrMoon[i] == JOIN_MOON and GetRandomInt(1, 100) <= 15 then
 			set attack = attack * 10
 		endif

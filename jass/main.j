@@ -65,7 +65,7 @@
 #include "denomination/XueShan.j" // 雪山派武功
 #include "denomination/RuYang.j" // 汝阳王府武功
 #include "denomination/SongShan.j" // 嵩山武功
-#include "denomination/RiYue.j" // 日月神教武功
+#include "denomination/RiYue.j" // 光明教武功
 
 #include "denomination/JiangHuWuGong.j"
 #include "denomination/JueShiWuGong.j"
@@ -1798,7 +1798,7 @@ function InitDenominationSkills takes nothing returns nothing
 	set denomSecond[26] = HAN_BING_SHEN_ZHANG
 	set denomFourth[26] = WU_MING_NEI_GONG
 	set denomFifth[26] = DA_SONG_YANG_SHEN_ZHANG
-	set udg_menpainame[27] = "日月神教"
+	set udg_menpainame[27] = "光明教"
 	set denomFirst[27] = RI_YUE_TAI_JI_QUAN
 	set denomThird[27] = SHEN_JIAO_BAO_XUN
 	set denomSecond[27] = TIAN_MO_QUAN
@@ -2165,7 +2165,7 @@ function MenPai_Trigger takes nothing returns nothing
 	call XingXiu_Trigger() //星宿武功触发
 	call initXueShan() // 初始化雪山变量
 	call initRuYang() // 初始化汝阳变量
-	call initRiYue() // 初始化日月神教变量
+	call initRiYue() // 初始化光明教变量
 	
 	call JiangHuNeiGong_Trigger() //江湖内功触发（含九阴、绝内）
 	call JiangHuWuGong_Trigger() //江湖武功触发

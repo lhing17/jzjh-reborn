@@ -309,17 +309,17 @@ function UseAbility_Conditions takes nothing returns boolean
 		call daSongYangShenZhang(u, ut)
 	endif
 
-	// 日月神教：天魔拳
+	// 光明教：天魔拳
 	if id == TIAN_MO_QUAN then
 		call tianMoQuan(u)
 	endif
 
-	// 日月神教：吸星神掌
+	// 光明教：吸星神掌
 	if id == XI_XING_SHEN_ZHANG then
 		call xiXingShenZhang(u, x, y)
 	endif
 
-	// 日月神教：葵花心法
+	// 光明教：葵花心法
 	if id == KUI_HUA_XIN_FA then
 		call kuiHuaXinFa(u)
 	endif

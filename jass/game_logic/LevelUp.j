@@ -106,7 +106,7 @@ endfunction
 * 24 雪山派
 * 25 汝阳王府
 * 26 嵩山
-* 27 日月神教
+* 27 光明教
 */
 function setChiefNumber takes integer i, integer denomination returns nothing
 	set chief[i] = YDWEBitwise_OR(chief[i], YDWEBitwise_LShift(1, denomination - 1))
@@ -220,7 +220,7 @@ function kungfuLevelUp takes unit u, integer id, real r returns nothing
 			set joinSunPoint[i] = joinSunPoint[i] + 1
 			if joinSunPoint[i] >= 5 then
 				set joinSunOrMoon[i] = JOIN_SUN
-				call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00玩家" + I2S(i) + "加入了日月神教的吸星派")
+				call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00玩家" + I2S(i) + "加入了光明教的吸星派")
 			endif
 		endif
 				
@@ -1177,7 +1177,7 @@ function WuGongShengChong takes unit u, integer id, real r returns nothing
 		call becomeChief(u, 24, "雪山掌门", 225, 0, 300)
 		call becomeChief(u, 25, "汝阳王", 200, 200, 200)
 		call becomeChief(u, 26, "嵩山掌门", 0, 600, 0)
-		call becomeChief(u, 27, "日月教主", 200, 0, 600)
+		call becomeChief(u, 27, "光明教主", 200, 0, 600)
 		
 		call determineShaoLinTitle(u)
 		call determineGuMuTitle(u)

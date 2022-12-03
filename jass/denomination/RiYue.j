@@ -1,5 +1,5 @@
-// 日月神教
-// 1技能：日月太极拳
+// 光明教
+// 1技能：光明太极拳
 // 2技能：神教宝训
 // 3技能：天魔拳
 // 4技能：吸星神掌
@@ -16,7 +16,7 @@ globals
     constant integer JOIN_MOON = 2
 endglobals
 
-// 1技能：日月太极拳
+// 1技能：光明太极拳
 function riYueTaiJi takes unit u returns nothing
     local real facing = GetUnitFacing(u)
     local real x = GetUnitX(u)
