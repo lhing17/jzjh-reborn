@@ -213,8 +213,8 @@ function KeyInput takes nothing returns nothing
 		set s = s + getTitleString(i, 52, "威德先生")
 		set s = s + getTitleString(i, 53, "白龙使")
 		set s = s + getTitleString(i, 54, "铁丑")
-		set s = s + getTitleString(i, 55, "任我行")
-		set s = s + getTitleString(i, 56, "东方不败")
+		set s = s + getTitleString(i, 55, "任教主")
+		set s = s + getTitleString(i, 56, "东方教主")
 
 		call DisplayTextToPlayer(p, 0, 0, "|cFFFFFF00当前已获得称号：" + s)
 	endif
@@ -420,7 +420,7 @@ function KeyInput takes nothing returns nothing
 	endif
 
 	if s == "ver" then
-		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF决战江湖1.6.76版本")
+		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF决战江湖1.6.77版本")
 	endif
 
 	if s == "hd" then

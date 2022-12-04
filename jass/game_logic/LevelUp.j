@@ -1017,14 +1017,14 @@ function determineRiYueTitle takes unit u returns nothing
 	if isChief(i, 27) then
 		if GetUnitAbilityLevel(u, XI_XING) > 0 and joinSunOrMoon[i] == JOIN_SUN and not isTitle(i, 55) then
 			call ModifyHeroStat(1, u, 0, 1000)
-			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：任我行，内力增加了1000点")
-			call SetPlayerName(p, "〓任我行〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：任教主，内力增加了1000点")
+			call SetPlayerName(p, "〓任教主〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 			call setTitleNumber(i, 55)
 		endif
 		if GetUnitAbilityLevel(u, KUI_HUA) > 0 and joinSunOrMoon[i] == JOIN_MOON and not isTitle(i, 56) then
 			call ModifyHeroStat(2, u, 0, 1000)
-			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：东方不败，真实伤害增加了1000点")
-			call SetPlayerName(p, "〓东方不败〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：东方教主，真实伤害增加了1000点")
+			call SetPlayerName(p, "〓东方教主〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 			call setTitleNumber(i, 56)
 		endif
 	endif

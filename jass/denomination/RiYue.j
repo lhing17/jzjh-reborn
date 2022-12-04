@@ -31,6 +31,16 @@ function riYueTaiJi takes unit u returns nothing
     call UnitApplyTimedLife(dummy, 'BHwe', 3)
     call WuGongShengChong(u, RI_YUE_TAI_JI_QUAN, 800.)
 
+    if GetUnitAbilityLevel(u, SHUANG_SHOU) >= 1 then
+        set targetX = x + 200 * CosBJ(facing + 180)
+        set targetY = y + 200 * SinBJ(facing + 180)
+        set dummy = CreateUnit(GetOwningPlayer(u), 'e000', x, y, facing)
+        call ShowUnitHide(dummy)
+        call UnitAddAbility(dummy, 'A0FI')
+        call IssuePointOrderById( dummy, $D00FA, targetX, targetY )
+        call UnitApplyTimedLife(dummy, 'BHwe', 3)
+    endif
+
     // 吸星派效果：额外两道波
     if joinSunOrMoon[i] == JOIN_SUN then
         set targetX = x + 200 * CosBJ(facing + 30)
@@ -48,6 +58,24 @@ function riYueTaiJi takes unit u returns nothing
         call UnitAddAbility(dummy, 'A0FI')
         call IssuePointOrderById( dummy, $D00FA, targetX, targetY )
         call UnitApplyTimedLife(dummy, 'BHwe', 3)
+
+        if GetUnitAbilityLevel(u, SHUANG_SHOU) >= 1 then
+            set targetX = x + 200 * CosBJ(facing + 210)
+            set targetY = y + 200 * SinBJ(facing + 210)
+            set dummy = CreateUnit(GetOwningPlayer(u), 'e000', x, y, facing)
+            call ShowUnitHide(dummy)
+            call UnitAddAbility(dummy, 'A0FI')
+            call IssuePointOrderById( dummy, $D00FA, targetX, targetY )
+            call UnitApplyTimedLife(dummy, 'BHwe', 3)
+
+            set targetX = x + 200 * CosBJ(facing + 150)
+            set targetY = y + 200 * SinBJ(facing + 150)
+            set dummy = CreateUnit(GetOwningPlayer(u), 'e000', x, y, facing)
+            call ShowUnitHide(dummy)
+            call UnitAddAbility(dummy, 'A0FI')
+            call IssuePointOrderById( dummy, $D00FA, targetX, targetY )
+            call UnitApplyTimedLife(dummy, 'BHwe', 3)
+        endif
     endif
 
 
@@ -197,15 +225,19 @@ function xiXingShenZhangTimer2 takes nothing returns nothing
     local unit dummy = LoadUnitHandle(YDHT, GetHandleId(saveDummy), j)
     local real x = GetUnitX(dummy)
     local real y = GetUnitY(dummy)
-    call RemoveUnit(dummy)
+    if (dummy != null and GetUnitTypeId(dummy) == 'e01O') then
+        call RemoveUnit(dummy)
+        call SetUnitPosition(ut, x, y)
+    endif
     set j = j - 1
     call SaveInteger(YDHT, GetHandleId(t), 1, j)
-    call SetUnitPosition(ut, x, y)
     if j <= 0 then
         call xiXingShenZhangDamage(u, ut)
         call FlushChildHashtable(YDHT, GetHandleId(t))
         call FlushChildHashtable(YDHT, GetHandleId(saveDummy))
-        call RemoveUnit(saveDummy)
+        if (saveDummy != null and GetUnitTypeId(saveDummy) == 'e000') then
+            call RemoveUnit(saveDummy)
+        endif
         call DestroyTimer(t)
     endif
 endfunction
@@ -220,10 +252,13 @@ function xiXingShenZhangTimer3 takes nothing returns nothing
     local unit dummy = LoadUnitHandle(YDHT, GetHandleId(saveDummy), k)
     local real x = GetUnitX(dummy)
     local real y = GetUnitY(dummy)
-    call RemoveUnit(dummy)
+    if (dummy != null and GetUnitTypeId(dummy) == 'e01O') then
+        call RemoveUnit(dummy)
+        call SetUnitPosition(u, x, y)
+    endif
     set k = k + 1
     call SaveInteger(YDHT, GetHandleId(t), 4, k)
-    call SetUnitPosition(u, x, y)
+  
     if k > j then
         call xiXingShenZhangDamage(u, ut)
         if joinSunOrMoon[1 + GetPlayerId(GetOwningPlayer(u))] == JOIN_SUN then
@@ -231,7 +266,9 @@ function xiXingShenZhangTimer3 takes nothing returns nothing
         endif
         call FlushChildHashtable(YDHT, GetHandleId(t))
         call FlushChildHashtable(YDHT, GetHandleId(saveDummy))
-        call RemoveUnit(saveDummy)
+        if (saveDummy != null and GetUnitTypeId(saveDummy) == 'e000') then
+            call RemoveUnit(saveDummy)
+        endif
         call DestroyTimer(t)
     endif
 endfunction
@@ -243,13 +280,17 @@ function xiXingShenZhangTimer4 takes nothing returns nothing
     local unit dummy = LoadUnitHandle(YDHT, GetHandleId(saveDummy), j)
     local real x = GetUnitX(dummy)
     local real y = GetUnitY(dummy)
-    call RemoveUnit(dummy)
+    if (dummy != null and GetUnitTypeId(dummy) == 'e01O') then
+        call RemoveUnit(dummy)
+    endif
     set j = j - 1
     call SaveInteger(YDHT, GetHandleId(t), 1, j)
     if j <= 0 then
         call FlushChildHashtable(YDHT, GetHandleId(t))
         call FlushChildHashtable(YDHT, GetHandleId(saveDummy))
-        call RemoveUnit(saveDummy)
+        if (saveDummy != null and GetUnitTypeId(saveDummy) == 'e000') then
+            call RemoveUnit(saveDummy)
+        endif
         call DestroyTimer(t)
     endif
 endfunction
