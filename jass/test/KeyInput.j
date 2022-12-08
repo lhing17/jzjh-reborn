@@ -393,8 +393,8 @@ function KeyInput takes nothing returns nothing
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号左盟主：掌门+寒冰真气+寒魄剑")
 		elseif udg_runamen[i] == 27 then
 			call DisplayTextToPlayer(p, 0, 0, "|cFF00FF00光明教专属：击杀东方不败获得")
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号任我行：掌门+吸星大法+加入'吸星派'")
-			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号东方不败：掌门+葵花宝典+加入'葵花派'")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号任教主：掌门+吸星大法+加入'吸星派'")
+			call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF称号东方教主：掌门+葵花宝典+加入'葵花派'")
 			if joinSunOrMoon[i] == JOIN_SUN then
 				call DisplayTextToPlayer(p, 0, 0, "|cffd3991b当前加入光明教'吸星派'")
 			elseif joinSunOrMoon[i] == JOIN_MOON then
@@ -420,7 +420,7 @@ function KeyInput takes nothing returns nothing
 	endif
 
 	if s == "ver" then
-		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF决战江湖1.6.77版本")
+		call DisplayTextToPlayer(p, 0, 0, "|cFF00FFFF决战江湖1.6.78版本")
 	endif
 
 	if s == "hd" then
