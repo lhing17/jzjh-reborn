@@ -13,6 +13,38 @@ globals
 
 endglobals
 
+// 紫怪攻击
+function ziguaiAttack takes unit u, unit ut returns nothing
+    local location loc = GetUnitLoc(ut)
+
+	// 克制防御最大化
+	if UnitHasBuffBJ(ut, 'Binf') and GetRandomInt(1, 100) <= 15 then
+		call UnitRemoveBuffBJ('Binf', ut)
+		call CreateTextTagLocBJ("防御失效",loc,60.,12.,65.,55.,42.,0)
+		call Nw(3.,bj_lastCreatedTextTag)
+        call SetTextTagVelocityBJ(bj_lastCreatedTextTag,100.,90)
+	endif
+
+	// 克制九阳神功
+	if GetUnitAbilityLevel(ut, 'A0DL') >= 1 and GetRandomInt(1, 100) <= 15 then
+		call UnitRemoveAbility(ut, 'A0DL')
+		call UnitRemoveAbility(ut, 'A0DM')
+		call UnitRemoveAbility(ut, 'A0CO')
+		call UnitRemoveAbility(ut, 'A0CQ')
+		call CreateTextTagLocBJ("九阳失效",loc,60.,12.,65.,55.,42.,0)
+        call Nw(3.,bj_lastCreatedTextTag)
+        call SetTextTagVelocityBJ(bj_lastCreatedTextTag,100.,90)
+	endif
+
+	// 破防
+	if GetRandomInt(1, 100) <= 15 then
+	    call WanBuff(u, ut, 9)
+	endif
+
+	call RemoveLocation(loc)
+	set loc = null
+
+endfunction
 
 function UnitAttack_Conditions takes nothing returns boolean
 	local unit u = GetAttacker()
@@ -32,18 +64,18 @@ function UnitAttack_Conditions takes nothing returns boolean
 	endif
 
 	// 千蛛手
-    if PassiveWuGongCondition(u, ut, QIAN_ZHU_SHOU) then
-        call qianZhuShou()
-    endif
+	if PassiveWuGongCondition(u, ut, QIAN_ZHU_SHOU) then
+		call qianZhuShou()
+	endif
 
-    // 千蛛手的蜘蛛攻击
-    if GetUnitTypeId(u) == 'n00Y' then
-        call qianZhuZhu()
-    endif
+	// 千蛛手的蜘蛛攻击
+	if GetUnitTypeId(u) == 'n00Y' then
+		call qianZhuZhu()
+	endif
 
-    // 驭蛇奇术
-    if PassiveWuGongCondition(u, ut, YU_SHE_SHU) then
-        call yuSheShu()
+	// 驭蛇奇术
+	if PassiveWuGongCondition(u, ut, YU_SHE_SHU) then
+		call yuSheShu()
 	endif
 	
 	// 落英剑法
@@ -63,7 +95,7 @@ function UnitAttack_Conditions takes nothing returns boolean
 
 	// 玄冥神掌
 	if GetUnitAbilityLevel(u, XUAN_MING_SHEN_ZHANG) > 0 and GetUnitAbilityLevel(u, JIU_YANG) == 0 and IsUnitEnemy(u, GetOwningPlayer(ut)) then
-	    call xuanMingShenZhang(u)
+		call xuanMingShenZhang(u)
 	endif
 
 	// 雪山剑法
@@ -97,6 +129,10 @@ function UnitAttack_Conditions takes nothing returns boolean
 		call shenJiaoBaoXun(u)
 	endif
 
+	// 紫怪攻击
+	if LoadInteger(YDHT, GetHandleId(u), StringHash("color")) == 4 then
+		call ziguaiAttack(u, ut)
+	endif
 
 	set u = null
 	set ut = null
@@ -109,7 +145,7 @@ endfunction
 
 function UnitAttack takes nothing returns nothing
 	local trigger t = CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
-	call TriggerAddCondition(t,Condition(function UnitAttack_Conditions))
+	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_ATTACKED)
+	call TriggerAddCondition(t, Condition(function UnitAttack_Conditions))
 	set t = null
 endfunction

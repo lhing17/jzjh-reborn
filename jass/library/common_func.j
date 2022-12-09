@@ -1587,8 +1587,8 @@ function ShangHaiGongShi takes unit u, unit uc, real w1, real w2, real shxishu, 
 	if LoadInteger(YDHT, GetHandleId(uc), StringHash("color")) == 2 then
 		set basic_damage = basic_damage / 1000
 	endif
-	// 蓝怪
-	if LoadInteger(YDHT, GetHandleId(uc), StringHash("color")) == 3 then
+	// 蓝怪或紫怪
+	if LoadInteger(YDHT, GetHandleId(uc), StringHash("color")) == 3 or LoadInteger(YDHT, GetHandleId(uc), StringHash("color")) == 4 then
 		set basic_damage = basic_damage / 10000
 	endif
 

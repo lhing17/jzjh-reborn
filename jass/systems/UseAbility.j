@@ -323,6 +323,28 @@ function UseAbility_Conditions takes nothing returns boolean
 	if id == KUI_HUA_XIN_FA then
 		call kuiHuaXinFa(u)
 	endif
+
+	// 更换红色翅膀
+	if id == 'A0FT' then
+		if wing1Flag[i] == 1 then
+			call DestroyEffect(vd[i])
+			call AddSpecialEffectTargetUnitBJ("chest", udg_hero[i], "wing_red_no6.mdx")
+			set vd[i] = bj_lastCreatedEffect
+		else
+			call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000未激活该翅膀")
+		endif
+	endif
+
+	// 更换蓝白翅膀
+	if id == 'A0FU' then
+		if wing2Flag[i] == 1 then
+			call DestroyEffect(vd[i])
+			call AddSpecialEffectTargetUnitBJ("chest", udg_hero[i], "wing_bluewhite_no1.mdx")
+			set vd[i] = bj_lastCreatedEffect
+		else
+			call DisplayTextToPlayer(p, 0, 0, "|cFFFF0000未激活该翅膀")
+		endif
+	endif
  
 	set u = null
 	set ut = null

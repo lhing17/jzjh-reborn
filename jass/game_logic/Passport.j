@@ -98,6 +98,7 @@ function rewardS1Permanent takes integer level, integer i returns nothing
         set beeSkinFlag[i] = 1
         call SetPlayerTechResearched(Player(i - 1), 'R006', 1)
     elseif level == 4 then
+        call SetPlayerTechResearched(Player(i - 1), 'R00I', 1)
         set wing1Flag[i] = 1
     elseif level == 8 then
         set kongYaoSkinFlag[i] = 1
@@ -109,6 +110,7 @@ function rewardS1Permanent takes integer level, integer i returns nothing
             call SetPlayerTechResearched(Player(i - 1), 'R00H', 1)
         elseif level == 5 then
             set wing2Flag[i] = 1
+            call SetPlayerTechResearched(Player(i - 1), 'R00J', 1)
         elseif level == 8 then
             set qiXiaoSkinFlag[i] = 1
         endif

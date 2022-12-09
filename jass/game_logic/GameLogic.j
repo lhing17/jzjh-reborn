@@ -1939,7 +1939,7 @@ endfunction
 
 globals
 	boolean is_victory = false
-	constant string VERSION = "1.6.78"
+	constant string VERSION = "1.6.79"
 endglobals
 
 //失败动作
@@ -2459,6 +2459,26 @@ function LevelGuoGao takes nothing returns boolean
 endfunction
 
 
+function mutatedAttacker takes unit u returns nothing
+	local integer i = GetRandomInt(1, 100)
+	if udg_nandu >= 6 then
+		if i <= 80 then
+			call SetUnitVertexColor(u, 225, 0, 0, 255)
+			call SaveInteger(YDHT, GetHandleId(u), StringHash("color"), 1)
+			call SetUnitScale(u, 1.5, 1.5, 1.5)
+		elseif i <= 95 then
+			call SetUnitVertexColor(u, 0, 225, 0, 255)
+			call SaveInteger(YDHT, GetHandleId(u), StringHash("color"), 2)
+			call SetUnitScale(u, 1.7, 1.7, 1.7)
+		else
+			call SetUnitVertexColor(u, 0, 0, 225, 255)
+			call SaveInteger(YDHT, GetHandleId(u), StringHash("color"), 3)
+			call SetUnitScale(u, 1.9, 1.9, 1.9)
+		endif
+	endif
+endfunction
+
+
 //刷怪
 function HA takes nothing returns nothing
 	local timer t = CreateTimer()
@@ -2582,6 +2602,21 @@ function HA takes nothing returns nothing
 			call TimerStart(t, 20, true, function BOSSChengZhang)
 			call GroupAddUnit(w7, bj_lastCreatedUnit)
 			call IssuePointOrderByIdLoc(bj_lastCreatedUnit, $D000F, v7[4])
+
+			if udg_nandu >= 8 then
+				// 难8BOSS可能会变异
+				if GetRandomInt(1, 100) <= 20 then
+					call mutatedAttacker(bj_lastCreatedUnit)
+				endif
+
+				// 难8每波必出一个紫怪
+				call CreateNUnitsAtLocFacingLocBJ(1, y7[udg_boshu], Player(6), v7[6], v7[4])
+				call GroupAddUnit(w7, bj_lastCreatedUnit)
+				call IssuePointOrderByIdLoc(bj_lastCreatedUnit, $D000F, v7[4])
+				call SetUnitVertexColor(bj_lastCreatedUnit, 255, 0, 255, 255)
+				call SaveInteger(YDHT, GetHandleId(bj_lastCreatedUnit), StringHash("color"), 4)
+				call SetUnitScale(bj_lastCreatedUnit, 2.5, 2.5, 2.5)
+			endif
 		endif
 	endif
 	call YDWEPolledWaitNull(10.)
@@ -2609,6 +2644,7 @@ function HA takes nothing returns nothing
 		call TimerStart(t, 20, true, function BOSSChengZhang)
 		call GroupAddUnit(w7, bj_lastCreatedUnit)
 		call IssuePointOrderByIdLoc(bj_lastCreatedUnit, $D000F, v7[4])
+		call mutatedAttacker(bj_lastCreatedUnit)
 	else
 		if((x7 >= 1))then
 			call TriggerExecute(ij)
@@ -2646,24 +2682,6 @@ function JiaJiNeng takes unit u returns nothing
 	endif
 endfunction
 
-function mutatedAttacker takes unit u returns nothing
-	local integer i = GetRandomInt(1, 100)
-	if udg_nandu >= 6 then
-		if i <= 80 then
-			call SetUnitVertexColor(u, 225, 0, 0, 255)
-			call SaveInteger(YDHT, GetHandleId(u), StringHash("color"), 1)
-			call SetUnitScale(u, 1.5, 1.5, 1.5)
-		elseif i <= 95 then
-			call SetUnitVertexColor(u, 0, 225, 0, 255)
-			call SaveInteger(YDHT, GetHandleId(u), StringHash("color"), 2)
-			call SetUnitScale(u, 1.7, 1.7, 1.7)
-		else
-			call SetUnitVertexColor(u, 0, 0, 225, 255)
-			call SaveInteger(YDHT, GetHandleId(u), StringHash("color"), 3)
-			call SetUnitScale(u, 1.9, 1.9, 1.9)
-		endif
-	endif
-endfunction
 
 function lA takes nothing returns nothing
 	call CreateNUnitsAtLocFacingLocBJ(1, y7[udg_boshu], Player(6), v7[6], v7[4])
@@ -2977,6 +2995,8 @@ function switchSkin takes nothing returns nothing
 	call UnitMakeAbilityPermanent(u, true, 'A0E8')
 	call UnitMakeAbilityPermanent(u, true, 'A0E9')
 	call UnitMakeAbilityPermanent(u, true, 'A0EA')
+	call UnitMakeAbilityPermanent(u, true, 'A0FT')
+	call UnitMakeAbilityPermanent(u, true, 'A0FU')
 	set u = null
 	set t = null
 endfunction
